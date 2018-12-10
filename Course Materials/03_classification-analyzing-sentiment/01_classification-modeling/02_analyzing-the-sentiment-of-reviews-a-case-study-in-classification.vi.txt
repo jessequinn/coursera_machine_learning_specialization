@@ -1,6 +1,0 @@
-[NHẠC] Hôm nay chúng ta sẽ nói về phân loại. Đây có lẽ là một trong những lĩnh vực phổ biến của học máy, một trong số lĩnh vực được sử dụng nhiều nhất,
-hữu ích nhất của học máy. Và có lẽ là một trong những
-lĩnh vực trực quan nhất. Những thứ như là tìm hiểu xem liệu
-email của bạn là rác hay không, hoặc liệu tài liệu nói về một
-chủ đề thể thao hay không, hay là về chính trị, hoặc về giải trí, vân vân. Nhưng như thường lệ, chúng ta
-sẽ bắt đầu với một use case, rất thú vị, xoay quanh việc đánh giá nhà hàng. [NHẠC]
