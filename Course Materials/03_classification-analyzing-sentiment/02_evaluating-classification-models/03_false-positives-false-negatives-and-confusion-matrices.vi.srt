@@ -1,0 +1,464 @@
+1
+00:00:00,000 --> 00:00:04,362
+[NHẠC]
+
+2
+00:00:04,362 --> 00:00:08,880
+Chúng ta đã nói về độ chính xác và
+sai sót mà phân loại có thể làm.
+
+3
+00:00:08,880 --> 00:00:11,100
+Nhưng có các loại lỗi khác nhau.
+
+4
+00:00:11,100 --> 00:00:15,560
+Loại sai sót này được gọi là kiểu lỗi.
+
+5
+00:00:15,560 --> 00:00:19,050
+Điều quan trọng là phải xem 
+iểu lỗi mà phân loại có thể làm.
+
+6
+00:00:19,050 --> 00:00:22,030
+Và một cách để làm điều đó
+được gọi là ma trận nhầm lẫn.
+
+7
+00:00:22,030 --> 00:00:24,150
+Vì thế chúng ta hãy xem nó một chút.
+
+8
+00:00:24,150 --> 00:00:27,490
+Chúng ta đang nói về mối quan hệ
+giữa nhãn mác đúng và
+
+9
+00:00:27,490 --> 00:00:30,810
+bất cứ dự đoán nào của phân loại,
+nhãn mác đã được dự đoán.
+
+10
+00:00:30,810 --> 00:00:35,970
+Hãy nói rằng nếu nhãn mác đúng là tích cực, 
+và chúng ta dự đoán một giá trị dương
+
+11
+00:00:35,970 --> 00:00:40,220
+cho câu đó, chúng ta gọi đó là sự tích cực
+đúng bởi vì chúng ta đã làm đúng.
+
+12
+00:00:40,220 --> 00:00:43,580
+Tương tự như vậy nếu mác nhãn
+đúng là tiêu cực và
+
+13
+00:00:43,580 --> 00:00:47,140
+chúng ta dự đoán là tiêu cực rồi
+chúng ta gọi là một tiêu cực đúng
+
+14
+00:00:47,140 --> 00:00:48,550
+Điều đó thật tốt vì chúng ta đã đúng.
+
+15
+00:00:50,090 --> 00:00:52,480
+Bây giờ có hai loại lỗi mà tôi có thể làm.
+
+16
+00:00:52,480 --> 00:00:55,620
+Ví dụ, nếu nhãn mác đúng là tích cực nhưng
+
+17
+00:00:55,620 --> 00:00:59,340
+chúng ta đã dự đoán là tiêu cực,
+chúng ta gọi đó là tiêu cực sai.
+
+18
+00:01:01,280 --> 00:01:04,220
+Chúng ta đã nói nó là tiêu cực,
+nhưng điều đó đã sai vì nó là tích cực.
+
+19
+00:01:04,220 --> 00:01:08,640
+Tương tự, nếu nhãn mác đúng là tiêu cực,
+ chúng ta lại dự đoán là tích cực,
+
+20
+00:01:08,640 --> 00:01:11,300
+chúng ta gọi đó là một tích cực sai.
+
+21
+00:01:11,300 --> 00:01:14,070
+Nó là tiêu cực nhưng chúng ta
+đã dự đoán là tích cực.
+
+22
+00:01:14,070 --> 00:01:18,080
+Và tích cực sai và tiêu cực sai có thể
+có những ảnh hưởng khác nhau
+
+23
+00:01:18,080 --> 00:01:20,910
+vào cái mà có thể xảy ra trong
+thực tế với phân loại của bạn.
+
+24
+00:01:20,910 --> 00:01:23,140
+Chúng ta hãy xem một số
+ví dụ thực tế về điều đó.
+
+25
+00:01:24,260 --> 00:01:26,450
+Hãy nhìn vào hai ứng dụng
+của chúng ta và
+
+26
+00:01:26,450 --> 00:01:30,340
+chi phí của tích cực sai
+với tiêu cực sai là gì.
+
+27
+00:01:30,340 --> 00:01:34,940
+Nếu bạn xem xét bộ lọc thư rác,
+tiêu cực sai là
+
+28
+00:01:34,940 --> 00:01:40,160
+một email là thư rác nhưng đi vào thư mục
+của tôi vì bộ lọc nghĩ đó không phải thư rác.
+
+29
+00:01:40,160 --> 00:01:42,890
+Thật là phiền khi tôi nhận được 
+một email rác nữa trong hộp thư của tôi.
+
+30
+00:01:42,890 --> 00:01:46,240
+Có thể đó là xấu nhưng
+không phải là quá xấu.
+
+31
+00:01:46,240 --> 00:01:48,900
+Tuy nhiên nếu bạn nhìn
+vào tích cực sai
+
+32
+00:01:48,900 --> 00:01:53,490
+đó là một email không phải là rác mà có
+nhãn mác là thư rác, đi vào bộ lọc thư rác của tôi.
+
+33
+00:01:53,490 --> 00:01:55,920
+Tôi chưa bao giờ thấy nó,
+tôi đã mất email đó mãi mãi.
+
+34
+00:01:55,920 --> 00:01:58,040
+Điều đó có giá cao hơn.
+
+35
+00:01:58,040 --> 00:02:00,186
+Bây giờ chúng ta cũng có thể
+nhìn vào chuẩn đoán y tế hoặc
+
+36
+00:02:00,186 --> 00:02:03,030
+các ứng dụng khác giống
+như ứng dụng thứ hai.
+
+37
+00:02:03,030 --> 00:02:05,856
+một tiêu cực sai trong chuẩn đoán y tế là gì?
+
+38
+00:02:05,856 --> 00:02:09,307
+Tiêu cực sai là có một căn bệnh
+mà tôi mắc phải nhưng
+
+39
+00:02:09,307 --> 00:02:13,617
+tôi không phát hiện ra, vì thế
+phân loại nói đó là tiêu cực.
+
+40
+00:02:13,617 --> 00:02:14,999
+Họ không có bệnh.
+
+41
+00:02:14,999 --> 00:02:17,573
+Trong trường hợp này, căn bệnh
+không chưa trị được,
+
+42
+00:02:17,573 --> 00:02:19,360
+đó là một điều rất tệ.
+
+43
+00:02:20,430 --> 00:02:22,992
+Nhưng tích cực sai cũng
+có thể là một điều xấu.
+
+44
+00:02:22,992 --> 00:02:28,500
+Đó là tôi phân loại là mắc bệnh
+khi tôi không bao giờ mắc bệnh.
+
+45
+00:02:28,500 --> 00:02:32,910
+Trong trường hợp này tôi chữa trị bằng một loại thuốc tệ hoặc
+
+46
+00:02:32,910 --> 00:02:35,650
+tác dụng phụ của căn bệnh
+mà tôi chưa bao giờ mắc.
+
+47
+00:02:35,650 --> 00:02:39,678
+Vậy không rõ ràng cái nào xấu hơn,
+có một tích cực sai hoặc
+
+48
+00:02:39,678 --> 00:02:41,110
+một tiêu cực sai.
+
+49
+00:02:41,110 --> 00:02:45,180
+Trong các biến chứng trung gian,
+phụ thuộc vào chi phí chữa trị và
+
+50
+00:02:45,180 --> 00:02:49,640
+số lượng tác dụng phụ so với
+mức độ xấu có thể của căn bệnh này.
+
+51
+00:02:49,640 --> 00:02:53,910
+Bây giờ mối quan hệ giữa nhãn mác
+đúng và nhãn mác được dự đoán,
+
+52
+00:02:53,910 --> 00:02:57,640
+tích cực sai, tiêu cực sai
+được gọi là ma trận nhầm lẫn.
+
+53
+00:02:57,640 --> 00:02:59,400
+Ma trận này chúng ta làm.
+
+54
+00:02:59,400 --> 00:03:06,571
+Ví dụ, hãy nói rằng chúng ta có
+một tập với 100 ví dụ kiểm tra.
+
+55
+00:03:08,140 --> 00:03:14,377
+Và chúng ta có trong số đó,
+60 tích cực và 40 tiêu cực.
+
+56
+00:03:14,377 --> 00:03:16,920
+Có một chút mất cân bằng nhưng không nhiều.
+
+57
+00:03:17,920 --> 00:03:24,560
+Vì vậy trong 60 tích cực đúng,
+nếu tôi nói tôi có 50 cái là đúng,
+
+58
+00:03:24,560 --> 00:03:29,140
+trong số 40 tiêu cực
+
+59
+00:03:30,140 --> 00:03:33,850
+tôi có 35 cái đúng.
+
+60
+00:03:33,850 --> 00:03:35,160
+Hãy xem cái chúng ta đã học.
+
+61
+00:03:35,160 --> 00:03:39,630
+Trong số 100 ví dụ tôi có 85 cái đúng.
+
+62
+00:03:39,630 --> 00:03:41,100
+Vì thế chúng ta có thể nói về
+tính chính xác của chúng ta.
+
+63
+00:03:42,850 --> 00:03:50,124
+Chính xác là 85 đúng trên 100, đạt 0.85.
+
+64
+00:03:51,570 --> 00:03:55,719
+Và chúng ta cũng có thể thảo luận
+về tích cực đúng và tiêu cực đúng.
+
+65
+00:03:55,719 --> 00:03:59,376
+Xin lỗi, tích cực sai và tiêu cực sai,
+
+66
+00:03:59,376 --> 00:04:02,014
+tôi đã dán mác là tiêu cực,
+đó là tiêu cực sai.
+
+67
+00:04:02,014 --> 00:04:08,449
+Và đó là mười, tôi có mười
+tiêu cực sai và mặt khác
+
+68
+00:04:08,449 --> 00:04:13,367
+với tiêu cực đúng chúng ta
+có 5 tích cực sai.
+
+69
+00:04:13,367 --> 00:04:17,185
+Trong ví dụ này chúng ta có 85% chính xác.
+
+70
+00:04:17,185 --> 00:04:24,310
+Chúng ta có tỉ lệ tiêu cực sai
+cao hơn tỉ lệ của tích cực sai.
+
+71
+00:04:24,310 --> 00:04:25,700
+Bây giờ những từ đó, tích cực sai,
+
+72
+00:04:25,700 --> 00:04:30,700
+tiêu cực sai chỉ áp dụng cho
+phân loại nhỏ cho hai lớp.
+
+73
+00:04:30,700 --> 00:04:35,060
+Nhưng ý tưởng ma trận nhầm lẫn hoạt động tốt 
+ngay cả khi bạn có nhiều lớp hơn nữa.
+
+74
+00:04:35,060 --> 00:04:37,430
+Chúng ta hãy nói về một ví dụ đơn giản của điều đó.
+
+75
+00:04:37,430 --> 00:04:41,080
+Hãy nói rằng tôi có 100 ví dụ
+kiểm tra và áp dụng cho
+
+76
+00:04:41,080 --> 00:04:45,399
+chuẩn đoán y học, vì thế có ba lớp
+khỏe mạnh, cảm lạnh và cúm.
+
+77
+00:04:45,399 --> 00:04:51,983
+Và trong 100 vấn đề kiểm tra chúng ta
+có 70 trường hợp là khỏe mạnh,
+
+78
+00:04:51,983 --> 00:04:57,380
+20 trường hợp bị cảm lạnh
+và 10 trường hợp bị cúm.
+
+79
+00:04:57,380 --> 00:05:03,920
+Hãy giả sử chúng ta có 60 đúng với
+
+80
+00:05:03,920 --> 00:05:09,621
+khỏe mạnh, chúng ta có
+12 đúng cho cảm lạnh,
+
+81
+00:05:09,621 --> 00:05:15,841
+và có 60, 12, 8 đúng cho cúm.
+
+82
+00:05:15,841 --> 00:05:21,004
+Tổng độ chính xác của chúng ta ở đây,
+
+83
+00:05:21,004 --> 00:05:28,994
+là 80, đó là 60 cộng 12 cộng 8 chia cho 100.
+
+84
+00:05:28,994 --> 00:05:32,128
+0.8, 80% chính xác.
+
+85
+00:05:32,128 --> 00:05:35,910
+Nhưng chúng ta có thể nói về sự dự đoán sai.
+
+86
+00:05:35,910 --> 00:05:38,480
+Từ khỏe mạnh có mười lỗi.
+
+87
+00:05:38,480 --> 00:05:42,330
+Và chúng ta có thể nói thường bị
+nhầm lẫn khỏe mạnh với bị cảm lạnh
+
+88
+00:05:42,330 --> 00:05:46,370
+hơn là khỏe mạnh với bị cúm,
+bởi vì cúm là một bệnh phức tạp hơn.
+
+89
+00:05:46,370 --> 00:05:48,880
+Chúng ta có thể có mười lỗi.
+
+90
+00:05:48,880 --> 00:05:53,450
+Tám đã bị nhầm với cảm lạnh
+và hai bị nhầm với cúm.
+
+91
+00:05:53,450 --> 00:05:54,750
+Cảm lạnh có thể đi cả hai chiều.
+
+92
+00:05:54,750 --> 00:05:56,180
+Vì thế chúng ta có tám lỗi.
+
+93
+00:05:56,180 --> 00:05:59,230
+Bạn có thể nói một nửa trong số
+người phân vân với khỏe mạnh và
+
+94
+00:05:59,230 --> 00:06:01,930
+một nửa trong số họ được
+chuẩn đoán là khỏe hơn bệnh cúm.
+
+95
+00:06:03,100 --> 00:06:08,070
+Vâng trong hai lỗi với cúm, thì
+có lẽ chúng ta nói rằng chúng ta
+
+96
+00:06:08,070 --> 00:06:12,280
+không làm nhiều lỗi, không ai mắc
+bệnh cúm lại nghĩ oh bạn khỏe mạnh.
+
+97
+00:06:12,280 --> 00:06:16,470
+Nhưng hai trong mười người đã nghĩ
+là bị cảm lạnh không phải cúm.
+
+98
+00:06:16,470 --> 00:06:19,200
+Đây là một ví dụ về ma trận nhầm lẫn,
+chúng ta thực sự có thể
+
+99
+00:06:19,200 --> 00:06:22,620
+hiểu các loại lỗi chúng ta đã làm
+và chúng ta có thể giải thích chúng.
+
+100
+00:06:22,620 --> 00:06:24,890
+Và đó thực sự là một điều quan trọng
+cần làm trong phân loại.

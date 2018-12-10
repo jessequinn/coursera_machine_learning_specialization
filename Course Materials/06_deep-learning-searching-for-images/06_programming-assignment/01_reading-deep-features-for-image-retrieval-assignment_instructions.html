@@ -1,0 +1,814 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Deep features for image retrieval
+ </h1>
+ <p>
+ </p>
+ <p>
+  In this module, we focused on using deep learning to create non-linear features to improve the performance of machine learning.  We also saw how transfer learning techniques can be applied to use deep features learned with one dataset to get great performance on a different dataset.  We also built an iPython notebooks for both image retrieval and image classification tasks on real datasets.
+ </p>
+ <p>
+  In this assignment, we are going to build new image retrieval models and explore their results on different parts of our image dataset.  These techniques will be used at the core of the intelligent application in your capstone project.
+ </p>
+ <p>
+  Follow the rest of the instructions on this page to complete your program.  When you are done, instead of uploading your code, you will answer a series of quiz questions (see the quiz after this reading) to document your completion of this assignment.  The instructions will indicate what data to collect for answering the quiz.
+ </p>
+ <h3 level="3">
+  Learning outcomes
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Execute image retrieval code with the iPython notebook
+   </p>
+  </li>
+  <li>
+   <p>
+    Use the .sketch_summary() method to view statistics of data
+   </p>
+  </li>
+  <li>
+   <p>
+    Load and transform real, image data
+   </p>
+  </li>
+  <li>
+   <p>
+    Build image retrieval models using nearest neighbor search and deep features
+   </p>
+  </li>
+  <li>
+   <p>
+    Compare the results of various image retrieval models
+   </p>
+  </li>
+  <li>
+   <p>
+    Use the .apply() and .sum() methods on SFrames to compute functions of the data.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+ </h3>
+ <h3 level="3">
+  Resources you will need
+ </h3>
+ <p>
+  You will need to install the software tools or use the free Amazon EC2 machine.  Instructions for both options are provided in the reading for Module 1.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Download the data and starter code
+ </h3>
+ <p>
+  Before getting started, you will need to download the dataset and the starter iPython notebook that we used in the module.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the wikipedia dataset with training images here in SFrame format:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/image_train_data.zip">
+      image_train_data.zip
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the wikipedia dataset with test images herein SFrame format:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/image_test_data.zip">
+      image_test_data.zip
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the image retrieval notebook from the module here:
+    <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/Deep%20Features%20for%20Image%20Classification.ipynb">
+     <strong>
+      Deep Features for Image Classification.ipynb
+     </strong>
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the image retrieval notebook from the module here:
+    <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/Deep%20Features%20for%20Image%20Retrieval.ipynb">
+     <strong>
+      Deep Features for Image Retrieval.ipynb
+     </strong>
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Save all of these files in the same directory (where you are calling iPython notebook from) and unzip the data files.
+    <strong>
+     Not sure where to save the files? See
+     <a href="https://www.coursera.org/learn/ml-foundations/supplement/IT04V/reading-where-should-my-files-go">
+      this guide
+     </a>
+     .
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Now you are ready to get started!
+ </p>
+ <h3 level="3">
+  <em>
+   <strong>
+    Note:  If you would rather use other ML tools...
+   </strong>
+  </em>
+ </h3>
+ <p>
+  You are welcome to use any ML tool for this course, such as
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  . Though, as discussed in the intro module,
+  <em>
+   we strongly recommend you use IPython Notebook and GraphLab Create. (GraphLab Create is free for academic purposes.)
+  </em>
+ </p>
+ <p>
+  If you are choosing to use other packages, we still recommend you use SFrame, which will allow you to scale to much larger datasets than Pandas. (Though, it's possible to use Pandas in this course, if your machine has sufficient memory.) The SFrame package is available in
+  <a href="https://github.com/turi-code/SFrame">
+   open-source under a permissive BSD license
+  </a>
+  . So, you will always be able to use SFrames for free.
+ </p>
+ <p>
+  If you are not using SFrame, here is the dataset for this assignment in CSV format, so you can use
+  <a href="http://pandas.pydata.org/">
+   Pandas
+  </a>
+  or other options out there:
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/image_train_data.csv">
+   image_train_data.csv
+  </a>
+  and
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/image_test_data.csv">
+   image_test_data.csv
+  </a>
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Watch the videos and explore the iPython notebooks on using deep features for image classification and retrieval
+ </h3>
+ <p>
+  If you haven’t done so yet, before you start, we recommend you watch the video where we go over the iPython notebooks from this module.  You can then open up the iPython notebook we used and familiarize yourself with the steps we covered in these examples.
+ </p>
+ <h3 level="3">
+  What you will do
+ </h3>
+ <p>
+  Now you are ready!  We are going do four tasks in this assignment.    There are several results you need to gather along the way to enter into the quiz after this reading.
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    <strong>
+     Computing summary statistics of the data:
+    </strong>
+    Sketch summaries are techniques for computing summary statistics of data very quickly.  In GraphLab Create, SFrames and SArrays include a method:
+   </p>
+  </li>
+ </ol>
+ <pre language="python">.sketch_summary()</pre>
+ <p>
+  which computes such summary statistics.  Using the training data, compute the sketch summary of the ‘label’ column and interpret the results.  What’s the least common category in the training data?
+  <strong>
+   <em>
+    Save this result to answer the quiz at the end.
+   </em>
+  </strong>
+ </p>
+ <p>
+  2.
+  <strong>
+   Creating category-specific image retrieval models:
+  </strong>
+  In most retrieval tasks, the data we have is unlabeled, thus we call these unsupervised learning problems.  However, we have labels in this image dataset, and will use these to create one model for each of the 4 image categories, {‘dog’,’cat’,’automobile’,bird’}.  To start, follow these steps:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Split the SFrame with the training data into 4 different SFrames.  Each of these will contain data for 1 of the 4 categories above.
+    <em>
+     Hint: if you use a logical filter to select the rows where the ‘label’ column equals ‘dog’, you can create an SFrame with only the data for images labeled ‘dog’.
+    </em>
+   </p>
+  </li>
+  <li>
+   <p>
+    Similarly to the image retrieval notebook you downloaded, you are going to create a nearest neighbor model using the 'deep_features' as the features, but this time create one such model for each category, using the corresponding subset of the training_data.
+    <em>
+     You can call the model with the ‘dog’ data the dog_model, the one with the ‘cat’ data the cat_model, as so on.
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  You now have a nearest neighbors model that can find the nearest ‘dog’ to any image you give it, the dog_model; one that can find the nearest ‘cat’, the cat_model; and so on.
+ </p>
+ <p>
+  Using these models, answer the following questions.  The cat image below is the first in the
+  <em>
+   test data
+  </em>
+  :
+ </p>
+ <img alt="" assetid="5H_63k7OEeW17w7BjiD8oQ" src="data:image/png;base64,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"/>
+ <p>
+  You can access this image, similarly to what we did in the iPython notebooks above, with this command:
+ </p>
+ <pre language="python">image_test[0:1]</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    What is the nearest ‘cat’ labeled image in the training data to the cat image above (the first image in the test data)?
+    <strong>
+     <em>
+      Save this result.
+     </em>
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  <em>
+   Hint: When you query your nearest neighbors model, it will return a SFrame that looks something like this:
+  </em>
+ </p>
+ <table columns="4" rows="5">
+  <tr>
+   <td>
+    <p>
+     <strong>
+      query_label
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      reference_label
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      distance
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      rank
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     34
+    </p>
+   </td>
+   <td>
+    <p>
+     42.9886641167
+    </p>
+   </td>
+   <td>
+    <p>
+     1
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     45
+    </p>
+   </td>
+   <td>
+    <p>
+     43.8444904098
+    </p>
+   </td>
+   <td>
+    <p>
+     2
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     251
+    </p>
+   </td>
+   <td>
+    <p>
+     44.2634660468
+    </p>
+   </td>
+   <td>
+    <p>
+     3
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     0
+    </p>
+   </td>
+   <td>
+    <p>
+     141
+    </p>
+   </td>
+   <td>
+    <p>
+     44.377719559
+    </p>
+   </td>
+   <td>
+    <p>
+     4
+    </p>
+   </td>
+  </tr>
+ </table>
+ <p>
+  <em>
+   <a href="https://turi.com/learn/userguide/nearest_neighbors/nearest_neighbors.html">
+    To understand each column in this table, see this documentation.
+   </a>
+   For this question, the ‘reference_label’ column will be important, since it provides the index of the nearest neighbors in the dataset used to train it.  (In this case, the subset of the training data labeled ‘cat’.)
+  </em>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    What is the nearest ‘dog’ labeled image in the training data to the cat image above (the first image in the test data)?
+    <strong>
+     <em>
+      Save this result.
+     </em>
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   3.  A simple example of nearest-neighbors classification:
+  </strong>
+  When we queried a nearest neighbors model, the ‘distance’ column in the table above shows the computed distance between the input and each of the retrieved neighbors.  In this question, you will use these distances to perform a classification task, using the idea of a nearest-neighbors classifier.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    For the first image in the test data (image_test[0:1]), which we used above, compute the mean distance between this image at its 5 nearest neighbors that were labeled
+    <em>
+     <strong>
+      ‘cat’
+     </strong>
+    </em>
+    in the training data (similarly to what you did in the previous question).
+    <em>
+     <strong>
+      Save this result.
+     </strong>
+    </em>
+   </p>
+  </li>
+  <li>
+   <p>
+    Similarly, for the first image in the test data (image_test[0:1]), which we used above, compute the mean distance between this image at its 5 nearest neighbors that were labeled
+    <strong>
+     ‘dog’
+    </strong>
+    in the training data (similarly to what you did in the previous question).
+    <strong>
+     <em>
+      Save this result.
+     </em>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    On average, is the first image in the test data closer to its 5 nearest neighbors in the ‘cat’ data or in the ‘dog’ data?  (In a later course, we will see that this is an example of what is called a k-nearest neighbors classifier, where we use the label of neighboring points to predict the label of a test point.)
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   4.  [Challenging Question]  Computing nearest neighbors accuracy using SFrame operations:
+  </strong>
+  A nearest neighbor classifier predicts the label of a point as the most common label of its nearest neighbors.  In this question, we will measure the accuracy of a 1-nearest-neighbor classifier, i.e., predict the output as the label of the nearest neighbor in the training data.  Although there are simpler ways of computing this result, we will go step-by-step here to introduce you to more concepts in nearest neighbors and SFrames, which will be useful later in this Specialization.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Training models:
+    </strong>
+    For this question, you will need the nearest neighbors models you learned above on the training data, i.e., the dog_model, cat_model, automobile_model and bird_model.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Spliting test data by label:
+    </strong>
+    Above, you split the train data SFrame into one SFrame for images labeled ‘dog’, another for those labeled ‘cat’, etc.  Now, do the same for the test data.  You can call the resulting SFrames
+   </p>
+  </li>
+ </ul>
+ <pre language="python">image_test_cat, image_test_dog, image_test_bird, image_test_automobile</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Finding nearest neighbors in the training set for each part of the test set:
+    </strong>
+    Thus far, we have queried, e.g.,
+   </p>
+  </li>
+ </ul>
+ <pre language="python">dog_model.query()</pre>
+ <p>
+  our nearest neighbors models with a single image as the input, but you can actually query with a whole set of data, and it will find the nearest neighbors for each data point.  Note that the input index will be stored in the ‘query_label’ column of the output SFrame.
+ </p>
+ <p>
+  Using this knowledge find the closest neighbor in to the dog test data using each of the trained models, e.g.,
+ </p>
+ <pre language="python">dog_cat_neighbors = cat_model.query(image_test_dog, k=1)</pre>
+ <p>
+  finds 1 neighbor (that’s what k=1 does) to the dog test images (
+  <em>
+   image_test_dog
+  </em>
+  ) in the cat portion of the training data (used to train the
+  <em>
+   cat_model
+  </em>
+  ).
+ </p>
+ <p>
+  Now, do this for every combination of the labels in the training and test data.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Create an SFrame with the distances from ‘dog’ test examples to the respective nearest neighbors in each class in the training data:
+    </strong>
+    The ‘distance’ column in
+    <em>
+     dog_cat_neighbors
+    </em>
+    above contains the distance between each ‘dog’ image in the test set and its nearest ‘cat’ image in the
+    <em>
+     training set
+    </em>
+    .  The question we want to answer is how many of the test set ‘dog’ images are closer to a ‘dog’ in the training set than to a ‘cat’, ‘automobile’ or ‘bird’.  So, next we will create an SFrame containing just these distances per data point.  The goal is to create an SFrame called
+    <em>
+     dog_distances
+    </em>
+    with 4 columns:
+   </p>
+  </li>
+ </ul>
+ <p>
+  i.
+  <em>
+   dog_distances[‘dog-dog’]
+  </em>
+  ---- storing
+  <em>
+   dog_dog_neighbors[‘distance’]
+  </em>
+ </p>
+ <p>
+  ii.
+  <em>
+   dog_distances[‘dog-cat’]
+  </em>
+  ---- storing
+  <em>
+   dog_cat_neighbors[‘distance’]
+  </em>
+ </p>
+ <p>
+  iii.
+  <em>
+   dog_distances[‘dog-automobile’]
+  </em>
+  ---- storing
+  <em>
+   dog_automobile_neighbors[‘distance’]
+  </em>
+ </p>
+ <p>
+  iv.
+  <em>
+   dog_distances[‘dog-bird’]
+  </em>
+  ---- storing
+  <em>
+   dog_bird_neighbors[‘distance’]
+  </em>
+ </p>
+ <p>
+  <em>
+   Hint: You can create a new SFrame from the columns of other SFrames by creating a dictionary with the new columns, as shown in this example:
+  </em>
+ </p>
+ <pre language="python">new_sframe = graphlab.SFrame({'foo': other_sframe['foo'],'bar': some_other_sframe['bar']})</pre>
+ <p>
+  The resulting SFrame will look something like this:
+ </p>
+ <table columns="4" rows="4">
+  <tr>
+   <td>
+    <p>
+     <strong>
+      dog-automobile
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      dog-bird
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      dog-cat
+     </strong>
+    </p>
+   </td>
+   <td>
+    <p>
+     <strong>
+      dog-dog
+     </strong>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     41.9579761457
+    </p>
+   </td>
+   <td>
+    <p>
+     41.7538647304
+    </p>
+   </td>
+   <td>
+    <p>
+     36.4196077068
+    </p>
+   </td>
+   <td>
+    <p>
+     33.4773590373
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     46.0021331807
+    </p>
+   </td>
+   <td>
+    <p>
+     41.3382958925
+    </p>
+   </td>
+   <td>
+    <p>
+     38.8353268874
+    </p>
+   </td>
+   <td>
+    <p>
+     32.8458495684
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <p>
+     42.9462290692
+    </p>
+   </td>
+   <td>
+    <p>
+     38.6157590853
+    </p>
+   </td>
+   <td>
+    <p>
+     36.9763410854
+    </p>
+   </td>
+   <td>
+    <p>
+     35.0397073189
+    </p>
+   </td>
+  </tr>
+ </table>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Computing the number of correct predictions using 1-nearest neighbors for the dog class:
+    </strong>
+    Now that you have created the SFrame
+    <em>
+     dog_distances
+    </em>
+    , you will learn to use the method
+   </p>
+  </li>
+ </ul>
+ <pre>.apply()</pre>
+ <p>
+  on this SFrame to iterate line by line and compute the number of ‘dog’ test examples where the distance to the nearest ‘dog’ was lower than that to the other classes.  You will do this in three steps:
+ </p>
+ <p>
+  i.  Consider one row of the SFrame dog_distances.  Let’s call this variable row.  You can access each distance by calling, for example,
+ </p>
+ <pre language="python">row['dog-cat']</pre>
+ <p>
+  which, in example table above, will have value equal to
+  <em>
+   36.4196077068
+  </em>
+  for the first row.
+ </p>
+ <p>
+  Create a function starting with
+ </p>
+ <pre language="python">def is_dog_correct(row):</pre>
+ <p>
+  which returns 1 if the value for
+  <em>
+   row[‘dog-dog’]
+  </em>
+  is lower than that of the other columns, and 0 otherwise.  That is, returns 1 if this row is correctly classified by 1-nearest neighbors, and 0 otherwise.
+ </p>
+ <p>
+  ii.  Using the function
+  <em>
+   is_dog_correct(row)
+  </em>
+  , you can check if 1 row is correctly classified.  Now, you want to count how many rows are correctly classified.  You could do a for loop iterating through each row and applying the function
+  <em>
+   is_dog_correct(row)
+  </em>
+  .  This method will be really slow, because the SFrame is not optimized for this type of operation.
+ </p>
+ <p>
+  Instead, we will use the
+  <em>
+   .apply()
+  </em>
+  method to iterate the function is_dog_correct for each row of the SFrame.
+  <a href="https://turi.com/learn/userguide/sframe/tabular-data.html">
+   Read about using the
+   <em>
+    .apply()
+   </em>
+   method here.
+  </a>
+  <a href="https://dato.com/learn/userguide/sframe/tabular-data.html">
+  </a>
+ </p>
+ <p>
+  iii.
+  <strong>
+   Computing the number of correct predictions for ‘dog’:
+  </strong>
+  You can now call:
+ </p>
+ <pre language="python">dog_distances.apply(is_dog_correct)</pre>
+ <p>
+  which will return an SArray (a column of data) with a 1 for every correct row and a 0 for every incorrect one.  You can call:
+ </p>
+ <pre language="python">.sum()</pre>
+ <p>
+  on the result to get the total number of correctly classified ‘dog’ images in the test set!
+ </p>
+ <p>
+  <em>
+   Hint: To make sure your code is working correctly, if you were to do the two steps above in this question to count the number of correctly classified ‘cat’ images in the test data, instead of ‘dog’, the result would be 548.
+  </em>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Accuracy of predicting dog in the test data:
+    </strong>
+    Using the work you did in this question, what is the accuracy of the 1-nearest neighbor classifier at classifying ‘dog’ images from the test set?
+    <strong>
+     <em>
+      Save this result to answer the quiz at the end.
+     </em>
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

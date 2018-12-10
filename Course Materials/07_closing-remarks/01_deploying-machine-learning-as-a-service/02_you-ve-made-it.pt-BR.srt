@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,394
+[MÚSICA]
+
+2
+00:00:04,394 --> 00:00:07,610
+Emily e eu esperamos que você tenha
+gostado do curso até o momento.
+
+3
+00:00:07,610 --> 00:00:11,030
+Nós realmente exploramos os fundamentos
+de aprendizado de máquina em uma área ampla de
+
+4
+00:00:11,030 --> 00:00:13,888
+dominios com uma gama de 
+diferentes aplicações.
+
+5
+00:00:13,888 --> 00:00:18,560
+E, realmente tocamos muitas das questões práticas,
+em torno da implantação e
+
+6
+00:00:18,560 --> 00:00:20,590
+construção de sistemas de aprendizado de máquina.
+
+7
+00:00:20,590 --> 00:00:23,960
+e agora nesse modulo de fechamento nós vamos
+resumir alguns dos conceitos
+
+8
+00:00:23,960 --> 00:00:24,660
+que aprendemos.
+
+9
+00:00:24,660 --> 00:00:26,700
+falando sobre como implementar essas ideias,
+
+10
+00:00:26,700 --> 00:00:30,100
+especialmente sistemas
+de aprendizado de máquina em produção e
+
+11
+00:00:30,100 --> 00:00:33,700
+então o que está a frente nesse especialização 
+e em aprendizado de máquina como um todo.
+
+12
+00:00:33,700 --> 00:00:36,498
+Algumas coisas realmente emocionantes como
+fechamos este primeiro curso.
+
+13
+00:00:36,498 --> 00:00:40,449
+[MÚSICA]

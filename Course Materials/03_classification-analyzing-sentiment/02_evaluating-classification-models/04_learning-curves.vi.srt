@@ -1,0 +1,377 @@
+1
+00:00:00,253 --> 00:00:03,883
+[NHẠC]
+
+2
+00:00:03,883 --> 00:00:08,593
+Trong mô hình hồi quy, chúng ta đã
+nói về mỗi quan hệ giữa lỗi hoặc
+
+3
+00:00:08,593 --> 00:00:11,140
+tính chính xác trong sự
+phức tạp của mô hình.
+
+4
+00:00:12,150 --> 00:00:14,680
+Hãy nói một chút về mối quan hệ
+
+5
+00:00:14,680 --> 00:00:17,530
+số lượng dữ liệu bạn phải học.
+
+6
+00:00:17,530 --> 00:00:20,750
+Và chúng ta sẽ khám phá câu hỏi
+về số dữ liệu chúng ta cần phải học.
+
+7
+00:00:20,750 --> 00:00:24,380
+Và đó thực sự là câu hỏi khó
+và phức tạp trong học máy.
+
+8
+00:00:24,380 --> 00:00:28,146
+Tất nhiên bạn càng có
+nhiều dữ liệu thì càng tốt
+
+9
+00:00:28,146 --> 00:00:31,220
+miễn là chất lượng dữ liệu tốt.
+
+10
+00:00:31,220 --> 00:00:35,674
+Và sau đó dữ liệu xấu sẽ càng it đi,
+
+11
+00:00:35,674 --> 00:00:40,830
+dữ liệu chỉ nhằm vào những
+dữ liệu tốt, sạch và chất lượng cao.
+
+12
+00:00:42,700 --> 00:00:47,560
+Bây giờ có một số kỹ thuật lý thuyết để
+phân tích xem bạn cần bao nhiêu dữ liệu.
+
+13
+00:00:47,560 --> 00:00:52,360
+Rất nhiều trong số chúng giúp bạn
+hiểu được xu hướng chung nhưng
+
+14
+00:00:52,360 --> 00:00:55,800
+cũng có xu hướng quá lỗi thời
+để sử dụng trong thực tế.
+
+15
+00:00:55,800 --> 00:01:00,330
+Trong thực tế có một số
+kỹ thuật thực nghiệm để hiểu
+
+16
+00:01:00,330 --> 00:01:05,390
+chúng ta đang tạo ra bao nhiêu
+lỗi và lỗi đó là gì.
+
+17
+00:01:05,390 --> 00:01:09,400
+Và trong khóa học tiếp theo chúng ta sẽ khám phá
+những kỹ thuật này nhiều hơn, nhưng
+
+18
+00:01:09,400 --> 00:01:12,000
+hãy để tôi cung cấp tới bạn
+một chút hướng dẫn và
+
+19
+00:01:12,000 --> 00:01:18,130
+cái nhìn sâu sắc về cái có thể
+làm trong phần phân loại.
+
+20
+00:01:18,130 --> 00:01:22,297
+Bây giờ một biểu diễn quan trọng
+cho mỗi quan hệ giữa dữ liệu và
+
+21
+00:01:22,297 --> 00:01:25,040
+chất lượng được gọi là đường cong học tập.
+
+22
+00:01:25,040 --> 00:01:29,237
+Một đường cong học tập liên quan
+đến số dữ liệu mà chúng ta có cho
+
+23
+00:01:29,237 --> 00:01:32,380
+việc huấn luyện lỗi mà chúng ta tạo ra.
+
+24
+00:01:32,380 --> 00:01:36,300
+Và ở đây chúng ta đang nói về lỗi kiểm tra.
+
+25
+00:01:36,300 --> 00:01:40,211
+Bây giờ nếu bạn có rất ít
+dữ liệu cho việc huấn luyện,
+
+26
+00:01:40,211 --> 00:01:43,630
+thì lỗi kiểm tra của bạn sẽ rất cao.
+
+27
+00:01:43,630 --> 00:01:46,294
+Nhưng nếu bạn có nhiều
+dữ liệu cho việc huấn luyện,
+
+28
+00:01:46,294 --> 00:01:48,510
+thì lỗi kiểm tra của bạn sẽ thấp.
+
+29
+00:01:48,510 --> 00:01:53,319
+Và bây giờ đường cong sẽ tốt hơn
+
+30
+00:01:53,319 --> 00:01:58,550
+khi bạn có càng nhiều dữ liệu.
+
+31
+00:02:04,380 --> 00:02:07,560
+Rất tiếc, không đi qua điểm đó,
+vì thế tôt sẽ xóa nó.
+
+32
+00:02:09,180 --> 00:02:09,860
+Bây giờ ở đây chúng ta có.
+
+33
+00:02:09,860 --> 00:02:14,145
+Đây là một ví dụ về đường cong học tập 
+với chất lượng càng cao khi chúng ta
+
+34
+00:02:14,145 --> 00:02:15,050
+thêm càng nhiều dữ liệu.
+
+35
+00:02:15,050 --> 00:02:17,420
+Bây giờ bạn có thể hỏi có
+một giới hạn nào không?
+
+36
+00:02:17,420 --> 00:02:22,720
+Chất lượng này sẽ trở nên tốt hơn
+khi bạn thêm càng nhiều dữ liệu không?
+
+37
+00:02:22,720 --> 00:02:29,675
+Bây giờ chúng ta biết rằng lỗi sẽ giảm khi
+chúng ta thêm nhiều dữ liệu, lỗi kiểm tra.
+
+38
+00:02:29,675 --> 00:02:33,295
+Tuy nhiên có một số khoảng trống ở đây.
+
+39
+00:02:33,295 --> 00:02:36,490
+Và câu hỏi là liệu khoảng trống
+đó có thể đi tới 0, và câu trả lời
+
+40
+00:02:36,490 --> 00:02:37,295
+nói chung là không.
+
+41
+00:02:37,295 --> 00:02:39,175
+Khoảng trống này được gọi là đường xiên.
+
+42
+00:02:40,475 --> 00:02:45,215
+Chúng ta hãy thảo luận một chút về 
+đường xiên này, hoặc khoảng trống này.
+
+43
+00:02:45,215 --> 00:02:47,949
+Về trực giác,
+
+44
+00:02:47,949 --> 00:02:53,052
+thậm chí với dữ liệu vô hạn,
+
+45
+00:02:53,052 --> 00:02:58,350
+lỗi kiểm tra sẽ không đi tới 0.
+
+46
+00:02:59,880 --> 00:03:01,280
+Hãy hiểu một chút về lý do tại sao.
+
+47
+00:03:02,340 --> 00:03:06,640
+Các mẫu càng phức tạp càng
+có xu hướng ít đường xiên hơn.
+
+48
+00:03:06,640 --> 00:03:10,890
+Vì thế nếu bạn nhìn vào phân loại
+phân tích cảm tính mà chúng ta xây dựng,
+
+49
+00:03:10,890 --> 00:03:12,920
+nếu bạn chỉ sử dụng các từ đơn như là awesome,
+
+50
+00:03:12,920 --> 00:03:18,032
+good, great, terrible, awful nó có thể làm ok.
+
+51
+00:03:18,032 --> 00:03:20,840
+Có thể nó làm rất tốt, cũng có thể chỉ làm ổn.
+
+52
+00:03:20,840 --> 00:03:24,929
+Nhưng ngay cả khi bạn có dữ liệu
+vô hạn, với tất cả dữ liệu trên thế giới,
+
+53
+00:03:24,929 --> 00:03:28,970
+bạn sẽ không bao giờ có câu này đúng,
+the sushi was not good.
+
+54
+00:03:30,070 --> 00:03:32,010
+Bởi vì bạn không nhìn vào cặp từ,
+
+55
+00:03:32,010 --> 00:03:34,940
+bạn chỉ nhìn vào những từ tốt
+và không mang tính cá nhân.
+
+56
+00:03:37,050 --> 00:03:42,880
+Và các mô hình phức tạp hơn ví dụ,
+giải quyết sự kết hợp của các từ,
+
+57
+00:03:42,880 --> 00:03:44,820
+ví dụ, đơn giản được gọi là mô hình bigram,
+
+58
+00:03:44,820 --> 00:03:47,850
+nơi mà bạn nhìn vào cặp từ
+bí mật như là 'not good'.
+
+59
+00:03:49,090 --> 00:03:53,760
+Những mô hình này đòi hỏi nhiều thông số
+hơn, bởi vì có nhiều khả năng hơn.
+
+60
+00:03:53,760 --> 00:03:58,803
+Chúng có thể làm tốt hơn, chúng có thể
+có một tham số cho 'good', 1.5.
+
+61
+00:03:58,803 --> 00:04:01,053
+Nhưng "not good", -2.1.
+
+62
+00:04:01,053 --> 00:04:04,803
+Và thực sự câu the susu was not good là chính xác.
+
+63
+00:04:04,803 --> 00:04:06,330
+Chúng có ít đường xiên hơn.
+
+64
+00:04:07,430 --> 00:04:11,270
+Chúng có thể biểu thị các câu mà không thể 
+được biểu thị dưới dạng các từ nhưng
+
+65
+00:04:11,270 --> 00:04:13,820
+chúng có khả năng chính xác cao.
+
+66
+00:04:13,820 --> 00:04:17,158
+Nhưng họ cần nhiều dữ liệu hơn để
+học bởi vì có nhiều thông số hơn.
+
+67
+00:04:17,158 --> 00:04:20,150
+Không chỉ có một thông số cho 'good'.
+bây giờ có một thông số cho 'not good' và
+
+68
+00:04:20,150 --> 00:04:22,230
+tất cả sự kết hợp có thể của các từ.
+
+69
+00:04:22,230 --> 00:04:27,160
+Mô hình của bạn có càng nhiều thông số, thì
+nói chung càng nhiều dữ liệu cần phải học.
+
+70
+00:04:27,160 --> 00:04:28,390
+Hãy quay lại với ví dụ của chúng ta.
+
+71
+00:04:29,390 --> 00:04:35,280
+Chúng ta đã nói về thực tế của 
+một số dữ liệu huấn luyện trên lỗi kiểm tra.
+
+72
+00:04:35,280 --> 00:04:39,470
+Hãy nói rằng tôi đang xây dựng
+phân loại sử dụng các từ đơn.
+
+73
+00:04:39,470 --> 00:04:45,840
+Và câu hỏi là điều đó liên quan tới
+phân loại như thế nào dựa trên các cặp từ?
+
+74
+00:04:45,840 --> 00:04:49,863
+Bây giờ với phân loại dựa trên
+bigram khi bạn có ít dữ liệu,
+
+75
+00:04:49,863 --> 00:04:54,050
+nó sẽ làm tốt bởi vì nó có nhiều thông số.
+
+76
+00:04:55,050 --> 00:04:59,700
+Nhưng khi bạn có nhiều dữ liệu hơn,
+nó sẽ làm tốt hơn bởi vì nó sẽ có thể
+
+77
+00:04:59,700 --> 00:05:04,490
+nắm bắt các cài đặt như là the sushi was not good.
+
+78
+00:05:04,490 --> 00:05:08,675
+Và do đó bạn sẽ có điều gì đó như thế này.
+
+79
+00:05:12,220 --> 00:05:16,898
+Ở một vài điểm, có một đường chéo
+từ nơi nó bắt đầu làm tốt hơn
+
+80
+00:05:16,898 --> 00:05:19,170
+phân loại với các từ đơn.
+
+81
+00:05:20,370 --> 00:05:24,850
+Nhưng hãy chú ý mô hình nền
+vẫn có một vài đường xiên ở đây.
+
+82
+00:05:24,850 --> 00:05:28,870
+Mặc dù đường xiên nhỏ hơn,
+nó vẫn còn một số đường.
+
+83
+00:05:32,509 --> 00:05:36,479
+[NHẠC]

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//cdn.optimizely.com/js/2848610060.js"></script>
+    <script src="https://turi.com/js/metrics.js"></script>
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/ico" href="https://turi.com/favicon.ico" />
+  <title>Install GraphLab Create on AWS for Coursera Students | Turi</title>
+
+  <!--  -->
+  
+
+  <!--  -->
+  
+
+  
+    <meta property="og:title" content="Install GraphLab Create on AWS for Coursera Students" />
+    <meta property="og:site_name" content="Turi">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://turi.com/download/install-graphlab-create-aws-coursera.html" />
+    
+    <meta property="og:image" content="https://turi.com/images/turi-logo-stacked-1200x1047.png" />
+    
+  
+
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@turiinc" />
+    <meta name="twitter:title" content="Install GraphLab Create on AWS for Coursera Students" />
+    <meta name="twitter:url" content="https://turi.com/download/install-graphlab-create-aws-coursera.html" />
+    
+  <!--  -->
+  
+    
+  
+
+  
+  <link rel="canonical" href="https://turi.com/download/install-graphlab-create-aws-coursera.html" />
+
+  
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+      span.trademark {
+        font-size: 0.5em;
+        vertical-align: super;
+      }
+    </style>
+    
+    
+        <link href="https://turi.com/styles/GraphLab.css" rel="stylesheet" />
+      
+  
+
+  
+  
+
+  
+  <script src="https://turi.com/files/vendor/fastclick.js"></script>
+
+  
+  <script type="text/javascript" src="//use.typekit.net/hzm6svm.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js"></script>
+
+  
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  
+  <script src="https://turi.com/js/GraphLab.js"></script>
+
+  
+  <script src="https://turi.com/js/vendor.js"></script>
+  <script src="https://turi.com/js/footer.js"></script>
+
+  <script type="text/javascript">
+  // attach handlers when document is ready
+  $( function() {
+    var $menuRight = $('#menuRight'),
+        $pushRightButton = $('#showRightPush'),
+        $body = $('body');
+
+    FastClick.attach(document.getElementById('menuRight'));
+
+    function togglePushMenu(evt) {
+      $pushRightButton.toggleClass('active' );
+      $body.toggleClass('cbp-spmenu-push-toleft' );
+      $menuRight.toggleClass('cbp-spmenu-open' );
+      evt.stopPropagation();
+    }
+
+    function closePushMenu(evt) {
+      if ($pushRightButton.hasClass('active')) {
+        togglePushMenu(evt);
+      }
+    }
+
+    //toggle the push menu with the button
+    $pushRightButton.on('click', togglePushMenu);
+
+    $('.nav-pushmenu-menuitem').on('click', function(evt) {
+
+      evt.stopPropagation();
+
+      var $open = $(this).siblings('.open');
+      $open.removeClass('open');
+      $open.find('.nav-arrow').removeClass('nav-rotate');
+
+      //toggle current selection
+      $(this).toggleClass('open');
+      $(this).find('.nav-arrow').toggleClass('nav-rotate');
+    });
+
+    $('body').on('click', closePushMenu);
+
+    //only use window resize to remove push menu, not add it.
+    $(window).on('resize', closePushMenu );
+  });
+  </script>
+    <script type="text/javascript">
+      $(function() {
+        GraphLab.Nav.attachHandlers();
+      });
+    </script>
+    
+  
+
+    
+    
+      
+  
+  <script src="https://turi.com/js/vendor.js"></script>
+  <script src="https://turi.com/js/install/install-graphlab-create-aws-coursera.js"></script>
+
+
+  </head>
+  <body class="gl">
+    
+  <div>
+    
+      
+
+
+
+<header>
+  <table style="width: 100%; height: 5px;" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td width="20%" bgcolor="#B0007F"></td>
+        <td width="20%" bgcolor="#0A8CC4"></td>
+        <td width="20%" bgcolor="#85BD00"></td>
+        <td width="20%" bgcolor="#FF5500"></td>
+        <td width="20%" bgcolor="#5E5555"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 visible-xs">
+        
+        <a rel="home" href="https://turi.com" style="display: inline-block; vertical-align: top; margin-top: 25px;">
+    <div id="turi-logo"></div>
+  </a>
+        <nav class="navbar-default pull-right">
+          <button
+            type="button"
+            id="showRightPush"
+            style="display: inline-block; vertical-align: top;"
+            class="navbar-toggle"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </nav>
+      </div>
+      <div class="col-xs-12 hidden-xs">
+        
+        <a rel="home" href="https://turi.com" style="display: inline-block; vertical-align: top; margin-top: 25px;">
+    <div id="turi-logo"></div>
+  </a>
+        <nav style="display: inline-block; margin-top: 56px">
+          <ul class="list-inline">
+            
+              <li>
+                <a href="https://turi.com/learn/coursera/">
+                  Coursera Students
+                </a>
+                
+                  <div class="dropdown">
+                    <div class="space"></div>
+                    <div class="arrow"></div>
+                    <ul class="dropdown-menu" role="menu">
+                      
+                        <li>
+                          <a
+                            role="menuitem"
+                            tabindex="-1"
+                            href="https://turi.com/learn/coursera/"
+                          >Overview
+                        </a>
+                        </li>
+                        
+                          <li role="presentation" class="divider"></li>
+                        
+                      
+                        <li>
+                          <a
+                            role="menuitem"
+                            tabindex="-1"
+                            href="https://turi.com/download/academic.html"
+                          >Academic Licenses
+                        </a>
+                        </li>
+                        
+                          <li role="presentation" class="divider"></li>
+                        
+                      
+                        <li>
+                          <a
+                            role="menuitem"
+                            tabindex="-1"
+                            href="https://turi.com/download/install-graphlab-create.html"
+                          >Install GraphLab Create
+                        </a>
+                        </li>
+                        
+                          <li role="presentation" class="divider"></li>
+                        
+                      
+                        <li>
+                          <a
+                            role="menuitem"
+                            tabindex="-1"
+                            href="https://turi.com/learn/"
+                          >GraphLab Create Docs
+                        </a>
+                        </li>
+                        
+                      
+                    </ul>
+                  </div>
+                
+              </li>
+            
+              <li>
+                <a href="https://github.com/apple/turicreate">
+                  Turi Create
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="menuRight" >
+  <h3>Menu</h3>
+  
+  <div class="nav-pushmenu-menuitem">
+    <a href="javascript:"
+    >
+    Coursera Students
+    
+    <span class="nav-arrow fa fa-chevron-right">
+      
+    </a>
+    
+    <ul class="nav-pushmenu-submenu">
+      
+      <li role="presentation">
+        <a class="nav-pushmenu-submenu-item" role="menuitem" tabindex="-1" href="https://turi.com/learn/coursera/"
+        >Overview
+        </a>
+      </li>
+      
+      <li role="presentation">
+        <a class="nav-pushmenu-submenu-item" role="menuitem" tabindex="-1" href="https://turi.com/download/academic.html"
+        >Academic Licenses
+        </a>
+      </li>
+      
+      <li role="presentation">
+        <a class="nav-pushmenu-submenu-item" role="menuitem" tabindex="-1" href="https://turi.com/download/install-graphlab-create.html"
+        >Install GraphLab Create
+        </a>
+      </li>
+      
+      <li role="presentation">
+        <a class="nav-pushmenu-submenu-item" role="menuitem" tabindex="-1" href="https://turi.com/learn/"
+        >GraphLab Create Docs
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+  
+  
+  <div class="nav-pushmenu-menuitem">
+    <a href="https://github.com/apple/turicreate"
+    >
+    Turi Create
+    
+    <span class="nav-arrow fa fa-chevron-right">
+      
+    </a>
+    
+    <ul class="nav-pushmenu-submenu">
+      
+    </ul>
+  </div>
+  
+  
+</nav>
+    
+    <div id="content-body">
+      
+<div class="container">
+  
+    <h1 style="margin: 0em 0em 1.5em 0em;">Install GraphLab Create on AWS for Coursera Students</h1>
+  
+  <div>
+    
+  <div id="installglc-aws-coursera"><div data-reactid=".1nz9ckom8z8" data-react-checksum="-204985632"><div class="row" data-reactid=".1nz9ckom8z8.0"><div data-reactid=".1nz9ckom8z8.0.0"><div class="col-sm-12" data-reactid=".1nz9ckom8z8.0.0.0"><p data-reactid=".1nz9ckom8z8.0.0.0.0"><span data-reactid=".1nz9ckom8z8.0.0.0.0.0">Graphlab Create requires an </span><a href="https://turi.com/download/academic.html" data-reactid=".1nz9ckom8z8.0.0.0.0.1">academic license</a><span data-reactid=".1nz9ckom8z8.0.0.0.0.2"> to use. Non-academic users may consider using the open source </span><a href="https://github.com/apple/turicreate" data-reactid=".1nz9ckom8z8.0.0.0.0.3">Turi Create</a><span data-reactid=".1nz9ckom8z8.0.0.0.0.4"> package.</span></p></div></div></div><br data-reactid=".1nz9ckom8z8.1"/><div data-reactid=".1nz9ckom8z8.2"><div class="row" data-reactid=".1nz9ckom8z8.2.0"><hr data-reactid=".1nz9ckom8z8.2.0.0"/><div class="col-sm-2" data-reactid=".1nz9ckom8z8.2.0.1"><img class="img-responsive" src="https://turi.com/images/download/logo-powered-by-aws.png" data-reactid=".1nz9ckom8z8.2.0.1.0"/><br data-reactid=".1nz9ckom8z8.2.0.1.1"/></div><div class="col-sm-10" data-reactid=".1nz9ckom8z8.2.0.2"><p data-reactid=".1nz9ckom8z8.2.0.2.0"><span data-reactid=".1nz9ckom8z8.2.0.2.0.0">The below instructions are intended for participants of the </span><a href="https://turi.com/learn/coursera/" data-reactid=".1nz9ckom8z8.2.0.2.0.1">Coursera Machine Learning Specialization</a><span data-reactid=".1nz9ckom8z8.2.0.2.0.2"> course who would like to use GraphLab Create with jupyter (IPython Notebook) in the Cloud. However, everyone is welcome to try this approach and our included tutorials. You will need a to create a free AWS account. There is no cost to get started but be aware charges will be applied to your AWS account if you exceed usage of the AWS Free Tier. See </span><a href="https://aws.amazon.com/free/faqs/" data-reactid=".1nz9ckom8z8.2.0.2.0.3">AWS Free Usage Tier FAQ</a><span data-reactid=".1nz9ckom8z8.2.0.2.0.4">. If you need additional help, visit the </span><a href="http://forum.turi.com" data-reactid=".1nz9ckom8z8.2.0.2.0.5">Turi forum</a><span data-reactid=".1nz9ckom8z8.2.0.2.0.6">.</span></p></div></div><hr data-reactid=".1nz9ckom8z8.2.1"/><br data-reactid=".1nz9ckom8z8.2.2"/><h2 data-reactid=".1nz9ckom8z8.2.3"><span data-reactid=".1nz9ckom8z8.2.3.0">Step 1: Sign in to </span><a href="https://console.aws.amazon.com/" data-reactid=".1nz9ckom8z8.2.3.1">https://console.aws.amazon.com/</a></h2><hr data-reactid=".1nz9ckom8z8.2.4"/><p data-reactid=".1nz9ckom8z8.2.5">If you do not have an AWS account, create one for free now.</p><br data-reactid=".1nz9ckom8z8.2.6"/><h2 data-reactid=".1nz9ckom8z8.2.7">Step 2: Launch an EC2 instance with the GraphLab Create AMI</h2><hr data-reactid=".1nz9ckom8z8.2.8"/><ol type="a" data-reactid=".1nz9ckom8z8.2.9"><li data-reactid=".1nz9ckom8z8.2.9.0">In the AWS Management Console, under Compute, select &quot;EC2&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.1">In the EC2 Dashboard, under Instances, select &quot;Instances&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.2">Select &quot;Launch Instance&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.3">On the left navigation, select &quot;Community AMIs&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.4"><span data-reactid=".1nz9ckom8z8.2.9.4.0">Search for </span><strong data-reactid=".1nz9ckom8z8.2.9.4.1"><span data-reactid=".1nz9ckom8z8.2.9.4.1.0">graphlab-create-</span><span data-reactid=".1nz9ckom8z8.2.9.4.1.1">2.1</span><span data-reactid=".1nz9ckom8z8.2.9.4.1.2">-coursera-1</span></strong><span data-reactid=".1nz9ckom8z8.2.9.4.2">, then &quot;Select&quot; this instance.</span></li><li data-reactid=".1nz9ckom8z8.2.9.5">Select Type t2.micro for use on the free tier. Any type can be selected.</li><li data-reactid=".1nz9ckom8z8.2.9.6">Select &quot;Review and Launch&quot; or if prefered, optionally you can Configure Instance Details. </li><li data-reactid=".1nz9ckom8z8.2.9.7">On the Review Instance Launch page, select &quot;Edit Security Groups&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.8">Select &quot;Add Rule&quot;:</li><ul data-reactid=".1nz9ckom8z8.2.9.9"><li data-reactid=".1nz9ckom8z8.2.9.9.0">Type: Custom TCP Rule</li><li data-reactid=".1nz9ckom8z8.2.9.9.1">Protocol: TCP</li><li data-reactid=".1nz9ckom8z8.2.9.9.2">Port Range: 8888</li><li data-reactid=".1nz9ckom8z8.2.9.9.3">Source: Anywhere</li><li data-reactid=".1nz9ckom8z8.2.9.9.4">Select Review and Launch</li><li data-reactid=".1nz9ckom8z8.2.9.9.5">Select Launch</li></ul><li data-reactid=".1nz9ckom8z8.2.9.a">Select &quot;Launch&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.b">Select Proceed without key pair, select checkbox, then select &quot;Launch Instances&quot;.</li><li data-reactid=".1nz9ckom8z8.2.9.c">Select &quot;View Instances&quot;. It will take a moment to launch the EC2 instance.</li></ol><br data-reactid=".1nz9ckom8z8.2.a"/><h2 data-reactid=".1nz9ckom8z8.2.b">Step 3: Launch jupyter (IPython) notebook on your EC2 instance</h2><hr data-reactid=".1nz9ckom8z8.2.c"/><ol type="a" data-reactid=".1nz9ckom8z8.2.d"><li data-reactid=".1nz9ckom8z8.2.d.0">In the description of your new EC2 instance, find the Public IP address</li><li data-reactid=".1nz9ckom8z8.2.d.1"><span data-reactid=".1nz9ckom8z8.2.d.1.0">In a browser, browse to </span><strong data-reactid=".1nz9ckom8z8.2.d.1.1">http://public ip address:8888/tree</strong></li><li data-reactid=".1nz9ckom8z8.2.d.2">NOTE: The EC2 instance must be running to obtain IP address. This takes a few moments to boot. IP address will change upon every launch.</li></ol><br data-reactid=".1nz9ckom8z8.2.e"/><h2 data-reactid=".1nz9ckom8z8.2.f">Step 4: Set your personal GraphLab Create product key </h2><hr data-reactid=".1nz9ckom8z8.2.g"/><ol type="a" data-reactid=".1nz9ckom8z8.2.h"><li data-reactid=".1nz9ckom8z8.2.h.0">Open a new notebook by selecting New and Python 2</li><li data-reactid=".1nz9ckom8z8.2.h.1"><span data-reactid=".1nz9ckom8z8.2.h.1.0">You will now be in a jupyter Python environment that includes GraphLab Create version </span><span data-reactid=".1nz9ckom8z8.2.h.1.1">2.1</span></li><li data-reactid=".1nz9ckom8z8.2.h.2">Set your GraphLab Create product key using the GraphLab Create API</li><pre data-reactid=".1nz9ckom8z8.2.h.3"><code class="hljs bash" data-reactid=".1nz9ckom8z8.2.h.3.0"><span class="hljs-comment" data-reactid=".1nz9ckom8z8.2.h.3.0.0"># set product key</span><br data-reactid=".1nz9ckom8z8.2.h.3.0.1"/><span data-reactid=".1nz9ckom8z8.2.h.3.0.2">import graphlab</span><br data-reactid=".1nz9ckom8z8.2.h.3.0.3"/><span data-reactid=".1nz9ckom8z8.2.h.3.0.4">graphlab.product_key.set_product_key(&#x27;</span><strong data-reactid=".1nz9ckom8z8.2.h.3.0.5"><code data-reactid=".1nz9ckom8z8.2.h.3.0.5.0">your product key here</code></strong><span data-reactid=".1nz9ckom8z8.2.h.3.0.6">&#x27;)</span><br data-reactid=".1nz9ckom8z8.2.h.3.0.7"/><br data-reactid=".1nz9ckom8z8.2.h.3.0.8"/><span class="hljs-comment" data-reactid=".1nz9ckom8z8.2.h.3.0.9"># output active product key</span><br data-reactid=".1nz9ckom8z8.2.h.3.0.a"/><span data-reactid=".1nz9ckom8z8.2.h.3.0.b">graphlab.product_key.get_product_key()</span></code></pre></ol><h3 data-reactid=".1nz9ckom8z8.2.i"><span data-reactid=".1nz9ckom8z8.2.i.0">IMPORTANT: When you are done working, </span><strong data-reactid=".1nz9ckom8z8.2.i.1">stop the EC2 instance</strong><span data-reactid=".1nz9ckom8z8.2.i.2"> to preserve your free EC2 usage hours</span></h3><ol type="a" data-reactid=".1nz9ckom8z8.2.j"><li data-reactid=".1nz9ckom8z8.2.j.0">Under Action &gt; Instance State &gt; Stop. Stopping will retain changes to your work (terminating will clear changes and remove the instance).</li></ol><br data-reactid=".1nz9ckom8z8.2.k"/><br data-reactid=".1nz9ckom8z8.2.l"/><h2 data-reactid=".1nz9ckom8z8.2.m">FAQ</h2><hr data-reactid=".1nz9ckom8z8.2.n"/><h3 data-reactid=".1nz9ckom8z8.2.o">Q: Can I download my notebooks?</h3><p data-reactid=".1nz9ckom8z8.2.p">Yes. In the notebook you want to download, select File &gt; Download as &gt; IPython Notebook (.ipynb)</p><br data-reactid=".1nz9ckom8z8.2.q"/><h3 data-reactid=".1nz9ckom8z8.2.r">Q: How do I use my own data with GraphLab Create when jupyter is hosted on EC2?</h3><p data-reactid=".1nz9ckom8z8.2.s"><span data-reactid=".1nz9ckom8z8.2.s.0">NOTE: data storage counts against your </span><a href="https://aws.amazon.com/free/faqs/" data-reactid=".1nz9ckom8z8.2.s.1">Free Tier usage limits</a><span data-reactid=".1nz9ckom8z8.2.s.2">.</span></p><br data-reactid=".1nz9ckom8z8.2.t"/><h4 data-reactid=".1nz9ckom8z8.2.u">Option 1: You can upload files directly into EC2 using jupyter.</h4><ol type="a" data-reactid=".1nz9ckom8z8.2.v"><li data-reactid=".1nz9ckom8z8.2.v.0"><span data-reactid=".1nz9ckom8z8.2.v.0.0">On http://</span><strong data-reactid=".1nz9ckom8z8.2.v.0.1">public ip address</strong><span data-reactid=".1nz9ckom8z8.2.v.0.2">:8888 page, select Upload. Select your file. Select Upload.</span></li></ol><pre data-reactid=".1nz9ckom8z8.2.w"><code class="hljs bash" data-reactid=".1nz9ckom8z8.2.w.0"><span data-reactid=".1nz9ckom8z8.2.w.0.0"># example of loading csv into SFrame</span><br data-reactid=".1nz9ckom8z8.2.w.0.1"/><span data-reactid=".1nz9ckom8z8.2.w.0.2">import graphlab</span><br data-reactid=".1nz9ckom8z8.2.w.0.3"/><span data-reactid=".1nz9ckom8z8.2.w.0.4">sf = graphlab.SFrame(&#x27;your_data.csv&#x27;)</span></code></pre><br data-reactid=".1nz9ckom8z8.2.x"/><h4 data-reactid=".1nz9ckom8z8.2.y">Option2: Upload data to AWS S3</h4><ol type="a" data-reactid=".1nz9ckom8z8.2.z"><li data-reactid=".1nz9ckom8z8.2.z.0">In the AWS Management Console, under Storage &amp; Content Delivery, select S3.</li><li data-reactid=".1nz9ckom8z8.2.z.1">Select Create Bucket</li><li data-reactid=".1nz9ckom8z8.2.z.2">Enter a bucket name. Select Region (ideally the same as your EC2 region). Your bucket will be created.</li><li data-reactid=".1nz9ckom8z8.2.z.3">Select new bucket. Select Actions &gt; Upload. Select Add Files. Select Start Upload. Wait for upload to succeed.</li><li data-reactid=".1nz9ckom8z8.2.z.4">Select the file. Select Properties. Under Permissions, Select Add more permissions.</li><ul data-reactid=".1nz9ckom8z8.2.z.5"><li data-reactid=".1nz9ckom8z8.2.z.5.0">Grantee: Everyone</li><li data-reactid=".1nz9ckom8z8.2.z.5.1">Check Open/Download</li><li data-reactid=".1nz9ckom8z8.2.z.5.2">Select Save</li></ul><li data-reactid=".1nz9ckom8z8.2.z.6">Find Link in Properties. This is the public URL to this file that you can use directly in GraphLab Create.</li></ol><pre data-reactid=".1nz9ckom8z8.2.10"><code class="hljs bash" data-reactid=".1nz9ckom8z8.2.10.0"><span data-reactid=".1nz9ckom8z8.2.10.0.0"># example of loading csv into SFrame from S3</span><br data-reactid=".1nz9ckom8z8.2.10.0.1"/><span data-reactid=".1nz9ckom8z8.2.10.0.2">import graphlab</span><br data-reactid=".1nz9ckom8z8.2.10.0.3"/><span data-reactid=".1nz9ckom8z8.2.10.0.4">sf = graphlab.SFrame(&#x27;https://s3.../your_data.csv&#x27;)</span></code></pre></div></div></div>
+
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </body>
+  <footer>
+    
+  <div data-reactid=".1x6y0ulg2xu" data-react-checksum="1665641497"><div style="background-color:#2F2B2A;padding:10px 0;" data-reactid=".1x6y0ulg2xu.$/=10"><div class="container" data-reactid=".1x6y0ulg2xu.$/=10.0"><span style="font-size:10px;color:white;box-sizing:border-box;" data-reactid=".1x6y0ulg2xu.$/=10.0.0"><span data-reactid=".1x6y0ulg2xu.$/=10.0.0.0">© </span><span data-reactid=".1x6y0ulg2xu.$/=10.0.0.1">2018</span><span data-reactid=".1x6y0ulg2xu.$/=10.0.0.2"> Turi · All Rights Reserved. No part of this website may be reproduced without Turi&#x27;s expressed consent. Turi, GraphLab, GraphLab Create and logos are property of Turi.   </span><a href="https://turi.com/legal/privacy_policy.html" class="[object Object]" data-reactid=".1x6y0ulg2xu.$/=10.0.0.$=1$policy">Privacy Policy</a><span data-reactid=".1x6y0ulg2xu.$/=10.0.0.4">  |  </span><a href="https://turi.com/legal/terms_of_use.html" class="[object Object]" data-reactid=".1x6y0ulg2xu.$/=10.0.0.$=1$terms">Terms of Use</a><span data-reactid=".1x6y0ulg2xu.$/=10.0.0.6">  |  </span><a href="https://turi.com/legal/license-attributions.html" class="[object Object]" data-reactid=".1x6y0ulg2xu.$/=10.0.0.$=1$license">License Attributions</a></span></div></div><div style="height:3px;width:100%;overflow:hidden;" data-reactid=".1x6y0ulg2xu.$/=11"><div style="width:20%;height:3px;display:inline-block;float:left;background-color:#B0007F;" data-reactid=".1x6y0ulg2xu.$/=11.$fuschia/=1$fuschia"></div><div style="width:20%;height:3px;display:inline-block;float:left;background-color:#0A8CC4;" data-reactid=".1x6y0ulg2xu.$/=11.$blue/=1$blue"></div><div style="width:20%;height:3px;display:inline-block;float:left;background-color:#85BD00;" data-reactid=".1x6y0ulg2xu.$/=11.$green/=1$green"></div><div style="width:20%;height:3px;display:inline-block;float:left;background-color:#FF5500;" data-reactid=".1x6y0ulg2xu.$/=11.$orange/=1$orange"></div><div style="width:20%;height:3px;display:inline-block;float:left;background-color:#5E5555;" data-reactid=".1x6y0ulg2xu.$/=11.$black/=1$black"></div></div></div>
+
+  </footer>
+</html>

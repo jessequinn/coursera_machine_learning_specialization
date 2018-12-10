@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:04,246
+[MUSIC]
+
+2
+00:00:04,246 --> 00:00:06,450
+Today we're gonna talk
+about classification.
+
+3
+00:00:06,450 --> 00:00:09,550
+Which is perhaps one of the most
+common areas of machine learning,
+
+4
+00:00:09,550 --> 00:00:12,900
+one of the most used, and
+useful areas of machine learning.
+
+5
+00:00:12,900 --> 00:00:16,350
+And perhaps,
+one of those most intuitive ones as well.
+
+6
+00:00:16,350 --> 00:00:19,790
+So things like figuring out
+whether your email's spam or
+
+7
+00:00:19,790 --> 00:00:24,390
+not, or whether a document
+comes from a sports topic, or
+
+8
+00:00:24,390 --> 00:00:28,920
+it's about politics, or
+it's about entertainment, and so on.
+
+9
+00:00:28,920 --> 00:00:32,188
+But as usual,
+we're going to start with a use case,
+
+10
+00:00:32,188 --> 00:00:35,699
+which is an exciting one,
+around restaurant reviews.
+
+11
+00:00:35,699 --> 00:00:38,889
+[MUSIC]

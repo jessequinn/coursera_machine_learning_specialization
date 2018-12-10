@@ -1,0 +1,179 @@
+1
+00:00:00,053 --> 00:00:03,963
+[MUSIC]
+
+2
+00:00:03,963 --> 00:00:08,103
+We saw how deep features were great for
+image classification.
+
+3
+00:00:08,103 --> 00:00:12,829
+They allowed us to get quite high
+accuracy, even with just a little bit of
+
+4
+00:00:12,829 --> 00:00:17,247
+training data on a particular
+classification task by first finding
+
+5
+00:00:17,247 --> 00:00:22,843
+features from this deep learning model
+that won the 2012 ImageNet competition.
+
+6
+00:00:22,843 --> 00:00:24,740
+So, that was pretty exciting.
+
+7
+00:00:24,740 --> 00:00:27,710
+But if you remember
+the motivation at the beginning,
+
+8
+00:00:27,710 --> 00:00:30,985
+kind of the sample use case at
+the beginning of this module,
+
+9
+00:00:30,985 --> 00:00:34,890
+we're talking about finding
+images of products that I like.
+
+10
+00:00:34,890 --> 00:00:38,470
+You know, I like shoes, I'm gonna find
+shoes that's similar to my shoes.
+
+11
+00:00:38,470 --> 00:00:43,180
+I want to find images that are similar
+to in the product set I care about.
+
+12
+00:00:43,180 --> 00:00:45,520
+So instead of doing an image
+classification task,
+
+13
+00:00:45,520 --> 00:00:49,160
+now we're gonna take those deep features
+and do an image retrieval task.
+
+14
+00:00:49,160 --> 00:00:51,850
+So let's go ahead and do that, okay?
+
+15
+00:00:51,850 --> 00:00:57,018
+So we're going to name our notebook, so
+
+16
+00:00:57,018 --> 00:01:04,470
+I'm gonna talk about Deep Features for
+Image Retrieval.
+
+17
+00:01:04,470 --> 00:01:09,466
+And I'm going to hide the header and
+hide the toolbar,
+
+18
+00:01:09,466 --> 00:01:14,700
+so we can go ahead and
+get a little bit more space.
+
+19
+00:01:14,700 --> 00:01:20,760
+And I'm gonna fire up graphlab create and
+
+20
+00:01:22,680 --> 00:01:28,861
+I'm also going to load the CIFAR-10
+
+21
+00:01:28,861 --> 00:01:34,150
+dataset, which is the same
+dataset that we loaded
+
+22
+00:01:34,150 --> 00:01:39,440
+earlier when we talked about deep
+features for classification.
+
+23
+00:01:39,440 --> 00:01:44,142
+So in this case I'm just going to
+load the training set because we're
+
+24
+00:01:44,142 --> 00:01:47,400
+just going to do retrieval
+in the training set.
+
+25
+00:01:48,640 --> 00:01:50,390
+So let's start from there.
+
+26
+00:01:50,390 --> 00:01:55,060
+So I'm gonna call it image_train and
+
+27
+00:01:55,060 --> 00:02:00,130
+I'm going to use graphlab.Sframe and
+
+28
+00:02:00,130 --> 00:02:07,540
+then as input I'm going to
+give it the image_train_data/.
+
+29
+00:02:07,540 --> 00:02:14,576
+And just as a little reminder,
+if I look at this image_train data set,
+
+30
+00:02:14,576 --> 00:02:19,265
+.head, in this s frame,
+we have the image id,
+
+31
+00:02:19,265 --> 00:02:25,015
+the actual image,
+the label which we're not gonna use for
+
+32
+00:02:25,015 --> 00:02:30,670
+retrieval, we're not gonna
+use that label at all.
+
+33
+00:02:30,670 --> 00:02:34,030
+The image array of the pixels,
+which we're also not gonna use, but
+
+34
+00:02:34,030 --> 00:02:36,590
+it already has the deep
+features precomputed.
+
+35
+00:02:36,590 --> 00:02:41,520
+In the notebook on deep features for
+classification,
+
+36
+00:02:41,520 --> 00:02:44,950
+we looked at those lines that you need
+to compute that column, deep features.
+
+37
+00:02:44,950 --> 00:02:49,520
+Here, I'm just gonna use
+those deep features.
+
+38
+00:02:49,520 --> 00:02:54,029
+[MUSIC]

@@ -1,0 +1,235 @@
+1
+00:00:00,383 --> 00:00:04,463
+[NHẠC]
+
+2
+00:00:04,463 --> 00:00:05,358
+Bây giờ
+
+3
+00:00:05,358 --> 00:00:11,030
+chúng ta nói về cách bạn xây dựng mô hình học máy sử dụng dữ liệu như thế nào?
+
+4
+00:00:11,030 --> 00:00:12,850
+Bạn đo chất lượng của nó như thế nào?
+
+5
+00:00:12,850 --> 00:00:14,950
+Và bạn hiểu liệu nó có làm việc tốt hay không như thế nào?
+
+6
+00:00:14,950 --> 00:00:17,140
+Nhưng điều đó không đủ để xây dựng một ứng dụng thông minh.
+
+7
+00:00:17,140 --> 00:00:20,704
+Khi bạn xây dựng một ứng dụng thông minh, bạn muốn lấy tất cả cái bạn học và
+
+8
+00:00:20,704 --> 00:00:22,690
+đặt nó phía trước,
+
+9
+00:00:22,690 --> 00:00:26,960
+giả sử khách hàng của công ty bạn sẽ vào trang web của bạn để mua sản phẩm.
+
+10
+00:00:26,960 --> 00:00:29,130
+Quá trình đó sẽ như thế nào?
+
+11
+00:00:29,130 --> 00:00:32,285
+Có nhiều các khía cạnh liên quan đến nó.
+
+12
+00:00:32,285 --> 00:00:35,505
+Đó là cái mà chúng ta gọi là triển khai mô hình, nơi chúng ta đang lấy mô hình và
+
+13
+00:00:35,505 --> 00:00:38,605
+chúng ta cho phép nó phục vụ sự dự đoán trong thời gian thực.
+
+14
+00:00:38,605 --> 00:00:40,085
+Chúng ta sẽ nói về điều đó.
+
+15
+00:00:40,085 --> 00:00:44,782
+Sau đó chung ta nói về cách chúng ta đánh giá mô hình đó để chắc chắn cái chúng ta làm và
+
+16
+00:00:44,782 --> 00:00:49,222
+như chúng ta huấn luyện mô hình vẫn tốt trong thời gian dài chạy chúng ta sử dụng nó.
+
+17
+00:00:49,222 --> 00:00:52,302
+Chúng ta phải nghĩ về tất cả các phần quản lí.
+
+18
+00:00:52,302 --> 00:00:56,002
+Cách đảm bảo mô hình rất tốt, cách chúng ta thay thế nó khi mô hình
+
+19
+00:00:56,002 --> 00:00:59,146
+cải thiện và cách chúng ta phản ứng với sự đo đạt mà chúng ta tạo ra,
+
+20
+00:00:59,146 --> 00:01:03,056
+điều này là các số liệu mà chúng ta giám sát theo thời gian để hiểu
+
+21
+00:01:03,056 --> 00:01:06,556
+liệu mô hình của chúng ta có tốt hay đã đến lúc phải học lại từ dữ liệu.
+
+22
+00:01:06,556 --> 00:01:09,326
+Bây giờ tất cả các phần đang đến cùng nhau.
+
+23
+00:01:09,326 --> 00:01:14,216
+Chúng không đơn lẻ, bị chia tách nhưng các phần tương tác chúng ta cần
+
+24
+00:01:14,216 --> 00:01:18,796
+hiểu một cách sâu sắc và tạo ra một chu kì sự cải tiến của các mô hình chúng ta có.
+
+25
+00:01:18,796 --> 00:01:19,976
+Hãy bắt đầu với điều đầu tiên.
+
+26
+00:01:19,976 --> 00:01:22,210
+Hãy bắt đầu với phần triển khai.
+
+27
+00:01:22,210 --> 00:01:24,030
+Cân nhắc thiết lập sau.
+
+28
+00:01:24,030 --> 00:01:27,600
+Bạn đang xây dựng một loại sản phẩm mới về hệ thống tư vấn và
+
+29
+00:01:27,600 --> 00:01:31,810
+bạn đang sử dụng một loạt dữ liệu với hàng triệu đánh giá sản phẩm và người sử dụng.
+
+30
+00:01:31,810 --> 00:01:35,915
+Và bạn muốn lấy mô hình bạn đã học trên máy tính xách tay của bạn, trong máy tính bàn của bạn hoặc
+
+31
+00:01:35,915 --> 00:01:37,785
+trong các phần lớn của các máy.
+
+32
+00:01:37,785 --> 00:01:41,585
+Và triển khai nó trên trang web mà thực sự tương tác với người sử dụng của bạn.
+
+33
+00:01:41,585 --> 00:01:42,965
+Chúng trông như thế nào? 
+
+34
+00:01:42,965 --> 00:01:46,233
+Toàn bộ hệ thống đó bắt đầu với một số dữ liệu lịch sử.
+
+35
+00:01:46,233 --> 00:01:50,035
+Một số dữ liệu mà bạn đã thu thập về người sử dụng hệ thống của bạn,
+
+36
+00:01:50,035 --> 00:01:52,205
+các đánh giá họ đã viết, những điều họ thích.
+
+37
+00:01:52,205 --> 00:01:57,010
+Và chúng ta lấy dữ liệu đó, chúng ta đưa nó vào huấn luyện mô hình như chúng ta đã thấy trong
+
+38
+00:01:57,010 --> 00:02:02,710
+các hệ thống bộ tư vấn mà Emily dã dạy, quá trình đó
+
+39
+00:02:02,710 --> 00:02:07,020
+với dữ liệu lịch sử được làm gọi là thiết lập diễn đàn.
+
+40
+00:02:07,020 --> 00:02:10,820
+Bạn học một mô hình, giả sử trên máy tính bàn của bạn hoặc trong một thiết bị,
+
+41
+00:02:10,820 --> 00:02:14,340
+lấy một mô hình và triển khai nó, ví dụ trong đám mấy để
+
+42
+00:02:14,340 --> 00:02:16,970
+bạn có thể thực hiện cái gọi là các dự đoán.
+
+43
+00:02:16,970 --> 00:02:20,570
+Đây là trực tuyến, phần thời gian thực của hệ thống.
+
+44
+00:02:20,570 --> 00:02:23,650
+Ví dụ nếu chung ta có một trang web, nếu đây là cái chúng ta phục vụ,
+
+45
+00:02:23,650 --> 00:02:26,610
+trang web sẽ cho tôi thông tin về người sử dụng của tôi,
+
+46
+00:02:26,610 --> 00:02:28,870
+Họ đang làm ngay bây giờ, cái trang họ thấy,
+
+47
+00:02:28,870 --> 00:02:30,920
+sản phẩm họ đang nghĩ đến để mua.
+
+48
+00:02:30,920 --> 00:02:34,820
+Và từ đó chúng ta sẽ phục vụ sự dự đoán trong thời gian thực,
+
+49
+00:02:34,820 --> 00:02:37,700
+kiểm tra đồ chơi con hươu cao cổ có thể nhai được này.
+
+50
+00:02:37,700 --> 00:02:38,790
+Bạn còn nhớ chứ?
+
+51
+00:02:38,790 --> 00:02:42,600
+Kiểm tra cái này có thể là cái mà bạn muốn mua bây giờ.
+
+52
+00:02:42,600 --> 00:02:48,250
+Người sử dụng thấy con hươu cao cổ đó và họ có thể mua hoặc không mua.
+
+53
+00:02:48,250 --> 00:02:50,740
+Đó là một loại phản hồi chúng ta sẽ quay lại hệ thống.
+
+54
+00:02:50,740 --> 00:02:52,930
+Người sử dụng mua nó hay họ không mua nó?
+
+55
+00:02:52,930 --> 00:02:55,660
+Điều đó sẽ ảnh hưởng đến cả hai, quyết định của chúng ta.
+
+56
+00:02:55,660 --> 00:02:59,940
+Và quay lại dữ liệu lịch sử được thu thập trong thời gian dài chạy để
+
+57
+00:02:59,940 --> 00:03:04,410
+chúng ta có thể cải thiện mô hình của chúng ta như chúng ta thu thập nhiều dữ liệu từ thế giới.
+
+58
+00:03:04,410 --> 00:03:09,300
+Điều đó giống cái mà hệ thống triển khai cho học máy. 
+
+59
+00:03:09,300 --> 00:03:13,010
+[NHẠC]

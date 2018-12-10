@@ -1,0 +1,73 @@
+In this module we've talked about a document retrieval task and we've also
+talked about a notion of clustering where we're trying to uncover some underlying
+structure in the data and we talked about many different areas in which this
+notion of clustering can be really useful. So let's go through the workflow for
+a clustering algorithm. And if you feel like you already know this
+at this point because you've seen this workflow now in two other modules. Well, wake up! Because this one's going
+to be a bit different. Okay, so
+let's talk about our training data. Here, our training data for a document clustering task is
+going to be a document ID and document text table. So we have a whole bunch of documents. And we have all the texts
+associated with each of those. And then we're gonna extract
+some set of features. And we talked about a lot of different
+ways to represent a document. But the one that I'll use just as
+an example here is our tf-idf. Term frequency-inverse document
+frequency representation. And then what we're gonna
+do is we're gonna try and cluster our documents based
+on this representation. So we're gonna put these features
+through some machine learning model. Which in this case is a clustering model. And we're gonna output for
+each document a cluster label. So the output white hat
+is our cluster label. Okay, so
+here's where things get interesting, because we wanna assess
+the accuracy of our cluster labels. Well, in this case we don't
+have true cluster labels, so I should say this is our predicted,
+or estimated, cluster label. But we don't have a true cluster
+label to compare against. So this y here, it does not exist. And that's because, as we talked about,
+we're in an unsupervised learning setting. Unsupervised. Okay. So we don't have that but somehow we wanna assess some measure
+of accuracy of our clustering. So let's draw a little picture here which
+is gonna be our Voronoi tessellation and our k-means algorithm where we have some
+set of cluster centers and we have data. I should say our data look like this,
+I don't know, I'm just gonna draw some points here. And the measure of accuracy
+that we're gonna use, the way we're gonna measure our quality is
+to look at how coherent our clustering is. So we're gonna look at the distances
+from each observation to their assigned cluster center. And a good clustering algorithm
+has those distances very small. Okay, so the goal is to minimize these
+distances and so what we see is to measure this accuracy, to measure these distances,
+what we need is our data. We need our tf-idf vectors. So those are gonna come in here, and
+then we also need the cluster centers. And so W hat,
+that's our current estimate of, that's our model parameter here and
+the k means algorithm. It's our cluster, whoops. Let's see if we can spell that correctly,
+cluster centers. That's what W hat represents. And so of course to measure these
+distances we also need W hat. So instead of having actual cluster
+labels to assess accuracy we're gonna take our document representation and
+our cluster centers. Plug it into this quality measure, which is looking at distances
+to cluster centers. That's our measure of error,
+though it's not really an error. It's just a measure of. Oops. Just a measure of quality. So I won't put that word there. Okay, so
+I think that's a little confusing. But let's just write
+distances to cluster centers. And then what's our algorithm? We're talking about k-means as
+a method of doing clustering. Of course there are others, but
+let's focus on k-means, well, what's k-means doing? Let's just redraw this diagram, actually,
+I can just switch to another color. That will save us some time here. Well, k-means is trying to minimize this
+distance, or the sum of these distances, and the way it's doing that is
+iteratively it's updating so this was our W hat that we had before and
+we're moving it to a new W hat that represents
+the center of mass of these points. So these points are getting shifted. And this point will go directly
+on top of that observation and so
+this is the work flow of clustering. Let's just say it at a high
+level one more time. We take our documents, we represent them
+in some way, using either raw word counts, tf-idf, normalizations of these things. Lots of different bigrams,
+trigrams, things we can look at for our document representation. Then our clustering algorithm, like
+k-means is producing clustering labels and iteratively, we're looping through
+here again and again updating our cluster centers, that's
+the parameters of this clustering model. By looking at how far our assigned
+observations are to those cluster centers. So in this module in contrast to other
+modules we actually presented you with some of the algorithmic details behind
+the methods that we're looking at. Specifically for clustering, we talked
+about the k-means algorithm, and then for our document retrieval task, we also
+talked about doing nearest neighbor search, and provided some of
+the algorithmic details for that, and you specifically explore that
+in an ipython notebook for doing Wikipedia entry retrieval. So, at this point, you really
+should be able to go out there and build a really cool retrieval system for
+doing news article retrieval. Or any other really, really, really cool
+retrieval that I can't think of right now. But of course there's lots
+of interesting examples. So go out there and think of ideas
+that I can't think of right now. [MUSIC]

@@ -1,0 +1,17 @@
+[MUSIC] So I showed you some examples of
+neural networks in computer vision and doing classification. Is there a labrador
+retriever in this image? But they can do quite a bit more. So, for example, we can do image parsing. So in this example, for
+every picture in the image, you're trying to classify it and
+discover regions. So in the center top image,
+you see a region of sky, another region of grass, and so on. And this kind of image description,
+or is called scene understanding, is pretty cool, and you know networks
+again, provided significant gains. But if we go back to
+the beginning of the module when we discussed a new way to shop for
+shoes or dresses, the thing that we're really trying to
+do there is retrieve similar images. So, for example, if I give you
+the input of this boring black shoe, what neural network with output. Deep neural network is
+the shoes that are shown here. A bunch of boring black shoes. Now, if I do this a little
+bit more stylish boot, you'll see that it gives you a variety
+of interesting boots like that. Similarly, for heels, for
+brown shoes, for sneakers and so on. So this is the core of the concept that
+we're using in the demo that we showed at the beginning of the module. [MUSIC]

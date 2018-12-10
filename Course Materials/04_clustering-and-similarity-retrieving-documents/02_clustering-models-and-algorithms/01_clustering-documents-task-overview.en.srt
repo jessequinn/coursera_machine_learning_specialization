@@ -1,0 +1,182 @@
+1
+00:00:00,273 --> 00:00:04,003
+[MUSIC]
+
+2
+00:00:04,003 --> 00:00:06,423
+Okay, so that's one way to
+retrieve a document of interest.
+
+3
+00:00:06,423 --> 00:00:09,262
+Just take all articles out there,
+scan over them, and
+
+4
+00:00:09,262 --> 00:00:13,103
+find the one that's most similar
+according to the metric that we define.
+
+5
+00:00:13,103 --> 00:00:17,987
+But another thing we might be interested
+in doing is clustering documents that
+
+6
+00:00:17,987 --> 00:00:20,440
+are related, so for example.
+
+7
+00:00:20,440 --> 00:00:25,400
+You might have a whole bunch of
+articles about sports or world news or
+
+8
+00:00:25,400 --> 00:00:31,200
+different things like this, and if we
+can structure our corpus in this way,
+
+9
+00:00:31,200 --> 00:00:34,890
+if a person is reading
+an article that's about sports,
+
+10
+00:00:34,890 --> 00:00:40,070
+then we can very quickly search over
+all the other articles about sports,
+
+11
+00:00:40,070 --> 00:00:44,260
+instead of looking at every article
+that's out there in the entire corpus.
+
+12
+00:00:44,260 --> 00:00:48,719
+But the challenge here is the fact that
+these articles aren't going to have
+
+13
+00:00:48,719 --> 00:00:49,300
+labels.
+
+14
+00:00:49,300 --> 00:00:52,024
+It's not gonna be like the New York Times,
+where you go and
+
+15
+00:00:52,024 --> 00:00:54,260
+somebody says,
+this is an education article.
+
+16
+00:00:54,260 --> 00:00:57,778
+Okay, and all we have are articles,
+and what we like to do, or
+
+17
+00:00:57,778 --> 00:01:01,300
+discover these underlying
+groups of articles.
+
+18
+00:01:01,300 --> 00:01:06,270
+Okay, so the goal is to discover these
+groups or clusters of related articles,
+
+19
+00:01:06,270 --> 00:01:10,830
+and like I mentioned, one might represent
+a set of articles like sports, and
+
+20
+00:01:10,830 --> 00:01:13,290
+another one a set of
+articles about world news.
+
+21
+00:01:15,140 --> 00:01:19,350
+For the time being, let's actually assume
+that someone provides us with labels,
+
+22
+00:01:19,350 --> 00:01:23,130
+so, somebody goes through and
+reads every article or
+
+23
+00:01:23,130 --> 00:01:27,770
+at least a large sub-set of articles
+in our corpus and labels them and
+
+24
+00:01:27,770 --> 00:01:30,800
+says, okay, these articles,
+these are all about sports.
+
+25
+00:01:30,800 --> 00:01:33,260
+And these ones,
+these are about world news.
+
+26
+00:01:33,260 --> 00:01:35,060
+And these about entertainment.
+
+27
+00:01:35,060 --> 00:01:37,300
+And these ones are about science.
+
+28
+00:01:37,300 --> 00:01:42,370
+So we have some set of articles that
+have labels associated with them.
+
+29
+00:01:42,370 --> 00:01:47,500
+Well, in this case, when we have
+our query article and we like to
+
+30
+00:01:47,500 --> 00:01:54,200
+sign it to a cluster, this ends up being
+just a multi-class classification problem.
+
+31
+00:01:54,200 --> 00:01:57,665
+Because the question is just,
+here is my query article,
+
+32
+00:01:57,665 --> 00:02:02,590
+I don't know the label associated with it,
+and I have a bunch of label document.
+
+33
+00:02:02,590 --> 00:02:08,403
+I have the labels world news, science,
+sports, entertainment, technology,
+
+34
+00:02:08,403 --> 00:02:13,390
+and I just wanna classify which
+class this article belongs to, okay?
+
+35
+00:02:13,390 --> 00:02:14,850
+So this is the question.
+
+36
+00:02:14,850 --> 00:02:17,600
+It's just a multi class
+classification problem.
+
+37
+00:02:17,600 --> 00:02:23,970
+So if that were the case, that would be an
+example of a supervise learning problem.
+
+38
+00:02:23,970 --> 00:02:27,884
+[MUSIC]

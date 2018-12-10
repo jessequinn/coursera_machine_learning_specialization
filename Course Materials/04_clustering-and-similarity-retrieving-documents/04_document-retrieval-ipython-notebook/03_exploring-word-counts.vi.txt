@@ -1,0 +1,49 @@
+[NHẠC] Đây là dữ liệu chúng ta đang thực hiện. Nó là một tập dữ liệu khá gọn gàng,
+và hãy khám phá nó một chút. Trong các bài giảng, Emily đã nói
+về việc xây dựng đếm từ. Và một số thách thức với đếm từ. Chúng ta hãy bắt đầy bằng việc nhìn nhanh
+qua các đếm từ của chúng ta. Ví dụ, #Get the word counts for the Obama article. Chúng ta có một bài báo trên
+Wikipedia về Barack Obama. Và việc chúng ta sẽ làm đầu tiên
+là nhìn nhanh vào đếm từ cho bài báo đó. Tôi sẽ lấy biến Obama này
+mà chúng ta đã tạo ra và tôi sẽ thêm cột mới cho
+nó gọi là word_count. Điều này sẽ lưu trữ đếm từ
+cho Barack Obama. Và chúng ta có thể làm
+điều đó bằng cách gọi. Bạn có thể viết, khi chúng ta trình bày trong
+ notebook phân loại phân tích cảm tính, bạn có thể viết chức năng tính toán đếm từ. Nhưng chúng ta chỉ có một cái có sẵn
+trong hộp công cụ phân tích văn bản. Chúng ta sẽ sử dụng nó để
+bắt đầu một cách nhanh chóng. Chúng ta chỉ cần nhập count_words. Hãy xem count_ngrams này, chúng ta sẽ
+chỉ đếm các từ trong cùng một đơn vị gram, các từ đơn. Và đầu vào chúng ta sẽ đưa nó nội dung Obama. Tôi đã hoàn thành nó. Hãy nhìn qua thật nhanh. Chúng ta sẽ xuất đếm từ Obama. Và chúng ta có ở đây. Chúng ta đã in ra số từ Obama. Và bạn thấy rằng 'operation' xuất hiện
+một lần nữa, 'represent' xuất hiện một lần, 'office' xuất hiện 2 lần, 'unemployed' xuất hiện 1 lần và vân vân các từ khác. Và đó không phải là siêu trực quan. Chúng ta sẽ chơi điều này một chút
+và trong quá trình, tôi sẽ chỉ cho bạn một số kỹ thuật nhỏ mà
+có thể là hữu ích trong các lĩnh cực khác. Chúng ta sẽ làm bước tiếp theo là
+##Sort the word count for tài liệu Obama. Bây giờ ở đây có một số điểu phải hiểu,
+nếu bạn chú ý các đếm từ là một quyển từ điển thực sự, nó là một loại từ điển python. Bạn được phát một chìa khóa,
+trong trường hợp này, nó là từ. Ví dụ, Honolulu nơi mà ông ấy sinh ra,
+thời tiết, hôn nhân và vân vân. Và sau đó ông ấy có giá trị là
+1,2,3,5,30 đó là đếm, tần suất xuất hiện các từ là bao nhiêu. Cái mà chúng ta sẽ làm
+là phân loại điều này. Và để phân loại các từ, chúng ta phải
+chuyển nó thành bảng mà một cột là một từ, chìa khóa của từ điển
+và cột thứ hai là đếm. Sau đó chúng ta sẽ phân loại bảng đó. Cách để làm điều này, cách nổi tiếng
+để học Python nhưng hãy để tôi chỉ cho bạn mẹo nhỏ
+mà bạn sẽ thấy rất hữu ích. Tôi sẽ tạo ra bảng mới gọi là
+obama_word_count_table. Cái mà tôi sẽ làm là dùng Obama
+này và tôi chỉ cần chọn ở đây, ngoài các cột trong bảng Obama,
+tôi sẽ chọn word_count. Bởi vì điều này sẽ in ra
+dữ liệu gọn gàng hơn. Nhưng bạn cũng có thể làm
+điều đó với toàn bộ bảng. Sau đó tôi sẽ dùng chức năng
+được gọi là stack. Chức năng này cực kì hữu ích. Nó lấy 1 cột của SFrame chứa từ điển và xếp chồng lên nhau
+một cột thành nhiều cột. Trong trường hợp này, hai cột. Một cột từ và một cột đếm. Chúng ta sẽ xếp một cột cụ thể
+gọi là word_count, cột mà chúng ta thực sự quan tâm. Và nó tạo ra các cột mới. Chúng ta phải đặt cho chúng một cái tên. new_column_name, trong trường hợp
+có hai trong số chúng. Một cái tôi sẽ gọi là word. Cái kia tôi gọi là count. Và nếu tôi thực hiện điều này,
+chúng ta nhìn vào bảng này, Obama word count table.head
+chỉ có vài dòng đầu tiên. Bạn sẽ thấy có các từ 'normalize, combat,
+sought' nhưng không được sắp xếp. Nó không phải là bảng sắp xếp. Vì thế cái mà chúng ta làm tiếp theo là
+ lấy bảng này và sắp xếp theo số lượng. Và chúng ta đã thấy điều này trước đây
+nhưng nó khá là đơn giản. Tôi sẽ lấy bảng đếm Obama và
+tôi sẽ dùng chức năng sắp xếp. Tôi sẽ sắp xếp nó bằng cột đếm. Sắp xếp bằng số đếm. Và tôi sẽ dùng ascending=false. Thay vì phân loại theo thứ tự
+tăng dần 1, 2, 3, như là chúng ta thường làm,
+chúng ta sẽ phân loại theo thứ tự giảm dần. 3,2,1. Nếu tôi ấn enter bạn sẽ thấy
+từ phổ biến nhất là 'the', sau đó là 'in', 'and', 'of', 'to', 'his',
+cuối cùng là 'Obama'. Và 'act', 'a', 'he'. Những từ này không có tính thông tin. Và trong các bài giảng khi chúng ta
+học với Emily, cô ấy đã đề cập đến vấn đề các từ không có tính thông tin
+có thể làm mất đi các từ quan trọng. Và đó là lý do chúng ta giới thiệu
+khái niệm tf-idf. [NHẠC]

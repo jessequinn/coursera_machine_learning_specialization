@@ -1,0 +1,635 @@
+1
+00:00:00,000 --> 00:00:04,275
+[MUSIC]
+
+2
+00:00:04,275 --> 00:00:07,910
+Okay, given your great historical
+perspective of machine learning-
+
+3
+00:00:07,910 --> 00:00:08,680
+>> Are you calling me old?
+
+4
+00:00:08,680 --> 00:00:10,010
+>> I am calling you old.
+
+5
+00:00:10,010 --> 00:00:12,075
+>> It's always like this.
+
+6
+00:00:12,075 --> 00:00:16,566
+>> [LAUGH] I was wondering if you
+could give me a little perspective on
+
+7
+00:00:16,566 --> 00:00:17,488
+the future.
+
+8
+00:00:17,488 --> 00:00:18,951
+>> Well, let's talk about the present.
+
+9
+00:00:18,951 --> 00:00:19,784
+>> Okay.
+
+10
+00:00:19,784 --> 00:00:23,250
+>> [LAUGH]
+>> I'll accept that,
+
+11
+00:00:23,250 --> 00:00:24,870
+we can talk about the present.
+
+12
+00:00:24,870 --> 00:00:27,890
+He always makes things really long and
+really detailed.
+
+13
+00:00:27,890 --> 00:00:29,825
+So just talk about the present.
+
+14
+00:00:29,825 --> 00:00:31,714
+We'll get to the future eventually,
+don't worry.
+
+15
+00:00:31,714 --> 00:00:36,620
+>> [LAUGH]
+>> Here we go, the present.
+
+16
+00:00:36,620 --> 00:00:38,270
+What is the state of machine learning,
+Carlos?
+
+17
+00:00:38,270 --> 00:00:41,934
+>> [CROSSTALK] I'm really excited about
+machine learning today, honestly.
+
+18
+00:00:41,934 --> 00:00:44,560
+Being old, that you work in
+machine learning for a long time.
+
+19
+00:00:44,560 --> 00:00:48,590
+But today, every time I open a web app,
+it uses machine learning inside it.
+
+20
+00:00:48,590 --> 00:00:50,346
+And that's pretty cool.
+
+21
+00:00:50,346 --> 00:00:53,109
+And I pull out my phone, where's my phone?
+
+22
+00:00:53,109 --> 00:00:54,552
+You always have your phone with you.
+
+23
+00:00:54,552 --> 00:00:56,482
+>> I actually don't have
+my phone right now.
+
+24
+00:00:56,482 --> 00:00:57,450
+>> She's always on her phone.
+
+25
+00:00:58,800 --> 00:01:02,350
+Anyway, when you pull out your phone,
+every time you use it, there's
+
+26
+00:01:02,350 --> 00:01:06,550
+a system that uses machine learning
+right inside the cloud that supports it.
+
+27
+00:01:06,550 --> 00:01:08,164
+Which is really pretty cool.
+
+28
+00:01:08,164 --> 00:01:10,820
+And now with devices, check this out.
+
+29
+00:01:10,820 --> 00:01:12,525
+I got this watch.
+
+30
+00:01:12,525 --> 00:01:15,300
+>> Pretty spiffy.
+>> It's a wonderful watch that
+
+31
+00:01:15,300 --> 00:01:18,680
+tracks my activity,
+knows when I'm running, when I'm biking-
+
+32
+00:01:18,680 --> 00:01:19,680
+>> Knows when he's sleeping or
+
+33
+00:01:19,680 --> 00:01:20,360
+not sleeping.
+
+34
+00:01:20,360 --> 00:01:23,192
+Always this debate,
+who got less sleep with the baby?
+
+35
+00:01:23,192 --> 00:01:24,619
+[LAUGH]
+>> [LAUGH] So, yeah,
+
+36
+00:01:24,619 --> 00:01:26,344
+that's a wonderful watch.
+
+37
+00:01:26,344 --> 00:01:29,140
+And underneath these things,
+it's all using machine learning.
+
+38
+00:01:29,140 --> 00:01:32,156
+So we see the power of machine
+learning just kind of, again and
+
+39
+00:01:32,156 --> 00:01:33,780
+again, being used today.
+
+40
+00:01:33,780 --> 00:01:37,770
+But I think we've only scratched the
+surface of what machine learning can do.
+
+41
+00:01:37,770 --> 00:01:40,320
+Where do you see machine
+learning going in the future?
+
+42
+00:01:40,320 --> 00:01:40,902
+You tell me.
+
+43
+00:01:40,902 --> 00:01:42,323
+>> Where do I see it?
+
+44
+00:01:42,323 --> 00:01:47,045
+Well, I know probably a lot of ways in
+which it would be useful to Carlos.
+
+45
+00:01:47,045 --> 00:01:49,935
+One being the fact that he hates driving.
+
+46
+00:01:49,935 --> 00:01:56,455
+So of course, there is this smart car idea
+that this self-driving, not smart car.
+
+47
+00:01:56,455 --> 00:01:57,635
+>> They're also smart.
+
+48
+00:01:57,635 --> 00:01:58,775
+>> Are they smart?
+
+49
+00:01:58,775 --> 00:02:00,055
+They're pretty smart, I guess.
+
+50
+00:02:00,055 --> 00:02:01,655
+It's a self-driving car.
+
+51
+00:02:01,655 --> 00:02:02,785
+A smart car is a brand.
+
+52
+00:02:02,785 --> 00:02:04,965
+That's not what I mean,
+I don't mean those little cars.
+
+53
+00:02:04,965 --> 00:02:09,850
+I mean normal cars [LAUGH]
+that drive themselves.
+
+54
+00:02:09,850 --> 00:02:12,560
+>> That would be really useful for
+me, because I don't like driving.
+
+55
+00:02:12,560 --> 00:02:13,920
+I only like biking.
+
+56
+00:02:13,920 --> 00:02:16,575
+And so I need some-
+>> Self-driving bikes.
+
+57
+00:02:16,575 --> 00:02:17,260
+>> No, no, I like driving my bike.
+
+58
+00:02:17,260 --> 00:02:19,290
+>> [CROSSTALK] That's for
+when you get really, really old.
+
+59
+00:02:19,290 --> 00:02:20,946
+[LAUGH]
+>> [CROSSTALK] So
+
+60
+00:02:20,946 --> 00:02:22,312
+I'm gonna talk about that.
+
+61
+00:02:22,312 --> 00:02:26,317
+But when I think about me getting old,
+I think about how machine learning can
+
+62
+00:02:26,317 --> 00:02:29,670
+really have impact with
+your personalized medicine.
+
+63
+00:02:29,670 --> 00:02:32,550
+And the question here is,
+why is it when I go to a doctor for
+
+64
+00:02:32,550 --> 00:02:34,310
+certain disease or certain condition,
+
+65
+00:02:34,310 --> 00:02:37,870
+the treatment that Emily gets is exactly
+the same as the treatment that I get.
+
+66
+00:02:37,870 --> 00:02:41,315
+I mean, we're different people
+with different lifestyles,
+
+67
+00:02:41,315 --> 00:02:43,720
+with different body types, as you can see.
+
+68
+00:02:43,720 --> 00:02:47,160
+And still, with medicine,
+we're getting exactly the same treatment.
+
+69
+00:02:47,160 --> 00:02:48,260
+That makes no sense.
+
+70
+00:02:48,260 --> 00:02:51,780
+The treatment needs to be
+personalized to who I am, what I do,
+
+71
+00:02:51,780 --> 00:02:55,800
+how much of a couch potato I am,
+what my DNA looks like.
+
+72
+00:02:55,800 --> 00:02:58,430
+And with machine learning, we're going
+to be able to do that all the time.
+
+73
+00:02:58,430 --> 00:02:59,950
+It's really super cool,
+I'm pretty excited.
+
+74
+00:02:59,950 --> 00:03:02,770
+>> That was just so
+optimistic, which is good.
+
+75
+00:03:02,770 --> 00:03:04,570
+It's really nice, but it's hard!
+
+76
+00:03:04,570 --> 00:03:06,308
+It's really, really hard to do this.
+
+77
+00:03:06,308 --> 00:03:11,850
+The data is really noisy, cuz there's some
+doctor who's there taking these records,
+
+78
+00:03:11,850 --> 00:03:15,770
+making notes about Carlos' health
+conditions compared to mine.
+
+79
+00:03:15,770 --> 00:03:18,370
+And then there's lots of missing data,
+because
+
+80
+00:03:18,370 --> 00:03:22,490
+maybe Carlos skipped his last checkup or
+the doctor forgot to enter something.
+
+81
+00:03:22,490 --> 00:03:26,600
+Or maybe the doctor put something under
+a different entry than they did for me.
+
+82
+00:03:26,600 --> 00:03:30,000
+And so somehow our machine learning
+algorithms are gonna have to be able to
+
+83
+00:03:30,000 --> 00:03:31,900
+parse this really complex and
+
+84
+00:03:31,900 --> 00:03:36,340
+noisy data, in order to do this
+type of personalized medicine.
+
+85
+00:03:36,340 --> 00:03:38,020
+Which I think is a possibility.
+
+86
+00:03:38,020 --> 00:03:42,280
+I think it's really cool, but-
+>> It is hard.
+
+87
+00:03:42,280 --> 00:03:44,840
+All these other things we're
+talking about, from self-driving
+
+88
+00:03:44,840 --> 00:03:48,340
+cars which we're seeing as a reality
+today, to personalized medicine.
+
+89
+00:03:48,340 --> 00:03:49,770
+It's all hard stuff.
+
+90
+00:03:49,770 --> 00:03:53,895
+But in the future, and
+this is the optimistic in me,
+
+91
+00:03:53,895 --> 00:03:56,850
+the world is going to
+be personalized to me.
+
+92
+00:03:56,850 --> 00:03:58,715
+>> [LAUGH]
+>> You know what I mean?
+
+93
+00:03:58,715 --> 00:04:01,416
+>> The grand goal of everything for
+Carlos.
+
+94
+00:04:01,416 --> 00:04:04,247
+[LAUGH]
+>> [LAUGH] For me and for Emily, too.
+
+95
+00:04:04,247 --> 00:04:05,765
+She can have her own world.
+
+96
+00:04:05,765 --> 00:04:11,145
+So the idea that today
+when we go to the Web and
+
+97
+00:04:11,145 --> 00:04:16,225
+we buy things, we have to go through
+very similar experiences as others.
+
+98
+00:04:16,225 --> 00:04:20,600
+But as the world becomes smarter, as more
+data is collected, as we come up with this
+
+99
+00:04:20,600 --> 00:04:23,670
+algorithms which are robust to all
+this kind of noise in the data,
+
+100
+00:04:23,670 --> 00:04:26,860
+we're gonna have experiences that
+are really unique to us, idiosyncratic.
+
+101
+00:04:26,860 --> 00:04:29,050
+And we're not gonna suffer
+as much from technology.
+
+102
+00:04:29,050 --> 00:04:31,970
+Technology's gonna really adapt to us,
+which is really super cool.
+
+103
+00:04:33,060 --> 00:04:35,700
+>> I agree, I think that is a really,
+really exciting goal.
+
+104
+00:04:35,700 --> 00:04:39,240
+And I think that is one of the directions
+that machine learning is going in.
+
+105
+00:04:39,240 --> 00:04:42,840
+But I think something else that's really
+cool is even doing the things we can
+
+106
+00:04:42,840 --> 00:04:44,000
+do right now.
+
+107
+00:04:44,000 --> 00:04:49,040
+But doing them as the data's coming in,
+in real time, with really complicated
+
+108
+00:04:49,040 --> 00:04:53,170
+different types of data sets, and
+putting all this information together.
+
+109
+00:04:53,170 --> 00:04:56,710
+And maybe it's just even
+still recommending products,
+
+110
+00:04:56,710 --> 00:05:00,820
+something we've done before in the past,
+but with different types of data.
+
+111
+00:05:00,820 --> 00:05:04,380
+And again, in this really fast,
+rapid, online type of setting, and
+
+112
+00:05:04,380 --> 00:05:10,940
+getting feedback and incorporating this
+to make these types of prediction, yeah.
+
+113
+00:05:10,940 --> 00:05:14,693
+>> Yeah, dealing with temporal data,
+which is the topic here,
+
+114
+00:05:14,693 --> 00:05:17,956
+as well as the spatial
+data like location data.
+
+115
+00:05:17,956 --> 00:05:22,550
+All this different kind of data sets,
+images, video, audio, sensing data,
+
+116
+00:05:22,550 --> 00:05:27,504
+combining all these different data sources
+in real time is one of the big challenges.
+
+117
+00:05:27,504 --> 00:05:31,490
+And what I'm excited to see is that
+there's a lot more machine learning work
+
+118
+00:05:31,490 --> 00:05:35,602
+and a lot more algorithms being developed
+that try to address this confusion of
+
+119
+00:05:35,602 --> 00:05:36,890
+different data types.
+
+120
+00:05:36,890 --> 00:05:39,692
+And that's a really cool
+topic to work on right now.
+
+121
+00:05:39,692 --> 00:05:41,399
+>> For sure, so.
+
+122
+00:05:41,399 --> 00:05:43,170
+>> Of course.
+
+123
+00:05:43,170 --> 00:05:47,110
+>> We hope that's really exciting to you,
+in addition to us.
+
+124
+00:05:47,110 --> 00:05:48,840
+>> Yeah, it is exciting.
+
+125
+00:05:48,840 --> 00:05:53,500
+And of course, the methods that
+we develop have to scale to these
+
+126
+00:05:53,500 --> 00:05:57,190
+massive data sets that we're talking
+about, different kinds of data.
+
+127
+00:05:57,190 --> 00:06:01,310
+Be able to be really useful and
+robust as you are analyzing the data.
+
+128
+00:06:01,310 --> 00:06:04,980
+And honestly, it shouldn't require
+
+129
+00:06:04,980 --> 00:06:09,150
+a PhD in machine learning to be able to
+access the systems and be able to use it.
+
+130
+00:06:09,150 --> 00:06:12,140
+So part of the challenge that
+we have to do is be able to make
+
+131
+00:06:12,140 --> 00:06:14,220
+these algorithms robust and
+these methods robust.
+
+132
+00:06:14,220 --> 00:06:16,898
+So that a wide range of people,
+even those that don't
+
+133
+00:06:16,898 --> 00:06:20,409
+have the most theoretical background
+are able to build the smartest,
+
+134
+00:06:20,409 --> 00:06:22,863
+coolest applications
+using machine learning.
+
+135
+00:06:22,863 --> 00:06:24,305
+That's exciting to me as well.
+
+136
+00:06:24,305 --> 00:06:25,209
+>> Absolutely.
+
+137
+00:06:25,209 --> 00:06:29,239
+[MUSIC]

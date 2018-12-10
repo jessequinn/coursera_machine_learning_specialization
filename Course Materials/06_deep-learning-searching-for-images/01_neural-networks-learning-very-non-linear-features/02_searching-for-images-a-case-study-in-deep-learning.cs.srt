@@ -1,0 +1,28 @@
+1
+00:00:00,019 --> 00:00:04,187
+[hudba]
+
+2
+00:00:04,187 --> 00:00:07,873
+V této lekci si probereme jednu z nejvíce vzrušujících věcí,
+
+3
+00:00:07,873 --> 00:00:09,990
+která se udála na poli ML v několika posledních letech.
+
+4
+00:00:09,990 --> 00:00:12,190
+Jde o novu oblast zájmu, označovanou jako deep learning.
+
+5
+00:00:12,190 --> 00:00:16,416
+Na jakém konkrétním use case si deep learning představíme?
+
+6
+00:00:16,416 --> 00:00:19,618
+Půjde o případ vztahující se k nakupování produktů
+výhradně na základě podobnosti obrázků.
+
+7
+00:00:19,618 --> 00:00:22,893
+[hudba]

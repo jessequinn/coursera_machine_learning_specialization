@@ -1,0 +1,216 @@
+1
+00:00:00,078 --> 00:00:04,090
+[NHẠC]
+
+2
+00:00:04,090 --> 00:00:08,020
+Bây giờ chúng ta đã thấy mô hình này hoạt động.
+
+3
+00:00:08,020 --> 00:00:15,760
+Và chúng ta đã hoàn thành cái này, cái mà chúng ta gọi là một loại
+
+4
+00:00:15,760 --> 00:00:19,790
+định lượng, chỉ là một loại khám phá định lượng giai thoại.
+
+5
+00:00:19,790 --> 00:00:23,380
+Hãy thực hiện sự so sánh định lượng.
+
+6
+00:00:23,380 --> 00:00:27,700
+giữa mô hình cá nhân hóa và mô hình phổ biến.
+
+7
+00:00:27,700 --> 00:00:33,079
+Bây giờ chúng ta sẽ thực hiện
+
+8
+00:00:33,079 --> 00:00:38,704
+sự so sánh định lượng 
+
+9
+00:00:38,704 --> 00:00:43,120
+giữa các mô hình.
+
+10
+00:00:43,120 --> 00:00:49,310
+Như là chúng ta đã khám phá với gia đình trong các bài học,
+
+11
+00:00:49,310 --> 00:00:54,230
+khi chúng ta so sánh các bộ tư vấn, một phép đo tốt
+ để sử dụng là phép thu hồi chính xác.
+
+12
+00:00:54,230 --> 00:01:00,402
+Chúng ta có thể khám phá đường cong
+ thu hồi chính xác cho hai mô hình này phải không?
+
+13
+00:01:00,402 --> 00:01:06,020
+Chúng ta đã thảo luận về matplotlib trong một ghi chú khác,
+
+14
+00:01:06,020 --> 00:01:10,724
+vì thế chúng ta sẽ đặt matplotlib ở đây và
+
+15
+00:01:10,724 --> 00:01:15,559
+tôi sẽ thêm dòng lệnh này vào để
+
+16
+00:01:15,559 --> 00:01:20,265
+đảm bảo rằng matplotlib thực sự xuất 
+
+17
+00:01:20,265 --> 00:01:25,380
+vào bộ tư vấn, vào ghi chú.
+
+18
+00:01:26,740 --> 00:01:34,170
+Matplotlib và cái mà tôi sẽ làm là tính toán model_performance.
+
+19
+00:01:36,360 --> 00:01:42,240
+Đây là biến mà tôi sẽ tạo ra, có phương pháp này trong
+
+20
+00:01:42,240 --> 00:01:47,265
+các thư viện được giới thiệu từ việc tạo graphlab.
+
+21
+00:01:47,265 --> 00:01:50,615
+Nó là tập tiện ích cho các bộ tư vấn và
+
+22
+00:01:50,615 --> 00:01:53,855
+một trong số đó rất thú vị được gọi là compare_models.
+
+23
+00:01:53,855 --> 00:01:57,725
+Thử so sánh các mô hình tư vấn khác nhau và hiểu cách chúng hoạt động.
+
+24
+00:01:57,725 --> 00:02:01,956
+Tôi sẽ so sánh các mô hình tư vấn khác nhau trên
+
+25
+00:02:01,956 --> 00:02:04,668
+test_data của chúng ta mà tôi đang tách ra.
+
+26
+00:02:04,668 --> 00:02:10,329
+Các mô hình tôi sẽ so sánh là popularity_model và
+
+27
+00:02:10,329 --> 00:02:17,554
+personalize_model, vì thế đây là danh sách của hai mô hình trong phép so sánh.
+
+28
+00:02:17,554 --> 00:02:22,580
+Tôi có thể so sánh nhiều hơn, nhưng tôi sẽ chỉ so sánh hai cái này.
+
+29
+00:02:22,580 --> 00:02:28,190
+Và tôi muốn nói có một thông số nhỏ ở đây
+ cái mà được gọi là người dùng mẫu.
+
+30
+00:02:28,190 --> 00:02:34,030
+Nơi mà tôi sẽ lấy mẫu một phần nhỏ của dữ liệu kiểm tra.
+
+31
+00:02:34,030 --> 00:02:38,456
+Một mẫu bằng 0.05, bởi vì trên
+
+32
+00:02:38,456 --> 00:02:43,550
+máy này mất một chút thờ gian,
+
+33
+00:02:43,550 --> 00:02:46,950
+và họ muốn thật nhanh chóng vì thế chúng ta có thể cùng nhau nhìn vào nó.
+
+34
+00:02:46,950 --> 00:02:49,240
+Nó khá là nhanh
+
+35
+00:02:49,240 --> 00:02:55,380
+Nó đang so sánh, nó đang đánh giá hiệu suất của mô hình phổ biến.
+
+36
+00:02:55,380 --> 00:02:57,090
+Đó là mô hình 0.
+
+37
+00:02:57,090 --> 00:02:59,380
+Sau đó hiệu suất của mô hình thứ 2,
+
+38
+00:02:59,380 --> 00:03:02,320
+mô hình 1, đó là mô hình được cá nhân hóa.
+
+39
+00:03:02,320 --> 00:03:05,350
+Và cuối cùng cái mà chúng ta có ở đây là các đường cong.
+
+40
+00:03:05,350 --> 00:03:10,040
+Điều cuối cùng mà chúng ta thấy trong các bài giảng và
+
+41
+00:03:10,040 --> 00:03:13,910
+điều này so sánh phép thu hồi và độ chính xác của hai mô hình.
+
+42
+00:03:13,910 --> 00:03:20,000
+Mô hình được cá nhân hóa có màu xanh lá 
+và mô hình phổ biến có màu xanh dường.
+
+43
+00:03:20,000 --> 00:03:24,680
+Bạn càng tới gần thì đỉnh này càng tốt.
+
+44
+00:03:24,680 --> 00:03:28,920
+Bạn thấy rằng việc thêm sự cá nhân hóa cải thiện đáng kể.
+
+45
+00:03:28,920 --> 00:03:32,080
+Hiệu suất của bộ tư vấn của chúng ta.
+
+46
+00:03:32,080 --> 00:03:33,870
+Sự các nhân hóa rất tuyệt.
+
+47
+00:03:33,870 --> 00:03:36,000
+Hãy giới thiệu các mặt hàng phổ biến, không quá tuyệt.
+
+48
+00:03:37,010 --> 00:03:43,070
+Với cái này, chúng ta đã xây dựng một bộ tư vấn bài hát và
+
+49
+00:03:43,070 --> 00:03:47,979
+chúng ta đã khám phá rằng chúng ta thấy
+ nó giới thiệu các bài hát hay cho ai đó như là tôi người mà thích U2
+
+50
+00:03:47,979 --> 00:03:52,070
+và Buena Vista Social Club.
+
+51
+00:03:52,070 --> 00:03:57,677
+Nhưng tất nhiên bạn có thể tiếp tục và khám phá tất cả mọi thứ mà bạn thích và
+
+52
+00:03:57,677 --> 00:04:02,653
+xem còn gợi ý bài hát nào nữa mà bạn có thể đưa ra.
+
+53
+00:04:02,653 --> 00:04:06,709
+[NHẠC]

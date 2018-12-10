@@ -1,0 +1,390 @@
+1
+00:00:00,000 --> 00:00:04,085
+[NHẠC]
+
+2
+00:00:04,085 --> 00:00:08,377
+Bây giờ chúng ta đã làm một số quy hồi đơn giản,
+một số quy hồi đơn giản cho
+
+3
+00:00:08,377 --> 00:00:11,440
+dữ liệu của chúng ta cái mà chỉ sử dụng diện tích.
+
+4
+00:00:11,440 --> 00:00:15,650
+Nhưng nếu bạn nhớ, tập dữ liệu của chúng ta
+có rất nhiều cột khác nhau liên quan đến điều đó, hoặc
+
+5
+00:00:15,650 --> 00:00:16,650
+những đặc trưng.
+
+6
+00:00:16,650 --> 00:00:20,827
+Cái mà chúng ta sẽ làm tiếp theo là
+
+7
+00:00:20,827 --> 00:00:26,014
+khám phá những đặc trưng khác trong dữ liệu.
+
+8
+00:00:28,350 --> 00:00:32,918
+Hãy làm một số thăm dò về đặc trưng khác
+chúng ta có thể sử dụng.
+
+9
+00:00:34,749 --> 00:00:39,310
+Tôi sẽ sử dụng tập các đặc trưng.
+
+10
+00:00:39,310 --> 00:00:46,120
+Hãy tạo ra một dãy các đặc trưng
+tôi sẽ khám phá, mã đặc trưng.
+
+11
+00:00:46,120 --> 00:00:52,041
+Và những đặc trưng sẽ là số
+
+12
+00:00:52,041 --> 00:00:57,490
+các phòng ngủ, số phòng tắm.
+
+13
+00:01:03,118 --> 00:01:04,420
+Chúng ta hãy xem, còn gì nữa không?
+
+14
+00:01:04,420 --> 00:01:10,080
+Diện tích không gian sống, cái mà
+chúng ta đã đang khám phá.
+
+15
+00:01:11,290 --> 00:01:15,690
+Thêm vào đó, tôi sẽ bao gồm cả diện tích, vì vậy
+
+16
+00:01:15,690 --> 00:01:18,830
+đây là số vùng đất căn nhà có xung quanh nó.
+
+17
+00:01:20,480 --> 00:01:24,390
+Số lượng sàn trong căn nhà.
+
+18
+00:01:26,210 --> 00:01:31,097
+Và cuối cùng, tôi sẽ bao gồm cả một biến
+được gọi là mã ZIP.
+
+19
+00:01:32,800 --> 00:01:36,480
+Và như vậy mã ZIP ở
+
+20
+00:01:36,480 --> 00:01:40,070
+Mỹ là cái mà các quốc gia khác gọi là mã bưu chính.
+
+21
+00:01:41,310 --> 00:01:44,090
+Ở Brazil chúng ta gọi là SAPI.
+
+22
+00:01:44,090 --> 00:01:48,130
+Nhưng có rất nhiều tên ở các nơi khác nhau,
+đó là cái mà chúng ta sẽ bao gồm.
+
+23
+00:01:48,130 --> 00:01:53,790
+Hãy xem, nếu tôi lấy dữ liệu bán và
+tôi chỉ chọn cột này,
+
+24
+00:01:53,790 --> 00:01:59,880
+chỉ chọn đặc trưng cột ở đây,
+tại sao chúng ta không gọi chúng 
+
+25
+00:01:59,880 --> 00:02:03,095
+thật rõ ràng, thay vì gọi các đặc trưng
+tôi sẽ gọi chúng là my_features.
+
+26
+00:02:04,990 --> 00:02:06,820
+Shift+Enter.
+
+27
+00:02:06,820 --> 00:02:11,050
+Và sau đó tôi sẽ nhìn xem các cột my_features trông thế nào.
+
+28
+00:02:11,050 --> 00:02:13,820
+Tôi sẽ nhập .show.
+
+29
+00:02:13,820 --> 00:02:17,020
+Hãy nhớ chúng ta có thể nhập bất kì
+.show nào với GraphLab Create.
+
+30
+00:02:17,020 --> 00:02:22,325
+Trên sframe cho bán hàng, lựa chọn my_features.
+
+31
+00:02:23,710 --> 00:02:27,090
+Và bây giờ chúng ta sẽ có hình dụng về các đặc trưng.
+
+32
+00:02:27,090 --> 00:02:29,530
+Hãy để tôi cho bạn xem qua hình dung này.
+
+33
+00:02:31,270 --> 00:02:32,490
+Chỗ có chuột của tôi.
+
+34
+00:02:32,490 --> 00:02:35,640
+các phòng ngủ, hãy nhìn vào tần xuất.
+
+35
+00:02:35,640 --> 00:02:38,280
+Có 13 loại khác nhau.
+
+36
+00:02:38,280 --> 00:02:40,739
+Thực tế có vài ngôi nhà với mười phòng ngủ.
+
+37
+00:02:43,290 --> 00:02:45,730
+Hầu hết các ngôi nhà có ba phòng ngủ.
+
+38
+00:02:45,730 --> 00:02:49,400
+Một số thì có bốn, có hai, có năm và có nhiều loại nữa.
+
+39
+00:02:49,400 --> 00:02:50,580
+Với các phòng tắm,
+
+40
+00:02:50,580 --> 00:02:55,250
+Hóa ra là nhà ở Mỹ bạn có số phân đoạn các phòng tắm.
+
+41
+00:02:55,250 --> 00:02:58,895
+Khi bạn nói, ví dụ, 2.5 phòng ngủ là con số phổ biến nhất,
+
+42
+00:02:58,895 --> 00:03:04,860
+là bởi vì nếu bạn có một căn nha
+với một phòng tắm với một bồn tắm trong đó,
+
+43
+00:03:04,860 --> 00:03:06,380
+nó được gọi là một phòng tắm đầy đủ, nó đếm 1.
+
+44
+00:03:06,380 --> 00:03:12,920
+Nhưng nếu bạn chỉ có một phòng tắm mà có
+một bồn rửa mặt và một toilet, nó chỉ mang giá trị 0.5.
+
+45
+00:03:12,920 --> 00:03:15,440
+Và vì vậy ở đây bạn có 2.5.
+
+46
+00:03:15,440 --> 00:03:19,925
+Thực tế nếu bạn có một phòng tắm với một bồn rửa măt
+một toilet và
+
+47
+00:03:19,925 --> 00:03:24,334
+một vòi hoa sen nhưng không có bồn tắm
+thì có giá trị là 0.75 ở Mỹ.
+
+48
+00:03:24,334 --> 00:03:25,840
+Bạn học như thế
+
+49
+00:03:25,840 --> 00:03:29,220
+Đó là nơ mà bạn có thể có một phòng tắm là phổ biến thứ hai và
+
+50
+00:03:29,220 --> 00:03:33,090
+sau đó bạn có 1.75 phòng tắm này, cái mà có thể
+
+51
+00:03:33,090 --> 00:03:37,350
+sẽ là phòng tắm đầy đủ với một bồn tắm và
+một phòng tắm với vòi hoa sen.
+
+52
+00:03:37,350 --> 00:03:39,160
+Bạn có thể thấy sự phân bố ở đây.
+
+53
+00:03:40,475 --> 00:03:44,148
+Tương tự với những thứ khác, giống như diện tích sống và
+
+54
+00:03:44,148 --> 00:03:50,990
+số lượng sàn, hầu hết các ngôi nhà có một sàn,
+một số nhà có hai.
+
+55
+00:03:50,990 --> 00:03:52,620
+Sau đó mã ZIP.
+
+56
+00:03:52,620 --> 00:03:55,990
+Mã phổ biến nhất là 98103,
+
+57
+00:03:55,990 --> 00:04:01,170
+đó là vùng có rất nhiều người sống ở Seattle.
+
+58
+00:04:01,170 --> 00:04:02,080
+Okay, vậy thì. 
+
+59
+00:04:02,080 --> 00:04:07,230
+Chúng ta đã xem hiển thị mức độ cao của
+dữ liệu ở các cột khác nhau.
+
+60
+00:04:07,230 --> 00:04:09,140
+Bây giờ chúng ta hãy nhìn vào
+một số các mối quan hệ khác của dữ liệu.
+
+61
+00:04:09,140 --> 00:04:11,720
+Hãy làm các hiển thị vui ở đây.
+
+62
+00:04:11,720 --> 00:04:15,745
+Tôi sẽ lấy bảng bán hàng và tôi sẽ nhập show.
+
+63
+00:04:15,745 --> 00:04:20,460
+Nhưng xem cái mà tôi sẽ làm,
+nó sẽ không phải là biểu đồ phân tán.
+
+64
+00:04:20,460 --> 00:04:25,171
+Nó sẽ là cái mà được gọi là biểu đồ hộp và
+
+65
+00:04:25,171 --> 00:04:31,940
+hộp này sẽ liên quan đến hai biến
+mà chúng ta đã nhìn.
+
+66
+00:04:31,940 --> 00:04:37,560
+Trên trục X tôi sẽ sử dụng mã ZIP,
+vì vậy đây là mã bưu chính
+
+67
+00:04:37,560 --> 00:04:44,306
+mà chúng ta đã thảo luận, và trên trục Y
+tôi sẽ đặt giá.
+
+68
+00:04:44,306 --> 00:04:48,810
+Cái mà chúng ta sẽ thấy là mối quan hệ giữa vị trí,
+
+69
+00:04:48,810 --> 00:04:51,780
+mã ZIP nơi mà có căn nhà và giá cả.
+
+70
+00:04:51,780 --> 00:04:55,130
+Và chúng ta sẽ thấy điều đó với
+cái được gọi là biểu đồ hộp.
+
+71
+00:04:55,130 --> 00:04:59,240
+Tôi sẽ nhấn Shift+Enter và chúng ta sẽ đánh dấu nó.
+
+72
+00:04:59,240 --> 00:05:00,194
+Và đây cái mà chúng ta sẽ thấy.
+
+73
+00:05:00,194 --> 00:05:03,955
+Bạn sẽ thấy, ví dụ,
+
+74
+00:05:03,955 --> 00:05:08,296
+đây là mã zip của vùng này, mã bưu chính,
+
+75
+00:05:08,296 --> 00:05:14,770
+98003, có giá thấp hơn đáng kể.
+
+76
+00:05:14,770 --> 00:05:19,785
+Trong kho giá trung bình rất thấp, đây là đường thẳng đỏ,
+không có nhiều biến.
+
+77
+00:05:19,785 --> 00:05:24,780
+Trong khi mã zip khác là 98004, đây là 003,
+
+78
+00:05:24,780 --> 00:05:28,810
+98004 có giá trung bình cao nhất, cao hơn rất nhiều,
+
+79
+00:05:28,810 --> 00:05:33,620
+một điểm nào đó hàng triệu,
+1,1 tỉ và một biến lớn.
+
+80
+00:05:33,620 --> 00:05:41,068
+Những ngôi nhà khác thay đổi tương tự, đây là gì?
+
+81
+00:05:41,068 --> 00:05:44,970
+800.000$, nó hầu hết là bồn triệu đô.
+
+82
+00:05:44,970 --> 00:05:46,790
+Nhưng ở đây tôi chỉ đưa ra một vài mã zip.
+
+83
+00:05:46,790 --> 00:05:51,030
+Nếu tôi kéo xuống đây, bạn sẽ thấy nhiều mã zip hơn nữa.
+
+84
+00:05:52,030 --> 00:05:55,430
+Và bây giờ cái này ở đây là gì vậy?
+
+85
+00:05:55,430 --> 00:05:59,320
+Có một thứ thuộc thiên văn, nó đi ra khỏi phạm vi.
+
+86
+00:05:59,320 --> 00:06:04,794
+Vài ngôi nhà ở đây có giá như thế này, đây là gì?
+
+87
+00:06:04,794 --> 00:06:07,990
+bảy triệu đô hoặc gì đó.
+
+88
+00:06:07,990 --> 00:06:12,547
+Và mã bưu chính này là 98039.
+
+89
+00:06:12,547 --> 00:06:18,053
+Hãy nhớ 98039, chúng ta sẽ quay
+trở lại nó ở cuối của notebook này.
+
+90
+00:06:18,053 --> 00:06:19,011
+Nó khá là thú vị.
+
+91
+00:06:19,011 --> 00:06:24,099
+[NHẠC]

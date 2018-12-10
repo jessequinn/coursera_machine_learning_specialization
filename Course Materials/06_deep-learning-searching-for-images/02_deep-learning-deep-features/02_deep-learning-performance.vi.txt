@@ -1,0 +1,30 @@
+Học sâu rất thú vị bởi vì nó học
+những đặc điểm phức tạp của hình ảnh. Và như chúng ta đã thảo luận trước đây. Chúng có tác động to lớn trong
+những năm gần đây với rất nhiều các ứng dụng thị giác máy tính. Hãy để tôi cho bạn thấy một vài ví dụ. Trên đầu của slide ở đây là ví dụ về các biển báo giao thông
+dựa trên mạng nơ ron. Đây là dữ liệu của biển báo
+giao thông của Đức và ý tưởng là với mỗi hình ảnh,
+xác định nó là gì. Chúng có thể đạt 99.5% độ chính xác
+sử dụng mạng nơ ron, điều này thật tuyệt vời. Ở phía dưới đây, bạn thấy một ví dụ đã xuất hiện
+trong một số tác phẩm của Google về việc xác định số nhà dựa trên
+cái được gọi là dữ liệu Street View. Đây là dữ liệu mà Google
+sử dụng khi lái xe ô tô và chụp ảnh tất cả các con đường khắp thế giới. Và bạn thấy những hình ảnh
+khá là phức tạp và chúng có thể đạt 97,8% độ
+chính xác ở mỗi mức độ. Đây là những kết quả thú vị. Nhưng cái mà thay đổi mọi thứ. Lĩnh vực thú vị thực sự
+đã xảy ra vào năm 2012. Trong nhiều năm có một cuộc đua
+hình ảnh được gọi là ImageNet. Trong năm 2012, cuộc thi
+ImageNet gồm 1.2 triệu hình ảnh từ 1,000 các loại khác nhau. Và ý tưởng là bạn có thể
+phân loại hình ảnh. Nó không chỉ là một con chó,
+nó là một chú cho săn phải không? Rất, rất chi tiết. Có rất nhiều đội tham gia. Có 3 đội dẫn đầu. Một đội là OXFORD_VGG,
+đội này đạt được độ chính xác khá tốt. Nếu bạn nhìn vào top năm
+bạn có thể đưa ra dự đoán trong top năm. Họ chỉ có khoảng 25% lỗi. Có một đội tên là ISI
+làm tốt hơn một chút. Những đội sử dụng các kỹ thuật
+truyền thống như là SIFT[1], phức tạp hơn một chút. Năm đó có một đội nữa
+là SuperVision. Đội đó sử dụng mạng nơ ron
+và đạt kết quả lớn hơn đối thủ và sự thể hiện của họ tạo ra rất nhiều hứng thú
+ về việc sử dụng mạng thần kinh. Trong thị giác máy tính bởi vì nếu họ
+chỉ sử dụng các đặc tính mã hóa bằng tay, thì bạn sẽ học chúng một cách tự động. Mạng nơ ron đó đã giành chiến thắng trong
+cuộc cạnh tranh với đội SuperVision được gọi là mạng nơ ron AlexNet và tôi
+đang chỉ ra ở đây một hình ảnh từ trang của họ, đó là mạng nơ ron có 8 tầng,
+60 triệu thông số và chỉ có thể thực hiện bởi các
+thuật toán huấn luyện mới có thể xử lý nhiều hình ảnh và nhiều thông số, Việc thực hiện GPU sẽ mở rộng
+đến các tập dữ liệu lớn. [NHẠC]

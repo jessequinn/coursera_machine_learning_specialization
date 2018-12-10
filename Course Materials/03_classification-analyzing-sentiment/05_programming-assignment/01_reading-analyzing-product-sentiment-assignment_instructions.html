@@ -1,0 +1,646 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Analyzing product sentiment
+ </h1>
+ <p>
+ </p>
+ <p>
+  In this module, we focused on classifiers, applying them to analyzing product sentiment, and understanding the types of errors a classifier makes.  We also built an exciting IPython notebook for analyzing the sentiment of real product reviews.
+ </p>
+ <p>
+  In this assignment, we are going to explore this application further, training a sentiment analysis model using a set of key polarizing words, verify the weights learned to each of these words, and compare the results of this simpler classifier with those of the one using all of the words.   These techniques will be a core component in your capstone project.
+ </p>
+ <p>
+  Follow the rest of the instructions on this page to complete your program.  When you are done,
+  <em>
+   <strong>
+    instead of uploading your code, you will answer a series of quiz questions
+   </strong>
+  </em>
+  (see the quiz after this reading) to document your completion of this assignment.  The instructions will indicate what data to collect for answering the quiz.
+ </p>
+ <h3 level="3">
+  Learning outcomes
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Execute sentiment analysis code with the IPython notebook
+   </p>
+  </li>
+  <li>
+   <p>
+    Load and transform real, text data
+   </p>
+  </li>
+  <li>
+   <p>
+    Using the
+    <em>
+     .apply()
+    </em>
+    function to create new columns (features) for our model
+   </p>
+  </li>
+  <li>
+   <p>
+    Compare results of two models, one using all words and the other using a subset of the words
+   </p>
+  </li>
+  <li>
+   <p>
+    Compare learned models with majority class prediction
+   </p>
+  </li>
+  <li>
+   <p>
+    Examine the predictions of a sentiment model
+   </p>
+  </li>
+  <li>
+   <p>
+    Build a sentiment analysis model using a classifier
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <h3 level="3">
+  <strong>
+   Resources you will need
+  </strong>
+ </h3>
+ <p>
+  You will need to install the software tools or use the free Amazon EC2 machine.  Instructions for both options are provided in the reading for Module 1.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Download the data and starter code
+ </h3>
+ <p>
+  Before getting started, you will need to download the dataset and the starter IPython notebook that we used in the module.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the product review dataset here in SFrame format:
+    <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/amazon_baby.gl.zip">
+     amazon_baby.gl.zip
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the sentiment analysis notebook from the module here:
+    <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/Analyzing%20product%20sentiment.ipynb">
+     Analyzing product sentiment.ipynb
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling IPython notebook from) and unzip the data file.
+    <strong>
+     Not sure where to save the files? See
+     <a href="https://www.coursera.org/learn/ml-foundations/supplement/IT04V/reading-where-should-my-files-go">
+      this guide
+     </a>
+     .
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Now you are ready to get started!
+ </p>
+ <h3 level="3">
+  <em>
+   <strong>
+    Note:  If you would rather use other ML tools...
+   </strong>
+  </em>
+ </h3>
+ <p>
+  You are welcome to use any ML tool for this course, such as
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  . Though, as discussed in the intro module,
+  <em>
+   we strongly recommend you use IPython Notebook and GraphLab Create. (GraphLab Create is free for academic purposes.)
+  </em>
+ </p>
+ <p>
+  If you are choosing to use other packages, we still recommend you use SFrame, which will allow you to scale to much larger datasets than Pandas. (Though, it's possible to use Pandas in this course, if your machine has sufficient memory.) The SFrame package is available in
+  <a href="https://github.com/turi-code/SFrame">
+   open-source under a permissive BSD license
+  </a>
+  . So, you will always be able to use SFrames for free.
+ </p>
+ <p>
+  If you are not using SFrame, here is the dataset for this assignment in CSV format, so you can use
+  <a href="http://pandas.pydata.org/">
+   Pandas
+  </a>
+  or other options out there:
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/amazon_baby.csv">
+   amazon_baby.csv
+  </a>
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Watch the video and explore the IPython notebook on analyzing sentiment
+ </h3>
+ <p>
+  If you haven’t done so yet, before you start, we recommend you watch the video where we go over the IPython notebook on analyzing product sentiment using classifiers from this module.  You can then open up the IPython notebook we used and familiarize yourself with the steps we covered in this example.
+ </p>
+ <h3 level="3">
+  What you will do
+ </h3>
+ <p>
+  Now you are ready!  We are going do four tasks in this assignment.  There are several results you need to gather along the way to enter into the quiz after this reading.
+ </p>
+ <p>
+  In the IPython notebook above, we used the word counts for all words in the reviews to train the sentiment classifier model. Now, we are going to follow a similar path, but only use this subset of the words:
+ </p>
+ <pre language="python">selected_words = ['awesome', 'great', 'fantastic', 'amazing', 'love', 'horrible', 'bad', 'terrible', 'awful', 'wow', 'hate']</pre>
+ <p>
+  Often, ML practitioners will throw out words they consider “unimportant” before training their model.  This procedure can often be helpful in terms of accuracy.  Here, we are going to throw out all words except for the very few above.  Using so few words in our model will hurt our accuracy, but help us interpret what our classifier is doing.
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    <strong>
+     Use .apply() to build a new feature with the counts for each of the selected_words:
+    </strong>
+    In the notebook above, we created a column ‘word_count’ with the word counts for each review.  Our first task is to create a new column in the products SFrame with the counts for each selected_word above, and, in the process, we will see how the method .apply() can be used to create new columns in our data (our features) and how to use a Python function, which is an extremely useful concept to grasp!
+   </p>
+  </li>
+ </ol>
+ <p>
+  Our first goal is to create a column
+  <em>
+   products[‘awesome’]
+  </em>
+  where each row contains the number of times the word
+  <em>
+   ‘awesome’
+  </em>
+  showed up in the review for the corresponding product, and 0 if the review didn’t show up.  One way to do this is to look at the each row
+  <em>
+   ‘word_count’
+  </em>
+  column and follow this logic:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If
+    <em>
+     ‘awesome’
+    </em>
+    shows up in the word counts for a particular product (row of the products SFrame), then we know how often
+    <em>
+     ‘awesome’
+    </em>
+    appeared in the review,
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    if
+    <em>
+     ‘awesome’
+    </em>
+    doesn’t appear in the word counts, then it didn’t appear in the review, and we should set the count for
+    <em>
+     ‘awesome’
+    </em>
+    to 0 in this review.
+   </p>
+  </li>
+ </ul>
+ <p>
+  We could use a for loop to iterate this logic for each row of the products SFrame, but this approach would be really slow, because the SFrame is not optimized for this being accessed with a for loop.  Instead, we will use the
+  <em>
+   .apply()
+  </em>
+  method to iterate the the logic above for each row of the
+  <em>
+   products[‘word_count’]
+  </em>
+  column (which, since it’s a single column, has type SArray).
+  <a href="https://turi.com/products/create/docs/generated/graphlab.SArray.apply.html">
+   Read about using the .apply() method on an SArray here.
+  </a>
+ </p>
+ <p>
+  We are now ready to create our new columns:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    First, you will use a Python function to define the logic above.  You will write a function called
+    <em>
+     awesome_count
+    </em>
+    which takes in the word counts and returns the number of times
+    <em>
+     ‘awesome’
+    </em>
+    appears in the reviews.
+   </p>
+  </li>
+ </ul>
+ <p>
+  A few tips:
+ </p>
+ <p>
+  i.  Each entry of the ‘word_count’ column is of
+  <a href="https://docs.python.org/2/tutorial/datastructures.html#dictionaries">
+   Python type dictionary
+  </a>
+  .
+ </p>
+ <p>
+  ii.  If you have a dictionary called
+  <em>
+   dict
+  </em>
+  , you can access a field in the dictionary using:
+ </p>
+ <pre language="python">dict['awesome']</pre>
+ <p>
+  but only if
+  <em>
+   ‘awesome’
+  </em>
+  is one of the fields in the dictionary, otherwise you will get a nasty error.
+ </p>
+ <p>
+  iii.  In Python, to test if a dictionary has a particular field, you can simply write:
+ </p>
+ <pre language="python">if 'awesome' in dict</pre>
+ <p>
+  In our case, if this condition doesn’t hold, the count of
+  <em>
+   ‘awesome’
+  </em>
+  should be 0.
+ </p>
+ <p>
+  Using these tips, you can now write the awesome_count function.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Next, you will use
+    <em>
+     .apply()
+    </em>
+    to iterate
+    <em>
+     awesome_count
+    </em>
+    for each row of
+    <em>
+     products[‘word_count’]
+    </em>
+    and create a new column called
+    <em>
+     ‘awesome’
+    </em>
+    with the resulting counts.  Here is what that looks like:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">products['awesome'] = products['word_count'].apply(awesome_count)</pre>
+ <p>
+  And you are done!  Check the
+  <em>
+   products
+  </em>
+  SFrame and you should see the new column you just create.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Repeat this process for the other 11 words in
+    <em>
+     selected_words
+    </em>
+    .  (Here, we described a simple procedure to obtain the counts for each
+    <em>
+     selected_word
+    </em>
+    .  There are other more efficient ways of doing this, and we encourage you to explore this further.)
+   </p>
+  </li>
+  <li>
+   <p>
+    Using the
+    <em>
+     .sum()
+    </em>
+    method on each of the new columns you created, answer the following questions:  Out of the
+    <em>
+     selected_words
+    </em>
+    , which one is most used in the dataset?  Which one is least used?
+    <em>
+     <strong>
+      Save these results to answer the quiz at the end.
+     </strong>
+    </em>
+   </p>
+  </li>
+ </ul>
+ <p>
+  2.
+  <strong>
+   Create a new sentiment analysis model using only the selected_words as features:
+  </strong>
+  In the IPython Notebook above, we used word counts for all words as features for our sentiment classifier.  Now, you are just going to use the
+  <em>
+   selected_words
+  </em>
+  :
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Use the same train/test split as in the IPython Notebook from lecture:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">train_data,test_data = products.random_split(.8, seed=0)</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Train a logistic regression classifier (use
+    <em>
+     graphlab.logistic_classifier.create
+    </em>
+    ) using just the
+    <em>
+     selected_words
+    </em>
+    .  Hint:  you can use this parameter in the
+    <em>
+     .create()
+    </em>
+    call to specify the features used to be exactly the new columns you just created:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">features=selected_words</pre>
+ <p>
+  Call your new model:
+  <em>
+   selected_words_model
+  </em>
+  .
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    You will now examine the weights the learned classifier assigned to each of the 11 words in
+    <em>
+     selected_words
+    </em>
+    and gain intuition as to what the ML algorithm did for your data using these features. In GraphLab Create, a learned model, such as the selected_words_model, has a field 'coefficients', which lets you look at the learned coefficients.  You can access it by using:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">selected_words_model['coefficients']</pre>
+ <p>
+  The result has a column called ‘value’, which contains the weight learned for each feature.
+ </p>
+ <p>
+  Using this approach, sort the learned coefficients according to the ‘value’ column using
+  <em>
+   .sort()
+  </em>
+  .  Out of the 11 words in
+  <em>
+   selected_words
+  </em>
+  , which one got the most positive weight?  Which one got the most negative weight?  Do these values make sense for you?
+  <strong>
+   <em>
+    Save these results to answer the quiz at the end.
+   </em>
+  </strong>
+ </p>
+ <p>
+  3.
+  <strong>
+   Comparing the accuracy of different sentiment analysis model:
+  </strong>
+  Using the method
+ </p>
+ <pre language="python">.evaluate(test_data)</pre>
+ <p>
+  What is the accuracy of the
+  <em>
+   selected_words_model
+  </em>
+  on the
+  <em>
+   test_data
+  </em>
+  ?  What was the accuracy of the
+  <em>
+   sentiment_model
+  </em>
+  that we learned using all the word counts in the IPython Notebook above from the lectures?  What is the accuracy
+  <em>
+   majority
+  </em>
+  class classifier on this task?  How do you compare the different learned models with the baseline approach where we are just predicting the majority class?
+  <em>
+   <strong>
+    Save these results to answer the quiz at the end.
+   </strong>
+  </em>
+ </p>
+ <p>
+  <em>
+   Hint: we discussed the majority class classifier in lecture, which simply predicts that every data point is from the most common class.  This is baseline is something we definitely want to beat with models we learn from data.
+  </em>
+ </p>
+ <p>
+  4.
+  <strong>
+   Interpreting the difference in performance between the models:
+  </strong>
+  To understand why the model with all word counts performs better than the one with only the
+  <em>
+   selected_words
+  </em>
+  , we will now examine the reviews for a particular product.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    We will investigate a product named
+    <em>
+     ‘Baby Trend Diaper Champ’
+    </em>
+    .  (This is a trash can for soiled baby diapers, which keeps the smell contained.)
+   </p>
+  </li>
+  <li>
+   <p>
+    Just like we did for the reviews for the giraffe toy in the IPython Notebook in the lecture video, before we start our analysis you should select all reviews where the product name is
+    <em>
+     ‘Baby Trend Diaper Champ’
+    </em>
+    .  Let’s call this table
+    <em>
+     diaper_champ_reviews
+    </em>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Again, just as in the video, use the
+    <em>
+     sentiment_model
+    </em>
+    to predict the sentiment of each review in
+    <em>
+     diaper_champ_reviews
+    </em>
+    and sort the results according to their
+    <em>
+     ‘predicted_sentiment’
+    </em>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    What is the
+    <em>
+     ‘predicted_sentiment’
+    </em>
+    for the most positive review for
+    <em>
+     ‘Baby Trend Diaper Champ’
+    </em>
+    according to the sentiment_model from the IPython Notebook from lecture?
+    <em>
+     <strong>
+      Save this result to answer the quiz at the end.
+     </strong>
+    </em>
+   </p>
+  </li>
+  <li>
+   <p>
+    Now use the
+    <em>
+     selected_words_model
+    </em>
+    you learned using just the
+    <em>
+     selected_words
+    </em>
+    to predict the sentiment most positive review you found above.
+    <em>
+     Hint: if you sorted the diaper_champ_reviews in descending order (from most positive to most negative), this command will be helpful to make the prediction you need:
+    </em>
+   </p>
+  </li>
+ </ul>
+ <pre language="python">selected_words_model.predict(diaper_champ_reviews[0:1], output_type='probability')</pre>
+ <p>
+  <em>
+   <strong>
+    Save this result to answer the quiz at the end.
+   </strong>
+  </em>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Why is the
+    <em>
+     predicted_sentiment
+    </em>
+    for the most positive review found using the model with all word counts (
+    <em>
+     sentiment_model
+    </em>
+    ) much more positive than the one using only the
+    <em>
+     selected_words (selected_words_model)
+    </em>
+    ?
+    <em>
+     Hint: examine the text of this review, the extracted word counts for all words, and the word counts for each of the selected_words, and you will see what each model used to make its prediction.
+    </em>
+    <em>
+     <strong>
+      Save this result to answer the quiz at the end.
+     </strong>
+    </em>
+   </p>
+  </li>
+ </ul>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

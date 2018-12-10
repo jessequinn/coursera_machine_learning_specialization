@@ -1,0 +1,217 @@
+1
+00:00:00,000 --> 00:00:03,930
+[NHẠC]
+
+2
+00:00:03,930 --> 00:00:08,228
+OK chúng ta đã nhìn thấy trong tiếp cận
+phân loại dựa trên tính năng chúng ta có thể
+
+3
+00:00:08,228 --> 00:00:11,400
+xử lý các trường hợp bị hạn chế
+dữ liệu người sử dụng.
+
+4
+00:00:11,400 --> 00:00:14,950
+Mặt khác trong tiếp cận phân rã ma trận,
+
+5
+00:00:14,950 --> 00:00:19,190
+chúng ta thấy rằng chúng ta có thể nắm bắt
+ mỗi quan hệ giữa người sử dụng và
+
+6
+00:00:19,190 --> 00:00:24,130
+các mặt hàng, cụ thể là học các tính năng
+ của người sử dụng và các mặt hàng.
+
+7
+00:00:24,130 --> 00:00:26,960
+Câu hỏi đặt ra là liệu chúng ta có thể
+có một số cách tiếp cận tích hợp
+
+8
+00:00:26,960 --> 00:00:29,310
+để có được lợi cả hai chiều không.
+
+9
+00:00:29,310 --> 00:00:34,030
+Quan trọng là các tính năng của
+cách tiếp cận phân loại, hoặc
+
+10
+00:00:34,030 --> 00:00:37,530
+cái gì đó như là có thể
+nắm bắt được ngữ cảnh,
+
+11
+00:00:37,530 --> 00:00:42,860
+thời gian, cái mà tôi vừa thấy, thông tin 
+người sử dụng, việc mua hàng trước đây.
+
+12
+00:00:42,860 --> 00:00:47,560
+Trong khi đó các tính năng được
+khám phá ra từ phân rã ma trận
+
+13
+00:00:47,560 --> 00:00:50,850
+có thể nhóm các nhóm người sử dụng giống nhau.
+
+14
+00:00:50,850 --> 00:00:55,710
+Ví dụ phụ nữ ở Seatle là giáo viên
+và cũng là một người mẹ.
+
+15
+00:00:56,910 --> 00:01:00,730
+OK câu hỏi là chúng ta kết hợp
+hai tiếp cận khác nhau này như thế nào.
+
+16
+00:01:00,730 --> 00:01:02,390
+Nó rất đơn giản thôi.
+
+17
+00:01:02,390 --> 00:01:05,810
+Những gì chúng ta có thể làm là chúng ta
+có thể lấy một người sử dụng mới
+
+18
+00:01:05,810 --> 00:01:10,250
+mà chúng ta không có thông tin
+người mua và chúng ta có thể sử dụng
+
+19
+00:01:12,900 --> 00:01:16,170
+các tính năng được mô tả
+bởi người sử dụng đó.
+
+20
+00:01:16,170 --> 00:01:19,830
+Như là tuổi của người đó, giới tính và vân vân,
+
+21
+00:01:19,830 --> 00:01:23,550
+để dự đoán xếp hạng mà
+người đó có thể cho.
+
+22
+00:01:23,550 --> 00:01:29,440
+Như vậy khi chúng ta có càng
+nhiều dữ liệu từ người sử dụng đó,
+
+23
+00:01:29,440 --> 00:01:33,570
+chúng ta có thể làm nặng hơn trên
+cách tiếp cận phân loại ma trận của chúng ta và
+
+24
+00:01:33,570 --> 00:01:39,670
+sử dụng các tính năng đó khi mà
+chúng ta xây dựng các tư vấn của chúng ta.
+
+25
+00:01:39,670 --> 00:01:45,277
+Nó rất đơn giản để nghĩ đến
+việc kết hợp các ý tưởng
+
+26
+00:01:45,277 --> 00:01:50,660
+mô hình tính năng dựa trên người sử dụng cụ thể
+ với các tính năng đã học từ phân rã ma trận.
+
+27
+00:01:50,660 --> 00:01:52,716
+Và dần dần chuyển đổi giữa hai loại,
+
+28
+00:01:52,716 --> 00:01:56,713
+phụ thuộc vào bao nhiêu dữ liệu có sẵn 
+từ mỗi người sử dụng hoặc cho mỗi sản phẩm.
+
+29
+00:01:59,879 --> 00:02:03,280
+Ý tưởng của các mô hình pha trộn
+này thực sự là phổ biến.
+
+30
+00:02:04,510 --> 00:02:08,690
+Một ví dụ đã được đưa ra
+có sự ảnh hưởng trong
+
+31
+00:02:08,690 --> 00:02:12,830
+các hệ thống tư vấn là ví dụ
+cổ điển mà chúng ta đã đề cập ở
+
+32
+00:02:12,830 --> 00:02:16,800
+phần đầu của bài học về Netflix.
+
+33
+00:02:16,800 --> 00:02:20,140
+Cuộc thi này là một cuộc thi cho
+
+34
+00:02:20,140 --> 00:02:26,020
+người có thể cung cấp các xếp hạng dự đoán tốt nhất
+ cho những người sử dụng trên Netflix,
+
+35
+00:02:26,020 --> 00:02:31,960
+và bộ dữ liệu bao gồm hàng trăm triệu xếp hạng
+người sử dụng và các bộ phim khác nhau.
+
+36
+00:02:31,960 --> 00:02:37,557
+Có gần 18,000 bộ phim khác nhau,
+gần 500,000 người sử dụng
+
+37
+00:02:37,557 --> 00:02:42,636
+và mục đích là để dự đoán 3,000,000
+xếp hạng với độ chính xác cao nhất,
+
+38
+00:02:42,636 --> 00:02:45,400
+và giải thưởng là $1,000,000.
+
+39
+00:02:45,400 --> 00:02:50,460
+Có nhiều người rất thích việc
+cạnh tranh giải thưởng này,
+
+40
+00:02:50,460 --> 00:02:56,060
+và cái mà chúng ta thấy trong
+bảng này là nhóm dẫn đầu.
+
+41
+00:02:56,060 --> 00:02:58,700
+Mô hình của họ thực sự đã pha trộn
+
+42
+00:02:58,700 --> 00:03:02,580
+hàng trăm các mô hình khác nhau
+để có kết quả này.
+
+43
+00:03:02,580 --> 00:03:05,911
+Kiểu tiếp cận này chúng ta sẽ
+
+44
+00:03:05,911 --> 00:03:09,006
+thảo luận nhiều hơn trong
+bài học phân loại nhưng
+
+45
+00:03:09,006 --> 00:03:14,403
+khái niệm kết hợp các mô hình
+để có hiệu suất vượt quá hiệu suất
+
+46
+00:03:14,403 --> 00:03:19,587
+của các mô hình cá nhân khác
+là một kỹ thuật rất phổ biến và hữu ích.

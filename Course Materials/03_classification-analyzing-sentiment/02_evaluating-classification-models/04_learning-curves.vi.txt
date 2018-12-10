@@ -1,0 +1,47 @@
+[NHẠC] Trong mô hình hồi quy, chúng ta đã
+nói về mỗi quan hệ giữa lỗi hoặc tính chính xác trong sự
+phức tạp của mô hình. Hãy nói một chút về mối quan hệ số lượng dữ liệu bạn phải học. Và chúng ta sẽ khám phá câu hỏi
+về số dữ liệu chúng ta cần phải học. Và đó thực sự là câu hỏi khó
+và phức tạp trong học máy. Tất nhiên bạn càng có
+nhiều dữ liệu thì càng tốt miễn là chất lượng dữ liệu tốt. Và sau đó dữ liệu xấu sẽ càng it đi, dữ liệu chỉ nhằm vào những
+dữ liệu tốt, sạch và chất lượng cao. Bây giờ có một số kỹ thuật lý thuyết để
+phân tích xem bạn cần bao nhiêu dữ liệu. Rất nhiều trong số chúng giúp bạn
+hiểu được xu hướng chung nhưng cũng có xu hướng quá lỗi thời
+để sử dụng trong thực tế. Trong thực tế có một số
+kỹ thuật thực nghiệm để hiểu chúng ta đang tạo ra bao nhiêu
+lỗi và lỗi đó là gì. Và trong khóa học tiếp theo chúng ta sẽ khám phá
+những kỹ thuật này nhiều hơn, nhưng hãy để tôi cung cấp tới bạn
+một chút hướng dẫn và cái nhìn sâu sắc về cái có thể
+làm trong phần phân loại. Bây giờ một biểu diễn quan trọng
+cho mỗi quan hệ giữa dữ liệu và chất lượng được gọi là đường cong học tập. Một đường cong học tập liên quan
+đến số dữ liệu mà chúng ta có cho việc huấn luyện lỗi mà chúng ta tạo ra. Và ở đây chúng ta đang nói về lỗi kiểm tra. Bây giờ nếu bạn có rất ít
+dữ liệu cho việc huấn luyện, thì lỗi kiểm tra của bạn sẽ rất cao. Nhưng nếu bạn có nhiều
+dữ liệu cho việc huấn luyện, thì lỗi kiểm tra của bạn sẽ thấp. Và bây giờ đường cong sẽ tốt hơn khi bạn có càng nhiều dữ liệu. Rất tiếc, không đi qua điểm đó,
+vì thế tôt sẽ xóa nó. Bây giờ ở đây chúng ta có. Đây là một ví dụ về đường cong học tập 
+với chất lượng càng cao khi chúng ta thêm càng nhiều dữ liệu. Bây giờ bạn có thể hỏi có
+một giới hạn nào không? Chất lượng này sẽ trở nên tốt hơn
+khi bạn thêm càng nhiều dữ liệu không? Bây giờ chúng ta biết rằng lỗi sẽ giảm khi
+chúng ta thêm nhiều dữ liệu, lỗi kiểm tra. Tuy nhiên có một số khoảng trống ở đây. Và câu hỏi là liệu khoảng trống
+đó có thể đi tới 0, và câu trả lời nói chung là không. Khoảng trống này được gọi là đường xiên. Chúng ta hãy thảo luận một chút về 
+đường xiên này, hoặc khoảng trống này. Về trực giác, thậm chí với dữ liệu vô hạn, lỗi kiểm tra sẽ không đi tới 0. Hãy hiểu một chút về lý do tại sao. Các mẫu càng phức tạp càng
+có xu hướng ít đường xiên hơn. Vì thế nếu bạn nhìn vào phân loại
+phân tích cảm tính mà chúng ta xây dựng, nếu bạn chỉ sử dụng các từ đơn như là awesome, good, great, terrible, awful nó có thể làm ok. Có thể nó làm rất tốt, cũng có thể chỉ làm ổn. Nhưng ngay cả khi bạn có dữ liệu
+vô hạn, với tất cả dữ liệu trên thế giới, bạn sẽ không bao giờ có câu này đúng,
+the sushi was not good. Bởi vì bạn không nhìn vào cặp từ, bạn chỉ nhìn vào những từ tốt
+và không mang tính cá nhân. Và các mô hình phức tạp hơn ví dụ,
+giải quyết sự kết hợp của các từ, ví dụ, đơn giản được gọi là mô hình bigram, nơi mà bạn nhìn vào cặp từ
+bí mật như là 'not good'. Những mô hình này đòi hỏi nhiều thông số
+hơn, bởi vì có nhiều khả năng hơn. Chúng có thể làm tốt hơn, chúng có thể
+có một tham số cho 'good', 1.5. Nhưng "not good", -2.1. Và thực sự câu the susu was not good là chính xác. Chúng có ít đường xiên hơn. Chúng có thể biểu thị các câu mà không thể 
+được biểu thị dưới dạng các từ nhưng chúng có khả năng chính xác cao. Nhưng họ cần nhiều dữ liệu hơn để
+học bởi vì có nhiều thông số hơn. Không chỉ có một thông số cho 'good'.
+bây giờ có một thông số cho 'not good' và tất cả sự kết hợp có thể của các từ. Mô hình của bạn có càng nhiều thông số, thì
+nói chung càng nhiều dữ liệu cần phải học. Hãy quay lại với ví dụ của chúng ta. Chúng ta đã nói về thực tế của 
+một số dữ liệu huấn luyện trên lỗi kiểm tra. Hãy nói rằng tôi đang xây dựng
+phân loại sử dụng các từ đơn. Và câu hỏi là điều đó liên quan tới
+phân loại như thế nào dựa trên các cặp từ? Bây giờ với phân loại dựa trên
+bigram khi bạn có ít dữ liệu, nó sẽ làm tốt bởi vì nó có nhiều thông số. Nhưng khi bạn có nhiều dữ liệu hơn,
+nó sẽ làm tốt hơn bởi vì nó sẽ có thể nắm bắt các cài đặt như là the sushi was not good. Và do đó bạn sẽ có điều gì đó như thế này. Ở một vài điểm, có một đường chéo
+từ nơi nó bắt đầu làm tốt hơn phân loại với các từ đơn. Nhưng hãy chú ý mô hình nền
+vẫn có một vài đường xiên ở đây. Mặc dù đường xiên nhỏ hơn,
+nó vẫn còn một số đường. [NHẠC]

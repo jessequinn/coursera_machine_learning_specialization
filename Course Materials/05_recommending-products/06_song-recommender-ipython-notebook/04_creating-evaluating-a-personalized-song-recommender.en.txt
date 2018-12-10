@@ -1,0 +1,49 @@
+[MUSIC] Now, in contrast,
+let's make it more personalized, a model that's more personalized,
+as Emily, described. So, next we are gonna build a a song recommender with personalization. So let's call it personalize_model and all we're gonna do is repeat the line that we had earlier so graphlab., instead of being the popularity model, let's use the item similarity recommender, so remember we talked about
+item similarity in the module. We can do a item_similarity.create. And let's see what happens. So here, just like before,
+we had to give it train_data. We have to tell it what
+the user_id column is called, which in this case was user_id. And you had to tell it what the item_id
+column in this case which is called song. So instead of the popularity model we
+now built an item_similarity model. And here we go it's done. So let's start applying it. So, applying the personalized model to make song recommendations. And here we go, let's apply it. So let's start with the couple
+of users that we had before. So for example if you take
+the personalized model, personalized_model and we call recommend on that for that first user so users of 0. You'll see that no longer
+does it recommend Bjork and a few of those others that everybody got,
+but recommended Dr.
+Feelgood, Elizeth Cardoso, and then the Brazilian song,
+Ween, Subhumans and so on. It's kind of an interesting thing so
+pretty cool. Let's see what user one got
+because it's a personalized_model. So personalized_model.recommend for users. And again it's a list but I'm just gonna
+put one element in the list, so user 1. And you'll see that now it recommends
+something totally different. Florence and the Machine, and somehow this user really
+likes Florence and the Machine. [LAUGH] It just recommends that again,
+again, again, again, again. And Apocalyptica and so on. So as you can see,
+now the model is really personalized. And you can do some really fun things
+with it because it's personalized. Not only can you say for
+a particular user, what songs, other songs they should listen to,
+just like we did in recommendations. But we can also take a song and ask what other songs are similar,
+are liked by similar people. So people who like the song
+also like this other song, so we can do that by
+personalized_model.get_similar_items. So get similar items, you give it a list
+of items, and it finds similar ones. So for example, if I really love the song with or Without You by U2. I really actually like this song,
+it's pretty cool. You'll see other songs
+it recommends all by U2, I Still Haven't Found What I'm
+Looking For, Hold Me, Thrill Me, Kiss Me, Kill Me,
+Window in the Skies, Vertigo, Sunday Bloody Sunday, Bad, A Day Without
+Me, Another Place Another Place, Walk On, Walk On's a nice song,
+Get On Your Boots, so all U2 songs. So if you like one U2 song, you like
+other U2 songs, that's pretty typical. Now another thing that I enjoy,
+so if I take this very similar model and
+I am gonna get similar items. So we can get all similar users. For a user to find other users
+that like this one, like her. But here we are gonna
+get similar items and the list I'm gonna give
+is a little different. So this is another song I kinda like. It's called Chan Chan and
+I like the live version. And it is by Buena Vista Social Club. Now if you don't know this song,
+if you know the Buena Vista Social Club, you should it's awesome,
+awesome really, cool. So if you like Chan Chan,
+by Buena Vista Social Club, a Cuban band, you also might like other
+Buena Vista Social Club songs. Amor de Loca Juventud and others. You might also like this,
+Diferente by Gotan Project. Gotan Project, a Argentinian band,
+really cool one, more like Gypsy Kings, Flamenco
+band this all makes a lot of sense. Remember the song down here
+by Gotan Project, Criminal, which I kinda like as well. [MUSIC]

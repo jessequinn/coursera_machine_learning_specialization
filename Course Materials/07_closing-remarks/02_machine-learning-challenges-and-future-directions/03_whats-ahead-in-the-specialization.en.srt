@@ -1,0 +1,434 @@
+1
+00:00:00,000 --> 00:00:04,249
+[MUSIC]
+
+2
+00:00:04,249 --> 00:00:07,385
+Okay, so now that you guys are psyched
+about the future machine running,
+
+3
+00:00:07,385 --> 00:00:10,770
+let's talk about what we're gonna
+cover in the specialization.
+
+4
+00:00:10,770 --> 00:00:14,701
+Okay, so in the regression course,
+now that you guys know what regression is,
+
+5
+00:00:14,701 --> 00:00:18,397
+we're gonna go through a lot more of
+the details on different formulations
+
+6
+00:00:18,397 --> 00:00:19,055
+for models.
+
+7
+00:00:19,055 --> 00:00:21,463
+For example,
+how to cope with lots of features,
+
+8
+00:00:21,463 --> 00:00:24,370
+something that we eluded
+to in this course.
+
+9
+00:00:24,370 --> 00:00:29,210
+And we're also gonna talk about,
+in great detail, algorithms for
+
+10
+00:00:29,210 --> 00:00:30,090
+fitting these models.
+
+11
+00:00:30,090 --> 00:00:33,780
+So different optimization algorithms,
+remembering now that we've seen that
+
+12
+00:00:33,780 --> 00:00:38,000
+there's this cost we can talk about,
+residual sum of squares and minimizing it.
+
+13
+00:00:38,000 --> 00:00:40,670
+We're gonna talk about different
+optimization algorithms like gradient
+
+14
+00:00:40,670 --> 00:00:43,930
+descent and coordinate descent for
+actually doing this optimization.
+
+15
+00:00:45,260 --> 00:00:50,200
+And then, through this case study
+in predicting house prices,
+
+16
+00:00:50,200 --> 00:00:53,470
+we're gonna cover a lot of concepts
+that are really foundational to machine
+
+17
+00:00:53,470 --> 00:00:56,210
+learning in many different areas.
+
+18
+00:00:56,210 --> 00:00:59,300
+And some of these include how do
+we think about measuring cost.
+
+19
+00:00:59,300 --> 00:01:02,010
+How do we think about
+choosing between models and
+
+20
+00:01:02,010 --> 00:01:04,670
+dealing with overfitting of our model.
+
+21
+00:01:04,670 --> 00:01:08,630
+So we're gonna explore this in this
+context, but again, these ideas generalize
+
+22
+00:01:08,630 --> 00:01:14,360
+well beyond regression and
+well beyond predicting house prices.
+
+23
+00:01:14,360 --> 00:01:16,290
+Then when we get to
+the classification course,
+
+24
+00:01:16,290 --> 00:01:20,350
+we're gonna talk about specific
+examples of linear classifiers.
+
+25
+00:01:20,350 --> 00:01:24,878
+We're also gonna talk about methods
+of how to scale up to using lots and
+
+26
+00:01:24,878 --> 00:01:26,182
+lots of features and
+
+27
+00:01:26,182 --> 00:01:31,343
+creating classifiers in this very high
+dimensional feature representation.
+
+28
+00:01:31,343 --> 00:01:34,611
+And again,
+we're gonna talk about algorithms for
+
+29
+00:01:34,611 --> 00:01:38,150
+performing these types of classifications.
+
+30
+00:01:38,150 --> 00:01:42,120
+Specifically, looking at an optimization
+algorithm that allows us to scale up to
+
+31
+00:01:42,120 --> 00:01:44,610
+really, really large data sets.
+
+32
+00:01:44,610 --> 00:01:47,270
+And we're also gonna talk
+about this idea of how
+
+33
+00:01:47,270 --> 00:01:51,050
+we can think about blending different
+models using something called boosting.
+
+34
+00:01:52,550 --> 00:01:55,620
+And again,
+we'll look at many different concepts.
+
+35
+00:01:55,620 --> 00:01:59,590
+And one that I think is really
+interesting is how to do something called
+
+36
+00:01:59,590 --> 00:02:02,830
+online learning where we get data
+that just continually streams in and
+
+37
+00:02:02,830 --> 00:02:08,300
+we like to make our inferences
+continually as we get that data.
+
+38
+00:02:08,300 --> 00:02:12,320
+Then when we get to clustering and
+retrieval, again,
+
+39
+00:02:12,320 --> 00:02:16,580
+we've gone through the foundational ideas
+of what does it mean to do clustering and
+
+40
+00:02:16,580 --> 00:02:18,490
+what is our document retrieval task.
+
+41
+00:02:18,490 --> 00:02:22,190
+But we're gonna step it up even
+more where now, for example,
+
+42
+00:02:22,190 --> 00:02:27,730
+when we think about clustering, a document
+might not just be about sports or
+
+43
+00:02:27,730 --> 00:02:30,690
+world news or science or entertainment.
+
+44
+00:02:30,690 --> 00:02:34,945
+Maybe, a document has some
+mixture of different topics.
+
+45
+00:02:34,945 --> 00:02:40,725
+We can very easily think about a document
+that's about both finance and world news.
+
+46
+00:02:40,725 --> 00:02:43,595
+And so
+we're gonna think about how we model
+
+47
+00:02:43,595 --> 00:02:46,725
+this more complicated structure
+that might be present in our data.
+
+48
+00:02:48,155 --> 00:02:53,307
+And for the algorithmic side of things,
+we're gonna look at very efficient
+
+49
+00:02:53,307 --> 00:02:57,991
+ways for searching over data when
+we're doing our retrieval tasks.
+
+50
+00:02:57,991 --> 00:02:59,929
+And lots of different algorithms for
+
+51
+00:02:59,929 --> 00:03:03,380
+doing the types of clustering
+models that we're talking about.
+
+52
+00:03:05,210 --> 00:03:10,170
+And in terms of really important concepts
+that we're gonna cover in this course,
+
+53
+00:03:10,170 --> 00:03:17,020
+one thing is thinking about how to scale
+up doing the clustering to a really,
+
+54
+00:03:17,020 --> 00:03:22,680
+really massive collections of documents
+using something called map-reduce.
+
+55
+00:03:22,680 --> 00:03:25,600
+Next, we're gonna turn to
+our Recommender Systems and
+
+56
+00:03:25,600 --> 00:03:27,690
+Dimensionality Reduction course.
+
+57
+00:03:27,690 --> 00:03:30,049
+And here, beyond the types of
+collaborative filtering and
+
+58
+00:03:30,049 --> 00:03:32,754
+matrix factorization that we already
+talked about in this course.
+
+59
+00:03:32,754 --> 00:03:37,000
+We're also gonna talk about ways to
+take high dimensional data sets and
+
+60
+00:03:37,000 --> 00:03:42,090
+think about modelling in terms of some
+lower dimensional representation.
+
+61
+00:03:42,090 --> 00:03:45,100
+And so for that, we're gonna
+think about some algorithms for
+
+62
+00:03:45,100 --> 00:03:46,966
+doing this dimensionality reduction.
+
+63
+00:03:46,966 --> 00:03:50,330
+And we're also gonna
+talk about algorithms for
+
+64
+00:03:50,330 --> 00:03:54,740
+fitting the types of matrix factorization
+models that we described in this course.
+
+65
+00:03:57,240 --> 00:04:01,230
+And in this case, some of the important
+concepts we're gonna go through
+
+66
+00:04:01,230 --> 00:04:04,700
+especially when we're thinking about
+matrix factorization is how we think about
+
+67
+00:04:04,700 --> 00:04:08,140
+doing something like matrix completion.
+
+68
+00:04:08,140 --> 00:04:11,970
+And that's where we're filling
+in all the unknown squares,
+
+69
+00:04:11,970 --> 00:04:13,800
+if you remember that from this course.
+
+70
+00:04:13,800 --> 00:04:18,360
+And then a more general problem which
+is this cold-start problem where we,
+
+71
+00:04:18,360 --> 00:04:22,540
+in the case of our recommender systems,
+might have no information about a user or
+
+72
+00:04:22,540 --> 00:04:24,500
+a product and
+want to form those recommendations.
+
+73
+00:04:25,570 --> 00:04:29,370
+And finally, we're gonna get to
+the Capstone which is really,
+
+74
+00:04:29,370 --> 00:04:33,260
+as I hope you guys have got in a sense,
+gonna be very, very cool.
+
+75
+00:04:33,260 --> 00:04:36,540
+And now that you've gone through
+this course, you understand some of
+
+76
+00:04:36,540 --> 00:04:40,620
+the concepts that we talked about in
+terms of what makes up this Capstone.
+
+77
+00:04:40,620 --> 00:04:44,300
+In particular,
+we're gonna look at a recommender system
+
+78
+00:04:44,300 --> 00:04:49,070
+that combines ideas of doing text
+sentiment analysis with important
+
+79
+00:04:49,070 --> 00:04:54,280
+ideas from computer vision in terms
+of searching over different images.
+
+80
+00:04:54,280 --> 00:04:57,140
+And for doing this,
+we're gonna use deep learning, so
+
+81
+00:04:57,140 --> 00:05:00,250
+there's gonna be some really important and
+
+82
+00:05:00,250 --> 00:05:03,420
+more detailed information about deep
+learning presented in the Capstone.
+
+83
+00:05:03,420 --> 00:05:05,090
+So please get to that point.
+
+84
+00:05:05,090 --> 00:05:09,300
+It's really gonna be cool and
+very important and all of this
+
+85
+00:05:09,300 --> 00:05:14,150
+is gonna allow you to build this
+really intelligent web application and
+
+86
+00:05:14,150 --> 00:05:18,080
+deploy it and do things that impress,
+
+87
+00:05:18,080 --> 00:05:22,830
+not just your friends and family,
+but also potential employers.
+
+88
+00:05:22,830 --> 00:05:27,000
+So of course that's a potential
+bonus to some of you out there.
+
+89
+00:05:27,000 --> 00:05:30,710
+But it's really gonna be a lot of fun.
+
+90
+00:05:30,710 --> 00:05:33,936
+So we hope you get to that point and
+enjoy the Capstone project.
+
+91
+00:05:33,936 --> 00:05:38,939
+[MUSIC]

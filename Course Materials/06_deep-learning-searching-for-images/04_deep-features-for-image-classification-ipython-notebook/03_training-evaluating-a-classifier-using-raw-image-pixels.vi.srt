@@ -1,0 +1,354 @@
+1
+00:00:00,382 --> 00:00:04,272
+[NHẠC]
+
+2
+00:00:04,272 --> 00:00:06,618
+Chúng ta đang giảm phông và
+
+3
+00:00:06,618 --> 00:00:10,980
+chúng ta sẽ huấn luyện một mô hình cơ bản trong tập dữ liệu này.
+
+4
+00:00:10,980 --> 00:00:15,890
+Điều đầu tiên tôi sẽ làm là không sử dụng các bức tranh mà
+
+5
+00:00:15,890 --> 00:00:18,050
+chỉ sử dụng các điểm ảnh của các hình ảnh và
+
+6
+00:00:18,050 --> 00:00:21,400
+huấn luyện một bộ phân loại trên các điểm ảnh 
+của các hình ảnh và xem nó hoạt động tốt như thế nào.
+
+7
+00:00:21,400 --> 00:00:25,625
+Hãy tiếp tục thực hiện nó.
+
+8
+00:00:25,625 --> 00:00:33,119
+@Train a classifier.
+
+9
+00:00:33,119 --> 00:00:34,420
+Tôi sai chính tả ở đây.
+
+10
+00:00:34,420 --> 00:00:39,248
+#Train a classifier on
+
+11
+00:00:39,248 --> 00:00:43,420
+the raw image pixels.
+
+12
+00:00:45,410 --> 00:00:49,790
+Đây sẽ là các tính năng của tôi, các điểm ảnh thô 
+không phải là các tính năng sâu.
+
+13
+00:00:49,790 --> 00:00:54,306
+Và tôi sẽ gọi là the raw, xin lỗi
+
+14
+00:00:54,306 --> 00:01:01,400
+raw_pixel_model.
+
+15
+00:01:01,400 --> 00:01:04,480
+Bộ phân loại tôi sẽ sử dụng, tôi có thể sử dụng bộ phân loại.
+
+16
+00:01:04,480 --> 00:01:06,280
+Sự biểu thị sẽ là giống nhau.
+
+17
+00:01:06,280 --> 00:01:08,200
+Tôi sẽ sử dụng quy hồi logic,
+
+18
+00:01:08,200 --> 00:01:12,730
+cái mà chúng ta sử dụng trong ghi chú phân tích cảm tính.
+
+19
+00:01:12,730 --> 00:01:16,480
+Trong quy hồi logic chúng ta sẽ đưa vào tập dữ liệu.
+
+20
+00:01:16,480 --> 00:01:18,270
+Đây là tập dữ liệu huấn luyện.
+
+21
+00:01:20,730 --> 00:01:22,960
+Đây là image_train của tôi.
+
+22
+00:01:22,960 --> 00:01:26,030
+Tôi sẽ nói mục đích là gì.
+
+23
+00:01:27,560 --> 00:01:31,790
+Mục đích là một cột trong tập dữ liệu được gọi là nhãn mác.
+
+24
+00:01:31,790 --> 00:01:36,440
+Và cột đó có nhãn mác cho mỗi hình ảnh.
+
+25
+00:01:37,710 --> 00:01:41,260
+Tôi sẽ nói các tính năng sử dụng là gì.
+
+26
+00:01:41,260 --> 00:01:48,410
+Trong trường hợp này các tính năng
+ là một cột được gọi là image_array.
+
+27
+00:01:48,410 --> 00:01:51,793
+Tôi sẽ chạy nó.
+
+28
+00:01:51,793 --> 00:01:55,400
+Tôi đánh sai chính tả, mô đun,
+
+29
+00:01:55,400 --> 00:01:59,720
+tôi quên một thứ và bạn nên nhắc tôi.
+
+30
+00:02:01,110 --> 00:02:05,470
+Trong Graphlab Create động từ mà bạn làm để tạo ra mô hình là create.
+
+31
+00:02:05,470 --> 00:02:07,747
+Graphlab quy hồi logic,
+
+32
+00:02:07,747 --> 00:02:11,400
+logistic_classifier.create tạo ra bộ phân loại.
+
+33
+00:02:11,400 --> 00:02:13,710
+Bây giờ nó thực hiện.
+
+34
+00:02:13,710 --> 00:02:17,546
+Chúng ta đang sử dụng các điểm ảnh thô để xây dựng một bộ phân loại.
+
+35
+00:02:17,546 --> 00:02:22,470
+Giống như một đánh giá nhanh, tôi không mong nó quá tốt.
+
+36
+00:02:22,470 --> 00:02:24,670
+Nhưng hãy tiếp tục làm nó.
+
+37
+00:02:24,670 --> 00:02:27,400
+Nó đã được thực hiện ngay bây giờ.
+
+38
+00:02:29,360 --> 00:02:33,890
+Hãy xem nó đã biểu thị như thế nào.
+
+39
+00:02:33,890 --> 00:02:37,850
+Điều đầu tiên mà tôi sẽ làm là đưa ra dự đoán với mô hình.
+
+40
+00:02:39,030 --> 00:02:44,736
+Hãy #Make a prediction with
+
+41
+00:02:44,736 --> 00:02:51,039
+the simple model based on raw pixels.
+
+42
+00:02:53,941 --> 00:02:57,698
+Tôi sẽ lấy một số hình ảnh từ tập dữ liệu kiểm tra và
+
+43
+00:02:57,698 --> 00:03:01,450
+tôi sẽ xem bộ phân loại thể hiện điều gì.
+
+44
+00:03:01,450 --> 00:03:07,880
+Tôi sẽ gọi là image_test và nhìn vào ba hình ảnh đầu tiên.
+
+45
+00:03:07,880 --> 00:03:11,940
+image 0:3, image0,1 và 2.
+
+46
+00:03:11,940 --> 00:03:16,930
+Và tôi sẽ nhìn vào các hình ảnh.
+
+47
+00:03:16,930 --> 00:03:22,358
+Tôi sẽ nhập .show() để cho bạn thấy các hình ảnh là gì.
+
+48
+00:03:22,358 --> 00:03:24,656
+Đây chúng ta có.
+
+49
+00:03:24,656 --> 00:03:31,420
+Các hình ảnh như tôi đã nói là một phần nhỏ trong tập dữ liệu.
+
+50
+00:03:31,420 --> 00:03:37,140
+Nhưng tôi sẽ làm cái này lớn hơn, các hình ảnh ở đây là một con mèo,
+
+51
+00:03:37,140 --> 00:03:39,250
+một chiếc ô tô và một con mèo nữa.
+
+52
+00:03:39,250 --> 00:03:40,340
+Hai con mèo và một chiếc ô tô.
+
+53
+00:03:40,340 --> 00:03:41,390
+Ô tô, mèo à không
+
+54
+00:03:41,390 --> 00:03:42,880
+mèo, ô tô, mèo.
+
+55
+00:03:42,880 --> 00:03:49,780
+Tôi sẽ bỏ phông to để chúng ta có thể thấy các kết quả.
+
+56
+00:03:49,780 --> 00:03:53,170
+Bây giờ hãy nhìn vào các nhãn mác cho hình ảnh này.
+
+57
+00:03:53,170 --> 00:03:55,510
+Đây là dữ liệu kiểm tra này.
+
+58
+00:03:55,510 --> 00:04:01,570
+Và đây là nhân tố từ 0 đến 3,
+
+59
+00:04:01,570 --> 00:04:06,910
+tôi đã nói đó là mèo, ô tô, mèo những hãy xem các nhãn thực là gì.
+
+60
+00:04:06,910 --> 00:04:14,320
+Cột nhãn mác và bạn sẽ thấy nó là mèo, ô tô, mèo.
+
+61
+00:04:14,320 --> 00:04:17,330
+Nó là xe tự động không phải ô tô nhưng cũng giống nhau.
+
+62
+00:04:17,330 --> 00:04:21,632
+Ok hãy xem 
+
+63
+00:04:21,632 --> 00:04:26,700
+raw_pixel_model dự đoán điều gì.
+
+64
+00:04:26,700 --> 00:04:32,345
+DDeerr tôi xem cái nó dự đoán cho tập dữ liệu về ba hình ảnh này.
+
+65
+00:04:32,345 --> 00:04:39,400
+Image_test của 03.
+
+66
+00:04:39,400 --> 00:04:43,810
+Sự thực là mèo, ô tô, mèo và nó dự đoán chim, mèo, chim.
+
+67
+00:04:43,810 --> 00:04:47,355
+Nó có ba cái sai vì nghĩ mèo là chim,
+
+68
+00:04:47,355 --> 00:04:52,030
+nó nghĩ rằng ô tô là mèo, nghĩ mèo là chim.
+
+69
+00:04:52,030 --> 00:04:56,520
+Tất cả đều sai.
+
+70
+00:04:56,520 --> 00:04:59,880
+Có thể là một số hình ảnh đầu tiên bị sai, vì thế
+
+71
+00:04:59,880 --> 00:05:02,870
+hãy xem các dự đoán thực là gì.
+
+72
+00:05:04,300 --> 00:05:07,990
+Hãy ước tính mô hình của dữ liệu kiểm tra và
+
+73
+00:05:07,990 --> 00:05:12,710
+xem độ chính xác phân loại thực là gì.
+
+74
+00:05:12,710 --> 00:05:18,524
+#Evaluating raw pixel model on test data.
+
+75
+00:05:18,524 --> 00:05:24,717
+Tôi sẽ lấy raw_pixel_model này và
+
+76
+00:05:24,717 --> 00:05:28,946
+tôi sẽ đánh giá và
+
+77
+00:05:28,946 --> 00:05:33,628
+cái mà đánh giá là nó chỉ làm và
+
+78
+00:05:33,628 --> 00:05:40,576
+tính toán một số lỗi, các chỉ số lỗi,
+
+79
+00:05:40,576 --> 00:05:44,673
+và tôi sẽ sử dụng tập kiểm tra.
+
+80
+00:05:44,673 --> 00:05:51,349
+Ở đây bạn thấy tính chính xác chỉ là 46,8%.
+
+81
+00:05:51,349 --> 00:05:52,720
+Nó thật tệ.
+
+82
+00:05:52,720 --> 00:05:57,280
+Bạn có bốn lớp, đoán ngẫu nhiên là 25% chúng được cân bằng.
+
+83
+00:05:57,280 --> 00:05:59,570
+Ở đây có 46%, không quá thú vị.
+
+84
+00:06:00,660 --> 00:06:03,670
+Có nhiều chi tiết hơn ở đây.
+
+85
+00:06:03,670 --> 00:06:05,670
+Ma trận phức tập đã được vẽ.
+
+86
+00:06:05,670 --> 00:06:09,594
+Tôi sẽ không đi qua nó nhưng ở nhà bạn có thể khám phá thêm.
+
+87
+00:06:09,594 --> 00:06:11,312
+Nhưng chỉ cần nhớ 46%.
+
+88
+00:06:11,312 --> 00:06:14,929
+[NHẠC]

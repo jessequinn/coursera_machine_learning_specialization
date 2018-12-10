@@ -1,0 +1,62 @@
+[NHẠC] OK, để xử lý trường hợp có
+các mặt hàng rất phổ biến này, chúng ta có thể nghĩ về việc chuẩn hóa
+ma trận xuất hiện đồng thời. Và một cách mà chúng ta có thể
+chuẩn hóa ma trận này được gọi là sự tương đồng Jaccard. Tôi muốn đề cập đến khái niệm chuẩn hóa ma trận xuất hiện đồng nhất
+này mà chúng ta đang nói đến, rất giống với những gì chúng ta đã nói đến
+trong bài học về phân loại và tương đồng. Khi chúng ta nói về tf/idf,
+tần số thuật ngữ, tần số tài liệu nghịch đảo. Ở đây chúng ta đã xem các tài liệu
+và chúng ta đã nói rằng những từ thực sự phổ biến chỉ làm lộn xộn
+các từ khác mà chúng ta quan tâm. Và chúng ta đã có cách sử dụng tf/idf để làm chuẩn hóa lại các đếm từ thô mà chúng ta đã
+sử dụng để biểu diễn cho tài liệu của chúng ta. Trong trường hợp này, đây là một khái niệm rất giống với
+việc tính toán một mặt hàng phổ biến. Và cách nó hoạt động khá là trực quan. Chúng ta sẽ chỉ đếm số người
+mua các mặt hàng i và mặt hàng j. Số lượng người mua i và j và đó là cái mà ma trận
+của chúng ta có trước đây. Đó là các đếm thô của chúng ta. Chúng ta sẽ chuẩn hóa chúng bằng số lượng người mua một
+trong những mặt hàng này. Số lượng người mua i hoặc j. Và một biểu đồ Venn đơn giản
+giải thích rất rõ cho điều này. Đây là thế giới những người
+mua mặt hàng i. Và đây là thế giới của những người
+mua mặt hàng j và ở đây trong vùng gạch chéo này,
+là người mua cả i và j. Những gì chúng ta sẽ làm là chúng ta
+dùng các số đếm chúng ta đã có trước đây. Đây là tử số của chúng ta,
+vùng gạch chéo này là mua cả i và j. Chúng ta chỉ làm chuẩn hóa
+theo tổng diện tích. Hãy để tôi đổi các màu ở đây
+để thể hiện rõ hơn. Khoanh vùng thế giới của từng
+người mua mặt hàng i hoặc j. Và đó là mẫu số của chúng ta. Ok, đó là một cách mà chúng ta có thể
+chuẩn hóa ma trận xuất hiện đồng thời, và có những cách khác mà chúng ta có thể
+nghĩ đến như là sự tương đồng cosin và chúng ta sẽ nói về các số liệu
+khác trong khóa học. Nhưng phương pháp này
+có giới hạn của nó. Ở đây, một vấn đề là thực tế
+chỉ xảy ra ở trang hiện tại, nên vấn đề chính là tôi chỉ mua hươu cao cổ Sophie khi tôi nhìn vào các gợi ý cho tôi. Chúng ta khoog nhìn vào toàn bộ
+lịch sử những thứ mà tôi đã mua để đưa ra các giới thiệu này. Hãy nói về cách mà chúng ta có thể
+thay đổi cách tiếp cận để tính đến lịch sử mua hàng của tôi. Ok, một cách tiếp cận đơn giản là
+chỉ tính trung bình trọng số qua các điểm tôi đã đặt trên các sản phẩm. Với mỗi mặt hàng trong lịch sử
+mua hàng của tôi, hãy xem qua một ví dụ cụ thể về điều này. Hãy giả sử rằng các mặt hàng tôi đã
+từng mua trên Amazon là tã và sữa. Bây giờ tôi muốn đưa ra gợi ý
+cho tôi, người chỉ mua tã và sữa, và những gì tôi sẽ làm
+là tôi sẽ xem từng mặt hàng mà tôi có thể nghĩ đến việc giới thiệu,
+và tôi sẽ tính toán điểm như sau. Hãy xem liệu tôi muốn giới thiệu mặt hàng khăn giấy trẻ em cho
+bản thân mình hay không. Và trong trường hợp này, những gì tôi sẽ làm là tôi sẽ tính
+trung bình trọng số qua số lượng tôi sẽ giới thiệu khăn giấy trẻ em
+chỉ dựa trên số tã đã mua trước đây. Đó là kỹ thuật chúng ta đã nói đến. Hãy nhìn vào hàng tã và nhìn số lượng người mua khăn giấy trẻ em. Nhưng sau đó tôi cũng sẽ
+nhìn vào hàng sữa và sau đó nhìn số người mua sữa
+mua khăn giấy trẻ em. Và tôi sẽ tính trung bình hai kết quả để
+xem có bao nhiêu hoặc bao nhiêu khả năng tôi sẽ mua khăn giấy trẻ em,
+đưa vào lịch sử mua hàng mà tôi có. Ok và tất nhiên chúng ta có thể
+làm các thay đổi khác thay vì chỉ là trung bình trọng số đơn giản, tôi có thể cân nhắc mức độ
+nặng nhẹ của lịch sử mua bán gần đây của tôi để tính theo nội dung và vân vân. OK, khi mà tôi muốn đưa ra
+gợi ý, tôi chỉ sắp xếp điểm trung bình trọng số và giới thiệu
+các sản phẩm có trọng số nặng nhất. Tương tự với việc mua hàng
+chúng ta đã nói đến trước đây, nhưng bây giờ chúng ta đang kết hợp trọng lượng
+ dựa trên lịch sử mua hàng của tôi. Ok, nhưng phương pháp này vẫn có một vài hạn chế. Ví dụ nó không sử dụng các địa chỉ liên lạc,
+thời gian trong ngày, ít nhất là không trực tiếp. Nó không sử các đặc điểm của
+người dùng như tuổi hay giới tính hoặc bất kì điều gì như thế,
+vì nó nhóm tất cả người sử dụng với nhau khi nó nghĩ đến việc
+nhìn vào ma trận xuất hiện đồng thời này. Như vậy nó không sử dụng
+các đặc điểm của các sản phẩm. Ok, mọi thứ được kết hợp với nhau
+mà không có bất kì khái niệm các thuộc tính khác nhau của các sản phẩm
+ hoặc người dùng để đưa ra các tư vấn. Và vấn đề lớn nữa mà chúng ta
+đối mặt ở đây là bài toán mới bắt đầu. Và đây là vấn đề thực sự quan trọng
+mà chúng ta đối mặt trong nhiều lĩnh vực khác nhau. Nhưng hãy nói về nó trong trường hợp này. Bài toán mới bắt đầu là thực tế nói rằng
+chúng ta có người dùng mới hoặc một sản phẩm mới. Chúng ta đã tạo dựng các tư vấn như thế nào? Vâng tôi không có quan sát nào
+cho sản phẩm đó, vì thế tôi không có khái niệm về tần suất nó
+được mua cùng với những thứ khác nữa vì nó chưa bao giờ được mua. Như vậy là một người dùng, tôi sẽ không có
+ thông tin về việc mua bán trước đây của mình. [NHẠC]

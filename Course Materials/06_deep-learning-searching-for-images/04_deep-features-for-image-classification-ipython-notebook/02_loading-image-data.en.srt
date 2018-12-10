@@ -1,0 +1,233 @@
+1
+00:00:00,000 --> 00:00:04,066
+[MUSIC]
+
+2
+00:00:04,066 --> 00:00:05,597
+So in this deep learning module,
+
+3
+00:00:05,597 --> 00:00:09,320
+we talked about two really cool things
+that you can do with deep learning.
+
+4
+00:00:09,320 --> 00:00:15,150
+One is classify images, and
+the other one is retrieve images.
+
+5
+00:00:15,150 --> 00:00:17,510
+And in both of them,
+we talked about deep features.
+
+6
+00:00:17,510 --> 00:00:20,490
+So let's just go ahead and
+build a notebook for
+
+7
+00:00:20,490 --> 00:00:23,390
+image classifications using deep features.
+
+8
+00:00:23,390 --> 00:00:26,470
+So, let's give this notebook a name.
+
+9
+00:00:26,470 --> 00:00:32,829
+So, this is going to be
+Image Classification
+
+10
+00:00:32,829 --> 00:00:37,850
+with Deep Features.
+
+11
+00:00:37,850 --> 00:00:41,490
+And I'm going to hide the header and
+
+12
+00:00:41,490 --> 00:00:44,730
+the toolbar to get a little
+bit more space, as usual.
+
+13
+00:00:44,730 --> 00:00:46,980
+And we'll fire up.
+
+14
+00:00:46,980 --> 00:00:51,945
+Actually I just did a little typo here so
+
+15
+00:00:51,945 --> 00:00:57,158
+we will, Fire up GraphLabCreates.
+
+16
+00:00:57,158 --> 00:01:02,786
+So let's import GraphLab, So here we go.
+
+17
+00:01:02,786 --> 00:01:09,309
+So the first thing that we're going to do
+is load a common image analysis dataset.
+
+18
+00:01:19,689 --> 00:01:23,660
+So this is a benchmark
+dataset called a SIFR10.
+
+19
+00:01:26,470 --> 00:01:30,220
+We select a subset of those where
+we just have four categories
+
+20
+00:01:30,220 --> 00:01:32,460
+of objects we're trying to recognize.
+
+21
+00:01:32,460 --> 00:01:36,430
+So I'm going to load the data set, and
+
+22
+00:01:36,430 --> 00:01:40,540
+this data set has already been split
+into train data and test data,
+
+23
+00:01:40,540 --> 00:01:45,660
+because in computer vision, often that
+split happens so every researcher uses
+
+24
+00:01:45,660 --> 00:01:50,580
+the same training set and the same test
+set, so the papers become more comparable.
+
+25
+00:01:50,580 --> 00:01:58,150
+So, I'm just gonna load an S
+frame that contains the data set.
+
+26
+00:01:58,150 --> 00:02:02,790
+So, graphlab.SFrame and for the training
+
+27
+00:02:04,000 --> 00:02:09,046
+data, there's a directory
+here called image_train_data.
+
+28
+00:02:09,046 --> 00:02:16,110
+And then for the test data, so
+let's call that image_test.
+
+29
+00:02:16,110 --> 00:02:21,109
+We have another SFrame.
+
+30
+00:02:21,109 --> 00:02:25,681
+Code image_test_data.
+
+31
+00:02:25,681 --> 00:02:29,830
+Here we go, so
+we are loading this two data sets,
+
+32
+00:02:29,830 --> 00:02:33,460
+and let's start by exploring
+the data a little bit.
+
+33
+00:02:33,460 --> 00:02:39,320
+So, exploring the image data.
+
+34
+00:02:42,300 --> 00:02:45,390
+So, what we're gonna do is use canvas.
+
+35
+00:02:45,390 --> 00:02:48,700
+So, I'm gonna point canvas
+to show it on the notebook,
+
+36
+00:02:48,700 --> 00:02:50,550
+as we have been doing
+on several notebooks.
+
+37
+00:02:50,550 --> 00:02:53,240
+So, it becomes all one thing
+that we can take home.
+
+38
+00:02:53,240 --> 00:02:59,145
+So, I'm gonna set graphlab.canvas and
+
+39
+00:02:59,145 --> 00:03:07,090
+I'm going to set the target
+to be the ipython notebook.
+
+40
+00:03:07,090 --> 00:03:10,510
+So it's going to print anything on
+the iPython notebook that we do.
+
+41
+00:03:10,510 --> 00:03:15,050
+And let's start by taking
+a look at the string data.
+
+42
+00:03:15,050 --> 00:03:17,350
+So image string, and
+here's a few columns but
+
+43
+00:03:17,350 --> 00:03:20,898
+the column that we really care
+about here is the image column.
+
+44
+00:03:20,898 --> 00:03:23,110
+I am just going to type .show on that and
+
+45
+00:03:23,110 --> 00:03:26,960
+we are going to take a quick
+look at that image column.
+
+46
+00:03:26,960 --> 00:03:31,039
+And these images are not too large,
+so I'm temporarily going to increase
+
+47
+00:03:32,320 --> 00:03:37,070
+the font here so
+we can take a look at the images.
+
+48
+00:03:37,070 --> 00:03:42,070
+And so if you look at it, there's a bird,
+there's some cats, there's some dogs and
+
+49
+00:03:42,070 --> 00:03:42,828
+some cars.
+
+50
+00:03:42,828 --> 00:03:49,433
+So this data set is all about cats,
+dogs, cars, and birds.
+
+51
+00:03:49,433 --> 00:03:53,659
+[MUSIC]

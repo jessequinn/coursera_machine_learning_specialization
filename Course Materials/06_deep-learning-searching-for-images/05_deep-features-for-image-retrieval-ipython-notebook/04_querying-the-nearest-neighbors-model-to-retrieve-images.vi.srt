@@ -1,0 +1,310 @@
+1
+00:00:00,003 --> 00:00:03,681
+[NHẠC]
+
+2
+00:00:03,681 --> 00:00:06,631
+Bây giờ chúng ta có thể sử dụng mô hình.
+
+3
+00:00:10,421 --> 00:00:14,514
+#use image retrieval
+
+4
+00:00:14,514 --> 00:00:19,570
+model with deep features
+
+5
+00:00:19,570 --> 00:00:24,631
+to find similar images.
+
+6
+00:00:24,631 --> 00:00:25,421
+Chúng ta bắt đầu nhé. 
+
+7
+00:00:25,421 --> 00:00:29,960
+Chúng ta sẽ lấy mô hình đó và sử dụng nó để tìm các hình ảnh tương tự.
+
+8
+00:00:29,960 --> 00:00:33,860
+Để tôi tiếp tục thực hiện một cách chính xác điều đó.
+
+9
+00:00:33,860 --> 00:00:37,880
+Đầu tiên hãy nhớ lấy một hình ảnh cụ thể.
+
+10
+00:00:37,880 --> 00:00:43,000
+Hãy lấy và chúng ta sẽ gọi chú mèo này, bạn sẽ thấy hình ảnh con mèo.
+
+11
+00:00:43,000 --> 00:00:47,090
+Trong dữ liệu huấn luyện hình ảnh của tôi.
+
+12
+00:00:47,090 --> 00:00:50,170
+Tôi sẽ lấy hình ảnh thứ 18.
+
+13
+00:00:50,170 --> 00:00:54,630
+Đây là hình ảnh thứ 18.
+
+14
+00:00:54,630 --> 00:00:56,780
+Và chỉ để bạn biết đó là gì,
+
+15
+00:00:56,780 --> 00:01:04,190
+tôi sẽ nhập cat['image'].show để hiển thị hình ảnh đó.
+
+16
+00:01:04,190 --> 00:01:06,730
+Và hiển thị nó trong ghi chú ở đây,
+
+17
+00:01:06,730 --> 00:01:11,740
+tôi sẽ đặt mục tiêu canvas là IPython Notebook.
+
+18
+00:01:13,920 --> 00:01:16,000
+Tất cả những thứ chúng ta đang làm cho đến nay.
+
+19
+00:01:16,000 --> 00:01:17,620
+Đây chúng ta có.
+
+20
+00:01:17,620 --> 00:01:20,890
+Đây là một hình ảnh về một con mèo.
+
+21
+00:01:20,890 --> 00:01:24,045
+Với những hình ảnh về con mèo, khá là nhỏ nhưng
+
+22
+00:01:24,045 --> 00:01:25,220
+nó là hình ảnh về một con mèo.
+
+23
+00:01:25,220 --> 00:01:26,420
+Bạn có thể thử làm.
+
+24
+00:01:26,420 --> 00:01:32,840
+Bây giờ chúng ta có thể tìm thấy nearest-neighbors với con mèo.
+
+25
+00:01:32,840 --> 00:01:37,660
+Hãy thực hiện điều đó.
+
+26
+00:01:37,660 --> 00:01:41,560
+Bây giờ hãy lấy hình ảnh của con mèo và tìm nearest-neighbor của nó.
+
+27
+00:01:41,560 --> 00:01:46,550
+Cái mà tôi có thể làm là lấy hnn_model của tôi và
+
+28
+00:01:46,550 --> 00:01:49,350
+truy vấn nó về hình ảnh con mèo.
+
+29
+00:01:50,990 --> 00:01:54,710
+Sau khi truy vấn, bạn sẽ thấy điều đó cho hình ảnh con mèo,
+
+30
+00:01:54,710 --> 00:02:00,850
+những hình ảnh gần nhất là hình ảnh 384, 6910 và vân vân.
+
+31
+00:02:00,850 --> 00:02:04,280
+Có một chút khó khăn để có được những hình ảnh từ những con số.
+
+32
+00:02:04,280 --> 00:02:07,530
+Khi chúng ta tạo ra điều đó, chúng ta sẽ tạo một hàm trợ giúp 
+
+33
+00:02:07,530 --> 00:02:11,690
+cái mà lấy các chỉ số và hiển thị các hình ảnh và
+
+34
+00:02:11,690 --> 00:02:14,810
+chúng ta sẽ có cơ hội để xác định một hàm.
+
+35
+00:02:16,200 --> 00:02:21,980
+Tôi sẽ xác định một hàm puthon mới và nó sẽ
+
+36
+00:02:21,980 --> 00:02:29,554
+được gọi là get_images_ids.
+
+37
+00:02:30,950 --> 00:02:36,210
+Trong cột tham khảo ở đây có ids, một cái ở đây.
+
+38
+00:02:36,210 --> 00:02:38,796
+Chúng ta sẽ lấy lại các hình ảnh.
+
+39
+00:02:38,796 --> 00:02:42,902
+Hãy coi như
+
+40
+00:02:42,902 --> 00:02:48,035
+đầu ra ở đây 
+
+41
+00:02:48,035 --> 00:02:53,298
+là, xin lỗi.
+
+42
+00:02:53,298 --> 00:02:56,610
+Đầu ra ở đây sẽ là kết quả của truy vấn.
+
+43
+00:02:56,610 --> 00:03:01,390
+Hãy gọi nó là query_result.
+
+44
+00:03:01,390 --> 00:03:06,976
+Nó là một hamg, tất cả chúng ta sẽ
+
+45
+00:03:06,976 --> 00:03:14,010
+làm với query_results trở lại image_train.
+
+46
+00:03:14,010 --> 00:03:17,361
+Tôi sẽ lấy dữ liệu huấn luyện đó và sẽ thực hiện
+
+47
+00:03:17,361 --> 00:03:22,360
+một bước gọi là filter_by, cái mà chỉ cần
+ chọn một tập các hàng của dữ liệu đó.
+
+48
+00:03:22,360 --> 00:03:31,140
+Tôi sẽ chọn nó bằng query_result mà chúng ta đã tạo.
+
+49
+00:03:32,180 --> 00:03:36,516
+Khi tôi hoàn thành điều đó và lựa chọn bằng query_result,
+
+50
+00:03:36,516 --> 00:03:42,560
+quay lại với cột và ở đây là cột reference_label.
+
+51
+00:03:43,560 --> 00:03:48,775
+Query_result['reference_label'] và
+
+52
+00:03:48,775 --> 00:03:55,029
+cái mà chúng ta sẽ làm là mang tất cả hình ảnh trở lại trong ổn đinh
+
+53
+00:03:55,029 --> 00:04:04,070
+id của nó phù hợp với cột reference_label này.
+
+54
+00:04:04,070 --> 00:04:05,440
+Đó là cái mà hàm trợ giúp làm.
+
+55
+00:04:05,440 --> 00:04:07,040
+Tôi không phải nhập nó mọi lúc.
+
+56
+00:04:07,040 --> 00:04:09,349
+Chúng ta có thể tiếp tục và sử dụng nó nhưng
+
+57
+00:04:09,349 --> 00:04:13,880
+tôi sẽ làm một thử nghiệm nhỏ với nó.
+
+58
+00:04:13,880 --> 00:04:17,470
+Hãy xác định hàm này.
+
+59
+00:04:17,470 --> 00:04:22,350
+Chúng ta đã xác định nó.
+
+60
+00:04:22,350 --> 00:04:25,220
+Có các hình ảnh từ ids.
+
+61
+00:04:25,220 --> 00:04:26,810
+Thực sự điều đó có ý nghĩa hơn phải không?
+
+62
+00:04:26,810 --> 00:04:31,170
+Hãy gọi là get_images_from_ids.
+
+63
+00:04:32,670 --> 00:04:35,610
+Hãy tiếp tục thực hiện nó.
+
+64
+00:04:35,610 --> 00:04:39,301
+Nhớ rằng với con mèo
+
+65
+00:04:39,301 --> 00:04:45,559
+chúng ta đã có hình ảnh về con mèo của chúng ta, chỉ cần nói
+
+66
+00:04:45,559 --> 00:04:50,870
+là cat_neighbors.
+
+67
+00:04:50,870 --> 00:04:54,495
+Và cat_neighbors sẽ là,
+
+68
+00:04:54,495 --> 00:04:59,507
+hãy gọi hàm này là get_images_from_ids và
+
+69
+00:04:59,507 --> 00:05:06,660
+giống như đầu vào tôi sẽ lấy hnn_model của tôi 
+và truy vấn nó với con mèo như một đầu vào.
+
+70
+00:05:09,150 --> 00:05:10,800
+Ok đây là các con mèo tương tự.
+
+71
+00:05:10,800 --> 00:05:17,310
+Các hình ảnh tương tự và cái mà tôi có thể làm là hiển thị các hình ảnh.
+
+72
+00:05:17,310 --> 00:05:22,453
+cat_neighbors['
+
+73
+00:05:22,453 --> 00:05:26,440
+image'].show.
+
+74
+00:05:26,440 --> 00:05:30,780
+Chúng ta phải dùng một chút dữ liệu để xem, nhưng đây là con mèo gần nhất,
+
+75
+00:05:30,780 --> 00:05:35,260
+đây là con mèo đầu vào và bạn thấy các con mèo
+ gần nhất là tất cả các con mèo và
+
+76
+00:05:35,260 --> 00:05:37,300
+chúng là tất cả các loại giống như thế này.
+
+77
+00:05:37,300 --> 00:05:42,399
+[NHẠC]

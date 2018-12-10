@@ -1,0 +1,388 @@
+1
+00:00:00,383 --> 00:00:03,883
+[MUSIC]
+
+2
+00:00:03,883 --> 00:00:04,496
+Okay.
+
+3
+00:00:04,496 --> 00:00:06,460
+Well instead of the analysis
+that we just did,
+
+4
+00:00:06,460 --> 00:00:09,090
+we can instead think about
+modeling the relationship
+
+5
+00:00:09,090 --> 00:00:13,490
+between the square footage of
+the house and the house sales price.
+
+6
+00:00:13,490 --> 00:00:17,220
+And to do this, we're gonna use something
+that's called linear regression.
+
+7
+00:00:17,220 --> 00:00:21,210
+Okay, so to leverage all the observations
+that we've collected, what we wanna do is
+
+8
+00:00:21,210 --> 00:00:25,430
+be able to understand the relationship
+between the square foot of the house and
+
+9
+00:00:25,430 --> 00:00:27,440
+the house sales price.
+
+10
+00:00:27,440 --> 00:00:29,540
+And so
+the simplest model we can use for this,
+
+11
+00:00:29,540 --> 00:00:31,490
+is just fitting a line through the data.
+
+12
+00:00:31,490 --> 00:00:34,370
+So here's an example of
+a line fit to this data.
+
+13
+00:00:34,370 --> 00:00:40,028
+And this line is defined by
+an intercept W0 and a slope W1.
+
+14
+00:00:40,028 --> 00:00:46,437
+And so often we'll talk about W1
+being the weight on the feature X or
+
+15
+00:00:46,437 --> 00:00:50,385
+its called the regression coefficient.
+
+16
+00:00:50,385 --> 00:00:54,809
+And what this weight has
+an interpretation of,
+
+17
+00:00:54,809 --> 00:00:59,342
+is as we vary X,
+the square footage of the house,
+
+18
+00:00:59,342 --> 00:01:06,880
+how much of an impact does that have on
+changes in the observed house sales price?
+
+19
+00:01:08,560 --> 00:01:11,236
+Okay, so these two things,
+our intercept and
+
+20
+00:01:11,236 --> 00:01:13,710
+our slope are the parameters of our model.
+
+21
+00:01:13,710 --> 00:01:18,907
+And so, to be very explicit here,
+we're gonna write this function,
+
+22
+00:01:18,907 --> 00:01:22,694
+this linear function here,
+with the subscript W,
+
+23
+00:01:22,694 --> 00:01:27,470
+that indicates that this function
+is specified by parameters.
+
+24
+00:01:27,470 --> 00:01:33,880
+W being the set of W0 and W1.
+
+25
+00:01:33,880 --> 00:01:38,090
+Okay, so this is the line
+that we fit through the data.
+
+26
+00:01:38,090 --> 00:01:42,090
+But a question is, which line is
+the right line or a good line to use for
+
+27
+00:01:42,090 --> 00:01:42,910
+a given data set.
+
+28
+00:01:44,090 --> 00:01:46,532
+So maybe we could draw this line or
+this one instead.
+
+29
+00:01:46,532 --> 00:01:50,508
+And each one of those is given by
+a different set of parameters w.
+
+30
+00:01:50,508 --> 00:01:56,708
+And a question is which w do we
+want to choose for our model?
+
+31
+00:01:56,708 --> 00:02:01,239
+Okay, well, to think about this,
+let's talk about defining a cost for
+
+32
+00:02:01,239 --> 00:02:02,920
+a given line.
+
+33
+00:02:02,920 --> 00:02:07,082
+And one very common cost
+associated with a specific fit to
+
+34
+00:02:07,082 --> 00:02:11,340
+the data is something called
+the residual sum of squares.
+
+35
+00:02:11,340 --> 00:02:15,451
+So, the residual sum of squares,
+we take our fitted line and
+
+36
+00:02:15,451 --> 00:02:17,960
+we look at each of our observations.
+
+37
+00:02:17,960 --> 00:02:22,635
+And we look at how far is that observation
+
+38
+00:02:22,635 --> 00:02:26,810
+from what the model would predict.
+
+39
+00:02:26,810 --> 00:02:29,010
+Which is just the point on the line.
+
+40
+00:02:29,010 --> 00:02:31,832
+So we look at all of these distances here,
+and
+
+41
+00:02:31,832 --> 00:02:34,870
+we actually look at the square
+of these distances.
+
+42
+00:02:34,870 --> 00:02:36,790
+That's why it's called the residual.
+
+43
+00:02:36,790 --> 00:02:40,800
+The residual is the difference of your
+prediction and your actual observation.
+
+44
+00:02:42,342 --> 00:02:45,240
+We're gonna look at the square and
+we're going to sum over them.
+
+45
+00:02:45,240 --> 00:02:49,860
+Okay, so this is the equation, here more
+explicitly, where we have the price,
+
+46
+00:02:49,860 --> 00:02:54,550
+this is our observed house sales price for
+the first house.
+
+47
+00:02:54,550 --> 00:02:55,940
+And what is this term here?
+
+48
+00:02:56,950 --> 00:03:03,962
+So, if this is what I'm
+calling dollar house one,
+
+49
+00:03:03,962 --> 00:03:08,038
+then what this point here is,
+
+50
+00:03:08,038 --> 00:03:13,760
+is if this is square footage of house one.
+
+51
+00:03:17,010 --> 00:03:21,303
+Then this x that I've drawn here
+
+52
+00:03:21,303 --> 00:03:27,090
+represents exactly this term here.
+
+53
+00:03:27,090 --> 00:03:32,800
+This is that value, the point on the line.
+
+54
+00:03:32,800 --> 00:03:36,830
+So this dollar sign
+minus this term here is
+
+55
+00:03:36,830 --> 00:03:40,570
+the difference between our observed
+house price versus what our model,
+
+56
+00:03:40,570 --> 00:03:44,620
+just this line, predicts for
+this given house square foot.
+
+57
+00:03:44,620 --> 00:03:46,463
+And we're squaring that and
+
+58
+00:03:46,463 --> 00:03:50,470
+we're summing over all the different
+houses in our data set.
+
+59
+00:03:50,470 --> 00:03:54,855
+Okay, so we think about trying to find the
+best line according to this metric that
+
+60
+00:03:54,855 --> 00:03:57,691
+I've defined here,
+this residual sum of squares,
+
+61
+00:03:57,691 --> 00:04:00,670
+what we do is we research over
+all possible W 0 and W 1.
+
+62
+00:04:00,670 --> 00:04:02,399
+So all possible lines,
+
+63
+00:04:02,399 --> 00:04:07,580
+and we choose the one that minimizes
+the residual sum of squares.
+
+64
+00:04:07,580 --> 00:04:12,130
+So we're gonna denote
+the resulting W as W hat.
+
+65
+00:04:12,130 --> 00:04:17,920
+So remember that's gonna be the set
+of w hat zero, and w hat one.
+
+66
+00:04:17,920 --> 00:04:19,660
+Our intercept and our slope.
+
+67
+00:04:21,620 --> 00:04:22,960
+Okay.
+
+68
+00:04:22,960 --> 00:04:26,340
+So there exists really nice and
+efficient algorithms for
+
+69
+00:04:26,340 --> 00:04:31,270
+computing this w hat,
+this search over all possible ws.
+
+70
+00:04:31,270 --> 00:04:33,129
+We could look at parameters of this model.
+
+71
+00:04:34,890 --> 00:04:38,380
+But we're gonna discuss these algorithms
+more in the regression course.
+
+72
+00:04:41,390 --> 00:04:46,040
+Ok, so now let's talk about how to take
+our estimated model parameters and
+
+73
+00:04:46,040 --> 00:04:48,530
+use them to predict the value of my house.
+
+74
+00:04:48,530 --> 00:04:52,170
+So I've gone through, sorry,
+this star shouldn't be there.
+
+75
+00:04:52,170 --> 00:04:55,510
+This should be a hat, just to be clear.
+
+76
+00:04:55,510 --> 00:04:59,547
+And I've gone through and plotted the line
+
+77
+00:04:59,547 --> 00:05:05,060
+associated with our estimated w0 hat and
+w1 hat.
+
+78
+00:05:05,060 --> 00:05:06,970
+And now, here's my house.
+
+79
+00:05:06,970 --> 00:05:08,120
+This is its square footage.
+
+80
+00:05:10,500 --> 00:05:15,420
+And the best guess of my house price,
+is simply what the line predicts.
+
+81
+00:05:15,420 --> 00:05:20,970
+So I go, and I compute what is the value
+for this square footage of my house.
+
+82
+00:05:20,970 --> 00:05:25,766
+Which is W0 hat plus W1 hat
+times the square footage
+
+83
+00:05:25,766 --> 00:05:30,130
+of my house okay very,
+very straightforward.
+
+84
+00:05:30,130 --> 00:05:34,089
+[MUSIC]

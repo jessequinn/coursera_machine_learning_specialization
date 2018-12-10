@@ -1,0 +1,41 @@
+[MUSIC] In this module, Emily covered various
+techniques for retrieving documents, exploring representations for
+a data like word count and TFIDF. Now we're gonna get a really cool Notebook
+where we put these ideas together and build a document retrieval system. Using TFIDF. So, let's go ahead and do just that. As usual,
+we're gonna be using Python Notebook and in this one I'm gonna change
+the title to Document retrieval, and here we go. And again, as usual,
+I'm gonna hide the header. And hide the toolbar to give
+us a little bit more space. Okay, let's go ahead and
+fire up GraphLab Create. So we're gonna do import graphlab since we're gonna be using
+it again in our notebook. Now the first step we're
+going to load some data. So let's Load some text data. This is interesting text
+data from Wikipedia, and it's pages on people. So, cool data set and
+I'm just going to load it, and we're going to see People
+which is gonna be an s frame is gonna be graphlab.SFrame
+from a file and that file is called people wiki,
+right here. And Here we go, we're loading it. And the first thing that we're gonna do is
+just look at a few top lines of that file. So I'm just gonna go ahead and
+you should see we have, so this URI is basically the location
+of that page on Wikipedia. This is the name of the person involved. and the text of that
+page about that person. And you have this for
+a pretty nice number of people here. So if you type len of people. In our data set. And type enter you see that we are talking
+about 59,000 people in this data set. It's a pretty good set and you will see with DFIF we are going to
+do some really interesting documents. Even in this relatively large data set. So the first thing we are going
+to do is just explore our data. So let's #Explore the dataset and checkout the text it contains. So let's start looking at
+a particular person dataset. And we're gonna look at the page for Barack Obama who is
+the current US President. So out of this people s-frame I'm
+going to select the one whose name, so that's the name column, is equal to Barack Obama. And so I pressed enter, and
+I created this new variable called Obama. And if you take a quick look at it,
+you see [COUGH] That it has the URL for the Obama page, the name Barack Obama,
+and the text for that page. So let's dig in, and
+see what that text looks like. So for Barack Obama, you'll see that Barack Hussein Obama was born
+on August 4th, 1961, and is the 44th The current
+President of the United States. So pretty natural text will really
+expect for this kind of data. So we can also look at some
+other personal data set. So for example, there's an actor called George Clooney
+who's been in a lot of movies. So if you look at the people
+As frame we're gonna select, so this is again a filter operation which
+we've been doing almost every network now. Whose name is George Clooney? And then I'm just gonna go ahead and show you the text that we get for
+George Clooney. And you see that George Timothy Clooney
+was born in 1961. So, basically, he's the same age as
+Barack Obama, but he's not president. He's an American actor, writer. Producer, director and activist, right here. [MUSIC]

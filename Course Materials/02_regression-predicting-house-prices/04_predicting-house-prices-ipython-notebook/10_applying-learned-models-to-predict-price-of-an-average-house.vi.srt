@@ -1,0 +1,278 @@
+1
+00:00:00,025 --> 00:00:04,556
+[NHẠC]
+
+2
+00:00:04,556 --> 00:00:08,219
+Chúng ta đã cùng học về hai mô hình quy hồi từ dữ liệu của chúng ta,
+
+3
+00:00:08,219 --> 00:00:09,924
+một cái dựa trên diện tích sống,
+
+4
+00:00:09,924 --> 00:00:12,510
+cái còn lại dựa trên những đặc trưng nâng cao.
+
+5
+00:00:12,510 --> 00:00:14,460
+Hãy ứng dụng các mô hình này.
+
+6
+00:00:14,460 --> 00:00:18,400
+Hãy xem nó sẽ thế nào khi chúng ta sử dụng chúng
+trong thực tế để dự đoán giá nhà.
+
+7
+00:00:18,400 --> 00:00:23,655
+Cái mà chúng ta sẽ làm là ứng dụng các mô hình đã học
+
+8
+00:00:23,655 --> 00:00:28,526
+để dự đoán giá của ba ngôi nhà từ
+
+9
+00:00:28,526 --> 00:00:33,155
+tập dữ liệu, ba ngôi nhà khác nhau.
+
+10
+00:00:33,155 --> 00:00:38,535
+Ngôi nhà đầu tiên trong ba ngôi nhà tôi đã chọn
+
+11
+00:00:38,535 --> 00:00:43,919
+có kích thước khác nhau, tính chất khác nhau,
+
+12
+00:00:43,919 --> 00:00:49,930
+Chúng nhìn có chút khác biết, trong khu phố khác nhau.
+
+13
+00:00:49,930 --> 00:00:51,180
+Hãy nhìn vào chúng.
+
+14
+00:00:51,180 --> 00:00:56,190
+Ngôi nhà đầu tiên là từ dữ liệu của chúng ta và
+
+15
+00:01:00,170 --> 00:01:06,660
+cái mà chúng ta sẽ làm với ngôi nhà này là
+không có dữ liệu ngoại trừ dữ liệu doanh số bán.
+
+16
+00:01:06,660 --> 00:01:11,792
+Ngoài dữ liệu doanh số bán của tôi, tôi sẽ
+
+17
+00:01:11,792 --> 00:01:19,251
+chọn ngôi nhà mà id của nó bằng với id cụ thể.
+
+18
+00:01:19,251 --> 00:01:24,119
+Ghi chú quốc gia cho chúng ta chuỗi id với mỗi ngôi nhà,
+nó cho chúng ta số liệu.
+
+19
+00:01:24,119 --> 00:01:30,160
+Đầu tiên là 5309, tôi đang cop từ một mẩu giấy ở đây,
+101200.
+
+20
+00:01:30,160 --> 00:01:35,540
+ngôi nhà cụ thể với id cụ thể, và tôi đang chọn nó
+
+21
+00:01:36,990 --> 00:01:42,440
+nếu tôi nhập house1, bạn sẽ thấy nó là gì.
+
+22
+00:01:42,440 --> 00:01:45,165
+Nó là ngôi nhà mà có ID cụ thể này.
+
+23
+00:01:45,165 --> 00:01:48,430
+Nó đã bán vào ngày này với 620,000 đô.
+
+24
+00:01:48,430 --> 00:01:52,250
+Nó có bốn phòng ngủ, hai và
+
+25
+00:01:52,250 --> 00:01:57,150
+một phần tư phòng tắn, 2,400 feet diện tích không gian và vân vân.
+
+26
+00:01:58,610 --> 00:02:04,060
+Bây giờ cái mà bạn có thể làm là trong ghi chú ipython,
+
+27
+00:02:04,060 --> 00:02:11,050
+bạn có thể nhúng vào không chỉ đánh dấu thăng
+mà còn soạn văn bản trong mã python.
+
+28
+00:02:11,050 --> 00:02:13,340
+Nhưng bạn cũng có thể nhúng HTML và hình ảnh.
+
+29
+00:02:13,340 --> 00:02:16,800
+Hãy để tôi làm điều đó cho bạn xem bây giờ, như một ví dụ.
+
+30
+00:02:16,800 --> 00:02:23,970
+Tôi đang nhập xm và sau đó tôi sẽ thêm hình ảnh
+vào ghi chú của tôi và hình ảnh này
+
+31
+00:02:23,970 --> 00:02:28,008
+là một hình ảnh mà tôi đã tải từ hồ sơ quốc gia cho ngôi nhà cụ thể này.
+
+32
+00:02:28,008 --> 00:02:34,330
+Hình ảnh trên thư mục của tôi, nó được gọi là ngôi nhà.
+
+33
+00:02:37,862 --> 00:02:41,761
+ngôi nhà 53, số là gì?
+
+34
+00:02:41,761 --> 00:02:47,740
+09101200 điều này sẽ thật thú vị.
+
+35
+00:02:47,740 --> 00:02:52,569
+Khi tôi xem bức tranh về ngôi nhà
+chúng ta đang cố gắng tạo ra dự đoán, oops,
+
+36
+00:02:52,569 --> 00:02:54,998
+tôi chắc đã nhập sai rồi, yeah
+
+37
+00:02:54,998 --> 00:02:56,321
+tôi đã quên .jpg của nó.
+
+38
+00:02:58,862 --> 00:03:02,880
+Và thật thú vị, đây là bức tranh về ngôi nhà chúng ta đang định giá.
+
+39
+00:03:02,880 --> 00:03:07,090
+Ngôi nhà này được bán năm 2014 với 620,000 đô.
+
+40
+00:03:07,090 --> 00:03:09,830
+Nó có bốn phòng ngủ, hai và một phần tư phòng tắm.
+
+41
+00:03:09,830 --> 00:03:13,370
+Nó đã được xây dựng, ví dụ năm 1929.
+
+42
+00:03:13,370 --> 00:03:20,473
+Bây giờ hãy xem mô hình của chúng ta dự đoán điều gì.
+
+43
+00:03:20,473 --> 00:03:24,300
+Chúng ta có hai mô hình.
+
+44
+00:03:24,300 --> 00:03:26,780
+Chúng ta có cái đầu tiên.
+
+45
+00:03:26,780 --> 00:03:28,100
+Giá đúng của ngôi nhà.
+
+46
+00:03:28,100 --> 00:03:33,411
+Và chỉ xuất ra để nhắc nhở chúng ta,
+đây là giá house1.
+
+47
+00:03:34,560 --> 00:03:41,318
+Đây là 200 vì nếu tôi chỉ nhập xuất ở đây,
+nó sẽ trông đẹp hơn một chút.
+
+48
+00:03:41,318 --> 00:03:46,370
+620,000 đô đây là giá của ngôi nhà.
+
+49
+00:03:46,370 --> 00:03:51,670
+Sau đó hãy xem mô hình đầu tiên của tôi dự đoán điều gì.
+
+50
+00:03:51,670 --> 00:03:55,745
+Đó là mô hình diện tích đơn giản mà chúng ta đã xây dựng.
+
+51
+00:03:55,745 --> 00:04:00,446
+Khi bạn thấy nó, whenl typed.predict,
+
+52
+00:04:00,446 --> 00:04:05,640
+giá của house1 và nó nói nó dự đoán là 
+
+53
+00:04:05,640 --> 00:04:10,973
+628,000 đô, thực sự rất sát giá.
+
+54
+00:04:10,973 --> 00:04:11,720
+Điều đó thật tốt.
+
+55
+00:04:13,430 --> 00:04:17,000
+Và hãy xem thêm các đặc trưng làm gì cho chúng ta.
+
+56
+00:04:18,380 --> 00:04:22,721
+my_features_model.predict:house1, vì vậy
+
+57
+00:04:22,721 --> 00:04:27,163
+bạn nhớ trung bình, mô hình các đặc trưng của tôi,
+
+58
+00:04:27,163 --> 00:04:32,150
+thêm nhiều các đặc trưng hơn mang đến cho bạn hiệu suất tốt hơn.
+
+59
+00:04:34,300 --> 00:04:39,769
+Bây giờ nếu bạn nhìn vào dự đoán ở đây,
+nó là 720,000 đô, 
+
+60
+00:04:39,769 --> 00:04:43,760
+mô hình diện tích có dự đoán tốt hơn là 
+mô hình diện tích với nhiều đặc trưng hơn.
+
+61
+00:04:43,760 --> 00:04:46,465
+Cái mà chúng ta học ở đây là, mặc dù trung bình
+
+62
+00:04:46,465 --> 00:04:48,980
+thêm các đặc trưng cho dự đoán tốt hơn.
+
+63
+00:04:48,980 --> 00:04:50,670
+Với một ngôi nhà cụ thể này,
+
+64
+00:04:50,670 --> 00:04:54,520
+mô hình đơn giản tốt hơn là mô hình nâng cao.
+
+65
+00:04:54,520 --> 00:04:58,070
+Nhưng điều này được mong đợi không phải thường xuyên nhưng
+
+66
+00:04:58,070 --> 00:05:01,740
+đôi khi nó tốt hơn, trung bình hoạt động có thể sẽ làm tốt hơn.
+
+67
+00:05:03,675 --> 00:05:07,939
+[NHẠC]

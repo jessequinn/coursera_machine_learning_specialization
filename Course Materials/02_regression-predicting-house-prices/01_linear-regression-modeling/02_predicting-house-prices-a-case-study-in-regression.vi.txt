@@ -1,0 +1,10 @@
+Trong bài học này chúng tôi muốn nói về sự hồi quy. Đó là một trong số các công cụ thống kê được sử dụng. Và ý tưởng thì rất đơn giản. Chúng ta có một số tập tính năng và chúng ta
+muốn mô phỏng cách các dữ liệu quan sát kết hợp với các tính năng này thay đổi thế nào
+khi chúng ta thay đổi giá trị của các tính năng đó. Và chúng ta sẽ thảo luận một trường hợp nghiên cứu về việc cố gắng dự đoán giá trị căn nhà. Ở đây chúng ta có thể hình dung là một
+căn nhà có các tính năng như kích thước của ngôi nhà, số lượng phòng ngủ,
+số lượng phòng tắm và danh sách tiếp tục dài ra. Và dữ liệu quan sát mà chúng ta có là
+giá trị của nhà hoặc giá bán căn nhà. Nhưng các công cụ của phép hồi quy đi quá ý nghĩ chỉ để làm nhiệm vụ dự đoán. Vì thế chúng ta sẽ thấy trong khóa học phân loại, chúng ta có thể sử dụng các công cụ hồi quy để phân loại. Ví dụ, giả sử chúng ta có một email và chúng ta muốn phân loại
+thư rác hay không phải thư rác. Email đó chúng ta có thể nghĩ đến việc
+có các đặc điểm về nội dung của email, điều đó chỉ ra là liệu rằng email đó là rác hay không. Và thêm vào đó chúng ta có thể
+nghĩ về việc sử dụng sự hồi quy để phân tích sự quan trọng của chính các đặc điểm. Và chúng ta sẽ nói nhiều hơn
+về điều đó trong khóa học hồi quy. [NHẠC]

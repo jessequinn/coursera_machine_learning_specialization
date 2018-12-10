@@ -1,0 +1,318 @@
+1
+00:00:00,000 --> 00:00:04,493
+[MUSIC]
+
+2
+00:00:04,493 --> 00:00:08,749
+Our next step is to evaluate
+
+3
+00:00:08,749 --> 00:00:15,530
+the sentiment model that we've built.
+
+4
+00:00:15,530 --> 00:00:21,030
+Now, we just talked in this module
+about classification error,
+
+5
+00:00:21,030 --> 00:00:24,298
+precision, sorry,
+false positives and false negatives.
+
+6
+00:00:24,298 --> 00:00:27,170
+And we're gonna explore
+that idea right here
+
+7
+00:00:27,170 --> 00:00:29,254
+in this demonstration in this notebook.
+
+8
+00:00:29,254 --> 00:00:36,190
+So the sentiment model has
+a function called Evaluate.
+
+9
+00:00:36,190 --> 00:00:42,140
+And that function Evaluate allows you to
+evaluate its quality on some test data.
+
+10
+00:00:42,140 --> 00:00:46,108
+And we're gonna provide
+a particular metric and
+
+11
+00:00:46,108 --> 00:00:49,710
+this metric is called the roc_curve.
+
+12
+00:00:49,710 --> 00:00:53,098
+And we're gonna learn a little bit
+more about the roc_curve next.
+
+13
+00:00:53,098 --> 00:00:56,960
+But the roc_curve is a way to
+explore the false positives and
+
+14
+00:00:56,960 --> 00:01:01,840
+false negatives in that confusion
+matrix that we discussed.
+
+15
+00:01:01,840 --> 00:01:06,750
+Now, here is, it shows you the results of
+evaluations that are hard to see in text.
+
+16
+00:01:06,750 --> 00:01:10,090
+So let's do a little visualization of it,
+again, using Canvas.
+
+17
+00:01:10,090 --> 00:01:14,189
+So we can use sentiment_model.show, and
+
+18
+00:01:14,189 --> 00:01:18,841
+we're gonna show the view
+that we're gonna use,
+
+19
+00:01:18,841 --> 00:01:22,180
+is going to be the Evaluation view.
+
+20
+00:01:23,990 --> 00:01:25,000
+And here we go.
+
+21
+00:01:27,390 --> 00:01:30,500
+Okay, this is really cool.
+
+22
+00:01:30,500 --> 00:01:32,502
+We've built a few things.
+
+23
+00:01:32,502 --> 00:01:39,762
+So this is a precision recall, I'm sorry,
+this is what is called an roc_curve,
+
+24
+00:01:39,762 --> 00:01:46,180
+it's a curve that trades off false
+positives with true positives.
+
+25
+00:01:46,180 --> 00:01:47,890
+Let me explain that a little bit.
+
+26
+00:01:47,890 --> 00:01:50,300
+But first,
+let's look at these numbers over here.
+
+27
+00:01:50,300 --> 00:01:52,960
+So this is the confusion matrix.
+
+28
+00:01:52,960 --> 00:01:54,330
+The number of true positives,
+
+29
+00:01:54,330 --> 00:01:59,950
+the things that we got right
+that were true, is 26,455.
+
+30
+00:01:59,950 --> 00:02:01,090
+So right here.
+
+31
+00:02:01,090 --> 00:02:05,995
+The number of true negatives
+was only 4,000, so 3,965.
+
+32
+00:02:05,995 --> 00:02:09,500
+So this is a highly unbalanced case.
+
+33
+00:02:09,500 --> 00:02:11,520
+And then,
+the number of false positives and
+
+34
+00:02:11,520 --> 00:02:13,370
+the number of false
+negatives is about the same.
+
+35
+00:02:13,370 --> 00:02:20,640
+The overall accuracy was 91.1%, so 0.911.
+
+36
+00:02:20,640 --> 00:02:24,151
+And also discuss a few metrics like
+precision recall and false count
+
+37
+00:02:24,151 --> 00:02:29,410
+which we're gonna learn more about later
+in the course and later in specialization.
+
+38
+00:02:29,410 --> 00:02:34,666
+Now, the thing about the false
+positives and false negatives is that
+
+39
+00:02:34,666 --> 00:02:39,920
+there's a very natural way to change
+the threshold of what we believe
+
+40
+00:02:39,920 --> 00:02:44,918
+the transition from negative class
+to positive class should be.
+
+41
+00:02:44,918 --> 00:02:48,306
+So this is what the threshold
+shows on the right, but
+
+42
+00:02:48,306 --> 00:02:51,580
+let me first show it on the curve here.
+
+43
+00:02:51,580 --> 00:02:54,300
+So, you can see it is possible for
+me to get, for
+
+44
+00:02:54,300 --> 00:02:58,285
+example, a very high true positive rate.
+
+45
+00:02:58,285 --> 00:03:01,646
+So .4, if I, sorry, a very low .4.
+
+46
+00:03:01,646 --> 00:03:06,760
+If I dont' allow myself to
+get any false positives.
+
+47
+00:03:06,760 --> 00:03:10,500
+So, if I'm very worried about false
+positives that can be very conservative,
+
+48
+00:03:10,500 --> 00:03:11,930
+get no false positives.
+
+49
+00:03:11,930 --> 00:03:16,790
+But again not capture many of the true
+positives and make other mistakes.
+
+50
+00:03:16,790 --> 00:03:17,610
+And you see.
+
+51
+00:03:17,610 --> 00:03:19,580
+As you go through the curve
+there's a kink here.
+
+52
+00:03:19,580 --> 00:03:23,930
+This is the point where you get
+not too many false positives but
+
+53
+00:03:23,930 --> 00:03:25,780
+a lot of true positives.
+
+54
+00:03:25,780 --> 00:03:31,650
+And then over on this end
+you get every true positive.
+
+55
+00:03:31,650 --> 00:03:33,520
+But you get a lot of false positives.
+
+56
+00:03:33,520 --> 00:03:36,330
+How do you get every true positive but
+get less false positives?
+
+57
+00:03:36,330 --> 00:03:38,870
+You just say every data point is positive.
+
+58
+00:03:38,870 --> 00:03:41,910
+Then you get all the true positives,
+but you also make a lot of mistakes.
+
+59
+00:03:41,910 --> 00:03:45,170
+And, we'll discuss more of this when
+we talk about precision recall curve.
+
+60
+00:03:45,170 --> 00:03:49,390
+But, nicely, we can change the threshold
+over here, and walk that curve up there.
+
+61
+00:03:50,420 --> 00:03:55,030
+As you can see, and so for example,
+the far end, on the right,
+
+62
+00:03:55,030 --> 00:03:57,860
+you see that the true
+positive rate is really high.
+
+63
+00:03:57,860 --> 00:04:02,160
+There's no false positives, but
+that there's no true negatives.
+
+64
+00:04:02,160 --> 00:04:06,120
+So there's no false negatives, no true
+negatives, you just got everything right.
+
+65
+00:04:06,120 --> 00:04:10,210
+And then you can slide
+it just the other way.
+
+66
+00:04:10,210 --> 00:04:11,980
+So you can play with this and
+
+67
+00:04:11,980 --> 00:04:15,350
+really kind of get a good sense of what
+this curve really means, the roc_curve.
+
+68
+00:04:15,350 --> 00:04:17,358
+And that's the evaluation
+that we're gonna be doing.
+
+69
+00:04:20,522 --> 00:04:24,569
+[MUSIC]

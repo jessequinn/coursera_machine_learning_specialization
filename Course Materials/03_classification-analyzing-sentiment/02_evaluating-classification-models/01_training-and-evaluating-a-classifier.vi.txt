@@ -1,0 +1,29 @@
+[NHẠC] Trong mô hình hồi quy, chúng ta
+đã nói về việc dự đoán giá nhà và tạo một mô hình hồi quy cho việc đó và chúng ta đo lỗi với giá trị
+tổng bình phương các lỗi. Ở đây trong phân loại, các lỗi của chúng ta
+có một chút sự khác biệt bởi vì chúng ta đang nói về các đầu vào chúng ta nhận
+là đúng và đầu vào chúng ta nhận là sai. Hãy nói một chút về việc đo lỗi trong phân loại. Khi tôi học một bộ phân loại, tôi được
+đưa cho một tập dữ liệu đầu vào. Các câu này được đánh dấu
+để thể hiện tích cực hay tiêu cực, cũng như trong hồi quy, chúng ta chia
+thành tập huấn luyện và tập kiểm thử. Tôi đưa tập huấn luyện vào bộ phân loại
+tôi đang cố gắng học và thuật toán đó thực sự sẽ học về trọng số của từ. Ví dụ nó sẽ học rằng good đạt 1.0 điểm. Awesome là 1.7. Bad là -1.0 Và awful là -3.3. Sau đó các trọng số sẽ được sử dụng
+để tính điểm mọi thành phần trong tập kiểm thử và đánh giá chúng ta 
+đang làm tốt sự phân loại như thế nào. Hãy nói về cách đánh giá như thế nào. Hãy thảo luận cách chúng ta đo lỗi, thực tế lỗi phân loại khi chúng ta làm sự phân loại này. Chúng ta sẽ có tập các ví dụ kiểm thử theo mẫu, sushi rất tuyệt là một câu tích cực, và
+chúng ta đang cố chỉ ra có bao nhiêu câu chúng ta đúng và có bao nhiêu câu chúng ta mắc lỗi. Cái mà chúng ta sẽ làm là lấy câu sushi rất tuyệt và đưa nó vào phân loại, qua
+bộ phân loại đã được học xong. Nhưng chúng ta không muốn bộ
+phân loại thấy nhãn mác thực sự. Chúng ta sẽ xem liệu nó nhận đúng
+nhãn mác thực sự hay không. Chúng ta sẽ giấu nhãn mác thực sự đó đi. Câu sẽ đưa vào phân loại nhưng
+nhãn mác đúng thì được dấu đi. Và bây giờ với câu đưa vào, chúng ta
+sẽ dự đoán y mũ là tích cực. Chúng ta để nó như là một câu tích cực và,
+chúng ta đã thực hiện một dự đoán đúng. Số lượng câu đúng tăng lên một. Bây giờ hãy lấy một câu nữa,
+một ví dụ kiểm thử khác. Hãy nói thức ăn ok như là một câu tiêu cực. Đó là một câu không rõ ràng nhưng nó được dán nhãn là tiêu cực
+trong bộ huấn luyện. Tôi đặt câu này vào phân loại, tôi giấu nhãn đi. Và hãy xem phân loại làm gì. Trong trường hợp này, bởi vì câu thức ăn thì ok
+có thể được hiểu như thái độ tích cực, có thể nó đưa ra dự đoán rằng
+đây là câu tích cực tôi đã làm sai, vì nhãn mác đúng là tiêu cực. Đã có sai lầm. Chúng ta có hơn một lỗi. Vì thế chúng ta có một sự
+phân loại đúng và một cái sai. Bây giờ chúng ta làm điều này với mỗi câu trong tập. Có hai tiêu chuẩn thông thường
+về chất lượng trong phân loại. Ví dụ, thứ nhất là khái niệm sai. Đo lỗi, các phần trong ví dụ
+kiểm thử mà chúng ta mắc lỗi. Cái mà chúng ta làm là,
+trong tất cả các câu được phân loại, có bao nhiêu lỗi ở đây, số lượng các lỗi và tôi chia cho tổng số câc câu kiểm thử. Ví dụ nếu có 100 câu kiểm thử và tôi tạo ra mười lỗi thì sai số
+của chúng ta sẽ là 0.1 hoặc 10%. Bây giờ về cơ bản tôi không mắc lỗi, tôi không mắc lỗi nào. Bây giờ, thông thường thay vì nói về lỗi hãy nói về sự chính xác của sự phân loại của bạn. Sự chính xác chính là điều ngược lại với điều đó. Trong sự chính xác, thay vì đo số lỗi chúng ta đo số lượng phân loại đúng. Vì vậy tỉ lệ ở đây là số lượng đúng được chia bởi tổng số các câu. Và không giống như lỗi, giá trị tốt nhất
+có thể bằng 0, về mặt chính xác giá trị tốt nhất có thể bằng 1,
+tôi đã có tất cả các câu đúng. Và thực tế có mối quan hệ tự nhiên giữa hai điều này. Chúng ta biết rằng lỗi bằng 1- tính chính xác và ngược lại. [NHẠC]

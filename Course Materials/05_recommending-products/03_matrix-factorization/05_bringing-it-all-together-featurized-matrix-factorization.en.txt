@@ -1,0 +1,39 @@
+[MUSIC] Okay, so we saw in our feature-based
+classification approach that we were able to handle cases where we might
+have very limited user data. And on the other hand,
+in our matrix factorization approach, we saw that we were able to capture
+relationships between users and items and in particular learn features
+of those users and those items. And a question is, whether we can
+have some integrated approach to get the benefits of both worlds. So importantly the features of our
+classification based approach, or something like that can
+capture things like context, time of day, what I just saw,
+user information, past purchases. Whereas the features that are discovered
+from matrix factorization can capture groups of users
+who behave similarly. So for example, women from Seattle
+who teach and are also a mom. Okay so the question is how we combine
+these two different approaches. Well it's very straightforward. What we can do is we
+can take a new user for which we have no past purchase
+information, and we can use just features specified by that user. Such as the person's age,
+gender and so on, to predict the ratings
+that a person might have. Likewise, as we get more and
+more data from that user, we can weight more heavily on our
+matrix factorization approach and use those learn features, more strongly
+when we're forming our recommendations. So it's very simple to think about
+combining the ideas of a user-specified feature-based model with our learned
+features from matrix factorization. And gradually switch between the two, depending on how much data's available
+from each user or for each product. And this idea of blending
+models is really popular. And one example of where it's
+really been shown to have impact in recommenders systems was this
+classic example that we mentioned at the beginning of this module
+of the Netflix competition. So this competition was a competition for who could provide the best predicted
+ratings for users on Netflix, and the data set consisted of a hundred
+million different user ratings and movies. There's almost 18,000 different movies,
+nearly 500,000 unique users, and the goal was to predict 3,000,000
+ratings to the highest accuracy, and the prize was a $1,000,000. So there are a lot of people very
+interested in competing for this prize, and what we see in this table
+here is the leading team. And their model actually blended over a hundred different models
+to get their performance. And so
+this type of ensemble approach we're gonna discuss more in
+the classification module but this notion of combining models to get
+performance that exceeds the performance of any of the individual models Is a very
+common and very powerful technique.

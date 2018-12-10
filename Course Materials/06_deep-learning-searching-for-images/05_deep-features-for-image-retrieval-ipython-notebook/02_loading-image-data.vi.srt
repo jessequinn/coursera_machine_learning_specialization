@@ -1,0 +1,163 @@
+1
+00:00:00,053 --> 00:00:03,963
+[NHẠC]
+
+2
+00:00:03,963 --> 00:00:08,103
+Chúng ta đã thấy các tính năng sâu rất tốt
+ cho phân loại hình ảnh như thế nào.
+
+3
+00:00:08,103 --> 00:00:12,829
+Chúng cho phép chúng ta đạt được độ 
+chính xác khá cao thậm chí chỉ với một chút
+
+4
+00:00:12,829 --> 00:00:17,247
+dữ liệu huấn luyện trong nhiệm vụ
+phân loại cụ thể bằng
+
+5
+00:00:17,247 --> 00:00:22,843
+các tính năng tìm kiếm đầu tiên từ mô hình học sâu
+đã chiến thắng cuộc thi ImageNet 2012.
+
+6
+00:00:22,843 --> 00:00:24,740
+Điều đó khá là thú vị.
+
+7
+00:00:24,740 --> 00:00:27,710
+Nhưng nếu bạn còn nhớ động cơ lúc đầu,
+
+8
+00:00:27,710 --> 00:00:30,985
+các ví dụ sử dụng ở
+phần đầu của bài học,
+
+9
+00:00:30,985 --> 00:00:34,890
+chúng ta đang nói về việc tìm các hình ảnh
+của các sản phẩm mà tôi thích.
+
+10
+00:00:34,890 --> 00:00:38,470
+Bạn biết đấy tôi thích giày, tôi sẽ
+tìm giày giống với đôi giày của tôi.
+
+11
+00:00:38,470 --> 00:00:43,180
+Tôi muốn tìm các hình ảnh mà giống với tập sản phẩm tôi quan tâm.
+
+12
+00:00:43,180 --> 00:00:45,520
+Thay vì làm nhiệm vụ phân loại hình ảnh,
+
+13
+00:00:45,520 --> 00:00:49,160
+bây giờ chúng ta sẽ lấy các tính năng sâu và
+ thực hiện nhiệm vụ truy xuất hình ảnh.
+
+14
+00:00:49,160 --> 00:00:51,850
+Hãy tiếp tục và làm điều đó, ok?
+
+15
+00:00:51,850 --> 00:00:57,018
+Chúng ta sẽ đặt tên ghi chú của chúng ta, vì thế
+
+16
+00:00:57,018 --> 00:01:04,470
+tôi sẽ đặt là Deep Features for Image Retrieval.
+
+17
+00:01:04,470 --> 00:01:09,466
+Và tôi sẽ ẩn tiêu đề và ẩn thanh công cụ đi,
+
+18
+00:01:09,466 --> 00:01:14,700
+chúng ta có thể tiếp tục và có thêm một chút khoảng trống.
+
+19
+00:01:14,700 --> 00:01:20,760
+Tôi sẽ tạo graphlab và
+
+20
+00:01:22,680 --> 00:01:28,861
+tôi cũng sẽ load the CIFAR-10
+
+21
+00:01:28,861 --> 00:01:34,150
+dataset, cái mà là tập dữ liệu giống với cái mà chúng ta đã tải.
+
+22
+00:01:34,150 --> 00:01:39,440
+Trong trường hợp này chúng ta đã nói về 
+các tính năng sâu hoặc phân tích.
+
+23
+00:01:39,440 --> 00:01:44,142
+Trong trường hợp này tôi sẽ chỉ tải tập huấn luyện bởi vì chúng ta
+
+24
+00:01:44,142 --> 00:01:47,400
+sẽ thực hiện truy xuất tập huấn luyện.
+
+25
+00:01:48,640 --> 00:01:50,390
+Hãy bắt đầu từ điều đó.
+
+26
+00:01:50,390 --> 00:01:55,060
+Tôi sẽ gọi nó là image_train và
+
+27
+00:01:55,060 --> 00:02:00,130
+tôi sẽ sử dụng graphlab.Sframe và
+
+28
+00:02:00,130 --> 00:02:07,540
+sau đó đầu vào tôi sẽ đặt nó là image_train_data/.
+
+29
+00:02:07,540 --> 00:02:14,576
+Và cũng như một lời nhắc, nếu tôi 
+nhìn vào tập dữ liệu image_train này,
+
+30
+00:02:14,576 --> 00:02:19,265
+.head trong sframe này chúng ta có id hình ảnh,
+
+31
+00:02:19,265 --> 00:02:25,015
+hình ảnh thực, nhãn cái mà chúng ta sẽ không sử dụng cho
+
+32
+00:02:25,015 --> 00:02:30,670
+việc truy xuất. chúng ta sẽ không sử dụng nhãn đó.
+
+33
+00:02:30,670 --> 00:02:34,030
+Mảng hình ảnh của các điểm ảnh, cái mà 
+chúng ta cũng sẽ không sử dụng nhưng
+
+34
+00:02:34,030 --> 00:02:36,590
+nó đã có các tính năng sâu được tính toán.
+
+35
+00:02:36,590 --> 00:02:41,520
+Trong ghi nhớ về các tính năng sâu cho phân loại,
+
+36
+00:02:41,520 --> 00:02:44,950
+chúng ta đã thấy những dòng mà
+ bạn cần phải tính cột đó, các tính năng sâu.
+
+37
+00:02:44,950 --> 00:02:49,520
+Ở đây tôi sẽ chỉ sử dụng các tính năng sâu này.
+
+38
+00:02:49,520 --> 00:02:54,029
+[NHẠC]

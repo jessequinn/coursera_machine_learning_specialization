@@ -1,0 +1,307 @@
+1
+00:00:01,093 --> 00:00:04,133
+[NHẠC]
+
+2
+00:00:04,133 --> 00:00:08,337
+Trong mô hình hồi quy, chúng ta
+đã nói về việc dự đoán giá nhà và
+
+3
+00:00:08,337 --> 00:00:10,689
+tạo một mô hình hồi quy cho việc đó và
+
+4
+00:00:10,689 --> 00:00:14,070
+chúng ta đo lỗi với giá trị
+tổng bình phương các lỗi.
+
+5
+00:00:14,070 --> 00:00:18,023
+Ở đây trong phân loại, các lỗi của chúng ta
+có một chút sự khác biệt bởi vì chúng ta
+
+6
+00:00:18,023 --> 00:00:23,100
+đang nói về các đầu vào chúng ta nhận
+là đúng và đầu vào chúng ta nhận là sai.
+
+7
+00:00:23,100 --> 00:00:26,360
+Hãy nói một chút về việc đo lỗi trong phân loại.
+
+8
+00:00:26,360 --> 00:00:30,320
+Khi tôi học một bộ phân loại, tôi được
+đưa cho một tập dữ liệu đầu vào.
+
+9
+00:00:30,320 --> 00:00:33,510
+Các câu này được đánh dấu
+để thể hiện tích cực hay tiêu cực,
+
+10
+00:00:33,510 --> 00:00:38,140
+cũng như trong hồi quy, chúng ta chia
+thành tập huấn luyện và tập kiểm thử.
+
+11
+00:00:39,630 --> 00:00:43,390
+Tôi đưa tập huấn luyện vào bộ phân loại
+tôi đang cố gắng học và
+
+12
+00:00:43,390 --> 00:00:46,560
+thuật toán đó thực sự sẽ học về trọng số của từ.
+
+13
+00:00:46,560 --> 00:00:48,679
+Ví dụ nó sẽ học rằng good đạt 1.0 điểm.
+
+14
+00:00:48,679 --> 00:00:51,341
+Awesome là 1.7.
+
+15
+00:00:51,341 --> 00:00:52,360
+Bad là -1.0
+
+16
+00:00:52,360 --> 00:00:54,844
+Và awful là -3.3.
+
+17
+00:00:56,100 --> 00:01:00,230
+Sau đó các trọng số sẽ được sử dụng
+để tính điểm mọi thành phần trong
+
+18
+00:01:00,230 --> 00:01:05,190
+tập kiểm thử và đánh giá chúng ta 
+đang làm tốt sự phân loại như thế nào.
+
+19
+00:01:05,190 --> 00:01:07,930
+Hãy nói về cách đánh giá như thế nào.
+
+20
+00:01:07,930 --> 00:01:10,920
+Hãy thảo luận cách chúng ta đo lỗi, thực tế
+
+21
+00:01:10,920 --> 00:01:13,919
+lỗi phân loại khi chúng ta làm sự phân loại này.
+
+22
+00:01:14,962 --> 00:01:17,820
+Chúng ta sẽ có tập các ví dụ kiểm thử theo mẫu,
+
+23
+00:01:17,820 --> 00:01:22,750
+sushi rất tuyệt là một câu tích cực, và
+chúng ta đang cố chỉ ra có bao nhiêu
+
+24
+00:01:22,750 --> 00:01:27,490
+câu chúng ta đúng và có bao nhiêu câu chúng ta mắc lỗi.
+
+25
+00:01:27,490 --> 00:01:31,740
+Cái mà chúng ta sẽ làm là lấy câu sushi rất tuyệt và
+
+26
+00:01:31,740 --> 00:01:34,620
+đưa nó vào phân loại, qua
+bộ phân loại đã được học xong.
+
+27
+00:01:34,620 --> 00:01:38,530
+Nhưng chúng ta không muốn bộ
+phân loại thấy nhãn mác thực sự.
+
+28
+00:01:38,530 --> 00:01:40,670
+Chúng ta sẽ xem liệu nó nhận đúng
+nhãn mác thực sự hay không.
+
+29
+00:01:40,670 --> 00:01:42,440
+Chúng ta sẽ giấu nhãn mác thực sự đó đi.
+
+30
+00:01:42,440 --> 00:01:45,960
+Câu sẽ đưa vào phân loại nhưng
+nhãn mác đúng thì được dấu đi.
+
+31
+00:01:47,190 --> 00:01:51,500
+Và bây giờ với câu đưa vào, chúng ta
+sẽ dự đoán y mũ là tích cực.
+
+32
+00:01:51,500 --> 00:01:56,260
+Chúng ta để nó như là một câu tích cực và,
+chúng ta đã thực hiện một dự đoán đúng.
+
+33
+00:01:56,260 --> 00:01:59,160
+Số lượng câu đúng tăng lên một.
+
+34
+00:01:59,160 --> 00:02:03,100
+Bây giờ hãy lấy một câu nữa,
+một ví dụ kiểm thử khác.
+
+35
+00:02:03,100 --> 00:02:08,290
+Hãy nói thức ăn ok như là một câu tiêu cực.
+
+36
+00:02:08,290 --> 00:02:11,960
+Đó là một câu không rõ ràng nhưng
+
+37
+00:02:11,960 --> 00:02:14,950
+nó được dán nhãn là tiêu cực
+trong bộ huấn luyện.
+
+38
+00:02:14,950 --> 00:02:19,445
+Tôi đặt câu này vào phân loại, tôi giấu nhãn đi.
+
+39
+00:02:19,445 --> 00:02:21,420
+Và hãy xem phân loại làm gì.
+
+40
+00:02:21,420 --> 00:02:24,699
+Trong trường hợp này, bởi vì câu thức ăn thì ok
+có thể được hiểu như thái độ tích cực,
+
+41
+00:02:24,699 --> 00:02:28,587
+có thể nó đưa ra dự đoán rằng
+đây là câu tích cực tôi đã làm sai,
+
+42
+00:02:28,587 --> 00:02:30,620
+vì nhãn mác đúng là tiêu cực.
+
+43
+00:02:30,620 --> 00:02:32,769
+Đã có sai lầm.
+
+44
+00:02:33,900 --> 00:02:36,100
+Chúng ta có hơn một lỗi.
+
+45
+00:02:36,100 --> 00:02:39,500
+Vì thế chúng ta có một sự
+phân loại đúng và một cái sai.
+
+46
+00:02:39,500 --> 00:02:43,190
+Bây giờ chúng ta làm điều này với mỗi câu trong tập.
+
+47
+00:02:43,190 --> 00:02:48,040
+Có hai tiêu chuẩn thông thường
+về chất lượng trong phân loại.
+
+48
+00:02:48,040 --> 00:02:51,690
+Ví dụ, thứ nhất là khái niệm sai.
+
+49
+00:02:51,690 --> 00:02:56,980
+Đo lỗi, các phần trong ví dụ
+kiểm thử mà chúng ta mắc lỗi.
+
+50
+00:02:56,980 --> 00:03:02,420
+Cái mà chúng ta làm là,
+trong tất cả các câu được phân loại,
+
+51
+00:03:02,420 --> 00:03:06,690
+có bao nhiêu lỗi ở đây, số lượng các lỗi và
+
+52
+00:03:06,690 --> 00:03:12,520
+tôi chia cho tổng số câc câu kiểm thử.
+
+53
+00:03:12,520 --> 00:03:15,967
+Ví dụ nếu có 100 câu kiểm thử và
+
+54
+00:03:15,967 --> 00:03:19,880
+tôi tạo ra mười lỗi thì sai số
+của chúng ta sẽ là 0.1 hoặc 10%.
+
+55
+00:03:19,880 --> 00:03:23,973
+Bây giờ về cơ bản tôi không mắc lỗi,
+
+56
+00:03:23,973 --> 00:03:25,320
+tôi không mắc lỗi nào.
+
+57
+00:03:26,440 --> 00:03:29,400
+Bây giờ, thông thường thay vì nói về lỗi
+
+58
+00:03:29,400 --> 00:03:32,340
+hãy nói về sự chính xác của sự phân loại của bạn.
+
+59
+00:03:32,340 --> 00:03:34,940
+Sự chính xác chính là điều ngược lại với điều đó.
+
+60
+00:03:34,940 --> 00:03:38,750
+Trong sự chính xác, thay vì đo số lỗi
+
+61
+00:03:38,750 --> 00:03:41,790
+chúng ta đo số lượng phân loại đúng.
+
+62
+00:03:41,790 --> 00:03:47,787
+Vì vậy tỉ lệ ở đây là số lượng
+
+63
+00:03:47,787 --> 00:03:54,056
+đúng được chia bởi tổng
+
+64
+00:03:54,056 --> 00:03:59,250
+số các câu.
+
+65
+00:03:59,250 --> 00:04:03,250
+Và không giống như lỗi, giá trị tốt nhất
+có thể bằng 0, về mặt chính xác
+
+66
+00:04:03,250 --> 00:04:06,380
+giá trị tốt nhất có thể bằng 1,
+tôi đã có tất cả các câu đúng.
+
+67
+00:04:07,950 --> 00:04:11,470
+Và thực tế có mối quan hệ tự nhiên giữa hai điều này.
+
+68
+00:04:11,470 --> 00:04:16,500
+Chúng ta biết rằng lỗi bằng 1-
+
+69
+00:04:16,500 --> 00:04:22,256
+tính chính xác và ngược lại.
+
+70
+00:04:22,256 --> 00:04:22,756
+[NHẠC]

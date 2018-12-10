@@ -1,0 +1,416 @@
+1
+00:00:00,000 --> 00:00:04,085
+[MUSIC]
+
+2
+00:00:04,085 --> 00:00:08,377
+We've done now some simple regression,
+some simple regression for
+
+3
+00:00:08,377 --> 00:00:11,440
+our data just using square foot of living.
+
+4
+00:00:11,440 --> 00:00:15,650
+But if you remember, our data set had many
+other columns associated with that, or
+
+5
+00:00:15,650 --> 00:00:16,650
+features.
+
+6
+00:00:16,650 --> 00:00:20,827
+So what we're gonna do next is
+
+7
+00:00:20,827 --> 00:00:26,014
+explore other features in the data.
+
+8
+00:00:28,350 --> 00:00:32,918
+So let's do some exploration of other
+possible features we might use.
+
+9
+00:00:34,749 --> 00:00:39,310
+So I'm going to use a set of features.
+
+10
+00:00:39,310 --> 00:00:46,120
+So let's create a list of the features
+I'm going to explore, the code features.
+
+11
+00:00:46,120 --> 00:00:52,041
+And these features
+are going to be the number
+
+12
+00:00:52,041 --> 00:00:57,490
+of bedrooms, the number of bathrooms.
+
+13
+00:01:03,118 --> 00:01:04,420
+Let's see, what else?
+
+14
+00:01:04,420 --> 00:01:10,080
+The square foot of living space,
+which is what we've been exploring so far.
+
+15
+00:01:11,290 --> 00:01:15,690
+In addition to this, I'm going to
+include the square foot of the lot, so
+
+16
+00:01:15,690 --> 00:01:18,830
+this is how much land
+the house has all around it.
+
+17
+00:01:20,480 --> 00:01:24,390
+The number of floors in the house.
+
+18
+00:01:26,210 --> 00:01:31,097
+And finally, I'm gonna include
+a variable called the ZIP code.
+
+19
+00:01:32,800 --> 00:01:36,480
+And so the ZIP code in
+
+20
+00:01:36,480 --> 00:01:40,070
+the United States is what other
+countries call the postal code.
+
+21
+00:01:41,310 --> 00:01:44,090
+In Brazil we call this SAPI.
+
+22
+00:01:44,090 --> 00:01:48,130
+But there are many names in different
+places, that's what we'll include.
+
+23
+00:01:48,130 --> 00:01:53,790
+So, let's see, if I take the sales
+data and I just select this column,
+
+24
+00:01:53,790 --> 00:01:59,880
+just select the features column here,
+why don't we call them just to be totally
+
+25
+00:01:59,880 --> 00:02:03,095
+clear, instead of calling them features
+I'm going to call them my_features.
+
+26
+00:02:04,990 --> 00:02:06,820
+Shift+Enter.
+
+27
+00:02:06,820 --> 00:02:11,050
+And then I'm gonna look at what
+my_features columns look like.
+
+28
+00:02:11,050 --> 00:02:13,820
+So I'm gonna type .show.
+
+29
+00:02:13,820 --> 00:02:17,020
+Remember, we can type .show
+anything with GraphLab Create.
+
+30
+00:02:17,020 --> 00:02:22,325
+On the sframe for sales,
+selecting the my_features.
+
+31
+00:02:23,710 --> 00:02:27,090
+And now we're gonna have
+a visualization of these features.
+
+32
+00:02:27,090 --> 00:02:29,530
+So let me just walk you
+through this visualization.
+
+33
+00:02:31,270 --> 00:02:32,490
+Get my mouse here.
+
+34
+00:02:32,490 --> 00:02:35,640
+So bedrooms, let's look at frequency.
+
+35
+00:02:35,640 --> 00:02:38,280
+There are 13 different unique types.
+
+36
+00:02:38,280 --> 00:02:40,739
+In fact,
+there's some houses with ten bedrooms.
+
+37
+00:02:43,290 --> 00:02:45,730
+Most houses have three bedrooms.
+
+38
+00:02:45,730 --> 00:02:49,400
+Some have four, some have two,
+some have five, and very few have more.
+
+39
+00:02:49,400 --> 00:02:50,580
+With bathrooms,
+
+40
+00:02:50,580 --> 00:02:55,250
+it turns out that house in the US,
+you have fractional number of bathrooms.
+
+41
+00:02:55,250 --> 00:02:58,895
+When you say, for example,
+2.5 bathrooms is the most common number,
+
+42
+00:02:58,895 --> 00:03:04,860
+it's because if you have a house
+with a bathroom with a bath in it,
+
+43
+00:03:04,860 --> 00:03:06,380
+it's called a full bath, it counts for 1.
+
+44
+00:03:06,380 --> 00:03:12,920
+But if you have just a bathroom that has
+a sink and a toilet, it's just worth 0.5.
+
+45
+00:03:12,920 --> 00:03:15,440
+And so here you have 2.5.
+
+46
+00:03:15,440 --> 00:03:19,925
+In fact, if you have a bathroom
+with a sink, a toilet, and
+
+47
+00:03:19,925 --> 00:03:24,334
+a shower, but no tub,
+that's worth 0.75 in the US.
+
+48
+00:03:24,334 --> 00:03:25,840
+So there you go.
+
+49
+00:03:25,840 --> 00:03:29,220
+That's where you can have one bathroom
+is the second most common, and
+
+50
+00:03:29,220 --> 00:03:33,090
+then you have this 1.75 bathroom,
+which is probably
+
+51
+00:03:33,090 --> 00:03:37,350
+going to be one full bath with a bath and
+a bathroom with a shower.
+
+52
+00:03:37,350 --> 00:03:39,160
+And you can see the distribution here.
+
+53
+00:03:40,475 --> 00:03:44,148
+Similarly for other things,
+like square foot of living, and
+
+54
+00:03:44,148 --> 00:03:50,990
+number of floors,
+most houses have one floor, some have two.
+
+55
+00:03:50,990 --> 00:03:52,620
+And then the ZIP code.
+
+56
+00:03:52,620 --> 00:03:55,990
+The most common zipcode is 98103,
+
+57
+00:03:55,990 --> 00:04:01,170
+which is an area where a lot
+of people live in Seattle.
+
+58
+00:04:01,170 --> 00:04:02,080
+Okay, so
+
+59
+00:04:02,080 --> 00:04:07,230
+we've seen a high level visualization
+of the different columns of the data.
+
+60
+00:04:07,230 --> 00:04:09,140
+Now let's look at some other
+relationships of the data.
+
+61
+00:04:09,140 --> 00:04:11,720
+Let's do some fun visualizations here.
+
+62
+00:04:11,720 --> 00:04:15,745
+So I'm gonna take the sales table and
+I'm gonna type show.
+
+63
+00:04:15,745 --> 00:04:20,460
+But the view that I'm gonna do,
+it's not gonna be scatterplot.
+
+64
+00:04:20,460 --> 00:04:25,171
+But it's gonna be what is
+called a box whisker plot, and
+
+65
+00:04:25,171 --> 00:04:31,940
+this box whisker plot is gonna relate
+two variables that we looked at.
+
+66
+00:04:31,940 --> 00:04:37,560
+On the x side, I'm gonna use the ZIP code,
+so this is the postal code
+
+67
+00:04:37,560 --> 00:04:44,306
+that we discussed, and on the y-axis,
+I'm going to plot the price.
+
+68
+00:04:44,306 --> 00:04:48,810
+So what we're gonna see is
+the relationship between the location,
+
+69
+00:04:48,810 --> 00:04:51,780
+the ZIP code, where the house is,
+and the price.
+
+70
+00:04:51,780 --> 00:04:55,130
+And we're gonna see that with
+what's called a box whisker plot.
+
+71
+00:04:55,130 --> 00:04:59,240
+So I'm gonna press Shift+Enter and
+we're gonna plot it.
+
+72
+00:04:59,240 --> 00:05:00,194
+And here's what we'll see.
+
+73
+00:05:00,194 --> 00:05:03,955
+So you will see, for example,
+
+74
+00:05:03,955 --> 00:05:08,296
+this area's zip code, post code,
+
+75
+00:05:08,296 --> 00:05:14,770
+98003, has a significantly lower price.
+
+76
+00:05:14,770 --> 00:05:19,785
+So the average price is low, that's the
+red line, and not a lot of variability.
+
+77
+00:05:19,785 --> 00:05:24,780
+While this other zip code 98004,
+so this is 003,
+
+78
+00:05:24,780 --> 00:05:28,810
+98004, has a highest average price,
+much higher,
+
+79
+00:05:28,810 --> 00:05:33,620
+1 point something million,
+1.1 million, and a huge variability.
+
+80
+00:05:33,620 --> 00:05:41,068
+So the houses range from something like,
+what is this?
+
+81
+00:05:41,068 --> 00:05:44,970
+$800,000, it's almost $4 million.
+
+82
+00:05:44,970 --> 00:05:46,790
+But here I'm just showing a few ZIP codes.
+
+83
+00:05:46,790 --> 00:05:51,030
+If I drag down here,
+you'll see more and more ZIP codes.
+
+84
+00:05:52,030 --> 00:05:55,430
+And wow, what is this one over here?
+
+85
+00:05:55,430 --> 00:05:59,320
+There's one that's astronomical,
+it goes out of the scale.
+
+86
+00:05:59,320 --> 00:06:04,794
+Some houses here cost like, what is this?
+
+87
+00:06:04,794 --> 00:06:07,990
+$7 million or something.
+
+88
+00:06:07,990 --> 00:06:12,547
+And this post code is 98039.
+
+89
+00:06:12,547 --> 00:06:18,053
+Remember 98039, we'll come back to
+it at the end of this notebook.
+
+90
+00:06:18,053 --> 00:06:19,011
+It's kind of funny.
+
+91
+00:06:19,011 --> 00:06:24,099
+[MUSIC]

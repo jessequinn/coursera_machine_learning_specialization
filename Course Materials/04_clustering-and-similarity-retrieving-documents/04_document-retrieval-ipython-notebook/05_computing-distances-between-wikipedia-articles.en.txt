@@ -1,0 +1,39 @@
+[MUSIC] So let's take this TF IDF's, and
+do a couple of fun things with them. So first, we're gonna manually, okay, so let me just type in here. So we're gonna manually compute distances between a few people. So the goal here is just to show
+what those distances look like, just to get a sense of what
+we're learning from TF IDF. So for example, let's take three people. So we already talked about Obama. We already have that
+Obama variable in there. Let's create two new variables. Let's say Clinton, which are the people
+I'm going to select one. The person whose name is equal to Bill Clinton, the former US President. Let's select another person, so
+for example, let's select Beckham. So, Beckham is a famous British, English footballer and so, we're gonna select out of the people, the person whose name is equal to, his name is actually David Beckham. Now that we selected Clinton and Beckham,
+let's compute the similarity between those two people, and
+the President, Barack Obama. So, what we gonna do is ask the question. Is Obama closer to Clinton than to Beckham? Okay a little mistake here. So is Obama closer to
+Clinton than to Beckham? Now there are various ways
+to measure similarity or distances between two vectors,
+or in this case two documents. We computed the TF IDF's. And what we're gonna do is
+compute the distance between these different documents, the one about
+Clinton, the one about Obama and so on. So I'm gonna use distance
+metrics that are already implemented inside the GraphLab Create so
+we don't have to implement them ourselves. So we need to look at
+graphlab.distances and press Tab, you'll see several options here. The Clinton distance that we talked
+about in class, cosine distance, jaccard similarity, and so on that we're
+gonna see throughout this specialization. We're gonna use cosine distance. And just as a little note,
+normally we think about cosine similarity, if you've heard of it. Where the higher the number
+the more similar two articles are. Here, we have a distance version of
+this number, so the lower the better. The lower the cosine distance,
+the closer the articles are. So the question is, what is
+the cosine distance between Obama's tfidf and that of Clinton? But notice that I have selected the column
+tfidf, and I have to have the little 0 at the end here, because it is
+the zeroth row of this table. The table only has one element in it, but we still have to say what row
+of the table we're looking at. And so we're gonna compare the Obama
+tfidf with the Clinton tfidf. Also at 0,
+in terms of the cosine distance, and you see that the distance is 0.83. Now, the question is,
+what is the distance between, in the same metric in the cosine distance,
+between Obama and Beckham? So I'm gonna type Obama tfidf, computed at 0, with Beckham's tfidf, also at 0. And you'll see that this distance is 0.97. The biggest distance you can get is 1.0,
+in fact. And so in this case, Obama is much closer to Clinton than he is
+to Beckham, which makes a lot of sense. But we've done this just manually for
+a few people, how do we automate this process of finding out how
+close an article is to other articles. And in this case how close
+is a person to other people. In the lectures, Emily talked
+about nearest neighbor models and how they can be used for
+document retrieval. So today we're gonna actually do
+some cool document retrieval using a simple nearest neighbor model. [MUSIC]

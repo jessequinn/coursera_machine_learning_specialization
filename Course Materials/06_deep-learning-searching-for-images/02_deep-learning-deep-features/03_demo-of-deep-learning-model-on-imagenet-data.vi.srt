@@ -1,0 +1,211 @@
+1
+00:00:00,000 --> 00:00:04,124
+[NHẠC]
+
+2
+00:00:04,124 --> 00:00:08,823
+Chúng ta thấy rằng học sâu
+đóng một phần lớn trong
+
+3
+00:00:08,823 --> 00:00:10,450
+cuộc cạnh tranh ImageNet.
+
+4
+00:00:10,450 --> 00:00:15,030
+cho phép lấy chuỗi hình ảnh
+1.5 phút trong mạng của bạn và
+
+5
+00:00:15,030 --> 00:00:18,980
+có hiệu suất đáng ngạc nhiên để dự đoán
+một trong một nghìn loại khác nhau.
+
+6
+00:00:18,980 --> 00:00:21,910
+Hãy tiếp tục và tôi sẽ cho bạn
+thấy những ví dụ nhỏ của
+
+7
+00:00:21,910 --> 00:00:25,420
+loại này và các dự đoán tuyệt vời thế nào.
+
+8
+00:00:25,420 --> 00:00:28,100
+Sau đây là một ví dụ
+
+9
+00:00:28,100 --> 00:00:32,800
+Nó là AlexNet trên tập dữ liệu ImageNet,
+
+10
+00:00:32,800 --> 00:00:38,420
+mà chúng ta đã sử dụng như một dịch vụ
+có thể được tìm từ trang web này.
+
+11
+00:00:38,420 --> 00:00:41,570
+Mọi lần tôi nhấn vào hình ảnh,
+nó gửi tới dịch vụ
+
+12
+00:00:41,570 --> 00:00:45,730
+chạy trên một GPU, vì thế nó rất
+nhanh và quay trở lại dự đoán.
+
+13
+00:00:45,730 --> 00:00:48,020
+Nếu bạn ấn vào hình ảnh cụ thể ở đây,
+
+14
+00:00:48,020 --> 00:00:51,310
+nó sẽ gửi tới một dịch vụ
+lưu trữ thực sự trên Amazon AWS.
+
+15
+00:00:51,310 --> 00:00:52,560
+Nó quay lại để dự đoán ở đây.
+
+16
+00:00:52,560 --> 00:00:55,740
+Nó ẩn nhưng khi ấn vào nó,
+nó sẽ cho bạn thấy dự đoán là gì.
+
+17
+00:00:55,740 --> 00:00:59,580
+Nếu tôi chỉ cho bạn hình ảnh này, nó
+có thể không rõ hình ảnh là gì nhưng
+
+18
+00:00:59,580 --> 00:01:03,250
+nếu tôi ấn vào nó, nó sẽ hiển thị đồng hồ
+đậu xe, nó sẽ trở thành nhãn đúng.
+
+19
+00:01:04,310 --> 00:01:08,820
+Sự dự đoán tốt thứ hai là khóa móc,
+mà bạn có thể thấy các loại khóa móc.
+
+20
+00:01:08,820 --> 00:01:10,340
+Đồng hồ đỗ xe, bạn đã hiểu.
+
+21
+00:01:10,340 --> 00:01:12,850
+Điều đó thực sự khá thú vị.
+
+22
+00:01:12,850 --> 00:01:14,690
+Hãy để tôi cho bạn một ví dụ nữa.
+
+23
+00:01:14,690 --> 00:01:15,850
+Ví dụ, điều này.
+
+24
+00:01:15,850 --> 00:01:20,110
+Nó đã được đưa đến dịch vụ trên
+Amazon WS, trở lại để dự đoán.
+
+25
+00:01:20,110 --> 00:01:23,761
+Và đây là dự đoán của tôi, màn hình,
+nó nói đó là một màn hình nhưng
+
+26
+00:01:23,761 --> 00:01:27,880
+tôi không biết sự khác nhau giữa
+screen và monitor, nhưng không sao.
+
+27
+00:01:27,880 --> 00:01:32,170
+Có nhiều hình ảnh khác ở đây,
+tôi chỉ muốn ấn vào một vài hình ảnh.
+
+28
+00:01:32,170 --> 00:01:37,170
+Ví dụ nếu tôi ấn vào cái này, nó sẽ gửi.
+
+29
+00:01:37,170 --> 00:01:40,230
+nó chắc chắn đó là con cò thìa.
+
+30
+00:01:40,230 --> 00:01:44,087
+Hóa ra là một con cò thìa, thật tuyệt.
+
+31
+00:01:44,087 --> 00:01:49,700
+Cuối cùng tôi ấn vài hình ảnh ở đây và
+
+32
+00:01:49,700 --> 00:01:54,460
+hình ảnh đó được gửi tới dịch vụ
+sử dụng học sâu cho GPU và
+
+33
+00:01:55,460 --> 00:02:00,060
+nó nói đó là chai bia, nhãn đúng là chai bia.
+
+34
+00:02:00,060 --> 00:02:03,140
+Bây giờ tất cả hình ảnh này đều
+ở trong tập dữ liệu ImageNet,
+
+35
+00:02:03,140 --> 00:02:06,310
+tôi chắc rằng một hình ảnh không ở trong tập dữ liệu gốc ImageNet,
+
+36
+00:02:06,310 --> 00:02:09,198
+tôi ấn vào cái này, nó được gửi tới dịch vụ đó.
+
+37
+00:02:09,198 --> 00:02:14,000
+Trên AWS chúng ta đang lưu trữ ở đó.
+
+38
+00:02:14,000 --> 00:02:19,970
+Quay lại với dự đoán, đây là chú chó của tôi.
+
+39
+00:02:19,970 --> 00:02:23,059
+Đây là phòng thí nghiệm [cười] và
+
+40
+00:02:23,059 --> 00:02:26,480
+đây là một chú chó, ở Dato.
+
+41
+00:02:26,480 --> 00:02:31,690
+Như bạn thấy thậm chí với nhiều hình ảnh không ở trong tập dữ liệu gốc,
+
+42
+00:02:31,690 --> 00:02:34,470
+bạn vẫn có thể có những dự đoán thú vị.
+
+43
+00:02:34,470 --> 00:02:39,120
+Bây giờ bạn muốn xây dựng một dịch vụ không phải cho
+
+44
+00:02:39,120 --> 00:02:42,910
+việc dự đoán các hình ảnh mà để giới thiệu với nghiên cứu sâu, để
+
+45
+00:02:42,910 --> 00:02:46,140
+tạo ra các hình ảnh và văn bản và lưu trữ nó như một dịch vụ.
+
+46
+00:02:46,140 --> 00:02:49,582
+Và bạn sẽ có thể có một trang web 
+giống thế này, bất kì ai cũng có thể dùng nó và
+
+47
+00:02:49,582 --> 00:02:52,849
+thấy được sức mạnh của học máy
+mà bạn đã học được.
+
+48
+00:02:52,849 --> 00:02:57,589
+[NHẠC]

@@ -1,0 +1,260 @@
+1
+00:00:00,209 --> 00:00:02,730
+[MUSIC]
+
+2
+00:00:02,730 --> 00:00:05,663
+Okay.
+Well, we've talked quite extensively about
+
+3
+00:00:05,663 --> 00:00:09,535
+using regression for the task of
+predicting house value, but of course,
+
+4
+00:00:09,535 --> 00:00:14,370
+the number of applications in which
+regression can be used are quite large.
+
+5
+00:00:14,370 --> 00:00:16,426
+Let's discuss just a few examples.
+
+6
+00:00:16,426 --> 00:00:17,166
+So one is for
+
+7
+00:00:17,166 --> 00:00:22,126
+predicting your salary after you take
+this Machine Learning specialization.
+
+8
+00:00:22,126 --> 00:00:26,377
+So you work really,
+really hard in this specialization, and
+
+9
+00:00:26,377 --> 00:00:32,420
+hopefully after that, you can go earn
+a really cool job, have a very big salary.
+
+10
+00:00:32,420 --> 00:00:36,787
+But to predict how much your salary will
+be, maybe that depends on things like,
+
+11
+00:00:36,787 --> 00:00:40,844
+what was your performance in the various
+courses of the specialization?
+
+12
+00:00:40,844 --> 00:00:43,571
+What was the quality of
+your capstone project?
+
+13
+00:00:43,571 --> 00:00:47,010
+How many forum responses did you make?
+
+14
+00:00:47,010 --> 00:00:48,200
+And so on.
+
+15
+00:00:48,200 --> 00:00:50,564
+Okay.
+When we think about predicting your
+
+16
+00:00:50,564 --> 00:00:56,287
+salary, y hat What we're gonna do is we're
+gonna estimate our model parameters, w0,
+
+17
+00:00:56,287 --> 00:01:01,475
+w1, w2 and w3, which are our intercept and
+our weights on your performance in
+
+18
+00:01:01,475 --> 00:01:07,100
+the class, the quality of your capstone,
+and your participation in the forum.
+
+19
+00:01:07,100 --> 00:01:11,068
+And when we're estimating these model
+parameters, what we're gonna use,
+
+20
+00:01:11,068 --> 00:01:15,880
+we're gonna use these features for other
+students who have taken this course and
+
+21
+00:01:15,880 --> 00:01:18,940
+the observations of what
+their salaries were and
+
+22
+00:01:18,940 --> 00:01:23,290
+the jobs they got after taking this
+Machine Learning Specialization.
+
+23
+00:01:23,290 --> 00:01:27,120
+Another application of regression is for
+doing stock prediction.
+
+24
+00:01:27,120 --> 00:01:30,813
+So here, we might think about
+the fact that the prediction for
+
+25
+00:01:30,813 --> 00:01:35,516
+the price of a stock tomorrow depends on
+the recent history of the stock price.
+
+26
+00:01:35,516 --> 00:01:39,891
+It depends on news events,
+different things going on in the world,
+
+27
+00:01:39,891 --> 00:01:43,212
+as well as the value of
+other related commodities.
+
+28
+00:01:43,212 --> 00:01:47,385
+And a very different application than
+thinking about predicting stock prices or
+
+29
+00:01:47,385 --> 00:01:51,066
+your salary after this specialization
+is you're sitting on Twitter,
+
+30
+00:01:51,066 --> 00:01:52,416
+you tweet something, and
+
+31
+00:01:52,416 --> 00:01:57,340
+you wanna know how many people are gonna
+eventually retweet what you just tweeted.
+
+32
+00:01:57,340 --> 00:02:01,997
+Well, this might depend on how many
+followers you have, how many followers
+
+33
+00:02:01,997 --> 00:02:06,582
+your followers have, different features
+of the text of what you tweeted,
+
+34
+00:02:06,582 --> 00:02:09,348
+the popularity of
+the hashtag you included,
+
+35
+00:02:09,348 --> 00:02:14,275
+number of past retweets of your tweets
+that you've had, and things like this.
+
+36
+00:02:14,275 --> 00:02:17,494
+And it turns out these types of models
+can actually be really good at predicting
+
+37
+00:02:17,494 --> 00:02:19,460
+the eventual number of
+retweets of your tweet.
+
+38
+00:02:21,300 --> 00:02:24,400
+And another very different application
+is maybe you have a smart house,
+
+39
+00:02:24,400 --> 00:02:26,980
+there's lots of different
+sensors in this house, and
+
+40
+00:02:26,980 --> 00:02:29,900
+lots of different things you can control
+like temperature settings in different
+
+41
+00:02:29,900 --> 00:02:34,230
+locations, vents, window blinds,
+and things like this.
+
+42
+00:02:34,230 --> 00:02:39,514
+And you have a home office and you have
+a desk, and you wanna be able to predict
+
+43
+00:02:39,514 --> 00:02:45,556
+what's the temperature at your desk based
+on various settings of all these controls.
+
+44
+00:02:45,556 --> 00:02:48,481
+But there's actually no
+sensor directly at your desk.
+
+45
+00:02:48,481 --> 00:02:51,240
+So, what you can think about doing is
+
+46
+00:02:51,240 --> 00:02:56,228
+fitting a spatial model in order
+to predict what the temperature is
+
+47
+00:02:56,228 --> 00:03:00,519
+at all these different
+locations throughout the house.
+
+48
+00:03:00,519 --> 00:03:05,565
+And this might depend on features such
+as the thermostat settings in the house,
+
+49
+00:03:05,565 --> 00:03:10,311
+whether the blinds are open or closed,
+temperature outside, how you've
+
+50
+00:03:10,311 --> 00:03:15,078
+set different vents, and as well as
+things like the time of the day, okay?
+
+51
+00:03:15,078 --> 00:03:18,443
+So, hopefully, you see that
+applications of regression, and
+
+52
+00:03:18,443 --> 00:03:22,618
+this really just touches the tip of the
+iceberg of where regression is used, but
+
+53
+00:03:22,618 --> 00:03:24,574
+it's really quite a powerful tool.
+
+54
+00:03:24,574 --> 00:03:28,679
+[MUSIC]

@@ -1,0 +1,440 @@
+1
+00:00:00,358 --> 00:00:05,604
+[MUSIC]
+
+2
+00:00:05,604 --> 00:00:09,683
+So now, let's talk about how we can
+use these metrics of precision and
+
+3
+00:00:09,683 --> 00:00:14,200
+recall to compare our different algorithms
+that we might think about using.
+
+4
+00:00:15,880 --> 00:00:20,190
+And to do this we can draw something
+that's called the precision recall curve.
+
+5
+00:00:20,190 --> 00:00:25,518
+And let's start by talking about what
+these curves are gonna represent.
+
+6
+00:00:25,518 --> 00:00:30,074
+And what the curves are gonna represent
+is for a given recommender system,
+
+7
+00:00:30,074 --> 00:00:34,916
+what I'm gonna ask you to do is I'm gonna
+ask you to vary the threshold on how many
+
+8
+00:00:34,916 --> 00:00:39,586
+items that recommender system
+is allowed to recommend to me.
+
+9
+00:00:39,586 --> 00:00:44,458
+So I'm gonna rank, for example all
+the baby products on Amazon and
+
+10
+00:00:44,458 --> 00:00:49,334
+I'm gonna allow you to recommend
+just one or two or three and so on.
+
+11
+00:00:49,334 --> 00:00:51,772
+And so
+that's a threshold that you're varying.
+
+12
+00:00:51,772 --> 00:00:54,880
+And that's going to trace out this curve.
+
+13
+00:00:54,880 --> 00:00:57,270
+And what would this curve look like for
+
+14
+00:00:57,270 --> 00:01:01,210
+optimal recommender where we only
+recommend products that I like?
+
+15
+00:01:02,740 --> 00:01:07,450
+Well, what's the precision when
+I recommend just one product?
+
+16
+00:01:07,450 --> 00:01:11,970
+Well we know that's a product I like and
+so my precision,
+
+17
+00:01:11,970 --> 00:01:18,520
+my world is just that one product, and
+I liked it, so my precision is one.
+
+18
+00:01:18,520 --> 00:01:21,700
+And what's my recall though?
+
+19
+00:01:21,700 --> 00:01:25,590
+If I have let's say,
+ten items that I liked and
+
+20
+00:01:26,730 --> 00:01:30,550
+I've only uncovered one, it's one-tenth.
+
+21
+00:01:30,550 --> 00:01:35,650
+And likewise,
+as I'm increasing the number of
+
+22
+00:01:35,650 --> 00:01:39,620
+items I show,
+my precision always stays at one.
+
+23
+00:01:39,620 --> 00:01:43,090
+I'm only recommending products I like,
+but my
+
+24
+00:01:43,090 --> 00:01:48,420
+recall is increasing because I'm covering
+more and more of the items that I liked.
+
+25
+00:01:48,420 --> 00:01:55,256
+So eventually, we will hit this 1, 1 spot.
+
+26
+00:01:55,256 --> 00:02:01,366
+So the optimal precision recall
+curve is this line here.
+
+27
+00:02:01,366 --> 00:02:04,970
+Okay, but let's talk about what
+the curve might look like for
+
+28
+00:02:04,970 --> 00:02:07,270
+another more realistic recommender.
+
+29
+00:02:08,800 --> 00:02:16,121
+I guess before that, let me just annotate
+that this is our optimal recommender.
+
+30
+00:02:20,174 --> 00:02:23,714
+Now, let's go on to look at perhaps
+a more realistic recommender and
+
+31
+00:02:23,714 --> 00:02:25,002
+what it would look like.
+
+32
+00:02:25,002 --> 00:02:29,927
+Okay, well, the first product we
+recommend might not be a product I like,
+
+33
+00:02:29,927 --> 00:02:34,397
+or it might be, so it's gonna start
+somewhere on a precision axis.
+
+34
+00:02:34,397 --> 00:02:38,615
+And then eventually at some point
+when I vary the threshold enough,
+
+35
+00:02:38,615 --> 00:02:43,050
+at some point hopefully,
+I will recommend some product I like.
+
+36
+00:02:43,050 --> 00:02:46,651
+So both precision and
+recall are gonna go up.
+
+37
+00:02:46,651 --> 00:02:51,540
+Then what tends to happen is we
+add a product that I don't like.
+
+38
+00:02:52,914 --> 00:02:58,500
+So at that point what happens,
+well my recall stays exactly
+
+39
+00:02:58,500 --> 00:03:03,560
+the same because I haven't recovered any
+more of the items that I'm interested in.
+
+40
+00:03:03,560 --> 00:03:06,590
+But my precision drops because now
+I'm looking at a larger world,
+
+41
+00:03:06,590 --> 00:03:08,530
+a larger set of green squares.
+
+42
+00:03:08,530 --> 00:03:13,580
+So my precision goes straight down but
+my recall stays the same,
+
+43
+00:03:14,660 --> 00:03:20,060
+and you tend to get these very
+jaggedy looking curves or
+
+44
+00:03:20,060 --> 00:03:26,900
+you get these drops in precision, then
+these increases in precision and recall.
+
+45
+00:03:26,900 --> 00:03:30,360
+And I'm gonna draw it,
+it won't be completely accurate here, but
+
+46
+00:03:30,360 --> 00:03:31,790
+it looks kind of like that.
+
+47
+00:03:33,810 --> 00:03:37,968
+Typically something like this
+would be a precision-recall curve.
+
+48
+00:03:37,968 --> 00:03:41,850
+Okay, so this is an example
+of a more realistic system.
+
+49
+00:03:45,630 --> 00:03:51,128
+This is another recommender
+system compared to our optimal.
+
+50
+00:03:51,128 --> 00:03:56,245
+Okay, so now, that we know how to draw
+these precision-recall curves, we can talk
+
+51
+00:03:56,245 --> 00:04:00,950
+about comparing our different algorithms,
+how do we know which one is best?
+
+52
+00:04:03,590 --> 00:04:06,610
+Well, we know that we'd like precision and
+
+53
+00:04:06,610 --> 00:04:11,750
+recall both to be as large as possible and
+what's the best that it can be?
+
+54
+00:04:11,750 --> 00:04:15,160
+We talked about the optimal
+recommender being that curve.
+
+55
+00:04:16,470 --> 00:04:20,920
+But then when we look at our other curves
+which are these jaggedy looking things,
+
+56
+00:04:21,920 --> 00:04:24,480
+one doesn't have to
+strictly dominate another.
+
+57
+00:04:24,480 --> 00:04:27,760
+They might do different
+things at different points.
+
+58
+00:04:27,760 --> 00:04:31,580
+So one curve is not necessarily,
+let me actually erase that and
+
+59
+00:04:31,580 --> 00:04:33,880
+do it in a different color so
+it's a little bit clearer.
+
+60
+00:04:36,580 --> 00:04:39,500
+It's not that one is always
+gonna be better than the other.
+
+61
+00:04:43,910 --> 00:04:46,304
+Maybe we have another one going here.
+
+62
+00:04:49,581 --> 00:04:54,025
+So in this case,
+how do I think about comparing these
+
+63
+00:04:54,025 --> 00:04:58,877
+different algorithms, and
+choosing which one is best?
+
+64
+00:04:58,877 --> 00:05:03,920
+Well like I said, we want precision and
+recall to be as large as possible but
+
+65
+00:05:03,920 --> 00:05:07,683
+one thing we can measure to
+compare these is in general,
+
+66
+00:05:07,683 --> 00:05:12,910
+which one is doing better than the other
+and what's a way to think about that?
+
+67
+00:05:13,930 --> 00:05:18,280
+Well, we can think about
+the area under the curve.
+
+68
+00:05:18,280 --> 00:05:24,128
+So we can look at for example,
+all this area under this blue curve.
+
+69
+00:05:27,866 --> 00:05:33,136
+And we can compare that to, for
+
+70
+00:05:33,136 --> 00:05:40,638
+example the area under the green curve,
+and
+
+71
+00:05:40,638 --> 00:05:45,926
+I can say which area is larger.
+
+72
+00:05:45,926 --> 00:05:48,660
+And that is one proxy for
+
+73
+00:05:48,660 --> 00:05:54,276
+which recommender system
+is doing a better job.
+
+74
+00:05:54,276 --> 00:05:57,040
+So that's this point here,
+
+75
+00:05:57,040 --> 00:06:02,222
+that a metric we can use is
+something called area under
+
+76
+00:06:02,222 --> 00:06:08,240
+the curve which measures
+exactly what I drew below.
+
+77
+00:06:08,240 --> 00:06:12,330
+But you might not care about how
+the recommender system is doing
+
+78
+00:06:12,330 --> 00:06:15,920
+across all possible
+performance situations.
+
+79
+00:06:15,920 --> 00:06:19,670
+Instead, you might be in a situation
+where let's say you have a website and
+
+80
+00:06:19,670 --> 00:06:25,090
+you know based on the real estate of that
+page, how many items you can display.
+
+81
+00:06:25,090 --> 00:06:30,091
+So maybe you can display ten different
+items to recommend to the user or
+
+82
+00:06:30,091 --> 00:06:34,436
+you know what the attention span
+of the users are in general.
+
+83
+00:06:34,436 --> 00:06:38,140
+And you wanna limit how many products
+you recommend to 20 products or
+
+84
+00:06:38,140 --> 00:06:39,805
+something like this.
+
+85
+00:06:39,805 --> 00:06:41,385
+So in those cases,
+
+86
+00:06:41,385 --> 00:06:45,705
+where you specifically know how many
+products you're gonna be recommending,
+
+87
+00:06:45,705 --> 00:06:52,310
+you care about what your precision is
+at that number of products recommended.
+
+88
+00:06:52,310 --> 00:06:56,410
+Because you want that precision
+to be as large as possible for
+
+89
+00:06:56,410 --> 00:06:59,970
+the constraint of recommending
+that number of products.
+
+90
+00:06:59,970 --> 00:07:03,979
+And so these are two examples of
+metrics you might use to compare
+
+91
+00:07:03,979 --> 00:07:08,754
+between different algorithms using
+this notion of precision and recall.
+
+92
+00:07:08,754 --> 00:07:12,629
+[MUSIC]

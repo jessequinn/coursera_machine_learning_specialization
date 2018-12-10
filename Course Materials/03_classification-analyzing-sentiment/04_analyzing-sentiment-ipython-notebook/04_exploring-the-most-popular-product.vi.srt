@@ -1,0 +1,300 @@
+1
+00:00:04,133 --> 00:00:12,310
+Hãy nhìn vào những
+sản phẩm chúng ta có.
+
+2
+00:00:12,310 --> 00:00:15,730
+Hãy nhìn những đánh giá chúng ta
+có với các tên sản phẩm khác nhau.
+
+3
+00:00:15,730 --> 00:00:17,920
+Và ở đây chúng ta sẽ sử
+dụng canvas một lần nữa,
+
+4
+00:00:17,920 --> 00:00:20,290
+để làm một chút hiển thị dữ liệu.
+
+5
+00:00:20,290 --> 00:00:24,780
+Và như trước đây, tôi sẽ gọi
+graphlab.canvas, và
+
+6
+00:00:24,780 --> 00:00:28,520
+chúng ta sẽ đặt mục tiêu là
+ipath của tôi trên notebook,
+
+7
+00:00:28,520 --> 00:00:32,930
+nó sẽ hiển thị ở đây trên ipath của
+notebook khi chúng ta đang xây dựng.
+
+8
+00:00:32,930 --> 00:00:36,670
+Bây giờ chúng ta có thể lấy một trong
+số các cột ở frame của sản phẩm.
+
+9
+00:00:38,390 --> 00:00:43,600
+Ví dụ hãy lấy tên của sản phẩm,
+
+10
+00:00:43,600 --> 00:00:48,150
+và chúng ta có thể gõ .show
+trên nó, và nó sẽ hiển thị
+
+11
+00:00:48,150 --> 00:00:52,650
+một histogram về các tên khác nhau của các
+sản phẩm khác nhau trong tập dữ liệu này.
+
+12
+00:00:52,650 --> 00:00:54,970
+Ví dụ ở đây.
+
+13
+00:00:57,560 --> 00:01:03,065
+Chúng ta thấy sản phẩm cụ thể này,
+Vulli Sophie có nhiều đánh giá nhất,
+
+14
+00:01:03,065 --> 00:01:08,231
+785 đánh giá so với những ước mong đơn giản,
+
+15
+00:01:08,231 --> 00:01:14,080
+562 đánh giá và bạn có thể thấy
+rằng số lượng đánh giá giảm dần.
+
+16
+00:01:14,080 --> 00:01:16,270
+Fisher Price products là 489, 450.
+
+17
+00:01:16,270 --> 00:01:21,160
+Đây là các sản phẩm khác nhau
+mà chúng ta đang phân tích và
+
+18
+00:01:21,160 --> 00:01:25,120
+bạn sẽ thấy histogram của các đánh giá
+khác nhau về các sản phẩm khác nhau,
+
+19
+00:01:25,120 --> 00:01:29,200
+số lượng đánh giá, hãy xem
+Vulli Sophie đầu tiên.
+
+20
+00:01:29,200 --> 00:01:29,760
+Nó là gì thế nhỉ?
+
+21
+00:01:30,960 --> 00:01:33,858
+Để tôi nói cho bạn một chút về sản phẩm đó.
+
+22
+00:01:33,858 --> 00:01:38,620
+Hãy khám phá
+
+23
+00:01:38,620 --> 00:01:45,138
+cái gọi là Vulli Sophie và đây là
+sản phẩm cực kì phổ biến,
+
+24
+00:01:45,138 --> 00:01:50,160
+tôi tình cờ có một cái ở tại đây.
+
+25
+00:01:50,160 --> 00:01:54,360
+Đây là Vulli Sophie, chú hươu cao cổ nhỏ.
+
+26
+00:01:54,360 --> 00:01:56,180
+Nó là một con hươu cao cổ bằng nhựa.
+
+27
+00:01:56,180 --> 00:02:00,580
+Là một sản phẩm tốt nhất
+cho trẻ em trên Amazon.
+
+28
+00:02:00,580 --> 00:02:03,850
+Và nó dành cho trẻ em đang mọc răng,
+trẻ em có thể nhai nó.
+
+29
+00:02:03,850 --> 00:02:06,900
+Rất nhiều các đánh giá cho
+hươu cao cổ cho trẻ tập nhai,
+
+30
+00:02:06,900 --> 00:02:08,935
+nó được làm từ nhựa và có tiếng kêu.
+
+31
+00:02:08,935 --> 00:02:12,295
+[âm thanh] đây là cái mà chúng ta
+sẽ nói nhiều hôm nay,
+
+32
+00:02:12,295 --> 00:02:13,980
+chú hươu cao cổ nhỏ này [âm thanh].
+
+33
+00:02:13,980 --> 00:02:18,090
+Bây giờ hãy nhìn vào các đánh giá
+cho hươu cao cổ này.
+
+34
+00:02:18,090 --> 00:02:19,920
+Tôi sẽ gọi là hươu cao cổ.
+
+35
+00:02:21,410 --> 00:02:23,630
+Giraffe reviews.
+
+36
+00:02:25,430 --> 00:02:30,398
+Và chúng ta sẽ lấy các sản phẩm mà tôi có,
+
+37
+00:02:30,398 --> 00:02:34,616
+tất cả các đánh giá sản phẩm và tôi sẽ lựa chọn,
+
+38
+00:02:34,616 --> 00:02:39,397
+đây là một bộ lọc khác, tôi sẽ
+lựa chọn các hàng mà
+
+39
+00:02:39,397 --> 00:02:45,050
+tên sản phẩm là tên của
+hươu cao cổ cụ thể này.
+
+40
+00:02:45,050 --> 00:02:50,081
+Đây là Vulli Sophie
+
+41
+00:02:50,081 --> 00:02:56,691
+the Giraffe Teether.
+
+42
+00:02:56,691 --> 00:03:00,650
+Đây là sản phẩm mà chúng ta đang nói về.
+
+43
+00:03:02,390 --> 00:03:09,760
+Nếu chúng ta nhìn lướt qua, nếu
+tôi yêu cầu độ dài của thứ mới này,
+
+44
+00:03:09,760 --> 00:03:14,833
+các đánh giá về hươu cao cổ, bảng này bạn
+thấy có 785 đánh giá cho đồ chơi nhựa này.
+
+45
+00:03:14,833 --> 00:03:18,715
+Trẻ mọc răng.
+
+46
+00:03:18,715 --> 00:03:23,035
+785 đánh giá và hãy nhìn vào các xếp hạng.
+
+47
+00:03:23,035 --> 00:03:28,365
+Tôi sẽ thấy giraffe_reviews, xếp hạng chỉ cho
+
+48
+00:03:28,365 --> 00:03:32,710
+sản phẩm cụ thể này, và tôi sẽ làm một .show
+ở đó giống như chúng ta đã làm.
+
+49
+00:03:32,710 --> 00:03:37,970
+Tôi muốn nhìn vào một view
+cụ thể được gọi là view phân loại.
+
+50
+00:03:37,970 --> 00:03:42,220
+Đây sẽ cho tôi view phân loại.
+
+51
+00:03:42,220 --> 00:03:45,703
+Nó sẽ cho tôi histogram về
+các đánh giá khác nhau và
+
+52
+00:03:45,703 --> 00:03:47,490
+số điểm chúng ta đã có.
+
+53
+00:03:47,490 --> 00:03:50,800
+Nếu bạn nhìn vào histogram nhỏ ở đây,
+
+54
+00:03:50,800 --> 00:03:53,340
+bạn sẽ thấy điều gì đó thú vị.
+
+55
+00:03:53,340 --> 00:03:55,100
+Mọi người thích cái này.
+
+56
+00:03:55,100 --> 00:03:57,550
+535 đánh giá là năm sao.
+
+57
+00:03:57,550 --> 00:03:59,950
+Đây là một sản phẩm có
+535 đánh giá năm sao.
+
+58
+00:04:01,140 --> 00:04:05,370
+Tiếp theo là bốn sao, ba sao.
+
+59
+00:04:05,370 --> 00:04:08,850
+Nó giảm dần xuống một sao
+và cuối cùng là hai sao.
+
+60
+00:04:08,850 --> 00:04:13,370
+Vì vậy số lượng khá lớn mọi người
+không thích sản phẩm này.
+
+61
+00:04:13,370 --> 00:04:15,270
+Nhưng hầu hết mọi người thích nó.
+
+62
+00:04:15,270 --> 00:04:17,818
+Thật thú vị khi làm một loại phân tích cảm tính
+
+63
+00:04:17,818 --> 00:04:20,370
+để hiểu các đánh giá tiêu cực hay
+
+64
+00:04:20,370 --> 00:04:23,590
+các đánh giá tích cực cái
+mà đánh giá này đang nói.
+
+65
+00:04:23,590 --> 00:04:26,880
+Như chúng ta đã thảo luận trong
+bài giảng của bài học này.
+
+66
+00:04:26,880 --> 00:04:30,220
+Để làm điều đó chúng ta sẽ xây
+dựng một bộ phân loại cảm tính.
+
+67
+00:04:32,930 --> 00:04:37,039
+[NHẠC]

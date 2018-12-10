@@ -1,0 +1,46 @@
+[MUSIC] So for
+each model order that we might consider, for example, a linear model or we also talked about
+using a quadratic model, all the way up to our very crazy,
+13th order polynomial. And of course, we could consider
+even higher order models. Well, what happens to test error? Sorry, I don't mean test error. Let's start with training error. A lot easier to think about. So training error. As we increase the model order,
+well, that models able to better and better fit the observations
+in that training dataset. So what we're gonna have is we're
+gonna have that our training error decreases with increasing model order. So remember the curves that we had. We had the residual sum of squares
+associated with that linear fit, quadratic fit, all the way up to the 13th
+order polynomial that basically hit each one of those observations. So, we saw that a residual sum of squares
+was going down and down and down. So that's true even if we hold
+out some observations and just look at our training dataset. So we're gonna have our
+training error decreasing and decreasing as we increase
+the flexibility of the model. But, so let's just annotate this
+as being our training error, particularly for
+our estimated model parameters w hat. So let's be clear about
+what we mean by w hat. So for every model complexity such as
+linear model, quadratic model, and so on. What we're gonna do is
+we're gonna optimize and find the parameters w hat for
+the linear model. We're searching over all possible
+lines minimizing the training error. Remember that's what we said, couple slides ago we said that the way
+we estimate our model is we're gonna minimize the air on that observations
+in our training dataset. So that's how we get w hat for
+the linear model, and we compute the training error
+associated with that w hat. Then we look at all
+possible quadratic fits. Minimize the training error for
+over all the quadratic fits, that's how we get w hat for
+the quadratic model. And then we plot the training error
+associated with the w hat for the quadratic model and so on. Well, we can also talk about test error,
+but here it's a little bit more complicated
+because what do we think is gonna happen as we increase and
+increase our model order? Well, what we saw, if you remember
+that 13th order polynomial fit, that really crazy wiggly line,
+we had really, really bad predictions. So when we think about holding out
+our test data, fitting a 13th order polynomial just on the training data,
+we're gonna get some wiggly, crazy fit. And then when we look at those test
+observations, those houses that we held out, we're probably gonna have very
+poor predictions of those actual values. So what we're gonna expect
+is that at some point, our test error is likely to increase. So the curves for test error tend to
+look something like the following where maybe the error is going down for
+some period of time but after a point The error starts to increase again. So here this curve is our test error for these fitted models, where the models were fit using the training data. So these are what curves tend to
+look like for training error and test error as a function
+of model complexity, and how we think about using these ideas
+to actually select the model or the complexity of the model that we
+should use for making our predictions. We're gonna discuss in a lot more
+detail in the regression and classification courses. [MUSIC]

@@ -1,0 +1,104 @@
+1
+00:00:04,410 --> 00:00:06,701
+Trong bài học này chúng tôi muốn nói về sự hồi quy.
+
+2
+00:00:06,701 --> 00:00:09,486
+Đó là một trong số các công cụ thống kê được sử dụng.
+
+3
+00:00:09,486 --> 00:00:11,650
+Và ý tưởng thì rất đơn giản.
+
+4
+00:00:11,650 --> 00:00:16,070
+Chúng ta có một số tập tính năng và chúng ta
+muốn mô phỏng cách các dữ liệu quan sát
+
+5
+00:00:16,070 --> 00:00:22,200
+kết hợp với các tính năng này thay đổi thế nào
+khi chúng ta thay đổi giá trị của các tính năng đó.
+
+6
+00:00:22,200 --> 00:00:25,670
+Và chúng ta sẽ thảo luận một trường hợp nghiên cứu
+
+7
+00:00:25,670 --> 00:00:28,640
+về việc cố gắng dự đoán giá trị căn nhà.
+
+8
+00:00:28,640 --> 00:00:32,748
+Ở đây chúng ta có thể hình dung là một
+căn nhà có các tính năng như kích thước
+
+9
+00:00:32,748 --> 00:00:36,420
+của ngôi nhà, số lượng phòng ngủ,
+số lượng phòng tắm và
+
+10
+00:00:36,420 --> 00:00:37,840
+danh sách tiếp tục dài ra.
+
+11
+00:00:37,840 --> 00:00:42,110
+Và dữ liệu quan sát mà chúng ta có là
+giá trị của nhà hoặc
+
+12
+00:00:42,110 --> 00:00:43,770
+giá bán căn nhà.
+
+13
+00:00:43,770 --> 00:00:47,120
+Nhưng các công cụ của phép hồi quy
+
+14
+00:00:47,120 --> 00:00:50,120
+đi quá ý nghĩ chỉ để làm nhiệm vụ dự đoán.
+
+15
+00:00:50,120 --> 00:00:52,950
+Vì thế chúng ta sẽ thấy trong khóa học phân loại,
+
+16
+00:00:52,950 --> 00:00:56,230
+chúng ta có thể sử dụng các công cụ hồi quy để phân loại.
+
+17
+00:00:56,230 --> 00:00:58,830
+Ví dụ, giả sử chúng ta có một email và
+
+18
+00:00:58,830 --> 00:01:01,450
+chúng ta muốn phân loại
+thư rác hay không phải thư rác.
+
+19
+00:01:01,450 --> 00:01:06,120
+Email đó chúng ta có thể nghĩ đến việc
+có các đặc điểm về nội dung của email,
+
+20
+00:01:06,120 --> 00:01:10,190
+điều đó chỉ ra là liệu rằng email đó là rác hay không.
+
+21
+00:01:10,190 --> 00:01:13,225
+Và thêm vào đó chúng ta có thể
+nghĩ về việc sử dụng sự hồi quy để
+
+22
+00:01:13,225 --> 00:01:15,580
+phân tích sự quan trọng của chính các đặc điểm.
+
+23
+00:01:15,580 --> 00:01:18,884
+Và chúng ta sẽ nói nhiều hơn
+về điều đó trong khóa học hồi quy.
+
+24
+00:01:18,884 --> 00:01:22,289
+[NHẠC]

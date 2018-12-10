@@ -1,0 +1,9 @@
+[MÚSICA] Emily e eu esperamos que você tenha
+gostado do curso até o momento. Nós realmente exploramos os fundamentos
+de aprendizado de máquina em uma área ampla de dominios com uma gama de 
+diferentes aplicações. E, realmente tocamos muitas das questões práticas,
+em torno da implantação e construção de sistemas de aprendizado de máquina. e agora nesse modulo de fechamento nós vamos
+resumir alguns dos conceitos que aprendemos. falando sobre como implementar essas ideias, especialmente sistemas
+de aprendizado de máquina em produção e então o que está a frente nesse especialização 
+e em aprendizado de máquina como um todo. Algumas coisas realmente emocionantes como
+fechamos este primeiro curso. [MÚSICA]

@@ -1,0 +1,72 @@
+[MUSIC] Okay, so now that you guys are psyched
+about the future machine running, let's talk about what we're gonna
+cover in the specialization. Okay, so in the regression course,
+now that you guys know what regression is, we're gonna go through a lot more of
+the details on different formulations for models. For example,
+how to cope with lots of features, something that we eluded
+to in this course. And we're also gonna talk about,
+in great detail, algorithms for fitting these models. So different optimization algorithms,
+remembering now that we've seen that there's this cost we can talk about,
+residual sum of squares and minimizing it. We're gonna talk about different
+optimization algorithms like gradient descent and coordinate descent for
+actually doing this optimization. And then, through this case study
+in predicting house prices, we're gonna cover a lot of concepts
+that are really foundational to machine learning in many different areas. And some of these include how do
+we think about measuring cost. How do we think about
+choosing between models and dealing with overfitting of our model. So we're gonna explore this in this
+context, but again, these ideas generalize well beyond regression and
+well beyond predicting house prices. Then when we get to
+the classification course, we're gonna talk about specific
+examples of linear classifiers. We're also gonna talk about methods
+of how to scale up to using lots and lots of features and creating classifiers in this very high
+dimensional feature representation. And again,
+we're gonna talk about algorithms for performing these types of classifications. Specifically, looking at an optimization
+algorithm that allows us to scale up to really, really large data sets. And we're also gonna talk
+about this idea of how we can think about blending different
+models using something called boosting. And again,
+we'll look at many different concepts. And one that I think is really
+interesting is how to do something called online learning where we get data
+that just continually streams in and we like to make our inferences
+continually as we get that data. Then when we get to clustering and
+retrieval, again, we've gone through the foundational ideas
+of what does it mean to do clustering and what is our document retrieval task. But we're gonna step it up even
+more where now, for example, when we think about clustering, a document
+might not just be about sports or world news or science or entertainment. Maybe, a document has some
+mixture of different topics. We can very easily think about a document
+that's about both finance and world news. And so
+we're gonna think about how we model this more complicated structure
+that might be present in our data. And for the algorithmic side of things,
+we're gonna look at very efficient ways for searching over data when
+we're doing our retrieval tasks. And lots of different algorithms for doing the types of clustering
+models that we're talking about. And in terms of really important concepts
+that we're gonna cover in this course, one thing is thinking about how to scale
+up doing the clustering to a really, really massive collections of documents
+using something called map-reduce. Next, we're gonna turn to
+our Recommender Systems and Dimensionality Reduction course. And here, beyond the types of
+collaborative filtering and matrix factorization that we already
+talked about in this course. We're also gonna talk about ways to
+take high dimensional data sets and think about modelling in terms of some
+lower dimensional representation. And so for that, we're gonna
+think about some algorithms for doing this dimensionality reduction. And we're also gonna
+talk about algorithms for fitting the types of matrix factorization
+models that we described in this course. And in this case, some of the important
+concepts we're gonna go through especially when we're thinking about
+matrix factorization is how we think about doing something like matrix completion. And that's where we're filling
+in all the unknown squares, if you remember that from this course. And then a more general problem which
+is this cold-start problem where we, in the case of our recommender systems,
+might have no information about a user or a product and
+want to form those recommendations. And finally, we're gonna get to
+the Capstone which is really, as I hope you guys have got in a sense,
+gonna be very, very cool. And now that you've gone through
+this course, you understand some of the concepts that we talked about in
+terms of what makes up this Capstone. In particular,
+we're gonna look at a recommender system that combines ideas of doing text
+sentiment analysis with important ideas from computer vision in terms
+of searching over different images. And for doing this,
+we're gonna use deep learning, so there's gonna be some really important and more detailed information about deep
+learning presented in the Capstone. So please get to that point. It's really gonna be cool and
+very important and all of this is gonna allow you to build this
+really intelligent web application and deploy it and do things that impress, not just your friends and family,
+but also potential employers. So of course that's a potential
+bonus to some of you out there. But it's really gonna be a lot of fun. So we hope you get to that point and
+enjoy the Capstone project. [MUSIC]

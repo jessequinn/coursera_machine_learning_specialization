@@ -1,0 +1,41 @@
+[NHẠC] Có rất nhiều hệ thống đánh giá nhà hàng nhưng hôm nay chúng ta sẽ nói về một hệ thống
+mới thú vị mà chúng ta có thể xây dựng được. Đây là một ngày quan trọng với chúng ta và chúng ta đang cố gắng đặt chỗ
+tại một nhà hàng Nhật, và chúng ta thích đồ ăn Nhật và muốn chọn
+một nơi thoáng mát để ăn món Nhật. Nhưng đây là Seattle nơi chúng ta sống,
+và Seattle là nơi tuyệt vời với đồ ăn Nhật, vì thế có rất nhiều
+nơi bán sushi, và thực tế có rất nhiều nơi có độ xếp
+hạng cao, ví dụ như bốn sao. Tuy nhiên có lẽ khi tôi nghĩ đến một nhà hàng để tới tôi không chỉ xem xét tổng sao
+xếp hạng của nhà hàng, mà tôi còn xem xét về thức ăn,
+không khí ở đó thế nào? Đặc biệt các loại sushi như thế nào, đó là điều mà tôi thực sự quan tâm. Tôi rất thích sushi và tôi muốn,
+rất muốn loại cá tươi nhất, và món sushi tuyệt vời nhất,
+sáng tạo nhất mà tôi có thể thưởng thức. Vì vậy khi bạn nói về một đánh giá tích cực
+cho một nhà hàng, và đây là nhà hàng chúng ta yêu thích ở Seattle, một
+đánh giá mẫu có thể giống thế này: Hãy xem các đầu bếp tạo ra
+một nghệ thuật ăn uống đáng kinh ngạc, thực sự là
+một trải nghiệm độc đáo. Trải nghiệm này thực sự rất tích cực nếu
+chúng ta xem xét khía cạnh đó của nhà hàng. Nhưng một đánh giá khác có thể nói,
+vợ của tôi đã thử ramen, và nó đáng để quên đi. Điều đó có nghĩa là ramen không ngon. Bây giờ đánh giá tiếp theo nói, tất cả sushi đều ngon,
+là sushi ngon nhất ở Seattle. Sushi ngon sẽ nhận được
+hai ngón tay cái hướng lên trên. Bây giờ tôi không quan tâm về ramen. Tôi sẽ không tới nơi này ăn ramen. Tôi không quan tâm người này không thích ramen, hoặc vợ của anh ấy không thích ramen. Cái tôi thực sự quan tâm là
+trải nghiệm tốt và sushi tuyệt vời. Vì thế đánh giá này chỉ dành cho tôi. Khi tôi xem xét các đánh giá nhà hàng, tôi muốn tìm hiểu các khía cạnh khác nhau
+của nhà hàng, sự tích cực hoặc tiêu cực của họ và xem xét đến một vài
+khía cạnh ảnh hưởng tới sở thích của tôi. Nếu tôi nhìn vào các đánh giá nhà hàng,
+tôi đưa các đánh giá này vào hệ thống tư vấn nhà hàng kiểu mới,
+thú vị mà có thể gợi ý cho tôi trải nghiệm tốt, bốn sao. Ramen thì bình thường, nhưng ai quan tâm? Nhưng sushi là thứ mà tôi thực sự
+quan tâm, được đánh giá năm sao, và không chỉ vậy hệ thống sẽ cho tôi một số phản hồi tốt, ví dụ, đây là món sushi ngon nhất ở Seattle. Đó là nơi tôi muốn đến. Vậy làm thế nào để chúng ta xây dựng một hệ thống
+đánh giá nhà hàng thông minh như vậy? Chúng ta sẽ bắt đầu với
+tất cả các đánh giá và chúng ta sẽ chia nhỏ chúng thành các câu. Mỗi đánh giá bao gồm nhiều câu và một vài câu bao phủ các khía cạnh
+khác nhau của nhà hàng. Ví dụ một câu nói rằng sushi ngon nhất ở Seattle, tôi muốn cho câu đó vào một bộ phân loại cảm tính. Bộ phân loại cảm tính sẽ nói
+đó là câu tích cực, hay đó là một câu tiêu cực? Bây giờ chúng ta có một bộ phân loại
+cảm tính có thể nhận một câu và đánh giá xem nó tích cực hay tiêu cực? Vậy làm thế nào chúng ta xây dựng được
+kiểu trải nghiệm đánh giá nhà hàng này? Chúng ta sẽ lấy tất cả các đánh giá và chia chúng thành các câu mà
+chúng ta sẽ thảo luận nhưng sau đó chúng ta sẽ chọn các câu
+nói về khía cạnh tôi quan tâm. Câu nào thực sự nói về sushi? Không phải tất cả chúng nhưng
+có một tập các câu trong số đó. Sau đó tôi để các câu này
+vào bộ phân loại cảm tính, từng câu một và sau đó
+tôi lấy kết quả trung bình. Trong trường hợp này tất cả các câu là tích cực và tôi sẽ đánh giá đó là nhà hàng
+năm sao về khía cạnh sushi. Không chỉ vậy tôi có thể
+xem xét các câu về sushi và xem câu nào tích cực nhất. Ví dụ, đây là một câu rất tích cực, nhà hàng ngon nhất ở Seattle là tích cực nhất
+và tôi có thể hiển thị chúng ra. Tôi cũng có thể hiển thị ra
+những đánh giá tiêu cực nhất. Trong trường hợp này, không có
+đánh giá tiêu cực nào về sushi. [NHẠC]

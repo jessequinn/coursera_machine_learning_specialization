@@ -1,0 +1,247 @@
+1
+00:00:00,078 --> 00:00:04,090
+[MUSIC]
+
+2
+00:00:04,090 --> 00:00:08,020
+So, we've now seen this models in action.
+
+3
+00:00:08,020 --> 00:00:15,760
+And we've done this, what we call a kind
+
+4
+00:00:15,760 --> 00:00:19,790
+of qualitative, just kind of
+anecdotal qualitative exploration.
+
+5
+00:00:19,790 --> 00:00:23,380
+Let's do a more quantitative comparison
+
+6
+00:00:23,380 --> 00:00:27,700
+between the personalize model and
+the popularity model.
+
+7
+00:00:27,700 --> 00:00:33,079
+So, now we're going to do
+
+8
+00:00:33,079 --> 00:00:38,704
+a quantitative comparison
+
+9
+00:00:38,704 --> 00:00:43,120
+between the models.
+
+10
+00:00:43,120 --> 00:00:49,310
+So as we explored with
+family in the lectures,
+
+11
+00:00:49,310 --> 00:00:54,230
+when we're comparing recommenders,
+a good metric to use is precision recall.
+
+12
+00:00:54,230 --> 00:01:00,402
+So can we explore the precision
+recall curve for these two models?
+
+13
+00:01:00,402 --> 00:01:06,020
+We discussed matplotlib
+in a different notebook,
+
+14
+00:01:06,020 --> 00:01:10,724
+so we're gonna call matplotlib here, and
+
+15
+00:01:10,724 --> 00:01:15,559
+I'm gonna add this
+little command inline to
+
+16
+00:01:15,559 --> 00:01:20,265
+make sure that matplotlib actually prints
+
+17
+00:01:20,265 --> 00:01:25,380
+into the recommender,
+so into the notebook.
+
+18
+00:01:26,740 --> 00:01:34,170
+So matplotlib and what I'm gonna do
+is compute the model_performance.
+
+19
+00:01:36,360 --> 00:01:42,240
+This is the variable that I'm gonna
+create, and there is this methoding in
+
+20
+00:01:42,240 --> 00:01:47,265
+the recommended libraries
+from graphlab create.
+
+21
+00:01:47,265 --> 00:01:50,615
+It's a set of utilities for
+recommenders and
+
+22
+00:01:50,615 --> 00:01:53,855
+one of those is really cool
+is called compare_models.
+
+23
+00:01:53,855 --> 00:01:57,725
+Try it to compare different recommenders
+models and understand how they do.
+
+24
+00:01:57,725 --> 00:02:01,956
+So I'm gonna compare different
+recommenders models on our
+
+25
+00:02:01,956 --> 00:02:04,668
+test_data that we're separating.
+
+26
+00:02:04,668 --> 00:02:10,329
+And the models I'm gonna compare
+are popularity_model and
+
+27
+00:02:10,329 --> 00:02:17,554
+the personalize_model, so here's a list
+of the two models in comparison.
+
+28
+00:02:17,554 --> 00:02:22,580
+I could have compare more, but
+I'm just going to compare those two.
+
+29
+00:02:22,580 --> 00:02:28,190
+And I want to say there is a little
+parameter here called user sample,
+
+30
+00:02:28,190 --> 00:02:34,030
+where I'm going to sample a small
+fraction of the test data.
+
+31
+00:02:34,030 --> 00:02:38,456
+So a user sample equals 0.05,
+because on this
+
+32
+00:02:38,456 --> 00:02:43,550
+machine building this [INAUDIBLE]
+takes a little while,
+
+33
+00:02:43,550 --> 00:02:46,950
+and they want it to be fast so
+we can look at it together.
+
+34
+00:02:46,950 --> 00:02:49,240
+So, it does it pretty fast.
+
+35
+00:02:49,240 --> 00:02:55,380
+It's comparing, it's evaluating first
+the performance of the popularity model.
+
+36
+00:02:55,380 --> 00:02:57,090
+That's model zero.
+
+37
+00:02:57,090 --> 00:02:59,380
+Then the performance of the second model,
+
+38
+00:02:59,380 --> 00:03:02,320
+model one,
+which was the personalized model.
+
+39
+00:03:02,320 --> 00:03:05,350
+And finally what we get here
+is a precisionary call curves.
+
+40
+00:03:05,350 --> 00:03:10,040
+The last thing that we
+saw in the lectures and
+
+41
+00:03:10,040 --> 00:03:13,910
+this compares the recall and
+precision of these two models.
+
+42
+00:03:13,910 --> 00:03:20,000
+The personalized model in green and
+the popularity model in blue.
+
+43
+00:03:20,000 --> 00:03:24,680
+And the closer you are to
+the top here the better,
+
+44
+00:03:24,680 --> 00:03:28,920
+you see that adding personalization
+significantly improves.
+
+45
+00:03:28,920 --> 00:03:32,080
+The performance of our recommender.
+
+46
+00:03:32,080 --> 00:03:33,870
+So, personalization's great.
+
+47
+00:03:33,870 --> 00:03:36,000
+Just recommending popular items,
+not so great.
+
+48
+00:03:37,010 --> 00:03:43,070
+And so, with this,
+we've built a song recommender and
+
+49
+00:03:43,070 --> 00:03:47,979
+we explored that, we saw it recommend cool
+songs for somebody like me who likes U2
+
+50
+00:03:47,979 --> 00:03:52,070
+and Buena Vista Social Club.
+
+51
+00:03:52,070 --> 00:03:57,677
+But of course you can go and explore
+all the things that you might like and
+
+52
+00:03:57,677 --> 00:04:02,653
+see what else other recommendation
+songs you can come up with.
+
+53
+00:04:02,653 --> 00:04:06,709
+[MUSIC]

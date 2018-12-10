@@ -1,0 +1,38 @@
+[MUSIC] So we saw that deep learning had
+a tremendous part in the ImageNet competition. Which allowed them to take 1.5 minute
+image string deeply on your network and get amazing performance to predict one
+of a thousand different categories. So let's go ahead and
+show you a little demo of what kind of categories we're talking about and
+how cool the predictions were. So here's an example. It was the AlexNet frame
+on that ImageNet data set, which we then employed as a service
+that can be queried from this website. And so every time I click on an image
+it gets sent to that service which actually runs on a GPU, so it's
+fast and it comes back for prediction. So if I click on this
+particular image here, it gets sent to a service that
+actually hosts in on Amazon AWS. It comes back for prediction here. It's hidden, but when I click on it,
+it tells me what prediction is. So if I show you this image, it might
+be unclear what that image is, but if I click on it, it says parking meter,
+it turns out to be the right label. The second best prediction was padlock,
+Which you can see kind of a padlock. The parking meter, you got it right. So that's really quite cool. Let me show you another example. For example, this one. It get shipped off to the service on
+Amazon WS, comes back for prediction. And here my prediction, screen, monitor,
+or [INAUDIBLE] it says it's a monitor, but I don't know what the difference between a
+screen and a monitor is, but that's okay. So there's various images here,
+I'm just gonna click on a few. So for example, if I click on this
+one over here, it gets sent up. It's really sure,
+it really thinks it's a spoonbill, it turns out to be a spoonbill,
+which is great. Lastly I'm gonna click on
+this one over here and that image gets sent to that service
+uses a deep learning for GPU and it says it's a beer bottle or pop bottle,
+the true label is beer bottle. And now this all image is in
+the original ImageNet data set, I'm sure an image that was not in
+the original ImageNet data set, I click on this one here,
+it gets sent to that service. On the AWS that we're hosting there. Comes back for prediction, it says,
+Labrador retriever, this is my dog. This is the lab in
+>> [LAUGH] And this is the dog over here, in Dato. And so, as you can see, even for images
+that were not in the original data set, you can still get pretty
+interesting predictions. Now in your capstone,
+you want to build a service now not for predicting images here but for
+recommendations with deep learning, for product images and text and
+host it as a service. And you'll be able to get a website like
+this, that anybody can play with, use, and really see the power of the machine
+learning that you've been learning about. [MUSIC]

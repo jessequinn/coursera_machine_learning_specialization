@@ -1,0 +1,233 @@
+1
+00:00:00,000 --> 00:00:04,246
+[MUZIKA]
+
+2
+00:00:04,246 --> 00:00:08,890
+We've discussed error and
+accuracy as ways to evaluate a classifier.
+
+3
+00:00:08,890 --> 00:00:12,770
+Now, it's very important to
+understand the accuracies or
+
+4
+00:00:12,770 --> 00:00:14,800
+errors that you're actually
+getting from your classifier.
+
+5
+00:00:14,800 --> 00:00:18,467
+I really think deeply about
+whether those are good errors or
+
+6
+00:00:18,467 --> 00:00:21,760
+good levels of accuracy in your situation.
+
+7
+00:00:21,760 --> 00:00:26,830
+So for example,
+one of the common mistakes you might make
+
+8
+00:00:26,830 --> 00:00:32,340
+is to say how good is my
+classification at all?
+
+9
+00:00:32,340 --> 00:00:33,770
+When you build a classifier,
+
+10
+00:00:33,770 --> 00:00:38,590
+the first baseline comparison it
+should do is against random guessing.
+
+11
+00:00:38,590 --> 00:00:42,926
+So for example, if you have a binary
+classification problem like is this
+
+12
+00:00:42,926 --> 00:00:46,694
+sentence of positive or
+negative sentiment, then just random
+
+13
+00:00:46,694 --> 00:00:51,689
+guessing is gonna give you 50% accuracy
+on average, so you better beat 50%.
+
+14
+00:00:51,689 --> 00:00:54,765
+If you have k classes, so for
+example, if you have 3 classes.
+
+15
+00:00:54,765 --> 00:00:59,525
+You're gonna have a random
+guessing accuracy of 33%.
+
+16
+00:00:59,525 --> 00:01:04,307
+For 4 classes it would be 25%, for
+k classes it would be 1 over k.
+
+17
+00:01:04,307 --> 00:01:11,669
+So at the very least it should
+beat random guessing really well.
+
+18
+00:01:11,669 --> 00:01:15,870
+Because if you don't then your
+approach is basically pointless.
+
+19
+00:01:15,870 --> 00:01:20,197
+Now, even beyond beating random guessing,
+truly think deeply about whether you
+
+20
+00:01:20,197 --> 00:01:24,750
+classify, even it if looks really good,
+is it really meaningfully good?
+
+21
+00:01:24,750 --> 00:01:29,991
+So for example, suppose you have a span
+predictor that gets 90% accuracy.
+
+22
+00:01:29,991 --> 00:01:31,174
+Should you go brag about it?
+
+23
+00:01:31,174 --> 00:01:32,776
+Is that awesome?
+
+24
+00:01:32,776 --> 00:01:34,436
+Well, it really depends.
+
+25
+00:01:34,436 --> 00:01:41,173
+So the case of spam, not so good,
+because in 2010 data shows that 90%
+
+26
+00:01:41,173 --> 00:01:46,250
+of the emails ever sent were spam,
+90% of the emails.
+
+27
+00:01:46,250 --> 00:01:50,998
+So if I just guess that every email
+is spam, what accuracy do I get?
+
+28
+00:01:50,998 --> 00:01:51,784
+90%.
+
+29
+00:01:53,420 --> 00:01:56,910
+This is a problem where this is what's
+called majority class prediction so
+
+30
+00:01:56,910 --> 00:01:59,490
+its just predicted classes most common.
+
+31
+00:01:59,490 --> 00:02:03,500
+And it can have amazing performance in
+cases where there's what's called class
+
+32
+00:02:03,500 --> 00:02:04,470
+imbalance.
+
+33
+00:02:04,470 --> 00:02:07,920
+One class has much more
+representation than the others.
+
+34
+00:02:07,920 --> 00:02:12,025
+Spam is much more representative
+than regular good emails.
+
+35
+00:02:13,060 --> 00:02:17,950
+And so, you have to be very cautious and
+really look at whether you have class
+
+36
+00:02:17,950 --> 00:02:20,720
+imbalance when you try to figure
+out whether your accuracy is good.
+
+37
+00:02:21,940 --> 00:02:23,730
+And of course, this also beats,
+
+38
+00:02:23,730 --> 00:02:29,070
+this approach also beats random guessing,
+if you know what majority class is.
+
+39
+00:02:29,070 --> 00:02:31,850
+So you should always be
+digging into your problem, and
+
+40
+00:02:31,850 --> 00:02:36,390
+understanding really thinking about
+the predictions you're getting and
+
+41
+00:02:36,390 --> 00:02:39,940
+whether that accuracy is really
+meaningfully good for your problem.
+
+42
+00:02:39,940 --> 00:02:44,543
+So ask yourself questions like,
+is there class imbalance?
+
+43
+00:02:44,543 --> 00:02:47,476
+How they compare against baseline
+approaches like random guessing,
+
+44
+00:02:47,476 --> 00:02:50,300
+majority class and
+really fancier things than that.
+
+45
+00:02:50,300 --> 00:02:53,190
+And most importantly,
+think about your application and
+
+46
+00:02:53,190 --> 00:02:58,590
+ask yourself, what is a good enough
+accuracy to make my users really happy?
+
+47
+00:02:58,590 --> 00:03:03,178
+So, in spam filtering, if your accuracy is
+not that good, then there'll be important
+
+48
+00:03:03,178 --> 00:03:06,974
+messages going to the spam folder,
+and that could be a really bad thing.
+
+49
+00:03:06,974 --> 00:03:10,819
+[MUZIKA]

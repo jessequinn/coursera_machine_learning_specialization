@@ -1,0 +1,519 @@
+1
+00:00:00,000 --> 00:00:04,577
+[NHẠC]
+
+2
+00:00:04,577 --> 00:00:07,921
+Bây giờ chúng ta nói về triển khai ban đầu, lấy một mô hình mà chúng ta học
+
+3
+00:00:07,921 --> 00:00:11,560
+từ hệ thống tư vấn và triển khai như một dịch vụ mà trang web của bạn có thể truy vấn.
+
+4
+00:00:11,560 --> 00:00:15,310
+Nhưng có nhiều hơn quá trình triển khai và
+
+5
+00:00:15,310 --> 00:00:17,020
+với học máy trong sản xuất.
+
+6
+00:00:17,020 --> 00:00:20,750
+Có một phần triển khai nhưng cũng có sự quản lí các mô hình,
+
+7
+00:00:20,750 --> 00:00:24,520
+có sự đánh giá và có giám sát thu thập số liệu.
+
+8
+00:00:24,520 --> 00:00:26,555
+Vì thế hãy nói về ba miếng cuối.
+
+9
+00:00:26,555 --> 00:00:30,354
+Các phần lấy các mô hình mà chugns ta đã học thấy cách
+
+10
+00:00:30,354 --> 00:00:31,970
+chúng thể hiện trong thực tế.
+
+11
+00:00:31,970 --> 00:00:36,670
+Không chỉ trong quá trình ngoại tuyến mà còn với người sử dụng thực.
+
+12
+00:00:36,670 --> 00:00:41,020
+Sử dụng thông tin để huấn luyện mô hình mới, triển khai mô hình mới
+
+13
+00:00:41,020 --> 00:00:44,190
+và cập nhật mô hình như chúng ta thu thập thông tin về thế giới.
+
+14
+00:00:44,190 --> 00:00:48,537
+Nếu chúng ta quay lại đường dẫn liên quan trong quá trình thực hiện và
+
+15
+00:00:48,537 --> 00:00:53,367
+xử lí trong thời gian thực, bây giờ, phản hồi nơi người sử dụng có thể mua sản phẩm hoặc
+
+16
+00:00:53,367 --> 00:00:58,267
+không mua sản phẩm họ tư vấn,
+
+17
+00:00:58,267 --> 00:01:02,750
+nhưng dữ liệu lịch sử sẽ rất hữu ích cho chúng ta.
+
+18
+00:01:02,750 --> 00:01:06,200
+Chúng ta sẽ sử dụng phản hồi để quay lại và học các mô hình mới.
+
+19
+00:01:06,200 --> 00:01:08,370
+Ví dụ bây giờ chúng ta có nhiều dữ liệu lịch sử hơn,
+
+20
+00:01:08,370 --> 00:01:09,510
+tôi có thể học mô hình thứ hai.
+
+21
+00:01:09,510 --> 00:01:13,140
+Hãy dùng Model 2 cho bộ tư vấn, cái tôi nghĩ là tốt hơn và
+
+22
+00:01:13,140 --> 00:01:15,910
+tôi muốn bắt đầu phục vụ mô hình trong sản xuất, và
+
+23
+00:01:15,910 --> 00:01:20,810
+chỉ ra Model 2 thực sự tốt hơn Model 1 mà tôi có phải không?
+
+24
+00:01:20,810 --> 00:01:21,710
+Cái nào thì tốt hơn?
+
+25
+00:01:21,710 --> 00:01:23,255
+Tôi chỉ ra điều đó như thế nào?
+
+26
+00:01:23,255 --> 00:01:27,270
+Đó là một số câu hỏi quan trọng xung quanh việc quản lí các mô hình trong sản xuất.
+
+27
+00:01:27,270 --> 00:01:31,760
+Chúng ta sẽ làm rõ khi cập nhật mô hình 2 nếu nó có giá trị và
+
+28
+00:01:31,760 --> 00:01:33,550
+chúng ta lựa chọn giữa hai mô hình như thế nào.
+
+29
+00:01:33,550 --> 00:01:38,450
+Đây là sự giám sát các mô hình trong sản xuất với người sử dụng thực và
+
+30
+00:01:38,450 --> 00:01:41,960
+hiểu các mẫu trông như thế nào.
+
+31
+00:01:41,960 --> 00:01:46,050
+Chìa khóa để giám sát các mô hình là sự đánh giá của mô hình trong sản xuất.
+
+32
+00:01:46,050 --> 00:01:49,130
+Đây là sự kết hợp các dự đoán mà chúng ta đang tạo ra
+
+33
+00:01:49,130 --> 00:01:50,230
+với các số liệu.
+
+34
+00:01:50,230 --> 00:01:53,660
+Người sử dụng đang làm gì trong thời gian thực với hệ thống của chúng ta?
+
+35
+00:01:53,660 --> 00:01:57,840
+Các câu hỏi xung quanh ở đây bạn cần phải tìm hiểu với các mô hình triển khai
+
+36
+00:01:57,840 --> 00:02:00,660
+là dữ liệu chúng đang thu thập từ người sử dụng là gì?
+
+37
+00:02:00,660 --> 00:02:03,530
+Không chỉ dữ liệu bạn bắt đầu mà còn là dữ liệu bạn thu thập từ
+
+38
+00:02:03,530 --> 00:02:06,340
+sự tương tác thời gian thực, liệu người sử dụng có mua hay không.
+
+39
+00:02:06,340 --> 00:02:09,960
+Đó là các số liệu họ sẽ sử dụng để đo lường những sự tương tác
+
+40
+00:02:09,960 --> 00:02:13,250
+tốt hay không, bạn đang nhận được sự phản hồi tích cực mà bạn hi vọng,
+
+41
+00:02:13,250 --> 00:02:16,650
+máy móc đang làm việc trong hệ thống mà bạn đã xây dựng.
+
+42
+00:02:17,880 --> 00:02:21,050
+Nếu chúng ta quay lại đường dẫn của chúng ta, bạn có thể tưởng tượng,
+
+43
+00:02:21,050 --> 00:02:22,840
+ok tôi sẽ thu thập dữ liệu và
+
+44
+00:02:22,840 --> 00:02:25,970
+tôi sẽ sử dụng để đo số lượng mà chúng ta sử dụng để huấn luyện mô hình của tôi.
+
+45
+00:02:25,970 --> 00:02:29,410
+Ví dụ khi chúng ta nói về hệ thống, chúng ta nói về một số liệu.
+
+46
+00:02:29,410 --> 00:02:32,470
+Chúng ta đã thảo luận một số lỗi về tổng bình phương.
+
+47
+00:02:33,740 --> 00:02:36,360
+Điều này là số liệu đúng để đánh giá sản xuất phải không?
+
+48
+00:02:37,420 --> 00:02:39,970
+Nó là một thước đo thần thánh để tối ưu hóa mô hình ngoại tuyến nhưng
+
+49
+00:02:39,970 --> 00:02:44,610
+trong sản xuất bạn quan tâm đến liệu mọi người mua sản phẩm hay không, hoặc
+
+50
+00:02:44,610 --> 00:02:48,330
+liệu mô hình máy này đang nhận người sử dụng cho trang web hay không.
+
+51
+00:02:48,330 --> 00:02:53,170
+Mô hình đó đang giúp mọi người sử dụng điện thoại di động tốt hơn hay không,
+
+52
+00:02:53,170 --> 00:02:54,660
+hoặc đồng hồ đeo tay của họ,
+
+53
+00:02:54,660 --> 00:02:58,250
+hay bất kể công nghệ nào đang sử dụng học máy.
+
+54
+00:02:58,250 --> 00:03:03,260
+Các lỗi tổng bình phương hoặc một số huấn luyện ngoại tuyến,
+
+55
+00:03:03,260 --> 00:03:08,320
+những thước đo để tối ưu hóa mô hình ngoại tuyến và
+
+56
+00:03:08,320 --> 00:03:13,070
+làm rõ liệu mô hình có tốt hay không và có lẽ nó có thể được cập nhật.
+
+57
+00:03:13,070 --> 00:03:16,980
+Bây giờ ma trận trực tuyến này, giả sử ma trận sử dụng,
+
+58
+00:03:16,980 --> 00:03:22,540
+thay đổi như thé nào, dòng dưới cùng cho doanh nghiệp của tôi, đây là điều tốt về
+
+59
+00:03:22,540 --> 00:03:26,700
+việc chọn lựa mô hình cũ tốt hơn mô hình mới mà tôi đã tạo ra.
+
+60
+00:03:26,700 --> 00:03:29,040
+Hãy nói một chút về quá trình.
+
+61
+00:03:30,440 --> 00:03:33,810
+Câu hỏi ở đây là tôi nên cập nhật mô hình cũ của tôi
+
+62
+00:03:33,810 --> 00:03:36,910
+với một mô hình mới mà tôi đã học, chúng có dữ liệu mới phải không?
+
+63
+00:03:36,910 --> 00:03:38,890
+Có rất nhiều câu hỏi xung quanh điều này.
+
+64
+00:03:38,890 --> 00:03:40,220
+Tại sao tôi nên cập nhật?
+
+65
+00:03:40,220 --> 00:03:44,100
+Tại sao tôi nên lấy cái tôi đã làm trước đây và thay đổi nó thành cái mới?
+
+66
+00:03:44,100 --> 00:03:48,480
+Điều này phải được làm với các xu hướng trong thế giới của sự thay đổi,
+
+67
+00:03:48,480 --> 00:03:51,930
+các sản phẩm mới đã đưa vào, thị hiếu người sử dụng đã thay đổi.
+
+68
+00:03:51,930 --> 00:03:56,800
+Một mẫu như là hươu cao cổ có thể nhai được mà chúng ta đã nói đến đã lỗi thời.
+
+69
+00:03:56,800 --> 00:03:58,060
+Không ai muốn mua nữa.
+
+70
+00:03:58,060 --> 00:04:00,660
+CHúng ta muốn thay đổi chúng hoặc chúng ta muốn cập nhật chúng.
+
+71
+00:04:00,660 --> 00:04:04,290
+Đó là cái chúng ta phải làm, ok đó là lí do chúng ta nên cập nhật nó nhưng
+
+72
+00:04:04,290 --> 00:04:06,220
+khi nào chúng ta cập nhật nó, ok,
+
+73
+00:04:06,220 --> 00:04:11,116
+đã đến lúc lấy mô hình cũ và cài đặt vào mô hình mới.
+
+74
+00:04:11,116 --> 00:04:17,150
+Điều này để theo dõi các thống kê thế giới thực, nó không phải trực giác, điều này
+
+75
+00:04:17,150 --> 00:04:21,980
+giống như đúng thời điểm hoặc nói với một người người mà không nhìn vào dữ liệu.
+
+76
+00:04:21,980 --> 00:04:24,760
+Có thể có một số loại phân tích kinh doanh.
+
+77
+00:04:24,760 --> 00:04:26,690
+Đó là về dữ liệu.
+
+78
+00:04:26,690 --> 00:04:30,660
+Về theo dõi, các mã trận chúng ta đo lường, các thống kê và
+
+79
+00:04:30,660 --> 00:04:33,750
+đưa ra một định lượng
+
+80
+00:04:35,450 --> 00:04:39,460
+về tính chất, mọi thứ đã thay đổi, đã đến lúc cập nhật mô hình.
+
+81
+00:04:39,460 --> 00:04:42,060
+Đó là cái sẽ xảy ra khi chúng ta cập nhật mô hình.
+
+82
+00:04:42,060 --> 00:04:44,800
+Điều này kết hợp các ma trận ngoại tuyến khi chúng ta sử dụng mô hình chuỗi.
+
+83
+00:04:44,800 --> 00:04:47,400
+Nhưng các số liệu trực tuyến mà chungs ta đang nắm.
+
+84
+00:04:47,400 --> 00:04:50,830
+Hãy nói về sử dụng các số liệu trực tuyến như thế nào.
+
+85
+00:04:50,830 --> 00:04:55,388
+Một ví dụ về cách lựa chọn giữa các mô hình sử dụng số liệu trực tuyến là những ý tưởng về
+
+86
+00:04:55,388 --> 00:04:56,115
+kiểm tra AB.
+
+87
+00:04:56,115 --> 00:04:59,370
+Giả sử bạn có hai mô hình, Model 1 và Model 2.
+
+88
+00:04:59,370 --> 00:05:01,380
+Tôi muốn chỉ ra cái nào tốt hơn,
+
+89
+00:05:01,380 --> 00:05:03,810
+tôi sẽ đưa một cái vào hệ thống của tôi.
+
+90
+00:05:03,810 --> 00:05:07,510
+Cái mà tôi có thể làm là đưa ra một số dân số của tôi, gọi chúng là nhóm A.
+
+91
+00:05:07,510 --> 00:05:11,141
+Một số người từ khu vực nhất định,
+
+92
+00:05:11,141 --> 00:05:14,445
+giả sử từ Mỹ trong Model 1.
+
+93
+00:05:14,445 --> 00:05:18,575
+Sau đó những người từ vùng khác
+
+94
+00:05:18,575 --> 00:05:21,423
+giả sử từ Canada cho Model 2.
+
+95
+00:05:21,423 --> 00:05:25,220
+Bạn nhìn vào đặc điểm giữa hai mô hình, nắm một số số liệu.
+
+96
+00:05:25,220 --> 00:05:30,945
+Và giả sử Model 1 tốt hơn, xin lỗi, Model 1 kém hơn.
+
+97
+00:05:30,945 --> 00:05:34,083
+Nó chỉ có 10% tỷ lệ bấm, vì thế CTR.
+
+98
+00:05:34,083 --> 00:05:37,825
+Có nghĩa là chỉ có 10% mọi người mua sản phẩm.
+
+99
+00:05:37,825 --> 00:05:41,882
+Trong khi mới Model 2, thật ngạc nhiên có 30% mọi người mua sản phẩm.
+
+100
+00:05:41,882 --> 00:05:44,420
+CTR, nhấn qua tỉ lệ là 30%.
+
+101
+00:05:44,420 --> 00:05:46,950
+Bạn làm gì sau khi hoàn thành thử nghiệm,
+
+102
+00:05:46,950 --> 00:05:48,235
+tôi đã làm đủ thử nghiệm.
+
+103
+00:05:48,235 --> 00:05:50,070
+Tôi đã thu thâp đủ ví dụ.
+
+104
+00:05:50,070 --> 00:05:53,140
+Tooi sẽ bắt đầu phục vụ Model 2 thay vì Model 1.
+
+105
+00:05:53,140 --> 00:05:55,341
+Có rất nhiều các vấn đề khác và
+
+106
+00:05:55,341 --> 00:05:58,043
+hãy cẩn thận các ý tưởng xung quanh chúng ta đã nói đến.
+
+107
+00:05:58,043 --> 00:06:00,798
+Kiểm tra A/B, quyết định khi đến lúc chuyển sang mô hình,
+
+108
+00:06:00,798 --> 00:06:02,960
+bao nhiêu dữ liệu bạn phải thu thập, phải làm gì.
+
+109
+00:06:02,960 --> 00:06:04,210
+Nó rất khó.
+
+110
+00:06:04,210 --> 00:06:06,980
+Nó đòi hỏi nhiều suy nghĩ và chúng ta sẽ nói nhiều hơn về nó
+
+111
+00:06:06,980 --> 00:06:11,310
+hướng tới bài tập lớn, nhưng cái mà bạn cần phải nghĩ đến khá sâu sắc.
+
+112
+00:06:11,310 --> 00:06:15,585
+Bây giờ nghĩ đến phiên bản mô hình chúng ta có, model 1, Model 2,
+
+113
+00:06:15,585 --> 00:06:20,010
+cụ thể bạn có nhiều khoa học dữ liệu
+
+114
+00:06:20,010 --> 00:06:22,980
+với các ý tưởng, câu hỏi là chúng theo dõi điều đó như thế nào?
+
+115
+00:06:22,980 --> 00:06:25,850
+Bạn có biết dữ liệu đã được sử dụng để huấn luyện các mô hình khác nhau như thế nào không?
+
+116
+00:06:25,850 --> 00:06:29,580
+Chúng theo dõi cách chúng thực hiện một cái thực hiện tốt
+
+117
+00:06:29,580 --> 00:06:30,870
+một cái không thực hiện tốt như thế nào?
+
+118
+00:06:30,870 --> 00:06:32,520
+Nó là bở vì một số giải thích?
+
+119
+00:06:32,520 --> 00:06:35,890
+Bởi vì một số dữ liệu?
+
+120
+00:06:35,890 --> 00:06:37,790
+Bạn giám sát biểu đồ như thế nào?
+
+121
+00:06:37,790 --> 00:06:39,080
+Bạn đưa ra báo cáo như thế nào?
+
+122
+00:06:39,080 --> 00:06:40,370
+Ok đó là điều sẽ xảy ra.
+
+123
+00:06:40,370 --> 00:06:43,100
+Đó là cái mà máy móc sẽ làm, nó tạo ra sự khác biệt.
+
+124
+00:06:43,100 --> 00:06:45,090
+Tất cả có thể khá là phức tạp.
+
+125
+00:06:45,090 --> 00:06:49,290
+Và vì thế nó rất quan trọng để nghĩ đến không chỉ cách
+
+126
+00:06:49,290 --> 00:06:53,670
+bạn sử dụng máy móc trong các thuật toán như thế nào, bạn viết phương pháp của bạn như thế nào.
+
+127
+00:06:53,670 --> 00:06:54,550
+Bạn nhận các tính năng của bạn như thế nào?
+
+128
+00:06:54,550 --> 00:06:57,923
+Nhưng bạn theo dõi điều đó như thế nào và bản đảm các phương pháp đang làm việc và
+
+129
+00:06:57,923 --> 00:07:01,094
+cung cấp tệp mà bạn muốn cho hệ thống bạn đã xây dựng.
+
+130
+00:07:01,094 --> 00:07:05,109
+[NHẠC]

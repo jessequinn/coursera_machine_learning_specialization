@@ -1,0 +1,115 @@
+1
+00:00:00,000 --> 00:00:04,362
+[MUSIC]
+
+2
+00:00:04,362 --> 00:00:10,203
+So I showed you some examples of
+neural networks in computer vision and
+
+3
+00:00:10,203 --> 00:00:12,660
+doing classification.
+
+4
+00:00:12,660 --> 00:00:15,112
+Is there a labrador
+retriever in this image?
+
+5
+00:00:15,112 --> 00:00:17,016
+But they can do quite a bit more.
+
+6
+00:00:17,016 --> 00:00:20,760
+So, for example, we can do image parsing.
+
+7
+00:00:20,760 --> 00:00:23,633
+So in this example, for
+every picture in the image,
+
+8
+00:00:23,633 --> 00:00:26,587
+you're trying to classify it and
+discover regions.
+
+9
+00:00:26,587 --> 00:00:30,027
+So in the center top image,
+you see a region of sky,
+
+10
+00:00:30,027 --> 00:00:33,030
+another region of grass, and so on.
+
+11
+00:00:33,030 --> 00:00:36,880
+And this kind of image description,
+or is called scene understanding,
+
+12
+00:00:36,880 --> 00:00:41,730
+is pretty cool, and you know networks
+again, provided significant gains.
+
+13
+00:00:43,060 --> 00:00:46,440
+But if we go back to
+the beginning of the module
+
+14
+00:00:46,440 --> 00:00:50,080
+when we discussed a new way to shop for
+shoes or dresses,
+
+15
+00:00:50,080 --> 00:00:54,110
+the thing that we're really trying to
+do there is retrieve similar images.
+
+16
+00:00:54,110 --> 00:00:58,130
+So, for example, if I give you
+the input of this boring black shoe,
+
+17
+00:00:58,130 --> 00:01:00,170
+what neural network with output.
+
+18
+00:01:00,170 --> 00:01:05,007
+Deep neural network is
+the shoes that are shown here.
+
+19
+00:01:05,007 --> 00:01:06,900
+A bunch of boring black shoes.
+
+20
+00:01:06,900 --> 00:01:09,800
+Now, if I do this a little
+bit more stylish boot,
+
+21
+00:01:09,800 --> 00:01:14,710
+you'll see that it gives you a variety
+of interesting boots like that.
+
+22
+00:01:14,710 --> 00:01:19,770
+Similarly, for heels, for
+brown shoes, for sneakers and so on.
+
+23
+00:01:19,770 --> 00:01:24,237
+So this is the core of the concept that
+we're using in the demo that we showed at
+
+24
+00:01:24,237 --> 00:01:25,976
+the beginning of the module.
+
+25
+00:01:25,976 --> 00:01:29,979
+[MUSIC]

@@ -1,0 +1,277 @@
+1
+00:00:00,000 --> 00:00:04,384
+[MUSIC]
+
+2
+00:00:04,384 --> 00:00:11,971
+Other examples of document retrieval.
+
+3
+00:00:11,971 --> 00:00:13,140
+Okay?
+
+4
+00:00:13,140 --> 00:00:15,740
+So we're gonna go through a few.
+
+5
+00:00:15,740 --> 00:00:19,450
+For example,
+let's take the singer Taylor Swift.
+
+6
+00:00:19,450 --> 00:00:23,642
+So out of all my people,
+
+7
+00:00:23,642 --> 00:00:28,463
+I'm going to select the one
+
+8
+00:00:28,463 --> 00:00:33,510
+whose name is Taylor Swift.
+
+9
+00:00:33,510 --> 00:00:35,470
+And so when I select her I can ask,
+
+10
+00:00:36,540 --> 00:00:41,130
+let's retrieve some documents that
+are similar to Taylor Swift's documents.
+
+11
+00:00:41,130 --> 00:00:43,960
+In other words,
+who are the people, just for
+
+12
+00:00:43,960 --> 00:00:47,068
+the model, who are the people
+who are closest to Taylor Swift?
+
+13
+00:00:47,068 --> 00:00:51,498
+So she's a female singer and
+you'll see other female
+
+14
+00:00:51,498 --> 00:00:56,520
+singers kind of the same
+generation like Carrie Underwood,
+
+15
+00:00:56,520 --> 00:01:00,274
+Alicia Keys, Jordan Sparks, Leona Lewis.
+
+16
+00:01:00,274 --> 00:01:03,162
+And just a little disclaimer here,
+I had to go and
+
+17
+00:01:03,162 --> 00:01:07,821
+look those people up in Wikipedia because
+I really didn't know who they were.
+
+18
+00:01:07,821 --> 00:01:10,860
+[LAUGH] Here we go.
+
+19
+00:01:10,860 --> 00:01:13,150
+Let's take another example.
+
+20
+00:01:13,150 --> 00:01:18,028
+So for example,
+the actress Angelina Jolie.
+
+21
+00:01:18,028 --> 00:01:24,553
+So if I take, out of all my people,
+
+22
+00:01:24,553 --> 00:01:32,888
+I take the one whose
+name is Angelina Jolie.
+
+23
+00:01:32,888 --> 00:01:37,230
+And I'm now going to
+query my nearest neighbor
+
+24
+00:01:37,230 --> 00:01:41,583
+model to ask who is
+closest to Angelina Jolie.
+
+25
+00:01:41,583 --> 00:01:44,814
+And so who is closer to Angelina Jolie?
+
+26
+00:01:44,814 --> 00:01:49,840
+Before I press enter here,
+take a moment to think.
+
+27
+00:01:49,840 --> 00:01:53,078
+If you know anything about
+this actress Angelina Jolie,
+
+28
+00:01:53,078 --> 00:01:56,044
+you might guess who is
+the closest person to her, and
+
+29
+00:01:56,044 --> 00:02:00,530
+if I run this, you'll see that
+the nearest neighbor is Brad Pitt.
+
+30
+00:02:00,530 --> 00:02:03,700
+And we all know about the relationship
+between Angelina Jolie and Brad Pitt.
+
+31
+00:02:03,700 --> 00:02:08,680
+And then you see Julianne Moore, Billy Bob
+Thornton, George Clooney, these are all
+
+32
+00:02:08,680 --> 00:02:11,730
+actors and actresses that have been in
+movies actually with Angelina Jolie.
+
+33
+00:02:11,730 --> 00:02:13,600
+So, It's pretty cool.
+
+34
+00:02:13,600 --> 00:02:15,710
+We get some interesting retrieval here.
+
+35
+00:02:15,710 --> 00:02:19,940
+So let me show you one last cool,
+fun example.
+
+36
+00:02:22,080 --> 00:02:27,296
+So you might be familiar
+with a person called
+
+37
+00:02:27,296 --> 00:02:31,865
+Arnold Schwarzenegger.
+
+38
+00:02:31,865 --> 00:02:36,911
+The famous Terminator.
+
+39
+00:02:36,911 --> 00:02:41,967
+So, I actually have to cheat here to
+
+40
+00:02:41,967 --> 00:02:47,023
+make sure I get his last name right,
+
+41
+00:02:47,023 --> 00:02:50,747
+Schwarzenegger, okay.
+
+42
+00:02:50,747 --> 00:02:52,030
+Hopefully I got that right.
+
+43
+00:02:52,030 --> 00:02:58,260
+And the question is, who are the nearest
+neighbors to Arnold Schwarzenegger?
+
+44
+00:03:01,150 --> 00:03:01,650
+Now.
+
+45
+00:03:02,790 --> 00:03:06,560
+You may know that Arnold
+had a double career.
+
+46
+00:03:06,560 --> 00:03:08,380
+So first, he start as an actor, well,
+
+47
+00:03:08,380 --> 00:03:13,310
+bodybuilder, then an actor,
+then a politician, and became
+
+48
+00:03:13,310 --> 00:03:18,460
+the governor of the state of California
+in the United States, so several lives.
+
+49
+00:03:18,460 --> 00:03:22,680
+So what are the nearest neighbors for
+Arnold Schwarzenegger?
+
+50
+00:03:22,680 --> 00:03:25,580
+And so you'll see Arnold Schwarzenegger.
+
+51
+00:03:25,580 --> 00:03:29,872
+Then you'll see Jessie Ventura,
+who is like a,
+
+52
+00:03:29,872 --> 00:03:36,760
+Jessie Venture is a wrestler, an actor,
+so similar to Arnold Schwarzenegger.
+
+53
+00:03:36,760 --> 00:03:42,040
+And then a few politicians,
+including former
+
+54
+00:03:42,040 --> 00:03:46,960
+governors of Oregon, and of Rhode Island
+and other states in the United States.
+
+55
+00:03:46,960 --> 00:03:52,050
+So now we see that the nearest neighbors
+for Arnold are politicians and
+
+56
+00:03:52,050 --> 00:03:55,220
+actors and body builders, people like him.
+
+57
+00:03:55,220 --> 00:03:59,600
+So this was a really cool example of just
+building a very simple document retrieval
+
+58
+00:03:59,600 --> 00:04:02,050
+system using TFIDF and nearest neighbors.
+
+59
+00:04:02,050 --> 00:04:06,192
+Just like we learned in the module,
+but now taking it to practice and
+
+60
+00:04:06,192 --> 00:04:10,274
+finding some pretty cool documents
+from this Wikipedia data set.
+
+61
+00:04:10,274 --> 00:04:10,774
+[MUSIC]

@@ -1,0 +1,115 @@
+1
+00:00:00,025 --> 00:00:03,787
+[NHẠC]
+
+2
+00:00:03,787 --> 00:00:06,353
+Chúng tôi hi vọng bạn hài lòng với khóa học đầu tiên trong
+
+3
+00:00:06,353 --> 00:00:09,588
+chuỗi học máy này, và không chỉ là bạn học về rất nhiều
+
+4
+00:00:09,588 --> 00:00:13,660
+các phương pháp học máy khác nhau mà
+ bạn bạn còn vận dụng chúng vào thực tế.
+
+5
+00:00:13,660 --> 00:00:15,210
+Và chúng tôi đánh giá cao nỗ lực của bạn.
+
+6
+00:00:15,210 --> 00:00:19,160
+Chúng tôi biết bạn đã học rất chăm chỉ, bạn đã thực hiện rất nhiều
+
+7
+00:00:19,160 --> 00:00:22,350
+các thuật toán học máy khác nhau và trải qua các ghi chú.
+
+8
+00:00:22,350 --> 00:00:26,180
+Không chỉ hiểu khái niệm mà còn hiểu cách vận dụng chúng
+
+9
+00:00:26,180 --> 00:00:31,050
+trong thực tế và cách đánh giá các mô hình mà bạn đã xây dựng
+
+10
+00:00:31,050 --> 00:00:35,210
+và cung cấp giá trị mà bạn mong muốn từ học máy.
+
+11
+00:00:35,210 --> 00:00:38,260
+Bây giờ bạn đã sẵn sàng để xây dựng
+ các ứng dụng thông minh của chính mình và
+
+12
+00:00:38,260 --> 00:00:40,890
+áp dụng chúng trong thực tế.
+
+13
+00:00:40,890 --> 00:00:45,060
+Nhưng có rất nhiều thứ trong chuỗi này để biến bạn trở thành
+
+14
+00:00:45,060 --> 00:00:49,455
+các chuyên gia học máy, nới mà bạn có thể
+ thiết kế và triển khai các phương pháp mới.
+
+15
+00:00:49,455 --> 00:00:57,434
+[cười] Tôi có nên nói thêm nữa không?
+
+16
+00:00:57,434 --> 00:00:59,550
+Hay tôi sẽ nói điều đó?
+
+17
+00:00:59,550 --> 00:01:00,650
+>> Thật sao.
+
+18
+00:01:00,650 --> 00:01:01,826
+Chúng ta quá hào hứng.
+
+19
+00:01:01,826 --> 00:01:03,257
+Chúng ta quá phấn khích.
+
+20
+00:01:03,257 --> 00:01:06,770
+[cười] cả hai chúng tôi rất vui vì cuộc hành trình này
+
+21
+00:01:06,770 --> 00:01:11,405
+cái mà bạn đã đồng hành cùng chúng tôi 
+trong chuỗi bài học này, điều này thật ý nghĩa.
+
+22
+00:01:11,405 --> 00:01:14,890
+[cười] nó thực thực sự rất tuyệt vời với chúng tôi,
+
+23
+00:01:14,890 --> 00:01:16,650
+cảm ơn các bạn vì đã tham gia khóa học này.
+
+24
+00:01:16,650 --> 00:01:20,340
+Chúng tôi rất mong sẽ gặp lại các bạn trong các khóa học tiếp theo và
+
+25
+00:01:20,340 --> 00:01:23,425
+thấy những điều tuyệt vời bạn sẽ xây dựng trong dự án bài tập lớn ở cuối.
+
+26
+00:01:23,425 --> 00:01:26,190
+[cười] cảm ơn các bạn vì đã học rất chăm chỉ.
+
+27
+00:01:26,190 --> 00:01:27,976
+Cảm ơn, hẹn gặp lại.
+
+28
+00:01:27,976 --> 00:01:32,439
+[NHẠC]

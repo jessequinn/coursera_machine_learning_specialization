@@ -1,0 +1,30 @@
+[MÚSICA] Ok, até agora assumimos que a única
+característica relevante para o valor da minha casa são os metros quadrados da casa. Mas eu explorei o conjunto de
+dados um pouco mais, e observei a casa que, supostamente,
+é bastante similar à minha. É uma casa com metros
+quadrados similares. E então, esta casa está definitivamente a 
+influenciar as predições da minha casa. Mas quando olho para ela e digo, e
+eu olho especificamente para a lista, e parece que essa casa
+apenas tem uma casa de banho. É, na verdade, uma casa grande
+apenas com uma casa de banho. E então digo que não pode ser
+comparada com a minha casa. que tem três casas de banho. Então o valor dessa casa,
+o preço de venda dessa casa não deveria ser indicativo do
+valor que a minha casa deve ter. Então, o que podemos pensar em fazer
+é adicionar mais características Em vez de apenas observar a 
+relação entre os metros quadrados e o preço, podemos adicionar o número de casas de banho. E agora cada uma das listas que observei anteriormente,
+irei analisar novamente e registar quantos metros quadrados tem essa
+casa, e o número de casas de banho. E irei representar graficamente cada
+um desses pontos no espaço 3D. Ok?
+Então, é um hipercubo dos metros quadrados versus casas de banho versus preço. E agora, em vez de representar os dados numa linha, 
+se eu pensar nisso apenas como um modelo muito simples, eu posso pensar como representar num hiperplano. Ok, então é 
+apenas um corte no espaço. Estamos aqui Esta é a equação do hiperplano e
+esta é a equação deste plano. Temos então w0, que é a intercepção, 
+mesmo onde este plano se desloca para cima e para baixo no eixo dos YY's. E temos w1 vezes o número de metros quadrados, e w2 vezes o número de casas de banho. Mas a pergunta é onde é que paramos? Apenas adicionams o número de
+casas de banho como a nossa característica adicional? Existem imensas coisas que
+podemos pensar incluindo Podemos pensar em adicionar aos
+metros quadrados, número de casas de banho, existe o número de quartos,
+o tamanho do lote, a idade da casa, e a lista não pára de aumentar. Em termos de diferentes propriedades da
+casa que podem influenciar na avaliação do seu valor. Mas iremos, na verdade, adiar esta questão
+de verificar quais as características são importantes para esta tarefa de regressão,
+até chegarmos ao curso sobre regressão. Pelo que aconselho ires ao curso sobre regressão
+de modo a que possas aprender mais sobre este tópico. [MÚSICA]

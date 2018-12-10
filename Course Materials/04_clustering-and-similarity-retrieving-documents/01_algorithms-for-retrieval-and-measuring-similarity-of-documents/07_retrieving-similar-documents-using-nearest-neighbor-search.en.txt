@@ -1,0 +1,29 @@
+[MUSIC] Okay, so we've talked about
+how to represent documents and we've also talked about how to
+measure similarity between documents. So now let's turn to the actual task of
+interest which is retrieving a document. So someone is reading an article,
+we're assuming they like that article and we'd like to present them
+with another article to read. So in particular one of the most popular
+ways of doing this something called nearest neighbor search,
+where we have our query article. That's the article that were reading. And then there's the corpus. That's all of the documents out
+there that we want to search over to recommend some new article. And so what we need to do for our nearest neighbor search is we
+need to specify a distance metric. So this is gonna be our measure
+of similarity that we talked about earlier and then what this algorithm is gonna output
+is a collection of related articles. So one example of nearest neighbor search
+is something called one nearest neighbor, where you have your query article and
+what you're gonna return is just simply the most related article, out of all those
+articles out there, to the query article. And the algorithm is very straightforward. We're just gonna search over
+every article in our corpus, these are all these little green articles,
+and we're gonna compute the similarity using the methods that we described
+earlier between the query article and this article we're
+examining in the corpus. And then, if that similarity is better than the best
+similarity that we've found so far, then we're gonna keep this article as our
+best article that we've found so far. And then at the end after we've iterated
+through every article in our corpus we're gonna look at what was
+the best article that we found. And we're gonna recommend
+this to the reader. A very straightforward variant of this
+is something called k- nearest neighbor search, where instead of just outputting
+the most relevant article that we've found, we're gonna present the reader
+with a collection of k different articles that are the top k most relevant articles. And the way that we do this, the algorithm is newly identical except in
+instead of keeping just the most related article, we're gonna keep a priority
+queue of the top k articles found so far.

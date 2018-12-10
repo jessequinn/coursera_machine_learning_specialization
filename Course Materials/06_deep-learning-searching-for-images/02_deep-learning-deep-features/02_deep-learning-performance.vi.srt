@@ -1,0 +1,216 @@
+1
+00:00:04,180 --> 00:00:08,250
+Học sâu rất thú vị bởi vì nó học
+những đặc điểm phức tạp của hình ảnh.
+
+2
+00:00:08,250 --> 00:00:09,940
+Và như chúng ta đã thảo luận trước đây.
+
+3
+00:00:09,940 --> 00:00:13,660
+Chúng có tác động to lớn trong
+những năm gần đây với rất nhiều
+
+4
+00:00:13,660 --> 00:00:15,280
+các ứng dụng thị giác máy tính.
+
+5
+00:00:15,280 --> 00:00:17,720
+Hãy để tôi cho bạn thấy một vài ví dụ.
+
+6
+00:00:17,720 --> 00:00:23,466
+Trên đầu của slide ở đây là ví dụ về
+
+7
+00:00:23,466 --> 00:00:27,230
+các biển báo giao thông
+dựa trên mạng nơ ron.
+
+8
+00:00:27,230 --> 00:00:30,540
+Đây là dữ liệu của biển báo
+giao thông của Đức và
+
+9
+00:00:30,540 --> 00:00:34,370
+ý tưởng là với mỗi hình ảnh,
+xác định nó là gì.
+
+10
+00:00:34,370 --> 00:00:38,970
+Chúng có thể đạt 99.5% độ chính xác
+sử dụng mạng nơ ron,
+
+11
+00:00:38,970 --> 00:00:40,690
+điều này thật tuyệt vời.
+
+12
+00:00:40,690 --> 00:00:46,500
+Ở phía dưới đây, bạn thấy một ví dụ đã xuất hiện
+trong một số tác phẩm của Google về
+
+13
+00:00:46,500 --> 00:00:50,210
+việc xác định số nhà dựa trên
+cái được gọi là dữ liệu Street View.
+
+14
+00:00:50,210 --> 00:00:53,970
+Đây là dữ liệu mà Google
+sử dụng khi lái xe ô tô và
+
+15
+00:00:53,970 --> 00:00:57,270
+chụp ảnh tất cả các con đường khắp thế giới.
+
+16
+00:00:57,270 --> 00:00:59,760
+Và bạn thấy những hình ảnh
+khá là phức tạp và
+
+17
+00:00:59,760 --> 00:01:04,940
+chúng có thể đạt 97,8% độ
+chính xác ở mỗi mức độ.
+
+18
+00:01:06,520 --> 00:01:08,100
+Đây là những kết quả thú vị.
+
+19
+00:01:08,100 --> 00:01:09,831
+Nhưng cái mà thay đổi mọi thứ.
+
+20
+00:01:09,831 --> 00:01:16,106
+Lĩnh vực thú vị thực sự
+đã xảy ra vào năm 2012.
+
+21
+00:01:16,106 --> 00:01:21,060
+Trong nhiều năm có một cuộc đua
+hình ảnh được gọi là ImageNet.
+
+22
+00:01:21,060 --> 00:01:25,857
+Trong năm 2012, cuộc thi
+ImageNet gồm 1.2 triệu
+
+23
+00:01:25,857 --> 00:01:30,340
+hình ảnh từ 1,000 các loại khác nhau.
+
+24
+00:01:30,340 --> 00:01:34,390
+Và ý tưởng là bạn có thể
+phân loại hình ảnh.
+
+25
+00:01:34,390 --> 00:01:38,560
+Nó không chỉ là một con chó,
+nó là một chú cho săn phải không?
+
+26
+00:01:38,560 --> 00:01:40,660
+Rất, rất chi tiết.
+
+27
+00:01:42,770 --> 00:01:45,170
+Có rất nhiều đội tham gia.
+
+28
+00:01:45,170 --> 00:01:47,430
+Có 3 đội dẫn đầu.
+
+29
+00:01:47,430 --> 00:01:53,580
+Một đội là OXFORD_VGG,
+đội này đạt được độ chính xác khá tốt.
+
+30
+00:01:53,580 --> 00:01:57,164
+Nếu bạn nhìn vào top năm
+bạn có thể đưa ra dự đoán
+
+31
+00:01:57,164 --> 00:01:58,460
+trong top năm.
+
+32
+00:01:58,460 --> 00:02:02,791
+Họ chỉ có khoảng 25% lỗi.
+
+33
+00:02:02,791 --> 00:02:05,230
+Có một đội tên là ISI
+làm tốt hơn một chút.
+
+34
+00:02:05,230 --> 00:02:08,240
+Những đội sử dụng các kỹ thuật
+truyền thống như là SIFT[1],
+
+35
+00:02:08,240 --> 00:02:10,760
+phức tạp hơn một chút.
+
+36
+00:02:10,760 --> 00:02:14,157
+Năm đó có một đội nữa
+là SuperVision.
+
+37
+00:02:14,157 --> 00:02:19,752
+Đội đó sử dụng mạng nơ ron
+và đạt kết quả lớn hơn đối thủ và
+
+38
+00:02:19,752 --> 00:02:25,432
+sự thể hiện của họ tạo ra rất nhiều hứng thú
+ về việc sử dụng mạng thần kinh.
+
+39
+00:02:25,432 --> 00:02:30,451
+Trong thị giác máy tính bởi vì nếu họ
+chỉ sử dụng các đặc tính mã hóa bằng tay,
+
+40
+00:02:30,451 --> 00:02:32,950
+thì bạn sẽ học chúng một cách tự động.
+
+41
+00:02:34,826 --> 00:02:39,807
+Mạng nơ ron đó đã giành chiến thắng trong
+cuộc cạnh tranh với đội SuperVision
+
+42
+00:02:39,807 --> 00:02:45,088
+được gọi là mạng nơ ron AlexNet và tôi
+đang chỉ ra ở đây một hình ảnh từ trang của họ,
+
+43
+00:02:45,088 --> 00:02:49,918
+đó là mạng nơ ron có 8 tầng,
+60 triệu thông số và
+
+44
+00:02:49,918 --> 00:02:53,917
+chỉ có thể thực hiện bởi các
+thuật toán huấn luyện mới có thể
+
+45
+00:02:53,917 --> 00:02:57,087
+xử lý nhiều hình ảnh và nhiều thông số,
+
+46
+00:02:57,087 --> 00:03:01,418
+Việc thực hiện GPU sẽ mở rộng
+đến các tập dữ liệu lớn.
+
+47
+00:03:01,418 --> 00:03:05,229
+[NHẠC]

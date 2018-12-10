@@ -1,0 +1,258 @@
+1
+00:00:03,961 --> 00:00:10,070
+Ok chúng ta hãy nói về bài toán
+dự đoán giá trị một căn nhà.
+
+2
+00:00:10,070 --> 00:00:13,570
+Đây là một bài toán rất quan trọng,
+ít nhất là tại Hoa Kỳ.
+
+3
+00:00:13,570 --> 00:00:19,460
+Ước tính rằng 50% gia đình giàu có
+đã đầu tư vào bất động sản.
+
+4
+00:00:19,460 --> 00:00:21,390
+Điều này rõ ràng là quan trọng
+
+5
+00:00:21,390 --> 00:00:26,370
+cho cả người tiêu dùng, các cá nhân
+cũng như các nhà làm chính sách.
+
+6
+00:00:26,370 --> 00:00:28,770
+Ok, tôi ở đây và muốn bán nhà của tôi.
+
+7
+00:00:28,770 --> 00:00:34,570
+Tôi có ngôi nhà màu xanh to đẹp,
+nhưng tôi không biết nó giá bao nhiêu.
+
+8
+00:00:34,570 --> 00:00:37,495
+Vì thế tôi không chắc giá trị của căn nhà, và
+
+9
+00:00:37,495 --> 00:00:41,560
+làm thế nào để tôi nghĩ về việc
+ước tính giá trị của căn nhà?
+
+10
+00:00:41,560 --> 00:00:45,680
+Có thể những gì tôi làm là tôi nhìn vào
+
+11
+00:00:45,680 --> 00:00:48,630
+các mua bán khác đã xảy ra
+trong khu vực lân cận của tôi.
+
+12
+00:00:48,630 --> 00:00:53,050
+Vì vậy, tôi nhìn cục bộ, ở
+các khu vực quanh tôi và
+
+13
+00:00:53,050 --> 00:00:57,880
+Tôi nói các căn nhà khác bán với giá bao nhiêu
+và các căn nhà đó trông như thế nào?
+
+14
+00:00:57,880 --> 00:01:00,070
+Cái mà tôi sẽ làm là tôi sẽ ghi lại
+
+15
+00:01:00,070 --> 00:01:03,200
+các giá bán gần đây,
+
+16
+00:01:03,200 --> 00:01:06,040
+cũng như kích thước
+của ngôi nhà được bán là gì?
+
+17
+00:01:06,040 --> 00:01:10,030
+Tôi sẽ nói những ý nghĩa gì chỉ ra
+liệu ngôi nhà đó có giống với nhà tôi
+
+18
+00:01:10,030 --> 00:01:11,320
+hay không.
+
+19
+00:01:11,320 --> 00:01:15,946
+OK, là 1 nhà thống kê, tôi sẽ dùng tất cả
+dữ liệu quan sát tôi đã có này và
+
+20
+00:01:15,946 --> 00:01:17,720
+tôi sẽ đặt một giá trị vào.
+
+21
+00:01:19,050 --> 00:01:24,420
+Ít nhất ở Mỹ, kích thước của
+nhà được đo bằng feet vuông.
+
+22
+00:01:24,420 --> 00:01:26,780
+Đó chính là trục x của tôi.
+
+23
+00:01:28,280 --> 00:01:33,190
+Sau đó trục y tôi sẽ biểu diễn
+giá bán của căn nhà.
+
+24
+00:01:33,190 --> 00:01:34,967
+OK đó là biến y của tôi và
+
+25
+00:01:34,967 --> 00:01:38,590
+mỗi một điểm biểu diễn
+cho một giá bán nhà.
+
+26
+00:01:38,590 --> 00:01:43,187
+Đây là giá bán nhà trước đó
+trong khu vực lân cận của tôi.
+
+27
+00:01:43,187 --> 00:01:48,082
+Và giới thiệu một chút về
+thuật ngữ ở đây khi chúng ta
+
+28
+00:01:48,082 --> 00:01:53,422
+nói về hồi quy, mọi người thường
+đề cập đến x, biến x này,
+
+29
+00:01:53,422 --> 00:01:58,508
+đại điện cho tính năng, đó là
+thuật ngữ mà chúng ta đang dùng.
+
+30
+00:01:58,508 --> 00:02:03,286
+Mọi người cũng nói về nó là
+các đồng biến hoặc dự báo,
+
+31
+00:02:03,286 --> 00:02:07,810
+và trong một số trường hợp,
+nó được gọi là biến độc lập.
+
+32
+00:02:08,830 --> 00:02:13,410
+Và dữ liệu quan sát của chúng ta
+là y như tôi vừa nói,
+
+33
+00:02:13,410 --> 00:02:15,260
+tôi có xu hướng đề cập
+nó như một dữ liệu quan sát.
+
+34
+00:02:15,260 --> 00:02:19,350
+Mọi người cũng gọi nó là
+sự phản hồi hoặc biến phụ thuộc.
+
+35
+00:02:19,350 --> 00:02:20,460
+Okay, vậy thì. 
+
+36
+00:02:20,460 --> 00:02:25,330
+Câu hỏi là tôi sẽ sử dụng các dữ liệu quan sát này
+như thế nào để ước tính giá trị nhà mình?
+
+37
+00:02:25,330 --> 00:02:29,070
+Tôi có thể nhìn xem nhà mình lớn thế nào và
+
+38
+00:02:29,070 --> 00:02:32,240
+tìm giá bán của các ngôi nhà
+khác có cùng kích thước.
+
+39
+00:02:32,240 --> 00:02:36,940
+Hầu hết có thể sẽ không có chính xác giá bán
+
+40
+00:02:36,940 --> 00:02:42,770
+của ngôi nhà mà có diện tích giống như ngôi nhà của tôi.
+
+41
+00:02:42,770 --> 00:02:46,342
+OK, vì vậy tôi không thể sử dụng cách này.
+
+42
+00:02:46,342 --> 00:02:47,930
+Tôi sẽ linh hoạt hơn một chút và
+
+43
+00:02:47,930 --> 00:02:53,770
+Tôi sẽ nhìn vài khu vực lân cận,
+không phải về địa lý, mà là một số phạm vi nhỏ
+
+44
+00:02:53,770 --> 00:02:58,800
+xung quanh diện tích thực của tôi ở đây.
+
+45
+00:02:58,800 --> 00:03:03,840
+Vì thế tôi sẽ nói ok
+hãy nhìn vào tất cả giá nhà
+
+46
+00:03:03,840 --> 00:03:06,730
+trong phạm vi diện tích này.
+
+47
+00:03:08,010 --> 00:03:11,070
+Nhưng thậm chí với cách này,
+ví dụ trong trường hợp này,
+
+48
+00:03:11,070 --> 00:03:16,660
+tôi chỉ có hai giá bán nhà làm
+cơ sở cho dự đoán của tôi.
+
+49
+00:03:16,660 --> 00:03:19,500
+Vì thế tôi thấy không thực sự thoải mái với điều đó.
+
+50
+00:03:19,500 --> 00:03:23,790
+Và cái mà tôi thực sự làm ở đây là
+tôi lấy ra tất cả dữ liệu quan sát mà
+
+51
+00:03:24,980 --> 00:03:29,060
+không có gì liên quan
+với giá trị của nhà tôi.
+
+52
+00:03:29,060 --> 00:03:31,130
+Và câu hỏi là, điều đó có hợp lý không?
+
+53
+00:03:31,130 --> 00:03:33,940
+Liệu chúng ta thực sự tin rằng
+không có thông tin gì
+
+54
+00:03:33,940 --> 00:03:35,800
+trong các dữ liệu quan sát này?
+
+55
+00:03:35,800 --> 00:03:40,319
+Khi tôi nhìn vào dữ liệu này và khi tôi
+nghĩ về dữ liệu, tôi muốn tận dụng tất cả
+
+56
+00:03:40,319 --> 00:03:43,884
+thông tin mà tôi có thể để
+đưa ra những dự đoán tốt.

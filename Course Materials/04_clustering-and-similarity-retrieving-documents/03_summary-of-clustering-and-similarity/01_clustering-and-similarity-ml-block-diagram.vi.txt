@@ -1,0 +1,65 @@
+Trong bài học này chúng ta đã nói về nhiệm vụ thu hồi tài liệu và chúng ta
+ cũng nói về khái niệm phân nhóm mà chúng ta cố gắng khám phá ra cấu trúc
+bên dưới dữ liệu và chúng ta đã nói về nhiều lĩnh vực khác nhau trong đó
+ khái niệm phân nhóm có thể rất hữu ích. Chúng ta hãy xem qua quy trình
+hoạt động của thuật toán phân nhóm. Và nếu bạn cảm thấy bạn đã biết
+điều này rồi bởi vì bạn đã thấy quy trình hoạt động này
+trong các bài học khác. Thì hãy tỉnh giấc! Bởi vì cái này có một chút khác biệt. Ok, hãy nói về dữ liệu
+huấn luyện của chúng ta. Ở đây, dữ liệu huấn luyện của chúng ta cho nhiệm vụ phân nhóm tài liệu
+sẽ là một ID tài liệu và bảng tài liệu văn bản. Chúng ta có một bộ các tài liệu. Và chúng ta có tất cả các văn bản
+liên quan đến mỗi tài liệu. Và sau đó chúng ta sẽ
+giải nén một số tính năng. Chúng ta đã nói về nhiều cách
+khác nhau để biểu diễn một tài liệu. Nhưng một cách mà tôi sẽ sử dụng như
+một ví dụ ở đây là tf-idf của chúng ta. Tần số thuật ngữ-tấn số tài liệu nghịch đảo. Và sau đó việc chúng ta sẽ làm
+là chúng ta sẽ thử và nhóm các tài liệu của chúng ta
+dựa trên sự biểu diễn này. Chúng ta sẽ đưa các tính năng
+qua mô hình học máy. Trong trường hợp này
+là mô hình phân nhóm. Và chúng ta sẽ đưa ra cho mỗi một
+tài liệu một nhãn mác phân nhóm. Mũ trắng đầu ra là nhãn mác
+phân nhóm của chúng ta. Ok đây là nơi mọi thứ trở nên thú vị, bởi vì chúng ta muốn đánh giá tính chính xác
+của các nhãn mác phân loại của chúng ta. Trong trường hợp này chúng ta không có
+các nhãn mác phân nhóm đúng, vì thế tôi nên nói điều này là dự đoán của chúng ta
+hoặc ước tính, nhãn mác phân nhóm. Nhưng chúng ta không có nhãn mác
+phân nhóm đúng để so sánh. Y này không tồn tại. Và đó là bởi vì chúng ta ở trong một
+môi trường học không được giám sát. Không được giám sát. Được rồi. Vì thế chúng ta không có điều đó nhưng bằng cách nào đó chúng ta muốn đánh giá
+ số đo tính chính xác của phân nhóm. Hãy vẽ một bức tranh nhỏ ở đây sẽ là
+ Voronoi tessellation của chúng ta và thuật toán k-means của chúng ta với
+một số trung tâm nhóm và chúng ta có dữ liệu. Tôi nên nói dữ liệu của chúng ta
+giống như thế này, tôi không biết. Tôi sẽ chỉ vẽ một vài điểm ở đây. Và phép đo tính chính xác
+chúng ta sẽ sử dụng, cách chúng ta sẽ đánh giá chất lượng là nhìn vào
+ sự kết hợp chặt chẽ các nhóm của chúng ta. Chúng ta sẽ nhìn vào khoảng cách
+từ mỗi sự quan sát đến trung tâm nhóm đã được chỉ ra. Và thuật toán phân nhóm tốt
+có khoảng cách rất nhỏ. Ok mục đích là để làm giảm khoảng cách
+của chúng và cái chúng ta thấy là đo sự chính xác, đo khoảng cách,
+cái chúng ta cần là dữ liệu của chúng ta. Chúng ta cần vecto tf-idf. Những cái này sẽ đến đây, và sau đó
+chúng ta cũng cần các trung tâm nhóm. Và W mũ là ước tính hiện tại của chúng ta, đó là thông số mô hình ở đây
+và thuật toán k-means. Đây là nhóm của chúng ta, whoops. Hãy xem nếu chúng ta có thể đánh vần điều đó thật đúng, 
+các trung tâm nhóm. Đó là những gì W mũ đại diện. Và tất nhiên để đo các khoảng cách này
+chúng ta cũng cần W mũ. Thay vì có các nhãn mác nhóm thực
+để đánh giá độ chính xác, chúng ta sẽ lấy tài liệu đại diện và các trung tâm nhóm. Đưa nó vào phép đo chất lượng này, để xem khoảng cách tới các trung tâm nhóm. Đó là phép đo sai số của chúng ta
+mặc dù nó không hẳn là sai. Nó chỉ là một phép đo. Oái. Chỉ đo lường chát lượng. Tôi sẽ không đặt từ ở đây. Ok tôi nghĩ có một chút bối rối. Nhưng hãy viết ra khoảng cách
+tới trung tâm nhóm. Và thuật toán của chúng ta là gì? Chúng ta đang nói về k-means như
+một phương pháp để phân nhóm. Tất nhiên có các cách khác,
+nhưng hãy tập trung vào k-means, k-means làm gì? Hãy vẽ lại sơ đồ này, thực sự
+tôi chỉ có thể chuyển sang màu khác. Điều đó sẽ tiết kiệm một chút
+thời gian cho chúng ta. Vâng k-means đang cố gắng làm giảm
+khoảng cách này, hoặc tổng các khoảng cách, và cách nó làm là lặp lại
+việc cập nhật như vậy đây là W mũ mà chúng ta có được trước đây
+và chúng ta đang di chuyển nó tới một W mũ mới mà thể hiện
+cho trung tâm của các điểm. Những điểm này đang được chuyển đổi. Và điểm này sẽ đi thẳng tới
+đỉnh của sự quan sát đó và đây là cách hoạt động
+của phân nhóm. Hãy nói nó ở mức độ cao một lần nữa. Chúng ta lấy các tài liệu, chúng ta biểu diễn chúng
+theo một số cách, sử dụng cả phép đếm từ thô, tf-idf, chuẩn hóa những điều này. Rất nhiều các bigrams khác nhau,
+những thứ mà chúng ta có thể thấy cho việc biểu diễn tài liệu của chúng ta. Sau đó thuật toán phân nhóm của chúng ta như là
+k-means là tạo ra các nhãn mác phân nhóm và lặp đi lặp lại, chúng ta lặp lại ở đây
+một lần nữa và cập nhật lại lần nữa các trung tâm nhóm của chúng ta, đó là
+các thông số của mô hình phân nhóm này. Bằng việc đánh giá các quan sát
+với các trung tâm nhóm. Trong bài học này khác với các bài học khác
+chúng ta đã thực sự trình bày một số thuật toán chi tiết đằng sau
+các phương pháp mà chúng ta thấy. Đặc biệt là với việc phân nhóm, chúng ta đã
+nói về thuật toán k-means và sau đó là nhiệm vụ thu hồi tài liệu của chúng ta, chúng ta
+cũng đã nói về việc tìm kiếm khu phố gần nhất, và cung cấp một số các chi tiết thuật toán, bạn khám phá điều đó trong ipython notebook cho việc truy xuất wikipedia. Ở thời điểm này, bạn thực sự
+sẽ có thể ra ngoài kia và xây dựng một hệ thống thu hồi tốt hơn
+cho việc thu hồi các bài báo tin tức. Hoặc bất kì cách thu hồi rất, rất, rất hay
+mà tôi không thể nghĩ ra bây giờ. Nhưng tất nhiên có rất nhiều ví dụ thú vị. Vì thế hãy bước ra ngoài kia và nghĩ đến các ý tưởng
+mà tôi không thể nghĩ ra ngay bây giờ. [NHẠC]

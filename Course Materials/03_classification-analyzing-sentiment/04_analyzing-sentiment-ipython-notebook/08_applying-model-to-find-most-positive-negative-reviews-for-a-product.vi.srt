@@ -1,0 +1,287 @@
+1
+00:00:00,000 --> 00:00:04,476
+[NHẠC]
+
+2
+00:00:04,476 --> 00:00:05,776
+Chúng ta đã xây dựng một mô hình.
+
+3
+00:00:05,776 --> 00:00:10,512
+Chúng ta đã hiểu nó chính xác
+khoảng 0.911%.
+
+4
+00:00:10,512 --> 00:00:17,360
+Hãy tiếp tục và sử dụng mô hình
+này cho điều gì đó thú vị.
+
+5
+00:00:17,360 --> 00:00:23,133
+Cái mà tôi sẽ làm là ứng dụng mô hình.
+
+6
+00:00:26,524 --> 00:00:33,377
+Mô hình đã học để hiểu về cảm tính với
+
+7
+00:00:33,377 --> 00:00:37,760
+bạn của chúng ta, hươu cao cổ.
+
+8
+00:00:40,700 --> 00:00:41,620
+Vậy húng ta có ở đây.
+
+9
+00:00:41,620 --> 00:00:43,240
+Hãy hiểu nó một chút.
+
+10
+00:00:43,240 --> 00:00:45,140
+Đây là cái mà tôi sẽ làm.
+
+11
+00:00:45,140 --> 00:00:50,820
+Tôi sẽ lấy giraffe_reviews mà
+tôi đã xây dựng trước đây.
+
+12
+00:00:50,820 --> 00:00:54,497
+Và tôi sẽ tạo ra một cột mới với
+
+13
+00:00:54,497 --> 00:00:59,210
+giraffe_reviews gọi là
+predicted_sentiment của tôi.
+
+14
+00:01:00,928 --> 00:01:03,810
+Và predicted_sentiment này sẽ có từ
+
+15
+00:01:03,810 --> 00:01:06,210
+việc lấy mô hình cảm tính
+chúng ta đã xây dựng.
+
+16
+00:01:08,010 --> 00:01:11,922
+Mô hình cảm tính,
+
+17
+00:01:11,922 --> 00:01:18,915
+hoàn toàn tự động hơi chậm,
+xin lỗi về điều này.
+
+18
+00:01:18,915 --> 00:01:20,842
+Ôi chúng ta có một trục trặc nhỏ ở đó.
+
+19
+00:01:20,842 --> 00:01:28,429
+Ok chúng ta sẽ lấy mô hình cảm tính và
+
+20
+00:01:28,429 --> 00:01:33,360
+chúng ta sẽ dùng chức năng
+này dự đoán trên nó.
+
+21
+00:01:33,360 --> 00:01:38,210
+Và chúng ta sẽ cố gắng dự đoán
+nó cảm thấy thế nào về giraffe_reviews.
+
+22
+00:01:38,210 --> 00:01:41,430
+Bạn cảm thấy thế nào
+về bạn của tôi: giraffe_reviews.
+
+23
+00:01:41,430 --> 00:01:45,553
+Và đầu ra, đây là điều quan trọng,
+
+24
+00:01:45,553 --> 00:01:50,163
+chúng ta sẽ không chỉ có đầu ra 0-1.
+
+25
+00:01:50,163 --> 00:01:55,393
+nơi mà chúng dự đoán
+cảm tính là 0 hoặc 1.
+
+26
+00:01:55,393 --> 00:02:02,307
+Tôi sẽ nói xác suất đầu ra
+và nếu bạn còn nhớ,
+
+27
+00:02:02,307 --> 00:02:06,591
+chúng ta đã nói về điều này trong
+bài học, đó là bởi xác suất đầu ra.
+
+28
+00:02:06,591 --> 00:02:11,180
+Bạn có thể có ước tính tốt
+hơn cái dự đoán làm.
+
+29
+00:02:11,180 --> 00:02:13,910
+Chúng ta chạy nó và
+
+30
+00:02:13,910 --> 00:02:19,960
+hãy nhìn qua giraffe_reviews mới này.
+
+31
+00:02:19,960 --> 00:02:24,863
+Hãy nhìn vào phần đầu của bảng này,
+và bạn sẽ thấy rằng bây giờ chúng ta có
+
+32
+00:02:24,863 --> 00:02:29,552
+tên của sản phẩm, đánh giá, tỉ lệ, đếm từ.
+
+33
+00:02:29,552 --> 00:02:33,030
+Và tôi đã thêm cột nữa
+gọi là predicted sentiment.
+
+34
+00:02:33,030 --> 00:02:36,754
+Với một số đánh giá nó
+thực sự cao 0.999, 0.99,
+
+35
+00:02:36,754 --> 00:02:40,860
+và đây là đánh giá mà
+có cảm tính khá thấp.
+
+36
+00:02:40,860 --> 00:02:44,570
+Có sự cảnh báo lớn trên đây,
+
+37
+00:02:45,780 --> 00:02:48,740
+họ không thích vì một vài lý do,
+bây giờ hãy thử hiểu.
+
+38
+00:02:48,740 --> 00:02:52,400
+Hãy nhìn vào các đánh giá và
+xem đánh giá nào là tích cực hay
+
+39
+00:02:52,400 --> 00:02:56,410
+tiêu cực và xem mọi người
+nói gì về sản phẩm.
+
+40
+00:02:56,410 --> 00:02:58,605
+Đây là cái mà tôi sẽ làm.
+
+41
+00:02:58,605 --> 00:03:03,695
+Chúng ta sẽ phân loại
+
+42
+00:03:03,695 --> 00:03:09,878
+các đánh giá dựa trên cảm tính được dự đoán
+
+43
+00:03:09,878 --> 00:03:15,500
+và khám phá.
+
+44
+00:03:15,500 --> 00:03:20,260
+Điều thú vị ở đây là cảm tính
+đã được dự đoán cảm tính là sự mô tả
+
+45
+00:03:20,260 --> 00:03:22,920
+khá kỹ liệu rằng chúng ta đã
+sử dụng tích cực hay tiêu cực.
+
+46
+00:03:22,920 --> 00:03:26,340
+Số lượng sao đang bị chênh lệch,
+năm sao, bốn sao, ba sao, một sao và
+
+47
+00:03:26,340 --> 00:03:28,850
+điều này nói với bạn độ
+rộng quang phổ bạn có.
+
+48
+00:03:28,850 --> 00:03:33,140
+Bây giờ chúng ta có những số liệu này, cột thêm này,
+chúng ta có thể làm nhiều hơn.
+
+49
+00:03:33,140 --> 00:03:39,240
+Tôi sẽ lấy dữ liệu hươu cao cổ này
+và tôi sẽ phân loại nó.
+
+50
+00:03:39,240 --> 00:03:44,140
+Tất cả cái tôi phải làm là lấy nó,
+lấy giá trị giống nhau và tôi sẽ
+
+51
+00:03:44,140 --> 00:03:49,546
+dùng hàm sắp xếp trên nó.
+
+52
+00:03:49,546 --> 00:03:54,435
+Và bạn phải thấy, cột bạn
+đang dùng để sắp xếp.
+
+53
+00:03:54,435 --> 00:03:59,384
+Chúng ta sẽ sắp xếp
+dựa trên cột mới này
+
+54
+00:03:59,384 --> 00:04:03,676
+mà chúng ta gọi là predicted_sentiment.
+
+55
+00:04:03,676 --> 00:04:11,500
+Mẹo nhỏ ở đây là chúng ta sẽ
+tăng dần tương đương với sai.
+
+56
+00:04:11,500 --> 00:04:16,960
+Chúng ta vẫn sắp xếp thứ tự
+tăng dần này với thứ tự tăng dần.
+
+57
+00:04:16,960 --> 00:04:20,790
+Bắt đầu từ các đánh giá tích cực nhất
+xuống các đánh giá tiêu cực nhất.
+
+58
+00:04:20,790 --> 00:04:24,614
+Bây giờ chúng ta đã sắp xếp nó chúng ta
+sẽ đưa ra vài dòng đầu tiên của bảng.
+
+59
+00:04:24,614 --> 00:04:29,194
+Và cái mà bạn sẽ thấy là các
+đánh giá bây giờ đã được sắp xếp
+
+60
+00:04:29,194 --> 00:04:31,347
+dựa trên cảm tính đó.
+
+61
+00:04:31,347 --> 00:04:35,921
+Ở trên phần đầu ở đây, chúng ta có
+đánh giá tích cực nhất được dự đoán
+
+62
+00:04:35,921 --> 00:04:39,404
+cảm tính là 1.9999 và tất cả
+chúng đã được sắp xếp.
+
+63
+00:04:39,404 --> 00:04:43,379
+[NHẠC]

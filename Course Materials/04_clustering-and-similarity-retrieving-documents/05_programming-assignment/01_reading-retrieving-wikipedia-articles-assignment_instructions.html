@@ -1,0 +1,306 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Retrieving Wikipedia articles
+ </h1>
+ <p>
+ </p>
+ <p>
+  In this module, we focused on using nearest neighbors and clustering to retrieve documents that interest users, by analyzing their text.  We explored two document representations: word counts and TF-IDF.  We also built an iPython notebook for retrieving articles from Wikipedia about famous people.
+ </p>
+ <p>
+  In this assignment, we are going to dig deeper into this application, explore the retrieval results for various famous people, and familiarize ourselves with the code needed to build a retrieval system.  These techniques will be key to building the intelligent application in your capstone project.
+ </p>
+ <p>
+  Follow the rest of the instructions on this page to complete your program. When you are done,
+  <strong>
+   <em>
+    instead of uploading your code, you will answer a series of quiz questions
+   </em>
+  </strong>
+  (see the quiz after this reading) to document your completion of this assignment. The instructions will indicate what data to collect for answering the quiz.
+ </p>
+ <h3 level="3">
+  <strong>
+   Learning outcomes
+  </strong>
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Execute document retrieval code with the iPython notebook
+   </p>
+  </li>
+  <li>
+   <p>
+    Load and transform real, text data
+   </p>
+  </li>
+  <li>
+   <p>
+    Compare results with word counts and TF-IDF
+   </p>
+  </li>
+  <li>
+   <p>
+    Set the distance function in the retrieval
+   </p>
+  </li>
+  <li>
+   <p>
+    Build a document retrieval model using nearest neighbor search
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <h3 level="3">
+  <strong>
+   Resources you will need
+  </strong>
+ </h3>
+ <p>
+  You will need to install the software tools or use the free Amazon EC2 machine.  Instructions for both options are provided in the reading for Module 1.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Download the data and starter code
+ </h3>
+ <p>
+  Before getting started, you will need to download the dataset and the starter iPython notebook that we used in the module.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the wikipedia dataset with articles on famous people here in SFrame format:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/people_wiki.gl.zip">
+      people_wiki.gl.zip
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the document retrieval notebook from the module here:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/Document retrieval.ipynb">
+      Document retrieval.ipynb
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling iPython notebook from) and unzip the data file.
+    <strong>
+     Not sure where to save the files? See
+     <a href="https://www.coursera.org/learn/ml-foundations/supplement/IT04V/reading-where-should-my-files-go">
+      this guide
+     </a>
+     .
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Now you are ready to get started!
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  <em>
+   <strong>
+    Note:  If you would rather use other ML tools...
+   </strong>
+  </em>
+ </h3>
+ <p>
+  You are welcome to use any ML tool for this course, such as
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  . Though, as discussed in the intro module,
+  <em>
+   we strongly recommend you use IPython Notebook and GraphLab Create. (GraphLab Create is free for academic purposes.)
+  </em>
+ </p>
+ <p>
+  If you are choosing to use other packages, we still recommend you use SFrame, which will allow you to scale to much larger datasets than Pandas. (Though, it's possible to use Pandas in this course, if your machine has sufficient memory.) The SFrame package is available in
+  <a href="https://github.com/turi-code/SFrame">
+   open-source under a permissive BSD license
+  </a>
+  . So, you will always be able to use SFrame for free.
+ </p>
+ <p>
+  If you are not using SFrame, here is the dataset for this assignment in CSV format, so you can use
+  <a href="http://pandas.pydata.org/">
+   Pandas
+  </a>
+  or other options out there:
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/people_wiki.csv">
+   people_wiki.csv
+  </a>
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Watch the video and explore the iPython notebook on retrieving wikipedia articles
+ </h3>
+ <p>
+  If you haven’t done so yet, before you start, we recommend you watch the video where we go over the iPython notebook on retrieving documents from this module.  You can then open up the iPython notebook we used and familiarize yourself with the steps we covered in this example.
+ </p>
+ <h3 level="3">
+  What you will do
+ </h3>
+ <p>
+  Now you are ready!  We are going do three tasks in this assignment.  There are several results you need to gather along the way to enter into the quiz after this reading.
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    <strong>
+     Compare top words according to word counts to TF-IDF:
+    </strong>
+    In the notebook we covered in the module, we explored two document representations: word counts and TF-IDF.  Now, take a particular famous person, 'Elton John'. What are the 3 words in his articles with highest word counts?  What are the 3 words in his articles with highest TF-IDF?   These results illustrate why TF-IDF is useful for finding important words.
+    <strong>
+     <em>
+      Save these results to answer the quiz at the end.
+     </em>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Measuring distance:
+    </strong>
+    Elton John is a famous singer; let’s compute the distance between his article and those of two other famous singers. In this assignment, you will use the
+    <em>
+     <a href="https://turi.com/products/create/docs/generated/graphlab.toolkits.distances.cosine.html">
+      cosine distance
+     </a>
+    </em>
+    , which one measure of similarity between vectors, similar to the one discussed in the lectures.  You can compute this distance using the
+    <em>
+     graphlab
+    </em>
+    .distances.cosine function. What’s the cosine distance between the articles on ‘Elton John’ and ‘Victoria Beckham’? What’s the cosine distance between the articles on ‘Elton John’ and Paul McCartney’?  Which one of the two is closest to Elton John?  Does this result make sense to you?
+    <em>
+     <strong>
+      Save these results to answer the quiz at the end.
+     </strong>
+    </em>
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Building nearest neighbors models with different input features and setting the distance metric:
+    </strong>
+    In the sample notebook, we built a nearest neighbors model for retrieving articles using TF-IDF as features and using the default setting in the construction of the nearest neighbors model.  Now, you will build two nearest neighbors models:
+   </p>
+  </li>
+ </ol>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Using word counts as features
+   </p>
+  </li>
+  <li>
+   <p>
+    Using TF-IDF as features
+   </p>
+  </li>
+ </ul>
+ <p>
+  In both of these models, we are going to set the distance function to cosine similarity.  Here is how: when you call the function
+ </p>
+ <pre language="python">graphlab.nearest_neighbors.create</pre>
+ <p>
+  add the parameter:
+ </p>
+ <pre language="python">distance='cosine'</pre>
+ <p>
+  Now we are ready to use our model to retrieve documents.  Use these two models to collect the following results:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    What’s the most similar article, other than itself, to the one on ‘Elton John’ using word count features?
+   </p>
+  </li>
+  <li>
+   <p>
+    What’s the most similar article, other than itself, to the one on ‘Elton John’ using TF-IDF features?
+   </p>
+  </li>
+  <li>
+   <p>
+    What’s the most similar article, other than itself, to the one on ‘Victoria Beckham’ using word count features?
+   </p>
+  </li>
+  <li>
+   <p>
+    What’s the most similar article, other than itself, to the one on ‘Victoria Beckham’ using TF-IDF features?
+   </p>
+  </li>
+ </ul>
+ <p>
+  <em>
+   <strong>
+    Save these results to answer the quiz at the end.
+   </strong>
+  </em>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

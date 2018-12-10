@@ -1,0 +1,23 @@
+[MÚSICA] Ok. Hasta este momento hemos considerado ajuste de datos con una línea ya la pregunta es, ¿Qué hace una buena opción? Entonces, realmente tengo un buena sensación 
+de que mi análisis es muy confiable aquí. Ajuste esta línea, minimice de la suma de cuadrados residuales
+e hice una predicción del valor de mi casa Al hacerlo, aproveche todas estas observaciones 
+que fuí y registre de todas las ventas de casas recientes Y fui, y fui donde caros y le dije, hey, mira mi análisis. Esta es mi estimación del valor de nuestra casa Y el dijo, bien, no estoy muy seguro. Porque la verdad es que, 
+no estoy seguro de que sea una tendencia lineal. En realidad dice. Ésto no es lineal Él dice no es una línea. O de acuerdo a mi dibujo, él dice, amigo,
+ esa no es una relación lineal. Amigo No, no creo que Carlos diga Amigo Pero, de cualquier forma,
+>> él dice "bro" >> Él dice "bro" Está bien. Regresa al principio 
+de ésta. "Bro" Él siempre se refiere a mi como "Bro", por supuesto. Está bien. Regresa al principio 
+de ésta. En fin, el punto es que Carlos 
+no cree que esto sea una relación lineal. Él cree, quizá es una cuadrática. Él dice ¿Intentaste un ajuste cuadratico? Bueno, Ahora que veo la gráfica que el pusó aquí Digo, en realidad esta luce bien ¿Y qué tengo que hacer? Tengo que averiguar cual es
+la mejor cuadratica que se ajusta a estos datos. ¿Y cómo voy a hacer eso? Voy a tener que ir de nuevo y minimizar
+ la suma de cuadrados residuales. Entonces, estoy por ir a minimizar 
+la suma de cuadrados residuales. Entonces, hablemos de qué involucra esto 
+porque Cuando veo la función cuadratica
+ahora tengo 3 parametros aquí. Aún tengo mi intersección,
+qué es, ¿Donde está esta curva? Arriba o abajo de el eje y. Y luego tengo este termino lineal de x, y luego tengo también este termino adicional aquí,
+el cual es el cuadrado de x. Del cual obtengo el componente cuadrático. Pero quiero hacer un pequeño comentario aquí, 
+un poco aparte del tema, qué esto en realidad 
+sigue llamandose regresión lineal. Y la razón es porque nosotros pensamos en x
+ solo como otra caracteristica. Y lo que vemos es que los w's siempre aparecen como solo w's, no w al cuadrado o alguna otra función de w. Vamos a discutir esto más en detalle
+durante el curso de regresión. Pero recuerda, aún cuando estamos hablando
+acerca de funciones cuadraticas que se ajustan a los datos,
+esto aún es llamado regresión lineal. Okay, pero el punto que quiero resaltar acá es que tenemos tres parametros cuando voy a minimiszar el residuo de la suma de los cuadrados Voy a tener que buscar sobre el espacio de tres cosas disferentes ahora. Tengo que minimizar sobre la combinación de el mejor W_0, W_1 y W_2 y encontrar la curva cuadrática que minimice mi suma residual de cuadrados. De acuerdo, así que estoy muy cerca de ir y hacer este cálculo, el cual de hecho resulta ser también eficiente y de nuevo vamos a discutir las generalidades de aquello en el curso sobre regresión. Pero entonces Carlos tiene una brillante idea. El dice espera, espera, espera! te hablé acerca del polinomio cuadrático, ¿pero has probado un polinomio de orden 13? Y yo digo: no, no lo hice. Eso tiene sentido. Lo tiene, tiene mucho sentido. Mira esto, esto se ve muy bien. Este es el ajuste que Carlos obtiene con su polinomio de orden 13. El dice: acabo de minimizar tu suma residual de cuadrados. muy bueno, verdad? Mi suma residual de cuadradas es básicamente cero acá. Pero, personalmente no me estoy sintiendo tan bien acerca de esto. debido a que estoy viendo y pienso que mi casa no vale tan poco. yo sé eso, de verdad. Si, hemos hablado acerca de la suma residual de cuadrados como el costo del ajuste Y si, Carlos parece que realmente ha minimizado mi suma residual de cuadrados, pero algo no esta bien para mi. Esta función simplemente se ve rara. [MÚSICA]

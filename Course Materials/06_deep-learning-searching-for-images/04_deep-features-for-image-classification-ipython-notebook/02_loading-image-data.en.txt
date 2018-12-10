@@ -1,0 +1,31 @@
+[MUSIC] So in this deep learning module, we talked about two really cool things
+that you can do with deep learning. One is classify images, and
+the other one is retrieve images. And in both of them,
+we talked about deep features. So let's just go ahead and
+build a notebook for image classifications using deep features. So, let's give this notebook a name. So, this is going to be
+Image Classification with Deep Features. And I'm going to hide the header and the toolbar to get a little
+bit more space, as usual. And we'll fire up. Actually I just did a little typo here so we will, Fire up GraphLabCreates. So let's import GraphLab, So here we go. So the first thing that we're going to do
+is load a common image analysis dataset. So this is a benchmark
+dataset called a SIFR10. We select a subset of those where
+we just have four categories of objects we're trying to recognize. So I'm going to load the data set, and this data set has already been split
+into train data and test data, because in computer vision, often that
+split happens so every researcher uses the same training set and the same test
+set, so the papers become more comparable. So, I'm just gonna load an S
+frame that contains the data set. So, graphlab.SFrame and for the training data, there's a directory
+here called image_train_data. And then for the test data, so
+let's call that image_test. We have another SFrame. Code image_test_data. Here we go, so
+we are loading this two data sets, and let's start by exploring
+the data a little bit. So, exploring the image data. So, what we're gonna do is use canvas. So, I'm gonna point canvas
+to show it on the notebook, as we have been doing
+on several notebooks. So, it becomes all one thing
+that we can take home. So, I'm gonna set graphlab.canvas and I'm going to set the target
+to be the ipython notebook. So it's going to print anything on
+the iPython notebook that we do. And let's start by taking
+a look at the string data. So image string, and
+here's a few columns but the column that we really care
+about here is the image column. I am just going to type .show on that and we are going to take a quick
+look at that image column. And these images are not too large,
+so I'm temporarily going to increase the font here so
+we can take a look at the images. And so if you look at it, there's a bird,
+there's some cats, there's some dogs and some cars. So this data set is all about cats,
+dogs, cars, and birds. [MUSIC]

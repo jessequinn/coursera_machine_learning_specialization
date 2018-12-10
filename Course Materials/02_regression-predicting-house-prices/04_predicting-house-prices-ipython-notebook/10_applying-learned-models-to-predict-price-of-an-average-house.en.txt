@@ -1,0 +1,42 @@
+[MUSIC] We've learned now, together, we've learned
+two regression models from our data, one just based on square foot of living, the other one based on these
+more advanced features. So let's apply these models. Let's see what it looks like when we use
+them in practice to predict house prices. So, what we're going to
+do is apply this learned models to predict prices
+of three houses from the data set, so three different houses. So the first house is, and
+this is three that I picked that had different sizes,
+different properties, they look a bit different,
+in different neighborhoods. So let's just look at them. So the first house is from our data and so what we're gonna do with this house is,
+so this is for not data but sales data. So out of my sales data, I'm going to select the house whose id is
+equal to a particular id. And so the county record gives us string
+ids for every house, it gives a number. So this one is 5309, I'm copying
+from a piece of paper here, 101200. So, a particular house for
+a particular id, and so I'm selecting it and if I type house1,
+you'll see what it is. So it's the house that
+has this particular ID. It got sold on this date for $620,000. It had four bedrooms, two and a quarter bathrooms, 2,400 square
+feet of living space, and so on. Now what you can do is
+in iPython notebook, you can embed not only mark ups and
+texts in the Python code. But you can also embed HTML and images. So let me just do that for
+you right now, just as an example. So I'm typing xm and then I am going to
+add an image to my notebook and this image is an image that I downloaded from the
+county records for this particular house. So, the image is on my directory,
+it's called house. So, house, 53, what was the number? 09101200, so this is gonna be pretty cool. When I see a picture of the house we're
+trying to make a prediction for, oops, I must have typed that wrong oh, yeah. I forgot it's .jpg. And that's pretty cool, here's
+a picture of the house we're pricing. So this house was sold in 2014 for
+$620,000. It has four bedrooms,
+two and a quarter bathrooms. It was built, for example, in 1929. Now, let's see what our model predicts. So, We had two models. So, we had first. So the true price of the house. And just a print out to remind ourselves,
+so this is house1 of price. This is 200 so if I just type print here,
+it will look a little nicer. $620,000, this is the house price. Then let's see what my
+first model predicts. So that was the simple square
+foot model that we built. When you they it, so whenI typed .predict, the price of house1, and
+it says it predicts it as $628,000, so pretty close, actually. That's really good. And let's see what adding
+more features did for us. my_features_model.predict:house1, so you remember on average,
+the my features model, adding more features,
+gives you better performance. Now, if you look at the prediction here,
+it's $720,000, so the square foot model had a better prediction
+than the one with more features. So what we learned here is,
+even though on average, adding more features
+give a better prediction. For this one particular house, the simple model did a better job
+than the more advanced model. But this is to be expected,
+and not always, but sometimes gonna do better, probably works,
+when average is going to do better. [MUSIC]

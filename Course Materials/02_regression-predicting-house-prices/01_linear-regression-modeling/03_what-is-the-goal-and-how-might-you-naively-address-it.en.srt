@@ -1,0 +1,270 @@
+1
+00:00:03,961 --> 00:00:10,070
+Okay, so, let's talk about this problem
+of predicting the value of a house.
+
+2
+00:00:10,070 --> 00:00:13,570
+So, this is a very important problem,
+at least in the United States.
+
+3
+00:00:13,570 --> 00:00:19,460
+It's estimated that household wealth
+is nearly 50% invested in real estate.
+
+4
+00:00:19,460 --> 00:00:21,390
+So, this is clearly important.
+
+5
+00:00:21,390 --> 00:00:26,370
+Both to consumers, individuals,
+as well as policy makers.
+
+6
+00:00:26,370 --> 00:00:28,770
+Okay, so I'm here and
+I wanna sell my house.
+
+7
+00:00:28,770 --> 00:00:34,570
+I have this nice, big, lime green house,
+but I don't know how much to list it for.
+
+8
+00:00:34,570 --> 00:00:37,495
+So I'm not sure what value my house has,
+and so
+
+9
+00:00:37,495 --> 00:00:41,560
+how do I think about estimating
+the value of the house?
+
+10
+00:00:41,560 --> 00:00:45,680
+Well, it might make sense
+that what I do is I look
+
+11
+00:00:45,680 --> 00:00:48,630
+at other recent sales that have
+occurred in my neighborhood.
+
+12
+00:00:48,630 --> 00:00:53,050
+So I look locally,
+at the region around me, and
+
+13
+00:00:53,050 --> 00:00:57,880
+I say how much are the other houses sold
+for and what do those houses look like?
+
+14
+00:00:57,880 --> 00:01:00,070
+So what I'm gonna do is
+I'm gonna record for
+
+15
+00:01:00,070 --> 00:01:03,200
+each one of these recent sales
+what was the sales price?
+
+16
+00:01:03,200 --> 00:01:06,040
+And also, what was the size
+of the house that was sold?
+
+17
+00:01:06,040 --> 00:01:10,030
+I'm gonna say that that's what signifies
+whether that house is similar to mine
+
+18
+00:01:10,030 --> 00:01:11,320
+or not.
+
+19
+00:01:11,320 --> 00:01:15,946
+Okay, so being a statistician, I'm gonna
+take all these observations I had and
+
+20
+00:01:15,946 --> 00:01:17,720
+I'm gonna make a plot of them.
+
+21
+00:01:19,050 --> 00:01:24,420
+So in the US at least, the size of
+the house is measured by square feet.
+
+22
+00:01:24,420 --> 00:01:26,780
+So that's gonna be my x axis.
+
+23
+00:01:28,280 --> 00:01:33,190
+And then my y axis is gonna be
+the sales price of the house.
+
+24
+00:01:33,190 --> 00:01:34,967
+Okay, so that's my y variable and
+
+25
+00:01:34,967 --> 00:01:38,590
+each one of these points represents
+some individual house sale.
+
+26
+00:01:38,590 --> 00:01:43,187
+So here this is one previous
+house sale in my neighborhood.
+
+27
+00:01:43,187 --> 00:01:48,082
+And just to introduce a little bit
+of terminology here when we're
+
+28
+00:01:48,082 --> 00:01:53,422
+talking about regression,
+people often refer to x, this variable x,
+
+29
+00:01:53,422 --> 00:01:58,508
+as being the feature,
+that's the terminology we've been using.
+
+30
+00:01:58,508 --> 00:02:03,286
+People also talk about it being
+the covariate or the predictor,
+
+31
+00:02:03,286 --> 00:02:07,810
+and in some cases,
+it's called the independent variable.
+
+32
+00:02:08,830 --> 00:02:13,410
+And then our observation
+y is as I've just said,
+
+33
+00:02:13,410 --> 00:02:15,260
+I tend to refer to it as an observation.
+
+34
+00:02:15,260 --> 00:02:19,350
+People also call it a response or
+the dependent variable.
+
+35
+00:02:19,350 --> 00:02:20,460
+Okay, so
+
+36
+00:02:20,460 --> 00:02:25,330
+the question is how am I gonna use these
+observations to estimate my house value?
+
+37
+00:02:25,330 --> 00:02:29,070
+Well I might look at
+how big my house is and
+
+38
+00:02:29,070 --> 00:02:32,240
+look for
+other sales of houses of that size.
+
+39
+00:02:32,240 --> 00:02:36,940
+Well, most likely there
+are gonna be exactly zero house
+
+40
+00:02:36,940 --> 00:02:42,770
+sales of other houses that had exactly
+the same square footage as my house.
+
+41
+00:02:42,770 --> 00:02:46,342
+Okay, so
+I say well I can't use this approach.
+
+42
+00:02:46,342 --> 00:02:47,930
+I'm gonna be a little
+bit more flexible and
+
+43
+00:02:47,930 --> 00:02:53,770
+I'm gonna look at some neighborhood, not
+geographic neighborhood some little range
+
+44
+00:02:53,770 --> 00:02:58,800
+of square footage around my
+actual square footage here.
+
+45
+00:02:58,800 --> 00:03:03,840
+So I'm going to say okay let's look
+at all house sales that were for
+
+46
+00:03:03,840 --> 00:03:06,730
+houses within this range
+of square footage.
+
+47
+00:03:08,010 --> 00:03:11,070
+But even with that approach,
+in this case for example,
+
+48
+00:03:11,070 --> 00:03:16,660
+I only have two house sales that
+I'm gonna base my estimate off of.
+
+49
+00:03:16,660 --> 00:03:19,500
+So I don't really feel very
+comfortable with that.
+
+50
+00:03:19,500 --> 00:03:23,790
+And what I'm actually doing here is I'm
+throwing out all these other observations
+
+51
+00:03:24,980 --> 00:03:29,060
+as if they had nothing to do
+with the value of my house.
+
+52
+00:03:29,060 --> 00:03:31,130
+And the question is, is that reasonable?
+
+53
+00:03:31,130 --> 00:03:33,940
+Do we actually believe that
+there's actually no information
+
+54
+00:03:33,940 --> 00:03:35,800
+in these other observations?
+
+55
+00:03:35,800 --> 00:03:40,319
+Well, when I look at this data and when I
+think about data I like to leverage all
+
+56
+00:03:40,319 --> 00:03:43,884
+the information that I can to
+come up with good predictions.

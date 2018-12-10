@@ -1,0 +1,35 @@
+[MUSIC] Other examples of document retrieval. Okay? So we're gonna go through a few. For example,
+let's take the singer Taylor Swift. So out of all my people, I'm going to select the one whose name is Taylor Swift. And so when I select her I can ask, let's retrieve some documents that
+are similar to Taylor Swift's documents. In other words,
+who are the people, just for the model, who are the people
+who are closest to Taylor Swift? So she's a female singer and
+you'll see other female singers kind of the same
+generation like Carrie Underwood, Alicia Keys, Jordan Sparks, Leona Lewis. And just a little disclaimer here,
+I had to go and look those people up in Wikipedia because
+I really didn't know who they were. [LAUGH] Here we go. Let's take another example. So for example,
+the actress Angelina Jolie. So if I take, out of all my people, I take the one whose
+name is Angelina Jolie. And I'm now going to
+query my nearest neighbor model to ask who is
+closest to Angelina Jolie. And so who is closer to Angelina Jolie? Before I press enter here,
+take a moment to think. If you know anything about
+this actress Angelina Jolie, you might guess who is
+the closest person to her, and if I run this, you'll see that
+the nearest neighbor is Brad Pitt. And we all know about the relationship
+between Angelina Jolie and Brad Pitt. And then you see Julianne Moore, Billy Bob
+Thornton, George Clooney, these are all actors and actresses that have been in
+movies actually with Angelina Jolie. So, It's pretty cool. We get some interesting retrieval here. So let me show you one last cool,
+fun example. So you might be familiar
+with a person called Arnold Schwarzenegger. The famous Terminator. So, I actually have to cheat here to make sure I get his last name right, Schwarzenegger, okay. Hopefully I got that right. And the question is, who are the nearest
+neighbors to Arnold Schwarzenegger? Now. You may know that Arnold
+had a double career. So first, he start as an actor, well, bodybuilder, then an actor,
+then a politician, and became the governor of the state of California
+in the United States, so several lives. So what are the nearest neighbors for
+Arnold Schwarzenegger? And so you'll see Arnold Schwarzenegger. Then you'll see Jessie Ventura,
+who is like a, Jessie Venture is a wrestler, an actor,
+so similar to Arnold Schwarzenegger. And then a few politicians,
+including former governors of Oregon, and of Rhode Island
+and other states in the United States. So now we see that the nearest neighbors
+for Arnold are politicians and actors and body builders, people like him. So this was a really cool example of just
+building a very simple document retrieval system using TFIDF and nearest neighbors. Just like we learned in the module,
+but now taking it to practice and finding some pretty cool documents
+from this Wikipedia data set. [MUSIC]

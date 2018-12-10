@@ -1,0 +1,246 @@
+1
+00:00:00,000 --> 00:00:04,046
+[MUSIC]
+
+2
+00:00:04,046 --> 00:00:08,720
+So now we have some training data and
+some desk data.
+
+3
+00:00:08,720 --> 00:00:14,105
+And what we can do next is #Build,
+
+4
+00:00:14,105 --> 00:00:18,935
+there's a sub-header here,
+
+5
+00:00:18,935 --> 00:00:23,963
+#Build the regression model.
+
+6
+00:00:25,510 --> 00:00:31,900
+So GraphLab Create has many
+algorithms pre-implemented for
+
+7
+00:00:31,900 --> 00:00:35,000
+various machinery and tasks or
+you can implement your own if you like.
+
+8
+00:00:35,000 --> 00:00:37,616
+And during the sequence
+of the specialization,
+
+9
+00:00:37,616 --> 00:00:41,442
+you're gonna write many algorithms
+of your own, but for this course,
+
+10
+00:00:41,442 --> 00:00:44,379
+we're just gonna use
+pre-implemented algorithms so
+
+11
+00:00:44,379 --> 00:00:47,550
+can really try to understand
+how machine learning works.
+
+12
+00:00:47,550 --> 00:00:49,930
+So what you can do with machine learning?
+
+13
+00:00:49,930 --> 00:00:56,890
+So, we're gonna do is a build
+a square foot prediction model.
+
+14
+00:00:56,890 --> 00:00:58,480
+Just call it sqft_model.
+
+15
+00:00:59,590 --> 00:01:06,918
+And in GraphLab,
+there something called linear regression.
+
+16
+00:01:06,918 --> 00:01:13,390
+So, linear regression is what we learned,
+what we explored and
+
+17
+00:01:13,390 --> 00:01:19,700
+talked about, and we understood quite well
+during the module that Ann was teaching.
+
+18
+00:01:19,700 --> 00:01:23,752
+And so
+if you just say linear _regression.create,
+
+19
+00:01:23,752 --> 00:01:28,080
+it's going to create a linear
+regression model for you.
+
+20
+00:01:28,080 --> 00:01:32,174
+That creates the traits with
+projects GraphLab Create, and
+
+21
+00:01:32,174 --> 00:01:37,730
+create is also the verb to use to create
+various things with GraphLab Create.
+
+22
+00:01:37,730 --> 00:01:41,256
+So we're now going to create
+a linear regression model, and
+
+23
+00:01:41,256 --> 00:01:44,450
+what I have to give as input
+I give it the training data.
+
+24
+00:01:45,900 --> 00:01:47,290
+So here's the training data.
+
+25
+00:01:51,189 --> 00:01:54,780
+You have to say what variable
+you're trying to predict.
+
+26
+00:01:54,780 --> 00:01:56,150
+So that's the target.
+
+27
+00:01:56,150 --> 00:02:01,790
+So I'm gonna say the target
+is going to be price.
+
+28
+00:02:01,790 --> 00:02:03,420
+So I'm trying to predict price.
+
+29
+00:02:05,060 --> 00:02:10,760
+And the question is what are the features,
+what is the input.
+
+30
+00:02:10,760 --> 00:02:15,690
+So, I'm going to say that the features,
+and by the way, you can use top complete
+
+31
+00:02:15,690 --> 00:02:18,740
+even if [INAUDIBLE] parameters of
+function, which is pretty cool.
+
+32
+00:02:18,740 --> 00:02:21,020
+So, the features is
+a list of the features.
+
+33
+00:02:21,020 --> 00:02:24,790
+If you don't give anything, it will use
+all features, all columns of the data.
+
+34
+00:02:24,790 --> 00:02:31,520
+But here, the only feature input we want
+to use is square feet of living space.
+
+35
+00:02:32,950 --> 00:02:36,940
+And that is a string
+that I need to put in, so
+
+36
+00:02:36,940 --> 00:02:40,940
+I forgot to put it in quotes, so
+let me fix that real quick here.
+
+37
+00:02:41,980 --> 00:02:46,761
+So open quotes,
+
+38
+00:02:46,761 --> 00:02:51,203
+close quotes.
+
+39
+00:02:51,203 --> 00:02:53,070
+All right, very good.
+
+40
+00:02:53,070 --> 00:02:55,840
+So let me just reread that for us.
+
+41
+00:02:57,010 --> 00:03:01,959
+So sqft_model
+graphlab.linear_regression.create on
+
+42
+00:03:01,959 --> 00:03:08,270
+the training data to predict the target
+price using features sqft of living.
+
+43
+00:03:08,270 --> 00:03:09,839
+Let's go an execute this.
+
+44
+00:03:12,830 --> 00:03:17,027
+On training data training,
+I wrote data twice here.
+
+45
+00:03:17,027 --> 00:03:20,910
+You see the arrow came out here,
+training data and the score data.
+
+46
+00:03:20,910 --> 00:03:22,400
+So now let's execute.
+
+47
+00:03:22,400 --> 00:03:23,710
+So what's happening here?
+
+48
+00:03:23,710 --> 00:03:31,310
+It's done actually, but what we did
+was create a linear regression model,
+
+49
+00:03:32,570 --> 00:03:37,270
+it used a particular algorithm
+called Newton's Method.
+
+50
+00:03:37,270 --> 00:03:41,510
+But GraphLab Create chooses
+an algorithm automatically for
+
+51
+00:03:41,510 --> 00:03:45,010
+you unless you tell it which one to use.
+
+52
+00:03:45,010 --> 00:03:50,422
+And this algorithm allows you to
+make some predictions on the data.
+
+53
+00:03:50,422 --> 00:03:54,709
+[MUSIC]

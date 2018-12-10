@@ -1,0 +1,5 @@
+[背景音乐]
+翻译: RyukaSuu |审阅: 19waa
+Coursera Global Translator Community 为了使用这个数据集 在本模块 我们首先要一如既往地 建立一个单词统计向量 为每条评论建立单词统计向量 通常这需要你自己来实现 把整条评论变成分开的词 这个过程叫分词 然后再建立统计向量 但本课程用的工具有一点好处 就是只需要一个命令 我们就能建立单词统计向量 我要在products里面新增一列 这一列叫做word_count 将用来进行单词统计 如果你调用graphlab.text_analytics 这个文本分析工具能提供很多函数 其中有一个叫count_words的函数 注意到还有一个叫count_ngrams 如果你想使用bi-grams tri-grams等等 我还是用同样产品数据为框架作为输入 但是让它对评论这一列进行单词统计 然后我们执行这个命令 它已经执行完毕了 现在我们再来看这个数据表products 注意看表的开头部分 看现在有了第四列word_count 我们即将会进一步探索它 但眼下你可以看到 这第一条评论包含5个and (并且) 还有一个stink (烂透了) 也许这就是这个产品评价不怎么好的原因 但后面还有别的 [背景音乐]
+翻译: RyukaSuu |审阅: 19waa
+Coursera Global Translator Community

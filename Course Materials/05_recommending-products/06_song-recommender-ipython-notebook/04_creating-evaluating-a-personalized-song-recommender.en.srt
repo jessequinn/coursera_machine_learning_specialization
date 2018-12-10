@@ -1,0 +1,363 @@
+1
+00:00:00,000 --> 00:00:03,586
+[MUSIC]
+
+2
+00:00:03,586 --> 00:00:08,995
+Now, in contrast,
+let's make it more personalized,
+
+3
+00:00:08,995 --> 00:00:14,880
+a model that's more personalized,
+as Emily, described.
+
+4
+00:00:14,880 --> 00:00:19,201
+So, next we are gonna build a a song
+
+5
+00:00:19,201 --> 00:00:23,969
+recommender with personalization.
+
+6
+00:00:23,969 --> 00:00:29,433
+So let's call it personalize_model and
+
+7
+00:00:29,433 --> 00:00:34,271
+all we're gonna do is repeat the line
+
+8
+00:00:34,271 --> 00:00:38,953
+that we had earlier so graphlab.,
+
+9
+00:00:38,953 --> 00:00:44,259
+instead of being the popularity model,
+
+10
+00:00:44,259 --> 00:00:50,346
+let's use the item similarity recommender,
+
+11
+00:00:50,346 --> 00:00:58,610
+so remember we talked about
+item similarity in the module.
+
+12
+00:00:58,610 --> 00:01:02,580
+We can do a item_similarity.create.
+
+13
+00:01:02,580 --> 00:01:03,400
+And let's see what happens.
+
+14
+00:01:04,430 --> 00:01:07,075
+So here, just like before,
+we had to give it train_data.
+
+15
+00:01:09,878 --> 00:01:16,120
+We have to tell it what
+the user_id column is called,
+
+16
+00:01:16,120 --> 00:01:20,014
+which in this case was user_id.
+
+17
+00:01:21,670 --> 00:01:27,560
+And you had to tell it what the item_id
+column in this case which is called song.
+
+18
+00:01:28,930 --> 00:01:34,700
+So instead of the popularity model we
+now built an item_similarity model.
+
+19
+00:01:34,700 --> 00:01:36,650
+And here we go it's done.
+
+20
+00:01:36,650 --> 00:01:37,632
+So let's start applying it.
+
+21
+00:01:40,866 --> 00:01:46,896
+So, applying the personalized
+
+22
+00:01:46,896 --> 00:01:54,052
+model to make song recommendations.
+
+23
+00:01:55,490 --> 00:01:57,360
+And here we go, let's apply it.
+
+24
+00:01:57,360 --> 00:02:01,690
+So let's start with the couple
+of users that we had before.
+
+25
+00:02:01,690 --> 00:02:07,796
+So for example if you take
+the personalized model,
+
+26
+00:02:07,796 --> 00:02:13,050
+personalized_model and we call recommend
+
+27
+00:02:13,050 --> 00:02:18,024
+on that for that first user so users of 0.
+
+28
+00:02:18,024 --> 00:02:22,906
+You'll see that no longer
+does it recommend Bjork and
+
+29
+00:02:22,906 --> 00:02:27,027
+a few of those others that everybody got,
+but
+
+30
+00:02:27,027 --> 00:02:31,802
+recommended Dr.
+Feelgood, Elizeth Cardoso, and
+
+31
+00:02:31,802 --> 00:02:36,811
+then the Brazilian song,
+Ween, Subhumans and so on.
+
+32
+00:02:36,811 --> 00:02:41,530
+It's kind of an interesting thing so
+pretty cool.
+
+33
+00:02:41,530 --> 00:02:46,060
+Let's see what user one got
+because it's a personalized_model.
+
+34
+00:02:46,060 --> 00:02:49,727
+So personalized_model.recommend for users.
+
+35
+00:02:49,727 --> 00:02:56,800
+And again it's a list but I'm just gonna
+put one element in the list, so user 1.
+
+36
+00:02:57,960 --> 00:03:00,860
+And you'll see that now it recommends
+something totally different.
+
+37
+00:03:02,130 --> 00:03:04,830
+Florence and the Machine,
+
+38
+00:03:04,830 --> 00:03:08,115
+and somehow this user really
+likes Florence and the Machine.
+
+39
+00:03:08,115 --> 00:03:11,280
+[LAUGH] It just recommends that again,
+again, again, again, again.
+
+40
+00:03:11,280 --> 00:03:14,960
+And Apocalyptica and so on.
+
+41
+00:03:14,960 --> 00:03:18,630
+So as you can see,
+now the model is really personalized.
+
+42
+00:03:18,630 --> 00:03:22,380
+And you can do some really fun things
+with it because it's personalized.
+
+43
+00:03:22,380 --> 00:03:26,730
+Not only can you say for
+a particular user, what songs,
+
+44
+00:03:26,730 --> 00:03:29,930
+other songs they should listen to,
+just like we did in recommendations.
+
+45
+00:03:29,930 --> 00:03:33,120
+But we can also take a song and
+
+46
+00:03:33,120 --> 00:03:36,450
+ask what other songs are similar,
+are liked by similar people.
+
+47
+00:03:36,450 --> 00:03:39,460
+So people who like the song
+also like this other song, so
+
+48
+00:03:39,460 --> 00:03:45,424
+we can do that by
+personalized_model.get_similar_items.
+
+49
+00:03:45,424 --> 00:03:49,971
+So get similar items, you give it a list
+of items, and it finds similar ones.
+
+50
+00:03:49,971 --> 00:03:53,348
+So for example,
+
+51
+00:03:53,348 --> 00:03:59,620
+if I really love the song with or
+
+52
+00:03:59,620 --> 00:04:03,728
+Without You by U2.
+
+53
+00:04:03,728 --> 00:04:08,400
+I really actually like this song,
+it's pretty cool.
+
+54
+00:04:08,400 --> 00:04:11,820
+You'll see other songs
+it recommends all by U2,
+
+55
+00:04:11,820 --> 00:04:14,980
+I Still Haven't Found What I'm
+Looking For, Hold Me, Thrill Me,
+
+56
+00:04:14,980 --> 00:04:19,230
+Kiss Me, Kill Me,
+Window in the Skies, Vertigo,
+
+57
+00:04:19,230 --> 00:04:24,290
+Sunday Bloody Sunday, Bad, A Day Without
+Me, Another Place Another Place,
+
+58
+00:04:24,290 --> 00:04:29,380
+Walk On, Walk On's a nice song,
+Get On Your Boots, so all U2 songs.
+
+59
+00:04:29,380 --> 00:04:33,150
+So if you like one U2 song, you like
+other U2 songs, that's pretty typical.
+
+60
+00:04:33,150 --> 00:04:36,320
+Now another thing that I enjoy,
+so if I take this
+
+61
+00:04:38,390 --> 00:04:43,720
+very similar model and
+I am gonna get similar items.
+
+62
+00:04:43,720 --> 00:04:46,050
+So we can get all similar users.
+
+63
+00:04:46,050 --> 00:04:49,320
+For a user to find other users
+that like this one, like her.
+
+64
+00:04:49,320 --> 00:04:53,570
+But here we are gonna
+get similar items and
+
+65
+00:04:53,570 --> 00:04:56,140
+the list I'm gonna give
+is a little different.
+
+66
+00:04:56,140 --> 00:04:58,860
+So this is another song I kinda like.
+
+67
+00:04:58,860 --> 00:05:02,810
+It's called Chan Chan and
+I like the live version.
+
+68
+00:05:05,230 --> 00:05:12,684
+And it is by Buena Vista Social Club.
+
+69
+00:05:12,684 --> 00:05:17,000
+Now if you don't know this song,
+if you know the Buena Vista Social Club,
+
+70
+00:05:17,000 --> 00:05:21,070
+you should it's awesome,
+awesome really, cool.
+
+71
+00:05:21,070 --> 00:05:24,980
+So if you like Chan Chan,
+by Buena Vista Social Club, a Cuban band,
+
+72
+00:05:24,980 --> 00:05:29,830
+you also might like other
+Buena Vista Social Club songs.
+
+73
+00:05:29,830 --> 00:05:33,010
+Amor de Loca Juventud and others.
+
+74
+00:05:33,010 --> 00:05:36,310
+You might also like this,
+Diferente by Gotan Project.
+
+75
+00:05:36,310 --> 00:05:40,730
+Gotan Project, a Argentinian band,
+really cool one,
+
+76
+00:05:40,730 --> 00:05:45,700
+more like Gypsy Kings, Flamenco
+band this all makes a lot of sense.
+
+77
+00:05:45,700 --> 00:05:48,226
+Remember the song down here
+by Gotan Project, Criminal,
+
+78
+00:05:48,226 --> 00:05:49,418
+which I kinda like as well.
+
+79
+00:05:49,418 --> 00:05:53,849
+[MUSIC]

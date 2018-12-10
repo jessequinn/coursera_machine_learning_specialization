@@ -1,0 +1,16 @@
+Chúng ta đã nói về sự phân loại theo dự đoán, là một câu tích cực hay một câu tiêu cực,
+là email rác hay không phải email rác, nhưng nói chung bạn muốn nói
+một chút ngoài điều đó và hỏi về khả năng có email rác là gì? Tôi đã tự tin vào dự đoán như thế nào? Nếu bạn chỉ nhìn vào tích cực hoặc tiêu cực, tôi muốn biết sự chắc chắn
+về dự đoán như thế nào. Ví dụ, nếu bạn lấy câu như là the sushi and everything else were awesome. Đó là một câu thêm vào. Chắc chắn tích cực. Tuy nhiên the sushi was good,
+the service was okay. Nó có thể là một điểm cộng
+nhưng tôi không chắc. Nó không rõ ràng. Và vì thế cái mà phân loại thường làm
+không chỉ đầu ra là tích cực hay tiêu cực, mà đầu ra tự tin
+và chắc chắn như thế nào. Một cách để làm điều đó
+là nói về các khả năng. Bạn phải đưa ra khả năng
+của câu tích cực hay tiêu cực, đã đưa vào câu x. Vì thế nhãn mác đầu ra, xác suất của mác đầu ra
+là gì khi đưa câu vào? Ví dụ, ví dụ ở bên trên thay vì nói đó là + chúng ta có thể nói nó là
++ với giá trị x đưa vào là 0.99. X là 0.55 bởi vì tôi không chắc về điều đó. Các khả năng dự đoán hoặc
+mức độ tự tin là cực kì quan trọng và cũng như chúng ta sẽ thấy trong bài học
+phân loại, nó cho phép bạn làm rất nhiều thứ. Ví dụ khi bạn biết xác suất, bạn
+có thể đưa ra quyết định như một ranh giới quyết định tốt
+đánh đổi các tích cực sai và tiêu cực sai, và sự cân bằng giữa hai cái đó. [NHẠC]

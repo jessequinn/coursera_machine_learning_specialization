@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>graphlab.SArray.apply &mdash; GraphLab Create API 1.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+    <link rel="top" title="GraphLab Create API 1.10 documentation" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+  
+  <script type="text/javascript" src="//use.typekit.net/hzm6svm.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  
+  <script type="text/javascript" src="//turi.com/js/metrics.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> GraphLab Create API</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphlab.data_structures.html">Data Engineering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.data_structures.html#id1">Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.data_structures.html#data-types">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.data_structures.html#aggregation-summarization">Aggregation &amp; Summarization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../graphlab.toolkits.html">Machine Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#machine-learning-applications">Machine Learning Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#essential-machine-learning-models">Essential Machine Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#advanced-deep-learning-with-mxnet-beta">Advanced Deep Learning with MXNet (Beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#feature-engineering">Feature Engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#model-evaluation">Model Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#utilities-and-extensions">Utilities and Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.toolkits.html#distributed-model-training">Distributed Model Training</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphlab.deploy.html">Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.deploy.html#distributed-asynchronous-execution">Distributed/Asynchronous Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.deploy.html#ec2-cluster">Ec2 Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.deploy.html#hadoop-cluster">Hadoop Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.deploy.html#session-management">Session Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.deploy.html#utility">Utility</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../graphlab.canvas.html">Visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../graphlab.canvas.html#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+      
+        <span class="powered-by">
+          <a id="footer-logo" href="https://turi.com"><img src="../_static/turi_logo_white.png"/></a>
+        </span>
+      
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">GraphLab Create API</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>graphlab.SArray.apply</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="graphlab-sarray-apply">
+<h1>graphlab.SArray.apply<a class="headerlink" href="#graphlab-sarray-apply" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="graphlab.SArray.apply">
+<code class="descclassname">SArray.</code><code class="descname">apply</code><span class="sig-paren">(</span><em>fn</em>, <em>dtype=None</em>, <em>skip_undefined=True</em>, <em>seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#graphlab.SArray.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform each element of the SArray by a given function. The result
+SArray is of type <code class="docutils literal"><span class="pre">dtype</span></code>. <code class="docutils literal"><span class="pre">fn</span></code> should be a function that returns
+exactly one value which can be cast into the type specified by
+<code class="docutils literal"><span class="pre">dtype</span></code>. If <code class="docutils literal"><span class="pre">dtype</span></code> is not specified, the first 100 elements of the
+SArray are used to make a guess about the data type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fn</strong> : function</p>
+<blockquote>
+<div><p>The function to transform each element. Must return exactly one
+value which can be cast into the type specified by <code class="docutils literal"><span class="pre">dtype</span></code>.
+This can also be a toolkit extension function which is compiled
+as a native shared library using SDK.</p>
+</div></blockquote>
+<p><strong>dtype</strong> : {None, int, float, str, list, array.array, dict, graphlab.Image}, optional</p>
+<blockquote>
+<div><p>The data type of the new SArray. If <code class="docutils literal"><span class="pre">None</span></code>, the first 100 elements
+of the array are used to guess the target data type.</p>
+</div></blockquote>
+<p><strong>skip_undefined</strong> : bool, optional</p>
+<blockquote>
+<div><p>If True, will not apply <code class="docutils literal"><span class="pre">fn</span></code> to any undefined values.</p>
+</div></blockquote>
+<p><strong>seed</strong> : int, optional</p>
+<blockquote>
+<div><p>Used as the seed if a random number generator is included in <code class="docutils literal"><span class="pre">fn</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> : SArray</p>
+<blockquote class="last">
+<div><p>The SArray transformed by <code class="docutils literal"><span class="pre">fn</span></code>. Each element of the SArray is of
+type <code class="docutils literal"><span class="pre">dtype</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="graphlab.SFrame.apply.html#graphlab.SFrame.apply" title="graphlab.SFrame.apply"><code class="xref py py-obj docutils literal"><span class="pre">SFrame.apply</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sa</span> <span class="o">=</span> <span class="n">graphlab</span><span class="o">.</span><span class="n">SArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sa</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">dtype: int</span>
+<span class="go">Rows: 3</span>
+<span class="go">[2, 4, 6]</span>
+</pre></div>
+</div>
+<p>Using native toolkit extension function:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;graphlab/sdk/toolkit_function_macros.hpp&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">graphlab</span><span class="p">;</span>
+<span class="kt">double</span> <span class="nf">logx</span><span class="p">(</span><span class="k">const</span> <span class="n">flexible_type</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">log</span><span class="p">((</span><span class="kt">double</span><span class="p">)(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="n">base</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">BEGIN_FUNCTION_REGISTRATION</span>
+<span class="nf">REGISTER_FUNCTION</span><span class="p">(</span><span class="n">logx</span><span class="p">,</span> <span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="s">&quot;base&quot;</span><span class="p">);</span>
+<span class="n">END_FUNCTION_REGISTRATION</span>
+</pre></div>
+</div>
+<p>compiled into example.so</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">example</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sa</span> <span class="o">=</span> <span class="n">graphlab</span><span class="o">.</span><span class="n">SArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sa</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">example</span><span class="o">.</span><span class="n">logx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">dtype: float</span>
+<span class="go">Rows: 3</span>
+<span class="go">[0.0, 1.0, 2.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Turi.
+      Last updated on Jul 06, 2016.
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

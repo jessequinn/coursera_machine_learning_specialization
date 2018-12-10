@@ -1,0 +1,37 @@
+[MUUSIKA] Build a sentiment classifier. And I'm gonna put a # here
+to make it a nice title. So this is our next task here. And so,
+when you build a sentiment classifier, you're talking about positives and
+negatives. So, thumbs down, and thumbs up. But if you remember, our product ratings,
+we're not about positive and negative, they're numerical things. So, for example,
+if I take all the products, and I'll take the rating column and
+I do a .show, and we did above just for the giraffe, but do a .show for
+everything with the view equal to Categorical,
+we're now getting a histogram for all of the views, and if you take a quick
+look at it, you'll see that most reviews are positive across the board
+107,000 reviews are five stars. So most people review positively, and just
+write reviews about products they like. They don't typically write reviews
+about products they don't like. Then the next set of reviews,
+33,000 four stars. Then 3 stars and again, a lot of people
+write really bad reviews 1 star, 2 star, why would you give
+a review product 2 stars? You might as well just give them
+1 star if you really hated it. And this is what we
+observe in the histogram. But again, for sentiment analysis,
+we have to define what's thumbs up and what's thumbs down. And so
+I'm gonna make an arbitrary choice here. Let's say that things that 4,
+5 stars are things that people liked. So those are positives. Things that 1 and 2 stars are negative. But the things that are 3 stars,
+those are kind of in the middle. So, let's just throw those out. So we're gonna do a little bit of
+what we'll call data engineering, just defining what is a positive and
+negative sentiment. So let's do that right now. So in the subsection we're gonna define what's a positive and
+a negative sentiment. And what I'm gonna do first is ignore all city star reviews. The way to do it is by saying, okay I'm gonna take the product
+stable the variable products. And I'm gonna just select everything out of the products table
+whose rating was not 3. So, products[products['rating'] |= 3]. So that was our first step in our
+little data engineering task. And now, the next step in this task is to actually find what stems up and
+stems down. So I'm gonna say a positive sentiment equals 4 star or 5 star reviews. So let's go ahead and add a new column to our table that
+defines the actual sentiment. So products new column called sentiment. It's gonna be a binary column, zero one. And, the way we're gonna define
+the column, is we're gonna say, of the products rating,
+is it greater equal to 4? If it's greater or equal to 4,
+it's gonna get a 1, and if it's less than 4,
+it's gonna get a 0, and so now if I take another look
+at my product stable, so head You should see that I've added a new
+column on the right called Sentiment. And most of the sentiments are positive,
+as we saw earlier, but many are negative, zero. Okay, now we're ready, we're finally ready to train our sentiment classifier. [MUUSIKA]

@@ -1,0 +1,58 @@
+[MUSIC] In the regression module, we talked
+about the relationship between error or accuracy in the complexity of the model. Let's talk a little bit about
+the relationship in terms of the amount of data you have to learn. And we'll explore the question of
+how much data we need to learn. And this is a really difficult and
+complex question in machine learning. So of course,
+the more data you have, the better, as long as the quality
+of the data is good. And then bad data, lots of bad data,
+is much worse to having much less, much fewer, data points with really good,
+clean, high-quality data points. Now there's some theoretical techniques
+to analyze how much data you need. Many of those help you understand
+kinda the overall trends, but really tend to be too
+loose to use in practice. In practice, there's some empirical
+techniques to really try to understand how much error we're making and
+what that kind of error looks like. And, in the follow-up courses, we're gonna
+explore those techniques much further, but let me give you a little
+bit of guidance and a little insight on what that can
+do within the classification side. Now an important representation for
+this relationship between data and quality is what's called
+the learning curve. So a learning curve relates
+the amount of data that we have for training with the error that we're making. And here we're talking about test error. Now if you have very little data for
+training, then your test error is going to be high. But if you have a lot of data for
+training, your test error is going to be low. And now, the curve is gonna get better and better as you get more and
+more and more data. Whoops, didn't go through that point,
+so I'm gonna just erase it. Now here we go. This is an example learning curve where
+the quality is getting better as we add more data. Now you may ask, is there a limit? Is this quality just going to get better
+and better forever as you add more data? Now we know that error's going to decrease
+as we add more data, the test error. However, there is some gap here. And the question is whether that gap
+can go to zero, and the answer's, in general, no. This gap is called the bias. So let's discuss a little bit
+what this bias, or this gap, is. So intuitively, it says even with infinite data, the test error will not go to zero. So let's understand why a little bit. More complex models
+tend to have less bias. So if you look at a sentiment analysis
+classifier that we may building, if you just use single words like awesome, good, great, terrible,
+awful, it can do okay. Maybe it do really well,
+maybe just does okay. But even if you have infinite data,
+even with all the data in the world, you're never gonna get this sentence
+right, the sushi was not good. Because you're not looking
+at pairs of words, you're just looking at the words good and
+not individually. And so more complex models that, for
+example, deal with combinations of words, for example,
+the simply called the bigram model, where you look at pairs of
+secret words like not good. Those models require more parameters,
+because there's more possibilities. They can do better, they may have
+a parameter for good, say 1.5. But not good, say -2.1. And actually get that sentence,
+the sushi was not good, correctly. So they have less bias. They can represent sentences that
+couldn't be represented as words, but so they're potentially more accurate. But they need more data to learn,
+because there's more parameters. There's not just a parameter for good,
+there's now a parameter for not good, and all possible combinations of words. And the more parameters your model has, in
+general, the more data you need to learn. So let's go back to our example. We talked about the fact of a amount
+of training data on the test error. So let's say that I'm building
+a classifier using single words. And the question is, how does that relate
+to a classifier, based on pairs of words? Now for a classifier based on bigrams,
+when you have less data, it's not going to do as well because
+it has more parameters to fit. But when you have more data, it's going to
+do better because it's going to be able to capture settings like,
+the sushi was not good. And so the behavior you're gonna
+get is something like this. And at some point, there's a crossover
+where it starts doing better than the classifier with single words. But notice the background model
+still has some bias here. Although the bias is smaller,
+it still has some bias. [MUSIC]

@@ -1,0 +1,251 @@
+1
+00:00:00,000 --> 00:00:03,493
+[MÚSICA]
+
+2
+00:00:08,207 --> 00:00:10,590
+Consideraremos que los datos no están clasificados, no tienen rótulos
+
+3
+00:00:12,380 --> 00:00:18,200
+Apuntamos a inferir grupos de artículos relacionados que formarán grupos
+
+4
+00:00:19,730 --> 00:00:23,420
+Aquí la entrada será un vector
+
+5
+00:00:23,420 --> 00:00:27,420
+cada observación que vamos a graficar quí es nuestro vector contador de palabras
+
+6
+00:00:29,450 --> 00:00:33,430
+y en este caso, estamos observando un ejemplo muy simple con un vocabulario
+
+7
+00:00:33,430 --> 00:00:34,530
+que solo tiene dos palabras
+
+8
+00:00:34,530 --> 00:00:41,780
+Tenemos un vector, tenemos palabra 1 y palabra 2
+
+9
+00:00:41,780 --> 00:00:48,349
+y este eje es palabra 2 y este palabra 1
+
+10
+00:00:48,349 --> 00:00:54,127
+Recuerda que  en realidad tendemos a tener vocabularios muy grandes y 
+
+11
+00:00:54,127 --> 00:00:57,417
+tenemos estos grandes vectores de muchas dimensiones
+
+12
+00:00:57,417 --> 00:01:01,377
+Cuando estamos graficando nuestras observaciones, éstas están en un espacio
+
+13
+00:01:01,377 --> 00:01:05,410
+de muchas dimensiones, pero para la visualización veamos esta representación 2D
+
+14
+00:01:05,410 --> 00:01:10,240
+De modo que tendremos un gran número de documentos acá, todos representados
+
+15
+00:01:10,240 --> 00:01:14,330
+por sus contadores de palabras sobre estas dos palabras distintas en el vocabulario
+
+16
+00:01:14,330 --> 00:01:18,068
+De modo que esta es la entrada al algoritmo de agrupamiento, y
+
+17
+00:01:18,068 --> 00:01:20,690
+la salida serán los rótulos de los grupos
+
+18
+00:01:20,690 --> 00:01:23,891
+Lo que quiero decir es que esta observación y 
+
+19
+00:01:23,891 --> 00:01:28,956
+todas estas obseraciones acá, todas estas serán rotuladas como rojo
+
+20
+00:01:28,956 --> 00:01:33,550
+Quizás se les aplique un rótulo de grupo Uno
+
+21
+00:01:33,550 --> 00:01:34,396
+Llamemos a este
+
+22
+00:01:38,715 --> 00:01:40,070
+Grupo 1
+
+23
+00:01:40,070 --> 00:01:44,790
+Para cada documento habrá algún rótulo
+
+24
+00:01:44,790 --> 00:01:46,510
+Ésta será rotulada Uno
+
+25
+00:01:46,510 --> 00:01:50,920
+Todas estas observaciones de acá tendrá algún otro rótulo
+
+26
+00:01:50,920 --> 00:01:53,590
+Supongamos que este es el grupo 2
+
+27
+00:01:53,590 --> 00:01:55,885
+De modo que esta observación obtiene el rótulo Dos
+
+28
+00:01:57,500 --> 00:02:01,065
+Y todas estas observaciones tendrán el rótulo 3
+
+29
+00:02:02,600 --> 00:02:05,200
+Ésas van a ser la salida de este algoritmo
+
+30
+00:02:06,850 --> 00:02:09,190
+Y quizás lo que puedes hacer es a posteriori
+
+31
+00:02:09,190 --> 00:02:12,830
+recorrerlos y buscar algún artículo en el grupo 1 y
+
+32
+00:02:12,830 --> 00:02:18,110
+podrías decir que este grupo es en realidad sobre deportes
+
+33
+00:02:18,110 --> 00:02:23,810
+Y voya a escribir explícitamente que este rótulo se asigna a posteriori
+
+34
+00:02:25,000 --> 00:02:27,770
+Bien, éste es un ejemplo
+
+35
+00:02:27,770 --> 00:02:32,330
+de una tarea de aprendizaje no supervisado porque estamos operando sin ningún rótulo
+
+36
+00:02:32,330 --> 00:02:34,300
+Solo tenemos observaciones y
+
+37
+00:02:34,300 --> 00:02:38,180
+y estamos intentando descubrir alguna estructura en estas observaciones
+
+38
+00:02:38,180 --> 00:02:42,298
+De nuevo, la entrada es nuestro vector contador de palabras y
+
+39
+00:02:42,298 --> 00:02:45,133
+la salida es para cada documento en la colección
+
+40
+00:02:45,133 --> 00:02:48,802
+vamos a asociarle algún rótulo de grupo
+
+41
+00:02:51,321 --> 00:02:54,700
+¿Qué define un grupo?
+
+42
+00:02:54,700 --> 00:02:58,210
+Cada grupo está definido por un centro de grupo.
+
+43
+00:02:58,210 --> 00:03:00,595
+Marcaré los centros de grupo con X
+
+44
+00:03:04,620 --> 00:03:07,079
+Y además está la forma del grupo y
+
+45
+00:03:07,079 --> 00:03:11,509
+estas elipses están representando las formas de estos grupos
+
+46
+00:03:13,460 --> 00:03:16,940
+Y cuando pensamos si estas observaciones,
+
+47
+00:03:18,990 --> 00:03:25,440
+estas observaciones acá deben ser asignadas al grupo verde o al grupo rojo
+
+48
+00:03:25,440 --> 00:03:30,940
+lo que estamos haciendo es determinando que tan parecido
+
+49
+00:03:30,940 --> 00:03:35,510
+es este artículo con los otros articulos basado en la forma de este grupo
+
+50
+00:03:36,510 --> 00:03:39,850
+Puntuamos cada observación
+
+51
+00:03:39,850 --> 00:03:43,810
+basándonos en el centro del grupo y también en la forma del grupo
+
+52
+00:03:43,810 --> 00:03:48,380
+Y en este caso, como este grupo tiene forma oblonga inclinada
+
+53
+00:03:48,380 --> 00:03:53,370
+será asignado al grupo verde en lugar de al grupo rojo
+
+54
+00:03:53,370 --> 00:03:57,580
+Pero otra forma de hacerlo, que es muy común,
+
+55
+00:03:57,580 --> 00:04:01,570
+es en lugar de ver la forma del grupo, buscamos los centros del grupo
+
+56
+00:04:01,570 --> 00:04:06,120
+Entonces medimos la distancia de esta observación 
+
+57
+00:04:06,120 --> 00:04:10,670
+déjenme cambiar el color acá, en esta forma de hacerlo
+
+58
+00:04:10,670 --> 00:04:15,670
+como comparamos la distancia de esta observación
+
+59
+00:04:15,670 --> 00:04:20,570
+ al centro del grupo verde versus la distancia al centro del grupo rojo
+
+60
+00:04:20,570 --> 00:04:24,129
+Y en este caso va a ser dificultoso decidir si este artículo 
+
+61
+00:04:24,129 --> 00:04:27,240
+debería quedar en el grupo verde o en el grupo rojo
+
+62
+00:04:27,240 --> 00:04:31,492
+Pero hay otros casos como esta obaservación aquí donde es bastante obvio
+
+63
+00:04:31,492 --> 00:04:35,087
+con esta métrica que debería ser asignado al grupo rojo

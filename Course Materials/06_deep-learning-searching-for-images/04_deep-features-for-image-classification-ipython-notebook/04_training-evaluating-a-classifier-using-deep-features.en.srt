@@ -1,0 +1,528 @@
+1
+00:00:00,000 --> 00:00:03,569
+[MUSIC]
+
+2
+00:00:03,569 --> 00:00:09,379
+So, the question here is can we improve
+
+3
+00:00:09,379 --> 00:00:14,640
+the model using deep features.
+
+4
+00:00:14,640 --> 00:00:17,340
+Remember we talked about deep features.
+
+5
+00:00:17,340 --> 00:00:22,650
+We explored those quite a bit in
+this deep learning module how deep
+
+6
+00:00:22,650 --> 00:00:26,900
+features using a technique called transfer
+learning can be trained on one domain,
+
+7
+00:00:26,900 --> 00:00:31,400
+then applied to images in
+another domain to learn
+
+8
+00:00:31,400 --> 00:00:34,330
+something with even a small
+amount of labeled data.
+
+9
+00:00:34,330 --> 00:00:39,883
+So in this case, let's just take a look
+at the length of our train data,
+
+10
+00:00:39,883 --> 00:00:44,973
+just to get a sense of, we have,
+well we have 2,000 images so
+
+11
+00:00:44,973 --> 00:00:47,489
+this is a pretty small data set.
+
+12
+00:00:47,489 --> 00:00:52,089
+And so, we can go ahead and
+see, well can we just
+
+13
+00:00:52,089 --> 00:00:57,394
+20,000 train images using
+some deep features.
+
+14
+00:00:57,394 --> 00:01:01,110
+So this is the step you take.
+
+15
+00:01:01,110 --> 00:01:07,678
+So we're gonna load deep_learning_model
+
+16
+00:01:07,678 --> 00:01:11,825
+that was pre-trained and so
+
+17
+00:01:11,825 --> 00:01:20,830
+here you can use graphlab.load_model
+to load the model.
+
+18
+00:01:20,830 --> 00:01:26,410
+And have a model that will
+stream on the image net data.
+
+19
+00:01:26,410 --> 00:01:27,710
+It's over here.
+
+20
+00:01:27,710 --> 00:01:31,934
+It's called imagenet _model.
+
+21
+00:01:31,934 --> 00:01:37,860
+And this model stream
+of 1.5 million images,
+
+22
+00:01:37,860 --> 00:01:40,105
+a thousand different categories,
+a different data set,
+
+23
+00:01:40,105 --> 00:01:44,243
+1.5 million images, it was what
+we discussed, the AlexNet model.
+
+24
+00:01:44,243 --> 00:01:49,350
+It got medium easy access in
+2012 ImageNet competition, so
+
+25
+00:01:49,350 --> 00:01:54,090
+I pretrained a model, and
+then you can use the model to create
+
+26
+00:01:55,240 --> 00:01:59,240
+in our image train a new column called
+
+27
+00:01:59,240 --> 00:02:04,380
+'deep_features'.
+
+28
+00:02:04,380 --> 00:02:08,804
+And in this new column
+'deep_features' what we're gonna do
+
+29
+00:02:08,804 --> 00:02:12,900
+is take this deep_learning_model
+that we just loaded.
+
+30
+00:02:14,280 --> 00:02:17,100
+Deep_learning_model.
+
+31
+00:02:17,100 --> 00:02:23,123
+And I'm going to apply a function
+called extract_features and
+
+32
+00:02:23,123 --> 00:02:29,680
+what the extract_features does
+is extract those deep features.
+
+33
+00:02:29,680 --> 00:02:33,420
+So does it transfer learning,
+taking features of learning one domain and
+
+34
+00:02:33,420 --> 00:02:35,690
+applies a data set in different domain.
+
+35
+00:02:35,690 --> 00:02:38,560
+So this data set here
+is my image train data.
+
+36
+00:02:40,820 --> 00:02:42,890
+So this is the two commands
+that you have to do.
+
+37
+00:02:42,890 --> 00:02:44,300
+Pretty simple.
+
+38
+00:02:44,300 --> 00:02:47,960
+Let me decrease the font size so
+that it'll be a little bit more visible.
+
+39
+00:02:47,960 --> 00:02:52,990
+The two commands that you have to
+do to do the transfer learning.
+
+40
+00:02:52,990 --> 00:02:55,670
+So take the image net
+training on the network and
+
+41
+00:02:55,670 --> 00:02:57,822
+apply it to this Safari 10 dataset.
+
+42
+00:02:57,822 --> 00:03:02,860
+Now computing this deep features
+takes a few minutes and
+
+43
+00:03:02,860 --> 00:03:07,030
+so I'm not going to do this right now.
+
+44
+00:03:07,030 --> 00:03:11,040
+Instead I'm just gonna tell
+you that our deep mod.
+
+45
+00:03:12,040 --> 00:03:14,530
+If I show you the image_train data.
+
+46
+00:03:15,960 --> 00:03:20,730
+What I did was, if I just show you
+the head, the first few lines.
+
+47
+00:03:20,730 --> 00:03:26,550
+What you'll see is that we have
+an image id, we have an image, which
+
+48
+00:03:26,550 --> 00:03:30,490
+we'll looking at, you have the label,
+and you have a column for deep features.
+
+49
+00:03:30,490 --> 00:03:33,130
+So I precomputed that, and
+I saved it inside the s frame.
+
+50
+00:03:33,130 --> 00:03:35,040
+So it's already saved and precomputed.
+
+51
+00:03:35,040 --> 00:03:38,070
+And it also has another column image_array
+that has the raw pixels that we used to
+
+52
+00:03:38,070 --> 00:03:39,550
+train the raw pixel model.
+
+53
+00:03:39,550 --> 00:03:41,610
+So the deep_features are already in there.
+
+54
+00:03:41,610 --> 00:03:44,340
+But if you run those two commands, you'd
+be computing them yourself on this data
+
+55
+00:03:44,340 --> 00:03:46,800
+set, or in any data set that you want.
+
+56
+00:03:46,800 --> 00:03:50,114
+So let's go ahead and
+
+57
+00:03:50,114 --> 00:03:55,635
+now that we have the deep features,
+
+58
+00:03:55,635 --> 00:03:59,881
+let's train a deep model.
+
+59
+00:03:59,881 --> 00:04:04,303
+So, Given the deep features,
+
+60
+00:04:04,303 --> 00:04:08,400
+let's train a classifier.
+
+61
+00:04:08,400 --> 00:04:13,010
+So now, we're gonna train a simple
+classifier using the deep features.
+
+62
+00:04:13,010 --> 00:04:20,620
+I'm gonna call this deep_ features_model
+instead of the raw pixel model.
+
+63
+00:04:20,620 --> 00:04:25,032
+And the deep_features_model is also gonna
+be just calling logistical regression.
+
+64
+00:04:25,032 --> 00:04:29,113
+So .create and if you remember from
+lecture, we discussed that you can take
+
+65
+00:04:29,113 --> 00:04:33,256
+those deep features and plug in a simple
+classifier at the end in this case, so
+
+66
+00:04:33,256 --> 00:04:35,321
+just plug in logistical regression.
+
+67
+00:04:35,321 --> 00:04:36,912
+So as input,
+I'm gonna give it the image_train_data.
+
+68
+00:04:36,912 --> 00:04:40,112
+And for features,
+
+69
+00:04:40,112 --> 00:04:45,512
+instead of using the raw pixel,
+
+70
+00:04:45,512 --> 00:04:52,118
+I'm going to use the deep_features.
+
+71
+00:04:55,274 --> 00:04:59,726
+And finally, I'm gonna tell it
+that the label, sorry, the target,
+
+72
+00:04:59,726 --> 00:05:04,421
+the thing that I'm trying to predict here,
+is given by the label column.
+
+73
+00:05:06,981 --> 00:05:07,678
+And there you go.
+
+74
+00:05:07,678 --> 00:05:12,483
+So now, we're learning a classifier and
+it's down here,
+
+75
+00:05:12,483 --> 00:05:16,233
+using on those 2,000 images only using,
+
+76
+00:05:16,233 --> 00:05:20,558
+using features completed
+in this deep near network,
+
+77
+00:05:20,558 --> 00:05:24,980
+the one in 2012 deep learning competition.
+
+78
+00:05:24,980 --> 00:05:29,960
+So now, let's first explore the model,
+just apply it for some data.
+
+79
+00:05:29,960 --> 00:05:35,788
+So, I'm going to, we're gonna
+
+80
+00:05:35,788 --> 00:05:40,993
+Apply the deep features model
+
+81
+00:05:40,993 --> 00:05:47,940
+to the first few images of test set.
+
+82
+00:05:47,940 --> 00:05:51,330
+Just like we did with the raw pixel model,
+we're gonna apply it in this case.
+
+83
+00:05:51,330 --> 00:05:58,580
+So remember we took the image_test data
+and we looked at the first three images.
+
+84
+00:05:58,580 --> 00:06:00,170
+So 0, 1 and 2.
+
+85
+00:06:00,170 --> 00:06:03,820
+And here's what those images look like.
+
+86
+00:06:03,820 --> 00:06:06,647
+And I'm gonna type .show and
+
+87
+00:06:06,647 --> 00:06:12,310
+just remind you that we have a cat,
+a car, and another cat.
+
+88
+00:06:13,700 --> 00:06:22,490
+And let's go ahead and
+just run this to see what we predict.
+
+89
+00:06:22,490 --> 00:06:27,747
+So I'm gonna take my deep_feature_model,
+
+90
+00:06:27,747 --> 00:06:33,137
+and I'm going to predict
+on this three images,
+
+91
+00:06:33,137 --> 00:06:36,256
+so image_test of 0:3.
+
+92
+00:06:36,256 --> 00:06:38,860
+And remember cat, car.
+
+93
+00:06:38,860 --> 00:06:42,830
+Cat and it says cat, automobile, cat.
+
+94
+00:06:42,830 --> 00:06:44,880
+So basically it got those
+three exactly right.
+
+95
+00:06:44,880 --> 00:06:45,830
+Which is exciting.
+
+96
+00:06:45,830 --> 00:06:49,930
+So something that sucked really,
+really did badly using the raw pixels.
+
+97
+00:06:49,930 --> 00:06:55,570
+Now using these deep features as well, on
+those three points it gets exactly right.
+
+98
+00:06:55,570 --> 00:07:00,719
+But let's actually evaluate
+the deep model more formally.
+
+99
+00:07:00,719 --> 00:07:07,275
+So, we're gonna do next is compute
+
+100
+00:07:07,275 --> 00:07:12,302
+the test_data accuracy of
+
+101
+00:07:12,302 --> 00:07:17,991
+the deep_features_model.
+
+102
+00:07:17,991 --> 00:07:18,503
+And here we go.
+
+103
+00:07:18,503 --> 00:07:22,630
+So how we're gonna do that?
+
+104
+00:07:22,630 --> 00:07:25,450
+We're just gonna do
+deep_features_model.evaluate
+
+105
+00:07:25,450 --> 00:07:27,480
+just like we did with the raw pixel model.
+
+106
+00:07:27,480 --> 00:07:29,440
+Here we can do .evaluate.
+
+107
+00:07:29,440 --> 00:07:32,702
+And as input we're gonna
+give it the test data.
+
+108
+00:07:32,702 --> 00:07:33,562
+So image_test.
+
+109
+00:07:35,205 --> 00:07:39,290
+And remember the raw pixel
+model got 46% accuracy.
+
+110
+00:07:39,290 --> 00:07:40,450
+It was bad.
+
+111
+00:07:41,660 --> 00:07:46,830
+Here by using deep features we now get
+78% accuracy, which is quite good.
+
+112
+00:07:46,830 --> 00:07:48,720
+It's close to state of the art.
+
+113
+00:07:48,720 --> 00:07:52,697
+Even if you're learning more data
+it's quite good compared to the 46%.
+
+114
+00:07:52,697 --> 00:07:56,132
+So the deep features provide
+you with a great tool for
+
+115
+00:07:56,132 --> 00:08:01,286
+taking just a little bit small piece of
+data, running for the deep features and
+
+116
+00:08:01,286 --> 00:08:05,527
+get quite good accuracy doing
+image classification task here.
+
+117
+00:08:05,527 --> 00:08:06,027
+[MUSIC]

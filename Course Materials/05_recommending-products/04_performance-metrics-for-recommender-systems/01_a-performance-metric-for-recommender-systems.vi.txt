@@ -1,0 +1,47 @@
+[NHẠC] Chúng ta đã nói rất nhiều đến cách xây dựng
+ dự đoán sử dụng các loại khác nhau của các hệ thống tư vấn. Nhưng câu hỏi đặt ra là chúng ta đánh giá
+ sự khác biệt trong hiệu suất với các hệ thống khác nhau mà chúng ta
+đang sử dụng như thế nào? Giả sử chúng ta muốn giới thiệu các
+sản phẩm cho một phụ huynh mới và đây là bộ sản phẩm mà chúng ta
+có thể giới thiệu. Và một người sử dụng thích một tập con
+các sản phảm này được biểu diễn bởi các hình vuông màu đỏ sẫm. Mục đích của chúng ta tất nhiên là để khám phá
+ các sản phẩm mà người sử dụng thích từ việc mua bán mà họ đã thực hiện. Bởi vì chúng ta không thực sự biết các loại sản phẩm 
+mà họ thích, đó là mục đích của chúng ta, ok? Câu hỏi đặt ra là tại sao chúng ta không sử dụng 
+cái gì đó giống như là phân loại để đo hiệu suất của hệ thống tư vấn? Trong trường hợp này chúng ta có thể nghĩ đến
+ việc tính toán bao nhiêu mặt hàng chúng ta đoán là họ thích hay họ không thích và so sánh với số mặt hàng
+họ thích hoặc không thích. Carlos đã nói đến việc
+sử dụng loại số liệu này khi anh ấy nói đến tình huống
+phân tích cảm tính. Nhưng vấn đề ở đây thực sự đa dạng. Một thực tế là chúng ta quan tâm về cái mà một người thích hơn là cái mà họ không thích và chúng ta
+ thường đối mặt với các trường hợp mất cân bằng. Ví dụ có rất nhiều các sản phẩm ở đây, nhưng thông thường người sử dụng
+sẽ thích phần nhỏ trong số đó. Vì thế nếu chúng ta sử dụng loại số liệu này, 
+chúng ta có thể có độ chính xác rất chuẩn bằng việc nói rằng người sử dụng
+sẽ không thích bất kì sản phẩm nào. Không tư vấn bất kì cái gì sẽ có hiệu suất tốt theo như số liệu này. Nhưng vấn đề khác nữa là liên quan đến chi phí để đưa ra
+các quyết định khác nhau. Thông thường chúng ta sẽ giả sử là
+người sử dụng có sự chú ý bị giới hạn, và vì thế chúng ta có thể giới thiệu một số
+ mặt hàng nhất định cho người sử dụng . Có một chi phí lớn hơn nhiều nếu không phải trong bộ sản phẩm nhỏ này chúng ta đã được phép
+để giới thiệu cho người không thích gì cả. Điều đó có giá cao hơn nhiều nếu chúng ta
+ bỏ lỡ một số mặt hàng mà người sử dụng thích trong bộ sản phẩm đã được tư vấn này. Thay vì đó chúng ta sẽ nói về một số liệu khác, hoặc các số liệu khác được gọi
+là chính xác và thu hổi. Hãy bắt đầu bằng việc thảo luận về thu hồi. Đối với một hệ thống tư vấn đưa ra,
+ nó sẽ tư vấn một số bộ sản phẩm cho tôi và tôi làm nổi bật những sản phẩm đó
+bằng những hình ảnh được tô màu. Đây là một mặt hàng đã được giới thiệu. Đây là một mặt hàng đã được giới thiệu, 
+đây là một mặt hàng đã được giới thiệu và vân vân. Những hình ảnh màu xám là các mặt hàng
+không được giới thiệu cho tôi. Ok tôi không làm chú thích ở đây nhưng hi vọng bạn hiểu bức tranh này. Khi tôi đo sự thu hồi, cái gì tôi nhìn thấy là tôi sẽ nhìn
+vào các mặt hàng mà tôi thích. Tất cả các hộp màu đỏ sẫm. Và tôi sẽ hỏi bao nhiêu mặt hàng tôi thích được giới thiệu cho tôi. Và tôi sẽ tính phần nhỏ đó,
+vì thế hãy làm điều đó. Mỗi một hộp màu đỏ đã được giới thiệu cho tôi. Hai cái này đã được giới thiệu cho tôi, ba cái đó đã giới thiệu cho tôi
+trong năm thứ mà tôi thích. Vì vậy thu hồi là ba phần năm. Thu hồi sẽ đo số lượng các
+mặt hàng đã giới thiệu mà tôi thích, những thứ mà tôi thực sự thích. Mặt khác có một cái được
+gọi là tính chính xác. Khi chúng ta nói về độ chính xác
+cái mà chúng ta sẽ nhìn vào là tất cả các mặt hàng đã được giới thiệu. Khi chúng ta nói về thu hồi,
+phần thế giới khi chúng ta đã đo phần nhỏ này là nhìn vào
+các hộp màu đỏ sẫm. Đó là thế giới mà chúng ta nhìn thấy
+mọi thứ khác không xuất hiện trên slide. Nhưng khi chúng ta nói về độ chinh xác,
+chúng ta sẽ nhìn vào tất cả các mặt hàng đã được giới thiệu và
+mọi thứ khác có thể không xuất hiện trên slide. Các mặt hàng được giới thiệu đã được
+làm nổi bật vởi các hộp màu xanh lá. Cái mà chúng ta sẽ nhìn xem ngoài những mặt hàng
+được giới thiệu nếu đây là thế giới của chúng ta phàn nào của các mặt hàng
+là mặt hàng tôi thích? Ok trong trường hợp này có 1, 2, 3 mặt hàng mà tôi thích và
+đã được hiển thị và tổng cộng là 1,2,3,4,5,6,7, 8,9,10,11 mặt hàng được biểu thị. Đây sẽ là độ chính xác. Khi chúng ta nghĩ đến sự chính xác
+chúng ta nghĩ cơ bản bao nhiêu phần bỏ đi mà tôi phải xem so với
+số lượng các mặt hàng mà tôi thích. Nó là một phép đo khi tôi
+có sự chú ý bị giới hạn, tôi sẽ làm lãng phí nỗ lực của mình trên các sản phẩm
+mà tôi không thích nhiều như thế nào? [NHẠC]

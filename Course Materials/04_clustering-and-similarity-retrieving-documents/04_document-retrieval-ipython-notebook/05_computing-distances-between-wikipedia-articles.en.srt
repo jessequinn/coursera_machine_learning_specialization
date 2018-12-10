@@ -1,0 +1,321 @@
+1
+00:00:00,000 --> 00:00:03,755
+[MUSIC]
+
+2
+00:00:03,755 --> 00:00:09,005
+So let's take this TF IDF's, and
+do a couple of fun things with them.
+
+3
+00:00:09,005 --> 00:00:14,398
+So first, we're gonna manually,
+
+4
+00:00:14,398 --> 00:00:20,100
+okay, so let me just type in here.
+
+5
+00:00:20,100 --> 00:00:25,150
+So we're gonna manually compute
+
+6
+00:00:25,150 --> 00:00:30,770
+distances between a few people.
+
+7
+00:00:32,230 --> 00:00:36,250
+So the goal here is just to show
+what those distances look like,
+
+8
+00:00:36,250 --> 00:00:41,700
+just to get a sense of what
+we're learning from TF IDF.
+
+9
+00:00:41,700 --> 00:00:45,830
+So for example, let's take three people.
+
+10
+00:00:45,830 --> 00:00:48,090
+So we already talked about Obama.
+
+11
+00:00:48,090 --> 00:00:50,020
+We already have that
+Obama variable in there.
+
+12
+00:00:50,020 --> 00:00:51,770
+Let's create two new variables.
+
+13
+00:00:51,770 --> 00:01:00,116
+Let's say Clinton, which are the people
+I'm going to select one.
+
+14
+00:01:00,116 --> 00:01:06,050
+The person whose name is equal
+
+15
+00:01:06,050 --> 00:01:12,290
+to Bill Clinton, the former US President.
+
+16
+00:01:15,210 --> 00:01:20,034
+Let's select another person, so
+for example, let's select Beckham.
+
+17
+00:01:20,034 --> 00:01:25,702
+So, Beckham is a famous British,
+
+18
+00:01:25,702 --> 00:01:30,393
+English footballer and so,
+
+19
+00:01:30,393 --> 00:01:36,843
+we're gonna select out of the people,
+
+20
+00:01:36,843 --> 00:01:42,511
+the person whose name is equal to,
+
+21
+00:01:42,511 --> 00:01:48,578
+his name is actually David Beckham.
+
+22
+00:01:48,578 --> 00:01:53,570
+Now that we selected Clinton and Beckham,
+let's compute the similarity between those
+
+23
+00:01:53,570 --> 00:01:56,320
+two people, and
+the President, Barack Obama.
+
+24
+00:01:58,280 --> 00:02:06,078
+So, what we gonna do is ask the question.
+
+25
+00:02:06,078 --> 00:02:10,649
+Is Obama closer to
+
+26
+00:02:10,649 --> 00:02:16,740
+Clinton than to Beckham?
+
+27
+00:02:22,593 --> 00:02:24,210
+Okay a little mistake here.
+
+28
+00:02:25,280 --> 00:02:29,806
+So is Obama closer to
+Clinton than to Beckham?
+
+29
+00:02:34,707 --> 00:02:38,252
+Now there are various ways
+to measure similarity or
+
+30
+00:02:38,252 --> 00:02:42,710
+distances between two vectors,
+or in this case two documents.
+
+31
+00:02:42,710 --> 00:02:44,770
+We computed the TF IDF's.
+
+32
+00:02:44,770 --> 00:02:47,880
+And what we're gonna do is
+compute the distance between
+
+33
+00:02:47,880 --> 00:02:53,320
+these different documents, the one about
+Clinton, the one about Obama and so on.
+
+34
+00:02:53,320 --> 00:02:59,360
+So I'm gonna use distance
+metrics that are already
+
+35
+00:02:59,360 --> 00:03:02,930
+implemented inside the GraphLab Create so
+we don't have to implement them ourselves.
+
+36
+00:03:02,930 --> 00:03:07,220
+So we need to look at
+graphlab.distances and press Tab,
+
+37
+00:03:07,220 --> 00:03:09,450
+you'll see several options here.
+
+38
+00:03:09,450 --> 00:03:15,550
+The Clinton distance that we talked
+about in class, cosine distance,
+
+39
+00:03:15,550 --> 00:03:20,850
+jaccard similarity, and so on that we're
+gonna see throughout this specialization.
+
+40
+00:03:20,850 --> 00:03:24,300
+We're gonna use cosine distance.
+
+41
+00:03:24,300 --> 00:03:28,120
+And just as a little note,
+normally we think about cosine similarity,
+
+42
+00:03:28,120 --> 00:03:29,260
+if you've heard of it.
+
+43
+00:03:29,260 --> 00:03:32,570
+Where the higher the number
+the more similar two articles are.
+
+44
+00:03:32,570 --> 00:03:38,160
+Here, we have a distance version of
+this number, so the lower the better.
+
+45
+00:03:38,160 --> 00:03:43,230
+The lower the cosine distance,
+the closer the articles are.
+
+46
+00:03:43,230 --> 00:03:49,915
+So the question is, what is
+the cosine distance between Obama's
+
+47
+00:03:49,915 --> 00:03:54,410
+tfidf and that of Clinton?
+
+48
+00:03:54,410 --> 00:03:58,240
+But notice that I have selected the column
+tfidf, and I have to have the little 0
+
+49
+00:03:58,240 --> 00:04:02,360
+at the end here, because it is
+the zeroth row of this table.
+
+50
+00:04:02,360 --> 00:04:04,050
+The table only has one element in it, but
+
+51
+00:04:04,050 --> 00:04:05,870
+we still have to say what row
+of the table we're looking at.
+
+52
+00:04:05,870 --> 00:04:12,880
+And so we're gonna compare the Obama
+tfidf with the Clinton tfidf.
+
+53
+00:04:15,308 --> 00:04:19,360
+Also at 0,
+in terms of the cosine distance, and
+
+54
+00:04:19,360 --> 00:04:21,500
+you see that the distance is 0.83.
+
+55
+00:04:21,500 --> 00:04:26,858
+Now, the question is,
+what is the distance between,
+
+56
+00:04:26,858 --> 00:04:33,861
+in the same metric in the cosine distance,
+between Obama and Beckham?
+
+57
+00:04:33,861 --> 00:04:38,470
+So I'm gonna type Obama
+
+58
+00:04:38,470 --> 00:04:43,310
+tfidf, computed at 0,
+
+59
+00:04:43,310 --> 00:04:50,470
+with Beckham's tfidf, also at 0.
+
+60
+00:04:50,470 --> 00:04:53,770
+And you'll see that this distance is 0.97.
+
+61
+00:04:53,770 --> 00:04:58,140
+The biggest distance you can get is 1.0,
+in fact.
+
+62
+00:04:58,140 --> 00:05:03,202
+And so in this case, Obama
+
+63
+00:05:03,202 --> 00:05:08,810
+is much closer to Clinton than he is
+to Beckham, which makes a lot of sense.
+
+64
+00:05:08,810 --> 00:05:12,210
+But we've done this just manually for
+a few people, how do we
+
+65
+00:05:12,210 --> 00:05:16,980
+automate this process of finding out how
+close an article is to other articles.
+
+66
+00:05:16,980 --> 00:05:18,990
+And in this case how close
+is a person to other people.
+
+67
+00:05:20,610 --> 00:05:26,390
+In the lectures, Emily talked
+about nearest neighbor models and
+
+68
+00:05:26,390 --> 00:05:27,850
+how they can be used for
+document retrieval.
+
+69
+00:05:27,850 --> 00:05:32,394
+So today we're gonna actually do
+some cool document retrieval using
+
+70
+00:05:32,394 --> 00:05:34,679
+a simple nearest neighbor model.
+
+71
+00:05:34,679 --> 00:05:35,179
+[MUSIC]

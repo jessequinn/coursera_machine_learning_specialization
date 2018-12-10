@@ -1,0 +1,79 @@
+[MUSIC] Okay, so the issue we're facing here with
+this crazy 13th order polynomial fit is something called overfitting. So in particular, what we've done
+is we've taken a model and really, really, really honed in to
+our actual observations, but it doesn't generalize well to
+thinking about new predictions. And so the issues actually go beyond
+just making really crazy predictions. And we're gonna discuss this in a lot
+more detail in the regression course. But I wanna mention that this is a real
+problem with any machine learning model or statistical model that you might consider. So in these cases,
+we wanna fit a model to data, but we don't want that model to be so
+specified exactly to the one data set that we have that it doesn't generalize
+well to new observations we might get. Okay, so let's go back to this
+13th order degree polynomial fit. And a question is,
+do we actually believe this? Do we believe that this might
+be a reasonable fit to the data? And I think as I alluded to before,
+probably not. So although it minimizes
+the residual sum of squares, it ends up leading to
+very bad predictions. Because I'm sitting here and thinking,
+well, this quadratic fit that we had, even though it didn't minimize my residual
+sum of squares as much as that 13th order polynomial, it still, my gut feeling
+is, somehow this is a better model. Okay, so a question is,
+what's going on here, and how do we think about choosing the right
+model order or model complexity? Well, what we want,
+is we want good predictions. Of course, that's what we're aiming for. But we can't actually observe the future. Right, so we can't actually observe
+that prediction that we want to make and say did we do a good job or
+not until we actually go ahead and do it. So when we're thinking
+about choosing our model, somehow we have to work just
+with the data that we have. So how can we think about trying to
+choose a good model in this case? Well, what we can do is we can
+think about simulating predictions. So we're gonna take our
+data set that we have, and we're gonna remove some of the houses. So those are the grayed-out houses here. These are gonna be removed temporarily. And we're gonna fit our model
+on the remaining houses. So all of these guys we're gonna
+use to fit our model using exactly the kind of methods
+that we talked about before. And then what we're gonna
+do is we're gonna predict. So I'll go through an erase these
+x's now and put question marks. And say from the model that I just
+learned on the circled houses, what values do I predict for
+these question marks? And then I can compare to
+the actual observed values, because these houses are in my data set. Okay, so I can use this as a proxy for
+doing the types of real predictions that I wanna do on
+data that I haven't yet collected. Of course, this type of method only
+is gonna work well if I have enough observations to think about fitting
+on versus testing my predictions on. Okay, so let's introduce
+a little bit of terminology. Well, the houses that we use to fit our
+model, we call that the training set. And the houses that we're
+using as a proxy for our predictions, those that we're
+holding out, we call the test set. Okay, so let's dig a little bit more
+into how we're gonna do this analysis. And the first thing that we can do is look
+at something called the training error. So we're gonna examine every
+house in our test data set. So let's look at this red color here. So all of our training
+houses are represented with these blue circles here,
+and these are the only houses we're gonna look at when we're thinking
+about defining our training error. So in particular, we're gonna look at what are the errors
+that we make on these houses? So this is just the residual sum of
+squares on the houses in our training data set, and
+that's called the training error. So in particular, the training error
+looks exactly like what we had for our residual sum of squares calculation,
+but we're only including the houses that
+are present in our training data set. Okay, so then for any given model,
+such as a linear fit through the data, quadratic fit, or so on, what we can do is
+we can think about estimating our model parameters as those that
+minimize the training error. So that's equivalent to what we talked
+about before of minimizing the residual sum of squares. But again, here we're only looking at
+the houses in our training data set. Okay, so then that's how
+we get our estimated w hat, our estimated model parameters. But then what we wanna do is we wanna take
+these estimated model parameters, and we wanna say how good are we doing? And remember what we said,
+what we're gonna do, is we're gonna look at our
+held out observations, okay? So here, these gray circles
+are the houses that are in our test set. So these are houses that were
+not used to fit this model. And we're gonna say how well are we
+predicting these actual house sales? Okay, and so what were our predictions? Well, remember when we thought
+about making a prediction, we just used the value of the fit,
+so just the point on the line. So to assess how well we're predicting
+these held-out observations, our test data,
+we're gonna look at something that, again, looks exactly like
+residual sum of squares. But it's called our test error, where we take these estimated
+model parameters w hat, and we sum over our residual sum of squares over all
+houses that are in our test data set. Okay, so that's our test error. But what we can think about is we can
+think about how does test error and training error vary as a function
+of the model complexity? [MUSIC]

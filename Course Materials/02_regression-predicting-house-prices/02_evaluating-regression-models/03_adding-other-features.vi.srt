@@ -1,0 +1,179 @@
+1
+00:00:00,000 --> 00:00:03,499
+[NHẠC]
+
+2
+00:00:03,499 --> 00:00:08,013
+OK chúng ta giả định rằng tính năng duy nhất liên quan đến ngôi nhà của tôi
+
+3
+00:00:08,013 --> 00:00:10,620
+là feet vuông của ngôi nhà.
+
+4
+00:00:10,620 --> 00:00:13,400
+Nhưng tôi đi sâu vào bộ dữ liệu một chút,
+
+5
+00:00:13,400 --> 00:00:17,670
+tôi nhìn vào ngôi nhà được giả sử là tương tự với cái của tôi.
+
+6
+00:00:17,670 --> 00:00:20,720
+Nó là một ngôi nhà có foot vuông tương tự.
+
+7
+00:00:20,720 --> 00:00:25,890
+Ngôi nhà này đang tạp ra sự ảnh hưởng trên những sự dự đoán cho
+
+8
+00:00:25,890 --> 00:00:27,010
+ngôi nhà của tôi.
+
+9
+00:00:27,010 --> 00:00:31,050
+Nhưng toi nhìn vào nó, tôi nhìn vào danh sách cụ thể và
+
+10
+00:00:31,050 --> 00:00:33,650
+nó thể hiện rằng ngôi nhà đó có một phòng tắm.
+
+11
+00:00:33,650 --> 00:00:36,650
+NÓ là ngôi nhà khá lớn, chỉ có một phòng tắm.
+
+12
+00:00:36,650 --> 00:00:39,990
+Và tôi giả sử điều đó không thể so sánh được với ngôi nhà của tôi,
+
+13
+00:00:39,990 --> 00:00:41,699
+cái mà có ba phòng ngủ.
+
+14
+00:00:43,160 --> 00:00:46,810
+Giá trị của ngôi nhà, giá bán nhà
+
+15
+00:00:46,810 --> 00:00:50,210
+không thể hiện giá bán nhà của tôi là gì.
+
+16
+00:00:52,140 --> 00:00:55,330
+Thay vì thế chúng ta có thể nghĩ về việc thêm nhiều tính năng hơn.
+
+17
+00:00:55,330 --> 00:00:59,050
+Thay vì chỉ nhìn vào mối quan hệ giữa feet vuông và
+
+18
+00:00:59,050 --> 00:01:03,120
+giá, chúng ta có thể thêm số lượng phòng tắm.
+
+19
+00:01:03,120 --> 00:01:03,630
+Bây giờ với
+
+20
+00:01:03,630 --> 00:01:07,100
+mỗi một danh sách mà tôi nhìn vào trước đây, tôi sẽ phải đi qua và
+
+21
+00:01:07,100 --> 00:01:11,770
+ghi lại nhà có diện tích bao nhiêu, số lượng phòng tắm.
+
+22
+00:01:11,770 --> 00:01:15,470
+Và tôi sẽ vẽ mối điểm đó trong không gian 3D.
+
+23
+00:01:15,470 --> 00:01:18,390
+OK? Nó là hình siêu lập phương của diện tích
+
+24
+00:01:18,390 --> 00:01:21,710
+với phòng tắm với giá.
+
+25
+00:01:21,710 --> 00:01:26,130
+Bây giờ thay vì thêm dòng dữ liệu, nếu tôi nghĩ về một
+
+26
+00:01:26,130 --> 00:01:30,360
+mô hình đơn giản, tôi có thể nghĩ đến lắp một siêu máy bay.
+
+27
+00:01:30,360 --> 00:01:33,370
+OK nó chỉ là một lát qua không gian.
+
+28
+00:01:33,370 --> 00:01:34,010
+Chúng ta ở đây.
+
+29
+00:01:34,010 --> 00:01:38,690
+Đây là phương trình mặt phẳng siêu và đây là phương trình của chiếc máy bay này.
+
+30
+00:01:38,690 --> 00:01:43,120
+Chúng ta có w0, đó là đường chắn của chúng ta nơi mà chiếc máy bay này đi lên và
+
+31
+00:01:43,120 --> 00:01:45,110
+xuống trên trục Y.
+
+32
+00:01:45,110 --> 00:01:47,280
+Chúng ta có w1số feet vuông,
+
+33
+00:01:47,280 --> 00:01:50,260
+w2 số phòng tắm.
+
+34
+00:01:50,260 --> 00:01:51,730
+Nhưng câu hỏi là chúng ta dừng lại ở đâu?
+
+35
+00:01:51,730 --> 00:01:56,340
+Chúng ta chỉ muốn bao gồm số lượng phòng ngủ như tính tăng bổ sung phải không?
+
+36
+00:01:56,340 --> 00:01:58,546
+Có nhiều thứ chúng ta có thể nghĩ đến việc bao gồm.
+
+37
+00:01:58,546 --> 00:02:02,244
+Chúng ta có thể nghĩ đến ngoài feet vuông, số phòng tắm,
+
+38
+00:02:02,244 --> 00:02:05,882
+có số phòng ngủ, nhiều kích cỡ, ngôi nhà cũ như thế nào và
+
+39
+00:02:05,882 --> 00:02:07,074
+danh sách tiếp tục dài ra.
+
+40
+00:02:07,074 --> 00:02:10,893
+xét về tính khác nhau của ngôi nhà có thể ảnh hưởng đến
+
+41
+00:02:10,893 --> 00:02:12,193
+giá trị của nó.
+
+42
+00:02:12,193 --> 00:02:17,660
+Nhưng chúng ta sẽ giữ câu hỏi này để nhìn vào các tính năng
+
+43
+00:02:17,660 --> 00:02:23,220
+quan trọng cho nhiệm vụ quy hồi, cho tới khi chúng ta có khóa học quy hồi.
+
+44
+00:02:23,220 --> 00:02:25,820
+Vì thế đi tới khóa học quy hồi để học nhiều hơn về chủ đề này.
+
+45
+00:02:25,820 --> 00:02:29,979
+[NHẠC]

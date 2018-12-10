@@ -1,0 +1,469 @@
+1
+00:00:00,000 --> 00:00:04,128
+[MUSIC]
+
+2
+00:00:04,128 --> 00:00:08,040
+And so, let's actually compute TF/IDF.
+
+3
+00:00:08,040 --> 00:00:11,760
+Now, I can't just compute TF/IDF and
+this is an important note by the way.
+
+4
+00:00:11,760 --> 00:00:13,190
+Can't just compute TF/IDF for
+
+5
+00:00:13,190 --> 00:00:18,560
+the Obama article in isolation because
+tf/idf depends on entire corpus.
+
+6
+00:00:18,560 --> 00:00:21,750
+You need that normalizer which is
+the number of times a word appears in
+
+7
+00:00:21,750 --> 00:00:22,780
+every article.
+
+8
+00:00:22,780 --> 00:00:25,620
+So, I have to show it I have computed for
+the entire corpus.
+
+9
+00:00:25,620 --> 00:00:29,087
+So let's go ahead and do just that.
+
+10
+00:00:29,087 --> 00:00:33,302
+So here we go, so
+
+11
+00:00:33,302 --> 00:00:38,124
+I'm gonna compute
+
+12
+00:00:38,124 --> 00:00:44,462
+TF/IDF for the corpus.
+
+13
+00:00:44,462 --> 00:00:46,320
+And I'm gonna do this in two steps.
+
+14
+00:00:47,660 --> 00:00:51,712
+First, I'm gonna compute the word
+counts for the entire corpus.
+
+15
+00:00:51,712 --> 00:00:57,330
+So, I'm gonna add a new column to
+the people table called word_count.
+
+16
+00:00:57,330 --> 00:01:01,660
+Remember we just did this only for Barack
+Obama, so now, we're gonna do it for
+
+17
+00:01:01,660 --> 00:01:02,160
+everyone.
+
+18
+00:01:02,160 --> 00:01:10,494
+So I'm gonna call,
+graphlab.text_analytics.count_words and
+
+19
+00:01:10,494 --> 00:01:14,304
+I'm going got put in the input,
+
+20
+00:01:14,304 --> 00:01:18,837
+which is gonna be the the text column.
+
+21
+00:01:18,837 --> 00:01:22,370
+In other words, I'm gonna count
+the words in the text column.
+
+22
+00:01:23,500 --> 00:01:25,750
+And just so that we're clear.
+
+23
+00:01:25,750 --> 00:01:31,010
+Then you just print the SFrame
+people after we do this,
+
+24
+00:01:31,010 --> 00:01:33,780
+so I'm gonna print the first
+few lines of that SFrame.
+
+25
+00:01:33,780 --> 00:01:35,430
+So here we are, we've executed.
+
+26
+00:01:35,430 --> 00:01:40,634
+Now we have the URI column, the location,
+the webpage, the name of person,
+
+27
+00:01:40,634 --> 00:01:46,254
+text, and now we have this dictionary of
+word counts on the right, the new column.
+
+28
+00:01:46,254 --> 00:01:50,860
+Good, so
+next we're gonna compute the TF/IDFs.
+
+29
+00:01:50,860 --> 00:01:55,364
+So just like with word counts,
+you can implement your own TF/IDF system,
+
+30
+00:01:55,364 --> 00:01:57,588
+it will take you a little while to do.
+
+31
+00:01:57,588 --> 00:02:01,086
+So, Graphlocate one already implemented,
+and
+
+32
+00:02:01,086 --> 00:02:05,949
+we're just gonna use that to make
+this whole process pretty quick,
+
+33
+00:02:05,949 --> 00:02:09,730
+so we're gonna call
+graphlab.text_analytics.
+
+34
+00:02:09,730 --> 00:02:14,820
+Just like with word count,
+there's a function here, .tf_idf.
+
+35
+00:02:14,820 --> 00:02:17,450
+And all you need to do is give an input,
+
+36
+00:02:17,450 --> 00:02:20,975
+just like we're gonna give
+in the input the word_count.
+
+37
+00:02:22,750 --> 00:02:26,296
+word_count, and it will output the TF/IDF.
+
+38
+00:02:26,296 --> 00:02:29,780
+And let me just again show
+you what that looks like.
+
+39
+00:02:30,900 --> 00:02:33,560
+Oops, I did a little typo here.
+
+40
+00:02:33,560 --> 00:02:35,671
+That should be word_count.
+
+41
+00:02:35,671 --> 00:02:38,629
+That's call not word_counts.
+
+42
+00:02:38,629 --> 00:02:43,390
+And now I'm going through the whole
+corpus,with 50,000 documents.
+
+43
+00:02:43,390 --> 00:02:47,440
+Computing the frequency of words,
+normalizing.
+
+44
+00:02:47,440 --> 00:02:52,150
+And what we end up with is a table where
+for every document, it calls the table
+
+45
+00:02:52,150 --> 00:02:59,150
+docs, it has a dictionary of TF/IDF's for
+each one of those documents.
+
+46
+00:02:59,150 --> 00:03:03,830
+And just so that we get all this right,
+I'm gonna add a new column.
+
+47
+00:03:03,830 --> 00:03:09,220
+To the people table, and
+this new column is gonna be called tfidf,
+
+48
+00:03:09,220 --> 00:03:14,510
+and I'm just gonna store in there
+the tfidf's that I just computed.
+
+49
+00:03:14,510 --> 00:03:17,360
+So it's all in one table,
+and it's a docs column.
+
+50
+00:03:19,350 --> 00:03:20,930
+Here we go.
+We just added it in.
+
+51
+00:03:20,930 --> 00:03:25,880
+So now we have tfidf's for every
+document computed and stored in there.
+
+52
+00:03:25,880 --> 00:03:27,700
+Let's do some examination.
+
+53
+00:03:27,700 --> 00:03:33,283
+So here's what we gonna do,
+
+54
+00:03:33,283 --> 00:03:39,565
+we gonna Examine the TF-IDF for
+
+55
+00:03:39,565 --> 00:03:43,530
+the Obama article.
+
+56
+00:03:47,500 --> 00:03:50,657
+So just like we examined and
+sorted the word counts,
+
+57
+00:03:50,657 --> 00:03:53,547
+we're not gonna examine
+sorting the TF ideas.
+
+58
+00:03:53,547 --> 00:03:56,703
+I'm gonna reread the variable for Obama,
+
+59
+00:03:56,703 --> 00:04:02,530
+because we now added these two new
+columns in the latest version of that.
+
+60
+00:04:02,530 --> 00:04:07,800
+So I'm gonna take people, and I'm gonna
+select out of the people, the one whose
+
+61
+00:04:07,800 --> 00:04:14,320
+name is equal to Barack Obama.
+
+62
+00:04:16,120 --> 00:04:20,700
+Okay, I've done it, I've created this
+Obama, and now, just like we did with word
+
+63
+00:04:20,700 --> 00:04:29,150
+counts, I will create an obama_tfidf_table
+so that we can sort it too.
+
+64
+00:04:29,150 --> 00:04:30,310
+It's a dictionary.
+
+65
+00:04:30,310 --> 00:04:32,580
+We're just gonna sort to the exactly
+the same way as we did before.
+
+66
+00:04:32,580 --> 00:04:35,150
+We will stack it and then sort it.
+
+67
+00:04:35,150 --> 00:04:37,296
+And we're gonna do this.
+
+68
+00:04:37,296 --> 00:04:41,400
+Actually, instead of create a table,
+I'm just gonna do it in one line.
+
+69
+00:04:41,400 --> 00:04:43,837
+Oops, I'm gonna do just in one line here.
+
+70
+00:04:43,837 --> 00:04:47,469
+So I'm gonna write out
+what we did earlier, so
+
+71
+00:04:47,469 --> 00:04:50,824
+I'm gonna just take the obama variable and
+
+72
+00:04:50,824 --> 00:04:56,388
+when I select only the tfidf column so
+it looks a little prettier.
+
+73
+00:04:56,388 --> 00:05:00,460
+Then I'm gonna call the stack method,
+which takes a dictionary and
+
+74
+00:05:00,460 --> 00:05:02,580
+just stacks it into two columns.
+
+75
+00:05:02,580 --> 00:05:07,422
+So I'm gonna stack tfidf.
+
+76
+00:05:07,422 --> 00:05:13,804
+And I'm going to output
+new column names and
+
+77
+00:05:13,804 --> 00:05:19,324
+those names are going to be the word and
+
+78
+00:05:19,324 --> 00:05:25,547
+the tfidf, and let me show you something.
+
+79
+00:05:25,547 --> 00:05:32,212
+Ooops, I, Forgot to close, click it here.
+
+80
+00:05:32,212 --> 00:05:36,725
+And let me show you a little neat
+trick that you can use with Python in
+
+81
+00:05:36,725 --> 00:05:38,300
+various ways.
+
+82
+00:05:38,300 --> 00:05:41,880
+I'm just gonna chain the source
+comment at the end of this.
+
+83
+00:05:41,880 --> 00:05:43,959
+So I'm just gonna type .sort.
+
+84
+00:05:45,540 --> 00:05:52,730
+And I'm gonna sort this
+output on the tfidf column.
+
+85
+00:05:52,730 --> 00:05:59,590
+And I'm gonna say ascending=false.
+
+86
+00:05:59,590 --> 00:06:02,920
+So what I did in multiple lines before,
+now I'm doing it in just one line.
+
+87
+00:06:02,920 --> 00:06:06,087
+I'm taking the obama column tfidf.
+
+88
+00:06:06,087 --> 00:06:10,139
+I'm gonna stack it into a word column,
+tfidf column, and
+
+89
+00:06:10,139 --> 00:06:13,920
+now I'm gonna sort it in descending order.
+
+90
+00:06:13,920 --> 00:06:16,070
+So from highest to lowest.
+
+91
+00:06:16,070 --> 00:06:19,530
+And if you remember,
+just before we run this.
+
+92
+00:06:19,530 --> 00:06:24,475
+When we did it for
+just word count you look like this.
+
+93
+00:06:24,475 --> 00:06:27,250
+There was the most popular word,
+then in, then and, then of,
+
+94
+00:06:27,250 --> 00:06:30,260
+then to, his, then Obama, act, a, and he.
+
+95
+00:06:30,260 --> 00:06:35,010
+So those words are mostly uninformative
+except for the word Obama.
+
+96
+00:06:36,320 --> 00:06:39,980
+So let's execute it for TF-IDF.
+
+97
+00:06:39,980 --> 00:06:44,180
+And what we see here, voila,
+the most informative word is Obama
+
+98
+00:06:44,180 --> 00:06:47,220
+which makes a lot of sense
+because the article is about him.
+
+99
+00:06:47,220 --> 00:06:50,630
+But then you have art, Iraq,
+control, law, ordered,
+
+100
+00:06:50,630 --> 00:06:54,690
+military, involvement, response,
+democratic, as in Democratic Party.
+
+101
+00:06:54,690 --> 00:06:59,669
+So you see,
+lots of action going on here around
+
+102
+00:06:59,669 --> 00:07:05,171
+words that are important,
+with respect to Obama.
+
+103
+00:07:05,171 --> 00:07:09,309
+[MUSIC]

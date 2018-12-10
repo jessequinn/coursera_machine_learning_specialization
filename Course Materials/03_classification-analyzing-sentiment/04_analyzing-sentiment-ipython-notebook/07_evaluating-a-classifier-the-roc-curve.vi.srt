@@ -1,0 +1,315 @@
+1
+00:00:00,000 --> 00:00:04,493
+[NHẠC]
+
+2
+00:00:04,493 --> 00:00:08,749
+Bước tiếp theo của chúng ta là đánh giá
+
+3
+00:00:08,749 --> 00:00:15,530
+mô hình cảm tính mà
+chúng ta vừa xây dựng.
+
+4
+00:00:15,530 --> 00:00:21,030
+Bây giờ chúng ta chỉ nói trong
+bài học này về lỗi phân loại,
+
+5
+00:00:21,030 --> 00:00:24,298
+sự chính xác, xin lỗi,
+tích cực sai và tiêu cực sai.
+
+6
+00:00:24,298 --> 00:00:27,170
+Và chúng ta sẽ khám phá
+ý tưởng đó ở đây.
+
+7
+00:00:27,170 --> 00:00:29,254
+được minh họa này
+trong notebook này.
+
+8
+00:00:29,254 --> 00:00:36,190
+Mô hình cảm tính có một hàm
+được gọi là Evaluate.
+
+9
+00:00:36,190 --> 00:00:42,140
+Và hàm Evaluate đó cho phép bạn đánh giá
+chất lượng của nó trên dữ liệu kiểm tra.
+
+10
+00:00:42,140 --> 00:00:46,108
+Và chúng ta sẽ cung cấp
+một ma trận cụ thể và
+
+11
+00:00:46,108 --> 00:00:49,710
+ma trận này được gọi là roc_curve.
+
+12
+00:00:49,710 --> 00:00:53,098
+Chúng ta sẽ học nhiều hơn
+một chút về roc_curve tiếp theo.
+
+13
+00:00:53,098 --> 00:00:56,960
+Nhưng roc_curve là một cách
+để khám phá tích cực sai và
+
+14
+00:00:56,960 --> 00:01:01,840
+tiêu cực sai trong ma trận nhầm lẫn
+mà chúng ta đã thảo luận.
+
+15
+00:01:01,840 --> 00:01:06,750
+Bây giờ ở đây nó chỉ cho bạn các kết quả
+của sự đánh giá khó thấy trong văn bản.
+
+16
+00:01:06,750 --> 00:01:10,090
+Hãy hình dung một chút về nó,
+một lần nữa sử dụng Canvas.
+
+17
+00:01:10,090 --> 00:01:14,189
+Chúng ta có thể sử dụng
+sentiment_model.show và
+
+18
+00:01:14,189 --> 00:01:18,841
+chúng ta sẽ chỉ ra view
+mà chúng ta sẽ sử dụng,
+
+19
+00:01:18,841 --> 00:01:22,180
+sẽ là view Evaluation.
+
+20
+00:01:23,990 --> 00:01:25,000
+Và chúng ta có ở đây.
+
+21
+00:01:27,390 --> 00:01:30,500
+Ok điều này thật tuyệt.
+
+22
+00:01:30,500 --> 00:01:32,502
+Chúng ta đã xây dựng một vài thứ.
+
+23
+00:01:32,502 --> 00:01:39,762
+Đây là tính lại độ chính xác, tôi xin lỗi,
+điều này được gọi là roc_curve,
+
+24
+00:01:39,762 --> 00:01:46,180
+nó là một đường cong cân nhắc
+các tích cực sai với các tích cực đúng.
+
+25
+00:01:46,180 --> 00:01:47,890
+Để tôi giải thích một chút.
+
+26
+00:01:47,890 --> 00:01:50,300
+Nhưng đầu tiên hãy nhìn
+vào số lượng ở đây.
+
+27
+00:01:50,300 --> 00:01:52,960
+Đây là ma trận nhầm lẫn.
+
+28
+00:01:52,960 --> 00:01:54,330
+Số lượng của các tích cực đúng,
+
+29
+00:01:54,330 --> 00:01:59,950
+những thứ chúng ta nhận là đúng, 22.455.
+
+30
+00:01:59,950 --> 00:02:01,090
+Ngay ở đây.
+
+31
+00:02:01,090 --> 00:02:05,995
+Số lượng các tiêu cực đúng
+chỉ là 4.000 và 3.965.
+
+32
+00:02:05,995 --> 00:02:09,500
+Đây là trường hợp mất cân bằng cao.
+
+33
+00:02:09,500 --> 00:02:11,520
+Và sau đó số lượng các tích cực sai và
+
+34
+00:02:11,520 --> 00:02:13,370
+số lượng các tiêu cực sai gần bằng nhau.
+
+35
+00:02:13,370 --> 00:02:20,640
+Độ chính xác tổng thể
+là 91.1%, là 0.911.
+
+36
+00:02:20,640 --> 00:02:24,151
+Và cũng thảo luận một vài chỉ số
+như là tính lại độ chính xác và đếm sai
+
+37
+00:02:24,151 --> 00:02:29,410
+cái mà chúng ta sẽ học nhiều hơn sau này
+trong khóa học và trong chuỗi học này.
+
+38
+00:02:29,410 --> 00:02:34,666
+Bây giờ những thứ về tích cực
+sai và tiêu cực sai là
+
+39
+00:02:34,666 --> 00:02:39,920
+có một cách tự nhiên để thay đổi
+ngưỡng mà chúng ta tin
+
+40
+00:02:39,920 --> 00:02:44,918
+sự chuyển tiếp từ lớp tiêu cực
+sang lớp tích cực là gì.
+
+41
+00:02:44,918 --> 00:02:48,306
+Đây là cái mà ngưỡng hiển thị
+bên phải, nhưng
+
+42
+00:02:48,306 --> 00:02:51,580
+để tôi chỉ nó trên đường cong ở đây.
+
+43
+00:02:51,580 --> 00:02:54,300
+Bạn có thể thấy là tôi có thể
+có được, ví dụ
+
+44
+00:02:54,300 --> 00:02:58,285
+tỉ lệ tích cực đúng rất cao.
+
+45
+00:02:58,285 --> 00:03:01,646
+.4 xin lỗi, rất thấp .4.
+
+46
+00:03:01,646 --> 00:03:06,760
+Nếu tôi không cho phép bản thân tôi
+nhận bất kì tích cực sai nào.
+
+47
+00:03:06,760 --> 00:03:10,500
+Nếu tôi lo lắng về tích cực sai
+mà có thể rất bảo thủ,
+
+48
+00:03:10,500 --> 00:03:11,930
+không nhận tích cực sai.
+
+49
+00:03:11,930 --> 00:03:16,790
+Nhưng một lần nữa không nắm bắt
+nhiều tích cực đúng và tạo các lỗi khác.
+
+50
+00:03:16,790 --> 00:03:17,610
+Và bạn thấy.
+
+51
+00:03:17,610 --> 00:03:19,580
+Bạn đi qua vòng cung có một xoắn ở đây.
+
+52
+00:03:19,580 --> 00:03:23,930
+Đây là điểm nơi bạn không nhận
+quá nhiều các tích cực sai nhưng
+
+53
+00:03:23,930 --> 00:03:25,780
+nhiều tích cực đúng.
+
+54
+00:03:25,780 --> 00:03:31,650
+Và sau đó ở cuối bạn có
+tất cả tích cực đúng.
+
+55
+00:03:31,650 --> 00:03:33,520
+Nhưng bạn có rất nhiều các tích cực sai.
+
+56
+00:03:33,520 --> 00:03:36,330
+Bạn có nhiều tích cực đúng nhưng
+có ít tích cực sai như thế nào?
+
+57
+00:03:36,330 --> 00:03:38,870
+Bạn nói mọi điểm dữ liệu là tích cực.
+
+58
+00:03:38,870 --> 00:03:41,910
+Sau đó bạn có tất cả các tích cực đúng,
+nhưng bạn cũng tạo ra nhiều lỗi.
+
+59
+00:03:41,910 --> 00:03:45,170
+Và chúng ta sẽ thảo luận nhiều hơn về điều này
+khi chúng ta nói về đường cong độ nhạy.
+
+60
+00:03:45,170 --> 00:03:49,390
+Nhưng rất tuyệt là chúng ta có thể thay đổi
+các ngưỡng ở đây và đi qua đường cong đó.
+
+61
+00:03:50,420 --> 00:03:55,030
+Như bạn có thể thấy , ví dụ
+ở điểm cuối bên phải
+
+62
+00:03:55,030 --> 00:03:57,860
+bạn thấy rằng tỉ lệ tích cực đúng rất cao.
+
+63
+00:03:57,860 --> 00:04:02,160
+Không có tích cực sai nhưng
+không có tiêu cực đúng.
+
+64
+00:04:02,160 --> 00:04:06,120
+Không có tiêu cực sai, không tiêu cực đúng,
+bạn chỉ có mọi thứ đúng.
+
+65
+00:04:06,120 --> 00:04:10,210
+Và bạn có thể di chuyển
+nó theo cách khác.
+
+66
+00:04:10,210 --> 00:04:11,980
+Bạn có thể thể hiện bằng điều này và
+
+67
+00:04:11,980 --> 00:04:15,350
+cảm thấy đường cong có ý nghĩa , roc_curve.
+
+68
+00:04:15,350 --> 00:04:17,358
+Đây là đánh giá mà chúng ta sẽ làm.
+
+69
+00:04:20,522 --> 00:04:24,569
+[NHẠC]

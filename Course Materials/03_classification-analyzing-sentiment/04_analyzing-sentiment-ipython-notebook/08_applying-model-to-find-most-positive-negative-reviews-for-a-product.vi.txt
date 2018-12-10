@@ -1,0 +1,37 @@
+[NHẠC] Chúng ta đã xây dựng một mô hình. Chúng ta đã hiểu nó chính xác
+khoảng 0.911%. Hãy tiếp tục và sử dụng mô hình
+này cho điều gì đó thú vị. Cái mà tôi sẽ làm là ứng dụng mô hình. Mô hình đã học để hiểu về cảm tính với bạn của chúng ta, hươu cao cổ. Vậy húng ta có ở đây. Hãy hiểu nó một chút. Đây là cái mà tôi sẽ làm. Tôi sẽ lấy giraffe_reviews mà
+tôi đã xây dựng trước đây. Và tôi sẽ tạo ra một cột mới với giraffe_reviews gọi là
+predicted_sentiment của tôi. Và predicted_sentiment này sẽ có từ việc lấy mô hình cảm tính
+chúng ta đã xây dựng. Mô hình cảm tính, hoàn toàn tự động hơi chậm,
+xin lỗi về điều này. Ôi chúng ta có một trục trặc nhỏ ở đó. Ok chúng ta sẽ lấy mô hình cảm tính và chúng ta sẽ dùng chức năng
+này dự đoán trên nó. Và chúng ta sẽ cố gắng dự đoán
+nó cảm thấy thế nào về giraffe_reviews. Bạn cảm thấy thế nào
+về bạn của tôi: giraffe_reviews. Và đầu ra, đây là điều quan trọng, chúng ta sẽ không chỉ có đầu ra 0-1. nơi mà chúng dự đoán
+cảm tính là 0 hoặc 1. Tôi sẽ nói xác suất đầu ra
+và nếu bạn còn nhớ, chúng ta đã nói về điều này trong
+bài học, đó là bởi xác suất đầu ra. Bạn có thể có ước tính tốt
+hơn cái dự đoán làm. Chúng ta chạy nó và hãy nhìn qua giraffe_reviews mới này. Hãy nhìn vào phần đầu của bảng này,
+và bạn sẽ thấy rằng bây giờ chúng ta có tên của sản phẩm, đánh giá, tỉ lệ, đếm từ. Và tôi đã thêm cột nữa
+gọi là predicted sentiment. Với một số đánh giá nó
+thực sự cao 0.999, 0.99, và đây là đánh giá mà
+có cảm tính khá thấp. Có sự cảnh báo lớn trên đây, họ không thích vì một vài lý do,
+bây giờ hãy thử hiểu. Hãy nhìn vào các đánh giá và
+xem đánh giá nào là tích cực hay tiêu cực và xem mọi người
+nói gì về sản phẩm. Đây là cái mà tôi sẽ làm. Chúng ta sẽ phân loại các đánh giá dựa trên cảm tính được dự đoán và khám phá. Điều thú vị ở đây là cảm tính
+đã được dự đoán cảm tính là sự mô tả khá kỹ liệu rằng chúng ta đã
+sử dụng tích cực hay tiêu cực. Số lượng sao đang bị chênh lệch,
+năm sao, bốn sao, ba sao, một sao và điều này nói với bạn độ
+rộng quang phổ bạn có. Bây giờ chúng ta có những số liệu này, cột thêm này,
+chúng ta có thể làm nhiều hơn. Tôi sẽ lấy dữ liệu hươu cao cổ này
+và tôi sẽ phân loại nó. Tất cả cái tôi phải làm là lấy nó,
+lấy giá trị giống nhau và tôi sẽ dùng hàm sắp xếp trên nó. Và bạn phải thấy, cột bạn
+đang dùng để sắp xếp. Chúng ta sẽ sắp xếp
+dựa trên cột mới này mà chúng ta gọi là predicted_sentiment. Mẹo nhỏ ở đây là chúng ta sẽ
+tăng dần tương đương với sai. Chúng ta vẫn sắp xếp thứ tự
+tăng dần này với thứ tự tăng dần. Bắt đầu từ các đánh giá tích cực nhất
+xuống các đánh giá tiêu cực nhất. Bây giờ chúng ta đã sắp xếp nó chúng ta
+sẽ đưa ra vài dòng đầu tiên của bảng. Và cái mà bạn sẽ thấy là các
+đánh giá bây giờ đã được sắp xếp dựa trên cảm tính đó. Ở trên phần đầu ở đây, chúng ta có
+đánh giá tích cực nhất được dự đoán cảm tính là 1.9999 và tất cả
+chúng đã được sắp xếp. [NHẠC]

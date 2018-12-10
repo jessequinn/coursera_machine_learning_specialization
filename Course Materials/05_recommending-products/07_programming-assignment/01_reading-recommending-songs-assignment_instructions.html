@@ -1,0 +1,406 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Recommending songs
+ </h1>
+ <p>
+ </p>
+ <p>
+  In this module, we focused on building recommender systems to find products, music and movies that interest users.  We also built an exciting iPython notebook for recommending songs, which compared the simple popularity-based recommendation with a personalized model, and showed the significant improvement provided by personalization.
+ </p>
+ <p>
+  In this assignment, we are going to explore the song data and the recommendations made by our model.  In the process, you are going to learn how to use one of the most important data manipulation primitives,
+  <em>
+   groupby
+  </em>
+  .  These techniques will be important to building the intelligent application in your capstone project.
+ </p>
+ <p>
+  Follow the rest of the instructions on this page to complete your program.  When you are done,
+  <strong>
+   <em>
+    instead of uploading your code, you will answer a series of quiz questions
+   </em>
+  </strong>
+  (see the quiz after this reading) to document your completion of this assignment.  The instructions will indicate what data to collect for answering the quiz.
+ </p>
+ <h3 level="3">
+  Learning outcomes
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Execute song recommendation code with the iPython notebook
+   </p>
+  </li>
+  <li>
+   <p>
+    Load and transform real, song data
+   </p>
+  </li>
+  <li>
+   <p>
+    Build a song recommender model
+   </p>
+  </li>
+  <li>
+   <p>
+    Use the model to recommend songs to individual users
+   </p>
+  </li>
+  <li>
+   <p>
+    Use groupby to compute aggregate statistics of the data
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <h3 level="3">
+  <strong>
+   Resources you will need
+  </strong>
+ </h3>
+ <p>
+  You will need to install the software tools or use the free Amazon EC2 machine.  Instructions for both options are provided in the reading for Module 1.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Download the data and starter code
+ </h3>
+ <p>
+  Before getting started, you will need to download the dataset and the starter iPython notebook that we used in the module.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the music listening dataset with articles on famous people here in SFrame format:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/song_data.gl.zip">
+      song_data.gl.zip
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the song recommendation notebook from the module here:
+    <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/Song%20recommender.ipynb">
+     <strong>
+      Song recommender.ipynb
+     </strong>
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling iPython notebook from) and unzip the data file.
+    <strong>
+     Not sure where to save the files? See
+     <a href="https://www.coursera.org/learn/ml-foundations/supplement/IT04V/reading-where-should-my-files-go">
+      this guide
+     </a>
+     .
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  Now you are ready to get started!
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  <em>
+   <strong>
+    Note:  If you would rather use other ML tools...
+   </strong>
+  </em>
+ </h3>
+ <p>
+  You are welcome to use any ML tool for this course, such as
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  . Though, as discussed in the intro module,
+  <em>
+   we strongly recommend you use IPython Notebook and GraphLab Create. (GraphLab Create is free for academic purposes.)
+  </em>
+ </p>
+ <p>
+  If you are choosing to use other packages, we still recommend you use SFrame, which will allow you to scale to much larger datasets than Pandas. (Though, it's possible to use Pandas in this course, if your machine has sufficient memory.) The SFrame package is available in
+  <a href="https://github.com/turi-code/SFrame">
+   open-source under a permissive BSD license
+  </a>
+  . So, you will always be able to use SFrame for free.
+ </p>
+ <p>
+  If you are not using SFrame, here is the dataset for this assignment in CSV format, so you can use
+  <a href="http://pandas.pydata.org/">
+   Pandas
+  </a>
+  or other options out there:
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/song_data.csv">
+   song_data.csv
+  </a>
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Watch the video and explore the iPython notebook on recommending songs
+ </h3>
+ <p>
+  If you haven’t done so yet, before you start, we recommend you watch the video where we go over the iPython notebook on song recommendation from this module.  You can then open up the iPython notebook we used and familiarize yourself with the steps we covered in this example.
+ </p>
+ <h3 level="3">
+  What you will do
+ </h3>
+ <p>
+  Now you are ready!  We are going do three tasks in this assignment.  There are several results you need to gather along the way to enter into the quiz after this reading.
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    <strong>
+     Counting unique users:
+    </strong>
+    The method
+    <em>
+     .unique()
+    </em>
+    can be used to select the unique elements in a column of data. In this question, you will compute the number of unique users who have listened to songs by various artists.  For example, to find out the number of unique users who listened to songs by 'Kanye West', all you need to do is select the rows of the song data where the artist is 'Kanye West', and then count the number of unique entries in the ‘user_id’ column.  Compute the number of unique users for each of these artists:  'Kanye West', 'Foo Fighters', 'Taylor Swift' and 'Lady GaGa'.
+    <strong>
+     <em>
+      Save these results to answer the quiz at the end.
+     </em>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Using groupby-aggregate to find the most popular and least popular artist:
+    </strong>
+    each row of
+    <em>
+     song_data
+    </em>
+    contains the number of times a user listened to particular song by a particular artist.  If we would like to know how many times any song by 'Kanye West' was listened to, we need to select all the rows where ‘artist’=='Kanye West' and sum the ‘listen_count’ column.  If we would like to find the most popular artist, we would need to follow this procedure for each artist, which would be very slow.  Instead, you will learn about a very important method:
+   </p>
+  </li>
+ </ol>
+ <pre language="python">.groupby()</pre>
+ <p>
+  You can read the
+  <a href="https://turi.com/products/create/docs/generated/graphlab.SFrame.groupby.html#graphlab.SFrame.groupby">
+   documentation about groupby here
+  </a>
+  .  The
+  <em>
+   .groupby
+  </em>
+  method computes an aggregate (in our case, the sum of the ‘listen_count’) for each distinct value in a column (in our case, the ‘artist’ column).
+ </p>
+ <p>
+  Follow these steps to find the most popular artist in the dataset:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    The
+    <em>
+     .groupby
+    </em>
+    method has two important parameters:
+   </p>
+  </li>
+ </ul>
+ <p>
+  i.
+  <em>
+   key_columns
+  </em>
+  , which takes the column we want to group, in our case, ‘artist’
+ </p>
+ <p>
+  ii.
+  <em>
+   operations
+  </em>
+  , where we define the aggregation operation we using, in our case, we want to sum over the ‘listen_count’.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    With this in mind, the following command will compute the sum
+    <em>
+     listen_count
+    </em>
+    for each artist and return an SFrame with the results:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">song_data.groupby(key_columns='artist', operations={'total_count': graphlab.aggregate.SUM('listen_count')})</pre>
+ <p>
+  the total number of listens for each artist will be stored in
+  <em>
+   ‘total_count’
+  </em>
+  .
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Sort the resulting SFrame according to the
+    <em>
+     ‘total_count’
+    </em>
+    , and find the artist with the most popular and least popular artist in the dataset.
+    <strong>
+     <em>
+      Save these results to answer the quiz at the end.
+     </em>
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  3.
+  <strong>
+   [OPTIONAL]
+  </strong>
+  <strong>
+   Using groupby-aggregate to find the most recommended songs:
+  </strong>
+  Now that we learned how to use
+  <em>
+   .groupby()
+  </em>
+  to compute aggregates for each value in a column, let’s use to find the song that is most recommended by the
+  <em>
+   personalized_model
+  </em>
+  model we learned in the iPython notebook above.  Follow these steps to find the most recommended song:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Split the data into 80% training, 20% testing, using
+    <em>
+     seed=0
+    </em>
+    , as was done in the iPython notebook above.
+   </p>
+  </li>
+  <li>
+   <p>
+    Train an
+    <em>
+     item_similarity_recommender
+    </em>
+    , as done in the iPython notebook, using the training data.
+   </p>
+  </li>
+  <li>
+   <p>
+    Next, we are going to make recommendations for the users in the test data, but  there are over 200,000 users (58,628 unique users) in the test set.  Computing recommendations for these many users can be slow in some computers.  Thus, we will use only the first 10,000 users only in this question.  Using this command to select this subset of users:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">subset_test_users = test_data['user_id'].unique()[0:10000]</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Let’s compute one recommended song for each of these test users.  Use this command to compute these recommendations:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">personalized_model.recommend(subset_test_users,k=1)</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Finally, we can use
+    <em>
+     .groupby()
+    </em>
+    to find the most recommended song!  :)  When we used
+    <em>
+     .groupby()
+    </em>
+    in the previous question, we summed up the total
+    <em>
+     ‘listen_count’
+    </em>
+    for each artist, by setting the parameter SUM in the aggregator:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">operations={'total_count': graphlab.aggregate.SUM('listen_count')}</pre>
+ <p>
+  For this question, we simply want to count how often each song is recommended, so we will use the COUNT aggregator instead of SUM, and store the results in a column we will call ‘count’ by using:
+ </p>
+ <pre language="python">operations={'count': graphlab.aggregate.COUNT()}</pre>
+ <p>
+  And, since we want to use the song titles as the key to the aggregator instead of of the ‘artist’, we use:
+ </p>
+ <pre language="python">key_columns='song'</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    By sorting the results, you will find out the most recommended song to the first 10,000 users in the test data!
+    <strong>
+     Due to randomness in train-test split, the most recommended song may come out differently for different people. This is why we chose not to assign a quiz question for this section.
+    </strong>
+   </p>
+  </li>
+ </ul>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

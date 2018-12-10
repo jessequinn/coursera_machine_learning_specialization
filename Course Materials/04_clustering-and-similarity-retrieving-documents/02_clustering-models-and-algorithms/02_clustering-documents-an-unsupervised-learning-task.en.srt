@@ -1,0 +1,299 @@
+1
+00:00:00,000 --> 00:00:03,493
+[MUSIC]
+
+2
+00:00:08,207 --> 00:00:10,590
+We're gonna assume that
+no labels are provided.
+
+3
+00:00:12,380 --> 00:00:18,200
+And we're gonna aim to infer groups of
+related articles which are Clusters.
+
+4
+00:00:19,730 --> 00:00:23,420
+Here the input is gonna be a vector.
+
+5
+00:00:23,420 --> 00:00:27,420
+So every observation that we're
+plotting here is our word count vector.
+
+6
+00:00:29,450 --> 00:00:33,430
+And in this case, we're just looking at a
+very simple example with a vocabulary that
+
+7
+00:00:33,430 --> 00:00:34,530
+only has two words.
+
+8
+00:00:34,530 --> 00:00:41,780
+So we have a vector,
+we have word 1 and word 2.
+
+9
+00:00:41,780 --> 00:00:48,349
+And this axis here is word 2 and
+this axis is word 1.
+
+10
+00:00:48,349 --> 00:00:54,127
+Of course, remember that in reality we
+tend to have very large vocabularies and
+
+11
+00:00:54,127 --> 00:00:57,417
+we have these big high
+dimensional vectors.
+
+12
+00:00:57,417 --> 00:01:01,377
+So, when we're plotting our observations,
+they're really in this high dimensional
+
+13
+00:01:01,377 --> 00:01:05,410
+space but for visualization,
+let's just look at this 2D representation.
+
+14
+00:01:05,410 --> 00:01:10,240
+So we have a whole bunch of
+documents here, all represented
+
+15
+00:01:10,240 --> 00:01:14,330
+by their word counts over these two
+different words in the vocabulary.
+
+16
+00:01:14,330 --> 00:01:18,068
+Okay, so that's the input to
+a clustering algorithm, and
+
+17
+00:01:18,068 --> 00:01:20,690
+output is gonna be cluster labels.
+
+18
+00:01:20,690 --> 00:01:23,891
+And so
+what I mean is that this observation and
+
+19
+00:01:23,891 --> 00:01:28,956
+all of these observations here,
+[SOUND] all of these get labeled as red.
+
+20
+00:01:28,956 --> 00:01:33,550
+So maybe they get applied,
+some cluster label one.
+
+21
+00:01:33,550 --> 00:01:34,396
+So let's just call this.
+
+22
+00:01:38,715 --> 00:01:40,070
+Cluster 1.
+
+23
+00:01:40,070 --> 00:01:44,790
+So for every document,
+it's gonna get some label.
+
+24
+00:01:44,790 --> 00:01:46,510
+So that'll be labelled one.
+
+25
+00:01:46,510 --> 00:01:50,920
+Then all of these observations here
+they're gonna get some other label.
+
+26
+00:01:50,920 --> 00:01:53,590
+And let's assume that this is cluster 2.
+
+27
+00:01:53,590 --> 00:01:55,885
+So this observation gets the label 2.
+
+28
+00:01:57,500 --> 00:02:01,065
+And all of these observations
+here would get the label 3.
+
+29
+00:02:02,600 --> 00:02:05,200
+So that's gonna be the output
+of this algorithm.
+
+30
+00:02:06,850 --> 00:02:09,190
+And maybe what you could do is post facto,
+
+31
+00:02:09,190 --> 00:02:12,830
+you could go through and
+look at some articles in cluster 1 and
+
+32
+00:02:12,830 --> 00:02:18,110
+you could say that, this cluster
+is really a cluster about sports.
+
+33
+00:02:18,110 --> 00:02:23,810
+And I just wanna write down explicitly
+that this label is provided post facto.
+
+34
+00:02:25,000 --> 00:02:27,770
+Okay, well this is an example
+
+35
+00:02:27,770 --> 00:02:32,330
+of an unsupervised learning task because
+we're operating without any labels.
+
+36
+00:02:32,330 --> 00:02:34,300
+All we have are observations and
+
+37
+00:02:34,300 --> 00:02:38,180
+we're trying to uncover some
+structure in these observations.
+
+38
+00:02:38,180 --> 00:02:42,298
+So, again, just to reiterate,
+the input are our word count vectors and
+
+39
+00:02:42,298 --> 00:02:45,133
+the output is, for
+every document in the corpus,
+
+40
+00:02:45,133 --> 00:02:48,802
+we're gonna associate some
+cluster label with that document.
+
+41
+00:02:51,321 --> 00:02:54,700
+Okay, well, what defines a cluster?
+
+42
+00:02:54,700 --> 00:02:58,210
+Well, every cluster is defined
+by a cluster center, so
+
+43
+00:02:58,210 --> 00:03:00,595
+maybe I'll mark the cluster
+centers with Xs.
+
+44
+00:03:04,620 --> 00:03:07,079
+And then there's the shape to the cluster,
+and
+
+45
+00:03:07,079 --> 00:03:11,509
+these ellipses are representing
+the shapes of each of these clusters.
+
+46
+00:03:13,460 --> 00:03:16,940
+And so, when we think about
+whether this observation,
+
+47
+00:03:18,990 --> 00:03:25,440
+this observation here should be assigned
+to the green cluster, or the red cluster.
+
+48
+00:03:25,440 --> 00:03:30,940
+What we're doing is we're
+looking at how similar
+
+49
+00:03:30,940 --> 00:03:35,510
+this article is, to other articles
+based on the shape of this cluster.
+
+50
+00:03:36,510 --> 00:03:39,850
+So we score every observation
+
+51
+00:03:39,850 --> 00:03:43,810
+based on the cluster center as
+well as the shape of that cluster.
+
+52
+00:03:43,810 --> 00:03:48,380
+And in this case, because this cluster is,
+has this kind of oblong-skewed shape,
+
+53
+00:03:48,380 --> 00:03:53,370
+it actually gets assigned to the green
+cluster instead of this red cluster.
+
+54
+00:03:53,370 --> 00:03:57,580
+But another approach which is very common
+
+55
+00:03:57,580 --> 00:04:01,570
+is instead of looking at the shape of the
+cluster, we just look at cluster centers.
+
+56
+00:04:01,570 --> 00:04:06,120
+So we just measure the distance
+of this observation, so
+
+57
+00:04:06,120 --> 00:04:10,670
+maybe let me change colors here,
+so this alternative approach here.
+
+58
+00:04:10,670 --> 00:04:15,670
+As we would just look at
+the distance of this observation to
+
+59
+00:04:15,670 --> 00:04:20,570
+the green cluster center
+versus the red cluster center.
+
+60
+00:04:20,570 --> 00:04:24,129
+And in this case, it would be very
+challenging to decide whether that article
+
+61
+00:04:24,129 --> 00:04:27,240
+should go with the green cluster or
+the red cluster.
+
+62
+00:04:27,240 --> 00:04:31,492
+But, there are other cases like this
+observation here where pretty obvious
+
+63
+00:04:31,492 --> 00:04:35,087
+with this metric that it would
+get assigned to this red cluster.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,394
+[NHẠC]
+
+2
+00:00:04,394 --> 00:00:07,610
+Emily và tôi thật sự hy vọng rằng bạn đã thích thú với khóa học
+
+3
+00:00:07,610 --> 00:00:11,030
+chúng ta thật sự đã tìm hiểu về những nền tảng của "machine learning" trên nhiều
+
+4
+00:00:11,030 --> 00:00:13,888
+ lĩnh vực cùng với những ứng dụng khác nhau 
+
+5
+00:00:13,888 --> 00:00:18,560
+và thật sự đã chạm đến những vấn đề thực tiễn xoay quanh viện triển khai và
+
+6
+00:00:18,560 --> 00:00:20,590
+ xây dựng những hệ thống "machine learning"
+
+7
+00:00:20,590 --> 00:00:23,960
+và bây giờ, ở phần cuối của mô đun này, chúng ta sẽ có kết luận về một vài khái niệm
+
+8
+00:00:23,960 --> 00:00:24,660
+mà chúng ta đã học 
+
+9
+00:00:24,660 --> 00:00:26,700
+nói về việc làm thế nào để triển khai những ý tưởng này,
+
+10
+00:00:26,700 --> 00:00:30,100
+đặc biệt về những hệ thống "machine learning" trong thực tế và 
+
+11
+00:00:30,100 --> 00:00:33,700
+sau đó, những cái phía trước trong chuyên đề và cũng như trong "machine learning"
+
+12
+00:00:33,700 --> 00:00:36,498
+một vài điều thú vị khi chúng ta kết thúc khóa học đầu tiên này 
+
+13
+00:00:36,498 --> 00:00:40,449
+[NHẠC]

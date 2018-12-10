@@ -1,0 +1,376 @@
+1
+00:00:00,000 --> 00:00:04,276
+[MUSIC]
+
+2
+00:00:04,276 --> 00:00:08,478
+So we've talked at great length about how
+to form predictions using different types
+
+3
+00:00:08,478 --> 00:00:10,130
+of recommender systems.
+
+4
+00:00:10,130 --> 00:00:13,520
+But a question is, how do we assess
+the difference in performance for
+
+5
+00:00:13,520 --> 00:00:16,150
+these different systems
+we might consider using?
+
+6
+00:00:16,150 --> 00:00:20,400
+Well imagine we want to recommend
+products to a new parent, and
+
+7
+00:00:20,400 --> 00:00:23,310
+this is the set of all possible
+products that we might recommend.
+
+8
+00:00:25,660 --> 00:00:29,700
+And a user likes a subset of these
+products which are represented by these
+
+9
+00:00:29,700 --> 00:00:31,660
+magenta squares.
+
+10
+00:00:31,660 --> 00:00:36,480
+And our goal, of course, is to discover
+the products that the user likes
+
+11
+00:00:36,480 --> 00:00:38,400
+from the purchases that they've made.
+
+12
+00:00:39,520 --> 00:00:43,449
+Because we don't actually know which
+products they like, that's our goal, okay?
+
+13
+00:00:45,678 --> 00:00:49,855
+So a question is, why don't we just use
+something like classification accuracy to
+
+14
+00:00:49,855 --> 00:00:52,970
+measure the performance
+of a recommender system?
+
+15
+00:00:52,970 --> 00:00:57,980
+So in this case, we could think about
+just counting how many items we
+
+16
+00:00:57,980 --> 00:01:02,970
+guessed that they liked
+versus they did not like and
+
+17
+00:01:02,970 --> 00:01:07,440
+compare that to how many of those items
+they actually liked versus did not like.
+
+18
+00:01:07,440 --> 00:01:10,600
+So Carlos talked about
+using that type of metric
+
+19
+00:01:10,600 --> 00:01:13,520
+when he was talking about
+the sentiment analysis case study.
+
+20
+00:01:15,060 --> 00:01:18,790
+But the issue here is actually multifold.
+
+21
+00:01:18,790 --> 00:01:23,560
+One is the fact that we really
+care more about what the person
+
+22
+00:01:23,560 --> 00:01:28,970
+liked than what they didn't like and often
+we're faced with very imbalanced classes.
+
+23
+00:01:28,970 --> 00:01:32,690
+So, for example, there are lots and
+lots and lots of products out there,
+
+24
+00:01:32,690 --> 00:01:36,960
+but typically a user's only gonna
+like a very small subset of them.
+
+25
+00:01:36,960 --> 00:01:42,130
+And so if we use this type of metric,
+we can get very good accuracy
+
+26
+00:01:42,130 --> 00:01:46,870
+by just saying that the user
+won't like any of the items.
+
+27
+00:01:46,870 --> 00:01:49,430
+So not recommending anything will get
+
+28
+00:01:49,430 --> 00:01:52,550
+pretty good performance
+according to this metric.
+
+29
+00:01:52,550 --> 00:01:55,090
+But another issue is something else which
+
+30
+00:01:55,090 --> 00:01:58,080
+relates to the cost of making
+these different decisions.
+
+31
+00:01:58,080 --> 00:02:02,790
+So often we're gonna assume that
+the user has a limited attention span,
+
+32
+00:02:02,790 --> 00:02:08,670
+and so we can only recommend a certain
+number of items for that user to look at.
+
+33
+00:02:08,670 --> 00:02:13,770
+So there is a much larger cost
+if out of this very small
+
+34
+00:02:13,770 --> 00:02:19,840
+set of items we're allowed to recommend
+to this person there's no liked item.
+
+35
+00:02:19,840 --> 00:02:24,470
+That has a much higher cost than if we
+missed some of the user's liked items
+
+36
+00:02:24,470 --> 00:02:26,110
+in this set of recommended products.
+
+37
+00:02:27,230 --> 00:02:30,200
+So instead,
+we're gonna talk about a different metric,
+
+38
+00:02:30,200 --> 00:02:33,780
+or different metrics which
+are called precision and recall.
+
+39
+00:02:35,010 --> 00:02:37,130
+Let's start by discussing recall.
+
+40
+00:02:37,130 --> 00:02:41,410
+So for a given a recommender system, it's
+gonna recommend some set of products to
+
+41
+00:02:41,410 --> 00:02:47,660
+me, and I'm highlighting those
+by the colored pictures.
+
+42
+00:02:47,660 --> 00:02:49,550
+So this is a recommended item.
+
+43
+00:02:49,550 --> 00:02:53,400
+This is a recommended item,
+this is a recommended item and so on.
+
+44
+00:02:53,400 --> 00:02:58,390
+Where as the grayed out pictures are items
+that were not recommended for me.
+
+45
+00:02:59,640 --> 00:03:03,030
+Okay, so I haven't done
+a comprehensive annotation here, but
+
+46
+00:03:03,030 --> 00:03:05,110
+hopefully you get the picture.
+
+47
+00:03:05,110 --> 00:03:06,930
+And when I'm measuring recall,
+
+48
+00:03:06,930 --> 00:03:10,610
+what I'm gonna look at is I'm gonna
+look at all the items I liked.
+
+49
+00:03:10,610 --> 00:03:13,390
+So all of these magenta boxes.
+
+50
+00:03:13,390 --> 00:03:15,860
+And I'm gonna ask how many
+
+51
+00:03:15,860 --> 00:03:18,630
+of the items that I liked were
+actually recommended to me.
+
+52
+00:03:20,250 --> 00:03:23,080
+And so I'm gonna compute that fraction,
+so let's do that.
+
+53
+00:03:23,080 --> 00:03:26,910
+So each of the magenta boxes, so
+here's one that was recommended to me.
+
+54
+00:03:28,060 --> 00:03:29,680
+Two that were recommended to me,
+
+55
+00:03:29,680 --> 00:03:34,130
+three that were recommended to me
+out of five items that I like.
+
+56
+00:03:34,130 --> 00:03:38,771
+So the recall, is three-fifths.
+
+57
+00:03:42,069 --> 00:03:46,966
+And so recall is gonna measure how
+much a recommended set of items cover
+
+58
+00:03:46,966 --> 00:03:51,620
+the things that I'm interested in,
+things that I actually like.
+
+59
+00:03:54,420 --> 00:03:56,710
+On the other hand,
+there's something called precision.
+
+60
+00:03:57,920 --> 00:04:00,600
+When we talk about precision
+what we're gonna look at is
+
+61
+00:04:00,600 --> 00:04:03,140
+all of the recommended items.
+
+62
+00:04:03,140 --> 00:04:07,000
+So when we're talking about recall
+our world when we were measuring
+
+63
+00:04:07,000 --> 00:04:09,440
+this fraction here was
+looking at the magenta boxes.
+
+64
+00:04:09,440 --> 00:04:12,810
+That was the world that we looked at
+everything else could disappear from
+
+65
+00:04:12,810 --> 00:04:13,950
+the slide.
+
+66
+00:04:13,950 --> 00:04:18,240
+But when we are talking about precision,
+we're gonna look at all the recommended
+
+67
+00:04:18,240 --> 00:04:22,210
+items and then everything else
+can disappear from the slide.
+
+68
+00:04:22,210 --> 00:04:26,390
+So the recommended items
+are highlighted by these green boxes.
+
+69
+00:04:26,390 --> 00:04:31,280
+What we are going to look at out of the
+recommended items if that is our entire
+
+70
+00:04:31,280 --> 00:04:36,400
+world What fraction of those
+items were items that I liked?
+
+71
+00:04:37,730 --> 00:04:43,203
+Okay, so in this case there are one, two,
+
+72
+00:04:43,203 --> 00:04:48,527
+three items that I liked and
+were shown and
+
+73
+00:04:48,527 --> 00:04:54,000
+a total of 1, 2, 3, 4, 5, 6, 7,
+
+74
+00:04:54,000 --> 00:04:59,805
+8, 9, 10, 11 items that were shown.
+
+75
+00:04:59,805 --> 00:05:02,260
+So this would be the precision.
+
+76
+00:05:03,400 --> 00:05:10,800
+And so when we're thinking about precision
+we're thinking about basically how much
+
+77
+00:05:10,800 --> 00:05:16,750
+garbage do I have to look at compared
+to the number of items that I like.
+
+78
+00:05:16,750 --> 00:05:21,224
+So, it's a measure of when I
+have a limited attention span,
+
+79
+00:05:21,224 --> 00:05:26,419
+how much am I gonna be wasting my
+efforts on products that I do not like?
+
+80
+00:05:26,419 --> 00:05:30,069
+[MUSIC]

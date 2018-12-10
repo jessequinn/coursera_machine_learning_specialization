@@ -1,0 +1,43 @@
+[NHẠC] Nhưng câu hỏi đặt ra là chúng ta
+sẽ đưa ra các tư vấn như thế nào? Chúng ta sẽ đoán như thế nào về việc
+một người sẽ đánh giá bao nhiêu cho một bộ phim mà họ chưa bao giờ xem? Hãy giả sử thời điểm mà chúng ta có một số các đặc điểm
+ về mỗi bộ phim và mỗi người sử dụng. Ví dụ, chúng ta biết điều đó. Phim v trong trường hợp này
+là The Shawshark Redemption, là về một số thể loại khác nhau như là
+hành động, lãng mạn, phim bộ truyền hình. Và chúng ta có vectơ này cho mỗi một thể loại, điều này thể hiện 0.3 cho hành động
+0.01 cho lãng mạn. 1.5 cho phim bộ truyền hình. Và chúng ta có một tập các thể loại, vì thế
+chúng ta biết phim này là về cái gì. Như vậy tương tự với mỗi người dùng,
+như người dùng này. Chúng ta biết những thể loại phim nào
+trong số các thể loại này người dùng thích, đối với người dùng này, chúng ta
+có một vectơ thể hiện cho phim hành động, người dùng này
+thực sự, thực sự, thực sự thích phim hành động,
+họ không thích phim lãng mạn. Loại phim bộ truyền hình và vân vân. Chúng ta sẽ gọi vectơ đầu tiên
+là vectơ phim RV. Chúng ta sẽ gọi vectơ người dùng
+cụ thể này là LU. Hãy nói chúng ta biết điều này, sau đó
+ bạn sẽ làm gì để đưa ra dự đoán về xếp hạng? Vâng một điều mà có thể có ý nghĩa
+là lấy vectơ phim này và vectơ người sử dụng này và
+xem họ đồng ý bao nhiêu. Nếu họ đồng ý nhiều chúng ta sẽ đoán người này sẽ
+đánh giá cao bộ phim đó. Nếu họ không đồng ý chúng ta
+sẽ nói nó có thể là họ sẽ không thích bộ phim đó
+và cho nó xếp hạng thấp. Chúng ta sẽ ước tính
+xếp hạng của chúng ta. Đó là lý do chúng ta đặt mũ để biểu thị
+cho ước tính về số lượng người dùng u, sẽ thích bộ phim v
+mà họ chưa từng xem trước đây. Cách làm tương tự như khi
+chúng ta đo sự tương đồng giữa hai tài liệu, chúng ta
+sẽ lấy hai vectơ, trong trường hợp có thể có một vectơ
+của các chủ đề khác cho tài liệu, trong trường hợp này chúng ta đang nói về
+một vectơ của các chủ đề khác cho bộ phim. Và ở đây chúng ta sẽ lấy các vectơ này, 0.3, 0.01, 1.5 và vân vân. Chúng ta sẽ nhân nó, bởi vecto này. Đây là Rv của chúng ta. Đây là Lu của chúng ta. Và cái mà chúng ta sẽ đưa ra là chúng ta có 0.3 x 2.5 + 0 +1.5 x 0.8 và vân vân. Điều này cho kết quả bằng 7.2. Chỉ cần thực hiện đến đó. Nhưng nếu vectơ người dùng thực sự không đồng ý với bộ phim đó,
+hãy lựa chọn màu khác. Đây là một số người sử dụng khác. Hãy gọi người sử dụng này là Lu-prime. Vectơ này nói rằng họ không
+thích phim hành động, họ thích phim lãng mạn. Họ thực sự ghét phim truyền hình. Và v.v... Ở đây điểm sẽ thấp hơn nhiều vì thế chúng ta sẽ có 0 + 3, rất tiếc. +0.01 x 3.5 +1.5 x 0.01 + tất cả các số khác mà thực sự không đồng ý với người khác, và có thể điều này sẽ đươc một số nhỏ bằng 0.8. Điểm ở đây là khi mà vecto phim và vecto người dùng đồng ý nhiều, chúng ta sẽ nhận
+được số lớn hơn rất nhiều khi không đồng ý. Chúng ta sẽ ước tính một đánh giá lớn hơn trong trường hợp không đồng ý. Khi chúng ta nghĩ đến việc đưa ra
+tư vấn, chúng ta sẽ làm gi? Chúng ta sẽ chỉ sắp xếp tất cả các bộ phim
+ mà chúng ta đã dự đoán cho người sử dụng đó. Chúng ta sẽ sắp xếp bởi các
+đánh giá đã được dự đoán và sau đó chúng ta sẽ tư vấn phim
+với các đánh giá lớn nhất. Tôi muốn làm nổi bật một điều ở đây. Nếu bạn còn nhớ thang đo
+xếp hạng giữa 1 và 5 hoặc 0 và 5 chúng ta có thể không đặt sao
+nếu chúng ta thực sự ghét bộ phim. Nhưng điểm lớn nhất là 5, nhưng ghi chú ở đây là một trong các dự đoán
+bằng 7.2, rõ ràng lớn hơn 5. Với loại mô hình này chúng ta
+không bị hạn chế. Không ép buộc rằng chúng ta sẽ
+ở trong một khoảng 0 đến 5. Nhưng chúng ta vẫn sẽ sử dụng điều này
+để đưa ra tư vấn bởi vì chúng ta chỉ nhìn vào các bộ phim với các điểm lớn nhất,
+mặc dù các điểm này không nhất thiết phải biểu diễn chính xác
+bao nhiêu sao một bộ phim sẽ nhận được. [NHẠC]

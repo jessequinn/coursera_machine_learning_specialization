@@ -1,0 +1,211 @@
+1
+00:00:00,000 --> 00:00:04,046
+[NHẠC]
+
+2
+00:00:04,046 --> 00:00:08,720
+Bây giờ chúng ta có một số dữ liệu huấn luyện.
+
+3
+00:00:08,720 --> 00:00:14,105
+Cái mà chúng ta có thể làm tiếp theo là #Build,
+
+4
+00:00:14,105 --> 00:00:18,935
+có một tiêu đề phụ ở đây,
+
+5
+00:00:18,935 --> 00:00:23,963
+mô hình quy hồi #Build.
+
+6
+00:00:25,510 --> 00:00:31,900
+Graphlab Create có nhiều thuật toán đã được thực hiện cho
+
+7
+00:00:31,900 --> 00:00:35,000
+các máy móc và nhiệm vụ hoặc bạn có thể tự thực hiện nếu bạn thích.
+
+8
+00:00:35,000 --> 00:00:37,616
+Trong suốt quy trình của chuỗi,
+
+9
+00:00:37,616 --> 00:00:41,442
+bạn sẽ tự viết nhiều thuật toán nhưng với khóa học này
+
+10
+00:00:41,442 --> 00:00:44,379
+chúng ta sẽ chỉ sử dụng các thuật toán đã được thực hiện để
+
+11
+00:00:44,379 --> 00:00:47,550
+có thể hiểu cách học máy hoạt động.
+
+12
+00:00:47,550 --> 00:00:49,930
+Cái mà bạn có thể làm với học máy là gì?
+
+13
+00:00:49,930 --> 00:00:56,890
+Chúng ta sẽ làm là xây dựng mô hình dự đoán diện tích.
+
+14
+00:00:56,890 --> 00:00:58,480
+sqft_model.
+
+15
+00:00:59,590 --> 00:01:06,918
+Trong Graphlab có một số thứ gọi là quy hồi tuyến tính.
+
+16
+00:01:06,918 --> 00:01:13,390
+Quy hồi tuyến tính là cái chúng ta đã học, cái chúng ta đã khám phá và
+
+17
+00:01:13,390 --> 00:01:19,700
+nói đến, chúng ta đã hiểu khá rõ trong suốt mô đun mà Ann đã dạy.
+
+18
+00:01:19,700 --> 00:01:23,752
+Vì thế nếu bạn nhập linear_regression.create,
+
+19
+00:01:23,752 --> 00:01:28,080
+nó sẽ tạo ra một mô hình quy hồi tuyến tính cho bạn.
+
+20
+00:01:28,080 --> 00:01:32,174
+Điều đó tạo ra các đặc điểm với các dự án Graphlab Create,
+
+21
+00:01:32,174 --> 00:01:37,730
+create cũng là động từ sử dụng để tạo ra mọi thứ bằng Graphlab Create.
+
+22
+00:01:37,730 --> 00:01:41,256
+Chúng ta sẽ tạo ra mô hình quy hồi tuyến tính,
+
+23
+00:01:41,256 --> 00:01:44,450
+cái toi phải cung cấp là đầu vào, tôi đưa dữ liệu huấn luyện.
+
+24
+00:01:45,900 --> 00:01:47,290
+Đây là dữ liệu huấn luyện.
+
+25
+00:01:51,189 --> 00:01:54,780
+Bạn phải nói biến bạn đang dự đoán.
+
+26
+00:01:54,780 --> 00:01:56,150
+Đó là mục tiêu.
+
+27
+00:01:56,150 --> 00:02:01,790
+Tôi sẽ giả sử mục tiêu là giá cả.
+
+28
+00:02:01,790 --> 00:02:03,420
+Vì thế tôi đang cố gắng dự đoán giá.
+
+29
+00:02:05,060 --> 00:02:10,760
+Câu hỏi là các tính năng là gì, đầu vào là gì.
+
+30
+00:02:10,760 --> 00:02:15,690
+Tôi sẽ giả sử các tính năng và bạn có thể sử dụng toàn bộ phần đầu
+
+31
+00:02:15,690 --> 00:02:18,740
+thậm chí if[INAUDIBLE] các thông số của chức năng, điều này khá hay.
+
+32
+00:02:18,740 --> 00:02:21,020
+các tính năng là một danh sách.
+
+33
+00:02:21,020 --> 00:02:24,790
+Nếu bạn không đưa ra bất kì điều gì, nó sẽ sử dụng tất cả các tính năng, tất cả các cột của dữ liệu.
+
+34
+00:02:24,790 --> 00:02:31,520
+Nhưng ở đây tính năng đầu vào duy nhất chúng ta muốn sử dụng là feet vuông diện tích sống.
+
+35
+00:02:32,950 --> 00:02:36,940
+Đó là một chuỗi mà tôi cần phải nhập, vì thế
+
+36
+00:02:36,940 --> 00:02:40,940
+tôi đã quên phải nhập trong dấu ngoặc kép, để tôi sửa lại thật nhanh ở đây.
+
+37
+00:02:41,980 --> 00:02:46,761
+Mở dấu ngoặc kép,
+
+38
+00:02:46,761 --> 00:02:51,203
+đóng dấu ngoặc kép.
+
+39
+00:02:51,203 --> 00:02:53,070
+Được rồi.
+
+40
+00:02:53,070 --> 00:02:55,840
+Để tôi đọc lại điều đó cho bạn.
+
+41
+00:02:57,010 --> 00:03:01,959
+sqft_model graphlab.linear_regression,create trên
+
+42
+00:03:01,959 --> 00:03:08,270
+dữ liệu huấn luyện để dự đoán giá cả sử dụng tính năng feet vuông.
+
+43
+00:03:08,270 --> 00:03:09,839
+Hãy thực hiện điều này.
+
+44
+00:03:12,830 --> 00:03:17,027
+Khi huấn luyện dữ liệu huấn luyện, tôi đã viết dữ liệu hai lần ở đây.
+
+45
+00:03:17,027 --> 00:03:20,910
+Bạn thấy mũi tên ở đây, dữ liệu huấn luyện và dữ liệu điểm.
+
+46
+00:03:20,910 --> 00:03:22,400
+Bây giờ hãy thực hiện.
+
+47
+00:03:22,400 --> 00:03:23,710
+Điều gì xảy ra ở đây?
+
+48
+00:03:23,710 --> 00:03:31,310
+Nó đã thực sự hoàn thành nhưng cái mà chúng ta đã làm là tạo ra mô hình thu hồi tuyến tính,
+
+49
+00:03:32,570 --> 00:03:37,270
+nó sử dụng thuật toán cụ thể gọi là phương pháp Newton.
+
+50
+00:03:37,270 --> 00:03:41,510
+Nhưng Graphlab Create lựa chọn thuật toán tự động cho
+
+51
+00:03:41,510 --> 00:03:45,010
+bạn trừ khi bạn chọn cái này để sử dụng.
+
+52
+00:03:45,010 --> 00:03:50,422
+Và thuật toán này cho phép bạn làm các dự đoán trên dữ liệu.
+
+53
+00:03:50,422 --> 00:03:54,709
+[NHẠC]

@@ -1,0 +1,277 @@
+1
+00:00:00,046 --> 00:00:03,485
+[NHẠC]
+
+2
+00:00:03,485 --> 00:00:06,110
+Bộ phân loại thực sự cố gắng
+để đưa ra các quyết định.
+
+3
+00:00:06,110 --> 00:00:09,360
+Quyết định một câu là tích cực hay tiêu cực, hoặc
+
+4
+00:00:09,360 --> 00:00:13,621
+là một tập kiểm tra thí nghiệm bao gồm x-rays
+
+5
+00:00:13,621 --> 00:00:18,060
+và các phép đo lường dẫn đến một
+căn bệnh như là cúm hoặc cảm lạnh.
+
+6
+00:00:18,060 --> 00:00:20,330
+Đó là một quyết định cần phải được đưa ra.
+
+7
+00:00:20,330 --> 00:00:24,987
+Vì vậy chúng ta sẽ nói một chút về cách bộ
+phân loại, đặc biệt là phân loại tuyến tính
+
+8
+00:00:24,987 --> 00:00:26,025
+đưa ra quyết định như thế nào.
+
+9
+00:00:26,025 --> 00:00:28,276
+Để hiểu các ranh giới quyết định,
+
+10
+00:00:28,276 --> 00:00:32,000
+giả sử bạn chỉ có hai từ với trọng lượng khác 0.
+
+11
+00:00:32,000 --> 00:00:35,230
+Bạn có từ kinh ngạc với trọng lượng tích cực là 1 và
+
+12
+00:00:35,230 --> 00:00:40,230
+khủng khiếp có trọng lượng tiêu cực âm 1.5.
+
+13
+00:00:40,230 --> 00:00:44,450
+Nếu bạn gặp tình huống này, 
+thì điểm sẽ bằng 1 lần số lượng từ
+
+14
+00:00:44,450 --> 00:00:47,930
+kinh ngạc trong câu trừ đi 1.5
+lần số lượng từ khủng khiếp.
+
+15
+00:00:49,260 --> 00:00:53,046
+Vì vậy chúng ta có thể vẽ điều này
+trên một trục, có trục kinh ngạc và
+
+16
+00:00:53,046 --> 00:00:55,260
+sau đó có trục khủng khiếp.
+
+17
+00:00:55,260 --> 00:00:59,200
+Ví dụ, câu sushi thật kinh ngạc,
+
+18
+00:00:59,200 --> 00:01:01,980
+thức ăn đáng kinh ngạc nhưng
+dịch vụ thì khủng khiếp.
+
+19
+00:01:03,100 --> 00:01:05,980
+Ta có hai kinh ngạc và một khủng khiếp.
+
+20
+00:01:05,980 --> 00:01:09,740
+Nó được vẽ trong điểm (2,1) trên trục.
+
+21
+00:01:09,740 --> 00:01:14,410
+Tương tự như vậy, ba khủng khiếp và một kinh ngạc,
+
+22
+00:01:14,410 --> 00:01:19,240
+và với thứ mà tất cả là kinh ngạc,
+do đó ba kinh ngạc ở một điểm (3.0),
+
+23
+00:01:19,240 --> 00:01:22,950
+và vân vân với các câu khác.
+
+24
+00:01:22,950 --> 00:01:27,757
+Bây giờ chúng ta hãy hiểu rõ một
+chút về cách tính điểm các câu và
+
+25
+00:01:27,757 --> 00:01:29,720
+những gì suy dẫn ra những quyết định của chúng ta.
+
+26
+00:01:30,800 --> 00:01:37,130
+Ví dụ, lấy điểm (3.0) là 3 kinh ngạc, không khủng khiếp.
+
+27
+00:01:37,130 --> 00:01:40,180
+Ba kinh ngạc cho bạn một dự đoán tích cực
+
+28
+00:01:40,180 --> 00:01:43,950
+bởi vì điểm số lớn hơn không.
+
+29
+00:01:43,950 --> 00:01:48,815
+Và điều đó đúng với mọi điểm ở phía dưới bên phải của trục,
+
+30
+00:01:48,815 --> 00:01:53,460
+trong khi các điểm ở bên trên phía bên trái có điểm thấp hơn 0
+
+31
+00:01:53,460 --> 00:01:58,840
+ví dụ điểm 3 khủng khiếp, 1 kinh ngạc có điểm điểm thấp hơn 0.
+
+32
+00:01:58,840 --> 00:02:00,250
+Những điều này được gọi là tiêu cực.
+
+33
+00:02:00,250 --> 00:02:06,045
+Thực tế, phân tách những dự đoán
+tiêu cực với các dự đoán tích cực
+
+34
+00:02:06,045 --> 00:02:10,978
+là đường thẳng xác định nơi mà
+tôi không biết tích cực là gì và
+
+35
+00:02:10,978 --> 00:02:17,320
+tiêu cực là gì, và đó là đường thẳng với
+1.0 số lượng kinh ngạc - 1.5 số lượng khủng khiếp = 0.
+
+36
+00:02:17,320 --> 00:02:21,690
+Và đó là đường thẳng, tôi không biết,
+dự đoán là không chắc chắn và
+
+37
+00:02:21,690 --> 00:02:24,280
+vì thế chúng ta gọi là ranh giới quyết định.
+
+38
+00:02:24,280 --> 00:02:26,060
+Mọi thứ ở một bên chúng ta dự đoán là tiêu cực,
+
+39
+00:02:26,060 --> 00:02:28,420
+những thứ còn lại chúng ta dự đoán là tiêu cực.
+
+40
+00:02:28,420 --> 00:02:30,963
+Bây giờ nhận thấy ranh giới quyết định,
+
+41
+00:02:30,963 --> 00:02:35,310
+1.0 số lần kinh ngạc trừ 1.5 số lần khủng khiếp
+bằng 0 là một đường thẳng.
+
+42
+00:02:35,310 --> 00:02:38,230
+Và đó là lý do tại sao nó được gọi
+là phân loại tuyến tính.
+
+43
+00:02:38,230 --> 00:02:40,430
+Nó là ranh giới quyết định tuyến tính.
+
+44
+00:02:40,430 --> 00:02:42,960
+Ranh giới quyết định phân chia
+
+45
+00:02:42,960 --> 00:02:45,170
+các dự đoán tích cực với các dự đoán tiêu cực.
+
+46
+00:02:45,170 --> 00:02:49,730
+Trong trường hợp chỉ có hai đặc tính,
+chúng ta thấy đây là một đường thẳng.
+
+47
+00:02:49,730 --> 00:02:53,570
+Nhưng trường hợp này sẽ khác
+khi chúng ta tăng số lượng đặc tính.
+
+48
+00:02:53,570 --> 00:02:58,050
+Trong không gian hai chiều,
+một hàm tuyến tính là một đường thẳng.
+
+49
+00:02:58,050 --> 00:03:03,120
+Trong không gian ba chiều, chúng ta có ba, 
+ví dụ những từ mà không có trọng lượng và
+
+50
+00:03:03,120 --> 00:03:05,685
+mọi từ khác có trọng lượng bằng 0
+và chúng ta đặt trên một mặt phẳng.
+
+51
+00:03:05,685 --> 00:03:10,680
+Khá khó để vẽ trong không gian ba chiều nhưng
+
+52
+00:03:10,680 --> 00:03:15,790
+các dự đoán tích cực ở phía trên
+mặt phẳng và các dự đoán tiêu cực
+
+53
+00:03:15,790 --> 00:03:20,500
+ở phía dưới và mặt phẳng nằm nghiêng trong không gian.
+
+54
+00:03:21,660 --> 00:03:25,365
+Bây giờ khi bạn không chỉ có ba từ khác 0 mà
+
+55
+00:03:25,365 --> 00:03:30,390
+trong tái ứng dụng bạn sẽ có hàng chục
+đến hàng nghìn từ với trọng lượng khác 0.
+
+56
+00:03:30,390 --> 00:03:32,980
+Và trong trường hợp đó chúng ta
+sẽ gọi là những siêu mặt phẳng,
+
+57
+00:03:32,980 --> 00:03:37,870
+những phân tách nhiều chiều được gọi là siêu mặt phẳng.
+
+58
+00:03:37,870 --> 00:03:41,200
+Bây giờ tất nhiên bạn có thể sử dụng
+nhiều hơn các bộ phân loại tuyến tính.
+
+59
+00:03:41,200 --> 00:03:43,200
+Bạn có thể sử dụng các bộ
+phân loại phức tạp hơn.
+
+60
+00:03:43,200 --> 00:03:44,870
+Và thay vì có các đường thẳng hoặc
+
+61
+00:03:44,870 --> 00:03:48,900
+siêu mặt phẳng, chúng có những hình dạng
+phức tạp hơn hoặc những phân tách gấp khúc.
+
+62
+00:03:48,900 --> 00:03:55,013
+Và chúng ta sẽ học nhiều hơn về điều đó trong khóa học phân loại.
+
+63
+00:03:55,013 --> 00:03:57,419
+>> [NHẠC]

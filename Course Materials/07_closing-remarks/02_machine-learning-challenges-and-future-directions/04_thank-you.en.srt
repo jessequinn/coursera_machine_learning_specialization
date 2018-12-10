@@ -1,0 +1,129 @@
+1
+00:00:00,025 --> 00:00:03,787
+[MUSIC]
+
+2
+00:00:03,787 --> 00:00:06,353
+So we hope you've enjoyed this
+first course in this machine
+
+3
+00:00:06,353 --> 00:00:09,588
+learning specialization, and not only
+have you learned a lot of different
+
+4
+00:00:09,588 --> 00:00:13,660
+machine learning methods, but
+you've actually put them into practice.
+
+5
+00:00:13,660 --> 00:00:15,210
+>> And we really appreciate your effort.
+
+6
+00:00:15,210 --> 00:00:19,160
+We know you've worked really hard, you've
+implemented a lot of different machine
+
+7
+00:00:19,160 --> 00:00:22,350
+learning algorithms, and
+really gone through those notebooks.
+
+8
+00:00:22,350 --> 00:00:26,180
+And really understood not just
+the concepts, but how to put them
+
+9
+00:00:26,180 --> 00:00:31,050
+into practice and really how to evaluate
+whether those models that you built
+
+10
+00:00:31,050 --> 00:00:35,210
+really work and provide the value that
+you expect out of machine learning.
+
+11
+00:00:35,210 --> 00:00:38,260
+Now you're ready to build your
+own intelligent applications and
+
+12
+00:00:38,260 --> 00:00:40,890
+really apply them in practice.
+
+13
+00:00:40,890 --> 00:00:45,060
+>> But there's a lot more ahead for us in
+this specialization to turn you guys into
+
+14
+00:00:45,060 --> 00:00:49,455
+machine learning experts, where you can
+actually design and deploy new methods.
+
+15
+00:00:49,455 --> 00:00:57,434
+[LAUGH]
+Was there more I was supposed to say?
+
+16
+00:00:57,434 --> 00:00:59,550
+>> Or am I saying that?
+
+17
+00:00:59,550 --> 00:01:00,650
+>> Oh.
+
+18
+00:01:00,650 --> 00:01:01,826
+Let's both be excited.
+
+19
+00:01:01,826 --> 00:01:03,257
+We're all excited.
+
+20
+00:01:03,257 --> 00:01:06,770
+>> [LAUGH]
+>> We're both excited for this journey
+
+21
+00:01:06,770 --> 00:01:11,405
+that you have ahead with us in this
+specialization, it'll be very meaningful.
+
+22
+00:01:11,405 --> 00:01:14,890
+>> [LAUGH] It's really
+cool to have you join us,
+
+23
+00:01:14,890 --> 00:01:16,650
+thank you for coming to the first course.
+
+24
+00:01:16,650 --> 00:01:20,340
+We're excited to see you in
+the following courses, and
+
+25
+00:01:20,340 --> 00:01:23,425
+see the amazing things you're gonna build
+in the capstone project at the end.
+
+26
+00:01:23,425 --> 00:01:26,190
+>> [LAUGH]
+>> Thank you for your hard work.
+
+27
+00:01:26,190 --> 00:01:27,976
+>> Thank you, see you soon.
+
+28
+00:01:27,976 --> 00:01:32,439
+[MUSIC]

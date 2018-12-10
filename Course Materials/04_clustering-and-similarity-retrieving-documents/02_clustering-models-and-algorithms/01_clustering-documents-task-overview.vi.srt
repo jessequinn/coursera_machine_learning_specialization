@@ -1,0 +1,174 @@
+1
+00:00:00,273 --> 00:00:04,003
+[NHẠC]
+
+2
+00:00:04,003 --> 00:00:06,423
+Ok đó là một cách để thu hồi
+một tài liệu được quan tâm.
+
+3
+00:00:06,423 --> 00:00:09,262
+Chỉ cần lấy tất cả các bài báo, scan chúng và
+
+4
+00:00:09,262 --> 00:00:13,103
+tìm một bài tương đồng nhất theo
+ma trận mà chúng ta xác định.
+
+5
+00:00:13,103 --> 00:00:17,987
+Nhưng một thứ khác nữa chúng ta có thể
+quan tâm là phân nhóm các tài liệu
+
+6
+00:00:17,987 --> 00:00:20,440
+liên quan đến nhau, ví dụ.
+
+7
+00:00:20,440 --> 00:00:25,400
+Bạn có thể có một tập bài báo về
+thể thao hoặc tin thế giới hoặc
+
+8
+00:00:25,400 --> 00:00:31,200
+những thứ khác nhau như thế này, và nếu chúng ta có thể
+cấu trúc tài nguyên của chúng ta theo cách này,
+
+9
+00:00:31,200 --> 00:00:34,890
+nếu một người đang đọc
+một bài báo về thể thao,
+
+10
+00:00:34,890 --> 00:00:40,070
+thì chúng ta có thể nhanh chóng
+tìm kiếm tất cả các bài báo về thể thao,
+
+11
+00:00:40,070 --> 00:00:44,260
+thay vì nhìn vào mỗi bài báo
+trong toàn bộ tài nguyên.
+
+12
+00:00:44,260 --> 00:00:48,719
+Nhưng thách thức ở đây là
+những bài báo này sẽ không có
+
+13
+00:00:48,719 --> 00:00:49,300
+nhãn mác.
+
+14
+00:00:49,300 --> 00:00:52,024
+Nó sẽ không giống như New York Times,
+khi bạn vào và
+
+15
+00:00:52,024 --> 00:00:54,260
+ai đó nói , đây là một bài báo về giáo dục.
+
+16
+00:00:54,260 --> 00:00:57,778
+Ok và tất cả chúng ta có các bài báo,
+cái mà chúng ta muốn làm hoặc
+
+17
+00:00:57,778 --> 00:01:01,300
+khám phá những nhóm bài báo cơ bản này.
+
+18
+00:01:01,300 --> 00:01:06,270
+Ok mục đích là để khám phá
+nhóm các bài báo liên quan,
+
+19
+00:01:06,270 --> 00:01:10,830
+và như tôi đã đề cập, một nhóm có thể biểu diễn
+cho một tập các bài báo như thể thao và
+
+20
+00:01:10,830 --> 00:01:13,290
+một nhóm bài báo khác
+đại diện cho tin tức thế giới.
+
+21
+00:01:15,140 --> 00:01:19,350
+Trong thời gian này, hãy giả sử rằng
+ai đó cung cấp cho chúng ta nhãn hiệu,
+
+22
+00:01:19,350 --> 00:01:23,130
+vì thế ai đó lướt qua và đọc từng bài báo hoặc
+
+23
+00:01:23,130 --> 00:01:27,770
+ít nhất là đọc phần giới thiệu của các bài báo
+trong tài nguyen và dán nhãn cho chúng
+
+24
+00:01:27,770 --> 00:01:30,800
+ok những bài báo này là về thể thao.
+
+25
+00:01:30,800 --> 00:01:33,260
+Và những bài báo này là về tin tức thế giới.
+
+26
+00:01:33,260 --> 00:01:35,060
+Và những bài này về giải trí.
+
+27
+00:01:35,060 --> 00:01:37,300
+Một số bài về khoa học.
+
+28
+00:01:37,300 --> 00:01:42,370
+Chúng ta có một số tập bài báo được dán nhãn.
+
+29
+00:01:42,370 --> 00:01:47,500
+Trong trường hợp này khi mà chúng ta
+có bài báo truy vấn và chúng ta muốn
+
+30
+00:01:47,500 --> 00:01:54,200
+gán nó vào một nhóm, điều này
+trở thành vấn đề phân loại đa lớp.
+
+31
+00:01:54,200 --> 00:01:57,665
+Bởi vì câu hỏi ở đây là
+bài báo truy vấn của tôi,
+
+32
+00:01:57,665 --> 00:02:02,590
+tôi không biết nhãn mác liên quan đến nó
+và tôi có một đống nhãn tài liệu.
+
+33
+00:02:02,590 --> 00:02:08,403
+Tôi có nhãn mác về tin thế giới, khoa học,
+thể thao, giải trí và công nghệ,
+
+34
+00:02:08,403 --> 00:02:13,390
+tôi chỉ muốn phân loại bài báo
+này thuộc lớp nào, ok?
+
+35
+00:02:13,390 --> 00:02:14,850
+Đây là câu hỏi.
+
+36
+00:02:14,850 --> 00:02:17,600
+Nó chỉ là một vấn đề phân loại đa lớp.
+
+37
+00:02:17,600 --> 00:02:23,970
+Vì thế nếu đó là một trường hợp, thì sẽ là 
+ví dụ về một bài toán học tập giám sát.
+
+38
+00:02:23,970 --> 00:02:27,884
+[NHẠC]

@@ -1,0 +1,156 @@
+1
+00:00:00,000 --> 00:00:03,885
+[NHẠC]
+
+2
+00:00:03,885 --> 00:00:07,900
+Mạng thần kinh cung cấp một số kết quả thú vị, tuy nhiên
+
+3
+00:00:07,900 --> 00:00:10,062
+chúng có một vài thách thức.
+
+4
+00:00:10,062 --> 00:00:14,670
+Về mặt chuyên môn chúng cho bạn biểu thị 
+
+5
+00:00:14,670 --> 00:00:17,963
+các đặc điểm phức tạp phi tuyến tuyến này 
+ và chúng có các kết quả ấn tượng,
+
+6
+00:00:17,963 --> 00:00:22,881
+không chỉ trong computer vision mà còn
+ trong các lĩnh vực khác như là phát hiện giọng nói.
+
+7
+00:00:22,881 --> 00:00:27,038
+Các hệ thống như Siru trên điện thoại và các hệ thống khác sử dụng
+
+8
+00:00:27,038 --> 00:00:32,270
+mạng thần kinh đằng sau màn hình cũng như
+ một số nhiệm vụ phân tích văn bản.
+
+9
+00:00:32,270 --> 00:00:35,240
+Và nó có tiềm năng với nhiều tác động trong các lĩnh vực.
+
+10
+00:00:37,330 --> 00:00:39,020
+Bây giờ chúng đi kèm với nhiều thách thức.
+
+11
+00:00:39,020 --> 00:00:40,974
+Và để hiểu các thách thức này,
+
+12
+00:00:40,974 --> 00:00:44,283
+chúng ta cần phải nói về quy trình hoạt động
+ của việc huấn luyện một mạng lưới.
+
+13
+00:00:44,283 --> 00:00:47,627
+Bạn cần phải bắt đầu với rất nhiều dữ liệu.
+
+14
+00:00:47,627 --> 00:00:49,205
+Dữ liệu đó phải được dán nhãn.
+
+15
+00:00:49,205 --> 00:00:54,310
+Mỗi hình ảnh phải có, đó là hình ảnh về loại chó gì, là chó săn,
+
+16
+00:00:54,310 --> 00:00:59,495
+là poodle, chihuahua, vân vân.
+
+17
+00:00:59,495 --> 00:01:04,295
+Điều đó đòi hỏi nhiều chú thích của con người và co thể rất khó.
+
+18
+00:01:04,295 --> 00:01:06,165
+Nhưng chúng ta bắt đầu với một số hình ảnh.
+
+19
+00:01:06,165 --> 00:01:10,756
+Chúng ta chia chúng thành các nhiệm vụ huấn luyện
+ hoặc các tập xác nhận như chúng ta đã thảo luận,
+
+20
+00:01:10,756 --> 00:01:14,891
+và chúng ta đã học về mạng lưới và điều đó có thể mất một thời gian.
+
+21
+00:01:14,891 --> 00:01:19,612
+Nhưng một khi chúng ta xác nhận, 
+chúng ta thấy rằng cấu trúc tám lớp phức tạp của
+
+22
+00:01:19,612 --> 00:01:23,302
+60 triệu thông số không phải cái mà chúng ta cần và
+
+23
+00:01:23,302 --> 00:01:28,189
+chúng ta cần phải sửa đổi nó hoặc chúng ta cần phải
+ điều chỉnh các thông số hoặc thay đổi cách chúng ta nghiên cứu.
+
+24
+00:01:28,189 --> 00:01:31,068
+Và chúng ta phải lặp lại nhiều lần.
+
+25
+00:01:31,068 --> 00:01:35,949
+Thực tế để có được mạng lưới,
+
+26
+00:01:35,949 --> 00:01:41,859
+cần phải kết nối các tầng với những đại diện khác nhau và
+
+27
+00:01:41,859 --> 00:01:46,498
+nhiều sự phức tạp trong thuật toán nghiên cứu, vì thế rất khó.
+
+28
+00:01:46,498 --> 00:01:49,830
+Mặc dù có một số thuận lợi,
+
+29
+00:01:49,830 --> 00:01:51,900
+cũng sẽ đi kèm với một số thách thức.
+
+30
+00:01:51,900 --> 00:01:55,703
+Chúng đòi hỏi nhiều dữ liệu để biểu thị, chúng 
+
+31
+00:01:55,703 --> 00:01:59,008
+đắt thậm chí với GPU.
+
+32
+00:01:59,008 --> 00:02:03,058
+Và chúng cực kì khó để điều chỉnh, vì thế 
+bạn có nhiều lựa chọn, nhiều tầng
+
+33
+00:02:03,058 --> 00:02:06,777
+bạn sử dụng, số lượng tầng và thông số
+ bạn sử dụng và điều đó khá là khó.
+
+34
+00:02:06,777 --> 00:02:10,777
+Nếu bạn kết hợp các lựa chọn tính toán và tính chi phí
+
+35
+00:02:10,777 --> 00:02:15,249
+quá sớm, bạn sẽ kết thúc quá trình cực kì khó khăn cho
+
+36
+00:02:15,249 --> 00:02:18,005
+việc tìm ra mạng nơ ron nào để sử dụng.
+
+37
+00:02:18,005 --> 00:02:18,505
+[NHẠC]

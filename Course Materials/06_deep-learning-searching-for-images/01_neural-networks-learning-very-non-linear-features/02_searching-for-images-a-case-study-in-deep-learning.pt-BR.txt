@@ -1,0 +1,4 @@
+[MÚSICA] Hoje, nós vamos falar sobre uma das
+coisas mais excitantes que aconteceram no aprendizado de máquina ao longo dos últimos anos. É uma nova área chamada "deep learning". Em particular, nós vamos falar sobre
+um caso de uso particular dessa área relacionado com compa de produtos apenas
+com base na semelhança de imagem [MÚSICA]

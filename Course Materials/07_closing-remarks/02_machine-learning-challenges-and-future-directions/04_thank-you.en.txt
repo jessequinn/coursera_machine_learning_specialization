@@ -1,0 +1,19 @@
+[MUSIC] So we hope you've enjoyed this
+first course in this machine learning specialization, and not only
+have you learned a lot of different machine learning methods, but
+you've actually put them into practice. >> And we really appreciate your effort. We know you've worked really hard, you've
+implemented a lot of different machine learning algorithms, and
+really gone through those notebooks. And really understood not just
+the concepts, but how to put them into practice and really how to evaluate
+whether those models that you built really work and provide the value that
+you expect out of machine learning. Now you're ready to build your
+own intelligent applications and really apply them in practice. >> But there's a lot more ahead for us in
+this specialization to turn you guys into machine learning experts, where you can
+actually design and deploy new methods. [LAUGH]
+Was there more I was supposed to say? >> Or am I saying that? >> Oh. Let's both be excited. We're all excited. >> [LAUGH]
+>> We're both excited for this journey that you have ahead with us in this
+specialization, it'll be very meaningful. >> [LAUGH] It's really
+cool to have you join us, thank you for coming to the first course. We're excited to see you in
+the following courses, and see the amazing things you're gonna build
+in the capstone project at the end. >> [LAUGH]
+>> Thank you for your hard work. >> Thank you, see you soon. [MUSIC]

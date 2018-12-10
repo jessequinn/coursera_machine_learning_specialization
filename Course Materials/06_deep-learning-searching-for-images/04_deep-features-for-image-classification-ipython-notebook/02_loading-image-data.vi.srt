@@ -1,0 +1,205 @@
+1
+00:00:00,000 --> 00:00:04,066
+[NHẠC]
+
+2
+00:00:04,066 --> 00:00:05,597
+Trong bài học về học sâu này,
+
+3
+00:00:05,597 --> 00:00:09,320
+chúng ta đã nói về hai thứ rất thú vị mà bạn có thể thực hiện với học sâu.
+
+4
+00:00:09,320 --> 00:00:15,150
+Một cái là phân loại hình ảnh,
+và một cái là truy xuất hình ảnh.
+
+5
+00:00:15,150 --> 00:00:17,510
+Và cả hai chúng ta đã nói đến
+các tính năng sâu.
+
+6
+00:00:17,510 --> 00:00:20,490
+Hãy tiếp tục và xây dựng ghi chú cho
+
+7
+00:00:20,490 --> 00:00:23,390
+phân loại hình ảnh sử dụng các tính năng sâu.
+
+8
+00:00:23,390 --> 00:00:26,470
+Hẫy đặt tên cho ghi chú này.
+
+9
+00:00:26,470 --> 00:00:32,829
+Đây sẽ là Image Classification
+
+10
+00:00:32,829 --> 00:00:37,850
+with Deep Features.
+
+11
+00:00:37,850 --> 00:00:41,490
+Và tôi sẽ ẩn tiêu đề và
+
+12
+00:00:41,490 --> 00:00:44,730
+thanh công cụ để có nhiều không gian hơn như thường lệ.
+
+13
+00:00:44,730 --> 00:00:46,980
+Chúng ta sẽ thực hiện.
+
+14
+00:00:46,980 --> 00:00:51,945
+Thực sự tôi đã mắc một lỗi nhỏ ở đây vì thế 
+
+15
+00:00:51,945 --> 00:00:57,158
+chúng ta sẽ Fire uo GraplabCreates.
+
+16
+00:00:57,158 --> 00:01:02,786
+Hãy nhập GraphLab, đây chúng ta có.
+
+17
+00:01:02,786 --> 00:01:09,309
+Điều đầu tiên mà chúng ta sẽ làm là tải một tập dữ liệu phân tích hình ảnh.
+
+18
+00:01:19,689 --> 00:01:23,660
+Đây là một tập dữ liệu chuẩn được gọi là SIFR10.
+
+19
+00:01:26,470 --> 00:01:30,220
+Chúng a chọn một tập nhỏ nơi mà chúng ta óc boonss danh mục
+
+20
+00:01:30,220 --> 00:01:32,460
+của các đối tượng chúng ta cố gắng nhận dạng.
+
+21
+00:01:32,460 --> 00:01:36,430
+Tôi sẽ tải tập dữ liệu và
+
+22
+00:01:36,430 --> 00:01:40,540
+tập dữ liệu này đã được chia thành dữ liệu huấn luyện và dữ liệu kiểm tra
+
+23
+00:01:40,540 --> 00:01:45,660
+vởi vì trong computer vision thường chia để mỗi nhà nghiên cứu sử dụng
+
+24
+00:01:45,660 --> 00:01:50,580
+tập huấn luyện và tập kiểm tra giống nhau, vì thế giấy tờ trở nên tương đối hơn.
+
+25
+00:01:50,580 --> 00:01:58,150
+Tôi sẽ tải Sframe mà chứa tập dữ liệu.
+
+26
+00:01:58,150 --> 00:02:02,790
+graphlab.SFrame và cho dữ liệu đào tạo,
+
+27
+00:02:04,000 --> 00:02:09,046
+có một thư mục ở đây được gọi là image_train_data.
+
+28
+00:02:09,046 --> 00:02:16,110
+Và sau đó với dữ liệu kiểm tra, hãy lấy image_test.
+
+29
+00:02:16,110 --> 00:02:21,109
+Chúng ta có SFrame nữa.
+
+30
+00:02:21,109 --> 00:02:25,681
+Mã image_test_data.
+
+31
+00:02:25,681 --> 00:02:29,830
+Đây chúng ta có, chúng ta đang tải hai tập dữ liệu này,
+
+32
+00:02:29,830 --> 00:02:33,460
+hãy bắt đầu bằng việc khám phá dữ liệu một chút.
+
+33
+00:02:33,460 --> 00:02:39,320
+Khám phá dữ liệu hình ảnh.
+
+34
+00:02:42,300 --> 00:02:45,390
+Cái mà chúng ta sẽ làm là sử dụng canvas.
+
+35
+00:02:45,390 --> 00:02:48,700
+Tôi sẽ chỉ canvas để hiển thị nó trên ghi chú,
+
+36
+00:02:48,700 --> 00:02:50,550
+như chúng ta đang làm trên một vài ghi chú.
+
+37
+00:02:50,550 --> 00:02:53,240
+Nó trở thành thứ mà chúng ta có thể mạng về nhà.
+
+38
+00:02:53,240 --> 00:02:59,145
+Tôi sẽ thiết lâp grapglab.canvas và
+
+39
+00:02:59,145 --> 00:03:07,090
+tôi sẽ đặt mục tiêu là ghi chú ipython.
+
+40
+00:03:07,090 --> 00:03:10,510
+Nó sẽ xuất bất kì điều gì trên ghi chú ipython mà chúng ta làm.
+
+41
+00:03:10,510 --> 00:03:15,050
+Hãy bắt đầu bằng việc nhìn vào dữ liệu chuỗi.
+
+42
+00:03:15,050 --> 00:03:17,350
+Chuỗi hình ảnh và ở đây có một số cột nhưng
+
+43
+00:03:17,350 --> 00:03:20,898
+cột mà chúng ta thực sự quan tâm ở đây là cột hình ảnh.
+
+44
+00:03:20,898 --> 00:03:23,110
+Tôi sẽ nhập .show vào đó và
+
+45
+00:03:23,110 --> 00:03:26,960
+chúng ta sẽ nhìn nhanh vào cột hình ảnh.
+
+46
+00:03:26,960 --> 00:03:31,039
+Những hình ảnh không quá lớn, vì thế tôi tạm thời sẽ tăng
+
+47
+00:03:32,320 --> 00:03:37,070
+phông ở đây để chúng ta có thể thấy các hình ảnh.
+
+48
+00:03:37,070 --> 00:03:42,070
+Nếu bạn nhìn vào nó, có một con chim, có một số con mèo, có một số con chó và
+
+49
+00:03:42,070 --> 00:03:42,828
+một vài chiếc ô tô.
+
+50
+00:03:42,828 --> 00:03:49,433
+Tập dữ liệu này tất cả là về mèo, chó, ô tô và chim.
+
+51
+00:03:49,433 --> 00:03:53,659
+[NHẠC]

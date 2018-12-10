@@ -1,0 +1,435 @@
+1
+00:00:00,000 --> 00:00:04,338
+[MUSIC]
+
+2
+00:00:04,338 --> 00:00:08,644
+Okay, so to handle this situation
+of having very popular items,
+
+3
+00:00:08,644 --> 00:00:13,340
+we can think about normalizing
+the the co-occurrence matrix.
+
+4
+00:00:13,340 --> 00:00:17,290
+And one way in which we can normalize this
+matrix is with something called Jaccard
+
+5
+00:00:17,290 --> 00:00:18,010
+similarity.
+
+6
+00:00:19,048 --> 00:00:21,870
+So I wanna mention that this notion of
+
+7
+00:00:21,870 --> 00:00:25,270
+normalizing this co-occurrence matrix
+that we're talking about right now,
+
+8
+00:00:25,270 --> 00:00:29,450
+is very similar to what we talked about
+in that clustering and similarity module.
+
+9
+00:00:29,450 --> 00:00:34,940
+When we were talking about tf/idf, the
+Term Frequency Inverse Document Frequency.
+
+10
+00:00:34,940 --> 00:00:38,800
+Where, there we were looking at
+documents and we said that really,
+
+11
+00:00:38,800 --> 00:00:43,540
+really common words just swamped out other
+words that we might have cared about.
+
+12
+00:00:43,540 --> 00:00:47,090
+And so we had this way of using tf/idf to
+
+13
+00:00:47,090 --> 00:00:51,480
+renormalize our raw word counts that we
+were using to represent our document.
+
+14
+00:00:51,480 --> 00:00:52,260
+Well, in this case,
+
+15
+00:00:52,260 --> 00:00:57,310
+this is a very similar notion of
+accounting for a very popular item.
+
+16
+00:00:58,430 --> 00:01:01,110
+And the way it works is pretty intuitive.
+
+17
+00:01:01,110 --> 00:01:06,290
+We're just gonna count the number of
+people who purchased some item i and
+
+18
+00:01:06,290 --> 00:01:06,930
+some item j.
+
+19
+00:01:08,220 --> 00:01:14,000
+So number, who purchased i and
+
+20
+00:01:14,000 --> 00:01:18,010
+j, and that's what our matrix had before.
+
+21
+00:01:18,010 --> 00:01:19,840
+So those are our raw counts.
+
+22
+00:01:19,840 --> 00:01:22,410
+We're gonna normalize by
+
+23
+00:01:22,410 --> 00:01:25,349
+the number of people who
+purchased either of these items.
+
+24
+00:01:26,600 --> 00:01:33,461
+So the number who purchased i or j.
+
+25
+00:01:33,461 --> 00:01:37,500
+And so a simple Venn diagram
+explains this very clearly.
+
+26
+00:01:40,370 --> 00:01:44,047
+Here's the world of people
+that purchased item i.
+
+27
+00:01:48,700 --> 00:01:53,879
+And here's the world of people
+who purchased item j, and
+
+28
+00:01:55,672 --> 00:02:00,712
+Here, in this shaded area,
+are the people who purchased i and j.
+
+29
+00:02:04,150 --> 00:02:08,337
+So what we're gonna do,
+is we're taking the counts we had before.
+
+30
+00:02:08,337 --> 00:02:12,213
+This is our numerator,
+this shaded area, purchased i and j.
+
+31
+00:02:12,213 --> 00:02:16,200
+And we're just normalizing
+by the total area.
+
+32
+00:02:16,200 --> 00:02:21,212
+So that's, let me switch colors here
+to make this a little bit more visible.
+
+33
+00:02:27,421 --> 00:02:36,110
+So, circling the whole entire world of
+unique users that purchased items i or j.
+
+34
+00:02:36,110 --> 00:02:37,671
+And that's our denominator.
+
+35
+00:02:40,671 --> 00:02:45,519
+Okay, so, that's one way in which we
+can normalize our co-occurrence matrix,
+
+36
+00:02:45,519 --> 00:02:49,875
+and there are other things we can think
+about like cosine similarity, and
+
+37
+00:02:49,875 --> 00:02:53,690
+we'll talk about these other
+metrics more later in the course.
+
+38
+00:02:55,540 --> 00:02:57,980
+But this method has its own limitations.
+
+39
+00:02:57,980 --> 00:03:01,570
+Here, one issue is the fact that
+only the current page matters, so
+
+40
+00:03:01,570 --> 00:03:04,490
+it only matters that I just
+bought Sophie the giraffe
+
+41
+00:03:04,490 --> 00:03:07,260
+when we're looking at making
+recommendations for me.
+
+42
+00:03:07,260 --> 00:03:10,220
+We're not looking at the entire history
+of things that I've purchased to
+
+43
+00:03:10,220 --> 00:03:11,830
+inform these recommendations.
+
+44
+00:03:13,800 --> 00:03:18,300
+So let's talk about a way in which we
+can modify our approach to account for
+
+45
+00:03:18,300 --> 00:03:19,880
+my history of purchases.
+
+46
+00:03:21,270 --> 00:03:25,390
+Okay, so a really simple approach
+is just to do a weighted average
+
+47
+00:03:25,390 --> 00:03:28,350
+over the scores I would have
+placed on the products.
+
+48
+00:03:28,350 --> 00:03:30,490
+For each item in my purchase history, so
+
+49
+00:03:30,490 --> 00:03:32,740
+let's go through a concrete
+example of this.
+
+50
+00:03:32,740 --> 00:03:38,800
+Let's imagine that the only items I ever
+purchased on Amazon were diapers and milk.
+
+51
+00:03:38,800 --> 00:03:42,860
+So now I wanna make recommendations for
+me, the user that only purchases diapers
+
+52
+00:03:42,860 --> 00:03:48,210
+and milk, and what I'm gonna do is,
+I'm gonna go through every item
+
+53
+00:03:48,210 --> 00:03:51,910
+that I might think about recommending, and
+I'm gonna compute the score as follows.
+
+54
+00:03:51,910 --> 00:03:55,580
+So let's say I'm looking at
+whether I wanna recommend the item
+
+55
+00:03:55,580 --> 00:03:57,970
+baby wipes to myself.
+
+56
+00:03:57,970 --> 00:03:59,250
+And in this case,
+
+57
+00:03:59,250 --> 00:04:03,820
+what I'm gonna do is I'm gonna compute a
+weighted average over how much I would've
+
+58
+00:04:03,820 --> 00:04:08,760
+recommended baby wipes just based
+on having purchased diapers before.
+
+59
+00:04:08,760 --> 00:04:11,400
+So that's using exactly
+the techniques we just talked about.
+
+60
+00:04:11,400 --> 00:04:14,270
+So looking at the row diapers, and
+
+61
+00:04:14,270 --> 00:04:17,650
+looking at how many times
+people also bought baby wipes.
+
+62
+00:04:17,650 --> 00:04:20,930
+But then I'm also gonna look
+at the row for milk, and
+
+63
+00:04:20,930 --> 00:04:24,340
+then look at how many times people
+who bought milk bought baby wipes.
+
+64
+00:04:24,340 --> 00:04:29,040
+And I'm gonna average these two results
+to say how much, or how likely it is that
+
+65
+00:04:30,490 --> 00:04:34,170
+I would purchase baby wipes,
+given this purchase history that I have.
+
+66
+00:04:35,930 --> 00:04:39,360
+Okay, and of course we could do other
+variance instead of it just the simple
+
+67
+00:04:39,360 --> 00:04:44,250
+weighted average I could weight more
+heavily my recent purchase history to
+
+68
+00:04:44,250 --> 00:04:46,980
+account for context and so on.
+
+69
+00:04:48,250 --> 00:04:51,560
+Okay, so then when I want to make
+the recommendation I just sort
+
+70
+00:04:51,560 --> 00:04:55,670
+this weighted average score and recommend
+the products that have the most weight.
+
+71
+00:04:55,670 --> 00:04:59,274
+So very similar to the purchase
+we talked about before, but
+
+72
+00:04:59,274 --> 00:05:02,962
+now we're combining weights
+based on my purchase history.
+
+73
+00:05:05,004 --> 00:05:07,580
+Okay, but
+this method still has some limitations.
+
+74
+00:05:07,580 --> 00:05:12,890
+So for example, it doesn't use contacts,
+like time of day, at least not directly.
+
+75
+00:05:12,890 --> 00:05:17,760
+It doesn't use features of
+the user like my age or gender or
+
+76
+00:05:17,760 --> 00:05:20,845
+anything like that, cuz it's grouping all
+
+77
+00:05:20,845 --> 00:05:25,160
+users together when it's thinking about
+looking at this co-occurrence matrix.
+
+78
+00:05:26,310 --> 00:05:29,030
+And likewise,
+it doesn't use features of the products.
+
+79
+00:05:29,030 --> 00:05:34,200
+Okay, so everything's just pooled
+together without any kind of notion
+
+80
+00:05:34,200 --> 00:05:38,550
+of different properties of these products
+or users to drive these recommendations.
+
+81
+00:05:39,850 --> 00:05:42,610
+And another big problem that we face
+here is something called the Cold
+
+82
+00:05:42,610 --> 00:05:43,240
+start problem.
+
+83
+00:05:43,240 --> 00:05:46,170
+And this is a really important problem
+that we face in a lot of different
+
+84
+00:05:46,170 --> 00:05:46,990
+domains.
+
+85
+00:05:46,990 --> 00:05:49,130
+But let's talk about it in this context.
+
+86
+00:05:49,130 --> 00:05:53,610
+So, the Cold start problem is the fact
+that, let's say we get a new user or
+
+87
+00:05:53,610 --> 00:05:55,290
+a new product.
+
+88
+00:05:55,290 --> 00:05:57,650
+How do we form recommendations?
+
+89
+00:05:57,650 --> 00:06:01,830
+Right, I have no observations ever for
+that product, so
+
+90
+00:06:01,830 --> 00:06:06,070
+I have no notion of how often it's been
+purchased along with something else
+
+91
+00:06:06,070 --> 00:06:08,230
+cuz it's never been purchased.
+
+92
+00:06:08,230 --> 00:06:12,129
+And likewise for a user, I've no
+information about my past purchases.
+
+93
+00:06:12,129 --> 00:06:15,929
+[MUSIC]

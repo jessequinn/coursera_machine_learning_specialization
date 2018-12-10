@@ -1,0 +1,9 @@
+[MUSIC] Emily and I really hope you've
+enjoyed the course so far. We've really explored the foundations
+of machine learning on a wide range of domains with a range of
+different applications. And really touched many of the practical
+issues around deploying and building machine learning systems. And now in this closing module we're going
+to really summarize some of the concepts that we've learned. Talk about how to deploy these ideas, especially machine learning
+systems in production and then what's ahead in the specialization
+and in machine learning as a whole. Some really exciting stuff as
+we close off this first course. [MUSIC]

@@ -1,0 +1,43 @@
+[NHẠC] Chúng ta sẽ giả sử rằng không có
+nhãn hiệu nào được cung cấp. Và chúng ta mong muốn đưa ra các nhóm
+bài báo liên quan chính là các clusters. Ở đây đầu vào sẽ là một vectơ. Vì vậy mỗi sự quan sát mà chúng ta
+đang vẽ ở đây là vectơ đếm từ của chúng ta. Và trong trường hợp này, chúng ta sẽ chỉ
+nhìn vào một ví dụ rất đơn giản với từ vựng mà chỉ có hai từ. Chúng ta có một vectơ,
+chúng ta có từ 1 và từ 2. Và trục này ở đây là từ 2
+và trục này là từ 1. Tất nhiên nhớ rằng thực tế
+chúng ta có rất nhiều từ vựng và chúng ta có các vectơ nhiều chiều. Khi chúng ta vẽ ra các sự quan sát, 
+chúng ở trong không gian chiều cao này nhưng với hiển thị, hãy nhìn vào
+sự biểu diễn 2D này. Chúng ta có một tập tài liệu ở đây,
+tất cả đã được biểu diễn bởi bộ đếm từ qua hai từ
+khác nhau trong từ vựng. Ok đó là đầu vào cho một
+thuật toán phân nhóm và đầu ra sẽ là các nhãn mác nhóm. Ý của tôi là sự quan sát này và tất cả sự quan sát ở đây, [âm thanh]
+tất cả các nhãn mác này có màu đỏ. Có thể chúng được áp dụng,
+một số nhóm nhãn mác một. Hãy gọi cái này là Cluster 1. Với mỗi tài liệu, nó sẽ có một số nhãn. Nó sẽ được dán nhác một. Sau đó tất cả sự quan sát ở đây
+chúng sẽ có các nhãn mác khác. Và hãy giả sử rằng đây là cluster 2. Sự quan sát này có nhãn 2. Và tất cả sự quan sát
+ở đây sẽ được nhãn 3. Nó sẽ là đầu ra của thuật toán này. Và có thể việc bạn có thể làm là post facto, bạn có thể xem qua và nhìn vào
+một vài bài báo trong cluster 1 và bạn có thể nói rằng, cluster này
+là một nhóm về thể thao. Tôi chỉ muốn viết rõ rằng nhãn mác
+này được cung cấp post facto. Ok đây là một ví dụ về nhiệm vụ học không giám sát bởi vì chúng ta
+đang chạy mà không có bất kì nhãn mác nào. Tất cả chúng ta có là
+những dữ liệu quan sát và chúng ta đang cố tìm ra vài
+cấu trúc trong dữ liệu quan sát. Một lần nữa, nhắc lại, đầu vào
+là các vectơ đếm từ và đầu ra là với mỗi tài liệu
+trong tập tài nguyên, chúng ta sẽ kết hợp nhóm
+nhãn mác với tài liệu đó. Ok định nghĩa một nhóm là gì? Vâng mỗi nhóm được xác định
+bởi một nhóm trung tâm, vì thế có thể tôi sẽ đánh dấu các
+nhóm trung tâm bằng Xs. Sau đó có hình dạng nhóm và các hình elip này biểu diễn
+cho hình dạng của mỗi nhóm. Và khi chúng ta nghĩ về
+các dữ liệu quan sát này, dữ liệu quan sát này ở đây được gán
+cho nhóm xanh lá cây hoặc nhóm đỏ. Những gì chúng ta làm là chúng ta
+đang nhìn vào tính tương đồng của bài báo này với bài báo khác
+dựa trên hình dạng của nhóm này. Chúng ta tính cho mọi dữ liệu quan sát dựa trên nhóm trung tâm
+cũng như hình dạng của nhóm. Và trong trường hợp này bởi vì
+nhóm này có hình nghiêng theo chiều dọc, nó sẽ được gán vào nhóm màu
+xanh lá cây thay vì nhóm đỏ. Nhưng cách tiếp cận khác rất phổ biến là thay vì nhìn vào hình dạng của nhóm,
+chúng ta nhìn vào nhóm trung tâm. Chúng ta đo khoảng cách
+của sự quan sát này, vì thế hãy để tôi thay đổi màu sắc ở đây,
+sự thay đổi này đặt ở đây. Chúng ta sẽ chỉ nhìn vào
+khoảng cách của sự quan sát này với nhóm trung tâm màu xanh
+so với nhóm trung tâm màu đỏ. Trong trường hợp này nó sẽ rất khó
+để quyết định liệu bài báo đó nên đi với nhóm xanh hay nhóm đỏ. Nhưng có những trường hợp khác
+như sự quan sát ở đây khá là rõ với số liệu mà nó sẽ được gán cho nhóm đỏ.

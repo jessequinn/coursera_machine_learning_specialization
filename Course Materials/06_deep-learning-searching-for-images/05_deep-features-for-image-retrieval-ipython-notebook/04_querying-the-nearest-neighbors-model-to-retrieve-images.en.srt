@@ -1,0 +1,340 @@
+1
+00:00:00,003 --> 00:00:03,681
+[MUSIC]
+
+2
+00:00:03,681 --> 00:00:06,631
+Now, we can use the model.
+
+3
+00:00:10,421 --> 00:00:14,514
+Use image retrieval
+
+4
+00:00:14,514 --> 00:00:19,570
+model with deep features
+
+5
+00:00:19,570 --> 00:00:24,631
+to find similar images.
+
+6
+00:00:24,631 --> 00:00:25,421
+So here we go.
+
+7
+00:00:25,421 --> 00:00:29,960
+We're gonna take that model and
+use it to find similar images.
+
+8
+00:00:29,960 --> 00:00:33,860
+So let me go ahead and do exactly that.
+
+9
+00:00:33,860 --> 00:00:37,880
+So first, remember,
+let's take a particular image.
+
+10
+00:00:37,880 --> 00:00:43,000
+So let's take and we'll call this cat,
+you'll see the cat image.
+
+11
+00:00:43,000 --> 00:00:47,090
+So out of my image training data.
+
+12
+00:00:47,090 --> 00:00:50,170
+I'm gonna take the 18th image.
+
+13
+00:00:50,170 --> 00:00:54,630
+So this is I'm gonna take
+the 18th images like this.
+
+14
+00:00:54,630 --> 00:00:56,780
+And just so that you know what it is,
+
+15
+00:00:56,780 --> 00:01:04,190
+I'm gonna do cat['image'].show
+to actually show that image.
+
+16
+00:01:04,190 --> 00:01:06,730
+And so to show it in the notebook here,
+
+17
+00:01:06,730 --> 00:01:11,740
+I'm gonna set the canvas target
+to be the IPython Notebook.
+
+18
+00:01:13,920 --> 00:01:16,000
+So all the things we've been doing so far.
+
+19
+00:01:16,000 --> 00:01:17,620
+So, here we are.
+
+20
+00:01:17,620 --> 00:01:20,890
+Here's an image of a cat and it's a tabby.
+
+21
+00:01:20,890 --> 00:01:24,045
+For those images of the cats it looks,
+appears a little small but
+
+22
+00:01:24,045 --> 00:01:25,220
+it's an image of a cat.
+
+23
+00:01:25,220 --> 00:01:26,420
+You can play with it.
+
+24
+00:01:26,420 --> 00:01:32,840
+So now we can find the nearest
+neighbors to this cat.
+
+25
+00:01:32,840 --> 00:01:37,660
+So, lets go ahead and do that like that.
+
+26
+00:01:37,660 --> 00:01:41,560
+Now, let's take this image of a cat and
+just find it's nearest neighbors.
+
+27
+00:01:41,560 --> 00:01:46,550
+So what I can do is take my knn_model and
+
+28
+00:01:46,550 --> 00:01:49,350
+query it for the image of the cat.
+
+29
+00:01:50,990 --> 00:01:54,710
+And so after a query,
+you'll see that for this image of cat,
+
+30
+00:01:54,710 --> 00:02:00,850
+the nearest images are image 384,
+6910, and so on.
+
+31
+00:02:00,850 --> 00:02:04,280
+And it's a little hard to get
+those images from the numbers.
+
+32
+00:02:04,280 --> 00:02:07,530
+So when we create that,
+we'll create a helper function together
+
+33
+00:02:07,530 --> 00:02:11,690
+that takes those indices and
+actually shows you those images, so
+
+34
+00:02:11,690 --> 00:02:14,810
+we are gonna actually take
+the opportunity to define a function.
+
+35
+00:02:16,200 --> 00:02:21,980
+So, I'm gonna define a new
+python function and it's gonna
+
+36
+00:02:21,980 --> 00:02:29,554
+say get_images_ids.
+
+37
+00:02:30,950 --> 00:02:36,210
+So in this reference column here has ids,
+this one here.
+
+38
+00:02:36,210 --> 00:02:38,796
+And then we're gonna get the images back.
+
+39
+00:02:38,796 --> 00:02:42,902
+So let's give it as
+
+40
+00:02:42,902 --> 00:02:48,035
+the output here is going
+
+41
+00:02:48,035 --> 00:02:53,298
+to be the Sorry.
+
+42
+00:02:53,298 --> 00:02:56,610
+The output here is going
+to be result of the query.
+
+43
+00:02:56,610 --> 00:03:01,390
+So let's call it query_result.
+
+44
+00:03:01,390 --> 00:03:06,976
+And it's a function, so all we're gonna
+
+45
+00:03:06,976 --> 00:03:14,010
+do with the query_result
+is return image_train.
+
+46
+00:03:14,010 --> 00:03:17,361
+So I'm gonna take that training data and
+I'm gonna do
+
+47
+00:03:17,361 --> 00:03:22,360
+an operation called filter_by, which
+just selects a set of rows of that data.
+
+48
+00:03:22,360 --> 00:03:31,140
+And I'm gonna select it by
+the query_result that we just created.
+
+49
+00:03:32,180 --> 00:03:36,516
+And once I've done that and
+select by query_result,
+
+50
+00:03:36,516 --> 00:03:42,560
+backs to you a column, and the column
+here is the reference_label column.
+
+51
+00:03:43,560 --> 00:03:48,775
+Query_result['reference_label'] and
+
+52
+00:03:48,775 --> 00:03:55,029
+what we're gonna do is say
+return all images in the stable
+
+53
+00:03:55,029 --> 00:04:04,070
+whose id matches this reference_label
+column over here, this column.
+
+54
+00:04:04,070 --> 00:04:05,440
+So that's what this helper function is.
+
+55
+00:04:05,440 --> 00:04:07,040
+So I don't have to type it all the time.
+
+56
+00:04:07,040 --> 00:04:09,349
+We can go ahead and use it but
+
+57
+00:04:09,349 --> 00:04:13,880
+I am gonna do a little bit
+of experimentation with it.
+
+58
+00:04:13,880 --> 00:04:17,470
+So, let's just define this function.
+
+59
+00:04:17,470 --> 00:04:22,350
+So, we've now defined it.
+
+60
+00:04:22,350 --> 00:04:25,220
+Get images from ids.
+
+61
+00:04:25,220 --> 00:04:26,810
+Actually, that's make more sense, right?
+
+62
+00:04:26,810 --> 00:04:31,170
+So let's call it, get_images_from_ids.
+
+63
+00:04:32,670 --> 00:04:35,610
+And so, let's go ahead and do it.
+
+64
+00:04:35,610 --> 00:04:39,301
+So remember, for the cat,
+
+65
+00:04:39,301 --> 00:04:45,559
+we had an image of our cat,
+so let's just say,
+
+66
+00:04:45,559 --> 00:04:50,870
+get, let's call it cat_neighbors.
+
+67
+00:04:50,870 --> 00:04:54,495
+And so the cat_neighbors are gonna be,
+
+68
+00:04:54,495 --> 00:04:59,507
+let's call this function
+get_images_from_ids and
+
+69
+00:04:59,507 --> 00:05:06,660
+as input, I'm going to take my knn_model
+and query it with the cat as an input.
+
+70
+00:05:09,150 --> 00:05:10,800
+Okay, so this is the cat neighbors.
+
+71
+00:05:10,800 --> 00:05:17,310
+The images neighbors and now what I
+can do is just show those images.
+
+72
+00:05:17,310 --> 00:05:22,453
+So, cat_neighbors['
+
+73
+00:05:22,453 --> 00:05:26,440
+image'].show.
+
+74
+00:05:26,440 --> 00:05:30,780
+So we had to play a little bit for
+data to see, but this was the nearest cat,
+
+75
+00:05:30,780 --> 00:05:35,260
+this is the input cat over here and you
+can see the nearest cats are all cats and
+
+76
+00:05:35,260 --> 00:05:37,300
+they are all kind of like tabbies.
+
+77
+00:05:37,300 --> 00:05:42,399
+[MUSIC]

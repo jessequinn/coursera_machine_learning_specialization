@@ -1,0 +1,347 @@
+1
+00:00:00,148 --> 00:00:03,886
+[MUSIC]
+
+2
+00:00:03,886 --> 00:00:07,921
+Okay, so up to this point we just
+considered fitting the data with a line
+
+3
+00:00:07,921 --> 00:00:10,560
+and the question is,
+what does a good choice?
+
+4
+00:00:11,600 --> 00:00:16,360
+So I'm actually feeling pretty good about
+my analysis to be pretty truthful here.
+
+5
+00:00:16,360 --> 00:00:20,900
+I fit this line, I minimize the residual
+sum of squares, I made a prediction for
+
+6
+00:00:20,900 --> 00:00:22,610
+my house value.
+
+7
+00:00:22,610 --> 00:00:26,890
+In doing so I leveraged all these
+observations that I went through and
+
+8
+00:00:26,890 --> 00:00:29,550
+recorded of all the recent house sales.
+
+9
+00:00:29,550 --> 00:00:33,950
+And I go and I go to Carlos and
+I say, hey, look at my analysis.
+
+10
+00:00:33,950 --> 00:00:37,480
+This is my estimate of
+the value of our house.
+
+11
+00:00:37,480 --> 00:00:41,520
+And he goes, well, I'm not so sure.
+
+12
+00:00:41,520 --> 00:00:44,944
+Because really, to me,
+I'm not sure that this is a linear trend.
+
+13
+00:00:44,944 --> 00:00:49,384
+He actually says
+>> It's not linear.
+
+14
+00:00:49,384 --> 00:00:51,320
+>> He says it's not linear.
+
+15
+00:00:51,320 --> 00:00:55,890
+Or according to my cartoon, he says,
+dude, that's not a linear relationship.
+
+16
+00:00:56,930 --> 00:00:57,730
+Dude.
+
+17
+00:00:57,730 --> 00:00:59,710
+No, I guess Carlos would not say dude.
+
+18
+00:01:01,180 --> 00:01:02,630
+But, anyway.
+>> He says bro.
+
+19
+00:01:02,630 --> 00:01:03,820
+>> He says bro.
+
+20
+00:01:03,820 --> 00:01:05,000
+Okay.
+
+21
+00:01:05,000 --> 00:01:06,200
+Bro.
+
+22
+00:01:06,200 --> 00:01:08,570
+He always refers to me as bro, of course.
+
+23
+00:01:11,010 --> 00:01:11,750
+Okay.
+
+24
+00:01:11,750 --> 00:01:16,250
+But anyway, the point is Carlos doesn't
+think that it's a linear relationship.
+
+25
+00:01:16,250 --> 00:01:19,400
+He thinks, you know maybe it's quadratic.
+
+26
+00:01:19,400 --> 00:01:21,600
+He said did you try a quadratic fit?
+
+27
+00:01:21,600 --> 00:01:23,060
+Well.
+
+28
+00:01:23,060 --> 00:01:25,880
+Now I look at the plot that
+he just put up here and
+
+29
+00:01:25,880 --> 00:01:28,320
+I say actually that looks pretty good.
+
+30
+00:01:28,320 --> 00:01:29,990
+And what do I have to do?
+
+31
+00:01:29,990 --> 00:01:35,240
+I have to figure out which is
+the best quadratic fit to this data.
+
+32
+00:01:35,240 --> 00:01:36,790
+And how am I gonna do that?
+
+33
+00:01:36,790 --> 00:01:40,230
+I'm gonna go again and I'm gonna
+minimize my residual sum of squares.
+
+34
+00:01:42,270 --> 00:01:45,150
+So I'm just about to go minimize
+my residual sum of squares.
+
+35
+00:01:45,150 --> 00:01:47,900
+So let's talk about what that
+would involve because when I'm
+
+36
+00:01:47,900 --> 00:01:51,910
+looking at a quadratic function I
+now have three parameters here.
+
+37
+00:01:51,910 --> 00:01:57,478
+I have my still my intercept,
+which is just where is this curve?
+
+38
+00:01:57,478 --> 00:01:59,740
+Up and down on the y axis.
+
+39
+00:02:02,720 --> 00:02:06,810
+And then I have this linear term of x, and
+
+40
+00:02:06,810 --> 00:02:11,490
+then I also have this extra term here,
+which is now the square of x.
+
+41
+00:02:11,490 --> 00:02:13,240
+That's where I get that
+quadratic component.
+
+42
+00:02:14,590 --> 00:02:17,080
+But I wanna make one quick comment here,
+so a little aside,
+
+43
+00:02:17,080 --> 00:02:19,610
+that this is actually still
+called linear regression.
+
+44
+00:02:21,480 --> 00:02:25,800
+And the reason is because we think of
+x squared just as another feature.
+
+45
+00:02:25,800 --> 00:02:30,130
+And what we see is that the w's
+always appear just as w's,
+
+46
+00:02:30,130 --> 00:02:31,900
+not w squared or other functions of w.
+
+47
+00:02:31,900 --> 00:02:35,470
+And we're going to discuss this in
+more detail in the regression course.
+
+48
+00:02:35,470 --> 00:02:38,120
+But remember, even though we're talking
+about a quadratic function fit to
+
+49
+00:02:38,120 --> 00:02:41,630
+the data,
+this is still called linear regression.
+
+50
+00:02:41,630 --> 00:02:44,450
+Okay but the point I want to make
+here is we have three parameters
+
+51
+00:02:44,450 --> 00:02:46,610
+when I'm going to minimize
+my residual sum of squares,
+
+52
+00:02:46,610 --> 00:02:49,820
+I'm going to have to search over
+the space of three different things now.
+
+53
+00:02:49,820 --> 00:02:55,110
+I have to minimize over the combination
+of best w zero, w one and
+
+54
+00:02:55,110 --> 00:03:00,179
+w two and finding the quadratic fit that
+minimizes my residual sum of squares.
+
+55
+00:03:01,500 --> 00:03:03,010
+Okay, so I'm just about to go and
+
+56
+00:03:03,010 --> 00:03:07,530
+do this computation, which actually turns
+out to also be efficient and again we
+
+57
+00:03:07,530 --> 00:03:11,380
+are going to discuss the generality
+of that in the regression course.
+
+58
+00:03:11,380 --> 00:03:13,620
+But then Carlos has a brilliant idea.
+
+59
+00:03:13,620 --> 00:03:14,890
+He says wait, wait wait!
+
+60
+00:03:16,000 --> 00:03:20,910
+I told you about that quadratic, but
+did you try a 13th order polynomial?
+
+61
+00:03:20,910 --> 00:03:22,580
+And I go, no I didn't.
+
+62
+00:03:22,580 --> 00:03:24,380
+>> It makes sense.
+
+63
+00:03:24,380 --> 00:03:26,080
+>> It does, it makes a lot of sense.
+
+64
+00:03:26,080 --> 00:03:27,490
+Look at this, this is pretty good.
+
+65
+00:03:28,760 --> 00:03:31,760
+This is the fit that Carlos gets
+with his 13th order polynomial.
+
+66
+00:03:31,760 --> 00:03:35,520
+He says, I just minimized
+your residual sum of squares.
+
+67
+00:03:35,520 --> 00:03:37,230
+Pretty good, right?
+
+68
+00:03:37,230 --> 00:03:39,350
+My residual sum of squares
+here are basically zero.
+
+69
+00:03:40,860 --> 00:03:44,700
+But I'm personally not feeling so
+great about this.
+
+70
+00:03:44,700 --> 00:03:48,640
+Cuz I'm looking and
+I'm saying my house isn't worth so little.
+
+71
+00:03:48,640 --> 00:03:51,689
+I know that, I do.
+
+72
+00:03:51,689 --> 00:03:58,060
+Yes, we talked about residual sum of
+squares as being this cost of the fit.
+
+73
+00:03:58,060 --> 00:04:01,440
+And yes,
+Carlos seems to have really really really
+
+74
+00:04:01,440 --> 00:04:06,490
+minimized my residual sum of squares, but
+something's not sitting right with me.
+
+75
+00:04:06,490 --> 00:04:08,037
+This function just looks crazy.
+
+76
+00:04:08,037 --> 00:04:11,679
+[MUSIC]

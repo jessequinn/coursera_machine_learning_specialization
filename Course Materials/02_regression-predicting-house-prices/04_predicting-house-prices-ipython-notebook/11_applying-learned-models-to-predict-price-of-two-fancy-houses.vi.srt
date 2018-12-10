@@ -1,0 +1,453 @@
+1
+00:00:00,000 --> 00:00:04,122
+[NHẠC]
+
+2
+00:00:04,122 --> 00:00:08,454
+Chúng ta đã xem một ví dụ, và bây giờ
+hãy nhìn vào ngôi nhà thứ hai.
+
+3
+00:00:08,454 --> 00:00:17,230
+Tôi sẽ dự đoán cho
+
+4
+00:00:17,230 --> 00:00:22,110
+ngôi nhà thứ hai tốt hơn.
+
+5
+00:00:24,720 --> 00:00:26,170
+Hãy nhìn vào điều này.
+
+6
+00:00:26,170 --> 00:00:28,584
+Hãy gọi nó là house2.
+
+7
+00:00:28,584 --> 00:00:34,758
+House2 từ dữ liệu doanh số bán của chúng ta
+nó sẽ lại là cái 
+
+8
+00:00:34,758 --> 00:00:38,821
+chúng ta sử dụng bộ lọc ở đây.
+
+9
+00:00:38,821 --> 00:00:43,008
+Nó là ngôi nhà
+
+10
+00:00:43,008 --> 00:00:48,162
+id của nó bằng với
+
+11
+00:00:48,162 --> 00:00:55,254
+1925069082.
+
+12
+00:00:55,254 --> 00:00:59,940
+Hãy nhìn xem house2 trông thế nào.
+
+13
+00:01:01,390 --> 00:01:05,843
+House2 được bán trong 2015 với 2.2 triệu đô.
+
+14
+00:01:05,843 --> 00:01:10,378
+Nó có năm phòng ngủ, bốn và một phần tư phòng tắm,
+nhiều phòng tắm hơn,
+
+15
+00:01:10,378 --> 00:01:14,474
+4,640 feet diện tích không gian sống,
+vì thế nó lớn hơn rất nhiều.
+
+16
+00:01:14,474 --> 00:01:18,521
+Nó có khoảng 460 mét vuông.
+
+17
+00:01:18,521 --> 00:01:20,181
+Nó là một căn nhà khá rộng.
+
+18
+00:01:20,181 --> 00:01:24,258
+Hãy nhìn vào hình ảnh.
+
+19
+00:01:24,258 --> 00:01:27,930
+Tôi đã tải một hình ảnh của ngôi nhà này.
+
+20
+00:01:27,930 --> 00:01:31,470
+Đây là trang sheet của tôi cho
+
+21
+00:01:31,470 --> 00:01:36,910
+hình ảnh, và tôi sẽ chèn nó.
+
+22
+00:01:36,910 --> 00:01:42,400
+Rồi scan, trước đó chúng ta sẽ làm một hình ảnh nguồn của nó.
+
+23
+00:01:42,400 --> 00:01:45,767
+Đây tôi đã tải tới thư mục cơ bản ở đây.
+
+24
+00:01:45,767 --> 00:01:48,343
+Nó được gọi là
+
+25
+00:01:48,343 --> 00:01:57,945
+house-1925069082.jog, đóng,
+
+26
+00:01:57,945 --> 00:02:01,930
+không phải jog mà là jpeg.
+
+27
+00:02:03,370 --> 00:02:04,490
+Nó sẽ hoạt động.
+
+28
+00:02:04,490 --> 00:02:08,534
+Nhớ rằng ngôi nhà kia có giá 620,000 đô.
+
+29
+00:02:08,534 --> 00:02:11,088
+căn này có giá 2,2 triệu đô.
+
+30
+00:02:11,088 --> 00:02:12,880
+Hãy nhìn vào ngôi nhà này.
+
+31
+00:02:12,880 --> 00:02:13,700
+Trông có vẻ đẹp hơn.
+
+32
+00:02:13,700 --> 00:02:15,170
+Nó rất mát, có một cái sân rộng.
+
+33
+00:02:15,170 --> 00:02:16,440
+Nhưng hãy kiểm tra điều này.
+
+34
+00:02:16,440 --> 00:02:17,980
+Trên mặt nước.
+
+35
+00:02:17,980 --> 00:02:19,970
+Nó là hồ nước trước cửa nhà.
+
+36
+00:02:19,970 --> 00:02:22,630
+Điều đó giải thích lý do tại sao nó có giá hai triệu đô.
+
+37
+00:02:22,630 --> 00:02:24,830
+Nó đẹp hơn, đẹp hơn rất nhiều.
+
+38
+00:02:24,830 --> 00:02:30,230
+Hãy xem cái mà mô hình của chúng ta dự đoán
+cho giá trị của khối tài sản này.
+
+39
+00:02:30,230 --> 00:02:32,510
+Nó có giá 2,2 triệu đô.
+
+40
+00:02:32,510 --> 00:02:37,190
+Hãy xuất cái mà mô hình diện tích dự đoán.
+
+41
+00:02:38,200 --> 00:02:44,620
+Giống như lần trước chúng ta sẽ làm dự đoán trên house2.
+
+42
+00:02:44,620 --> 00:02:48,287
+Và nó dự đoán giá chỉ 1.25 triệu đô.
+
+43
+00:02:48,287 --> 00:02:50,621
+Nó không làm tốt.
+
+44
+00:02:50,621 --> 00:02:56,717
+Hãy nhìn cái mô hình nâng cao làm,
+
+45
+00:02:56,717 --> 00:03:01,790
+my_features model.predict.
+
+46
+00:03:01,790 --> 00:03:03,790
+Và trước đó tôi nhấn Enter ở đây,
+
+47
+00:03:03,790 --> 00:03:07,140
+Thật tốt để bắt đầu nghĩ về điều gì sẽ xảy ra ở đây.
+
+48
+00:03:07,140 --> 00:03:10,861
+Ngôi nhà khác, ngôi nhà bên trên,
+ngôi nhà với nhiều đặc trưng hơn,
+
+49
+00:03:10,861 --> 00:03:14,704
+nhiều đặc trưng hơn không tạo ra sự khác biết lớn
+hay làm tệ đi,
+
+50
+00:03:14,704 --> 00:03:16,822
+nó là một ngôi nhà chuẩn mực cho Seattle.
+
+51
+00:03:16,822 --> 00:03:19,843
+Số lượng chuẩn phòng ngủ, phòng tắm,
+
+52
+00:03:19,843 --> 00:03:23,510
+Nó là loại thông thường vì thế bạn mong đợi
+cả hai mô hình làm giống nhau.
+
+53
+00:03:23,510 --> 00:03:24,560
+Nhưng ngôi nhà này khá là kì lạ.
+
+54
+00:03:24,560 --> 00:03:27,580
+Nó có các đặc trưng cái mà khó để nắm bắt
+bởi vì diện tích.
+
+55
+00:03:27,580 --> 00:03:28,301
+Nó có hồ nước phía trước.
+
+56
+00:03:28,301 --> 00:03:30,182
+Nó có nhiều phòng tắm, nhiều phòng ngủ.
+
+57
+00:03:30,182 --> 00:03:36,620
+Chúng ta mong đợi ở đây mô hình đặc trưng nâng cap làm tốt hơn.
+
+58
+00:03:36,620 --> 00:03:38,460
+oh tôi đã sai chính tả.
+
+59
+00:03:39,650 --> 00:03:42,300
+oh tôi quên, ở đây features_model.
+
+60
+00:03:42,300 --> 00:03:44,044
+Xin lỗi vì điều này, nó đã thực sự hạ xuống từ cực điểm.
+
+61
+00:03:44,044 --> 00:03:49,328
+Nhưng nếu chúng ta chạy nó, bạn thấy nó là 1,38 triệu đô.
+
+62
+00:03:49,328 --> 00:03:50,831
+Nó gần hơn một chút.
+
+63
+00:03:50,831 --> 00:03:53,640
+Bạn hãy nhớ trước đây sai số khác biệt là quá lớn nhưng
+
+64
+00:03:53,640 --> 00:03:55,522
+ở đây nó gần hơn một chút tới giá trị đúng.
+
+65
+00:03:55,522 --> 00:03:57,892
+Vì vậy nó làm tốt hơn trên ngôi nhà này.
+
+66
+00:04:01,133 --> 00:04:04,518
+Bây giờ tới kết luận,
+
+67
+00:04:04,518 --> 00:04:09,193
+Hãy làm một ngôi nhà thú vị hơn nữa,
+
+68
+00:04:09,193 --> 00:04:15,010
+cái mà tôi sẽ nhìn, ngôi nhà thứ ba.
+
+69
+00:04:19,352 --> 00:04:24,706
+##Last house sẽ cực kì thú vị.
+
+70
+00:04:24,706 --> 00:04:30,083
+Và thực tế cái mà chúng ta sẽ làm là lấy nhà của Bill Gates.
+
+71
+00:04:30,083 --> 00:04:36,360
+Bill Gates sống ở vùng Seattle, và cố gắng dự đoán ngôi nhà trông thế nào.
+
+72
+00:04:36,360 --> 00:04:41,400
+Nó có rất nhiều đặc điểm khác nhau.
+
+73
+00:04:41,400 --> 00:04:46,910
+Và hơn là nhập chúng vào một, tôi sẽ dán chúng vào.
+
+74
+00:04:48,540 --> 00:04:49,810
+Tôi sẽ dán chúng ở đây.
+
+75
+00:04:51,040 --> 00:04:55,700
+Và đây là cái mà nhà Gates sẽ có nếu nó ở trong tập dữ liệu.
+
+76
+00:04:55,700 --> 00:04:59,350
+Nó có tám phòng ngủ, hai mươi năm phòng tắm.
+
+77
+00:04:59,350 --> 00:05:01,868
+Rõ ràng Bill Gates thực sự cần phải đi tắm.
+
+78
+00:05:01,868 --> 00:05:04,628
+25 phòng tắm, tối thiểu đây là cái đã nói trực tuyến.
+
+79
+00:05:04,628 --> 00:05:08,150
+Nó có 50000 feet vuông.
+
+80
+00:05:08,150 --> 00:05:10,419
+Khoảng 5000 mét vuông.
+
+81
+00:05:10,419 --> 00:05:14,459
+Đó là một ngôi nhà lớn, bốn sàn, rất nhiều thứ.
+
+82
+00:05:14,459 --> 00:05:16,420
+Đó là hình dạng ngôi nhà của ông ấy trông như thế nào.
+
+83
+00:05:16,420 --> 00:05:19,500
+Chúng ta thực sự không biết giá trị ngôi nhà đó
+bởi vì nó chưa từng được bán.
+
+84
+00:05:19,500 --> 00:05:21,137
+Tôi đoán ông ấy không cần tiền.
+
+85
+00:05:21,137 --> 00:05:25,952
+[cười] và hãy xem 
+
+86
+00:05:25,952 --> 00:05:30,590
+ngôi nhà đó thực sự trông thế nào.
+
+87
+00:05:30,590 --> 00:05:38,021
+Tôi có một trang sheet ở đây với một đường link
+với một hình ảnh ngôi nhà của ông ấy.
+
+88
+00:05:38,021 --> 00:05:44,860
+Đây là một bức tranh về nhà của Bill Gates.
+
+89
+00:05:50,595 --> 00:05:52,080
+Và chúng ta có ở đây.
+
+90
+00:05:52,080 --> 00:05:55,490
+Oh xin lỗi về điều này.
+
+91
+00:05:55,490 --> 00:05:59,170
+Tôi quên tôi phải làm , nói nó đó là cách đánh dấu.
+
+92
+00:06:01,020 --> 00:06:02,460
+Thế là xong.
+
+93
+00:06:02,460 --> 00:06:08,799
+Hãy xem cái mà mô hình dự đoán cho giá của ngôi nhà của Bill Gates.
+
+94
+00:06:08,799 --> 00:06:15,735
+Tôi sẽ xuất cái my_features_model.predict nói về
+
+95
+00:06:15,735 --> 00:06:19,020
+nhà của Bill Gates.
+
+96
+00:06:19,020 --> 00:06:24,293
+Bây giờ những điều này là mô hình được tạo ra GraphLab và
+chúng chỉ lấy SFrames như đầu vào.
+
+97
+00:06:24,293 --> 00:06:28,676
+Tôi phải lấy từ điển đó cái mà tôi chỉ tạo ra để mô tả
+
+98
+00:06:28,676 --> 00:06:32,160
+nhà của Bill Gates, và chuyển nó thành SFrame.
+
+99
+00:06:32,160 --> 00:06:36,928
+Tôi chỉ nhập graphlab,SFrame(bill_gates). đó là
+
+100
+00:06:36,928 --> 00:06:43,197
+từ điển cái mà chúng ta đã định nghĩa
+bên trên, ở đây gọi là từ điển.
+
+101
+00:06:43,197 --> 00:06:46,409
+Và sau đó chuyển tới SFrame, và tôi thực hiện.
+
+102
+00:06:46,409 --> 00:06:52,911
+Và nó nói nó dự đoán
+ngôi nhà có giá 13 triệu đô.
+
+103
+00:06:52,911 --> 00:06:53,968
+Tôi không biết nữa.
+
+104
+00:06:53,968 --> 00:06:57,710
+Nó nghe có vẻ rất nhiều nhưng ngôi nhà có thể đáng giá hơn 13 triêu đô.
+
+105
+00:06:57,710 --> 00:06:58,210
+Ai mà biết được?
+
+106
+00:07:00,180 --> 00:07:01,360
+Và điều đó thật tuyệt.
+
+107
+00:07:01,360 --> 00:07:05,707
+Chúng ta đã xây dựng hai mô hình giá nhà sử dụng dữ liệu đếm.
+
+108
+00:07:05,707 --> 00:07:10,720
+Chúng ta phát hiện ra nó, chúng ta sử dụng nó và chúng ta áp dụng nó với nhiệm vụ dự đoán nhà này.
+
+109
+00:07:10,720 --> 00:07:15,793
+Thậm chí chúng ta thấy rằng nhà của Bill Gate thực sự có giá trị.
+
+110
+00:07:15,793 --> 00:07:20,199
+[NHẠC]

@@ -1,0 +1,363 @@
+1
+00:00:00,000 --> 00:00:04,249
+[NHẠC]
+
+2
+00:00:04,249 --> 00:00:07,385
+OK bạn đã nói về hoạt động tương lai của máy móc,
+
+3
+00:00:07,385 --> 00:00:10,770
+hãy nói về cái chúng ta sẽ thực hiện trong chuỗi.
+
+4
+00:00:10,770 --> 00:00:14,701
+OK trong khóa học quy hồi bạn biết quy hồi là gì,
+
+5
+00:00:14,701 --> 00:00:18,397
+chúng ta sẽ đi qua kĩ hơn một chút trên các công thức khác nhau
+
+6
+00:00:18,397 --> 00:00:19,055
+cho các mô hình.
+
+7
+00:00:19,055 --> 00:00:21,463
+Ví dụ cách xử lí các tính năng,
+
+8
+00:00:21,463 --> 00:00:24,370
+cái gì đó mà chúng ta đã tránh trong khóa học này.
+
+9
+00:00:24,370 --> 00:00:29,210
+Và chúng ta cũng sẽ nói về các thuật toán
+
+10
+00:00:29,210 --> 00:00:30,090
+phù hợp trong các mô hình này.
+
+11
+00:00:30,090 --> 00:00:33,780
+Các thuật toán tối ưu hóa khác nhau, nhớ rằng chúng ta đã thấy
+
+12
+00:00:33,780 --> 00:00:38,000
+có chi phí này, tổng bình phương phần dư hình vuông và làm tối giản nó.
+
+13
+00:00:38,000 --> 00:00:40,670
+Chúng ta sẽ nói về các thuật toán khác nhau như thuật toán
+
+14
+00:00:40,670 --> 00:00:43,930
+GD và CD để thực hiện sự tối ưu hóa này.
+
+15
+00:00:45,260 --> 00:00:50,200
+Sau đó qua trường hợp nghiên cứu trong việc dự đoán giá nhà,
+
+16
+00:00:50,200 --> 00:00:53,470
+chúng ta sẽ bao gồm nhiều khái niệm làm nền tảng của
+
+17
+00:00:53,470 --> 00:00:56,210
+học máy trong nhiều lĩnh vực khác nhau.
+
+18
+00:00:56,210 --> 00:00:59,300
+Nó bao gồm cách chúng ta nghĩ về chi phí đo lường.
+
+19
+00:00:59,300 --> 00:01:02,010
+Chúng ta nghĩ về việc chọn lựa giữa các mô hình và
+
+20
+00:01:02,010 --> 00:01:04,670
+xử lí với sự mất khả năng tổng quát của mô hình.
+
+21
+00:01:04,670 --> 00:01:08,630
+Chúng ta sẽ khám phá điều này trong nội dụng này nhưng một lần nữa các ý tưởng khái quát
+
+22
+00:01:08,630 --> 00:01:14,360
+vượt ra ngoài quy hồi và vượt qua sự dự đoán giá nhà.
+
+23
+00:01:14,360 --> 00:01:16,290
+Sau đó khi chúng ta có khóa học phân loại,
+
+24
+00:01:16,290 --> 00:01:20,350
+chúng ta sẽ nói về các ví dụ cụ thể trong phân loại tuyến tính.
+
+25
+00:01:20,350 --> 00:01:24,878
+Chúng ta cũng sẽ nói về các phương pháp bằng cách sử dụng nhiều
+
+26
+00:01:24,878 --> 00:01:26,182
+các tính năng và
+
+27
+00:01:26,182 --> 00:01:31,343
+tạo ra các bộ phân loại trong tính năng đại diện.
+
+28
+00:01:31,343 --> 00:01:34,611
+Và chúng ta sẽ nói về các thuật toán để
+
+29
+00:01:34,611 --> 00:01:38,150
+thể hiện các loại phân loại.
+
+30
+00:01:38,150 --> 00:01:42,120
+Cụ thể nhìn vào thuật toán tối ưu hóa mà cho phép chúng ta mở rộng tới
+
+31
+00:01:42,120 --> 00:01:44,610
+các tập dữ liệu lớn.
+
+32
+00:01:44,610 --> 00:01:47,270
+Chúng ta cũng sẽ nói về các ý tưởng này bằng cách
+
+33
+00:01:47,270 --> 00:01:51,050
+chúng ta nghĩ về việc pha trộn các mô hình khác nhau sử dụng cái gọi là thuật toán học quần thể.
+
+34
+00:01:52,550 --> 00:01:55,620
+Và chúng ta sẽ nhìn vào nhiều khái niệm khác nhau.
+
+35
+00:01:55,620 --> 00:01:59,590
+Một cái mà tôi nghĩ là rất thú vị là cách làm gọi là
+
+36
+00:01:59,590 --> 00:02:02,830
+học trực tuyến nới mà chúng ta có dữ liệu liên tục và
+
+37
+00:02:02,830 --> 00:02:08,300
+chúng ta tạo ra sự ảnh hưởng khi chúng ta có dữ liệu.
+
+38
+00:02:08,300 --> 00:02:12,320
+Sau đó khi chúng ta nhận được cluster và thu hồi, một lần nữa
+
+39
+00:02:12,320 --> 00:02:16,580
+chúng ta sẽ đi qua các ý tưởng nền tảng có nghĩa là thực hiện cluster và
+
+40
+00:02:16,580 --> 00:02:18,490
+cái mà là nhiệm vụ thu hồi tài liệu của chúng ta.
+
+41
+00:02:18,490 --> 00:02:22,190
+Nhưng chúng ta sẽ đẩy mạnh hơn bây giờ, ví dụ,
+
+42
+00:02:22,190 --> 00:02:27,730
+khi chúng ta nghĩ về cluster, một tài liệu có thể không chỉ là về thể thao hoặc
+
+43
+00:02:27,730 --> 00:02:30,690
+bản tin thế giới hoặc khoa học hay giải trí.
+
+44
+00:02:30,690 --> 00:02:34,945
+Có thể một tài liệu có một số các chủ đề khác nhau kết hợp lại.
+
+45
+00:02:34,945 --> 00:02:40,725
+Chúng ta có thể nghĩ đến một tài liệu mà về cả tài chính và bản tin thế giới.
+
+46
+00:02:40,725 --> 00:02:43,595
+Vì thế chúng ta sẽ nghĩ đến cách chúng ta làm mẫu
+
+47
+00:02:43,595 --> 00:02:46,725
+cấu trúc phức tạp này có thể đại diện trong dữ liệu của chúng ta như thế nào.
+
+48
+00:02:48,155 --> 00:02:53,307
+Và với thuật toán của những điều này chúng ta sẽ nhìn vào
+
+49
+00:02:53,307 --> 00:02:57,991
+các cách hiệu quả cho việc tìm kiếm dữ liệu khi chúng ta làm các nhiệm vụ thu hồi.
+
+50
+00:02:57,991 --> 00:02:59,929
+Rất nhiều các thuật toán khác nhau cho
+
+51
+00:02:59,929 --> 00:03:03,380
+việc thực hiện các mô hình cluster mà chúng ta đang nói đến.
+
+52
+00:03:05,210 --> 00:03:10,170
+Trong các khai niệm quan trọng mà chúng ta sẽ tìm hiểu trong khóa học này,
+
+53
+00:03:10,170 --> 00:03:17,020
+một điều đang nghĩ đến là cách thực hiện cluster với
+
+54
+00:03:17,020 --> 00:03:22,680
+các thu thập khổng lồ của các tài liệu sử dụng cái gì đó gọi là giản đồ.
+
+55
+00:03:22,680 --> 00:03:25,600
+Tiếp theo chúng ta sẽ trở lại với hệ thống tư vấn và
+
+56
+00:03:25,600 --> 00:03:27,690
+khóa học giảm chiều.
+
+57
+00:03:27,690 --> 00:03:30,049
+Ở đây ngoài các loại bộ lọc hợp tác và
+
+58
+00:03:30,049 --> 00:03:32,754
+ma trận thừa số mà chúng ta đã nói đến trong khóa học này.
+
+59
+00:03:32,754 --> 00:03:37,000
+Chúng ta cũng sẽ nói về các cách để có bộ dữ liệu kích cỡ và
+
+60
+00:03:37,000 --> 00:03:42,090
+việc làm mẫu trong một số đại diện thấp hơn.
+
+61
+00:03:42,090 --> 00:03:45,100
+Và với điều này chúng ta sẽ nghĩ về một số thuật toán để
+
+62
+00:03:45,100 --> 00:03:46,966
+làm sự giảm chiều này.
+
+63
+00:03:46,966 --> 00:03:50,330
+Chúng ta sẽ nói về các thuật toán để
+
+64
+00:03:50,330 --> 00:03:54,740
+làm phù hợp các loại mô hình ma trận thừa số chúng ta đã mô tả trong khóa học này.
+
+65
+00:03:57,240 --> 00:04:01,230
+Và trong khóa học này một số các khái niệm quan trọng chúng ta sẽ đi qua
+
+66
+00:04:01,230 --> 00:04:04,700
+khi chúng ta nghĩ đến ma trận thừa số là cách chúng ta nghĩ về
+
+67
+00:04:04,700 --> 00:04:08,140
+việc thực hiện cái gì đó giống như ma trận hoàn thành.
+
+68
+00:04:08,140 --> 00:04:11,970
+Đó là nơi chúng ta điền vào tất cả các ô vuông không được biết đến,
+
+69
+00:04:11,970 --> 00:04:13,800
+nếu bạn nhớ điều đó từ khóa học này.
+
+70
+00:04:13,800 --> 00:04:18,360
+Sau đó một vấn đề tổng quát hơn nữa là vấn đề khởi động nguội,
+
+71
+00:04:18,360 --> 00:04:22,540
+trong các hệ thống tư vấn của chúng ta có thể không có thông tin về người sử dụng hoặc
+
+72
+00:04:22,540 --> 00:04:24,500
+sản phẩm và muốn tạo ra các khuyến khích.
+
+73
+00:04:25,570 --> 00:04:29,370
+Cuối cùng chúng ta sẽ nhận được bài tập lớn,
+
+74
+00:04:29,370 --> 00:04:33,260
+tôi hi vọng bạn hiểu.
+
+75
+00:04:33,260 --> 00:04:36,540
+Bây giờ bạn sẽ đi qua khóa học này, bạn hiểu một số
+
+76
+00:04:36,540 --> 00:04:40,620
+khai niệm mà chúng ta đã nói đến khi làm bài tập lớn.
+
+77
+00:04:40,620 --> 00:04:44,300
+CỤ thể chúng ta sẽ nhìn vào hệ thống tư vấn
+
+78
+00:04:44,300 --> 00:04:49,070
+cái mà kết hợp các ý tưởng về việc làm phân tích tâm lí với
+
+79
+00:04:49,070 --> 00:04:54,280
+các ý tưởng quan trọng từ máy tính trong điều kiện tìm kiếm trên các hình ảnh khác nhau.
+
+80
+00:04:54,280 --> 00:04:57,140
+Và để làm điều này chúng ta sẽ sử dụng học sâu,
+
+81
+00:04:57,140 --> 00:05:00,250
+sẽ là rất quan trọng và
+
+82
+00:05:00,250 --> 00:05:03,420
+thông tin chi tiết hơn về học sâu được thể hiện trong bài tập lớn.
+
+83
+00:05:03,420 --> 00:05:05,090
+Vì thế hãy lưu ý điểm này.
+
+84
+00:05:05,090 --> 00:05:09,300
+Nó thực sự rất hay và quan trọng và tất cả điều này
+
+85
+00:05:09,300 --> 00:05:14,150
+sẽ cho phép bạn xây dựng ứng dụng trang web thông minh và
+
+86
+00:05:14,150 --> 00:05:18,080
+triển khai những thứ ấn tượng,
+
+87
+00:05:18,080 --> 00:05:22,830
+không chỉ bạn bè và gia đình mà còn là người lao động tiềm năng.
+
+88
+00:05:22,830 --> 00:05:27,000
+Tất nhiên đó là một khoản thưởng cho bạn.
+
+89
+00:05:27,000 --> 00:05:30,710
+NÓ thực sự rất vui.
+
+90
+00:05:30,710 --> 00:05:33,936
+Chúng tôi hi vọng bạn làm dự án bài tập lớn.
+
+91
+00:05:33,936 --> 00:05:38,939
+[NHẠC]

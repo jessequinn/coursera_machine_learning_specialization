@@ -1,0 +1,255 @@
+1
+00:00:00,133 --> 00:00:05,046
+[NHẠC]
+
+2
+00:00:05,046 --> 00:00:10,260
+Cái mà chúng ta sẽ làm tiếp theo
+
+3
+00:00:10,260 --> 00:00:15,021
+là #Let's show what our
+
+4
+00:00:15,021 --> 00:00:19,791
+predictions look like.
+
+5
+00:00:19,791 --> 00:00:26,817
+Bây giờ tôi đã nói về sử dụng Graphlab Canvas như một cách để hình dung dữ liệu nhưng
+
+6
+00:00:26,817 --> 00:00:34,350
+bạn có thể cũng sử dụng các công cụ để hình dung, các công cụ python khác.
+
+7
+00:00:34,350 --> 00:00:39,270
+Như một minh họa đơn giản của điều đó, tôi sẽ nhập một công cụ tìm kiếm.
+
+8
+00:00:39,270 --> 00:00:41,620
+Nó được sử dụng khá phổ biến.
+
+9
+00:00:41,620 --> 00:00:44,250
+Nó được gọi là một mot plot lib.
+
+10
+00:00:47,150 --> 00:00:49,900
+Từ đó tôi sẽ
+
+11
+00:00:49,900 --> 00:00:55,220
+có đầu ra gọi là pipe plot cái mà cho phép bạn làm một số thao tác trong python.
+
+12
+00:00:55,220 --> 00:00:59,060
+Tôi sẽ hiểu nó như PLT.
+
+13
+00:00:59,060 --> 00:01:05,573
+Khi bạn đang làm việc nhập python, nếu bạn nhập myplotlib.pyplot,
+
+14
+00:01:05,573 --> 00:01:09,920
+là phần cụ thể của gói, tôi viết là pit.
+
+15
+00:01:09,920 --> 00:01:14,000
+Bây giờ tôi không phải viết toàn bộ matlab_lib.pyplot,
+
+16
+00:01:14,000 --> 00:01:15,330
+tôi chỉ cần viết pit.
+
+17
+00:01:15,330 --> 00:01:16,660
+Đó là lí do chúng ta sử dụng như một lệnh.
+
+18
+00:01:17,840 --> 00:01:22,620
+Tôi sẽ nhập nó, một mẹo nhỏ tôi sẽ làm như bạn đã làm với
+
+19
+00:01:22,620 --> 00:01:27,010
+Canvas để chắc chắn nó xuất bên trong ghi chú tôi sẽ làm nó ở đây.
+
+20
+00:01:27,010 --> 00:01:31,864
+Bạn đặt phần trăm này và
+
+21
+00:01:31,864 --> 00:01:37,130
+nói matplotlib inline.
+
+22
+00:01:37,130 --> 00:01:40,400
+Nó thao tác trên ghi chú.
+
+23
+00:01:40,400 --> 00:01:41,930
+Hãy nhấn enter.
+
+24
+00:01:41,930 --> 00:01:46,130
+Chúng ta đã nhập nó và bây giờ tôi sẽ xây dựng 
+
+25
+00:01:47,190 --> 00:01:54,970
+một bản đồ plot lib plot với các kết quả, với các kết quả ban đầu.
+
+26
+00:01:54,970 --> 00:01:57,970
+Chúng ta sẽ thao tác plt.plot.
+
+27
+00:01:57,970 --> 00:02:00,680
+Có một chức năng ở đây.
+
+28
+00:02:01,690 --> 00:02:06,480
+Và tôi sẽ thao tác dữ liệu thử nghiệm của tôi theo hai cách.
+
+29
+00:02:06,480 --> 00:02:11,940
+Nó rất thú vị, có thể nhiều thao tác ở phía trên của mỗi cái với Myplot11.
+
+30
+00:02:11,940 --> 00:02:13,480
+Chúng ta sẽ làm điều đó cùng với nhau.
+
+31
+00:02:13,480 --> 00:02:18,550
+Tôi sẽ lấy dữ liệu kiểm tra của tôi và trong dữ liệu kiểm tra của tôi tôi sẽ
+
+32
+00:02:18,550 --> 00:02:24,250
+thao tác trên trục x diện tích không gian sống.
+
+33
+00:02:26,190 --> 00:02:32,690
+Trong trục y với dữ liệu thử nghiệm của tôi, tôi sẽ đặt giá.
+
+34
+00:02:32,690 --> 00:02:36,780
+Nó tương tự với điểm chúng ta đã làm bên trên, biểu đồ phân tán.
+
+35
+00:02:36,780 --> 00:02:40,910
+Và tôi sẽ hiểu mỗi một điểm này như một điểm thử nghiệm,
+
+36
+00:02:40,910 --> 00:02:43,050
+tôi sẽ vẽ chúng bằng một dấu chấm.
+
+37
+00:02:43,050 --> 00:02:44,830
+Đó là những gì dấu chấm nhỏ làm.
+
+38
+00:02:46,320 --> 00:02:50,570
+Tuy nhiên tôi cũng sẽ vẽ một thứ nữa.
+
+39
+00:02:50,570 --> 00:02:53,220
+Tôi sẽ vẽ hai thứ trên cùng một điểm.
+
+40
+00:02:54,830 --> 00:02:57,790
+Tôi quên mất dấu phẩy ở đây.
+
+41
+00:03:00,060 --> 00:03:03,380
+Ngoài ra để vẽ dữ liệu thử nghiệm hãy vẽ sự dự đoán của chúng ta.
+
+42
+00:03:06,090 --> 00:03:13,710
+Một lần nữa trên trục x sẽ là diện tích không gian sống,
+
+43
+00:03:13,710 --> 00:03:20,540
+nhưng trên trục y tôi sẽ đặt thứ khác.
+
+44
+00:03:20,540 --> 00:03:25,780
+Tôi sẽ đặt cái mà mô hình của tôi dự đoán cho mỗi một ngôi nhà.
+
+45
+00:03:25,780 --> 00:03:30,400
+Nhớ rằng chúng ta đã xây dựng mô hình foot vuông và
+
+46
+00:03:32,030 --> 00:03:34,540
+nó có các chức năng liên quan đến nó.
+
+47
+00:03:34,540 --> 00:03:38,930
+Nếu bạn đi xuống, một trong các chức năng nó có được gọi là chức năng dự đoán.
+
+48
+00:03:38,930 --> 00:03:42,890
+Và chức năng dự đoán, bạn có thể cung cấp cho nó một bộ đầu vào dữ liệu và
+
+49
+00:03:42,890 --> 00:03:48,590
+nó sẽ có đầu ra và ước tính cột dữ liệu của chúng ta với các dự đoán cho
+
+50
+00:03:48,590 --> 00:03:50,730
+mỗi một thành phần đầu vào.
+
+51
+00:03:50,730 --> 00:03:54,370
+Tôi sẽ cho bạn dữ liệu thử nghiệm và tôi sẽ vẽ nó bằng một dấu gạch ngang.
+
+52
+00:03:56,530 --> 00:03:59,390
+Trước khi tôi thực diện dòng này,
+
+53
+00:03:59,390 --> 00:04:02,740
+chỉ mất một chút thời gian để tưởng tượng thao tác này sẽ như thế nào.
+
+54
+00:04:02,740 --> 00:04:08,020
+Dòng trên cùng cho biết không gian sống qua dữ liệu thử nghiệm giá cả với các dấu chấm.
+
+55
+00:04:08,020 --> 00:04:11,800
+Nó sẽ tương tự như sơ đồ phân tán mà chúng ta đã vẽ trước đây.
+
+56
+00:04:11,800 --> 00:04:14,590
+Dòng thứ hai cho biết
+
+57
+00:04:14,590 --> 00:04:19,310
+đầu vào diện tích ngôi nhà với sự dự đoán là một dấu gạch ngang.
+
+58
+00:04:19,310 --> 00:04:22,670
+Nhớ rằng đó là mô hình quy hồi tuyến tính đơn giản với một biến đơn giản vì thế
+
+59
+00:04:22,670 --> 00:04:26,580
+tất cả chúng ta có là biến đơn giản và
+
+60
+00:04:26,580 --> 00:04:31,350
+như chúng ta đã đề cập trong bài học, chúng ta chỉ thao tác một dòng đơn.
+
+61
+00:04:31,350 --> 00:04:35,630
+Chúng ta sẽ thấy điều đó thực hiện ở đây.
+
+62
+00:04:36,670 --> 00:04:41,182
+Các chấm xanh ở đây là dữ liệu thử nghiệm cho các ngôi nhà,
+
+63
+00:04:41,182 --> 00:04:46,710
+trong khi dòng xanh lá tương ứng với giá trị ngôi nhà đã dự đoán.
+
+64
+00:04:48,590 --> 00:04:52,729
+[NHẠC]

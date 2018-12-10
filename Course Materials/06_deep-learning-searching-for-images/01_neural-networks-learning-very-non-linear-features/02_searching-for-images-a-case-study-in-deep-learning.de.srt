@@ -1,0 +1,27 @@
+1
+00:00:00,019 --> 00:00:04,187
+[Musik]
+
+2
+00:00:04,187 --> 00:00:07,873
+Heute sprechen wir über die interessantesten Entwicklungen der letzten Jahre
+
+3
+00:00:07,873 --> 00:00:09,990
+auf dem Gebiet Machine Learning.
+
+4
+00:00:09,990 --> 00:00:12,190
+Und zwar den neuen Bereich 'Deep Learning'.
+
+5
+00:00:12,190 --> 00:00:16,416
+Insbesondere beschäftigen wir uns mit einem speziellen Use Case auf diesem Gebiet:
+
+6
+00:00:16,416 --> 00:00:19,618
+Das Einkaufen von Produkten basierend auf der Gleichheit von Bildern.
+
+7
+00:00:19,618 --> 00:00:22,893
+[Musik]

@@ -1,0 +1,462 @@
+1
+00:00:00,000 --> 00:00:04,128
+[NHẠC]
+
+2
+00:00:04,128 --> 00:00:08,040
+Và như vậy, chúng ta hãy cùng tính TF/IDF.
+
+3
+00:00:08,040 --> 00:00:11,760
+Bây giờ tôi không thể tính toán TF/IDF
+và đây là lưu ý quan trọng.
+
+4
+00:00:11,760 --> 00:00:13,190
+Không thể chỉ tính toán TF/IDF cho
+
+5
+00:00:13,190 --> 00:00:18,560
+bài báo về Obama riêng biệt bởi vì
+tf/idf phụ thuộc vào toàn bộ tài nguyên.
+
+6
+00:00:18,560 --> 00:00:21,750
+Bạn cần chuẩn hóa số lần
+một từ xuất hiện trong
+
+7
+00:00:21,750 --> 00:00:22,780
+mỗi bài báo.
+
+8
+00:00:22,780 --> 00:00:25,620
+Vì vậy tôi phải chỉ ra tôi đã
+tính toán toàn bộ dữ liệu.
+
+9
+00:00:25,620 --> 00:00:29,087
+Hãy tiếp tục làm điều đó.
+
+10
+00:00:29,087 --> 00:00:33,302
+Ở đây,
+
+11
+00:00:33,302 --> 00:00:38,124
+tôi sẽ tính toán
+
+12
+00:00:38,124 --> 00:00:44,462
+TF/IDF cho toàn bộ tài nguyên.
+
+13
+00:00:44,462 --> 00:00:46,320
+Và tôi sẽ làm điều này trong hai bước.
+
+14
+00:00:47,660 --> 00:00:51,712
+Đầu tiên tôi sẽ tính các đếm từ
+cho toàn bộ tập tài nguyên.
+
+15
+00:00:51,712 --> 00:00:57,330
+Vậy tôi sẽ thêm một cột mới vào
+bảng people gọi là word_count.
+
+16
+00:00:57,330 --> 00:01:01,660
+Nhớ rằng chúng ta đã làm điều này chỉ cho
+Barack Obama, bây giờ chúng ta sẽ làm với
+
+17
+00:01:01,660 --> 00:01:02,160
+mọi người.
+
+18
+00:01:02,160 --> 00:01:10,494
+Tôi sẽ sử dụng
+graphlab.text_analytics.count_words và
+
+19
+00:01:10,494 --> 00:01:14,304
+tôi sẽ đặt vào đầu vào,
+
+20
+00:01:14,304 --> 00:01:18,837
+là cột nội dung.
+
+21
+00:01:18,837 --> 00:01:22,370
+Nói cách khác tôi sẽ tính
+các từ trong cột nội dung.
+
+22
+00:01:23,500 --> 00:01:25,750
+Và để chúng ta rõ ràng.
+
+23
+00:01:25,750 --> 00:01:31,010
+Sau đó bạn chỉ cần xuất SFrame people
+sau khi chúng ta làm điều này,
+
+24
+00:01:31,010 --> 00:01:33,780
+tôi sẽ xuất một số dòng
+đầu tiên của SFrame đó.
+
+25
+00:01:33,780 --> 00:01:35,430
+Ở đây, chúng ta đã thực hiện.
+
+26
+00:01:35,430 --> 00:01:40,634
+Bây giờ chúng ta có cột URI,
+vị trí, trang web, tên người,
+
+27
+00:01:40,634 --> 00:01:46,254
+nội dung và chúng ta có từ điển
+về các đếm từ bên phải, cột mới.
+
+28
+00:01:46,254 --> 00:01:50,860
+Tốt, tiếp theo chúng ta
+sẽ tính toán TF/IDFs.
+
+29
+00:01:50,860 --> 00:01:55,364
+Giống như các đếm từ, bạn có thể
+thực hiện hệ thống TF/IDF của bạn,
+
+30
+00:01:55,364 --> 00:01:57,588
+nó sẽ mất một chút thời gian để làm.
+
+31
+00:01:57,588 --> 00:02:01,086
+Graphlocate đã được thực hiện rồi và
+
+32
+00:02:01,086 --> 00:02:05,949
+chúng ta chỉ cần sử dụng để làm cho toàn bộ
+quá trình này một cách nhanh chóng,
+
+33
+00:02:05,949 --> 00:02:09,730
+chúng ta sẽ sử dụng
+graphlab.text_analytics.
+
+34
+00:02:09,730 --> 00:02:14,820
+Giống như với đếm từ, có một
+chức năng ở đây, tf_idf.
+
+35
+00:02:14,820 --> 00:02:17,450
+Và tất cả những gì bạn cần làm
+là đưa dữ liệu đầu vào,
+
+36
+00:02:17,450 --> 00:02:20,975
+như là chúng ta sẽ đưa ra
+trong đầu vào của word_count.
+
+37
+00:02:22,750 --> 00:02:26,296
+word_count, nó sẽ xuất ra TF/IDF.
+
+38
+00:02:26,296 --> 00:02:29,780
+Hãy để tôi chỉ cho bạn một lần
+nữa nó trông như thế nào.
+
+39
+00:02:30,900 --> 00:02:33,560
+Oops, tôi đã làm một lỗi nhỏ ở đây.
+
+40
+00:02:33,560 --> 00:02:35,671
+Cái đó sẽ là word_count.
+
+41
+00:02:35,671 --> 00:02:38,629
+Không phải là word_counts.
+
+42
+00:02:38,629 --> 00:02:43,390
+Và bây giờ tôi sẽ xem toàn bộ
+tài nguyên với 50,000 tài liệu.
+
+43
+00:02:43,390 --> 00:02:47,440
+Tính toán tần số của các từ, chuẩn hóa.
+
+44
+00:02:47,440 --> 00:02:52,150
+Và khi kết thúc chúng ta có một bảng
+cho mọi tài liệu, gọi là bảng docs,
+
+45
+00:02:52,150 --> 00:02:59,150
+nó có một từ điển của TF/IDF
+cho mỗi một tài liệu.
+
+46
+00:02:59,150 --> 00:03:03,830
+Và chỉ để chúng ta lấy được tất cả
+những thứ này, tôi sẽ thêm một cột mới.
+
+47
+00:03:03,830 --> 00:03:09,220
+Với bảng people, và cột mới này
+sẽ được gọi là tfidf,
+
+48
+00:03:09,220 --> 00:03:14,510
+tôi sẽ chỉ lưu trữ vào đây,
+tfidf mà tôi đã tính toán.
+
+49
+00:03:14,510 --> 00:03:17,360
+Tất cả trong một bảng, và nó là cột docs.
+
+50
+00:03:19,350 --> 00:03:20,930
+Đây chúng ta có ở đây.
+Chúng ta chỉ vừa thêm nó vào.
+
+51
+00:03:20,930 --> 00:03:25,880
+Bây giờ chúng ta có tfidf cho mỗi tài liệu
+cái được tính toán và lưu trữ trong đó.
+
+52
+00:03:25,880 --> 00:03:27,700
+Hãy làm một vài kiểm tra.
+
+53
+00:03:27,700 --> 00:03:33,283
+Đây là cái mà chúng ta sẽ làm,
+
+54
+00:03:33,283 --> 00:03:39,565
+chúng ta sẽ kiểm ta TF-IDF cho
+
+55
+00:03:39,565 --> 00:03:43,530
+tài liệu Obama.
+
+56
+00:03:47,500 --> 00:03:50,657
+Giống như chúng ta đã kiểm tra
+và phân loại các đếm từ,
+
+57
+00:03:50,657 --> 00:03:53,547
+chúng ta sẽ không kiểm tra
+việc sắp xếp các ý tưởng TF.
+
+58
+00:03:53,547 --> 00:03:56,703
+Tôi sẽ đọc lại các biến số cho Obama,
+
+59
+00:03:56,703 --> 00:04:02,530
+bởi vì chúng ta đã thêm hai
+cột mới trong phiên bản mới nhất.
+
+60
+00:04:02,530 --> 00:04:07,800
+Tôi sẽ lấy people, và tôi sẽ
+chọn ra người mà tên của họ
+
+61
+00:04:07,800 --> 00:04:14,320
+cũng là Barack Obama.
+
+62
+00:04:16,120 --> 00:04:20,700
+Ok tôi đã làm xong, tôi đã tạo ra Obama này
+và bây giờ giống như chúng ta đã làm với
+
+63
+00:04:20,700 --> 00:04:29,150
+các đếm từ, tôi sẽ tạo một obama_tfidf_tabl
+để chúng ta có thể sắp xếp nó.
+
+64
+00:04:29,150 --> 00:04:30,310
+Nó là một từ điển.
+
+65
+00:04:30,310 --> 00:04:32,580
+Chúng ta sẽ sắp xếp chính xác như
+cách chúng ta đã làm trước đây.
+
+66
+00:04:32,580 --> 00:04:35,150
+Chúng ta sẽ xếp chồng sau đó sắp xếp.
+
+67
+00:04:35,150 --> 00:04:37,296
+Và chúng ta sẽ làm điều này.
+
+68
+00:04:37,296 --> 00:04:41,400
+Thực sự thay vì tạo một bảng,
+tôi sẽ chỉ làm nó trong một dòng.
+
+69
+00:04:41,400 --> 00:04:43,837
+Oops, tôi sẽ làm nó trong một dòng ở đây.
+
+70
+00:04:43,837 --> 00:04:47,469
+Tôi sẽ viết ra cái mà chúng ta đã làm, vì thế
+
+71
+00:04:47,469 --> 00:04:50,824
+tôi sẽ chỉ lấy biến số obama và
+
+72
+00:04:50,824 --> 00:04:56,388
+khi mà tôi chỉ lựa chọn cột tfidf
+nó trông khá hơn một chút.
+
+73
+00:04:56,388 --> 00:05:00,460
+Sau đó tôi sẽ dùng phương pháp
+xếp chồng, lấy từ điển và
+
+74
+00:05:00,460 --> 00:05:02,580
+xếp nó vào hai cột.
+
+75
+00:05:02,580 --> 00:05:07,422
+Tôi sẽ xếp chồng các tfidf.
+
+76
+00:05:07,422 --> 00:05:13,804
+Và tôi sẽ xuất ra tên cột mới và
+
+77
+00:05:13,804 --> 00:05:19,324
+các tên sẽ là từ và
+
+78
+00:05:19,324 --> 00:05:25,547
+tfidf, để tôi chỉ cho bạn điều này.
+
+79
+00:05:25,547 --> 00:05:32,212
+Ồ tôi quên đóng, ấn vào đây.
+
+80
+00:05:32,212 --> 00:05:36,725
+Để tôi chỉ cho bạn mẹo nhỏ mà bạn
+có thể sử dụng với python trong
+
+81
+00:05:36,725 --> 00:05:38,300
+những cách khác nhau.
+
+82
+00:05:38,300 --> 00:05:41,880
+Tôi sẽ chỉ cần dùng chuỗi
+bình luận ở cuối của cái này.
+
+83
+00:05:41,880 --> 00:05:43,959
+Tôi sẽ gõ .sort.
+
+84
+00:05:45,540 --> 00:05:52,730
+Và tôi sẽ phân loại đầu ra này trên cột tfidf.
+
+85
+00:05:52,730 --> 00:05:59,590
+Và tôi sẽ dùng ascending=false.
+
+86
+00:05:59,590 --> 00:06:02,920
+Cái mà tôi đã làm trong các dòng trước,
+bây giờ tôi đang làm chỉ trong một dòng.
+
+87
+00:06:02,920 --> 00:06:06,087
+Tôi sẽ lấy cột obama tfidf.
+
+88
+00:06:06,087 --> 00:06:10,139
+Tôi sẽ xếp nó vào cột từ, cột tfidf và
+
+89
+00:06:10,139 --> 00:06:13,920
+bây giờ tôi sẽ sắp xếp
+theo trình tự giảm dần.
+
+90
+00:06:13,920 --> 00:06:16,070
+Từ cao nhất xuống thấp nhất.
+
+91
+00:06:16,070 --> 00:06:19,530
+Nếu bạn còn nhớ, trước khi
+chúng ta chạy cái này.
+
+92
+00:06:19,530 --> 00:06:24,475
+Khi mà chúng ta đã làm điều này
+với đếm từ như thế này.
+
+93
+00:06:24,475 --> 00:06:27,250
+Có từ phổ biến nhất 'in, and, of',
+
+94
+00:06:27,250 --> 00:06:30,260
+rồi 'to, his, obama, act, a, he'.
+
+95
+00:06:30,260 --> 00:06:35,010
+Những từ này gần như là
+không có tính thông tin với từ Obama.
+
+96
+00:06:36,320 --> 00:06:39,980
+Hãy thực hiện TF-IDF.
+
+97
+00:06:39,980 --> 00:06:44,180
+Cái mà chúng ta thấy ở đây, từ có
+tính thông tin nhất là Obama
+
+98
+00:06:44,180 --> 00:06:47,220
+có rất nhiều ý nghĩa bởi vì
+các bài báo là về ông ấy.
+
+99
+00:06:47,220 --> 00:06:50,630
+Nhưng sau đó bạn có
+'art, Iraq, control, law, ordered,
+
+100
+00:06:50,630 --> 00:06:54,690
+military, involvement, response,
+democratic, as in Democratic Party.'
+
+101
+00:06:54,690 --> 00:06:59,669
+Bạn thấy đó có rất nhiều
+hoạt động diễn ra ở đây
+
+102
+00:06:59,669 --> 00:07:05,171
+Các từ đó rất quan trọng với sự kính trọng với Obama.
+
+103
+00:07:05,171 --> 00:07:09,309
+[NHẠC]

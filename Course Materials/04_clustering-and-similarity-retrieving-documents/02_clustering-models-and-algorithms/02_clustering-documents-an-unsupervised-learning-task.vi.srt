@@ -1,0 +1,293 @@
+1
+00:00:00,000 --> 00:00:03,493
+[NHẠC]
+
+2
+00:00:08,207 --> 00:00:10,590
+Chúng ta sẽ giả sử rằng không có
+nhãn hiệu nào được cung cấp.
+
+3
+00:00:12,380 --> 00:00:18,200
+Và chúng ta mong muốn đưa ra các nhóm
+bài báo liên quan chính là các clusters.
+
+4
+00:00:19,730 --> 00:00:23,420
+Ở đây đầu vào sẽ là một vectơ.
+
+5
+00:00:23,420 --> 00:00:27,420
+Vì vậy mỗi sự quan sát mà chúng ta
+đang vẽ ở đây là vectơ đếm từ của chúng ta.
+
+6
+00:00:29,450 --> 00:00:33,430
+Và trong trường hợp này, chúng ta sẽ chỉ
+nhìn vào một ví dụ rất đơn giản với từ vựng mà
+
+7
+00:00:33,430 --> 00:00:34,530
+chỉ có hai từ.
+
+8
+00:00:34,530 --> 00:00:41,780
+Chúng ta có một vectơ,
+chúng ta có từ 1 và từ 2.
+
+9
+00:00:41,780 --> 00:00:48,349
+Và trục này ở đây là từ 2
+và trục này là từ 1.
+
+10
+00:00:48,349 --> 00:00:54,127
+Tất nhiên nhớ rằng thực tế
+chúng ta có rất nhiều từ vựng và
+
+11
+00:00:54,127 --> 00:00:57,417
+chúng ta có các vectơ nhiều chiều.
+
+12
+00:00:57,417 --> 00:01:01,377
+Khi chúng ta vẽ ra các sự quan sát, 
+chúng ở trong không gian chiều cao này
+
+13
+00:01:01,377 --> 00:01:05,410
+nhưng với hiển thị, hãy nhìn vào
+sự biểu diễn 2D này.
+
+14
+00:01:05,410 --> 00:01:10,240
+Chúng ta có một tập tài liệu ở đây,
+tất cả đã được biểu diễn
+
+15
+00:01:10,240 --> 00:01:14,330
+bởi bộ đếm từ qua hai từ
+khác nhau trong từ vựng.
+
+16
+00:01:14,330 --> 00:01:18,068
+Ok đó là đầu vào cho một
+thuật toán phân nhóm và
+
+17
+00:01:18,068 --> 00:01:20,690
+đầu ra sẽ là các nhãn mác nhóm.
+
+18
+00:01:20,690 --> 00:01:23,891
+Ý của tôi là sự quan sát này và
+
+19
+00:01:23,891 --> 00:01:28,956
+tất cả sự quan sát ở đây, [âm thanh]
+tất cả các nhãn mác này có màu đỏ.
+
+20
+00:01:28,956 --> 00:01:33,550
+Có thể chúng được áp dụng,
+một số nhóm nhãn mác một.
+
+21
+00:01:33,550 --> 00:01:34,396
+Hãy gọi cái này là
+
+22
+00:01:38,715 --> 00:01:40,070
+Cluster 1.
+
+23
+00:01:40,070 --> 00:01:44,790
+Với mỗi tài liệu, nó sẽ có một số nhãn.
+
+24
+00:01:44,790 --> 00:01:46,510
+Nó sẽ được dán nhác một.
+
+25
+00:01:46,510 --> 00:01:50,920
+Sau đó tất cả sự quan sát ở đây
+chúng sẽ có các nhãn mác khác.
+
+26
+00:01:50,920 --> 00:01:53,590
+Và hãy giả sử rằng đây là cluster 2.
+
+27
+00:01:53,590 --> 00:01:55,885
+Sự quan sát này có nhãn 2.
+
+28
+00:01:57,500 --> 00:02:01,065
+Và tất cả sự quan sát
+ở đây sẽ được nhãn 3.
+
+29
+00:02:02,600 --> 00:02:05,200
+Nó sẽ là đầu ra của thuật toán này.
+
+30
+00:02:06,850 --> 00:02:09,190
+Và có thể việc bạn có thể làm là post facto,
+
+31
+00:02:09,190 --> 00:02:12,830
+bạn có thể xem qua và nhìn vào
+một vài bài báo trong cluster 1 và
+
+32
+00:02:12,830 --> 00:02:18,110
+bạn có thể nói rằng, cluster này
+là một nhóm về thể thao.
+
+33
+00:02:18,110 --> 00:02:23,810
+Tôi chỉ muốn viết rõ rằng nhãn mác
+này được cung cấp post facto.
+
+34
+00:02:25,000 --> 00:02:27,770
+Ok đây là một ví dụ
+
+35
+00:02:27,770 --> 00:02:32,330
+về nhiệm vụ học không giám sát bởi vì chúng ta
+đang chạy mà không có bất kì nhãn mác nào.
+
+36
+00:02:32,330 --> 00:02:34,300
+Tất cả chúng ta có là
+những dữ liệu quan sát và
+
+37
+00:02:34,300 --> 00:02:38,180
+chúng ta đang cố tìm ra vài
+cấu trúc trong dữ liệu quan sát.
+
+38
+00:02:38,180 --> 00:02:42,298
+Một lần nữa, nhắc lại, đầu vào
+là các vectơ đếm từ và
+
+39
+00:02:42,298 --> 00:02:45,133
+đầu ra là với mỗi tài liệu
+trong tập tài nguyên,
+
+40
+00:02:45,133 --> 00:02:48,802
+chúng ta sẽ kết hợp nhóm
+nhãn mác với tài liệu đó.
+
+41
+00:02:51,321 --> 00:02:54,700
+Ok định nghĩa một nhóm là gì?
+
+42
+00:02:54,700 --> 00:02:58,210
+Vâng mỗi nhóm được xác định
+bởi một nhóm trung tâm, vì thế
+
+43
+00:02:58,210 --> 00:03:00,595
+có thể tôi sẽ đánh dấu các
+nhóm trung tâm bằng Xs.
+
+44
+00:03:04,620 --> 00:03:07,079
+Sau đó có hình dạng nhóm và
+
+45
+00:03:07,079 --> 00:03:11,509
+các hình elip này biểu diễn
+cho hình dạng của mỗi nhóm.
+
+46
+00:03:13,460 --> 00:03:16,940
+Và khi chúng ta nghĩ về
+các dữ liệu quan sát này,
+
+47
+00:03:18,990 --> 00:03:25,440
+dữ liệu quan sát này ở đây được gán
+cho nhóm xanh lá cây hoặc nhóm đỏ.
+
+48
+00:03:25,440 --> 00:03:30,940
+Những gì chúng ta làm là chúng ta
+đang nhìn vào tính tương đồng
+
+49
+00:03:30,940 --> 00:03:35,510
+của bài báo này với bài báo khác
+dựa trên hình dạng của nhóm này.
+
+50
+00:03:36,510 --> 00:03:39,850
+Chúng ta tính cho mọi dữ liệu quan sát
+
+51
+00:03:39,850 --> 00:03:43,810
+dựa trên nhóm trung tâm
+cũng như hình dạng của nhóm.
+
+52
+00:03:43,810 --> 00:03:48,380
+Và trong trường hợp này bởi vì
+nhóm này có hình nghiêng theo chiều dọc,
+
+53
+00:03:48,380 --> 00:03:53,370
+nó sẽ được gán vào nhóm màu
+xanh lá cây thay vì nhóm đỏ.
+
+54
+00:03:53,370 --> 00:03:57,580
+Nhưng cách tiếp cận khác rất phổ biến
+
+55
+00:03:57,580 --> 00:04:01,570
+là thay vì nhìn vào hình dạng của nhóm,
+chúng ta nhìn vào nhóm trung tâm.
+
+56
+00:04:01,570 --> 00:04:06,120
+Chúng ta đo khoảng cách
+của sự quan sát này, vì thế
+
+57
+00:04:06,120 --> 00:04:10,670
+hãy để tôi thay đổi màu sắc ở đây,
+sự thay đổi này đặt ở đây.
+
+58
+00:04:10,670 --> 00:04:15,670
+Chúng ta sẽ chỉ nhìn vào
+khoảng cách của sự quan sát này với
+
+59
+00:04:15,670 --> 00:04:20,570
+nhóm trung tâm màu xanh
+so với nhóm trung tâm màu đỏ.
+
+60
+00:04:20,570 --> 00:04:24,129
+Trong trường hợp này nó sẽ rất khó
+để quyết định liệu bài báo đó
+
+61
+00:04:24,129 --> 00:04:27,240
+nên đi với nhóm xanh hay nhóm đỏ.
+
+62
+00:04:27,240 --> 00:04:31,492
+Nhưng có những trường hợp khác
+như sự quan sát ở đây khá là rõ
+
+63
+00:04:31,492 --> 00:04:35,087
+với số liệu mà nó sẽ được gán cho nhóm đỏ.

@@ -1,0 +1,34 @@
+Hãy nhìn vào những
+sản phẩm chúng ta có. Hãy nhìn những đánh giá chúng ta
+có với các tên sản phẩm khác nhau. Và ở đây chúng ta sẽ sử
+dụng canvas một lần nữa, để làm một chút hiển thị dữ liệu. Và như trước đây, tôi sẽ gọi
+graphlab.canvas, và chúng ta sẽ đặt mục tiêu là
+ipath của tôi trên notebook, nó sẽ hiển thị ở đây trên ipath của
+notebook khi chúng ta đang xây dựng. Bây giờ chúng ta có thể lấy một trong
+số các cột ở frame của sản phẩm. Ví dụ hãy lấy tên của sản phẩm, và chúng ta có thể gõ .show
+trên nó, và nó sẽ hiển thị một histogram về các tên khác nhau của các
+sản phẩm khác nhau trong tập dữ liệu này. Ví dụ ở đây. Chúng ta thấy sản phẩm cụ thể này,
+Vulli Sophie có nhiều đánh giá nhất, 785 đánh giá so với những ước mong đơn giản, 562 đánh giá và bạn có thể thấy
+rằng số lượng đánh giá giảm dần. Fisher Price products là 489, 450. Đây là các sản phẩm khác nhau
+mà chúng ta đang phân tích và bạn sẽ thấy histogram của các đánh giá
+khác nhau về các sản phẩm khác nhau, số lượng đánh giá, hãy xem
+Vulli Sophie đầu tiên. Nó là gì thế nhỉ? Để tôi nói cho bạn một chút về sản phẩm đó. Hãy khám phá cái gọi là Vulli Sophie và đây là
+sản phẩm cực kì phổ biến, tôi tình cờ có một cái ở tại đây. Đây là Vulli Sophie, chú hươu cao cổ nhỏ. Nó là một con hươu cao cổ bằng nhựa. Là một sản phẩm tốt nhất
+cho trẻ em trên Amazon. Và nó dành cho trẻ em đang mọc răng,
+trẻ em có thể nhai nó. Rất nhiều các đánh giá cho
+hươu cao cổ cho trẻ tập nhai, nó được làm từ nhựa và có tiếng kêu. [âm thanh] đây là cái mà chúng ta
+sẽ nói nhiều hôm nay, chú hươu cao cổ nhỏ này [âm thanh]. Bây giờ hãy nhìn vào các đánh giá
+cho hươu cao cổ này. Tôi sẽ gọi là hươu cao cổ. Giraffe reviews. Và chúng ta sẽ lấy các sản phẩm mà tôi có, tất cả các đánh giá sản phẩm và tôi sẽ lựa chọn, đây là một bộ lọc khác, tôi sẽ
+lựa chọn các hàng mà tên sản phẩm là tên của
+hươu cao cổ cụ thể này. Đây là Vulli Sophie the Giraffe Teether. Đây là sản phẩm mà chúng ta đang nói về. Nếu chúng ta nhìn lướt qua, nếu
+tôi yêu cầu độ dài của thứ mới này, các đánh giá về hươu cao cổ, bảng này bạn
+thấy có 785 đánh giá cho đồ chơi nhựa này. Trẻ mọc răng. 785 đánh giá và hãy nhìn vào các xếp hạng. Tôi sẽ thấy giraffe_reviews, xếp hạng chỉ cho sản phẩm cụ thể này, và tôi sẽ làm một .show
+ở đó giống như chúng ta đã làm. Tôi muốn nhìn vào một view
+cụ thể được gọi là view phân loại. Đây sẽ cho tôi view phân loại. Nó sẽ cho tôi histogram về
+các đánh giá khác nhau và số điểm chúng ta đã có. Nếu bạn nhìn vào histogram nhỏ ở đây, bạn sẽ thấy điều gì đó thú vị. Mọi người thích cái này. 535 đánh giá là năm sao. Đây là một sản phẩm có
+535 đánh giá năm sao. Tiếp theo là bốn sao, ba sao. Nó giảm dần xuống một sao
+và cuối cùng là hai sao. Vì vậy số lượng khá lớn mọi người
+không thích sản phẩm này. Nhưng hầu hết mọi người thích nó. Thật thú vị khi làm một loại phân tích cảm tính để hiểu các đánh giá tiêu cực hay các đánh giá tích cực cái
+mà đánh giá này đang nói. Như chúng ta đã thảo luận trong
+bài giảng của bài học này. Để làm điều đó chúng ta sẽ xây
+dựng một bộ phân loại cảm tính. [NHẠC]

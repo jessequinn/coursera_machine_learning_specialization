@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,394
+[MUSIC]
+
+2
+00:00:04,394 --> 00:00:07,610
+Emily and I really hope you've
+enjoyed the course so far.
+
+3
+00:00:07,610 --> 00:00:11,030
+We've really explored the foundations
+of machine learning on a wide range of
+
+4
+00:00:11,030 --> 00:00:13,888
+domains with a range of
+different applications.
+
+5
+00:00:13,888 --> 00:00:18,560
+And really touched many of the practical
+issues around deploying and
+
+6
+00:00:18,560 --> 00:00:20,590
+building machine learning systems.
+
+7
+00:00:20,590 --> 00:00:23,960
+And now in this closing module we're going
+to really summarize some of the concepts
+
+8
+00:00:23,960 --> 00:00:24,660
+that we've learned.
+
+9
+00:00:24,660 --> 00:00:26,700
+Talk about how to deploy these ideas,
+
+10
+00:00:26,700 --> 00:00:30,100
+especially machine learning
+systems in production and
+
+11
+00:00:30,100 --> 00:00:33,700
+then what's ahead in the specialization
+and in machine learning as a whole.
+
+12
+00:00:33,700 --> 00:00:36,498
+Some really exciting stuff as
+we close off this first course.
+
+13
+00:00:36,498 --> 00:00:40,449
+[MUSIC]

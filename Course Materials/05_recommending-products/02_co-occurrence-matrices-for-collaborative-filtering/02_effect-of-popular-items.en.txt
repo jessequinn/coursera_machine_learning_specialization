@@ -1,0 +1,29 @@
+[MUSIC] One issue, though, that we have with these
+co-occurrence matrices is the fact that they have to be normalized. Because let's talk about what happens
+if we have a very popular item. So one of the most popular items for
+babies is diapers. There are lots of these around here. They're very,
+very useful when you have a baby. So basically, if you're gonna
+purchase any baby item on Amazon, you're also very likely at some
+point to have purchased diapers. But then let's look at some other item. This is Sophie the giraffe. It's actually one of the most
+gifted items on Amazon for babies. But it's a little teether. Little babies like to bite on this. It's rubbery. It squeaks. Keeps them very interested. But let's think about what happens
+when we're looking at this other item. So we just purchased Sophie the Giraffe,
+and we wanna make recommendations for this person who just purchased
+this little toy here. So what I'm gonna look at is I'm gonna
+look at the counts vector for Sophie. This is for Sophie the Giraffe. And again we have that DVD that nobody's
+purchasing, then we have diapers, then we have baby wipes, and
+all the other products you can imagine. And diapers is some enormous number. Let's say 1 million. Maybe that's not so enormous. But 1 million. It sounds pretty big, or
+it used to sound pretty big. So what ends up happening is that
+regardless of what product I'm looking at, regardless of whether I just
+purchased Sophie the Giraffe. Or if I just purchased
+this little stacking toy. Or if I just purchased
+this really cute alligator that makes this sound and it rattles. No matter what I just purchased, according
+to the process that we just described, I'm really,
+really likely to recommend diapers to you. So let's think about how to make
+the recommendations a little bit more personalized and have the effect that
+everybody buying diapers doesn't mean that that's what I'm particularly
+interested in when I just bought Sophie. So let's talk about how to handle this. So this is just to reiterate what I
+was saying, which is the fact that having these very large counts for popular
+items, drowns out all the other effects. And so, we're just going back to this
+default thing of recommending based off of popularity, which is
+what we were trying to address with these different
+types of recommender systems. [MUSIC]

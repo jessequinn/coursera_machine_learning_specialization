@@ -1,0 +1,139 @@
+1
+00:00:00,006 --> 00:00:04,768
+[NHẠC]
+
+2
+00:00:04,768 --> 00:00:08,320
+Chúng ta đã xây dựng một biểu đồ phân tán và
+
+3
+00:00:08,320 --> 00:00:12,120
+chúng ta có một ý tưởng về dữ liệu.
+
+4
+00:00:12,120 --> 00:00:13,150
+Câu hỏi là
+
+5
+00:00:13,150 --> 00:00:19,240
+chúng ta có thể sử dụng biểu đồ phân tán để dự đoán giá cả từ diện tích sống không?
+
+6
+00:00:19,240 --> 00:00:20,770
+Chúng ta sẽ làm một mô hình quy hồi đơn giản.
+
+7
+00:00:22,040 --> 00:00:27,558
+Hãy thực hiện điều đó, chúng ta ấn SM
+
+8
+00:00:27,558 --> 00:00:32,721
+Chúng ta sẽ nói #Create a simple
+
+9
+00:00:32,721 --> 00:00:39,500
+regression model of sqft_living to price.
+
+10
+00:00:42,490 --> 00:00:44,720
+Hãy thực hiện điều đó.
+
+11
+00:00:46,450 --> 00:00:50,190
+Nhớ lại từ các bài giảng đầu tiên bạn làm trước khi bạn làm
+
+12
+00:00:50,190 --> 00:00:54,460
+bất kì điều gì với dữ liệu của bạn là chia nó thành bộ huấn luyện và bộ thử nghiệm,
+
+13
+00:00:54,460 --> 00:00:57,720
+bởi vì bạn không muốn làm, thử huấn huyện hoặc
+
+14
+00:00:57,720 --> 00:01:01,120
+học trên dữ liệu thử nghiệm, bạn chỉ muốn làm điều đó trên dữ liệu huấn luyện.
+
+15
+00:01:01,120 --> 00:01:06,696
+Hãy làm điều đó, phân chia, tôi sẽ lấy dữ liệu của tôi và
+
+16
+00:01:06,696 --> 00:01:11,918
+chia nó thành train_data và test_data bằng việc dùng
+
+17
+00:01:11,918 --> 00:01:18,088
+một chức năng mà bạn có thể áp dụng
+
+18
+00:01:18,088 --> 00:01:22,285
+nó được gọi là chức năng phân chia ngẫu nhiên.
+
+19
+00:01:22,285 --> 00:01:24,454
+Sales.random_split.
+
+20
+00:01:25,800 --> 00:01:29,660
+Bàng cách này cái tôi đã làm ở đó là sử dụng tab hoàn toàn.
+
+21
+00:01:29,660 --> 00:01:32,420
+Hãy để tôi cho bạn thấy một chút mẹo, chỉ một giây.
+
+22
+00:01:32,420 --> 00:01:35,770
+Nếu tôi chỉ làm sales.r và tôi ấn Tab,
+
+23
+00:01:35,770 --> 00:01:37,108
+bạn sẽ thấy có một số thứ tôi có thể làm.
+
+24
+00:01:37,108 --> 00:01:42,450
+random_split, read_csv, remove_columns, rename_columns và vân vân.
+
+25
+00:01:42,450 --> 00:01:44,530
+Tôi sẽ chỉ làm random_split.
+
+26
+00:01:44,530 --> 00:01:49,250
+Và cái mà tôi sẽ làm là .8 split.
+
+27
+00:01:49,250 --> 00:01:55,630
+.8 dữ liệu, 80% sẽ cho huấn luyện và 20% là cho thử nghiệm.
+
+28
+00:01:56,930 --> 00:02:01,840
+Bây giờ điều cuối cùng là rất hữu ích cho bài tập về nhà của bạn và nói chúng
+
+29
+00:02:01,840 --> 00:02:07,000
+để đảm bảo rằng bạn luôn có kết quả giống nhau là đặt nền tảng cho việc phân chia.
+
+30
+00:02:07,000 --> 00:02:10,900
+Bởi vì phân chia ngẫu nhiên, nó là máy phát điện ngẫu nhiên giả.
+
+31
+00:02:10,900 --> 00:02:15,290
+Chúng ta có thể đặt vào nó, chúng ta sẽ đặt nền tảng là bất kì số nào chúng ta muốn.
+
+32
+00:02:15,290 --> 00:02:18,820
+Ví dụ nó có thể là 2015,
+
+33
+00:02:18,820 --> 00:02:23,500
+nó có thể là nhiều thứ, vì thế tôi sẽ chỉ đặt nó là 0.
+
+34
+00:02:23,500 --> 00:02:28,648
+Mỗi lần tôi làm phân chia ngẫu nhiên, nó chia dữ liệu bằng một cách.
+
+35
+00:02:30,366 --> 00:02:34,269
+[NHẠC]

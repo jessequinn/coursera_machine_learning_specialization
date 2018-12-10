@@ -1,0 +1,12 @@
+[NHẠC] Chúng ta đã xây dựng một mô hình đơn giản
+kết nối giữa diện tích không gian sống với giá trị của ngôi nhà và sau đó chúng ta khám phá
+một số đặc trưng khác như là mã zip, và rõ ràng là mã zip tạo ra sự khác biệt lớn
+và có các đặc trưng khác, phòng ngủ, điều đó cũng
+tạo ra sự khác biệt lớn. Câu hỏi là chúng ta có thể có một mô hình tốt hơn
+bằng việc bao gồm nhiều đặc trưng hơn hay không? Và chúng ta hãy nhìn vào điều đó. Chúng ta sẽ làm ở đây là xây dựng mô hình quy hồi với nhiều đặc trưng hơn. Đây là sử dụng tập đặc trưng lớn hơn mà chúng ta đã mô tả. Điều đầu tiên tôi gọi là sqft_model. Hãy gọi thế này my_features_model. my_features_model sẽ lại lấy graphlab.linear regression.create. Chúng ta sẽ tạo ra nó và
+chúng ta sẽ sử dụng dữ liệu huấn luyện, giống như chúng ta đã làm trước đó. Mục tiêu của chúng ta là sẽ giá cả, giống như trước đây. Tuy nhiên các đặc tính ở đây mà tôi sẽ sử dụng sẽ là các đặc trưng cái mà được gọi là my features
+cái mà tôi đã tạo ra từ đầu. Chúng ta hãy thực hiện điều này. Bây giờ tôi sử dụng nhiều đặc trưng hơn và
+ nó đang căng và tôi nghĩ nó sẽ được làm. Sử dụng những điều này tôi quên tám đặc trưng. Tôi sử dụng chỉ để xuất chúng ra ở đây, xuất my_features. Tôi sử dụng phòng ngủ, phòng tắm, diện tích sống, diện tích lô, sàn và mã zip. Bây giờ chúng ta có hai mô hình. Chúng ta có sqft_model và chúng ta có my_features_model. Chúng so sánh về hiệu suất như thế nào? Ở đây tôi sẽ Tôi sẽ xuất sqft_model.evaluate, đánh giá tất cả dữ liệu thử nghiệm. Và tôi cũng sẽ xuất my_features_model.evaluate trên một số dữ liệu thử nghiệm. Hãy so sánh, hãy xem điều gì xảy ra. Được rồi để bắt đầu chúng ta đã nhìn thấy sai số lớn nhất trong mô hình
+diện tích đơn giản là bốn triệu đô. Bây giờ nó xuống tới 3.4 triệu đô, 49 và 3.5 triệu. Nó giảm một chút. Và gốc bằng sai số bình phương, sai số trung bình, giảm xuống 255,000 đô như là ở đây chúng ta có 179,000 đô. Bây giờ nếu bạn thêm nhiều đặc trưng nữa, 
+khu vực của bạn có thể sẽ giảm nhiều hơn một chút bởi vì có một vài dữ liệu ở đây và có nhiều lô mà bạn có thể học. Nhưng một lần nữa chỉ cần thêm một số
+đặc trưng bổ sung giúp chúng ta về mặt hiệu suất. [NHẠC]

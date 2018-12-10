@@ -1,0 +1,354 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Predicting house prices
+ </h1>
+ <p>
+  In this module, we focused on using regression to predict a continuous value (house prices) from features of the house (square feet of living space, number of bedrooms,...).  We also built an iPython notebook for predicting house prices, using data from King County, USA, the region where the city of Seattle is located.
+ </p>
+ <p>
+  In this assignment, we are going to build a more accurate regression model for predicting house prices by including more features of the house.  In the process, we will also become more familiar with how the Python language can be used for data exploration, data transformations and machine learning.  These techniques will be key to building intelligent applications.
+ </p>
+ <p>
+  Follow the rest of the instructions on this page to complete your program.  When you are done,
+  <strong>
+   <em>
+    instead of uploading your code, you will answer a series of quiz questions
+   </em>
+  </strong>
+  (see the quiz after this reading) to document your completion of this assignment.  The instructions will indicate what data to collect for answering the quiz.
+ </p>
+ <h3 level="3">
+  <strong>
+   Learning outcomes
+  </strong>
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Execute programs with the iPython notebook
+   </p>
+  </li>
+  <li>
+   <p>
+    Load and transform real, tabular data
+   </p>
+  </li>
+  <li>
+   <p>
+    Compute summaries and statistics of the data
+   </p>
+  </li>
+  <li>
+   <p>
+    Build a regression model using features of the data
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <h3 level="3">
+  <strong>
+   Resources you will need
+  </strong>
+ </h3>
+ <p>
+  You will need to install the software tools or use the free Amazon EC2 machine.  Instructions for both options are provided in the reading for Module 1.
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Download the data and starter code to use GraphLab Create
+ </h3>
+ <p>
+  Before getting started, you will need to download the dataset and the starter iPython notebook that we used in the module.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the house sales pricing dataset here, in SFrame format:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/home_data.gl.zip">
+      home_data.gl.zip
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Download the house price prediction notebook from the module here:
+    <strong>
+     <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/course1-for-students/Predicting%20house%20prices.ipynb">
+      Predicting house prices.ipynb
+     </a>
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling iPython notebook from) and unzip the data file.
+    <strong>
+     Not sure where to save the files? See
+     <a href="https://www.coursera.org/learn/ml-foundations/supplement/IT04V/reading-where-should-my-files-go">
+      this guide
+     </a>
+     .
+    </strong>
+   </p>
+  </li>
+  <li>
+   <p>
+    Note that there is a bug in GraphLab Create 1.6.0, where the scatter plots don't show up in the notebook.  Please upgrade to a newer version, if you have 1.6.0.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Now you are ready to get started!
+ </p>
+ <p>
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  <em>
+   <strong>
+    Note:  If you would rather use other ML tools...
+   </strong>
+  </em>
+ </h3>
+ <p>
+  You are welcome to use any ML tool for this course, such as
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  .  Though, as discussed in the intro module,
+  <em>
+   we strongly recommend you use IPython Notebook and GraphLab Create.  (GraphLab Create is free for academic purposes.)
+  </em>
+ </p>
+ <p>
+  If you are choosing to use other packages, we still recommend you use SFrame, which will allow you to scale to much larger datasets than Pandas.  (Though, it's possible to use Pandas in this course, if your machine has sufficient memory.)  The SFrame package is available in
+  <a href="https://github.com/turi-code/SFrame">
+   open-source under a permissive BSD license
+  </a>
+  . So, you will always be able to use SFrames for free.
+ </p>
+ <p>
+  If you are not using SFrame, here is the dataset for this assignment in CSV format, so you can use
+  <a href="http://pandas.pydata.org/">
+   Pandas
+  </a>
+  or other options out there:
+  <a href="https://d396qusza40orc.cloudfront.net/phoenixassets/home_data.csv">
+   home_data.csv
+  </a>
+ </p>
+ <p>
+ </p>
+ <h3 level="3">
+  Watch the video and explore the iPython notebook on predicting house prices
+ </h3>
+ <p>
+  If you haven’t done so yet, before you start, we recommend you watch the video where we go over the iPython notebook on predicting house prices from this module.  You can then open up the iPython notebook we used and familiarize yourself with the steps we covered in this example.
+ </p>
+ <h3 level="3">
+  What you will do
+ </h3>
+ <p>
+  Now you are ready!  We are going do three tasks in this assignment.  There are 3 results you need to gather along the way to enter into the quiz after this reading.
+ </p>
+ <p>
+  <strong>
+   1. Selection and summary statistics:
+  </strong>
+  In the notebook we covered in the module, we discovered which neighborhood (zip code) of Seattle had the highest average house sale price.  Now, take the sales data, select only the houses with this zip code, and compute the average price.
+  <strong>
+   <em>
+    Save this result to answer the quiz at the end.
+   </em>
+  </strong>
+ </p>
+ <p>
+  <strong>
+   <em>
+    2.
+   </em>
+  </strong>
+  <strong>
+   Filtering data:
+  </strong>
+  One of the key features we used in our model was the number of square feet of living space (‘sqft_living’) in the house. For this part, we are going to use the idea of filtering (selecting) data.
+  <strong>
+   <em>
+   </em>
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In particular, we are going to use logical filters to select rows of an SFrame. You can find more info in the
+    <a href="https://turi.com/products/create/docs/generated/graphlab.SFrame.html">
+     Logical Filter section of this documentation
+    </a>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Using such filters, first select the houses that have ‘sqft_living’ higher than 2000 sqft but no larger than 4000 sqft.
+   </p>
+  </li>
+  <li>
+   <p>
+    What fraction of the all houses have ‘sqft_living’ in this range?
+    <strong>
+     <em>
+      Save this result to answer the quiz at the end.
+     </em>
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   3. Building a regression model with several more features:
+  </strong>
+  In the sample notebook, we built two regression models to predict house prices, one using just ‘sqft_living’ and the other one using a few more features, we called this set
+ </p>
+ <pre language="python">my_features = ['bedrooms', 'bathrooms', 'sqft_living', 'sqft_lot', 'floors', 'zipcode']</pre>
+ <p>
+  Now, going back to the original dataset, you will build a model using the following features:
+ </p>
+ <pre language="python">advanced_features = [
+'bedrooms', 'bathrooms', 'sqft_living', 'sqft_lot', 'floors', 'zipcode',
+'condition', # condition of house				
+'grade', # measure of quality of construction				
+'waterfront', # waterfront property				
+'view', # type of view				
+'sqft_above', # square feet above ground				
+'sqft_basement', # square feet in basement				
+'yr_built', # the year built				
+'yr_renovated', # the year renovated				
+'lat', 'long', # the lat-long of the parcel				
+'sqft_living15', # average sq.ft. of 15 nearest neighbors 				
+'sqft_lot15', # average lot size of 15 nearest neighbors 
+]</pre>
+ <p>
+  <strong>
+   <em>
+    Note that using copy and paste from this webpage to the IPython Notebook sometimes does not work perfectly in some operating systems, especially on Windows.  For example, the quotes defining strings may not paste correctly.  Please check carefully if you use copy &amp; paste.
+   </em>
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Compute the RMSE
+    </strong>
+    (root mean squared error) on the test_data for the model using just
+    <em>
+     my_features
+    </em>
+    , and for the one using
+    <em>
+     advanced_features
+    </em>
+    .
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Note 1: both models must be trained on the original sales dataset, not the filtered one.
+  </strong>
+ </p>
+ <p>
+  Note 2:  when doing the train-test split, make sure you use seed=0, so you get the same training and test sets, and thus results, as we do.
+ </p>
+ <p>
+  Note 3:  in the module we discussed residual sum of squares (RSS) as an error metric for regression, but GraphLab Create uses root mean squared error (RMSE).  These are two common measures of error regression, and RMSE is simply the square root of the mean RSS:
+ </p>
+ <img alt="" assetid="9ca1bnk7EeWK7BIWTMqIaQ" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjwAAACuCAYAAAAyPtf7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAABYlAAAWJQFJUiTwAAAH8mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD4KICAgICAgICAgICAgPHJkZjpBbHQ+CiAgICAgICAgICAgICAgIDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+QUFBRkVIamFiVk5kYkZSRkZENHpVMHJwVXJwdCtTa3QwSXZkS3Y0QTJ5cHVFY0cydEl1S3UyRHZkcnZ0N2xKbiYjeEE7Nzg1dUw3MTc3M3J2TExMZGJESVI1UVZqREVGalZOUXVMeFovRURYR1ZCTWYxQmdsSnRvU0UzblFCMk9NSmlhbyYjeEE7TVRIR1JHZC9SRFRNNU9hZU9UUG56SGUrODAwaWErZ085M292SWt6cWx0VS9kRFRpT2NKc1I3Zk1pTWRLSEdZYSYjeEE7ZHlZODFOYW1kZWtPZWJpVmJRVjAvTVZ6N3MzTEd6WmYxKzNwdWY2R0xUZmVkSE52Lzg3ZGcvdnVEaDRZajhTbSYjeEE7dE9TMFlUbDh6R1BtREdOcFJhTnI1VnBsUEtodW0yRjVaMUwrYTNuREhzMmdqalBmdEtyWjNkTGF0bnFOd0lLSSYjeEE7T3JGTTFJdmxva0dzRUkzejY5clhkM1J1MkxpcFM3akVTckZLTklzVzBTRTZ4VWF4U1NpUkJIV1lvWnRzVExNTSYjeEE7eXc1bHJDUWI0em8zV0NSck01cEpHQ3llb1dsVFQra2E1YktrVUpKeU51VnVUbEJ0Sm0xYk9UTzV0eHc0NlZnNSYjeEE7VzJNaGRwUjNRMjBzM2JMVnRXMjdkeXlvanU0YmlnWFZ5a0UxU3pYbTl5cHlnaHVKcHNXK1cyL2JNVmt0dzZRWiYjeEE7RnFtYXpCbXZCWlJ1OS8xalJvTHFnVXJkN3JwRjF4Mjc3cHlRUkRqYzFzMjBjQitVaWZiY0pZRUYxVUNPVTRsYiYjeEE7cmV5YzJUUGdrM0hWeGRLUWErL3dpUC9LV29JYTVOSks1RGh6Ukt0WUw5cW0zSXV4cEtYbE1zemtGU1RSWG0rVyYjeEE7eHd2VTVycG1zR0pqTE9jd1djTU1UYk9vTk11WW5YaWh3bDVSNlpHZXBKS3liUG1aWEtsNHI0NG8wSXpqNURNSiYjeEE7ZVRKRCtiVHovNzJ5ODFwNzBSeFA5Y2NMdXBtVlNFMnRlbEVxWnlqY1VuZyt5NVNrYmt0ZWpMdzBxR2JyRXF1aSYjeEE7VFZPYmFsd3FzYkVzb0h2MkIrYnVGYXZuN2hOclJIczRxUG9sd0lzSDd4OTFxYUd4c0Z5citpeVR4S1Q4QmswNyYjeEE7Y2gyVWhYVVBiS20yMHUwV2E4VzZjTUF5cVdaSnBpY21heGxLVVYvTmt0NzRJVW5vc0s2VmRVTHRmQ251azg0SCYjeEE7NkpTNzlTcWVrMVhxU3duZk5mM2RBMFBWS3hlWks1VXVTNTdyRXNqZ3UxLzltSG55NXhteFFhYlVEOHM3aDZVTyYjeEE7U3pPK21sWFdXbWE3MTkrcnlBbWlxZHpwN0loZmRGVjcyamthVUVlVTNVck1lZERtaFZoS0VsTVlWZFZpSVZncyYjeEE7eW9TNUkxUHV0aXZDK2JlQ003bTRyeUtwL1N6UGtvTzFKL3hGZmpaa1d4WVhDQnFnQlRxZ0c3WkNIL2dnQ2hTbSYjeEE7SVFzRmVCZ2VnOGZoQ1RnSnArQXBlQnFlZ2VmZ2VYZ0p6c0lyOEJxOERtL0FXL0EydkFNTDhCNThCQmZnYy9nUyYjeEE7dm9HZjRCZFVoNXBSTytwQ1BhZ1A3VVM3MEc0MGhBSW9qQTRoaW5Sa0k0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"/>
+ <p>
+  where N is the number of data points.  RMSE can be more intuitive than RSS, since its units are the same as that of the target column in the data, in our case the unit is dollars ($), and doesn't grow with the number of data points, like the RSS does.
+ </p>
+ <p>
+  (Important note:  when answering the question below using GraphLab Create, when you call the
+  <strong>
+   <em>
+    linear_regression.create()
+   </em>
+  </strong>
+  function, make sure you use the parameter
+  <em>
+   <strong>
+    validation_set=None
+   </strong>
+   ,
+  </em>
+  as done in the notebook you download above.  When you use regression GraphLab Create, it sets aside a small random subset of the data to validate some parameters.  This process can cause fluctuations in the final RMSE, so we will avoid it to make sure everyone gets the same answer.)
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     What is the difference in RMSE between the model trained with my_features and the one trained with advanced_features?
+    </strong>
+    <strong>
+     <em>
+      Save this result to answer the quiz at the end.
+     </em>
+    </strong>
+   </p>
+  </li>
+ </ul>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

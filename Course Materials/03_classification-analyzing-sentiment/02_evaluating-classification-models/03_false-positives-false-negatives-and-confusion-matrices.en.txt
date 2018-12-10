@@ -1,0 +1,72 @@
+[MUSIC] We talked about accuracy and
+errors that a classifier might make. But there are different kinds of errors. So this kind of errors
+are called types of mistakes. It's important to look at the types
+of mistakes a classifier might make. And one way to do that is through
+what's called a confusion matrix. So, let's take that in a little bit. So we're talking about the relationship
+between the true label and whatever classifier predicts,
+so the predicted label. So let's say that if the true label is
+positive, and we predict a positive value for that sentence, we call that a true
+positive because we got it right. Similarly if the true
+label is negative and we predict that negative we
+call that a true negative. That's good cuz we got that right. Now, there is two kinds of
+mistakes that I can make. So, for example,
+if the true label's positive, but we predicted as negative,
+we call that a false negative. We said it was negative, but
+that was false cuz it's positive. Similarly, if the true label is
+negative when we predicted as positive, we call that a false positive. It was negative, but
+we predicted it as positive. And false positives and
+false negatives can have different impacts on what can happen in practice
+with your classifier. So let's look at a couple
+practical examples of that. So let's look at two applications, and what the cost has of false
+positives versus false negatives. So, if you consider spam filtering,
+a false negative is an email that was spam but went into
+my folder it thought it was not spam. So that's just annoying I got
+another spam email in my inbox. Maybe it's bad but not super bad. However, if you look at a false positive that's an email that was not spam that got
+labeled as spam, went to my spam filter. I never saw it, I lost that email forever. That has a higher cost. Now we can also look at
+medical diagnosis or other applications as
+a second application. So what's a false negative
+in medical diagnosis? False negative is,
+there's a disease that I have but it didn't get detected, so
+the classifier said it was negative. They don't have the disease. So in this case,
+the disease goes untreated, which can be a really bad thing. But the false positives
+can also be a bad thing. That is, I classify as having the disease
+when I never had the disease. In this case I get treated
+potentially with a really bad drug or false side effect for
+diseases that I never had. So it's a little bit unclear what's worse,
+having a false positive or a false negative. In medialc complications it really
+depends on the cost of the treatment and how many side effects it had
+versus how bad the disease can be. Now this relationship between the true
+label and the predicted label, false positive, false negatives,
+is called the Confusion Matrix. This matrix we just do. So for example, let's say that we have
+a setting with a 100 test examples. And we have of those,
+60 positive and 40 are negative. So there's a little bit of class
+imbalance but not too much. So of those 60 true positives,
+if I say I got 50 of them correct, well of the 42 negatives I got 35 of them correct. Let's see what we've learned. So out of the 100 examples
+I got 85 correct. So we can talk about our accuracy. Accuracy is 85 correct over 100,
+which is 0.85. And we can also discuss the true
+positives and the true negatives. Sorry, the false positives and
+the false negatives, so of the positives, I got labeled as negative,
+that's a false negative. And that was ten, I had ten false
+negatives and on the other hand, of the true negatives we
+get five false positive. So in this example, we got 85% accuracy. We got a higher false negative rate,
+than we had a false positive rate. Now those words, false positive, false negative, apply only for
+minor classification for two classes. But the ideal confusion matrix works
+well even when you have more classes. So let's talk about
+a simple example of that. So let's say that I have 100
+test examples and this is for medical diagnosis, so there's 3 classes,
+healthy, cold or flu. And of the 100 test subjects we
+had 70 with that were healthy, 20 that had cold, and 10 that had the flu. And let's suppose that
+we got 60 correct for healthy, we got 12 correct for cold, and we got 60, 12, 8 correct for flu. So, the total, our accuracy, here, was 80,
+which is 60 plus 12 plus 8 divided by 100. So that 0.8, 80% accuracy. But we can talk about
+the false predictions. So from healthy there were ten mistakes. And we can say it's more common to
+confuse healthy with having a cold than it is with having the flu, because
+the flu is a more complex disease so we might have those ten mistakes. Eight were confused with code and
+two were confused with flu. Cold can go both ways. So we made eight mistakes. Maybe you can say half of them
+got confused with healthy and half of them got diagnosis
+something stronger the flu. Well of the two mistakes for
+the flu, then maybe we say that we made no mistakes often, nobody that came
+in for flu was thought oh you're healthy. But two of those ten were thought to
+have just a cold and not the flu. So this is an example of
+a confusion matrix, we can really understand the types of mistakes we
+made and we can interpret those. And this is a really important
+thing to do in classification

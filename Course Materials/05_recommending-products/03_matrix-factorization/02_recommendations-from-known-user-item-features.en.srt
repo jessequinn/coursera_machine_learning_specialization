@@ -1,0 +1,368 @@
+1
+00:00:00,000 --> 00:00:04,349
+[MUSIC]
+
+2
+00:00:04,349 --> 00:00:06,820
+But a question is how are we
+gonna make these recommendations?
+
+3
+00:00:06,820 --> 00:00:10,070
+How are we gonna guess what rating a
+person would give to a movie that they've
+
+4
+00:00:10,070 --> 00:00:11,770
+never watched?
+
+5
+00:00:11,770 --> 00:00:12,760
+Well let's imagine for
+
+6
+00:00:12,760 --> 00:00:18,530
+a moment that we have some set of
+features about each movie and each user.
+
+7
+00:00:18,530 --> 00:00:21,680
+So for example, we know that.
+
+8
+00:00:21,680 --> 00:00:25,501
+Movie v, which, in this case,
+is The Shawshank Redemption,
+
+9
+00:00:27,498 --> 00:00:32,040
+Is about some set of different genres,
+like action, and romance, and drama.
+
+10
+00:00:32,040 --> 00:00:37,200
+And so we have this vector for
+each of these things,
+
+11
+00:00:37,200 --> 00:00:44,410
+which says it's 0.3 about action
+It's 0.01, about romance.
+
+12
+00:00:45,800 --> 00:00:49,020
+It's 1.5 about drama.
+
+13
+00:00:50,090 --> 00:00:55,030
+And we have the set of things, so
+we know what the movie is about.
+
+14
+00:00:55,030 --> 00:00:58,230
+And likewise, for every user,
+like this user you.
+
+15
+00:00:58,230 --> 00:01:03,280
+We know which of these different
+genres got user likes,
+
+16
+00:01:03,280 --> 00:01:08,550
+so for this user,
+we have a vector that says that for
+
+17
+00:01:08,550 --> 00:01:12,270
+action, this user really, really,
+
+18
+00:01:12,270 --> 00:01:17,300
+really likes action,
+really does not like romance.
+
+19
+00:01:19,150 --> 00:01:23,239
+Kind of likes drama and so on.
+
+20
+00:01:23,239 --> 00:01:28,672
+And we're gonna call this first
+vector the movie vector, RV.
+
+21
+00:01:28,672 --> 00:01:32,270
+We're gonna call this
+user specific vector, LU.
+
+22
+00:01:34,980 --> 00:01:39,250
+So let's say we know this, then what would
+you do to make a prediction of a rating?
+
+23
+00:01:41,570 --> 00:01:46,340
+Well, one thing that might make sense
+is to take this movie vector and
+
+24
+00:01:46,340 --> 00:01:49,280
+this user vector and
+see how much they agree.
+
+25
+00:01:49,280 --> 00:01:51,070
+If they agree a lot,
+
+26
+00:01:51,070 --> 00:01:54,540
+then we'd guess that the person
+would rate that movie very highly.
+
+27
+00:01:54,540 --> 00:01:59,120
+If they don't agree a lot then we're gonna
+say that it's probably very likely that
+
+28
+00:01:59,120 --> 00:02:03,030
+they will not like that movie and
+give it a low rating.
+
+29
+00:02:03,030 --> 00:02:05,180
+So we're gonna estimate our rating.
+
+30
+00:02:05,180 --> 00:02:12,520
+That's why we put this hat over it to
+denote that this is an estimate of how
+
+31
+00:02:12,520 --> 00:02:17,100
+much the user, u, is going to like some
+movie v that they've never seen before.
+
+32
+00:02:18,190 --> 00:02:22,980
+And so the way we're gonna do this is
+just like when we're measuring similarity
+
+33
+00:02:22,980 --> 00:02:26,230
+between two documents,
+we're gonna take the two vectors,
+
+34
+00:02:26,230 --> 00:02:30,630
+in that case that might have been a vector
+of different topics for the document,
+
+35
+00:02:30,630 --> 00:02:37,600
+in this case we're talking about a vector
+of different topics about the movie.
+
+36
+00:02:37,600 --> 00:02:41,650
+And so
+here we're gonna take these vectors,
+
+37
+00:02:41,650 --> 00:02:45,600
+so 0.3, 0.01, 1.5, and so on.
+
+38
+00:02:48,450 --> 00:02:51,000
+And we're gonna multiply it,
+
+39
+00:02:52,530 --> 00:02:57,730
+element wise, by this vector.
+
+40
+00:02:57,730 --> 00:03:00,340
+So this is our Rv.
+
+41
+00:03:01,490 --> 00:03:02,690
+This is our Lu.
+
+42
+00:03:02,690 --> 00:03:08,103
+And what we're gonna get
+
+43
+00:03:08,103 --> 00:03:13,000
+out is we're gonna get
+
+44
+00:03:13,000 --> 00:03:18,154
+out 0.3 x 2.5 + 0
+
+45
+00:03:18,154 --> 00:03:24,350
++ 1.5 x 0.8 and so on.
+
+46
+00:03:24,350 --> 00:03:31,430
+And let's just say this ends
+up being some number like 7.2.
+
+47
+00:03:31,430 --> 00:03:33,576
+Just made that up.
+
+48
+00:03:33,576 --> 00:03:38,430
+But if the user vector
+
+49
+00:03:38,430 --> 00:03:43,000
+really disagreed with what the movie was,
+so let's choose another color.
+
+50
+00:03:43,000 --> 00:03:44,380
+So this is some other user.
+
+51
+00:03:44,380 --> 00:03:49,860
+Let's call this user Lu-prime.
+
+52
+00:03:49,860 --> 00:03:54,167
+And let's say their vector said
+they really don't like action,
+
+53
+00:03:54,167 --> 00:03:55,505
+they love romance.
+
+54
+00:03:57,873 --> 00:03:59,452
+They really hate drama.
+
+55
+00:04:02,657 --> 00:04:04,110
+And so on.
+
+56
+00:04:04,110 --> 00:04:07,320
+Well here,
+the score is gonna be much lower, so
+
+57
+00:04:07,320 --> 00:04:12,180
+we're gonna get 0+3., sorry.
+
+58
+00:04:14,542 --> 00:04:20,374
+Just for consistency +0.01 x 3.5
+
+59
+00:04:20,374 --> 00:04:26,871
++ 1.5 x 0.01 + all these other numbers
+
+60
+00:04:26,871 --> 00:04:33,035
+that really don't agree with one another,
+
+61
+00:04:33,035 --> 00:04:37,699
+and maybe this would come out to be
+
+62
+00:04:37,699 --> 00:04:42,240
+some small number like 0.8.
+
+63
+00:04:42,240 --> 00:04:46,760
+So the point here is that
+when the movie vector and
+
+64
+00:04:46,760 --> 00:04:51,770
+the user vector agree a lot, we'll get
+a much larger number than when they don't.
+
+65
+00:04:51,770 --> 00:04:55,460
+So we're gonna estimate
+a much larger rating
+
+66
+00:04:55,460 --> 00:04:57,280
+then in the case where they disagree.
+
+67
+00:04:58,740 --> 00:05:01,640
+And then when we think about making our
+recommendations, what are we gonna do?
+
+68
+00:05:01,640 --> 00:05:06,160
+Well, we'll just sort over all movies
+that we've predicted for that users.
+
+69
+00:05:06,160 --> 00:05:08,910
+We'll sort by their predicted rating and
+
+70
+00:05:08,910 --> 00:05:12,640
+then we'll recommend those
+with the largest ratings.
+
+71
+00:05:12,640 --> 00:05:14,350
+And I wanna highlight one thing here.
+
+72
+00:05:14,350 --> 00:05:19,250
+So if you remember the rating scale was
+between one and five or rather zero and
+
+73
+00:05:19,250 --> 00:05:23,330
+five we could provide no stars
+if you really hated a movie.
+
+74
+00:05:23,330 --> 00:05:27,120
+But the maximum score was a five, but
+
+75
+00:05:27,120 --> 00:05:32,160
+note here that one of our predictions is
+7.2 which is clearly greater than five.
+
+76
+00:05:32,160 --> 00:05:39,630
+So, with this type of model that we're
+talking about here We're not restricted.
+
+77
+00:05:39,630 --> 00:05:44,530
+There's nothing enforcing that we're gonna
+stay within a score of zero to five.
+
+78
+00:05:44,530 --> 00:05:48,628
+But we can still use this to make
+recommendations because we just look at
+
+79
+00:05:48,628 --> 00:05:52,181
+the movies with the largest scores,
+even though those scores
+
+80
+00:05:52,181 --> 00:05:56,916
+aren't necessarily representative of
+exactly how many stars a movie would get.
+
+81
+00:05:56,916 --> 00:06:00,609
+[MUSIC]

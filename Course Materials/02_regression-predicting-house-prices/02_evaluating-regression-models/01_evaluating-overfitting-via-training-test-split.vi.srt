@@ -1,0 +1,383 @@
+1
+00:00:00,000 --> 00:00:03,387
+[NHẠC]
+
+2
+00:00:03,387 --> 00:00:08,377
+Ok vấn đề chúng ta đang đối mặt ở đây với đa thức thứ 13
+
+3
+00:00:08,377 --> 00:00:10,561
+là cái gì đó gọi là mất khả năng tổng quát.
+
+4
+00:00:10,561 --> 00:00:15,152
+Cụ thể chúng ta đã làm xong chúng ta lấy một mô hình và
+
+5
+00:00:15,152 --> 00:00:18,901
+sử dụng để quan sát nhưng
+
+6
+00:00:18,901 --> 00:00:23,134
+nó không khát quát tốt để nghĩ đến các dự báo mới.
+
+7
+00:00:23,134 --> 00:00:29,334
+Và các vấn đề vượt quá việc tạo ra các dự đoán.
+
+8
+00:00:29,334 --> 00:00:33,251
+Và chúng ta sẽ thảo luận điều này chi tiết hơn trong khóa học quy hồi.
+
+9
+00:00:33,251 --> 00:00:37,372
+Nhưng tôi muốn đề cập rằng đó là một vấn đề thực sự với mô hình học máy hoặc
+
+10
+00:00:37,372 --> 00:00:40,150
+mô hình thống kê mà bạn có thể thấy.
+
+11
+00:00:40,150 --> 00:00:44,290
+Trong trường hợp này chúng ta muốn làm phù hợp một mô hình dữ liệu nhưng
+
+12
+00:00:44,290 --> 00:00:48,780
+chúng ta không muốn mô hình đó quá cụ thể với một tập dữ liệu mà
+
+13
+00:00:48,780 --> 00:00:52,560
+chúng ta có, nó không khái quát các quan sát mới chúng ta có thể có.
+
+14
+00:00:53,630 --> 00:00:58,690
+Ok vì thế hãy quay lại đa thức thứ 13.
+
+15
+00:00:58,690 --> 00:01:02,020
+Câu hỏi là bạn có thực sự tin vào điều này không?
+
+16
+00:01:02,020 --> 00:01:04,730
+Bạn có thin rằng có thể có một sự phù hợp hợp lí cho dữ liệu không?
+
+17
+00:01:04,730 --> 00:01:08,350
+Và tôi nghĩ tôi đã nói đến trước đây, có thể là chưa.
+
+18
+00:01:08,350 --> 00:01:12,280
+Vì thế mặc dù tôi làm giảm tối đa tổng bình phương phần dư,
+
+19
+00:01:12,280 --> 00:01:15,320
+nó kết thúc dẫn đến dự đoán tệ.
+
+20
+00:01:17,240 --> 00:01:22,167
+Bởi vì tôi đang ngồi ở đây và nghĩ bậc này phù hợp với cái chúng ta có,
+
+21
+00:01:22,167 --> 00:01:27,023
+mặc dù nó không làm giảm tối đa tổng số dư bình phương như
+
+22
+00:01:27,023 --> 00:01:32,034
+đa thức thứ 13, đó là một mô hình tốt.
+
+23
+00:01:32,034 --> 00:01:35,717
+OK câu hỏi là điều gì xảy ra ở đây và
+
+24
+00:01:35,717 --> 00:01:40,926
+chúng ta nghĩ về việc lựa chọn thứ tự mô hình đúng hoặc mô hình phức tạp như thế nào?
+
+25
+00:01:40,926 --> 00:01:44,003
+Vâng cái chúng ta muốn là chúng ta muốn sự dự đoán tốt.
+
+26
+00:01:44,003 --> 00:01:45,610
+Tất nhiên đó là cái chúng ta đang nhắm đến.
+
+27
+00:01:47,050 --> 00:01:49,020
+Nhưng chúng ta không thể quan sát tương lai.
+
+28
+00:01:49,020 --> 00:01:52,250
+Đúng, vì vậy chúng ta không thể quan sát sự đoán mà chúng ta muốn và
+
+29
+00:01:52,250 --> 00:01:55,940
+giả sử chúng ta đã làm tốt hoặc không tốt cho tới khi chúng ta thực hiện nó.
+
+30
+00:01:55,940 --> 00:01:57,760
+Khi chúng ta đang nghĩ về việc lựa chọn mô hình của chúng ta,
+
+31
+00:01:57,760 --> 00:02:00,690
+bằng cách nào đó chúng ta phải làm việc với tập dữ liệu mà chúng ta có.
+
+32
+00:02:00,690 --> 00:02:04,820
+Chúng ta có thể nghĩ đến việc lựa chọn một mô hình tốt trong trường hợp này không?
+
+33
+00:02:04,820 --> 00:02:09,460
+Cái chúng ta có thể làm là chúng ta có thể nghĩ đến các dự đoán phỏng đoán.
+
+34
+00:02:09,460 --> 00:02:11,170
+Chúng ta sẽ lấy tập dữ liệu chúng ta có,
+
+35
+00:02:11,170 --> 00:02:13,760
+chúng ta sẽ loại bỏ một số ngôi nhà.
+
+36
+00:02:13,760 --> 00:02:16,080
+Đó là những ngôi nhà màu xám ở đây.
+
+37
+00:02:16,080 --> 00:02:20,909
+Nó sẽ bị loại tỏ tạm thời.
+
+38
+00:02:20,909 --> 00:02:24,090
+Và chúng ta sẽ làm phù hợp mô hình của chúng ta trên các ngôi nhà còn lại.
+
+39
+00:02:24,090 --> 00:02:28,910
+Tất cả các mẫu chúng ta sẽ sử đụng để làm phù hợp mô hình của chúng ta sử dụng
+
+40
+00:02:28,910 --> 00:02:33,738
+các phương pháp mà chúng ta đã nói đến trước đây.
+
+41
+00:02:33,738 --> 00:02:37,406
+Cái mà chúng ta sẽ làm là chúng ta sẽ dự đoán.
+
+42
+00:02:37,406 --> 00:02:41,820
+Tôi sẽ xóa x và đặt dấu hỏi.
+
+43
+00:02:43,270 --> 00:02:48,672
+Từ mô hình mà tôi vừa học trên các ngôi nhà được khoanh tròn,
+
+44
+00:02:48,672 --> 00:02:52,984
+các giá trị tôi dự đoán cho dấu hỏi này là gì?
+
+45
+00:02:52,984 --> 00:02:55,847
+Tôi có thể so sánh với các giá trị quan sát,
+
+46
+00:02:55,847 --> 00:02:58,020
+bởi vì các ngôi nhà là tập dữ liệu của tôi.
+
+47
+00:02:59,610 --> 00:03:04,400
+OK vì thế tôi có thể sử dụng cái này như một sự ủy thác cho việc thực hiện các loại
+
+48
+00:03:04,400 --> 00:03:07,830
+dự đoán thực mà tôi muốn làm trên dữ liệu tôi chưa thu thập.
+
+49
+00:03:09,020 --> 00:03:12,640
+Tất nhiên phương pháp này sẽ chỉ làm việc tốt nếu tôi có đủ
+
+50
+00:03:12,640 --> 00:03:20,270
+quan sát để nghĩ về việc làm phù hợp phiên bản thử nghiệm trên các dự đoán của tôi.
+
+51
+00:03:20,270 --> 00:03:23,620
+OK hãy giới thiêu một chút về thuật ngữ.
+
+52
+00:03:23,620 --> 00:03:28,340
+Những ngôi nhà mà chúng ta sử dụng để làm phù hợp mô hình của chúng ta, chúng ta gọi là tập dữ liệu huấn luyện.
+
+53
+00:03:28,340 --> 00:03:30,370
+Và các ngôi nhà mà chúng ta đang sử dụng như một sự ủy thác cho
+
+54
+00:03:30,370 --> 00:03:33,840
+các dự đoán của chúng ta, cái mà chúng ta đang nắm giữ, chúng ta gọi là tập dữ liệu thử nghiệm.
+
+55
+00:03:35,260 --> 00:03:39,790
+OK hãy tìm hiểu kĩ một chút cách chúng ta sẽ làm phân tích này.
+
+56
+00:03:40,920 --> 00:03:45,180
+Đầu tiên là chúng ta nhìn vào lỗi huấn luyện.
+
+57
+00:03:45,180 --> 00:03:48,550
+Chúng ta sẽ kiểm tra mỗi ngôi nhà trong tập dữ liệu thử nghiệm của chúng ta.
+
+58
+00:03:48,550 --> 00:03:51,690
+Hãy nhìn vào màu đỏ ở đây.
+
+59
+00:03:51,690 --> 00:03:57,850
+Tất cả các ngôi nhà huấn luyện của chúng ta được đại diện
+
+60
+00:03:57,850 --> 00:04:02,720
+bằng các vòng tròn màu xanh, đó là các ngội nhà
+
+61
+00:04:02,720 --> 00:04:06,640
+chúng ta sẽ nhìn vào khi chúng ta nghĩ đến việc xác định lỗi huấn luyện.
+
+62
+00:04:06,640 --> 00:04:07,880
+Cụ thể,
+
+63
+00:04:07,880 --> 00:04:12,080
+chúng ta sẽ nhìn vào các lỗi mà chúng ta làm trên các ngôi nhà
+
+64
+00:04:12,080 --> 00:04:16,741
+Đây là tổng bình phương phần dư trên các ngôi nhà trong
+
+65
+00:04:16,741 --> 00:04:20,139
+tập dữ liệu huấn luyện và đó gọi là lỗi huấn luyện.
+
+66
+00:04:20,139 --> 00:04:24,399
+Cụ thể lỗi huấn luyện giống với cái chúng ta có cho
+
+67
+00:04:24,399 --> 00:04:27,168
+tính toán tổng bình phương phần dư của chúng ta, nhưng
+
+68
+00:04:27,168 --> 00:04:31,714
+chúng ta chỉ bao gồm các ngôi nhà đại diện trong tập dữ liệu huấn luyện.
+
+69
+00:04:31,714 --> 00:04:36,071
+Ok với mô hình cho trước như một tuyến tính phù hợp với dữ liệu,
+
+70
+00:04:36,071 --> 00:04:40,849
+bậc hai hoặc vân vân, cái mà chúng ta có thể làm là chúng ta nghĩ đến việc ước tính
+
+71
+00:04:40,849 --> 00:04:44,300
+các thông số mô hình của chúng ta cái mà là giảm tối đa lỗi huấn luyện.
+
+72
+00:04:44,300 --> 00:04:47,740
+Đó là sự tương đương với cái chúng ta đã nói đến trước khi làm giảm tối đa
+
+73
+00:04:47,740 --> 00:04:48,880
+tổng bình phương phần dư hình vuông.
+
+74
+00:04:48,880 --> 00:04:52,440
+Nhưng một lần nữa ở đây chúng ta chỉ nhìn vào các ngôi nhà trong tập dữ liệu của chúng ta.
+
+75
+00:04:53,770 --> 00:04:58,830
+OK đó là cách chúng ta ước tính w mũ,
+
+76
+00:04:58,830 --> 00:05:01,800
+các thông số mô hình đã được ước tính của chúng ta.
+
+77
+00:05:01,800 --> 00:05:05,000
+Cái mà chúng ta muốn làm là chúng ta lấy các thông số mô hình đã được ước tính và
+
+78
+00:05:05,000 --> 00:05:06,800
+chúng ta nói chúng ta đang làm tốt như thế nào?
+
+79
+00:05:06,800 --> 00:05:08,660
+Nhớ cái mà chúng ta đã nói, cái mà chúng ta sẽ làm,
+
+80
+00:05:08,660 --> 00:05:12,120
+là chúng ta sẽ nhìn vào các quan sát ok?
+
+81
+00:05:12,120 --> 00:05:20,680
+Ở đây các hình tròn màu xám là các ngôi nhà trong tập dữ liệu thử nghiệm của chúng ta.
+
+82
+00:05:20,680 --> 00:05:23,380
+Đó là những ngôi nhà không được sử dụng phù hợp với mô hình này.
+
+83
+00:05:24,840 --> 00:05:29,412
+Chúng ta sẽ nói chúng ta đang dự đoán doanh số ngôi nhà tốt như thế nào?
+
+84
+00:05:29,412 --> 00:05:31,860
+OK dự đoán của chúng ta là gì?
+
+85
+00:05:31,860 --> 00:05:34,530
+Hãy nhớ khi chúng ta nghĩ đến sự dự đoán,
+
+86
+00:05:34,530 --> 00:05:39,930
+chúng ta chỉ sử dụng giá trị phù hợp.
+
+87
+00:05:40,930 --> 00:05:44,670
+Để đánh giá chúng ta đang dự đoán tốt
+
+88
+00:05:44,670 --> 00:05:48,610
+dữ liệu thử nghiệm của chúng ta, chúng ta sẽ nhìn vào điều đó lần nữa,
+
+89
+00:05:48,610 --> 00:05:51,310
+giống như tổng bình phương phần dư hình vuông.
+
+90
+00:05:51,310 --> 00:05:53,440
+Nhưng nó được gọi là lỗi thử nghiệm,
+
+91
+00:05:53,440 --> 00:05:58,140
+nơi chúng ta ước tính các thông số mô hình w muz và chúng ta tính tổng
+
+92
+00:05:58,140 --> 00:06:03,220
+trên tổng các hình vuông trong tập dữ liệu thử nghiệm của chúng ta.
+
+93
+00:06:04,520 --> 00:06:06,930
+OK đó là lỗi thử nghiệm của chúng ta.
+
+94
+00:06:06,930 --> 00:06:11,612
+Nhưng cái mà chúng ta có thể nghĩ đến là lỗi thử nghiệm làm việc như thế nào và
+
+95
+00:06:11,612 --> 00:06:15,666
+lỗi huấn luyện khác nhau như một chức năng của mô hình phức tạp như thế nào?
+
+96
+00:06:15,666 --> 00:06:19,249
+[NHẠC]

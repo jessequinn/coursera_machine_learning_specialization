@@ -1,0 +1,65 @@
+[NHẠC] Bây giờ hãy nói về cách chúng ta có thể
+sử dụng các thước đo độ chính xác và thu hồi để so sánh các thuật toán khác nhau
+ mà chúng ta có thể nghĩ đến việc sử dụng. Và để làm điều này chúng ta có thể vẽ một cái gì đó
+ được gọi là đường cong thu hồi chính xác. Hãy bắt đầu bằng việc nói về những gì
+các đường cong này sẽ đại diện. Cái mà các đường cong sẽ đại diện là
+cho một hệ thống tư vấn đã được cho trước, những gì tôi sẽ yêu cầu bạn làm
+là thay đổi ngưỡng bao nhiêu các sản phẩm mà hệ thống tư vấn
+được cho phép để giới thiệu cho tôi. Tôi sẽ xếp hạng ví dụ tất cả các
+sản phẩm trẻ em trên Amazon và tôi sẽ cho phép bạn tư vấn 1
+hoặc 2 hoặc 3 và vân vân. Đó là ngưỡng mà bạn sẽ thay đổi. Từ đó cho ra đường cong này. Đường cong này sẽ như thế nào cho bộ tư vấn tối ưu mà chúng ta chỉ
+giới thiệu các sản phẩm tôi thích? Độ chính xác là gì khi tôi chỉ
+giới thiệu một sản phẩm? Chúng ta biết rằng một sản phẩm
+tôi thích và sự chính xác của tôi chỉ cho một sản phẩm, tôi thích nó
+và độ chính xác của tôi là 1. Thu hồi của tôi là gì? Nếu tôi nói mười sản phẩm mà tôi thích và tôi chỉ được xem một thứ,
+nó là một phần mười. Như vậy tôi đang tăng số lượng các mặt hàng tôi biểu diễn,
+độ chính xác của tôi luôn ở điểm 1. Tôi chỉ giới thiệu các sản phẩm mà tôi thích nhưng thu hồi của tôi đang tăng lên bởi vì tôi càng ngày càng
+có nhiều các mặt hàng mà tôi yêu thích. Cuối cùng chúng ta sẽ đạt được 1 điểm. Đường cong thu hồi chính xác
+tối ưu là đường kẻ ở đây. Ok hãy nói đến hình dạng của đường cong với bộ tư vấn thực khác nữa. Tôi dự đoán trước, hãy để tôi
+chú thích rằng đây là bộ tư vấn tối ưu. Bây giờ hãy tiếp tục nhìn vào
+bộ tư vấn thực hơn và nó trông sẽ thế nào. Ok sản phẩm đầu tiên chúng ta giới thiệu
+có thể không phải là sản phẩm tôi thích, hoặc có thể thích, vì thế nó sẽ
+bắt đầu trên trục chính xác. Và cuối cùng ở một số điểm khi
+tôi thay đổi đủ các ngưỡng, ở một vài điểm tôi sẽ giới thiệu
+một số sản phẩm tôi thích. Ở cả trục độ chính xác và
+trục thu hồi sẽ đi lên. Xu hướng ở đây là chúng ta thêm
+một sản phẩm mà tôi không thích. Ở điểm đó điều gì xảy ra, vâng
+trục thu hồi của tôi vẫn chính xác bởi vì tôi không khôi phục thêm
+bất kì mặt hàng nào mà tôi thích. Nhưng trục độ chính xác của tôi giảm xuống bởi vì
+bây giờ tôi nhìn vào phần lớn hơn, một tập hợp lớn hơn các
+hình vuông màu xanh lá. Trục chính xác của tôi giảm hẳn xuống
+ nhưng trục thu hồi của tôi vẫn giữ nguyên, và bạn có xu hướng khá lúng túng
+khi nhìn vào các đường cong hoặc sự suy giảm trên trục độ
+chính xác, rồi lại tăng lên. Và tôi sẽ vẽ nó, nó sẽ không
+chính xác hoàn toàn nhưng nó trông giống như thế này. Thông thường cái gì đó giống như thế này
+sẽ là một đường cong giữa cả hai trục. Ok đây là ví dụ về một hệ thống thực. Đây là hệ thống tư vấn khác nữa
+so với mức tối ưu của chúng ta. Ok bây giờ chúng ta biết cách để vẽ
+các đường cong, chúng ta có thể nói đến việc so sánh các thuật toán khác nhau của chúng ta,
+chúng ta biết cái nào là tốt nhất như thê nào? Chúng ta biết rằng chúng ta
+muốn cả trục chính xác và trục thu hồi đều lớn và điều
+tốt nhất có thể là gì? Chúng ta đã nói về bộ tư vấn
+tối ưu là đường cong đó. Nhưng khi chúng ta nhìn vào các
+đường cong khác cái mà như thế này, một đường không nhất thiết
+phải kiểm soát đường kia. Chúng có thể tạo ra các đường
+khác nhau tại các điểm khác nhau. Một đường cong là không cần thiết,
+hãy để tôi tẩy nó và vẽ nó bằng màu khác như thế sẽ rõ ràng hơn. Không phải một đường luôn luôn
+tốt hơn đường kia. Có thể chúng ta có một đường nữa ở đây. Trong trường hợp này tôi nghĩ
+về việc so sánh các thuật toán khác nhau và việc lựa chọn
+cái nào tốt nhất như thế nào? Giống như tôi đã nói, chúng ta muốn trục chính xác
+và trục thu hồi lớn bằng nhau nhưng một thứ chúng ta có thể đo để so sánh cái nào tốt hơn và cách nào
+để nghĩ đến điều đó? Chúng ta có thể nghĩ về vùng
+bên dưới đường cong. Ví dụ chúng ta có thể thấy tất cả vùng
+dưới đường cong màu xanh dương. Và chúng ta có thể so sánh điều đó với vùng dưới đường cong màu xanh lá và tôi có thể nói vùng nào lớn hơn. Đó là 1 proxy cho để xem hệ tư vấn nào làm việc tốt hơn. Đó là điểm này ở đây, một thước đo chúng ta có thể
+sử dụng được gọi là vùng phía dưới đường cong đo chính xác
+cái tôi vẽ bên dưới đây. Nhưng bạn có thể quan tâm đến
+cách hệ thống tư vấn đang thực hiện trong tất cả các tình huống có thể xảy ra. Thay vào đó bạn có thể ở trong tình huống
+là bạn có một trang web và bạn biết dựa trên xếp hạng của trang đó,
+bao nhiêu mặt hàng bạn có thể hiển thị. Có lẽ bạn có thể hiển thị 10 mặt hàng khác nhau
+để giới thiệu với người sử dụng hoặc bạn biết sự chú ý của những
+người sử dụng nói chung là gì. Và bạn muốn giới hạn số lượng sản phẩm
+ bạn giới thiệu là 20 sản phẩm hoặc cái gì đó giống như thế này. Trong các trường hợp này bạn biết cụ thể số lượng sản phẩm
+bạn sẽ giới thiệu, bạn quan tâm đến trục chính xác với 
+số lượng sản phẩm đã được giới thiệu. Bởi vì bạn muốn trục đó lớn ngang với giới hạn của việc giới thiệu
+số lượng các sản phẩm. Có hai ví dụ về phép đo bạn
+có thể sử dụng để so sánh giữa hai thuật toán khác nhau sử dụng
+khái niệm về độ chính xác và thu hồi này. [NHẠC]

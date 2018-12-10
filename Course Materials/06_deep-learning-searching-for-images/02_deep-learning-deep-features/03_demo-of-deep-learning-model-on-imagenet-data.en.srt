@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:04,124
+[MUSIC]
+
+2
+00:00:04,124 --> 00:00:08,823
+So we saw that deep learning had
+a tremendous part in the ImageNet
+
+3
+00:00:08,823 --> 00:00:10,450
+competition.
+
+4
+00:00:10,450 --> 00:00:15,030
+Which allowed them to take 1.5 minute
+image string deeply on your network and
+
+5
+00:00:15,030 --> 00:00:18,980
+get amazing performance to predict one
+of a thousand different categories.
+
+6
+00:00:18,980 --> 00:00:21,910
+So let's go ahead and
+show you a little demo of what kind
+
+7
+00:00:21,910 --> 00:00:25,420
+of categories we're talking about and
+how cool the predictions were.
+
+8
+00:00:25,420 --> 00:00:28,100
+So here's an example.
+
+9
+00:00:28,100 --> 00:00:32,800
+It was the AlexNet frame
+on that ImageNet data set,
+
+10
+00:00:32,800 --> 00:00:38,420
+which we then employed as a service
+that can be queried from this website.
+
+11
+00:00:38,420 --> 00:00:41,570
+And so every time I click on an image
+it gets sent to that service
+
+12
+00:00:41,570 --> 00:00:45,730
+which actually runs on a GPU, so it's
+fast and it comes back for prediction.
+
+13
+00:00:45,730 --> 00:00:48,020
+So if I click on this
+particular image here,
+
+14
+00:00:48,020 --> 00:00:51,310
+it gets sent to a service that
+actually hosts in on Amazon AWS.
+
+15
+00:00:51,310 --> 00:00:52,560
+It comes back for prediction here.
+
+16
+00:00:52,560 --> 00:00:55,740
+It's hidden, but when I click on it,
+it tells me what prediction is.
+
+17
+00:00:55,740 --> 00:00:59,580
+So if I show you this image, it might
+be unclear what that image is, but
+
+18
+00:00:59,580 --> 00:01:03,250
+if I click on it, it says parking meter,
+it turns out to be the right label.
+
+19
+00:01:04,310 --> 00:01:08,820
+The second best prediction was padlock,
+Which you can see kind of a padlock.
+
+20
+00:01:08,820 --> 00:01:10,340
+The parking meter, you got it right.
+
+21
+00:01:10,340 --> 00:01:12,850
+So that's really quite cool.
+
+22
+00:01:12,850 --> 00:01:14,690
+Let me show you another example.
+
+23
+00:01:14,690 --> 00:01:15,850
+For example, this one.
+
+24
+00:01:15,850 --> 00:01:20,110
+It get shipped off to the service on
+Amazon WS, comes back for prediction.
+
+25
+00:01:20,110 --> 00:01:23,761
+And here my prediction, screen, monitor,
+or [INAUDIBLE] it says it's a monitor, but
+
+26
+00:01:23,761 --> 00:01:27,880
+I don't know what the difference between a
+screen and a monitor is, but that's okay.
+
+27
+00:01:27,880 --> 00:01:32,170
+So there's various images here,
+I'm just gonna click on a few.
+
+28
+00:01:32,170 --> 00:01:37,170
+So for example, if I click on this
+one over here, it gets sent up.
+
+29
+00:01:37,170 --> 00:01:40,230
+It's really sure,
+it really thinks it's a spoonbill,
+
+30
+00:01:40,230 --> 00:01:44,087
+it turns out to be a spoonbill,
+which is great.
+
+31
+00:01:44,087 --> 00:01:49,700
+Lastly I'm gonna click on
+this one over here and
+
+32
+00:01:49,700 --> 00:01:54,460
+that image gets sent to that service
+uses a deep learning for GPU and
+
+33
+00:01:55,460 --> 00:02:00,060
+it says it's a beer bottle or pop bottle,
+the true label is beer bottle.
+
+34
+00:02:00,060 --> 00:02:03,140
+And now this all image is in
+the original ImageNet data set,
+
+35
+00:02:03,140 --> 00:02:06,310
+I'm sure an image that was not in
+the original ImageNet data set,
+
+36
+00:02:06,310 --> 00:02:09,198
+I click on this one here,
+it gets sent to that service.
+
+37
+00:02:09,198 --> 00:02:14,000
+On the AWS that we're hosting there.
+
+38
+00:02:14,000 --> 00:02:19,970
+Comes back for prediction, it says,
+Labrador retriever, this is my dog.
+
+39
+00:02:19,970 --> 00:02:23,059
+This is the lab in
+>> [LAUGH] And
+
+40
+00:02:23,059 --> 00:02:26,480
+this is the dog over here, in Dato.
+
+41
+00:02:26,480 --> 00:02:31,690
+And so, as you can see, even for images
+that were not in the original data set,
+
+42
+00:02:31,690 --> 00:02:34,470
+you can still get pretty
+interesting predictions.
+
+43
+00:02:34,470 --> 00:02:39,120
+Now in your capstone,
+you want to build a service now not for
+
+44
+00:02:39,120 --> 00:02:42,910
+predicting images here but for
+recommendations with deep learning, for
+
+45
+00:02:42,910 --> 00:02:46,140
+product images and text and
+host it as a service.
+
+46
+00:02:46,140 --> 00:02:49,582
+And you'll be able to get a website like
+this, that anybody can play with, use, and
+
+47
+00:02:49,582 --> 00:02:52,849
+really see the power of the machine
+learning that you've been learning about.
+
+48
+00:02:52,849 --> 00:02:57,589
+[MUSIC]

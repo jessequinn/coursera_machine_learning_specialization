@@ -1,0 +1,483 @@
+1
+00:00:00,000 --> 00:00:03,569
+[NHẠC]
+
+2
+00:00:03,569 --> 00:00:09,379
+Câu hỏi ở đây là chúng ta có thể cải thiện
+
+3
+00:00:09,379 --> 00:00:14,640
+mô hình sử dụng các tính năng sâu hay không.
+
+4
+00:00:14,640 --> 00:00:17,340
+Nhớ rằng chúng ta đã nói
+về các tính năng sâu.
+
+5
+00:00:17,340 --> 00:00:22,650
+Chúng ta đã khám phá
+trong bài học về học sâu này cách
+
+6
+00:00:22,650 --> 00:00:26,900
+các tính năng sâu sử dụng kỹ thuật học chuyển đổi 
+có thể được huấn luyện trên một miền như thế nào,
+
+7
+00:00:26,900 --> 00:00:31,400
+sau đó áp dụng trong miền khác để tìm hiểu
+
+8
+00:00:31,400 --> 00:00:34,330
+một dữ liệu nhỏ đã được dán nhãn.
+
+9
+00:00:34,330 --> 00:00:39,883
+Trong trường hợp này hãy nhìn vào độ dài của dữ liệu huấn luyện,
+
+10
+00:00:39,883 --> 00:00:44,973
+hãy hiểu chúng ta có 2,000 hình ảnh vì thế
+
+11
+00:00:44,973 --> 00:00:47,489
+đây là tập dữ liệu khá nhỏ.
+
+12
+00:00:47,489 --> 00:00:52,089
+Và chúng ta tiếp tục xem chúng ta có thể
+
+13
+00:00:52,089 --> 00:00:57,394
+huấn luyện 20,000 hình ảnh sử dụng một số các tính năng sâu.
+
+14
+00:00:57,394 --> 00:01:01,110
+Đây là bước bạn thực hiện.
+
+15
+00:01:01,110 --> 00:01:07,678
+Chúng ta sẽ tải deep_learning_model
+
+16
+00:01:07,678 --> 00:01:11,825
+cái mà đã được đào tạo lại và
+
+17
+00:01:11,825 --> 00:01:20,830
+ở đây bạn có thể sử dụng graphlab.load_model để tải mô hình.
+
+18
+00:01:20,830 --> 00:01:26,410
+Và có một mô hình mà sẽ truyền trên dữ liệu imagenet.
+
+19
+00:01:26,410 --> 00:01:27,710
+Nó ở đây.
+
+20
+00:01:27,710 --> 00:01:31,934
+Nó được gọi là imagenet_model.
+
+21
+00:01:31,934 --> 00:01:37,860
+Mô hình này truyền 1,5 triệu hình ảnh,
+
+22
+00:01:37,860 --> 00:01:40,105
+một nghìn các danh mục khác, một tập dữ liệu khác,
+
+23
+00:01:40,105 --> 00:01:44,243
+1,5 triệu hình ảnh, nó là cái mà chúng ta đã thảo luận, mô hình AlexNet.
+
+24
+00:01:44,243 --> 00:01:49,350
+Nó đứng thứ hai trong cuộc thi
+Image Net 2012, vì thế
+
+25
+00:01:49,350 --> 00:01:54,090
+tôi đã huấn luyện lại một mô hình và sau đó
+ bạn có thể sử dụng mô hình để tạo ra
+
+26
+00:01:55,240 --> 00:01:59,240
+trong hình ảnh của chúng ta
+một cột mới gọi là
+
+27
+00:01:59,240 --> 00:02:04,380
+deep_features.
+
+28
+00:02:04,380 --> 00:02:08,804
+Trong cột mới deep_features
+mà chúng ta sẽ làm là
+
+29
+00:02:08,804 --> 00:02:12,900
+lấy deep_learning_model mà chúng ta đã tải.
+
+30
+00:02:14,280 --> 00:02:17,100
+Deep_learning_model.
+
+31
+00:02:17,100 --> 00:02:23,123
+Và tôi sẽ áp dụng một chức năng
+được gọi là extract_features và
+
+32
+00:02:23,123 --> 00:02:29,680
+cái mà extract_features làm là
+trích xuất các tính năng sâu.
+
+33
+00:02:29,680 --> 00:02:33,420
+Nó thực hiện học chuyển đổi,
+dùng các tính năng của một miền và
+
+34
+00:02:33,420 --> 00:02:35,690
+áp dụng một tập dữ liệu trong miền khác.
+
+35
+00:02:35,690 --> 00:02:38,560
+Tập dữ liệu này là dữ liệu huấn luyện hình ảnh của tôi.
+
+36
+00:02:40,820 --> 00:02:42,890
+Đây là hai miền mà bạn phải làm.
+
+37
+00:02:42,890 --> 00:02:44,300
+Khá đơn giản.
+
+38
+00:02:44,300 --> 00:02:47,960
+Để tôi giảm kích cỡ phông để nó dễ nhìn hơn.
+
+39
+00:02:47,960 --> 00:02:52,990
+Hai miền mà bạn phải làm để thực hiện nghiên cứu chuyền.
+
+40
+00:02:52,990 --> 00:02:55,670
+Lấy hình ảnh trên mạng và
+
+41
+00:02:55,670 --> 00:02:57,822
+áp dụng nó vào 10 tập dữ liệu safari.
+
+42
+00:02:57,822 --> 00:03:02,860
+Bây giờ tính toán các tính năng sâu mất vài phút và
+
+43
+00:03:02,860 --> 00:03:07,030
+tôi sẽ làm điều này ngay bây giờ.
+
+44
+00:03:07,030 --> 00:03:11,040
+Thay vào đó tôi sẽ nói với bạn mô hình sâu của chúng ta.
+
+45
+00:03:12,040 --> 00:03:14,530
+Nếu tôi cho bạn thấy dữ liệu image_train.
+
+46
+00:03:15,960 --> 00:03:20,730
+Cái tôi đã làm là nếu tôi cho bạn thấy đầu đề, một số dòng đầu.
+
+47
+00:03:20,730 --> 00:03:26,550
+Cái mà bạn sẽ thấy là chúng ta có một 
+id hình ảnh, chúng ta có một hình ảnh cái mà
+
+48
+00:03:26,550 --> 00:03:30,490
+chúng ta sẽ nhìn thấy, bạn có nhãn mác và bạn có một cột cho các tính năng sâu.
+
+49
+00:03:30,490 --> 00:03:33,130
+Tôi đã tính toán lại và tôi đã lưu nó trong sframe.
+
+50
+00:03:33,130 --> 00:03:35,040
+Nó đã được lưu và tính lại rồi.
+
+51
+00:03:35,040 --> 00:03:38,070
+Và nó cũng có cột nữa image_array cái mà 
+có các điểm ảnh thô mà chúng ta đã sử dụng để
+
+52
+00:03:38,070 --> 00:03:39,550
+huấn luyện mô hình điểm ảnh thô.
+
+53
+00:03:39,550 --> 00:03:41,610
+deep_features có ở đây rồi.
+
+54
+00:03:41,610 --> 00:03:44,340
+Nhưng nếu bạn chạy cả hai, bạn sẽ tính tự tính toán chúng trong dữ liệu này
+
+55
+00:03:44,340 --> 00:03:46,800
+hoặc trong bất kì tập dữ liệu nào mà bạn muốn.
+
+56
+00:03:46,800 --> 00:03:50,114
+Hãy cùng thực hiện và
+
+57
+00:03:50,114 --> 00:03:55,635
+Bây giờ chúng ta có các tính năng sâu,
+
+58
+00:03:55,635 --> 00:03:59,881
+hãy huấn luyện một mô hình sâu.
+
+59
+00:03:59,881 --> 00:04:04,303
+Given the deep features,
+
+60
+00:04:04,303 --> 00:04:08,400
+let's train a classifier.
+
+61
+00:04:08,400 --> 00:04:13,010
+Bây giờ chúng ta sẽ huấn luyện một bộ
+ phân loại đơn giản sử dụng các tính năng sâu.
+
+62
+00:04:13,010 --> 00:04:20,620
+Tôi sẽ dùng deep_features_model thay vì mô hình điểm ảnh thô.
+
+63
+00:04:20,620 --> 00:04:25,032
+Và deep_features_model cũng sẽ sử dụng quy hồi logic.
+
+64
+00:04:25,032 --> 00:04:29,113
+.create và nếu bạn nhố từ bài học, chúng ta đã thảo luận cái bạn có thể lấy
+
+65
+00:04:29,113 --> 00:04:33,256
+các tính năng sâu và đưa vào một bộ phân loại 
+đơn giản ở cuối trong trường hợp này, vì thế
+
+66
+00:04:33,256 --> 00:04:35,321
+chỉ cần đưa vào quy hồi logic.
+
+67
+00:04:35,321 --> 00:04:36,912
+Như là đầu vào tôi sẽ đưa vào vào image_train_data.
+
+68
+00:04:36,912 --> 00:04:40,112
+Và các tính năng
+
+69
+00:04:40,112 --> 00:04:45,512
+thay vì sử dụng điểm ảnh thô,
+
+70
+00:04:45,512 --> 00:04:52,118
+tôi sẽ sử dụng deep_features.
+
+71
+00:04:55,274 --> 00:04:59,726
+Cuối cùng tôi sẽ nói nhãn mác, xin lỗi, mục tiêu,
+
+72
+00:04:59,726 --> 00:05:04,421
+cái mà tôi đang cố dự đoán ở đây, nó được đưa ra bởi cột nhãn mác.
+
+73
+00:05:06,981 --> 00:05:07,678
+Và đây bạn có.
+
+74
+00:05:07,678 --> 00:05:12,483
+Bây giờ chúng ta học về một bộ phân loại và nó ở đây,
+
+75
+00:05:12,483 --> 00:05:16,233
+sử dụng trên 2,000 hình ảnh,
+
+76
+00:05:16,233 --> 00:05:20,558
+sử dụng các tính năng đã được hoàn thành trong mạng này,
+
+77
+00:05:20,558 --> 00:05:24,980
+cái mà tham gia cuộc thi năm 2012.
+
+78
+00:05:24,980 --> 00:05:29,960
+Bây giờ hãy tìm hiểu mô hình đầu tiên, chỉ cần áp dụng nó với một số dữ liệu.
+
+79
+00:05:29,960 --> 00:05:35,788
+Tôi sẽ làm, chúng ta sẽ 
+
+80
+00:05:35,788 --> 00:05:40,993
+áp dụng mô hình các tính năng sâu
+
+81
+00:05:40,993 --> 00:05:47,940
+với các hình ảnh đâu tiên của tập kiểm tra.
+
+82
+00:05:47,940 --> 00:05:51,330
+Giống như chúng ta đã làm với mô hình điểm ảnh thô, 
+chúng ta sẽ áp dụng nó trong trường hợp này.
+
+83
+00:05:51,330 --> 00:05:58,580
+Nhớ rằng chúng ta đã lấy dữ liệu image_test và
+ chúng ta đã xem ba hình ảnh đầu tiên.
+
+84
+00:05:58,580 --> 00:06:00,170
+0,1 và 2.
+
+85
+00:06:00,170 --> 00:06:03,820
+Đây là cái mà các hình ảnh biểu thị.
+
+86
+00:06:03,820 --> 00:06:06,647
+Và tôi sẽ nhập .show và
+
+87
+00:06:06,647 --> 00:06:12,310
+nhắc bạn về cái chúng ta có là một con mèo, một ô tô và một con mèo nữa.
+
+88
+00:06:13,700 --> 00:06:22,490
+Hãy tiếp tục và thực hiện điều này để xem cái chúng ta dự đoán.
+
+89
+00:06:22,490 --> 00:06:27,747
+Tôi sẽ lấy deep_feature_model của tôi,
+
+90
+00:06:27,747 --> 00:06:33,137
+tôi sẽ dự đoán trên ba hình ảnh này,
+
+91
+00:06:33,137 --> 00:06:36,256
+image_test của 0:3.
+
+92
+00:06:36,256 --> 00:06:38,860
+Hãy ghi nhớ mèo, o tô.
+
+93
+00:06:38,860 --> 00:06:42,830
+Mèo là mèo, ô tô, mèo.
+
+94
+00:06:42,830 --> 00:06:44,880
+Về cơ bản nó có ba thứ chính xác.
+
+95
+00:06:44,880 --> 00:06:45,830
+Điều này thật thú vị.
+
+96
+00:06:45,830 --> 00:06:49,930
+Cái gì đó đã làm rất tệ sử dụng các điểm ảnh thô.
+
+97
+00:06:49,930 --> 00:06:55,570
+Cũng như sử dụng các tính năng sâu, trên ba điểm này nó rất chính xác.
+
+98
+00:06:55,570 --> 00:07:00,719
+Nhưng hãy đánh giá mô hình sâu một cách chính thức hơn.
+
+99
+00:07:00,719 --> 00:07:07,275
+Chúng ta sẽ làm tiếp theo là tính toán
+
+100
+00:07:07,275 --> 00:07:12,302
+độ chính xác test_data của
+
+101
+00:07:12,302 --> 00:07:17,991
+deep_features_model.
+
+102
+00:07:17,991 --> 00:07:18,503
+Và chúng ta có ở đây.
+
+103
+00:07:18,503 --> 00:07:22,630
+Chúng ta sẽ làm điều đó như thế nào?
+
+104
+00:07:22,630 --> 00:07:25,450
+Chúng ta sẽ thực hiện deep_features_model.evaluate
+
+105
+00:07:25,450 --> 00:07:27,480
+giống như chúng ta đã làm với mô hình điểm ảnh thô.
+
+106
+00:07:27,480 --> 00:07:29,440
+Ở đây chúng ta có thể làm .evaluate.
+
+107
+00:07:29,440 --> 00:07:32,702
+Như đâu vào chúng ta sẽ đưa vào dữ liệu thử nghiệm.
+
+108
+00:07:32,702 --> 00:07:33,562
+image_test.
+
+109
+00:07:35,205 --> 00:07:39,290
+Nhớ rằng mô hình điểm ảnh thô có 46% tính chính xác.
+
+110
+00:07:39,290 --> 00:07:40,450
+Nó rất kém.
+
+111
+00:07:41,660 --> 00:07:46,830
+Bằng việc sử dụng các tính năng sâu chúng ta có 78% độ chính xác, điều này khá tốt.
+
+112
+00:07:46,830 --> 00:07:48,720
+Nó gần với lĩnh vực nghệ thuật.
+
+113
+00:07:48,720 --> 00:07:52,697
+Thậm chí nếu bạn đang học nhiều về dữ liệu nó khá tốt so với 46%.
+
+114
+00:07:52,697 --> 00:07:56,132
+Các tính năng sâu cung cấp cho bạn công cụ tuyệt với để
+
+115
+00:07:56,132 --> 00:08:01,286
+lấy dữ liệu nhỏ, chạy các tính năng sâu và
+
+116
+00:08:01,286 --> 00:08:05,527
+có tính chính xác khá cao làm nhiệm vụ phân loại hình ảnh ở đây.
+
+117
+00:08:05,527 --> 00:08:06,027
+[NHẠC]

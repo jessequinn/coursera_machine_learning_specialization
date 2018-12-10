@@ -1,0 +1,206 @@
+1
+00:00:00,000 --> 00:00:04,370
+[NHẠC]
+
+2
+00:00:04,370 --> 00:00:09,099
+Vấn đề đặt ra là chúng ta có
+các ma trận xuất hiện đông thời
+
+3
+00:00:09,099 --> 00:00:10,710
+cần được chuẩn hóa.
+
+4
+00:00:10,710 --> 00:00:13,840
+Bởi vì chúng ta nói về điều xảy ra nếu
+chúng ta có một mặt hàng phổ biến.
+
+5
+00:00:15,530 --> 00:00:21,130
+Một trong số các mặt hàng
+phổ biến cho trẻ em là tã.
+
+6
+00:00:23,510 --> 00:00:25,500
+Có rất nhiều thứ ở xung quanh đây.
+
+7
+00:00:25,500 --> 00:00:28,430
+Chúng rất, rất hữu ích khi bạn có em bé.
+
+8
+00:00:28,430 --> 00:00:32,561
+Về cơ bản nếu bạn mua bất kì
+mặt hàng nào cho trẻ em trên Amazon,
+
+9
+00:00:32,561 --> 00:00:36,711
+bạn rất có thể cũng đã mua tã.
+
+10
+00:00:39,822 --> 00:00:42,470
+Nhưng sau đó hãy nhìn
+vào các mặt hàng khác.
+
+11
+00:00:42,470 --> 00:00:43,910
+Đây là chú hươu cao cổ Sophie.
+
+12
+00:00:43,910 --> 00:00:47,970
+Nó thực sự là một trong số mặt hàng
+tiềm năng trên Amazon cho trẻ em.
+
+13
+00:00:47,970 --> 00:00:48,830
+Nhưng nó dành cho trẻ mọc răng.
+
+14
+00:00:48,830 --> 00:00:51,372
+Trẻ thích cắn vào nó.
+
+15
+00:00:51,372 --> 00:00:52,214
+Nó là cao su.
+
+16
+00:00:52,214 --> 00:00:53,500
+Nó có tiếng kêu.
+
+17
+00:00:53,500 --> 00:00:54,780
+Cầm chúng rất thích.
+
+18
+00:00:55,860 --> 00:01:02,040
+Nhưng hãy nghĩ về điều gì xảy ra khi
+chúng ta nhìn vào mặt hàng khác.
+
+19
+00:01:02,040 --> 00:01:06,320
+Chúng ta chỉ mua hươu cao cổ Sophie
+và chúng ta muốn đưa ra các gợi ý cho
+
+20
+00:01:06,320 --> 00:01:10,330
+người chỉ mua thứ đồ chơi nhỏ này.
+
+21
+00:01:10,330 --> 00:01:15,470
+Vậy những gì tôi sẽ xem xét là tôi sẽ
+nhìn vào vectơ đếm cho Sophie.
+
+22
+00:01:15,470 --> 00:01:19,030
+Đây là hươu cao cổ Sophie.
+
+23
+00:01:19,030 --> 00:01:23,780
+Và một lần nữa chúng ta có DVD mà
+không ai mua, sau đó chúng ta có tã,
+
+24
+00:01:23,780 --> 00:01:27,676
+chúng ta có khăn giấy trẻ em
+
+25
+00:01:27,676 --> 00:01:34,350
+và tất cả các sản phẩm khác
+bạn có thể tưởng tượng.
+
+26
+00:01:34,350 --> 00:01:37,600
+Tã có số lượng rất lớn.
+
+27
+00:01:37,600 --> 00:01:39,350
+Hãy nói 1 triệu.
+
+28
+00:01:42,160 --> 00:01:44,070
+Có thể là không quá lớn.
+
+29
+00:01:44,070 --> 00:01:44,610
+Nhưng 1 triệu.
+
+30
+00:01:44,610 --> 00:01:47,870
+Nghe có vẻ khá lớn, hoặc nghe khá lớn.
+
+31
+00:01:47,870 --> 00:01:53,090
+Vậy những gì xảy ra là các
+sản phẩm mà tôi đang thấy,
+
+32
+00:01:53,090 --> 00:01:56,800
+dù tôi chỉ mua hươu cao cổ Sophie.
+
+33
+00:01:56,800 --> 00:02:00,680
+Hoặc nếu tôi chỉ mua đồ chơi xếp chồng này.
+
+34
+00:02:00,680 --> 00:02:04,915
+Hoặc nếu tôi chỉ mua chú cá sấu dễ thương
+
+35
+00:02:04,915 --> 00:02:09,770
+tạo ra âm thanh và cử động.
+
+36
+00:02:09,770 --> 00:02:13,990
+Bất kể tôi mua cái gì, theo quy trình
+mà chúng ta đã mô tả,
+
+37
+00:02:13,990 --> 00:02:17,090
+tôi thực sự, thực sự có thể
+giới thiệu tã giấy cho bạn.
+
+38
+00:02:19,230 --> 00:02:23,350
+Hãy nghĩ về cách đưa ra các gợi ý
+
+39
+00:02:23,350 --> 00:02:27,980
+được cá nhân hóa và có hiệu quả hơn
+mà mọi người mua tã giấy không
+
+40
+00:02:27,980 --> 00:02:32,480
+có nghĩa là đó là cái tôi đặc biệt
+thích khi tôi chỉ mua Sophie.
+
+41
+00:02:32,480 --> 00:02:34,090
+Chúng ta hãy nói về cách xử lý điều này.
+
+42
+00:02:36,770 --> 00:02:41,560
+Nhắc lại cái mà tôi đã nói, thực tế là
+
+43
+00:02:41,560 --> 00:02:46,740
+có số đếm lớn cho các sản phẩm phổ biến,
+nhấn chìm các hiệu ứng khác.
+
+44
+00:02:46,740 --> 00:02:51,684
+Và như vậy chúng ta sẽ quay lại
+đề xuất mặc định điều này dựa trên
+
+45
+00:02:51,684 --> 00:02:54,374
+sự phổ biến, đó là những gì
+chúng ta đang cố gắng để
+
+46
+00:02:54,374 --> 00:02:58,170
+đưa ra các loại hê thống tư vấn khác nhau.
+
+47
+00:02:58,170 --> 00:03:01,870
+[NHẠC]

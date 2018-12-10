@@ -1,0 +1,30 @@
+[MUSIC] Now, neural networks provide
+some exciting results, however, they do come with some challenges. So, on the pro side, they really enable
+you to represent this non-linear complex features and
+they have impressive results, not just in computer vision, but in some
+other areas like speech recognition. So systems like Siri on the phone and
+others use the neural networks behind the scene,
+as well as some text analysis tasks. And its potential for much more
+impact in the wide range of areas. Now they do come with some challenges. And to understand those challenges, we need to talk about the workflow
+of training a neural network. So you need to start with lots and
+lots and lots of data. And that data has to be labeled. Every image has to have, what dog
+was in the image, is it a labrador, is it a poodle, is it a golden retriever,
+chihuahua and so on. And that requires a lot of human
+annotation and that can be hard. But we start to [INAUDIBLE]
+some of the images. We feed it, we split them into training
+tasks or validation sets as we discussed, and we learned that deep neural network,
+and that can take quite a while. But once we validate, we realize that
+that complex eight layer structure of 60 million parameters wasn't
+exactly what we needed and we need to revise it, or we need to adjust
+parameters or change how we learn it. And we have to iterate again and
+again and again. And in fact, to get that winning
+neural network, the one, they really needed to connect various
+layers with different representations and lots of complexes in the learning
+algorithm, so that was hard. So although there's some great pros,
+neural networks, they also come with some cons too. They require lots of data to get great
+performance, they're computationally expensive, even with GPUs they
+can be computationally expensive. And they're extremely hard to tune, so
+you have a lot of choices, the more layers you use, how many layers or parameters
+you use and that can be really hard. So if you combine the computational
+choices and costs with so many things too soon, you end up
+with an incredibly hard process for figuring out what neural network to use. [MUSIC]

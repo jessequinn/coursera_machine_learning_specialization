@@ -1,0 +1,37 @@
+[MUSIC] So, we've now seen this models in action. And we've done this, what we call a kind of qualitative, just kind of
+anecdotal qualitative exploration. Let's do a more quantitative comparison between the personalize model and
+the popularity model. So, now we're going to do a quantitative comparison between the models. So as we explored with
+family in the lectures, when we're comparing recommenders,
+a good metric to use is precision recall. So can we explore the precision
+recall curve for these two models? We discussed matplotlib
+in a different notebook, so we're gonna call matplotlib here, and I'm gonna add this
+little command inline to make sure that matplotlib actually prints into the recommender,
+so into the notebook. So matplotlib and what I'm gonna do
+is compute the model_performance. This is the variable that I'm gonna
+create, and there is this methoding in the recommended libraries
+from graphlab create. It's a set of utilities for
+recommenders and one of those is really cool
+is called compare_models. Try it to compare different recommenders
+models and understand how they do. So I'm gonna compare different
+recommenders models on our test_data that we're separating. And the models I'm gonna compare
+are popularity_model and the personalize_model, so here's a list
+of the two models in comparison. I could have compare more, but
+I'm just going to compare those two. And I want to say there is a little
+parameter here called user sample, where I'm going to sample a small
+fraction of the test data. So a user sample equals 0.05,
+because on this machine building this [INAUDIBLE]
+takes a little while, and they want it to be fast so
+we can look at it together. So, it does it pretty fast. It's comparing, it's evaluating first
+the performance of the popularity model. That's model zero. Then the performance of the second model, model one,
+which was the personalized model. And finally what we get here
+is a precisionary call curves. The last thing that we
+saw in the lectures and this compares the recall and
+precision of these two models. The personalized model in green and
+the popularity model in blue. And the closer you are to
+the top here the better, you see that adding personalization
+significantly improves. The performance of our recommender. So, personalization's great. Just recommending popular items,
+not so great. And so, with this,
+we've built a song recommender and we explored that, we saw it recommend cool
+songs for somebody like me who likes U2 and Buena Vista Social Club. But of course you can go and explore
+all the things that you might like and see what else other recommendation
+songs you can come up with. [MUSIC]

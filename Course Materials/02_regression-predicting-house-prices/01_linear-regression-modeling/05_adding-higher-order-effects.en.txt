@@ -1,0 +1,45 @@
+[MUSIC] Okay, so up to this point we just
+considered fitting the data with a line and the question is,
+what does a good choice? So I'm actually feeling pretty good about
+my analysis to be pretty truthful here. I fit this line, I minimize the residual
+sum of squares, I made a prediction for my house value. In doing so I leveraged all these
+observations that I went through and recorded of all the recent house sales. And I go and I go to Carlos and
+I say, hey, look at my analysis. This is my estimate of
+the value of our house. And he goes, well, I'm not so sure. Because really, to me,
+I'm not sure that this is a linear trend. He actually says
+>> It's not linear. >> He says it's not linear. Or according to my cartoon, he says,
+dude, that's not a linear relationship. Dude. No, I guess Carlos would not say dude. But, anyway.
+>> He says bro. >> He says bro. Okay. Bro. He always refers to me as bro, of course. Okay. But anyway, the point is Carlos doesn't
+think that it's a linear relationship. He thinks, you know maybe it's quadratic. He said did you try a quadratic fit? Well. Now I look at the plot that
+he just put up here and I say actually that looks pretty good. And what do I have to do? I have to figure out which is
+the best quadratic fit to this data. And how am I gonna do that? I'm gonna go again and I'm gonna
+minimize my residual sum of squares. So I'm just about to go minimize
+my residual sum of squares. So let's talk about what that
+would involve because when I'm looking at a quadratic function I
+now have three parameters here. I have my still my intercept,
+which is just where is this curve? Up and down on the y axis. And then I have this linear term of x, and then I also have this extra term here,
+which is now the square of x. That's where I get that
+quadratic component. But I wanna make one quick comment here,
+so a little aside, that this is actually still
+called linear regression. And the reason is because we think of
+x squared just as another feature. And what we see is that the w's
+always appear just as w's, not w squared or other functions of w. And we're going to discuss this in
+more detail in the regression course. But remember, even though we're talking
+about a quadratic function fit to the data,
+this is still called linear regression. Okay but the point I want to make
+here is we have three parameters when I'm going to minimize
+my residual sum of squares, I'm going to have to search over
+the space of three different things now. I have to minimize over the combination
+of best w zero, w one and w two and finding the quadratic fit that
+minimizes my residual sum of squares. Okay, so I'm just about to go and do this computation, which actually turns
+out to also be efficient and again we are going to discuss the generality
+of that in the regression course. But then Carlos has a brilliant idea. He says wait, wait wait! I told you about that quadratic, but
+did you try a 13th order polynomial? And I go, no I didn't. >> It makes sense. >> It does, it makes a lot of sense. Look at this, this is pretty good. This is the fit that Carlos gets
+with his 13th order polynomial. He says, I just minimized
+your residual sum of squares. Pretty good, right? My residual sum of squares
+here are basically zero. But I'm personally not feeling so
+great about this. Cuz I'm looking and
+I'm saying my house isn't worth so little. I know that, I do. Yes, we talked about residual sum of
+squares as being this cost of the fit. And yes,
+Carlos seems to have really really really minimized my residual sum of squares, but
+something's not sitting right with me. This function just looks crazy. [MUSIC]

@@ -1,0 +1,472 @@
+1
+00:00:00,185 --> 00:00:04,747
+[MUSIC]
+
+2
+00:00:04,747 --> 00:00:08,230
+So, we've learned that deep
+neural networks are really cool,
+
+3
+00:00:08,230 --> 00:00:12,097
+high accuracy tool, but they can be
+really hard to build and learn, and
+
+4
+00:00:12,097 --> 00:00:14,640
+require lots and lots of data.
+
+5
+00:00:14,640 --> 00:00:17,510
+So next, we're gonna talk about
+something really exciting.
+
+6
+00:00:17,510 --> 00:00:21,240
+Which is called deep features,
+which allow you to build neural networks,
+
+7
+00:00:21,240 --> 00:00:23,690
+even when you don't have a lot of data.
+
+8
+00:00:23,690 --> 00:00:29,340
+So, if you go back to our data
+image classification pipeline,
+
+9
+00:00:29,340 --> 00:00:35,730
+where we start with an image, we detected
+some features, or other representations,
+
+10
+00:00:35,730 --> 00:00:42,220
+and we've had that to a simple classifier,
+like a linear classifier.
+
+11
+00:00:42,220 --> 00:00:45,280
+The question here is can we somehow
+
+12
+00:00:45,280 --> 00:00:48,660
+use the features that we learn
+through the neural network?
+
+13
+00:00:48,660 --> 00:00:54,390
+Those cool ones at the corners, edges and
+even faces, to feed that classifier?
+
+14
+00:00:55,410 --> 00:00:56,940
+So can we do something a little different?
+
+15
+00:00:58,830 --> 00:00:59,720
+The idea here,
+
+16
+00:00:59,720 --> 00:01:03,350
+that you have deep features,
+is something called transfer learning.
+
+17
+00:01:03,350 --> 00:01:06,940
+So transfer learning is pretty old idea,
+that's been around for quite a while, but
+
+18
+00:01:06,940 --> 00:01:12,100
+had a lot of impact in recent years
+in the area of deep neural networks.
+
+19
+00:01:12,100 --> 00:01:16,500
+So the idea here is, I train the neural
+network in a case where I have lots and
+
+20
+00:01:16,500 --> 00:01:17,510
+lots of data.
+
+21
+00:01:17,510 --> 00:01:21,109
+So for example, in a task of
+differentiating cats versus dogs.
+
+22
+00:01:22,110 --> 00:01:27,590
+And I learned that eight layers,
+16 million parameter complex new network.
+
+23
+00:01:27,590 --> 00:01:31,500
+And I get great accuracy in
+the task of cat versus dog.
+
+24
+00:01:31,500 --> 00:01:35,910
+Now, the cool thing is to say, okay,
+what if I have a little bit of data,
+
+25
+00:01:35,910 --> 00:01:41,080
+not tons of data for new tasks,
+let's say I am detecting chairs and
+
+26
+00:01:41,080 --> 00:01:45,150
+elephants and cars and
+cameras in hundreds of categories.
+
+27
+00:01:45,150 --> 00:01:51,420
+Can we somehow use the features that we
+learned in cats versus dog to combine for
+
+28
+00:01:51,420 --> 00:01:57,209
+simple classifier and feed that and get
+great accuracy on this 101 new categories.
+
+29
+00:01:58,620 --> 00:02:00,660
+That's the idea of transfer learning.
+
+30
+00:02:00,660 --> 00:02:06,270
+The features I learned from cat
+versus dog get transferred to provide
+
+31
+00:02:06,270 --> 00:02:10,590
+accuracy in the new task, which is
+detecting elephants, cameras and so on.
+
+32
+00:02:11,890 --> 00:02:14,730
+To understand transfer
+learning deep neural networks,
+
+33
+00:02:14,730 --> 00:02:19,120
+let's revise the idea of what
+a deep neural network might learn.
+
+34
+00:02:19,120 --> 00:02:22,270
+So here's a deep neural
+network of cat versus dogs.
+
+35
+00:02:22,270 --> 00:02:25,660
+And let's say that we have really good
+accuracy there for that task, task one,
+
+36
+00:02:25,660 --> 00:02:27,410
+cats versus dogs.
+
+37
+00:02:27,410 --> 00:02:31,970
+If you look at the last few layers, they
+really focus on the cat versus dog task.
+
+38
+00:02:31,970 --> 00:02:33,212
+They're very specific.
+
+39
+00:02:33,212 --> 00:02:36,295
+It kinda like I showed you, there's
+an example where there was a detection of
+
+40
+00:02:36,295 --> 00:02:37,860
+colors inside that last layer.
+
+41
+00:02:39,050 --> 00:02:41,510
+Now the ones in the middle
+are much more general.
+
+42
+00:02:41,510 --> 00:02:45,470
+They can represent things like corners and
+edges and circles and
+
+43
+00:02:45,470 --> 00:02:51,310
+squiggly patterns and things that can
+really generalize from the cat versus dog
+
+44
+00:02:51,310 --> 00:02:57,500
+task to this more general
+101 categories task.
+
+45
+00:02:57,500 --> 00:03:02,453
+So let's talk about how we can deal
+with second task, 101 categories.
+
+46
+00:03:02,453 --> 00:03:07,944
+So we learn deep neural network for
+the cat versus dog can apply for Task 2.
+
+47
+00:03:07,944 --> 00:03:09,672
+Now, if you think about it,
+
+48
+00:03:09,672 --> 00:03:14,005
+this end piece of the neural network
+is very specific to cat versus dog.
+
+49
+00:03:14,005 --> 00:03:17,429
+So it's not that useful for
+detecting chairs perhaps.
+
+50
+00:03:17,429 --> 00:03:22,385
+So what we can do is chop off the last
+few layers, the last layer lets see it
+
+51
+00:03:22,385 --> 00:03:27,287
+in the network and keep the weights
+fixed for the first several layers.
+
+52
+00:03:27,287 --> 00:03:30,026
+Because those are good those
+detected good features.
+
+53
+00:03:30,026 --> 00:03:34,629
+This last layer with a simple linear
+classifier which is simple, so
+
+54
+00:03:34,629 --> 00:03:39,149
+I can just train in the little bits
+of data that I have about chairs,
+
+55
+00:03:39,149 --> 00:03:41,507
+cars, elephants, and cameras.
+
+56
+00:03:44,201 --> 00:03:47,853
+So going back to the example
+that we described earlier,
+
+57
+00:03:47,853 --> 00:03:49,910
+where we had three layers.
+
+58
+00:03:49,910 --> 00:03:53,800
+The first layer detected
+diagonal edges and edges.
+
+59
+00:03:53,800 --> 00:03:57,510
+The second one detected
+squiggly patterns and corners.
+
+60
+00:03:57,510 --> 00:04:01,580
+While the third one was about colors and
+faces,
+
+61
+00:04:01,580 --> 00:04:07,030
+we now can use those layers for new task,
+but we need to be a little careful.
+
+62
+00:04:07,030 --> 00:04:11,773
+Layer 3 might be too specific but
+layers 1 and 2 can be quite useful.
+
+63
+00:04:11,773 --> 00:04:15,598
+So now that we learned about
+transfer learning the concept,
+
+64
+00:04:15,598 --> 00:04:20,481
+let's review that deep learning pipeline,
+but using these deep features.
+
+65
+00:04:20,481 --> 00:04:24,580
+So I'm gonna start with some labeled data,
+not tons, just a little bit is enough.
+
+66
+00:04:24,580 --> 00:04:27,720
+And then I'm gonna extract
+features using that
+
+67
+00:04:27,720 --> 00:04:30,110
+deep neural network
+just like we described.
+
+68
+00:04:30,110 --> 00:04:35,021
+I'm gonna split this data set into
+training and test of validation set.
+
+69
+00:04:35,021 --> 00:04:38,488
+I'm gonna learn the simple
+classifier like linear classifier,
+
+70
+00:04:38,488 --> 00:04:41,330
+support vector machines, simple things.
+
+71
+00:04:41,330 --> 00:04:45,670
+And as I validated,
+since it's a simple classifier,
+
+72
+00:04:45,670 --> 00:04:47,900
+there's not many parameters to tune.
+
+73
+00:04:47,900 --> 00:04:49,100
+Pretty easy to do.
+
+74
+00:04:49,100 --> 00:04:51,840
+Can be learned with little data and
+do quite well.
+
+75
+00:04:52,920 --> 00:04:56,570
+And in fact, we see an application
+off the application where this idea
+
+76
+00:04:56,570 --> 00:05:00,830
+works extremely well, and is exactly
+the idea that I showed you in the demo,
+
+77
+00:05:00,830 --> 00:05:04,970
+the beginning of the module when I
+showed you how to buy new dresses.
+
+78
+00:05:04,970 --> 00:05:10,020
+We didn't have lots of data about visual
+description dresses, but we used something
+
+79
+00:05:10,020 --> 00:05:16,940
+that was trained on imagenet to provide
+you with a good dress shopping experience.
+
+80
+00:05:18,030 --> 00:05:22,550
+Now, you may ask,
+how general are these deep features?
+
+81
+00:05:22,550 --> 00:05:27,540
+Can they really be used for
+interesting, extremely unusual tasks?
+
+82
+00:05:28,780 --> 00:05:30,540
+Well, actually, you will be surprised.
+
+83
+00:05:31,750 --> 00:05:33,345
+In fact, let's talk about trash.
+
+84
+00:05:33,345 --> 00:05:36,530
+[LAUGH] A company called compology.
+
+85
+00:05:36,530 --> 00:05:38,190
+It's a pretty interesting company.
+
+86
+00:05:38,190 --> 00:05:43,540
+They're trying to reinvent
+how trash collection is done.
+
+87
+00:05:43,540 --> 00:05:48,570
+Normally, the trash truck goes from house
+to house, from business to business, and
+
+88
+00:05:48,570 --> 00:05:51,780
+collects trash on a regular basis,
+every day, once a week, and so on.
+
+89
+00:05:52,830 --> 00:05:56,690
+They wanna change that and
+optimize the path of trucks and
+
+90
+00:05:56,690 --> 00:06:00,930
+how trash is collected to minimize
+the amount of time spent.
+
+91
+00:06:00,930 --> 00:06:04,100
+And the way they do that is by
+installing cameras on trash cans
+
+92
+00:06:04,100 --> 00:06:06,540
+to figure out what's in there and
+how full it is.
+
+93
+00:06:06,540 --> 00:06:14,480
+Well we don't have tons of labeled data of
+how images look for full trash cans, but
+
+94
+00:06:14,480 --> 00:06:19,480
+when they did this, use deep features and
+a little bit of training data from humans,
+
+95
+00:06:19,480 --> 00:06:24,780
+marking the depth of trash cans
+to learn a trash detector,
+
+96
+00:06:24,780 --> 00:06:29,877
+and be able to optimize the path of
+trucks, in order to better serve.
+
+97
+00:06:29,877 --> 00:06:36,650
+So decrease the amount of time
+trucks need to collect garbage.
+
+98
+00:06:36,650 --> 00:06:38,823
+So deep features are useful even for
+garbage.
+
+99
+00:06:38,823 --> 00:06:44,399
+[MUSIC]

@@ -1,0 +1,67 @@
+[MUSIC] In this module, we've seen how regression
+can be used to predict house prices and also be useful in a wide
+range of other applications. So, in the introduction to this course,
+Carlos introduced this machine learning pipeline,
+where we go from data, which gets shoved into some machine learning method, and
+we use that to derive intelligence. Well, let's dig into this block diagram
+and expand it, now that we've seen these some of these machine learning
+tools, in a little bit more detail. Okay, so now we know what we actually use
+to fit our data is some training data set, so that's gonna be our data. And in our housing application, where we're going to predict
+the price of some house, the data that we collected was,
+we had this table of the house ID, and some set of house attributes,
+as well as the house's sales price. And we had this for a whole bunch
+of houses in our neighborhood, and we collected this data into some table. So, that represented
+our training data set. And then we took that data, and what we
+did was shoved it through some feature extractor, which in this case is
+a very simple feature extractor, where we just choose some
+subset of the house attributes. So, in the examples we looked at,
+X, our set of features, represented things, like,
+we looked at square feet of the house, and we also looked at number of bathrooms. And we talked about possibly
+using more features. Again, we'll talk about that more
+in the regression course, but those were two that we
+examined in this module. And so then,
+what did we do with these features? Well, our goal was to
+take these features and have some type of model that led to
+a prediction of the house price. Okay, so our output, the intelligence that we're deriving,
+is the predicted house price. And we're going to do this for
+every house in our training data set. We're gonna take its associated features,
+and shove it through this machine learning
+model, and predict the house price. And what's the machine learning
+model we talked about? Well, in this case, it's regression. That's our specific machine learning
+model that we're looking at here. Okay, but remember that this machine
+learning model had some set of parameters. Okay, so the parameters we call W. These are the weights on our features. So, for example, it's the weight on square
+feet or number of bathrooms, and so on. More technically,
+these are called regression coefficients. And we talked about estimating
+these parameters from data, so our W hat is our estimate
+of these parameters. And how did we talk about doing that? Well, we took our predicted output, so our predicted house price, and
+we compared it to the true house price. So, the actual sales price that we
+recorded in our training data table. So, Y, here, is our actual sales price for the houses in our training data. And we compare to
+the predicted house price. And we use a quality metric to measure
+how well we're doing with our prediction, using our model, using W hat as
+the parameters of that model. Well, how well are we doing? What was the error metric we talked about? The error metric we talked about was
+something called residual sum of squares, where we just sum up the square difference
+between the actual house sales price and the predicted house sales price, summing
+over all houses in our training data set. Okay, so our quality metric is
+gonna take our predictions and our actual house sales observations,
+spit out this error, and it's gonna go into a machine learning
+algorithm that's gonna be used to update the weights,
+update our parameters of our model. And we're gonna talk about this
+machine learning algorithm, or different variants of it, a lot more
+in the actual course on regression. But this is the overall flowchart for
+this machine learning method for our house prediction problem. And this loop here,
+where we're taking our predictions, computing our error relative to
+the actual house sales prices, and updating the weights or
+our model parameters. This process tends to
+happen in an iterative way, where we update values again and again. Okay, so if we abstract a way, what we
+see is we have some training data set. We have some feature extraction process. We have some machine learning model. And it's gonna produce some intelligence,
+which in this case is a prediction. And we're gonna assess the quality of our
+intelligence with some quality measure. And we're gonna use that error or
+accuracy, depending which way we're thinking about measuring it, to adjust our
+model parameters using some algorithm. And we're gonna see this type of flow for
+machine learning again and again. In this module,
+we've seen how to take our data and derive intelligence using
+something called regression, where we have a model that relates
+our features to our output. And we talked about this in the context
+of predicting house values, and you also work through a really
+interesting IPython notebook. And from this, you should be able to
+deploy really interesting regression models in practice now. [MUSIC]

@@ -1,0 +1,286 @@
+1
+00:00:00,000 --> 00:00:03,847
+[NHẠC]
+
+2
+00:00:03,847 --> 00:00:08,367
+Trong bài học này chúng ta đã nói về
+một khái niệm về bộ lọc công tác và
+
+3
+00:00:08,367 --> 00:00:13,883
+các hệ thống tư vấn khác nhau để thực hiện
+ý tưởng đó trong khi chúng ta sử dụng
+
+4
+00:00:13,883 --> 00:00:19,280
+các loại sản phẩm khác mà mọi người
+mua để tư vấn sản phẩm.
+
+5
+00:00:19,280 --> 00:00:23,840
+Và chúng ta đã khám phá ra khái niệm
+về việc có một tập khách hàng và
+
+6
+00:00:23,840 --> 00:00:28,860
+các sản phẩm và hiểu mối quan hệ
+giữa chúng trong ngữ cảnh
+
+7
+00:00:28,860 --> 00:00:32,560
+nhiệm vụ tư vấn sản phẩm,
+nghĩ về các gợi ý phim.
+
+8
+00:00:32,560 --> 00:00:36,820
+Và trong notebook IPython bạn sẽ
+khám phá điều này một cách cụ thể với
+
+9
+00:00:36,820 --> 00:00:39,320
+việc triển khai hệ thống tư vấn bài hát.
+
+10
+00:00:39,320 --> 00:00:42,350
+Một lần nữa hãy nhìn lại
+quy trình học máy, nhưng
+
+11
+00:00:42,350 --> 00:00:45,340
+trong ngữ cảnh các hệ thống tư vấn.
+
+12
+00:00:45,340 --> 00:00:47,400
+Trong trường hợp này dữ liệu
+huấn luyện của chúng ta là gì?
+
+13
+00:00:47,400 --> 00:00:50,614
+Vâng đó là người sử dụng,
+
+14
+00:00:50,614 --> 00:00:56,885
+sản phẩm, xếp hạng, bảng.
+
+15
+00:01:01,502 --> 00:01:07,084
+Và cái chúng ta sẽ làm là chúng ta
+sẽ thêm một số tập tính năng,
+
+16
+00:01:07,084 --> 00:01:10,882
+mà trong trường hợp này là
+cặp ID người dùng, ID sản phẩm.
+
+17
+00:01:15,910 --> 00:01:22,010
+Và mục đích ở đây là dự đoán xếp hạng
+mà người sử dụng sẽ đánh giá sản phẩm.
+
+18
+00:01:22,010 --> 00:01:24,950
+ID người sử dụng, ID sản phẩm, xếp hạng.
+
+19
+00:01:24,950 --> 00:01:31,630
+Đây là xếp hạng dự đoán của chúng ta, y mũ.
+
+20
+00:01:33,000 --> 00:01:35,850
+Nếu chúng ta nhìn vào, tôi đoán, xin lỗi,
+
+21
+00:01:35,850 --> 00:01:38,930
+tôi nên đề cập về mô hình
+mà chúng ta xem xét là gì?
+
+22
+00:01:38,930 --> 00:01:44,415
+Mô hình là, ví dụ,
+
+23
+00:01:44,415 --> 00:01:49,112
+chúng ta đã nói về các mô hình khác nhau
+nhưng một mô hình chúng ta sẽ nói về khá
+
+24
+00:01:49,112 --> 00:01:53,690
+mở rộng trong khóa học phân rã
+ma trận là phân rã ma trận.
+
+25
+00:01:54,980 --> 00:01:58,280
+Và phân rã ma trận có một số thông số.
+
+26
+00:01:58,280 --> 00:02:02,770
+W mũ là các thông số ước tính hoặc
+
+27
+00:02:02,770 --> 00:02:05,260
+ký hiệu đó đại diện các thông số đã được ước tính.
+
+28
+00:02:05,260 --> 00:02:08,760
+Và các thông số của phân tích ma trận là gì?
+
+29
+00:02:08,760 --> 00:02:12,120
+Nó là một bộ các tính năng cho người sử dụng.
+
+30
+00:02:14,030 --> 00:02:17,067
+Nó là bộ các tính năng cho mỗi sản phẩm.
+
+31
+00:02:19,446 --> 00:02:21,759
+OK có các thông số nhưng
+
+32
+00:02:21,759 --> 00:02:26,570
+chúng ta cũng đã nói về một phiên bản đặc trưng của phân tích ma trận.
+
+33
+00:02:26,570 --> 00:02:29,509
+Trong trường hợp đó, ngoài các tính năng của chúng ta
+
+34
+00:02:31,010 --> 00:02:35,620
+là ID người sử dụng và ID sản phẩm, chúng ta 
+cũng có thể xem xét các thứ khác,
+
+35
+00:02:35,620 --> 00:02:40,460
+chúng ta có thể có một danh sách các tính năng 
+như là tuổi của người sử dụng,
+
+36
+00:02:40,460 --> 00:02:47,610
+giới tính của người sử dụng, sự mô tả sản phẩm và vân vân.
+
+37
+00:02:47,610 --> 00:02:51,740
+Trong trường hợp đó chúng ta cũng sẽ 
+thêm trọng số vào các tính năng này.
+
+38
+00:02:51,740 --> 00:02:55,490
+Hãy để tôi thêm một số bộ,
+
+39
+00:02:57,090 --> 00:03:00,100
+tôi sẽ gọi chúng w0 để phân biệt với w,
+
+40
+00:03:00,100 --> 00:03:04,750
+một số bộ trọng số ở đây cũng là các thông số của mô hình này.
+
+41
+00:03:04,750 --> 00:03:09,600
+Ok chúng ta sẽ hiểu sâu hơn về điều này trong khóa học này nhưng
+
+42
+00:03:09,600 --> 00:03:13,860
+chúng ta sẽ lấy xếp hạng đã được dự đoán của chúng ta và
+
+43
+00:03:13,860 --> 00:03:19,310
+chúng ta sẽ xem mô hình của chúng ta phù hợp với dữ liệu như thế nào.
+
+44
+00:03:19,310 --> 00:03:23,180
+Và cách mà chúng ta sẽ là là chúng ta sẽ lấy dữ liệu thực,
+
+45
+00:03:23,180 --> 00:03:28,780
+các xếp hạng thực
+
+46
+00:03:30,150 --> 00:03:33,340
+cái mà ở trong tập dữ liệu huấn luyện của chúng ta.
+
+47
+00:03:33,340 --> 00:03:36,750
+Và chúng ta sẽ so sánh với các xếp hạng đã được dự đoán.
+
+48
+00:03:37,750 --> 00:03:43,042
+OK một phép đo mà chúng ta đã nói đến để đo khoảng không giữa
+
+49
+00:03:43,042 --> 00:03:47,938
+các xếp hạng đã được dự đoán và các xếp hạng 
+đã được quan sát là tổng bình phương phần dư.
+
+50
+00:03:50,526 --> 00:03:54,817
+Giống như trong quy hồi nhưng cũng có 
+các số liệu khác chúng ta có thể cân nhắc và
+
+51
+00:03:54,817 --> 00:03:56,880
+chúng ta có thể nói về điều này sau.
+
+52
+00:03:58,050 --> 00:04:02,259
+Nhưng vấn đề là từ một số khái niệm sai
+ giữa các giá trị đã được dự đoán và
+
+53
+00:04:02,259 --> 00:04:06,367
+các giá trị đã được quan sát của chúng ta, 
+chúng ta sẽ có thuật toán học máy.
+
+54
+00:04:06,367 --> 00:04:08,008
+Một lần nữa chúng ta bỏ cái này khỏi
+
+55
+00:04:08,008 --> 00:04:12,092
+bài học về phân tich ma trận để mô tả thuật toán là gì.
+
+56
+00:04:12,092 --> 00:04:17,019
+Cái mà nó sẽ làm là nó sẽ cập nhật các đặc trưng của chúng ta cho
+
+57
+00:04:17,019 --> 00:04:21,875
+người sử dụng và sản phẩm cho tới khi chúng ta có sự thống nhất giữa 
+
+58
+00:04:21,875 --> 00:04:24,960
+các đánh giá đã dự đoán và các đánh giá đã quan sát.
+
+59
+00:04:24,960 --> 00:04:29,247
+Ok trong bài học bạn đã học thực hiện lọc cộng tác trong thực tế, vì thế
+
+60
+00:04:29,247 --> 00:04:32,410
+bây giờ bạn có thể thực hiện hệ thống tư vấn.
+
+61
+00:04:32,410 --> 00:04:35,180
+Bạn có thể làm một bộ tư vấn cho gia đình của bạn,
+
+62
+00:04:35,180 --> 00:04:37,740
+sẽ mua sắm cho kì nghỉ.
+
+63
+00:04:38,920 --> 00:04:42,625
+Hoặc bạn có thể xây dựng một bộ tư vấn bài hát mới
+ mà thậm chí tốt hơn cái mà chúng ta
+
+64
+00:04:42,625 --> 00:04:44,740
+đã làm.
+
+65
+00:04:44,740 --> 00:04:48,297
+Rất nhiều những điều thú vị bạn có thể làm với lọc cộng tác.
+
+66
+00:04:48,297 --> 00:04:52,969
+[NHẠC]

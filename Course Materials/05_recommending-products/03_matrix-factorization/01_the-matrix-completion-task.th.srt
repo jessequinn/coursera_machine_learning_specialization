@@ -1,0 +1,345 @@
+1
+00:00:00,000 --> 00:00:04,220
+[ดนตรี]
+
+2
+00:00:04,220 --> 00:00:08,272
+So in the co-occurence approaches
+we've been talking about so
+
+3
+00:00:08,272 --> 00:00:12,473
+far, there's been no notion of
+different aspects of me as a user or
+
+4
+00:00:12,473 --> 00:00:17,240
+features of the product that
+are driving the recommendations made.
+
+5
+00:00:17,240 --> 00:00:21,040
+Instead we're simply counting
+co-occurences of purchases and
+
+6
+00:00:21,040 --> 00:00:22,910
+user histories.
+
+7
+00:00:22,910 --> 00:00:28,090
+So a natural question is whether
+we can somehow use some aspects of
+
+8
+00:00:28,090 --> 00:00:32,050
+who I am and what a product is
+to drive the recommendations
+
+9
+00:00:32,050 --> 00:00:35,020
+just like we talked about in
+the classification approach, so
+
+10
+00:00:35,020 --> 00:00:38,830
+we have some set of features for
+the user and the product.
+
+11
+00:00:38,830 --> 00:00:43,540
+But here, we'd like to be able to
+learn these features from the data.
+
+12
+00:00:43,540 --> 00:00:46,260
+That'll help us cope with
+the problems we talked about
+
+13
+00:00:46,260 --> 00:00:48,140
+where we might not have
+features available.
+
+14
+00:00:49,470 --> 00:00:52,880
+In addition, we'd like to take into
+account interactions between users and
+
+15
+00:00:52,880 --> 00:00:58,630
+items just like we did in the co-occurance
+application or the co-occurance approach.
+
+16
+00:00:58,630 --> 00:01:02,510
+So we're going to discuss this in
+the context of a movie recommendation task
+
+17
+00:01:02,510 --> 00:01:05,400
+because it's very intuitive to
+talk about this application for
+
+18
+00:01:05,400 --> 00:01:07,580
+the methods that we're gonna describe.
+
+19
+00:01:07,580 --> 00:01:12,720
+And in this application, what we have
+as our data is we have this big table
+
+20
+00:01:12,720 --> 00:01:17,830
+where we have a whole bunch of users that
+are watching some set of movies, and
+
+21
+00:01:17,830 --> 00:01:20,090
+they rate those movies, okay?
+
+22
+00:01:20,090 --> 00:01:26,860
+So, our table looks something like this,
+where this green user went on, watched
+
+23
+00:01:26,860 --> 00:01:31,860
+three different movies, gave them a rating
+of three stars, five stars, and two stars.
+
+24
+00:01:31,860 --> 00:01:35,950
+And then there was this blue user,
+watched two different movies, and
+
+25
+00:01:35,950 --> 00:01:38,300
+this pink user,
+watched four different movies.
+
+26
+00:01:39,310 --> 00:01:45,680
+And we have a very big table of the user,
+movie, ratings combinations.
+
+27
+00:01:48,760 --> 00:01:53,950
+However, each user only watches
+a few of the available movies.
+
+28
+00:01:53,950 --> 00:01:58,813
+So we're gonna transform this data table
+into a really big users by movies matrix
+
+29
+00:01:58,813 --> 00:01:59,607
+of ratings.
+
+30
+00:01:59,607 --> 00:02:04,144
+And the reason it's a really big matrix in
+general is there tend to be a lot of users
+
+31
+00:02:04,144 --> 00:02:05,730
+and a lot of movies.
+
+32
+00:02:05,730 --> 00:02:08,798
+But at the same time,
+this matrix is very sparse.
+
+33
+00:02:08,798 --> 00:02:14,210
+Because there are lots and lots of movies
+and even though there are a lot of users,
+
+34
+00:02:14,210 --> 00:02:18,670
+there's only a few movies that
+any given user has watched.
+
+35
+00:02:18,670 --> 00:02:24,690
+And so, if we look at this matrix that
+like I said is a users by movies matrix,
+
+36
+00:02:24,690 --> 00:02:29,720
+then let's say for
+example this row represents user u and
+
+37
+00:02:29,720 --> 00:02:32,210
+this column represents movie v.
+
+38
+00:02:33,590 --> 00:02:41,740
+Well, this black square here represents
+the rating that user u gave to movie v.
+
+39
+00:02:41,740 --> 00:02:46,809
+So this is rating of
+
+40
+00:02:46,809 --> 00:02:53,930
+movie v by user u.
+
+41
+00:02:53,930 --> 00:02:56,990
+So there are few of these black squares,
+but there are lots and
+
+42
+00:02:56,990 --> 00:02:59,120
+lots of these white squares.
+
+43
+00:02:59,120 --> 00:03:06,140
+So what a white square
+represents is a question mark.
+
+44
+00:03:06,140 --> 00:03:08,660
+It's a case where a user
+has not watched a movie or
+
+45
+00:03:08,660 --> 00:03:11,230
+at least has not provided a rating for
+that movie.
+
+46
+00:03:14,130 --> 00:03:17,950
+And so I just want to be clear that
+all the white squares represent
+
+47
+00:03:17,950 --> 00:03:19,170
+unknown ratings.
+
+48
+00:03:19,170 --> 00:03:21,030
+They don't represent ratings of zero.
+
+49
+00:03:21,030 --> 00:03:23,380
+It's not that the user
+did not like that movie.
+
+50
+00:03:23,380 --> 00:03:26,720
+It's just that we don't know what
+the user thinks about that movie.
+
+51
+00:03:27,730 --> 00:03:35,650
+Okay, so we're going to say that
+rating(u,v) is the rating that user u
+
+52
+00:03:35,650 --> 00:03:40,650
+gave to movie v and
+it's known for the black squares,
+
+53
+00:03:40,650 --> 00:03:45,299
+those are cases were we have the ratings,
+and it's unknown for the white cells.
+
+54
+00:03:46,350 --> 00:03:51,160
+And our goal here is to fill in all these
+question marks, all these white cells.
+
+55
+00:03:52,160 --> 00:03:55,090
+And the way we're gonna do
+this is we're gonna take all
+
+56
+00:03:55,090 --> 00:04:00,640
+the ratings that the user has provided,
+so all the black squares for that user.
+
+57
+00:04:00,640 --> 00:04:03,590
+So let me switch colors quickly here.
+
+58
+00:04:03,590 --> 00:04:11,380
+So we would take all of these ratings
+provided by this user and use these
+
+59
+00:04:12,770 --> 00:04:17,930
+to predict what the rating is for
+these questions marks.
+
+60
+00:04:17,930 --> 00:04:23,005
+Actually, all of these question
+marks we're gonna fill
+
+61
+00:04:23,005 --> 00:04:28,830
+in using that user's history as
+well as those of all other users.
+
+62
+00:04:30,150 --> 00:04:30,650
+โอเค
+
+63
+00:04:31,820 --> 00:04:37,090
+So we're taking, this is the history
+of ratings of that user and
+
+64
+00:04:37,090 --> 00:04:40,110
+every other user, and using it to predict
+
+65
+00:04:40,110 --> 00:04:43,970
+how much we think they're gonna like
+this movie that they haven't watched.
+
+66
+00:04:43,970 --> 00:04:47,110
+So let me just be very clear.
+
+67
+00:04:47,110 --> 00:04:53,470
+This is, we're filling in a question mark.
+
+68
+00:04:54,560 --> 00:04:59,500
+And I just really wanna reiterate that
+we're not just using the ratings of this
+
+69
+00:04:59,500 --> 00:05:04,030
+user, but we're using all of these ratings
+when we're going to make that prediction.
+
+70
+00:05:05,200 --> 00:05:09,808
+And I won't bore you by drawing little
+magenta boxes around every black cell.
+
+71
+00:05:09,808 --> 00:05:13,142
+But just know that's all the information
+we're using to fill in this
+
+72
+00:05:13,142 --> 00:05:14,472
+really big sparse matrix.
+
+73
+00:05:14,472 --> 00:05:18,579
+[ดนตรี]

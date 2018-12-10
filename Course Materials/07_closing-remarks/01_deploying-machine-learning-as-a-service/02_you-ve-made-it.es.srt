@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,394
+[MÚSICA]
+
+2
+00:00:04,394 --> 00:00:07,610
+Emily y yo esperamos que estén disfrutando el curso hasta ahora
+
+3
+00:00:07,610 --> 00:00:11,030
+Hemos explorado los fundamentos del aprendizaje automático en una amplia gama de 
+
+4
+00:00:11,030 --> 00:00:13,888
+dominios con una amplia gama de aplicaciones
+
+5
+00:00:13,888 --> 00:00:18,560
+Y henos tocado muchas cuestiones en torno a la aplicación y
+
+6
+00:00:18,560 --> 00:00:20,590
+desarrollo de sistemas de aprendizaje automático
+
+7
+00:00:20,590 --> 00:00:23,960
+Y ahora en éste módulo de cierre resumiremos algunos conceptos
+
+8
+00:00:23,960 --> 00:00:24,660
+que hemos aprendido
+
+9
+00:00:24,660 --> 00:00:26,700
+de cómo implementar éstas ideas
+
+10
+00:00:26,700 --> 00:00:30,100
+especialmente los sistemas de aprendizaje automático en producción y 
+
+11
+00:00:30,100 --> 00:00:33,700
+y lo que viene en la especialización de aprendizaje automático
+
+12
+00:00:33,700 --> 00:00:36,498
+Algunas cosas son realmente emocionantes 
+
+13
+00:00:36,498 --> 00:00:40,449
+[MÚSICA]

@@ -1,0 +1,158 @@
+1
+00:00:00,283 --> 00:00:04,003
+[MUSIC]
+
+2
+00:00:04,003 --> 00:00:05,310
+Okay.
+
+3
+00:00:05,310 --> 00:00:10,010
+So I have a question for you guys which
+is, how would you maximize recall?
+
+4
+00:00:11,750 --> 00:00:12,580
+Remember recall.
+
+5
+00:00:12,580 --> 00:00:14,590
+We just look at the magenta squares.
+
+6
+00:00:14,590 --> 00:00:16,380
+We look at the liked items.
+
+7
+00:00:16,380 --> 00:00:19,610
+And we measure how many of my liked
+items were actually retrieved or
+
+8
+00:00:19,610 --> 00:00:20,780
+actually recommended to me.
+
+9
+00:00:22,410 --> 00:00:27,920
+Well, as the title answers, there's
+a very easy way to maximize recall.
+
+10
+00:00:27,920 --> 00:00:29,520
+Just recommend everything.
+
+11
+00:00:29,520 --> 00:00:31,550
+If you recommend everything,
+
+12
+00:00:31,550 --> 00:00:35,010
+you're guaranteed to recommend
+the products that I like.
+
+13
+00:00:35,010 --> 00:00:38,420
+So in this case what would recall be?
+
+14
+00:00:38,420 --> 00:00:45,840
+It would just be 1, because all 5 of
+the products I liked were recommended.
+
+15
+00:00:45,840 --> 00:00:52,260
+So this is because there are 5
+out of 5 products recommended.
+
+16
+00:00:52,260 --> 00:00:55,480
+But what's the resulting
+precision of doing this?
+
+17
+00:00:55,480 --> 00:00:57,670
+Well, it can actually
+be arbitrarily small.
+
+18
+00:00:57,670 --> 00:01:01,707
+Because if you have tons and tons and
+tons of products out there, and
+
+19
+00:01:01,707 --> 00:01:04,240
+if I like only a very,
+very small number of them,
+
+20
+00:01:06,180 --> 00:01:10,780
+then if you recommend everything,
+I'm gonna have very small precision.
+
+21
+00:01:10,780 --> 00:01:17,512
+So let's just say this is small and
+maybe very small.
+
+22
+00:01:21,102 --> 00:01:23,100
+So that's not really a great strategy.
+
+23
+00:01:26,240 --> 00:01:29,740
+On the other hand,
+what would be the optimal recommender?
+
+24
+00:01:29,740 --> 00:01:31,600
+What's the best recommender
+you can imagine?
+
+25
+00:01:32,870 --> 00:01:37,261
+Well, the best recommender
+is one that recommends all
+
+26
+00:01:37,261 --> 00:01:41,180
+the products I like but
+only the products I like.
+
+27
+00:01:41,180 --> 00:01:45,970
+So everything that was not liked
+was never shown by the recommender.
+
+28
+00:01:47,660 --> 00:01:49,580
+So that would be great.
+
+29
+00:01:49,580 --> 00:01:50,710
+No wasted effort,
+
+30
+00:01:50,710 --> 00:01:54,870
+capture everything I like, gonna make lots
+of money with this recommender system.
+
+31
+00:01:56,080 --> 00:01:57,700
+What's the precision and recall?
+
+32
+00:01:59,020 --> 00:02:01,220
+Both are 1 in this case.
+
+33
+00:02:01,220 --> 00:02:02,585
+And you can go through and
+
+34
+00:02:02,585 --> 00:02:05,840
+verify that using the equations
+from the previous slides.
+
+35
+00:02:05,840 --> 00:02:10,149
+[MUSIC]

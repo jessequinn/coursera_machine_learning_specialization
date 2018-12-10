@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:03,885
+[MUSIC]
+
+2
+00:00:03,885 --> 00:00:07,900
+Now, neural networks provide
+some exciting results, however,
+
+3
+00:00:07,900 --> 00:00:10,062
+they do come with some challenges.
+
+4
+00:00:10,062 --> 00:00:14,670
+So, on the pro side, they really enable
+you to represent this non-linear
+
+5
+00:00:14,670 --> 00:00:17,963
+complex features and
+they have impressive results,
+
+6
+00:00:17,963 --> 00:00:22,881
+not just in computer vision, but in some
+other areas like speech recognition.
+
+7
+00:00:22,881 --> 00:00:27,038
+So systems like Siri on the phone and
+others use the neural
+
+8
+00:00:27,038 --> 00:00:32,270
+networks behind the scene,
+as well as some text analysis tasks.
+
+9
+00:00:32,270 --> 00:00:35,240
+And its potential for much more
+impact in the wide range of areas.
+
+10
+00:00:37,330 --> 00:00:39,020
+Now they do come with some challenges.
+
+11
+00:00:39,020 --> 00:00:40,974
+And to understand those challenges,
+
+12
+00:00:40,974 --> 00:00:44,283
+we need to talk about the workflow
+of training a neural network.
+
+13
+00:00:44,283 --> 00:00:47,627
+So you need to start with lots and
+lots and lots of data.
+
+14
+00:00:47,627 --> 00:00:49,205
+And that data has to be labeled.
+
+15
+00:00:49,205 --> 00:00:54,310
+Every image has to have, what dog
+was in the image, is it a labrador,
+
+16
+00:00:54,310 --> 00:00:59,495
+is it a poodle, is it a golden retriever,
+chihuahua and so on.
+
+17
+00:00:59,495 --> 00:01:04,295
+And that requires a lot of human
+annotation and that can be hard.
+
+18
+00:01:04,295 --> 00:01:06,165
+But we start to [INAUDIBLE]
+some of the images.
+
+19
+00:01:06,165 --> 00:01:10,756
+We feed it, we split them into training
+tasks or validation sets as we discussed,
+
+20
+00:01:10,756 --> 00:01:14,891
+and we learned that deep neural network,
+and that can take quite a while.
+
+21
+00:01:14,891 --> 00:01:19,612
+But once we validate, we realize that
+that complex eight layer structure of
+
+22
+00:01:19,612 --> 00:01:23,302
+60 million parameters wasn't
+exactly what we needed and
+
+23
+00:01:23,302 --> 00:01:28,189
+we need to revise it, or we need to adjust
+parameters or change how we learn it.
+
+24
+00:01:28,189 --> 00:01:31,068
+And we have to iterate again and
+again and again.
+
+25
+00:01:31,068 --> 00:01:35,949
+And in fact, to get that winning
+neural network, the one,
+
+26
+00:01:35,949 --> 00:01:41,859
+they really needed to connect various
+layers with different representations and
+
+27
+00:01:41,859 --> 00:01:46,498
+lots of complexes in the learning
+algorithm, so that was hard.
+
+28
+00:01:46,498 --> 00:01:49,830
+So although there's some great pros,
+neural networks,
+
+29
+00:01:49,830 --> 00:01:51,900
+they also come with some cons too.
+
+30
+00:01:51,900 --> 00:01:55,703
+They require lots of data to get great
+performance, they're computationally
+
+31
+00:01:55,703 --> 00:01:59,008
+expensive, even with GPUs they
+can be computationally expensive.
+
+32
+00:01:59,008 --> 00:02:03,058
+And they're extremely hard to tune, so
+you have a lot of choices, the more layers
+
+33
+00:02:03,058 --> 00:02:06,777
+you use, how many layers or parameters
+you use and that can be really hard.
+
+34
+00:02:06,777 --> 00:02:10,777
+So if you combine the computational
+choices and costs with so
+
+35
+00:02:10,777 --> 00:02:15,249
+many things too soon, you end up
+with an incredibly hard process for
+
+36
+00:02:15,249 --> 00:02:18,005
+figuring out what neural network to use.
+
+37
+00:02:18,005 --> 00:02:18,505
+[MUSIC]

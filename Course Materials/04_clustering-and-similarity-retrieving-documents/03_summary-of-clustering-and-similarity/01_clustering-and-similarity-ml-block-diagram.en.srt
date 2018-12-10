@@ -1,0 +1,475 @@
+1
+00:00:00,820 --> 00:00:06,140
+In this module we've talked about
+
+2
+00:00:06,140 --> 00:00:10,920
+a document retrieval task and we've also
+talked about a notion of clustering where
+
+3
+00:00:10,920 --> 00:00:15,780
+we're trying to uncover some underlying
+structure in the data and we talked
+
+4
+00:00:15,780 --> 00:00:19,890
+about many different areas in which this
+notion of clustering can be really useful.
+
+5
+00:00:19,890 --> 00:00:22,960
+So let's go through the workflow for
+a clustering algorithm.
+
+6
+00:00:24,560 --> 00:00:27,290
+And if you feel like you already know this
+at this point because you've seen this
+
+7
+00:00:27,290 --> 00:00:29,710
+workflow now in two other modules.
+
+8
+00:00:29,710 --> 00:00:30,380
+Well, wake up!
+
+9
+00:00:30,380 --> 00:00:31,850
+Because this one's going
+to be a bit different.
+
+10
+00:00:33,330 --> 00:00:35,780
+Okay, so
+let's talk about our training data.
+
+11
+00:00:35,780 --> 00:00:37,420
+Here, our training data for
+
+12
+00:00:37,420 --> 00:00:43,870
+a document clustering task is
+going to be a document ID and
+
+13
+00:00:43,870 --> 00:00:50,550
+document text table.
+
+14
+00:00:50,550 --> 00:00:52,820
+So we have a whole bunch of documents.
+
+15
+00:00:52,820 --> 00:00:55,690
+And we have all the texts
+associated with each of those.
+
+16
+00:00:55,690 --> 00:00:57,610
+And then we're gonna extract
+some set of features.
+
+17
+00:00:57,610 --> 00:01:01,428
+And we talked about a lot of different
+ways to represent a document.
+
+18
+00:01:01,428 --> 00:01:06,863
+But the one that I'll use just as
+an example here is our tf-idf.
+
+19
+00:01:06,863 --> 00:01:10,560
+Term frequency-inverse document
+frequency representation.
+
+20
+00:01:12,520 --> 00:01:14,620
+And then what we're gonna
+do is we're gonna try and
+
+21
+00:01:14,620 --> 00:01:17,770
+cluster our documents based
+on this representation.
+
+22
+00:01:17,770 --> 00:01:21,850
+So we're gonna put these features
+through some machine learning model.
+
+23
+00:01:21,850 --> 00:01:24,694
+Which in this case is a clustering model.
+
+24
+00:01:29,500 --> 00:01:33,720
+And we're gonna output for
+each document a cluster label.
+
+25
+00:01:33,720 --> 00:01:38,490
+So the output white hat
+is our cluster label.
+
+26
+00:01:40,140 --> 00:01:43,110
+Okay, so
+here's where things get interesting,
+
+27
+00:01:43,110 --> 00:01:46,520
+because we wanna assess
+the accuracy of our cluster labels.
+
+28
+00:01:46,520 --> 00:01:50,070
+Well, in this case we don't
+have true cluster labels, so
+
+29
+00:01:50,070 --> 00:01:57,370
+I should say this is our predicted,
+or estimated, cluster label.
+
+30
+00:01:58,890 --> 00:02:02,370
+But we don't have a true cluster
+label to compare against.
+
+31
+00:02:02,370 --> 00:02:07,130
+So this y here, it does not exist.
+
+32
+00:02:08,280 --> 00:02:13,840
+And that's because, as we talked about,
+we're in an unsupervised learning setting.
+
+33
+00:02:15,620 --> 00:02:16,520
+Unsupervised.
+
+34
+00:02:18,500 --> 00:02:19,460
+Okay.
+
+35
+00:02:19,460 --> 00:02:20,570
+So we don't have that but
+
+36
+00:02:20,570 --> 00:02:24,740
+somehow we wanna assess some measure
+of accuracy of our clustering.
+
+37
+00:02:24,740 --> 00:02:30,680
+So let's draw a little picture here which
+is gonna be our Voronoi tessellation and
+
+38
+00:02:30,680 --> 00:02:36,633
+our k-means algorithm where we have some
+set of cluster centers and we have data.
+
+39
+00:02:38,551 --> 00:02:40,947
+I should say our data look like this,
+I don't know,
+
+40
+00:02:40,947 --> 00:02:42,750
+I'm just gonna draw some points here.
+
+41
+00:02:44,590 --> 00:02:49,290
+And the measure of accuracy
+that we're gonna use,
+
+42
+00:02:49,290 --> 00:02:54,700
+the way we're gonna measure our quality is
+to look at how coherent our clustering is.
+
+43
+00:02:54,700 --> 00:02:58,275
+So we're gonna look at the distances
+from each observation to
+
+44
+00:02:58,275 --> 00:03:00,209
+their assigned cluster center.
+
+45
+00:03:02,682 --> 00:03:07,990
+And a good clustering algorithm
+has those distances very small.
+
+46
+00:03:09,050 --> 00:03:14,050
+Okay, so the goal is to minimize these
+distances and so what we see is to measure
+
+47
+00:03:14,050 --> 00:03:19,020
+this accuracy, to measure these distances,
+what we need is our data.
+
+48
+00:03:19,020 --> 00:03:21,690
+We need our tf-idf vectors.
+
+49
+00:03:22,760 --> 00:03:29,330
+So those are gonna come in here, and
+then we also need the cluster centers.
+
+50
+00:03:29,330 --> 00:03:33,690
+And so W hat,
+that's our current estimate of,
+
+51
+00:03:33,690 --> 00:03:36,780
+that's our model parameter here and
+the k means algorithm.
+
+52
+00:03:36,780 --> 00:03:39,930
+It's our cluster, whoops.
+
+53
+00:03:42,190 --> 00:03:46,190
+Let's see if we can spell that correctly,
+cluster centers.
+
+54
+00:03:46,190 --> 00:03:47,933
+That's what W hat represents.
+
+55
+00:03:47,933 --> 00:03:52,636
+And so of course to measure these
+distances we also need W hat.
+
+56
+00:03:52,636 --> 00:03:57,845
+So instead of having actual cluster
+labels to assess accuracy we're
+
+57
+00:03:57,845 --> 00:04:03,280
+gonna take our document representation and
+our cluster centers.
+
+58
+00:04:03,280 --> 00:04:06,797
+Plug it into this quality measure,
+
+59
+00:04:06,797 --> 00:04:11,852
+which is looking at distances
+to cluster centers.
+
+60
+00:04:16,599 --> 00:04:20,780
+That's our measure of error,
+though it's not really an error.
+
+61
+00:04:20,780 --> 00:04:22,210
+It's just a measure of.
+
+62
+00:04:22,210 --> 00:04:22,710
+Oops.
+
+63
+00:04:25,460 --> 00:04:26,770
+Just a measure of quality.
+
+64
+00:04:29,930 --> 00:04:32,090
+So I won't put that word there.
+
+65
+00:04:32,090 --> 00:04:35,180
+Okay, so
+I think that's a little confusing.
+
+66
+00:04:35,180 --> 00:04:38,240
+But let's just write
+distances to cluster centers.
+
+67
+00:04:38,240 --> 00:04:39,920
+And then what's our algorithm?
+
+68
+00:04:39,920 --> 00:04:43,350
+We're talking about k-means as
+a method of doing clustering.
+
+69
+00:04:43,350 --> 00:04:46,158
+Of course there are others, but
+let's focus on k-means, well,
+
+70
+00:04:46,158 --> 00:04:47,270
+what's k-means doing?
+
+71
+00:04:47,270 --> 00:04:54,300
+Let's just redraw this diagram, actually,
+I can just switch to another color.
+
+72
+00:04:54,300 --> 00:04:56,320
+That will save us some time here.
+
+73
+00:04:57,320 --> 00:05:02,980
+Well, k-means is trying to minimize this
+distance, or the sum of these distances,
+
+74
+00:05:02,980 --> 00:05:07,540
+and the way it's doing that is
+iteratively it's updating so
+
+75
+00:05:07,540 --> 00:05:11,870
+this was our W hat that we had before and
+we're moving it
+
+76
+00:05:13,680 --> 00:05:20,290
+to a new W hat that represents
+the center of mass of these points.
+
+77
+00:05:20,290 --> 00:05:24,040
+So these points are getting shifted.
+
+78
+00:05:24,040 --> 00:05:27,520
+And this point will go directly
+on top of that observation
+
+79
+00:05:29,600 --> 00:05:34,900
+and so
+this is the work flow of clustering.
+
+80
+00:05:34,900 --> 00:05:37,130
+Let's just say it at a high
+level one more time.
+
+81
+00:05:37,130 --> 00:05:41,575
+We take our documents, we represent them
+in some way, using either raw word counts,
+
+82
+00:05:41,575 --> 00:05:44,440
+tf-idf, normalizations of these things.
+
+83
+00:05:44,440 --> 00:05:48,000
+Lots of different bigrams,
+trigrams, things we can look at for
+
+84
+00:05:48,000 --> 00:05:49,400
+our document representation.
+
+85
+00:05:50,500 --> 00:05:55,950
+Then our clustering algorithm, like
+k-means is producing clustering labels and
+
+86
+00:05:55,950 --> 00:06:01,400
+iteratively, we're looping through
+here again and again updating
+
+87
+00:06:01,400 --> 00:06:07,410
+our cluster centers, that's
+the parameters of this clustering model.
+
+88
+00:06:07,410 --> 00:06:15,620
+By looking at how far our assigned
+observations are to those cluster centers.
+
+89
+00:06:15,620 --> 00:06:20,020
+So in this module in contrast to other
+modules we actually presented you with
+
+90
+00:06:20,020 --> 00:06:24,030
+some of the algorithmic details behind
+the methods that we're looking at.
+
+91
+00:06:24,030 --> 00:06:28,190
+Specifically for clustering, we talked
+about the k-means algorithm, and then for
+
+92
+00:06:28,190 --> 00:06:31,690
+our document retrieval task, we also
+talked about doing nearest neighbor
+
+93
+00:06:31,690 --> 00:06:34,570
+search, and provided some of
+the algorithmic details for that, and
+
+94
+00:06:34,570 --> 00:06:37,520
+you specifically explore that
+in an ipython notebook for
+
+95
+00:06:37,520 --> 00:06:39,900
+doing Wikipedia entry retrieval.
+
+96
+00:06:39,900 --> 00:06:42,190
+So, at this point, you really
+should be able to go out there and
+
+97
+00:06:42,190 --> 00:06:46,630
+build a really cool retrieval system for
+doing news article retrieval.
+
+98
+00:06:46,630 --> 00:06:51,770
+Or any other really, really, really cool
+retrieval that I can't think of right now.
+
+99
+00:06:51,770 --> 00:06:53,760
+But of course there's lots
+of interesting examples.
+
+100
+00:06:53,760 --> 00:06:57,611
+So go out there and think of ideas
+that I can't think of right now.
+
+101
+00:06:57,611 --> 00:07:01,299
+[MUSIC]

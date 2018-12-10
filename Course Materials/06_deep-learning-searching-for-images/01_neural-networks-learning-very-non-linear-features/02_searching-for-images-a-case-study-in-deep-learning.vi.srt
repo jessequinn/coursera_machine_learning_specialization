@@ -1,0 +1,29 @@
+1
+00:00:00,019 --> 00:00:04,187
+[NHẠC]
+
+2
+00:00:04,187 --> 00:00:07,873
+Hôm nay chúng ta sẽ nói về một trong những thứ 
+thú vị nhất đang xảy ra với
+
+3
+00:00:07,873 --> 00:00:09,990
+học máy cách đây vài năm.
+
+4
+00:00:09,990 --> 00:00:12,190
+Nó là một lĩnh vực mới được gọi là nghiên cứu sâu.
+
+5
+00:00:12,190 --> 00:00:16,416
+Cụ thể chúng ta sẽ nói về trường hợp
+ sử dụng cụ thể của lĩnh vực liên quan
+
+6
+00:00:16,416 --> 00:00:19,618
+đến mua sắm các sản phẩm chỉ dựa trên sự giống nhau về hình ảnh.
+
+7
+00:00:19,618 --> 00:00:22,893
+[NHẠC]

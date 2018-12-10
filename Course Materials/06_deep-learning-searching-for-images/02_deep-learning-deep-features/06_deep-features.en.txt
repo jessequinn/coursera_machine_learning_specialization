@@ -1,0 +1,78 @@
+[MUSIC] So, we've learned that deep
+neural networks are really cool, high accuracy tool, but they can be
+really hard to build and learn, and require lots and lots of data. So next, we're gonna talk about
+something really exciting. Which is called deep features,
+which allow you to build neural networks, even when you don't have a lot of data. So, if you go back to our data
+image classification pipeline, where we start with an image, we detected
+some features, or other representations, and we've had that to a simple classifier,
+like a linear classifier. The question here is can we somehow use the features that we learn
+through the neural network? Those cool ones at the corners, edges and
+even faces, to feed that classifier? So can we do something a little different? The idea here, that you have deep features,
+is something called transfer learning. So transfer learning is pretty old idea,
+that's been around for quite a while, but had a lot of impact in recent years
+in the area of deep neural networks. So the idea here is, I train the neural
+network in a case where I have lots and lots of data. So for example, in a task of
+differentiating cats versus dogs. And I learned that eight layers,
+16 million parameter complex new network. And I get great accuracy in
+the task of cat versus dog. Now, the cool thing is to say, okay,
+what if I have a little bit of data, not tons of data for new tasks,
+let's say I am detecting chairs and elephants and cars and
+cameras in hundreds of categories. Can we somehow use the features that we
+learned in cats versus dog to combine for simple classifier and feed that and get
+great accuracy on this 101 new categories. That's the idea of transfer learning. The features I learned from cat
+versus dog get transferred to provide accuracy in the new task, which is
+detecting elephants, cameras and so on. To understand transfer
+learning deep neural networks, let's revise the idea of what
+a deep neural network might learn. So here's a deep neural
+network of cat versus dogs. And let's say that we have really good
+accuracy there for that task, task one, cats versus dogs. If you look at the last few layers, they
+really focus on the cat versus dog task. They're very specific. It kinda like I showed you, there's
+an example where there was a detection of colors inside that last layer. Now the ones in the middle
+are much more general. They can represent things like corners and
+edges and circles and squiggly patterns and things that can
+really generalize from the cat versus dog task to this more general
+101 categories task. So let's talk about how we can deal
+with second task, 101 categories. So we learn deep neural network for
+the cat versus dog can apply for Task 2. Now, if you think about it, this end piece of the neural network
+is very specific to cat versus dog. So it's not that useful for
+detecting chairs perhaps. So what we can do is chop off the last
+few layers, the last layer lets see it in the network and keep the weights
+fixed for the first several layers. Because those are good those
+detected good features. This last layer with a simple linear
+classifier which is simple, so I can just train in the little bits
+of data that I have about chairs, cars, elephants, and cameras. So going back to the example
+that we described earlier, where we had three layers. The first layer detected
+diagonal edges and edges. The second one detected
+squiggly patterns and corners. While the third one was about colors and
+faces, we now can use those layers for new task,
+but we need to be a little careful. Layer 3 might be too specific but
+layers 1 and 2 can be quite useful. So now that we learned about
+transfer learning the concept, let's review that deep learning pipeline,
+but using these deep features. So I'm gonna start with some labeled data,
+not tons, just a little bit is enough. And then I'm gonna extract
+features using that deep neural network
+just like we described. I'm gonna split this data set into
+training and test of validation set. I'm gonna learn the simple
+classifier like linear classifier, support vector machines, simple things. And as I validated,
+since it's a simple classifier, there's not many parameters to tune. Pretty easy to do. Can be learned with little data and
+do quite well. And in fact, we see an application
+off the application where this idea works extremely well, and is exactly
+the idea that I showed you in the demo, the beginning of the module when I
+showed you how to buy new dresses. We didn't have lots of data about visual
+description dresses, but we used something that was trained on imagenet to provide
+you with a good dress shopping experience. Now, you may ask,
+how general are these deep features? Can they really be used for
+interesting, extremely unusual tasks? Well, actually, you will be surprised. In fact, let's talk about trash. [LAUGH] A company called compology. It's a pretty interesting company. They're trying to reinvent
+how trash collection is done. Normally, the trash truck goes from house
+to house, from business to business, and collects trash on a regular basis,
+every day, once a week, and so on. They wanna change that and
+optimize the path of trucks and how trash is collected to minimize
+the amount of time spent. And the way they do that is by
+installing cameras on trash cans to figure out what's in there and
+how full it is. Well we don't have tons of labeled data of
+how images look for full trash cans, but when they did this, use deep features and
+a little bit of training data from humans, marking the depth of trash cans
+to learn a trash detector, and be able to optimize the path of
+trucks, in order to better serve. So decrease the amount of time
+trucks need to collect garbage. So deep features are useful even for
+garbage. [MUSIC]

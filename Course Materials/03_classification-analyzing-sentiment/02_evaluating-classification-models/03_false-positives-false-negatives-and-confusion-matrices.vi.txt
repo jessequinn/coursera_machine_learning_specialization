@@ -1,0 +1,66 @@
+[NHẠC] Chúng ta đã nói về độ chính xác và
+sai sót mà phân loại có thể làm. Nhưng có các loại lỗi khác nhau. Loại sai sót này được gọi là kiểu lỗi. Điều quan trọng là phải xem 
+iểu lỗi mà phân loại có thể làm. Và một cách để làm điều đó
+được gọi là ma trận nhầm lẫn. Vì thế chúng ta hãy xem nó một chút. Chúng ta đang nói về mối quan hệ
+giữa nhãn mác đúng và bất cứ dự đoán nào của phân loại,
+nhãn mác đã được dự đoán. Hãy nói rằng nếu nhãn mác đúng là tích cực, 
+và chúng ta dự đoán một giá trị dương cho câu đó, chúng ta gọi đó là sự tích cực
+đúng bởi vì chúng ta đã làm đúng. Tương tự như vậy nếu mác nhãn
+đúng là tiêu cực và chúng ta dự đoán là tiêu cực rồi
+chúng ta gọi là một tiêu cực đúng Điều đó thật tốt vì chúng ta đã đúng. Bây giờ có hai loại lỗi mà tôi có thể làm. Ví dụ, nếu nhãn mác đúng là tích cực nhưng chúng ta đã dự đoán là tiêu cực,
+chúng ta gọi đó là tiêu cực sai. Chúng ta đã nói nó là tiêu cực,
+nhưng điều đó đã sai vì nó là tích cực. Tương tự, nếu nhãn mác đúng là tiêu cực,
+ chúng ta lại dự đoán là tích cực, chúng ta gọi đó là một tích cực sai. Nó là tiêu cực nhưng chúng ta
+đã dự đoán là tích cực. Và tích cực sai và tiêu cực sai có thể
+có những ảnh hưởng khác nhau vào cái mà có thể xảy ra trong
+thực tế với phân loại của bạn. Chúng ta hãy xem một số
+ví dụ thực tế về điều đó. Hãy nhìn vào hai ứng dụng
+của chúng ta và chi phí của tích cực sai
+với tiêu cực sai là gì. Nếu bạn xem xét bộ lọc thư rác,
+tiêu cực sai là một email là thư rác nhưng đi vào thư mục
+của tôi vì bộ lọc nghĩ đó không phải thư rác. Thật là phiền khi tôi nhận được 
+một email rác nữa trong hộp thư của tôi. Có thể đó là xấu nhưng
+không phải là quá xấu. Tuy nhiên nếu bạn nhìn
+vào tích cực sai đó là một email không phải là rác mà có
+nhãn mác là thư rác, đi vào bộ lọc thư rác của tôi. Tôi chưa bao giờ thấy nó,
+tôi đã mất email đó mãi mãi. Điều đó có giá cao hơn. Bây giờ chúng ta cũng có thể
+nhìn vào chuẩn đoán y tế hoặc các ứng dụng khác giống
+như ứng dụng thứ hai. một tiêu cực sai trong chuẩn đoán y tế là gì? Tiêu cực sai là có một căn bệnh
+mà tôi mắc phải nhưng tôi không phát hiện ra, vì thế
+phân loại nói đó là tiêu cực. Họ không có bệnh. Trong trường hợp này, căn bệnh
+không chưa trị được, đó là một điều rất tệ. Nhưng tích cực sai cũng
+có thể là một điều xấu. Đó là tôi phân loại là mắc bệnh
+khi tôi không bao giờ mắc bệnh. Trong trường hợp này tôi chữa trị bằng một loại thuốc tệ hoặc tác dụng phụ của căn bệnh
+mà tôi chưa bao giờ mắc. Vậy không rõ ràng cái nào xấu hơn,
+có một tích cực sai hoặc một tiêu cực sai. Trong các biến chứng trung gian,
+phụ thuộc vào chi phí chữa trị và số lượng tác dụng phụ so với
+mức độ xấu có thể của căn bệnh này. Bây giờ mối quan hệ giữa nhãn mác
+đúng và nhãn mác được dự đoán, tích cực sai, tiêu cực sai
+được gọi là ma trận nhầm lẫn. Ma trận này chúng ta làm. Ví dụ, hãy nói rằng chúng ta có
+một tập với 100 ví dụ kiểm tra. Và chúng ta có trong số đó,
+60 tích cực và 40 tiêu cực. Có một chút mất cân bằng nhưng không nhiều. Vì vậy trong 60 tích cực đúng,
+nếu tôi nói tôi có 50 cái là đúng, trong số 40 tiêu cực tôi có 35 cái đúng. Hãy xem cái chúng ta đã học. Trong số 100 ví dụ tôi có 85 cái đúng. Vì thế chúng ta có thể nói về
+tính chính xác của chúng ta. Chính xác là 85 đúng trên 100, đạt 0.85. Và chúng ta cũng có thể thảo luận
+về tích cực đúng và tiêu cực đúng. Xin lỗi, tích cực sai và tiêu cực sai, tôi đã dán mác là tiêu cực,
+đó là tiêu cực sai. Và đó là mười, tôi có mười
+tiêu cực sai và mặt khác với tiêu cực đúng chúng ta
+có 5 tích cực sai. Trong ví dụ này chúng ta có 85% chính xác. Chúng ta có tỉ lệ tiêu cực sai
+cao hơn tỉ lệ của tích cực sai. Bây giờ những từ đó, tích cực sai, tiêu cực sai chỉ áp dụng cho
+phân loại nhỏ cho hai lớp. Nhưng ý tưởng ma trận nhầm lẫn hoạt động tốt 
+ngay cả khi bạn có nhiều lớp hơn nữa. Chúng ta hãy nói về một ví dụ đơn giản của điều đó. Hãy nói rằng tôi có 100 ví dụ
+kiểm tra và áp dụng cho chuẩn đoán y học, vì thế có ba lớp
+khỏe mạnh, cảm lạnh và cúm. Và trong 100 vấn đề kiểm tra chúng ta
+có 70 trường hợp là khỏe mạnh, 20 trường hợp bị cảm lạnh
+và 10 trường hợp bị cúm. Hãy giả sử chúng ta có 60 đúng với khỏe mạnh, chúng ta có
+12 đúng cho cảm lạnh, và có 60, 12, 8 đúng cho cúm. Tổng độ chính xác của chúng ta ở đây, là 80, đó là 60 cộng 12 cộng 8 chia cho 100. 0.8, 80% chính xác. Nhưng chúng ta có thể nói về sự dự đoán sai. Từ khỏe mạnh có mười lỗi. Và chúng ta có thể nói thường bị
+nhầm lẫn khỏe mạnh với bị cảm lạnh hơn là khỏe mạnh với bị cúm,
+bởi vì cúm là một bệnh phức tạp hơn. Chúng ta có thể có mười lỗi. Tám đã bị nhầm với cảm lạnh
+và hai bị nhầm với cúm. Cảm lạnh có thể đi cả hai chiều. Vì thế chúng ta có tám lỗi. Bạn có thể nói một nửa trong số
+người phân vân với khỏe mạnh và một nửa trong số họ được
+chuẩn đoán là khỏe hơn bệnh cúm. Vâng trong hai lỗi với cúm, thì
+có lẽ chúng ta nói rằng chúng ta không làm nhiều lỗi, không ai mắc
+bệnh cúm lại nghĩ oh bạn khỏe mạnh. Nhưng hai trong mười người đã nghĩ
+là bị cảm lạnh không phải cúm. Đây là một ví dụ về ma trận nhầm lẫn,
+chúng ta thực sự có thể hiểu các loại lỗi chúng ta đã làm
+và chúng ta có thể giải thích chúng. Và đó thực sự là một điều quan trọng
+cần làm trong phân loại.

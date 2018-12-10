@@ -1,0 +1,42 @@
+[MÚSICA] Até agora, apenas considerámos representar
+os dados através de uma linha e a questão que surge é, será esta uma boa opção? Na verdade, sinto-me bastante satisfeita com a
+minha análise para ser sincera. Determinei esta recta, minimizei a soma residual dos quadrados, efetuei a predição do valor da minha casa. Deste modo, aproveitei todas as
+observações que me deparei e registei todas as vendas de casas recentes. E eu vou eu vou ao Carlos
+e digo, hey, observa a minha análise. Esta é a minha estimativa do
+valor da nossa casa. E ele responde, bem, não tenho assim tanta certeza. Na verdade, para mim, não estou 
+confiante que seja uma tendência linear. Na verdade ele afirma
+>> É não linear. >> Ele afirma que é não linear. Ou de acordo com o meu desenho, ele afirma,
+meu, não é uma relação linear. Meu Não, eu acho que o Carlos não diria "meu". Bem, continuando.
+>> Ele diz "irmão". >> Ele diz "irmão". OK. Irmão. Ele sempre se dirige a mim como "irmã", claro. OK. De qualquer modo, o facto é que o Carlos não pensa que esta é uma relação linear. Ele acha que talvez seja quadrática. Ele perguntou se experimentei ajustar a 
+uma relação quadrática? Bem... Então eu observo o gráfico que 
+ele colocou mesmo aqui e Na verdade, eu digo que me parece muito bem. E o que tenho eu que fazer? Tenho que descobrir qual é a melhor 
+relação quadrática para estes dados. E como é que eu vou fazer isso? Tal com anteriormente, vou novamente 
+minimizar a soma residual dos quadrados. Irei, então, minimizar a minha soma 
+residual dos quadrados. Falemos, então, o que irá
+envolver porque quando e observo uma função quadrática eu
+agora tenho três parâmetros aqui. Continua a ter a intercepção,
+que é exatamente.. onde tenho esta curva? Subindo e descendo pelo eixo dos YY. Tenho, também, este termo linear de x, e também tenho este termo extra aqui,
+que é o quadrado de x. É deste modo que obtenho
+o componente quadrático. Mas quero fazer um pequeno comentário aqui,
+uma pequena observação, Isto continua a ser chamado
+de regressão linear. A razão deve-se a pensarmos que o 
+quadrado de x é apenas mais uma característica. E o que observamos é que os w's
+aparecem sempre como w's. não como quadrado de w ou outra qualquer função de w. E iremos discutir este assunto mais
+detalhadamente no curso de regressão. Mas lembrem-se, embora referirmos
+de função quadrática para representar os dados, ela continua a ser chamada de regressão linear. Ok, mas o ponto que aqui quero 
+salientar é que temos três parâmetros quando minimizar a minha
+soma residual dos quadrados. Eu tenho que procurar sobre o
+espaço de três coisas diferentes agora Tenho que minimizar através da combinação
+do melhor zero w, um w e dois w e encontrar a representação quadrática que
+minimiza a minha soma residual dos quadrados. Ok, estou então prestes a ir e efetuar esta computação, que na verdade
+acaba por ser eficiente e novamente nós iremos discutir a generalidade deste
+assunto no curso de regressão. Mas o Carlos teve uma ideia brilhante. Ele diz espera, espera espera! Eu falei-te sobre essa quadrática, mas
+tentaste uma função polinomial de ordem 13? E eu respondo, não, não utilizei. >> Faz sentido. >> Pois faz, faz bastante sentido. Olha para isto, parece ter bom aspecto. Esta é a representação que o Carlos obtém
+com o seu polinómio de ordem 13. Ele diz, eu apenas minimizei
+a tua soma residual dos quadrados. Muito bom, concordam? A minha soma residual dos quadrados
+aqui é basicamente zero. Mas pessoalmente não me sinto
+tão contente com isto. Porque à medida que observo vou 
+dizendo que a minha casa não vale tão pouco. Eu sei isso, eu sei. Sim, falámos da soma residual dos
+quadrados como sendo o custo da representação. E sim, o Carlos
+parece ter verdadeiramente verdadeiramente minimizado a minha soma residual dos quadrados, mas
+alguma não parece estar correcta. Esta função parece louca. [MÚSICA]

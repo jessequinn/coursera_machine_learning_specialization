@@ -1,0 +1,219 @@
+1
+00:00:00,000 --> 00:00:04,130
+[MUSIC]
+
+2
+00:00:04,130 --> 00:00:06,912
+>> We've now seen how cool
+deep learning can be.
+
+3
+00:00:06,912 --> 00:00:09,610
+We cannot apply it in
+a wide range of areas and
+
+4
+00:00:09,610 --> 00:00:14,750
+yet we need high accuracy by learning
+really detailed features of our data, and
+
+5
+00:00:14,750 --> 00:00:17,050
+how your networks can support that.
+
+6
+00:00:17,050 --> 00:00:19,550
+We've seen how it can be applied for
+
+7
+00:00:19,550 --> 00:00:23,350
+various tasks in image
+analysis in computer vision.
+
+8
+00:00:24,710 --> 00:00:29,480
+Let's now revisit the block diagram
+that we saw summarizing regression and
+
+9
+00:00:29,480 --> 00:00:32,590
+classification and other machinery tasks.
+
+10
+00:00:32,590 --> 00:00:35,580
+How can be applied here for
+computer vision for deep learning?
+
+11
+00:00:35,580 --> 00:00:41,240
+So in particular, let's talk about
+deep features for classifying images.
+
+12
+00:00:41,240 --> 00:00:43,500
+So deep features for image classification.
+
+13
+00:00:43,500 --> 00:00:48,660
+The input here are pairs of
+images with their labels.
+
+14
+00:00:48,660 --> 00:00:53,010
+So, the labels that we've looked at were
+things like, whether there is a cat,
+
+15
+00:00:53,010 --> 00:00:56,870
+the dog, a house or
+some other object in the image.
+
+16
+00:00:56,870 --> 00:00:59,700
+And now, we feed that through
+the feature extractor.
+
+17
+00:00:59,700 --> 00:01:03,800
+In this case, we're using a deep
+learning model as a feature extractor.
+
+18
+00:01:03,800 --> 00:01:09,000
+So the output here,
+what we call the Deep features for
+
+19
+00:01:09,000 --> 00:01:10,660
+this particular image for every image.
+
+20
+00:01:12,120 --> 00:01:13,744
+And now we feed in this images,
+
+21
+00:01:13,744 --> 00:01:16,820
+representative features
+through a machinery model.
+
+22
+00:01:16,820 --> 00:01:20,203
+Where we use a simple classifier
+like logistic regression, in here.
+
+23
+00:01:22,316 --> 00:01:26,766
+Say logistic regression as an example.
+
+24
+00:01:28,797 --> 00:01:32,534
+And the output is our predicted labels.
+
+25
+00:01:34,791 --> 00:01:38,794
+Predicted labels.
+
+26
+00:01:41,699 --> 00:01:47,658
+And so we're going to feed in
+our predicted labels y hat and
+
+27
+00:01:47,658 --> 00:01:53,080
+the true labels,
+y into our measure of quality.
+
+28
+00:01:53,080 --> 00:01:58,360
+So y and y hat, and the measure
+of quality depends on your task.
+
+29
+00:01:58,360 --> 00:02:00,540
+For this task we use
+classification accuracy.
+
+30
+00:02:02,040 --> 00:02:04,670
+And so the parameters
+
+31
+00:02:04,670 --> 00:02:09,090
+w hat are really the parameters of
+the weights of the logistic regressive.
+
+32
+00:02:09,090 --> 00:02:10,998
+So these are our weights on features.
+
+33
+00:02:12,641 --> 00:02:17,614
+And what the machinery algorithm is gonna
+do, is take the classification accuracy,
+
+34
+00:02:17,614 --> 00:02:22,850
+try to make a little better by changing
+those weights w hat and updating them.
+
+35
+00:02:22,850 --> 00:02:26,970
+We've now seen how deep learning
+can give you really cool and
+
+36
+00:02:26,970 --> 00:02:30,940
+exciting results for
+a various tasks in computer vision.
+
+37
+00:02:30,940 --> 00:02:35,630
+And we saw those applied
+both two classification and
+
+38
+00:02:35,630 --> 00:02:40,180
+to retrieving of new images using raw
+neural networks as well as deep features.
+
+39
+00:02:40,180 --> 00:02:43,140
+And our notebooks that we
+explored showed us that's
+
+40
+00:02:43,140 --> 00:02:45,965
+really easy to build such
+deep learning models and
+
+41
+00:02:45,965 --> 00:02:50,215
+actually apply to really cool machine
+learning tasks in computer vision.
+
+42
+00:02:50,215 --> 00:02:54,523
+Both in classification and image retrieval
+which allows me to find exactly the kind
+
+43
+00:02:54,523 --> 00:02:57,470
+of tools that I'm really excited about.
+
+44
+00:02:57,470 --> 00:03:02,047
+And with this you'll be able to build
+a really exciting intelligent application
+
+45
+00:03:02,047 --> 00:03:06,422
+that uses one of the most sought after
+techniques today in machine learning,
+
+46
+00:03:06,422 --> 00:03:07,379
+deep learning.
+
+47
+00:03:07,379 --> 00:03:07,879
+[MUSIC]

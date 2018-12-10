@@ -1,0 +1,42 @@
+[NHẠC] Các vectơ đếm chuẩn mà chúng ta
+đã miêu tả đã giúp giải quyết một số vấn đề với đề xuất ban đầu
+của chúng ta chỉ sử dụng đếm từ thô cho cách biểu diễn tài liệu. Nhưng có một vấn đề khác nữa,
+cái chúng ta muốn làm là nhấn mạnh vào các từ
+quan trọng trong tài liệu. Chúng ta sẽ thảo luận một chút
+về ý nghĩa của các từ quan trọng và chúng ta có thể nghĩ đến việc
+nhấn mạnh chúng như thế nào. Ok trước khi chúng ta nói về các từ quan trọng.
+đầu tiên hãy nói về các từ hiếm gặp. Một lần nữa hãy tưởng tượng chúng ta 
+đang đọc một bài báo về bóng đá và trong bài báo này có rất nhiều, rất nhiều
+các từ phổ biến như 'the' và 'player', 'field', 'goal'. Và điều mà chúng ta muốn
+diễn đạt bằng từ thông dụng, đó là từ mà xuất hiện
+thường xuyên trong bài. Trong bài này, đó là thuật ngữ
+cho tất cả các tài liệu mà chúng ta đang quan sát khi
+chúng ta làm nhiệm vụ thu hồi này. Và những gì xảy ra là những từ
+phổ biến này thống trị ma trận tương đồng mà chúng ta đã nói đến khi chúng ta
+so sánh với các tài liệu khác, bởi vì như tôi đã nói những từ này
+xuất hiện rất nhiều trong tài liệu. Trong khi đó ngược lại có một số các từ hiếm trong
+tài liệu này chúng ta đang xem. Những từ như là 'futbol' và 'Messi',
+cầu thủ mà chúng ta đang đọc đến, hoàn toàn bị lu mờ bởi các từ phổ biến. Và các từ như là 'futbol', và 'Messi', chúng bị lu mờ bởi vì chúng chỉ
+xuất hiện rất hiếm hoi trong bài. Hãy nghĩ về cách làm tăng tầm
+quan trọng của các từ hiếm, bởi vì những từ này thường liên quan
+đến việc mô tả những cái là duy nhất về bài báo này, và điều đó có thể
+chỉ ra sự khác biệt với các bài báo khác, chẳng hạn như Carlos đang quan tâm đến. Ok như là chúng ta đã nói,
+đặc điểm của từ hiếm là nó không thường xuyên
+xuất hiện trong bài và cái mà chúng ta muốn làm là chúng ta
+muốn tăng trọng lượng của các từ hiếm và tương đương với việc nghĩ về việc nhấn mạnh
+vào các từ chỉ xuất hiện trong một số tài liệu, chúng ta có thể nghĩ về việc lấy
+mỗi từ và giảm trọng lượng vào từ đó dựa trên số lượng tài liệu
+mà từ xuất hiện trong toàn bộ bài. Ok câu hỏi là chúng ta có thực sự
+chỉ muốn nhấn mạnh vào các từ hiếm? Vâng chúng ta rõ ràng không muốn
+nhấn mạnh vào các từ phổ biến, các từ như là 'the' và 'a' và 'it'
+hoặc các từ kiểu như thế. Nhưng cái mà chúng ta muốn bao hàm
+là những từ liên quan đến tài liệu. Không chỉ các từ như là 'Messi" mà còn
+có thể là 'soccer', 'field' và 'goal'. Những từ miêu tả về thể thao
+mà chúng ta đang nhìn thấy, có thể khác với bài báo khác về thể thao. Một bài báo về bóng rổ nói về bóng rổ 'hoop' và 'court' và những từ kiểu như vậy. Trong trường hợp này, chúng ta muốn
+nhấn mạnh vào các từ quan trọng. Ok? Và cái mà chúng ta sẽ cân nhắc
+ở đây là chúng ta sẽ nghĩ về các từ mà xuất hiện rất
+thường xuyên trong tài liệu, chúng liên quan đến tài liệu
+mà chúng ta đang đọc. Tôi sẽ lấy các từ phổ biến này. Và đồng thời chúng ta muốn chúng
+xuất hiện tương đối ít trong văn bản vì thế tôi sẽ gọi các từ
+hiếm toàn cầu và đặc điểm của từ quan trọng là sự cân nhắc giữa tần số
+xuất hiện cục bộ hay độ hiếm toàn cầu. [NHẠC]

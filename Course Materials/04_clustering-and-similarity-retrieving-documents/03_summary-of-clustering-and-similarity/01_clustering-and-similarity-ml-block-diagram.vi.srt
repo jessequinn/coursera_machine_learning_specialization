@@ -1,0 +1,467 @@
+1
+00:00:00,820 --> 00:00:06,140
+Trong bài học này chúng ta đã nói về
+
+2
+00:00:06,140 --> 00:00:10,920
+nhiệm vụ thu hồi tài liệu và chúng ta
+ cũng nói về khái niệm phân nhóm mà
+
+3
+00:00:10,920 --> 00:00:15,780
+chúng ta cố gắng khám phá ra cấu trúc
+bên dưới dữ liệu và chúng ta đã nói
+
+4
+00:00:15,780 --> 00:00:19,890
+về nhiều lĩnh vực khác nhau trong đó
+ khái niệm phân nhóm có thể rất hữu ích.
+
+5
+00:00:19,890 --> 00:00:22,960
+Chúng ta hãy xem qua quy trình
+hoạt động của thuật toán phân nhóm.
+
+6
+00:00:24,560 --> 00:00:27,290
+Và nếu bạn cảm thấy bạn đã biết
+điều này rồi bởi vì bạn đã thấy
+
+7
+00:00:27,290 --> 00:00:29,710
+quy trình hoạt động này
+trong các bài học khác.
+
+8
+00:00:29,710 --> 00:00:30,380
+Thì hãy tỉnh giấc!
+
+9
+00:00:30,380 --> 00:00:31,850
+Bởi vì cái này có một chút khác biệt.
+
+10
+00:00:33,330 --> 00:00:35,780
+Ok, hãy nói về dữ liệu
+huấn luyện của chúng ta.
+
+11
+00:00:35,780 --> 00:00:37,420
+Ở đây, dữ liệu huấn luyện của chúng ta cho
+
+12
+00:00:37,420 --> 00:00:43,870
+nhiệm vụ phân nhóm tài liệu
+sẽ là một ID tài liệu và
+
+13
+00:00:43,870 --> 00:00:50,550
+bảng tài liệu văn bản.
+
+14
+00:00:50,550 --> 00:00:52,820
+Chúng ta có một bộ các tài liệu.
+
+15
+00:00:52,820 --> 00:00:55,690
+Và chúng ta có tất cả các văn bản
+liên quan đến mỗi tài liệu.
+
+16
+00:00:55,690 --> 00:00:57,610
+Và sau đó chúng ta sẽ
+giải nén một số tính năng.
+
+17
+00:00:57,610 --> 00:01:01,428
+Chúng ta đã nói về nhiều cách
+khác nhau để biểu diễn một tài liệu.
+
+18
+00:01:01,428 --> 00:01:06,863
+Nhưng một cách mà tôi sẽ sử dụng như
+một ví dụ ở đây là tf-idf của chúng ta.
+
+19
+00:01:06,863 --> 00:01:10,560
+Tần số thuật ngữ-tấn số tài liệu nghịch đảo.
+
+20
+00:01:12,520 --> 00:01:14,620
+Và sau đó việc chúng ta sẽ làm
+là chúng ta sẽ thử và
+
+21
+00:01:14,620 --> 00:01:17,770
+nhóm các tài liệu của chúng ta
+dựa trên sự biểu diễn này.
+
+22
+00:01:17,770 --> 00:01:21,850
+Chúng ta sẽ đưa các tính năng
+qua mô hình học máy.
+
+23
+00:01:21,850 --> 00:01:24,694
+Trong trường hợp này
+là mô hình phân nhóm.
+
+24
+00:01:29,500 --> 00:01:33,720
+Và chúng ta sẽ đưa ra cho mỗi một
+tài liệu một nhãn mác phân nhóm.
+
+25
+00:01:33,720 --> 00:01:38,490
+Mũ trắng đầu ra là nhãn mác
+phân nhóm của chúng ta.
+
+26
+00:01:40,140 --> 00:01:43,110
+Ok đây là nơi mọi thứ trở nên thú vị,
+
+27
+00:01:43,110 --> 00:01:46,520
+bởi vì chúng ta muốn đánh giá tính chính xác
+của các nhãn mác phân loại của chúng ta.
+
+28
+00:01:46,520 --> 00:01:50,070
+Trong trường hợp này chúng ta không có
+các nhãn mác phân nhóm đúng, vì thế
+
+29
+00:01:50,070 --> 00:01:57,370
+tôi nên nói điều này là dự đoán của chúng ta
+hoặc ước tính, nhãn mác phân nhóm.
+
+30
+00:01:58,890 --> 00:02:02,370
+Nhưng chúng ta không có nhãn mác
+phân nhóm đúng để so sánh.
+
+31
+00:02:02,370 --> 00:02:07,130
+Y này không tồn tại.
+
+32
+00:02:08,280 --> 00:02:13,840
+Và đó là bởi vì chúng ta ở trong một
+môi trường học không được giám sát.
+
+33
+00:02:15,620 --> 00:02:16,520
+Không được giám sát.
+
+34
+00:02:18,500 --> 00:02:19,460
+Được rồi.
+
+35
+00:02:19,460 --> 00:02:20,570
+Vì thế chúng ta không có điều đó nhưng
+
+36
+00:02:20,570 --> 00:02:24,740
+bằng cách nào đó chúng ta muốn đánh giá
+ số đo tính chính xác của phân nhóm.
+
+37
+00:02:24,740 --> 00:02:30,680
+Hãy vẽ một bức tranh nhỏ ở đây sẽ là
+ Voronoi tessellation của chúng ta và
+
+38
+00:02:30,680 --> 00:02:36,633
+thuật toán k-means của chúng ta với
+một số trung tâm nhóm và chúng ta có dữ liệu.
+
+39
+00:02:38,551 --> 00:02:40,947
+Tôi nên nói dữ liệu của chúng ta
+giống như thế này, tôi không biết.
+
+40
+00:02:40,947 --> 00:02:42,750
+Tôi sẽ chỉ vẽ một vài điểm ở đây.
+
+41
+00:02:44,590 --> 00:02:49,290
+Và phép đo tính chính xác
+chúng ta sẽ sử dụng,
+
+42
+00:02:49,290 --> 00:02:54,700
+cách chúng ta sẽ đánh giá chất lượng là nhìn vào
+ sự kết hợp chặt chẽ các nhóm của chúng ta.
+
+43
+00:02:54,700 --> 00:02:58,275
+Chúng ta sẽ nhìn vào khoảng cách
+từ mỗi sự quan sát đến
+
+44
+00:02:58,275 --> 00:03:00,209
+trung tâm nhóm đã được chỉ ra.
+
+45
+00:03:02,682 --> 00:03:07,990
+Và thuật toán phân nhóm tốt
+có khoảng cách rất nhỏ.
+
+46
+00:03:09,050 --> 00:03:14,050
+Ok mục đích là để làm giảm khoảng cách
+của chúng và cái chúng ta thấy là đo
+
+47
+00:03:14,050 --> 00:03:19,020
+sự chính xác, đo khoảng cách,
+cái chúng ta cần là dữ liệu của chúng ta.
+
+48
+00:03:19,020 --> 00:03:21,690
+Chúng ta cần vecto tf-idf.
+
+49
+00:03:22,760 --> 00:03:29,330
+Những cái này sẽ đến đây, và sau đó
+chúng ta cũng cần các trung tâm nhóm.
+
+50
+00:03:29,330 --> 00:03:33,690
+Và W mũ là ước tính hiện tại của chúng ta,
+
+51
+00:03:33,690 --> 00:03:36,780
+đó là thông số mô hình ở đây
+và thuật toán k-means.
+
+52
+00:03:36,780 --> 00:03:39,930
+Đây là nhóm của chúng ta, whoops.
+
+53
+00:03:42,190 --> 00:03:46,190
+Hãy xem nếu chúng ta có thể đánh vần điều đó thật đúng, 
+các trung tâm nhóm.
+
+54
+00:03:46,190 --> 00:03:47,933
+Đó là những gì W mũ đại diện.
+
+55
+00:03:47,933 --> 00:03:52,636
+Và tất nhiên để đo các khoảng cách này
+chúng ta cũng cần W mũ.
+
+56
+00:03:52,636 --> 00:03:57,845
+Thay vì có các nhãn mác nhóm thực
+để đánh giá độ chính xác, chúng ta
+
+57
+00:03:57,845 --> 00:04:03,280
+sẽ lấy tài liệu đại diện và các trung tâm nhóm.
+
+58
+00:04:03,280 --> 00:04:06,797
+Đưa nó vào phép đo chất lượng này,
+
+59
+00:04:06,797 --> 00:04:11,852
+để xem khoảng cách tới các trung tâm nhóm.
+
+60
+00:04:16,599 --> 00:04:20,780
+Đó là phép đo sai số của chúng ta
+mặc dù nó không hẳn là sai.
+
+61
+00:04:20,780 --> 00:04:22,210
+Nó chỉ là một phép đo.
+
+62
+00:04:22,210 --> 00:04:22,710
+Oái.
+
+63
+00:04:25,460 --> 00:04:26,770
+Chỉ đo lường chát lượng.
+
+64
+00:04:29,930 --> 00:04:32,090
+Tôi sẽ không đặt từ ở đây.
+
+65
+00:04:32,090 --> 00:04:35,180
+Ok tôi nghĩ có một chút bối rối.
+
+66
+00:04:35,180 --> 00:04:38,240
+Nhưng hãy viết ra khoảng cách
+tới trung tâm nhóm.
+
+67
+00:04:38,240 --> 00:04:39,920
+Và thuật toán của chúng ta là gì?
+
+68
+00:04:39,920 --> 00:04:43,350
+Chúng ta đang nói về k-means như
+một phương pháp để phân nhóm.
+
+69
+00:04:43,350 --> 00:04:46,158
+Tất nhiên có các cách khác,
+nhưng hãy tập trung vào k-means,
+
+70
+00:04:46,158 --> 00:04:47,270
+k-means làm gì?
+
+71
+00:04:47,270 --> 00:04:54,300
+Hãy vẽ lại sơ đồ này, thực sự
+tôi chỉ có thể chuyển sang màu khác.
+
+72
+00:04:54,300 --> 00:04:56,320
+Điều đó sẽ tiết kiệm một chút
+thời gian cho chúng ta.
+
+73
+00:04:57,320 --> 00:05:02,980
+Vâng k-means đang cố gắng làm giảm
+khoảng cách này, hoặc tổng các khoảng cách,
+
+74
+00:05:02,980 --> 00:05:07,540
+và cách nó làm là lặp lại
+việc cập nhật như vậy
+
+75
+00:05:07,540 --> 00:05:11,870
+đây là W mũ mà chúng ta có được trước đây
+và chúng ta đang di chuyển nó
+
+76
+00:05:13,680 --> 00:05:20,290
+tới một W mũ mới mà thể hiện
+cho trung tâm của các điểm.
+
+77
+00:05:20,290 --> 00:05:24,040
+Những điểm này đang được chuyển đổi.
+
+78
+00:05:24,040 --> 00:05:27,520
+Và điểm này sẽ đi thẳng tới
+đỉnh của sự quan sát đó
+
+79
+00:05:29,600 --> 00:05:34,900
+và đây là cách hoạt động
+của phân nhóm.
+
+80
+00:05:34,900 --> 00:05:37,130
+Hãy nói nó ở mức độ cao một lần nữa.
+
+81
+00:05:37,130 --> 00:05:41,575
+Chúng ta lấy các tài liệu, chúng ta biểu diễn chúng
+theo một số cách, sử dụng cả phép đếm từ thô,
+
+82
+00:05:41,575 --> 00:05:44,440
+tf-idf, chuẩn hóa những điều này.
+
+83
+00:05:44,440 --> 00:05:48,000
+Rất nhiều các bigrams khác nhau,
+những thứ mà chúng ta có thể thấy cho
+
+84
+00:05:48,000 --> 00:05:49,400
+việc biểu diễn tài liệu của chúng ta.
+
+85
+00:05:50,500 --> 00:05:55,950
+Sau đó thuật toán phân nhóm của chúng ta như là
+k-means là tạo ra các nhãn mác phân nhóm và
+
+86
+00:05:55,950 --> 00:06:01,400
+lặp đi lặp lại, chúng ta lặp lại ở đây
+một lần nữa và cập nhật lại lần nữa
+
+87
+00:06:01,400 --> 00:06:07,410
+các trung tâm nhóm của chúng ta, đó là
+các thông số của mô hình phân nhóm này.
+
+88
+00:06:07,410 --> 00:06:15,620
+Bằng việc đánh giá các quan sát
+với các trung tâm nhóm.
+
+89
+00:06:15,620 --> 00:06:20,020
+Trong bài học này khác với các bài học khác
+chúng ta đã thực sự trình bày
+
+90
+00:06:20,020 --> 00:06:24,030
+một số thuật toán chi tiết đằng sau
+các phương pháp mà chúng ta thấy.
+
+91
+00:06:24,030 --> 00:06:28,190
+Đặc biệt là với việc phân nhóm, chúng ta đã
+nói về thuật toán k-means và sau đó là
+
+92
+00:06:28,190 --> 00:06:31,690
+nhiệm vụ thu hồi tài liệu của chúng ta, chúng ta
+cũng đã nói về việc tìm kiếm khu phố gần nhất,
+
+93
+00:06:31,690 --> 00:06:34,570
+và cung cấp một số các chi tiết thuật toán,
+
+94
+00:06:34,570 --> 00:06:37,520
+bạn khám phá điều đó trong ipython notebook cho
+
+95
+00:06:37,520 --> 00:06:39,900
+việc truy xuất wikipedia.
+
+96
+00:06:39,900 --> 00:06:42,190
+Ở thời điểm này, bạn thực sự
+sẽ có thể ra ngoài kia và
+
+97
+00:06:42,190 --> 00:06:46,630
+xây dựng một hệ thống thu hồi tốt hơn
+cho việc thu hồi các bài báo tin tức.
+
+98
+00:06:46,630 --> 00:06:51,770
+Hoặc bất kì cách thu hồi rất, rất, rất hay
+mà tôi không thể nghĩ ra bây giờ.
+
+99
+00:06:51,770 --> 00:06:53,760
+Nhưng tất nhiên có rất nhiều ví dụ thú vị.
+
+100
+00:06:53,760 --> 00:06:57,611
+Vì thế hãy bước ra ngoài kia và nghĩ đến các ý tưởng
+mà tôi không thể nghĩ ra ngay bây giờ.
+
+101
+00:06:57,611 --> 00:07:01,299
+[NHẠC]

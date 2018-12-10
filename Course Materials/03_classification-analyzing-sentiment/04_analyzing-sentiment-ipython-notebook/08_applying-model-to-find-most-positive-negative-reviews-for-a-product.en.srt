@@ -1,0 +1,289 @@
+1
+00:00:00,000 --> 00:00:04,476
+[MUSIC]
+
+2
+00:00:04,476 --> 00:00:05,776
+We've built a model.
+
+3
+00:00:05,776 --> 00:00:10,512
+We understood it's accuracy about 0.911%.
+
+4
+00:00:10,512 --> 00:00:17,360
+Let's go and actually use this model for
+something, something actually quite cool.
+
+5
+00:00:17,360 --> 00:00:23,133
+So what I'm gonna do is Apply the model.
+
+6
+00:00:26,524 --> 00:00:33,377
+Learned model to understand sentiment for
+
+7
+00:00:33,377 --> 00:00:37,760
+our friend, the Giraffe.
+
+8
+00:00:40,700 --> 00:00:41,620
+So, here we go.
+
+9
+00:00:41,620 --> 00:00:43,240
+Let's understand it a little bit.
+
+10
+00:00:43,240 --> 00:00:45,140
+So here's what I'm gonna do.
+
+11
+00:00:45,140 --> 00:00:50,820
+I'm going to take those giraffe_reviews
+that I built a little bit earlier.
+
+12
+00:00:50,820 --> 00:00:54,497
+And, I'm gonna create a new column to this
+
+13
+00:00:54,497 --> 00:00:59,210
+giraffe_reviews called
+my predicted_sentiment.
+
+14
+00:01:00,928 --> 00:01:03,810
+And this predicted_sentiment
+is gonna come from
+
+15
+00:01:03,810 --> 00:01:06,210
+taking the sentiment model that we build.
+
+16
+00:01:08,010 --> 00:01:11,922
+The sentiment model, and oops,
+
+17
+00:01:11,922 --> 00:01:18,915
+this auto-complete was a little slow,
+sorry about that.
+
+18
+00:01:18,915 --> 00:01:20,842
+Oh man, we have a little glitch there.
+
+19
+00:01:20,842 --> 00:01:28,429
+So Okay,
+we'll take the sentiment model and
+
+20
+00:01:28,429 --> 00:01:33,360
+we're going to call this
+function predict on it.
+
+21
+00:01:33,360 --> 00:01:38,210
+And we'll try to predict how does
+it feel about the giraffe_reviews.
+
+22
+00:01:38,210 --> 00:01:41,430
+So how do you feel about my
+friend: the giraffe_reviews.
+
+23
+00:01:41,430 --> 00:01:45,553
+And the output, and this is a key thing,
+
+24
+00:01:45,553 --> 00:01:50,163
+we're not just gonna output the zero-one,
+
+25
+00:01:50,163 --> 00:01:55,393
+where they predict the sentiment
+to be zero or one.
+
+26
+00:01:55,393 --> 00:02:02,307
+I'm gonna say output probability And
+if you remember,
+
+27
+00:02:02,307 --> 00:02:06,591
+we just talked about this in the module,
+that by outputting probability,
+
+28
+00:02:06,591 --> 00:02:11,180
+you can get a more fine grain estimate
+what the prediction looks like.
+
+29
+00:02:11,180 --> 00:02:13,910
+So, we just run it and
+
+30
+00:02:13,910 --> 00:02:19,960
+just let's take a quick look at what
+this new giraffe_reviews look like.
+
+31
+00:02:19,960 --> 00:02:24,863
+So let's look at the head of this table,
+and you'll see that now we have
+
+32
+00:02:24,863 --> 00:02:29,552
+the name of the product, the review,
+the rating, the word count.
+
+33
+00:02:29,552 --> 00:02:33,030
+And I added another column
+called the predicted sentiment.
+
+34
+00:02:33,030 --> 00:02:36,754
+And for
+some reviews it's really high 0.999, 0.99,
+
+35
+00:02:36,754 --> 00:02:40,860
+and here's a review that's
+pretty low sentiment.
+
+36
+00:02:40,860 --> 00:02:44,570
+There should really be
+a large warning on the,
+
+37
+00:02:45,780 --> 00:02:48,740
+they don't like it for some reason,
+now let's try to understand.
+
+38
+00:02:48,740 --> 00:02:52,400
+Let's look at the reviews and
+see what reviews are positive or
+
+39
+00:02:52,400 --> 00:02:56,410
+negative and see what the people
+are saying about the product.
+
+40
+00:02:56,410 --> 00:02:58,605
+So here's what I'm gonna do.
+
+41
+00:02:58,605 --> 00:03:03,695
+We're gonna sort
+
+42
+00:03:03,695 --> 00:03:09,878
+the reviews based on the predicted
+
+43
+00:03:09,878 --> 00:03:15,500
+sentiment and explore.
+
+44
+00:03:15,500 --> 00:03:20,260
+And the cool thing here is the predicted
+sentiment is a much more fine grain
+
+45
+00:03:20,260 --> 00:03:22,920
+description of whether we've
+used positive or negative.
+
+46
+00:03:22,920 --> 00:03:26,340
+The stars are really skewed, five stars,
+four stars, three stars, one star, and
+
+47
+00:03:26,340 --> 00:03:28,850
+this will tell you how far
+along the spectrum you are.
+
+48
+00:03:28,850 --> 00:03:33,140
+But now that we have this numbers,
+this extra column, we can do a lot more.
+
+49
+00:03:33,140 --> 00:03:39,240
+So I'm gonna take this giraffe data,
+and I'm going to sort it.
+
+50
+00:03:39,240 --> 00:03:44,140
+So all I have to do is take it,
+take the same value, and I'm gonna call
+
+51
+00:03:44,140 --> 00:03:49,546
+the function sort on it.
+
+52
+00:03:49,546 --> 00:03:54,435
+And you have to see,
+what column you're sorting based on.
+
+53
+00:03:54,435 --> 00:03:59,384
+So we're gonna sort
+based on this new column
+
+54
+00:03:59,384 --> 00:04:03,676
+that we call predicted_sentiment.
+
+55
+00:04:03,676 --> 00:04:11,500
+And one little trick here, we're gonna
+say ascending is equal to false.
+
+56
+00:04:11,500 --> 00:04:16,960
+So we're still sorting that ascending
+order is gonna start in descending order.
+
+57
+00:04:16,960 --> 00:04:20,790
+Starting from the most positive
+reviews down to the most negatives.
+
+58
+00:04:20,790 --> 00:04:24,614
+Now that we've sorted it we're gonna just
+show the first few lines of the table.
+
+59
+00:04:24,614 --> 00:04:29,194
+And what you should see is that
+the reviews are now sorted
+
+60
+00:04:29,194 --> 00:04:31,347
+based on that sentiment.
+
+61
+00:04:31,347 --> 00:04:35,921
+So the very top here, we have
+the most positive one has predicted
+
+62
+00:04:35,921 --> 00:04:39,404
+sentiment of 1.9999 and they all sorted.
+
+63
+00:04:39,404 --> 00:04:43,379
+[MUSIC]

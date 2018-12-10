@@ -1,0 +1,311 @@
+1
+00:00:00,000 --> 00:00:04,172
+[MUSIC]
+
+2
+00:00:04,172 --> 00:00:09,319
+In this module, Emily covered various
+techniques for retrieving documents,
+
+3
+00:00:09,319 --> 00:00:13,580
+exploring representations for
+a data like word count and TFIDF.
+
+4
+00:00:13,580 --> 00:00:17,550
+Now we're gonna get a really cool Notebook
+where we put these ideas together and
+
+5
+00:00:17,550 --> 00:00:19,630
+build a document retrieval system.
+
+6
+00:00:19,630 --> 00:00:21,370
+Using TFIDF.
+
+7
+00:00:21,370 --> 00:00:23,040
+So, let's go ahead and do just that.
+
+8
+00:00:24,290 --> 00:00:28,020
+As usual,
+we're gonna be using Python Notebook and
+
+9
+00:00:28,020 --> 00:00:32,160
+in this one I'm gonna change
+the title to Document
+
+10
+00:00:34,740 --> 00:00:38,530
+retrieval, and here we go.
+
+11
+00:00:38,530 --> 00:00:40,830
+And again, as usual,
+I'm gonna hide the header.
+
+12
+00:00:42,040 --> 00:00:44,480
+And hide the toolbar to give
+us a little bit more space.
+
+13
+00:00:45,590 --> 00:00:50,460
+Okay, let's go ahead and
+fire up GraphLab Create.
+
+14
+00:00:50,460 --> 00:00:53,890
+So we're gonna do import graphlab
+
+15
+00:00:53,890 --> 00:00:57,350
+since we're gonna be using
+it again in our notebook.
+
+16
+00:00:57,350 --> 00:01:00,610
+Now the first step we're
+going to load some data.
+
+17
+00:01:00,610 --> 00:01:04,900
+So let's Load some text data.
+
+18
+00:01:06,380 --> 00:01:10,460
+This is interesting text
+data from Wikipedia,
+
+19
+00:01:12,520 --> 00:01:18,870
+and it's pages on people.
+
+20
+00:01:18,870 --> 00:01:21,810
+So, cool data set and
+I'm just going to load it, and
+
+21
+00:01:21,810 --> 00:01:26,860
+we're going to see People
+which is gonna be an s frame
+
+22
+00:01:26,860 --> 00:01:31,570
+is gonna be graphlab.SFrame
+from a file and
+
+23
+00:01:31,570 --> 00:01:37,074
+that file is called people wiki,
+right here.
+
+24
+00:01:37,074 --> 00:01:40,630
+And Here we go, we're loading it.
+
+25
+00:01:40,630 --> 00:01:45,680
+And the first thing that we're gonna do is
+just look at a few top lines of that file.
+
+26
+00:01:45,680 --> 00:01:51,200
+So I'm just gonna go ahead and
+you should see we have,
+
+27
+00:01:51,200 --> 00:01:55,730
+so this URI is basically the location
+of that page on Wikipedia.
+
+28
+00:01:55,730 --> 00:01:58,760
+This is the name of the person involved.
+
+29
+00:01:58,760 --> 00:02:04,380
+and the text of that
+page about that person.
+
+30
+00:02:04,380 --> 00:02:09,660
+And you have this for
+a pretty nice number of people here.
+
+31
+00:02:09,660 --> 00:02:13,340
+So if you type len of people.
+
+32
+00:02:13,340 --> 00:02:15,060
+In our data set.
+
+33
+00:02:15,060 --> 00:02:19,330
+And type enter you see that we are talking
+about 59,000 people in this data set.
+
+34
+00:02:19,330 --> 00:02:21,790
+It's a pretty good set and
+
+35
+00:02:21,790 --> 00:02:26,040
+you will see with DFIF we are going to
+do some really interesting documents.
+
+36
+00:02:26,040 --> 00:02:28,200
+Even in this relatively large data set.
+
+37
+00:02:29,530 --> 00:02:34,901
+So the first thing we are going
+to do is just explore our data.
+
+38
+00:02:34,901 --> 00:02:42,734
+So let's #Explore the dataset and
+
+39
+00:02:42,734 --> 00:02:49,789
+checkout the text it contains.
+
+40
+00:02:52,204 --> 00:02:56,360
+So let's start looking at
+a particular person dataset.
+
+41
+00:02:56,360 --> 00:02:59,150
+And we're gonna look at the page for
+
+42
+00:02:59,150 --> 00:03:02,040
+Barack Obama who is
+the current US President.
+
+43
+00:03:04,240 --> 00:03:11,755
+So out of this people s-frame I'm
+going to select the one whose name,
+
+44
+00:03:11,755 --> 00:03:16,786
+so that's the name column, is equal
+
+45
+00:03:16,786 --> 00:03:22,737
+to Barack Obama.
+
+46
+00:03:22,737 --> 00:03:29,610
+And so I pressed enter, and
+I created this new variable called Obama.
+
+47
+00:03:29,610 --> 00:03:34,450
+And if you take a quick look at it,
+you see [COUGH] That it has the URL for
+
+48
+00:03:34,450 --> 00:03:39,200
+the Obama page, the name Barack Obama,
+and the text for that page.
+
+49
+00:03:39,200 --> 00:03:42,560
+So let's dig in, and
+see what that text looks like.
+
+50
+00:03:42,560 --> 00:03:48,210
+So for Barack Obama, you'll see that
+
+51
+00:03:48,210 --> 00:03:53,460
+Barack Hussein Obama was born
+on August 4th, 1961, and
+
+52
+00:03:53,460 --> 00:03:58,670
+is the 44th The current
+President of the United States.
+
+53
+00:04:00,100 --> 00:04:04,700
+So pretty natural text will really
+expect for this kind of data.
+
+54
+00:04:05,720 --> 00:04:09,240
+So we can also look at some
+other personal data set.
+
+55
+00:04:09,240 --> 00:04:11,030
+So for example,
+
+56
+00:04:11,030 --> 00:04:15,970
+there's an actor called George Clooney
+who's been in a lot of movies.
+
+57
+00:04:15,970 --> 00:04:21,610
+So if you look at the people
+As frame we're gonna select,
+
+58
+00:04:21,610 --> 00:04:26,043
+so this is again a filter operation which
+we've been doing almost every network now.
+
+59
+00:04:26,043 --> 00:04:34,381
+Whose name is George Clooney?
+
+60
+00:04:34,381 --> 00:04:39,720
+And then I'm just gonna go ahead and
+
+61
+00:04:39,720 --> 00:04:45,560
+show you the text that we get for
+George Clooney.
+
+62
+00:04:45,560 --> 00:04:52,080
+And you see that George Timothy Clooney
+was born in 1961.
+
+63
+00:04:52,080 --> 00:04:57,120
+So, basically, he's the same age as
+Barack Obama, but he's not president.
+
+64
+00:04:58,180 --> 00:05:00,470
+He's an American actor, writer.
+
+65
+00:05:00,470 --> 00:05:07,861
+Producer, director
+
+66
+00:05:07,861 --> 00:05:13,199
+and activist,
+
+67
+00:05:13,199 --> 00:05:17,721
+right here.
+
+68
+00:05:17,721 --> 00:05:21,879
+[MUSIC]

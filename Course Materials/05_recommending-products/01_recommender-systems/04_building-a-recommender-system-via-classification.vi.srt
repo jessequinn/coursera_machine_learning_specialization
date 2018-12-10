@@ -1,0 +1,302 @@
+1
+00:00:00,168 --> 00:00:04,284
+[NHẠC]
+
+2
+00:00:04,284 --> 00:00:07,978
+Chúng ta đã nói về nhiều lĩnh vực
+ứng dụng cho các hệ thống tư vấn,
+
+3
+00:00:07,978 --> 00:00:11,240
+nhưng bây giờ hãy nói về cách chúng ta
+xây dựng một hệ thống tư vấn.
+
+4
+00:00:12,700 --> 00:00:15,130
+Có rất, rất nhiều cách
+tiếp cận khác nhau để
+
+5
+00:00:15,130 --> 00:00:19,790
+thực hiện các kiểu tư vấn và hãy
+thảo luận một vài thứ trong số đó.
+
+6
+00:00:19,790 --> 00:00:23,850
+Mức độ đầu tiên 0 chúng ta có thể
+nghĩ về việc giới thiệu các sản phẩm
+
+7
+00:00:23,850 --> 00:00:26,690
+dựa trên sự phổ biến của mỗi sản phẩm.
+
+8
+00:00:26,690 --> 00:00:32,630
+Và cách tiếp cận này rất phổ biến với
+những thứ như là các trang tin tức.
+
+9
+00:00:32,630 --> 00:00:37,340
+Ví dụ New York Times có danh sách này
+ở một bên trang web thể hiện
+
+10
+00:00:37,340 --> 00:00:42,320
+các bài báo phổ biến nhất, và nó được
+sắp xếp theo các chủ đề khác nhau, ví dụ,
+
+11
+00:00:42,320 --> 00:00:44,280
+các bài báo truyền tải nhiều thông điệp nhất.
+
+12
+00:00:46,180 --> 00:00:49,910
+Ở đây khi mà chúng ta nghĩ về việc
+giới thiệu các bài báo tới người đọc,
+
+13
+00:00:49,910 --> 00:00:53,680
+chúng ta chỉ cần sắp xếp các bài báo theo
+mức độ thường xuyên được chia sẻ
+
+14
+00:00:53,680 --> 00:00:55,725
+bởi những người đọc khác
+trên New York Times.
+
+15
+00:00:55,725 --> 00:00:59,160
+Điều này có thể hoạt động khá tốt.
+
+16
+00:00:59,160 --> 00:01:02,410
+Tôi thực sự có thể khám phá một bài báo
+mà tôi quan tâm đến bằng việc sử dụng cách
+
+17
+00:01:02,410 --> 00:01:03,680
+tiếp cận này.
+
+18
+00:01:03,680 --> 00:01:08,660
+Nhưng có một hạn chế về cái này là
+nó hoàn toàn mất đi tính cá nhân
+
+19
+00:01:08,660 --> 00:01:11,200
+bởi vì tất cả sự gợi ý dựa trên toàn bộ
+
+20
+00:01:11,200 --> 00:01:15,700
+số người đọc New York Times,
+điều này thực sự rất đa dạng.
+
+21
+00:01:15,700 --> 00:01:19,410
+Thay vì đó tôi tất nhiên sẽ thích có một
+phương pháp biết nhiều hơn một chút
+
+22
+00:01:19,410 --> 00:01:22,970
+về tôi và sở thích của tôi để
+giới thiệu các bài báo cho tôi.
+
+23
+00:01:25,500 --> 00:01:28,550
+Hãy thử và thêm vào một chút
+tính cá nhân bằng việc sử dụng
+
+24
+00:01:28,550 --> 00:01:33,210
+một mô hình phân loại mà chúng ta sẽ sử dụng
+các tính năng của cả sản phẩm và
+
+25
+00:01:33,210 --> 00:01:35,600
+người dùng để đưa ra các gợi ý.
+
+26
+00:01:35,600 --> 00:01:39,500
+Mô hình phân loại này sẽ
+giống với mô hình phân loại
+
+27
+00:01:39,500 --> 00:01:43,630
+mà bạn đã học từ Carlos, bạn sử dụng
+
+28
+00:01:43,630 --> 00:01:47,900
+phân loại để phân tích cảm tính,
+nhưng ở đây chúng ta sẽ
+
+29
+00:01:47,900 --> 00:01:52,560
+sử dụng mô hình này để phân loại xem
+ một người thích hay không thích sản phẩm.
+
+30
+00:01:54,210 --> 00:01:57,984
+Ok, ok. Mô hình phân loại này
+sẽ lấy các đặc điểm về
+
+31
+00:01:57,984 --> 00:02:01,086
+người dùng, đặc điểm về việc
+mua bán trước đó của người dùng,
+
+32
+00:02:01,086 --> 00:02:05,307
+các đặc điểm về sản phẩm mà
+chúng ta đang nghĩ có thể giới thiệu,
+
+33
+00:02:05,307 --> 00:02:08,931
+cũng như các đặc điểm tiềm năng khác
+mà chúng ta có thể đề cập đến.
+
+34
+00:02:08,931 --> 00:02:12,730
+Và chúng ta sẽ đưa tất cả các đăc điểm này
+vào trong mô hình phân loại của chúng ta,
+
+35
+00:02:12,730 --> 00:02:16,353
+và sẽ có thể 'yes' tôi tin rằng người này sẽ
+
+36
+00:02:16,353 --> 00:02:20,315
+thích sản phẩm này hoặc
+'no' tôi không nghĩ họ thích nó.
+
+37
+00:02:20,315 --> 00:02:24,560
+Vâng phương pháp tiếp cận phân loại
+này chứa rất nhiều thứ.
+
+38
+00:02:24,560 --> 00:02:26,700
+Đầu tiên nó có thể mang tính cá nhân.
+
+39
+00:02:26,700 --> 00:02:31,550
+Chúng ta đang sử dụng các đặc điểm của người dùng
+ cũng như lịch sử mua bán của người dùng.
+
+40
+00:02:31,550 --> 00:02:34,490
+Thêm vào đó mô hình này có thể hiểu ngữ cảnh.
+
+41
+00:02:34,490 --> 00:02:35,230
+Ví dụ như
+
+42
+00:02:35,230 --> 00:02:39,700
+Chúng ta có thể coi thời gian là một ngày,
+những gì mà người đó vừa xem.
+
+43
+00:02:39,700 --> 00:02:42,960
+Ví dụ có thể tôi thích mua
+một quyển giáo trình
+
+44
+00:02:42,960 --> 00:02:47,880
+trong ngày hoặc các sản phẩm
+gia đình vào ban đêm.
+
+45
+00:02:47,880 --> 00:02:51,580
+Và một điều tuyệt với khác về
+cách tiếp cận này là nó có thể xử lý
+
+46
+00:02:51,580 --> 00:02:53,650
+lịch sử người dùng bị hạn chế.
+
+47
+00:02:53,650 --> 00:02:56,800
+Ví dụ hãy nói tôi là một người
+tiêu dùng trên Amazon và
+
+48
+00:02:56,800 --> 00:02:59,120
+tôi không mua nhiều mặt hàng trước đây.
+
+49
+00:02:59,120 --> 00:03:03,160
+Với nhiều cách tiếp cận, có thể có
+nhiều sự mơ hồ về những gi tôi
+
+50
+00:03:03,160 --> 00:03:08,260
+có thể quan tâm hay không, nhưng nếu
+ bạn có thông tin về tôi như là tuổi của tôi,
+
+51
+00:03:08,260 --> 00:03:11,670
+điều đó có thể dự đoán về
+những gì tôi thích hay không thích.
+
+52
+00:03:14,150 --> 00:03:17,430
+Nhưng sự tiếp cận này cũng có giới hạn.
+
+53
+00:03:17,430 --> 00:03:20,750
+Một trong những sự hạn chế quan trọng
+là thực tế rằng các đặc điểm chúng ta
+
+54
+00:03:20,750 --> 00:03:24,240
+đề cập này có thể mang tính thông tin
+về sản phẩm mà chúng ta sẽ
+
+55
+00:03:24,240 --> 00:03:27,800
+có thể thích hoặc không.
+
+56
+00:03:27,800 --> 00:03:29,930
+Ví dụ bạn không biết tuổi của tôi.
+
+57
+00:03:29,930 --> 00:03:32,070
+Bạn có thể không biết về giới tính của tôi.
+
+58
+00:03:32,070 --> 00:03:34,120
+Và vân vân.
+
+59
+00:03:34,120 --> 00:03:38,680
+Như vậy với một sản phẩm bạn
+cũng có thể bỏ sót thông tin hoặc
+
+60
+00:03:38,680 --> 00:03:43,300
+có rất ít mô tả về sản phẩm, đặc biệt
+trên Amazon nơi mà bạn có nhiều
+
+61
+00:03:43,300 --> 00:03:45,250
+người bán các sản phẩm khác nhau.
+
+62
+00:03:45,250 --> 00:03:48,020
+Chất lượng của thông tin đó có thể khá thấp.
+
+63
+00:03:50,520 --> 00:03:54,350
+Thường thì những gì chúng ta thực sự
+nhìn thấy được gọi là bộ lọc cộng tác,
+
+64
+00:03:54,350 --> 00:03:56,620
+mà chúng ta sẽ nói đến sau đây,
+
+65
+00:03:56,620 --> 00:03:59,660
+có thể hoạt động tốt hơn
+loại hình tiếp cận phân loại này.

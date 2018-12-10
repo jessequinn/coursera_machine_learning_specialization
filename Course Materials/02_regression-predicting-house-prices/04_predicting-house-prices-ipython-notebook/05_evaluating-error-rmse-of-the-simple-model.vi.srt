@@ -1,0 +1,135 @@
+1
+00:00:00,000 --> 00:00:04,298
+[NHẠC]
+
+2
+00:00:04,298 --> 00:00:07,320
+Hãy sử dụng mô hình.
+
+3
+00:00:08,430 --> 00:00:15,960
+Tiếp theo chúng ta huấn luyện mô hình quy hồi tuyến tính, hãy đánh giá nó.
+
+4
+00:00:15,960 --> 00:00:20,834
+Cái chúng ta sẽ làm tiếp theo là
+
+5
+00:00:20,834 --> 00:00:25,540
+#Evaluate the simple model.
+
+6
+00:00:25,540 --> 00:00:26,680
+Đánh giá nó như thế nào?
+
+7
+00:00:26,680 --> 00:00:28,900
+Chúng ta sẽ nhìn vào dữ liệu kiểm tra.
+
+8
+00:00:28,900 --> 00:00:32,411
+Hãy nhớ chúng ta đã có dữ liệu thử nghiệm phân chia.
+
+9
+00:00:32,411 --> 00:00:34,980
+Hãy hiểu dữ liệu thử nghiệm một chút.
+
+10
+00:00:34,980 --> 00:00:37,380
+Ví dụ, hãy xuất.
+
+11
+00:00:38,940 --> 00:00:43,090
+Với dữ liệu thử nghiệm,
+
+12
+00:00:43,090 --> 00:00:47,210
+cột giá, giá trung bình là gì?
+
+13
+00:00:47,210 --> 00:00:48,330
+Giá có nghĩa là gì?
+
+14
+00:00:50,050 --> 00:00:53,230
+Điều này tính toán giá trung bình cho
+
+15
+00:00:53,230 --> 00:00:56,790
+dữ liệu thử nghiệm, dữ liệu từ Seattle là 543,000 đô.
+
+16
+00:00:56,790 --> 00:01:03,230
+Đó là giá nhà trung bình, nó khá đắt.
+
+17
+00:01:03,230 --> 00:01:06,760
+Bây giờ chúng ta xây dựng mô hình feet vuông và
+
+18
+00:01:06,760 --> 00:01:11,080
+cái chúng ta muốn làm là đánh giá nó trên dữ liệu thử nghiệm này.
+
+19
+00:01:11,080 --> 00:01:16,080
+Chúng ta sẽ lấy sqft_model
+
+20
+00:01:16,080 --> 00:01:21,150
+mà chúng ta đã xây dựng và chúng ta sẽ gọi là chức năng đánh giá.
+
+21
+00:01:21,150 --> 00:01:25,910
+Cái này có thể lấy tập dữ liệu thử nghiệm và xuất ra hoặc
+
+22
+00:01:25,910 --> 00:01:30,400
+quay lại một số thống kê về cách nó hoạt động tốt như thế nào.
+
+23
+00:01:32,370 --> 00:01:34,310
+Hãy thực hiện điều đó.
+
+24
+00:01:36,140 --> 00:01:40,240
+Tôi sẽ nhập, xuất ở đầu
+
+25
+00:01:40,240 --> 00:01:42,860
+bởi vì nó định dạng đẹp hơn một chút.
+
+26
+00:01:42,860 --> 00:01:50,850
+Và bạn sẽ thấy các lỗi lớn trên tất cả các ngôi nhà thử nghiệm là 4.1 triệu.
+
+27
+00:01:50,850 --> 00:01:55,040
+Có một ngôi nhà có các điểm dị biệt, nó đã được dự đoán tồi.
+
+28
+00:01:55,040 --> 00:01:59,856
+Và lỗi trung bình RMSE có nghĩa là lỗi diện tích,
+
+29
+00:01:59,856 --> 00:02:01,496
+chung ta đã nói về điều này.
+
+30
+00:02:01,496 --> 00:02:06,941
+Emily đã nói về điều này với chúng ta trong suốt các bài giảng,
+
+31
+00:02:06,941 --> 00:02:11,550
+là 255.000 đô, đó là RMSE.
+
+32
+00:02:11,550 --> 00:02:18,103
+Vì thế chúng ta đã xây dựng một mô hình đơn giản, chúng ta đã thử nghiệm có RMSE khá cao,
+
+33
+00:02:18,103 --> 00:02:24,791
+nhưng hãy nhìn một số dự đoán nó cố gắng tạo ra từ dữ liệu.
+
+34
+00:02:24,791 --> 00:02:29,099
+[NHẠC]

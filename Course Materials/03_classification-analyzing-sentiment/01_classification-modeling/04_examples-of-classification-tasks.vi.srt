@@ -1,0 +1,372 @@
+1
+00:00:00,000 --> 00:00:03,817
+[NHẠC]
+
+2
+00:00:03,817 --> 00:00:07,875
+Vậy bây giờ chúng ta đã xây dựng được một loại
+mới hoàn chỉnh về trải nghiệm nhà hàng hoặc
+
+3
+00:00:07,875 --> 00:00:11,410
+trải nghiệm đánh giá nhà hàng
+sử dụng bộ phân loại.
+
+4
+00:00:11,410 --> 00:00:14,620
+Chũng ta hãy đào sâu và
+hiểu rõ hơn về phân loại là gì,
+
+5
+00:00:14,620 --> 00:00:17,610
+và các ứng dụng khác của phân loại.
+
+6
+00:00:17,610 --> 00:00:22,550
+Một bộ phân loại lấy đầu vào x,
+ví dụ một câu của một đánh giá hoặc
+
+7
+00:00:22,550 --> 00:00:24,440
+những đầu vào khác như chúng ta sẽ thấy.
+
+8
+00:00:24,440 --> 00:00:27,840
+Nó được đẩy qua một mô hình
+để có đầu ra là một giá trị y,
+
+9
+00:00:27,840 --> 00:00:29,770
+mà chúng ta đang cố gắng dự đoán.
+
+10
+00:00:29,770 --> 00:00:34,570
+Và đây là một lớp, ví dụ,
+tích cực hoặc tiêu cực.
+
+11
+00:00:34,570 --> 00:00:38,630
+Tích cực trong trường hợp phân tích cảm tính
+tương ứng với ngón tay cái đưa lên trên
+
+12
+00:00:38,630 --> 00:00:42,000
+trong khi tiêu cực tương ứng với
+ngón tay cái hướng xuống dưới.
+
+13
+00:00:42,000 --> 00:00:44,820
+Nhưng đây chỉ là một ví dụ về phân loại.
+
+14
+00:00:44,820 --> 00:00:47,620
+Bạn có thể nhìn vào nội dung, ví dụ, một trang web, tôi muốn
+
+15
+00:00:47,620 --> 00:00:52,230
+biết trang web này có thú vị không và
+tôi có thể sắp xếp chúng theo danh mục.
+
+16
+00:00:52,230 --> 00:00:55,850
+Ví dụ, đây là về giáo dục, một trang về giáo dục,
+
+17
+00:00:55,850 --> 00:00:59,770
+hay là một trang về tài chính,
+hay là một trang về công nghệ, vân vân?
+
+18
+00:00:59,770 --> 00:01:01,550
+Không chỉ có hai danh mục
+
+19
+00:01:01,550 --> 00:01:03,040
+Có thể có ba, bốn hoặc
+
+20
+00:01:03,040 --> 00:01:05,200
+thậm chí hàng trăm danh muc mà tôi sẽ dự đoán.
+
+21
+00:01:07,180 --> 00:01:11,150
+Bây giờ ví dụ khác về phân loại,
+
+22
+00:01:11,150 --> 00:01:15,820
+thực sự tác động tới tất cả cuộc sống
+của chúng ta, đó là lọc thư rác.
+
+23
+00:01:15,820 --> 00:01:21,900
+Một số bạn có thể vẫn nhớ, có lẽ đầu những
+năm 2000, lọc thư rác trông như thế nào.
+
+24
+00:01:21,900 --> 00:01:24,520
+Chất lượng không tốt.
+
+25
+00:01:24,520 --> 00:01:27,830
+Thực sự chúng đều là những thứ
+được điều chỉnh bằng tay,
+
+26
+00:01:27,830 --> 00:01:30,330
+oh nó có các từ nhất định, nó chắc chắn là thư rác.
+
+27
+00:01:30,330 --> 00:01:33,580
+Nhưng người gửi thư rác thay đổi từ ngữ một chút,
+
+28
+00:01:33,580 --> 00:01:37,760
+thêm số thay vì chữ và có thể
+đánh bại bộ lọc thư rác.
+
+29
+00:01:37,760 --> 00:01:40,030
+Và cái gì đã thực sự thay đổi thế giới của bộ lọc thư rác.
+
+30
+00:01:40,030 --> 00:01:44,880
+Nó đã thay đổi rất nhiều đến nỗi mà tôi thậm chí
+không nhìn vào thư mục rác của tôi, thật tiếc nếu
+
+31
+00:01:44,880 --> 00:01:49,930
+tin nhắn của bạn đi vào thư mục rác
+của tôi, tôi không mở nó, đó là học máy.
+
+32
+00:01:49,930 --> 00:01:50,990
+Đó là phân loại.
+
+33
+00:01:50,990 --> 00:01:53,030
+Họ lấy đầu vào x của email và
+
+34
+00:01:53,030 --> 00:01:57,080
+đưa qua bộ phân loại để dự đoán 
+liệu có phải thư rác hay không.
+
+35
+00:01:57,080 --> 00:01:58,760
+Nó đã làm rất tốt.
+
+36
+00:01:58,760 --> 00:02:01,480
+Và nó làm không phải bằng việc
+xem xét nội dung email mà
+
+37
+00:02:01,480 --> 00:02:02,820
+nó nhìn vào các đặc điểm khác.
+
+38
+00:02:02,820 --> 00:02:05,240
+Ví dụ, ai đã gửi nó.
+
+39
+00:02:05,240 --> 00:02:08,570
+Nếu thư của một người bạn thân
+hoặc ai đó bạn hay thăm hỏi,
+
+40
+00:02:08,570 --> 00:02:10,320
+thì nó ít khả năng là thư rác.
+
+41
+00:02:10,320 --> 00:02:14,180
+Địa chỉ IP là một người gửi từ máy tính thông thường, vân vân.
+
+42
+00:02:14,180 --> 00:02:15,000
+Rất nhiều thông tin.
+
+43
+00:02:16,480 --> 00:02:19,230
+Đây là một ứng dụng thực tế rất thú vị khác.
+
+44
+00:02:21,590 --> 00:02:24,460
+Trong phiên bản máy tính chúng ta làm được rất nhiều phân loại.
+
+45
+00:02:24,460 --> 00:02:27,200
+Chúng ta sẽ lấy một hình ảnh và
+hình dung hình ảnh đó là gì.
+
+46
+00:02:27,200 --> 00:02:30,860
+Ví dụ ở đây đầu vào x là các điểm ảnh của hình ảnh.
+
+47
+00:02:30,860 --> 00:02:32,030
+Chúng ta đưa nó vào bộ phân loại và
+
+48
+00:02:32,030 --> 00:02:35,080
+chúng ta sẽ dự đoán những việc như là
+đó là một con cho phải không?
+
+49
+00:02:35,080 --> 00:02:39,090
+Thực tế nó là một Labrador Retriever,
+ Golden Retriever hoặc giống chó khác.
+
+50
+00:02:39,090 --> 00:02:42,620
+Đây thực sự là một chú chó Labrador Retriever.
+
+51
+00:02:43,650 --> 00:02:46,709
+Và như chúng ta sẽ thấy sau này
+trong module học sâu,
+
+52
+00:02:46,709 --> 00:02:51,049
+có những cách mới rất hay để
+làm điều này với tính chính xác cao.
+
+53
+00:02:53,044 --> 00:02:56,422
+Bây giờ bạn cũng có thể sử dụng phân loại
+trong các hệ thống chuẩn đoán y tế và
+
+54
+00:02:56,422 --> 00:02:58,960
+thực tế thì đó là những gì bác sĩ làm.
+
+55
+00:02:58,960 --> 00:03:02,570
+Họ cặp nhiệt độ cho bạn, có thể họ xem
+bản x-ray của bạn, họ nhìn vào một vài
+
+56
+00:03:02,570 --> 00:03:07,720
+bản kiểm tra y tế và họ cố gắng
+chuẩn đoán về bệnh của bạn.
+
+57
+00:03:07,720 --> 00:03:10,940
+Có thể họ nói không, không, bạn
+không sao cả hoặc bạn bị cảm lạnh,
+
+58
+00:03:10,940 --> 00:03:13,190
+bạn bị cúm, thậm chí có thể
+là bạn bị viêm phổi.
+
+59
+00:03:13,190 --> 00:03:15,853
+Đó là một biến y cần được dự đoán,
+
+60
+00:03:15,853 --> 00:03:18,730
+căn bệnh nào đang diễn biến.
+
+61
+00:03:18,730 --> 00:03:24,030
+Ngày nay có những điều mới
+rất thú vị về y học cá nhân,
+
+62
+00:03:24,030 --> 00:03:27,660
+bởi vì sự dự đoán không phụ thuộc
+vào các số đo chuẩn mực mà
+
+63
+00:03:27,660 --> 00:03:29,710
+còn được cá nhân hóa với tôi.
+
+64
+00:03:29,710 --> 00:03:34,440
+Có thể phụ thuộc vào trình tự
+DNA của tôi, khá thú vị và
+
+65
+00:03:34,440 --> 00:03:39,423
+cũng phụ thuộc vào phong cách sống của tôi,
+
+66
+00:03:40,530 --> 00:03:43,420
+hoặc có thể thực tế hơn, giống như thế này.
+
+67
+00:03:45,580 --> 00:03:47,550
+Và vì thế với tất cả các phép đo này,
+
+68
+00:03:47,550 --> 00:03:50,050
+có thể tạo ra dự đoán
+tốt hơn cho bệnh của tôi.
+
+69
+00:03:52,150 --> 00:03:54,870
+Ý tưởng về sự phân loại trong học máy,
+
+70
+00:03:54,870 --> 00:03:58,890
+thực sự đi xa hơn nhiều, thậm chí
+có thể đọc được ý nghĩ của bạn.
+
+71
+00:04:00,260 --> 00:04:05,610
+Khi tôi ở Carnegie-Mellon, Tom Mitchell,
+một trong những người bạn và đồng nghiệp của tôi
+
+72
+00:04:05,610 --> 00:04:09,740
+ở văn phòng của anh ấy, anh ấy gặp tôi và nói 
+chúng tôi đã làm điều tuyệt vời
+
+73
+00:04:09,740 --> 00:04:12,970
+lấy hình ảnh trong não bạn 
+sử dụng công nghệ gọi là FMRI,
+
+74
+00:04:12,970 --> 00:04:18,750
+đó là quét não và dự đoán khi bạn đang đọc từng từ của văn bản,
+
+75
+00:04:18,750 --> 00:04:22,580
+liệu bạn đang đọc từ búa hay từ nhà.
+
+76
+00:04:22,580 --> 00:04:24,990
+Vì thế nó thực sự đọc được ý nghĩ của bạn.
+
+77
+00:04:24,990 --> 00:04:28,060
+Nhưng thực tế anh ấy đã làm nhiều thứ thú vị.
+
+78
+00:04:28,060 --> 00:04:32,810
+Ví dụ, nếu bạn nhìn một bức tranh về
+cái búa hoặc một ngôi nhà, nhưng
+
+79
+00:04:32,810 --> 00:04:37,310
+bạn huấn luyện việc phân loại
+trên việc bạn đọc từ búa và nhà,
+
+80
+00:04:37,310 --> 00:04:41,260
+bạn sẽ vẫn có thể đọc được ý nghĩ của bạn và 
+hình dung được cái bức tranh nào bạn đang nhìn.
+
+81
+00:04:42,330 --> 00:04:43,221
+Vì vậy đây là
+
+82
+00:04:43,221 --> 00:04:48,168
+là điểm tiếp theo của sự phân loại
+để hiểu não làm việc như thế nào.
+
+83
+00:04:48,168 --> 00:04:48,668
+[NHẠC]

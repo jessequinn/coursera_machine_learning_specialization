@@ -1,0 +1,311 @@
+1
+00:00:00,000 --> 00:00:03,847
+[MUSIC]
+
+2
+00:00:03,847 --> 00:00:08,367
+In this module we talked about a notion
+of collaborative filtering and
+
+3
+00:00:08,367 --> 00:00:13,883
+a couple different recommender systems for
+implementing that idea where we leverage
+
+4
+00:00:13,883 --> 00:00:19,280
+the types of other products people
+purchased to recommend other products.
+
+5
+00:00:19,280 --> 00:00:23,840
+And we explored this notion of
+having some set of customers and
+
+6
+00:00:23,840 --> 00:00:28,860
+products and understanding relationships
+between these in the context of
+
+7
+00:00:28,860 --> 00:00:32,560
+product recommendation tasks,
+thinking about movie recommendation.
+
+8
+00:00:32,560 --> 00:00:36,820
+And in the IPython notebook you guys
+explore this very concretely with
+
+9
+00:00:36,820 --> 00:00:39,320
+an implementation of a song recommender.
+
+10
+00:00:39,320 --> 00:00:42,350
+Once again, let's revisit this
+machine learning workflow, but
+
+11
+00:00:42,350 --> 00:00:45,340
+in the context of recommender systems.
+
+12
+00:00:45,340 --> 00:00:47,400
+In this case, what's our training data?
+
+13
+00:00:47,400 --> 00:00:50,614
+Well it's our user,
+
+14
+00:00:50,614 --> 00:00:56,885
+product, ratings, table.
+
+15
+00:01:01,502 --> 00:01:07,084
+And what we're gonna do is we're
+gonna extract some set of features,
+
+16
+00:01:07,084 --> 00:01:10,882
+which in this case are a user ID,
+product ID pair
+
+17
+00:01:15,910 --> 00:01:22,010
+And the goal here is to predict the rating
+that some user would give to some product.
+
+18
+00:01:22,010 --> 00:01:24,950
+So user ID, product ID, rating.
+
+19
+00:01:24,950 --> 00:01:31,630
+So this is our predicted rating, y hat.
+
+20
+00:01:33,000 --> 00:01:35,850
+If we're specifically looking,
+and I guess I, sorry,
+
+21
+00:01:35,850 --> 00:01:38,930
+I should mention that,
+what is the model that we're looking at?
+
+22
+00:01:38,930 --> 00:01:44,415
+The model is, for example,
+
+23
+00:01:44,415 --> 00:01:49,112
+we talked about many different models but
+the one we're gonna talk about quite
+
+24
+00:01:49,112 --> 00:01:53,690
+extensively in the matrix factorization
+course is matrix factorization.
+
+25
+00:01:54,980 --> 00:01:58,280
+And matrix factorization
+has some set of parameters.
+
+26
+00:01:58,280 --> 00:02:02,770
+W hat,
+which are the estimated parameters, or
+
+27
+00:02:02,770 --> 00:02:05,260
+that notation represents
+estimated parameters.
+
+28
+00:02:05,260 --> 00:02:08,760
+And what are the parameters
+of matrix factorization?
+
+29
+00:02:08,760 --> 00:02:12,120
+Well, it's a set of features for
+every user.
+
+30
+00:02:14,030 --> 00:02:17,067
+And it's a set of features for
+every product.
+
+31
+00:02:19,446 --> 00:02:21,759
+Okay, so these are our parameters, but
+
+32
+00:02:21,759 --> 00:02:26,570
+we also talked about a featurized
+version of matrix factorization.
+
+33
+00:02:26,570 --> 00:02:29,509
+So in that case,
+in addition to our features
+
+34
+00:02:31,010 --> 00:02:35,620
+being the user ID and product ID,
+we might also consider other things,
+
+35
+00:02:35,620 --> 00:02:40,460
+we might have a list of other
+features like the age of the user,
+
+36
+00:02:40,460 --> 00:02:47,610
+the gender of the user,
+a description of the product, and so on.
+
+37
+00:02:47,610 --> 00:02:51,740
+And in that case, we would also
+add weights on these features.
+
+38
+00:02:51,740 --> 00:02:55,490
+So let me just add some extra set of,
+
+39
+00:02:57,090 --> 00:03:00,100
+I'll call them w0 to make
+it difference than this w,
+
+40
+00:03:00,100 --> 00:03:04,750
+some other set of weights here that
+are also parameters of this model.
+
+41
+00:03:04,750 --> 00:03:09,600
+Okay, again we'll get into this in a lot
+more detail in the course on this, but
+
+42
+00:03:09,600 --> 00:03:13,860
+the idea is we're gonna take
+our predicted rating and
+
+43
+00:03:13,860 --> 00:03:19,310
+we're gonna see how well our
+model is fitting the data.
+
+44
+00:03:19,310 --> 00:03:23,180
+And the way we're gonna do that is
+we're gonna take our actual data,
+
+45
+00:03:23,180 --> 00:03:28,780
+our real ratings, so these are actual
+
+46
+00:03:30,150 --> 00:03:33,340
+ratings that are in our training data set.
+
+47
+00:03:33,340 --> 00:03:36,750
+And we're gonna compare
+to the predicted ratings.
+
+48
+00:03:37,750 --> 00:03:43,042
+Okay, so one metric we talked about to
+measure the air between the predicted
+
+49
+00:03:43,042 --> 00:03:47,938
+ratings and our actual observed
+ratings was residual sum of squares.
+
+50
+00:03:50,526 --> 00:03:54,817
+Just like in regression, but there are
+also other metrics we could consider and
+
+51
+00:03:54,817 --> 00:03:56,880
+we could talk about those more later.
+
+52
+00:03:58,050 --> 00:04:02,259
+But the point is that from some notion of
+error between our predicted values and
+
+53
+00:04:02,259 --> 00:04:06,367
+our observed values, we're gonna have
+some machine learning algorithm.
+
+54
+00:04:06,367 --> 00:04:08,008
+Again, we're leaving this for
+
+55
+00:04:08,008 --> 00:04:12,092
+the actual module on matrix factorization
+to describe what this algorithm is.
+
+56
+00:04:12,092 --> 00:04:17,019
+But what it's going to do is it's going
+to iteratively update our features for
+
+57
+00:04:17,019 --> 00:04:21,875
+the user and for the product until we
+get good agreement between our predicted
+
+58
+00:04:21,875 --> 00:04:24,960
+ratings and our actual observed ratings.
+
+59
+00:04:24,960 --> 00:04:29,247
+Okay, so in this module you learned how to
+do collaborative filtering in practice, so
+
+60
+00:04:29,247 --> 00:04:32,410
+now you can go out actually
+implement a recommender system.
+
+61
+00:04:32,410 --> 00:04:35,180
+You can do a gift recommender for
+your family,
+
+62
+00:04:35,180 --> 00:04:37,740
+which will make holiday
+shopping really easy.
+
+63
+00:04:38,920 --> 00:04:42,625
+Or you can build a new song recommender
+that's even better than the one that we
+
+64
+00:04:42,625 --> 00:04:44,740
+demoed.
+
+65
+00:04:44,740 --> 00:04:48,297
+So lots and lots of cool things you
+can do with collaborative filtering.
+
+66
+00:04:48,297 --> 00:04:52,969
+[MUSIC]

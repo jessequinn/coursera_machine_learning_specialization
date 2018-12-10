@@ -1,0 +1,26 @@
+[NHẠC] Chúng ta đã thấy sự phân loại trong một loạt
+các thiết lập và cách chúng ta có thể thực sự sử dụng để dự đoán một lớp là một
+biểu hiện tích cực hay tiêu cực từ dữ liệu. Trong phần hồi quy, Amy đã
+nóivề sơ đồ khối này mô tả cách một thuật toán học máy
+lặp lại qua dữ liệu của nó. Bây giờ chúng ta hãy lấy sơ đồ khối
+này và làm việc thông qua nó và mô tả cách nó hoạt động trong lĩnh vực
+phân loại với phân tích cảm tính. Vậy nó tìm kiếm phân loại cho cảm tính như thế nào, trong trường hợp này, dữ liệu là nội dung của các đánh giá, vì thế với mỗi một đánh giá,
+nội dung của đánh giá liên quan đến một kiểu cảm tính cụ thể. Từ nội dung của đánh giá,
+chúng ta thực hiện nó thông qua một giai đoạn khai thác đặc trưng với
+giá trị đầu vào x cho thuật toán. Và ở đây x này sẽ là số từ. Số từ cho mỗi điểm dữ liệu,
+mỗi một đánh giá. Bây giờ mô hình học máy của
+chúng ta sẽ lấy dữ liệu đầu vào đó. Và số từ cũng như một số các thông số khác cái mà tôi tôi đang gọi đây là
+w-hat, trọng số của mỗi từ. Mỗi từ. Và kết hợp hai điều này,
+chúng ta sẽ có dự đoán đầu ra. Nếu điểm lớn hơn 0, nó sẽ là tích cực. Nếu điểm nhỏ hơn 0, nó sẽ là tiêu cực. Vì vậy đầu ra này là tâm lý được dự đoán. Và nếu chúng ta chỉ sử dụng mô hình,
+chúng ta sẽ được thực hiện ở đây. Nhưng thực sự trong phần thuật toán
+học máy, chúng ta sẽ đánh giá kết quả đó và sau đó đưa chúng trở lại
+vào thuật toán để cải thiện các thông số. Vì thế chúng ta sẽ lấy cảm tính
+đã được dự đoán, y-hat và so sánh nó với nhãn đúng với cảm tính Nhãn mác cảm tính với mỗi điểm dữ liệu. Nó sẽ phù hợp và sự đo lường chất lượng sẽ là sự phân loại chính xác. Phân loại chính xác. Và thuật toán học máy, chúng ta
+sẽ thảo luận chi tiết hơn nữa trong khóa học phân loại, sẽ lấy sự
+chính xác đó và cố gắng cải thiện nó. Và cách cải tiến làm là cập nhật thông số w-hat. Và đó là chu kì của thuật toán phân loại học máy sẽ trông như vậy. Trong bài học này, chúng ta
+thấy cách làm phân loại. Chúng ta đã thấy những ví dụ
+khác nhau được áp dụng. Chúng ta đã nói về các mô hình
+để xây dựng phân loại, đặc biệt trong bối cảnh phân tích cảm tính, 
+chúng ta đã thấy một số ví dụ trực tiếp. Và chúng ta thậm chí đã có một bản ghi chép
+về việc xây dựng bộ phân loại từ dữ liệu và phân tích nó. Và với kiến thức này, bạn sẵn sàng
+xây dựng một ứng dụng thông minh sử dụng một bộ phân loại làm cốt lõi. [NHẠC]

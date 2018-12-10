@@ -1,0 +1,35 @@
+[NHẠC] OK chúng ta đã nhìn thấy trong tiếp cận
+phân loại dựa trên tính năng chúng ta có thể xử lý các trường hợp bị hạn chế
+dữ liệu người sử dụng. Mặt khác trong tiếp cận phân rã ma trận, chúng ta thấy rằng chúng ta có thể nắm bắt
+ mỗi quan hệ giữa người sử dụng và các mặt hàng, cụ thể là học các tính năng
+ của người sử dụng và các mặt hàng. Câu hỏi đặt ra là liệu chúng ta có thể
+có một số cách tiếp cận tích hợp để có được lợi cả hai chiều không. Quan trọng là các tính năng của
+cách tiếp cận phân loại, hoặc cái gì đó như là có thể
+nắm bắt được ngữ cảnh, thời gian, cái mà tôi vừa thấy, thông tin 
+người sử dụng, việc mua hàng trước đây. Trong khi đó các tính năng được
+khám phá ra từ phân rã ma trận có thể nhóm các nhóm người sử dụng giống nhau. Ví dụ phụ nữ ở Seatle là giáo viên
+và cũng là một người mẹ. OK câu hỏi là chúng ta kết hợp
+hai tiếp cận khác nhau này như thế nào. Nó rất đơn giản thôi. Những gì chúng ta có thể làm là chúng ta
+có thể lấy một người sử dụng mới mà chúng ta không có thông tin
+người mua và chúng ta có thể sử dụng các tính năng được mô tả
+bởi người sử dụng đó. Như là tuổi của người đó, giới tính và vân vân, để dự đoán xếp hạng mà
+người đó có thể cho. Như vậy khi chúng ta có càng
+nhiều dữ liệu từ người sử dụng đó, chúng ta có thể làm nặng hơn trên
+cách tiếp cận phân loại ma trận của chúng ta và sử dụng các tính năng đó khi mà
+chúng ta xây dựng các tư vấn của chúng ta. Nó rất đơn giản để nghĩ đến
+việc kết hợp các ý tưởng mô hình tính năng dựa trên người sử dụng cụ thể
+ với các tính năng đã học từ phân rã ma trận. Và dần dần chuyển đổi giữa hai loại, phụ thuộc vào bao nhiêu dữ liệu có sẵn 
+từ mỗi người sử dụng hoặc cho mỗi sản phẩm. Ý tưởng của các mô hình pha trộn
+này thực sự là phổ biến. Một ví dụ đã được đưa ra
+có sự ảnh hưởng trong các hệ thống tư vấn là ví dụ
+cổ điển mà chúng ta đã đề cập ở phần đầu của bài học về Netflix. Cuộc thi này là một cuộc thi cho người có thể cung cấp các xếp hạng dự đoán tốt nhất
+ cho những người sử dụng trên Netflix, và bộ dữ liệu bao gồm hàng trăm triệu xếp hạng
+người sử dụng và các bộ phim khác nhau. Có gần 18,000 bộ phim khác nhau,
+gần 500,000 người sử dụng và mục đích là để dự đoán 3,000,000
+xếp hạng với độ chính xác cao nhất, và giải thưởng là $1,000,000. Có nhiều người rất thích việc
+cạnh tranh giải thưởng này, và cái mà chúng ta thấy trong
+bảng này là nhóm dẫn đầu. Mô hình của họ thực sự đã pha trộn hàng trăm các mô hình khác nhau
+để có kết quả này. Kiểu tiếp cận này chúng ta sẽ thảo luận nhiều hơn trong
+bài học phân loại nhưng khái niệm kết hợp các mô hình
+để có hiệu suất vượt quá hiệu suất của các mô hình cá nhân khác
+là một kỹ thuật rất phổ biến và hữu ích.

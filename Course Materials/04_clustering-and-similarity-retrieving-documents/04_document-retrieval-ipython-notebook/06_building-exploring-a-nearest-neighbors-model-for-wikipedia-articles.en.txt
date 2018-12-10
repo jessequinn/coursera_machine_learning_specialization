@@ -1,0 +1,30 @@
+[MUSIC] In the lectures, Emily talked
+about nearest neighbor models and how they can be used for
+document retrieval. So today, we're gonna actually
+do some cool document retrievals using simple nearest neighbor models. Next we're going to build a nearest neighbor model for
+document retrieval. And here we go, nearest neighbor model for
+document retrieval. Again, you could implement your own,
+but we have one already implemented here that you can use,
+which is great for this first course. We're gonna use the one from the offline,
+and it is called nearest_neighbors. And just like that use the verb create
+to create a nearest neighbor model. So we're gonna give it this input. The people table. And we have to say what features we're
+gonna use in the nearest neighbors. So the features are gonna be the tfidf,
+tfidf. Just like we've been using for
+the cosine distances above. And I'm going to provide
+a label column and this label column is going to be the name. So when I return my nearest neighbors,
+it's going to return the actual label of the nearest
+neighbor, so the name of the person. And that will make the print out prettier. So that's cool that it's there for us. So it should only take a few seconds. And we will have, now there we are. We will have a nearest neighbor model for
+document retrieval. So now we can use it, so
+let's go ahead and use it. So I'm going to just create
+another header here and say applying
+the nearest-neighbors model for retrieval, and let's see what we get. So the first question is, so
+let's do our first query. So who is closest to Obama? So who are the closest people
+to Obama in the data set. So if you just take our neighbor model, we can use the method query,
+the function query associated with it, which just queries
+the model with some input. So in this case Obama as our input, and
+gives me back the nearest-neighbor. So where the nearest-neighbor is to Obama,
+we'll compute it, and it's very quick. And I say, okay, the closest person to
+Obama is Obama himself, which makes sense. But after that, we have Joe Biden,
+who is the current US vice president. So the president is closest
+to the vice president. And then we find a few other politicians,
+including former president Bill Clinton, which we saw above. [MUSIC]

@@ -1,0 +1,20 @@
+[背景音乐]
+翻译: RyukaSuu |审阅: 19waa
+Coursera Global Translator Community 文章检索的其他例子 明白? 所以我们会展示一些其他的例子 比如说 让我们用歌手Taylor Swift (泰勒·斯威夫特) 作为例子 所以在我们表中的所有人当中 我会选出一位 她的名字是Taylor Swift (泰勒·斯威夫特) 并且当我选中她的时候我可以问 让我们检索一些和Taylor Swift (泰勒·斯威夫特) 的词条最相似的词条 换句话说 哪些人 仅仅对于这个模型来说
+哪些人和Taylor Swift (泰勒·斯威夫特) 距离最近 她是一个女歌手 所以你会看到其他女性 歌手和她同时代的 比如Carrie Underwood (凯莉·安德伍德) Alicia Keys (艾丽西亚·凯斯) Jordan Sparks (乔丁·斯帕克斯) 
+Leona Lewis (丽安娜·刘易斯) 在这里作个小小的声明 我得去 维基百科上查找这些人才行
+因为我真的不认识她们是谁 让我们继续 让我们再看另一个例子 比如说 女演员 Angelina Jolie (安吉丽娜·朱莉) 所以如果在表里所有的人当中选出她 选出名字叫做Angelina Jolie (安吉丽娜·朱莉) 的人物 然后我会查询我的最近邻居模型 去询问谁是最接近Angelina Jolie (安吉丽娜·朱莉) 的人 所以到底谁离 Angelina Jolie (安吉丽娜·朱莉) 更近呢？ 在我按下回车之前 让我们花一点时间想想 如果你了解过任何关于 Angelina Jolie (安吉丽娜·朱莉)
+这个女演员的事 你可能就会猜测谁是离她最近的人 如果我运行这个函数 
+你会看到最近的邻居是Brad Pitt (布拉德·皮特) 并且我们都知道Angelina Jolie (安吉丽娜·朱莉) 和
+Brad Pitt (布拉德·皮特) 之间的关系 然后你还会看到Julianne Moore (朱丽安·摩尔)
+Bill Bob Thornton (比利·鲍伯·松顿) George Clooney (乔治·克鲁尼)这些都是 在电影中和Angelina Jolie (安吉丽娜·朱莉) 一起合演过
+的男演员和女演员 所以这很酷吧 我们得到了一些有趣的检索 让我给你们展示最后一个酷和有趣的例子 你可能对一个人很熟悉 他名叫 Arnold Schwarzenegger (阿诺德·施瓦辛格) 有名的终结者 事实上在这里我需要作弊一下 确保我正确拼写出了他的名字 Schwarzenegger 好的 希望我写的是对的 问题来了 谁是Arnold Schwarzenegger (阿诺德·施瓦辛格)
+最近的邻居呢？ 现在 你可能知道Arnold有双重的生涯 首先他从一个演员开始 好的 准确来说是从健美运动员开始
+然后是演员 接着是政治家 然后成为了 美国加利福尼亚州的州长 所以有多重生涯 所以谁是Arnold Schwarzenegger (阿诺德·施瓦辛格)
+最近的邻居呢？ 你会首先看到Arnold Schwarzenegger (阿诺德·施瓦辛格) 自己 接着你会看到 Jessie Ventura (杰西·文图拉) Jessie Ventura (杰西·文图拉) 是一个摔跤运动员
+也是一个演员 所以和Arnold Schwarzenegger (阿诺德·施瓦辛格) 很像 接着会看到一些政治家 包括前任 俄勒冈州长 罗德岛州长 以及美国一些其他州的州长 现在我们可以看到 Arnold的最近邻居是
+政治家和 演员以及健美运动员 这些和他相似的人物 所以这真的是一个很酷的例子
+对于仅仅是构建一个非常简单的词条检索 系统并使用TFIDF和最近邻居模型来说 就像我们在之前模块的教学单元中学到的一样
+但我们把它们运用到了实际中 并且 从维基百科的数据集中检索到了一些很酷的词条 [背景音乐]
+翻译: RyukaSuu |审阅: 19waa
+Coursera Global Translator Community

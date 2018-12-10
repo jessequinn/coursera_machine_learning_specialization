@@ -1,0 +1,315 @@
+1
+00:00:00,000 --> 00:00:04,337
+[NHẠC]
+
+2
+00:00:04,337 --> 00:00:09,035
+Trong bài học này Emily chỉ cho chúng ta 
+cách xây dựng các bộ tư vấn và
+
+3
+00:00:09,035 --> 00:00:12,810
+các thuật toán liên quan đến các hệ thống tư vấn.
+
+4
+00:00:12,810 --> 00:00:15,780
+Bây giờ chúng ta sẽ xây dựng một ghi chú để giới thiệu các bài hát
+
+5
+00:00:15,780 --> 00:00:16,770
+chúng ta có thể muốn nghe.
+
+6
+00:00:16,770 --> 00:00:19,410
+Điều này khá là thú vị.
+
+7
+00:00:20,950 --> 00:00:26,960
+Ok đây sẽ là 'the', chúng ta sẽ đặt lại tên ghi chú của chúng ta.
+
+8
+00:00:26,960 --> 00:00:31,920
+Đây là Song recommender.
+
+9
+00:00:34,490 --> 00:00:38,910
+Một lần nữa tôi sẽ dấu tiêu đề và
+
+10
+00:00:38,910 --> 00:00:41,870
+dấu thanh công cụ để tạo một khoảng trống nhỏ.
+
+11
+00:00:41,870 --> 00:00:47,310
+Như thường lệ chúng ta sẽ bắt đầu bằng việc nhập graphlab.
+
+12
+00:00:47,310 --> 00:00:48,390
+Ok hãy bắt đầu ở đây.
+
+13
+00:00:50,250 --> 00:00:55,380
+Và điều đầu tiên mà chúng ta sẽ làm là tải các dữ liệu nhạc.
+
+14
+00:00:57,050 --> 00:01:03,370
+Chúng ta sẽ tải dữ liệu nhạc.
+
+15
+00:01:04,390 --> 00:01:07,378
+Đây là tập dữ liệu rất thú vị, nó được gọi là Million Song Dataset.
+
+16
+00:01:07,378 --> 00:01:10,209
+Và chúng ta sẽ tạo ra một biến gọi là song_data.
+
+17
+00:01:10,209 --> 00:01:11,750
+Nó sẽ lưu trữ.
+
+18
+00:01:11,750 --> 00:01:16,445
+Và chúng ta sẽ có graphlab.SFrame nơi mà
+
+19
+00:01:16,445 --> 00:01:21,737
+chúng ta đang đọc và đây là một số dữ liệu đã giảm.
+
+20
+00:01:21,737 --> 00:01:24,664
+Đây chúng ta có, chúng ta sẽ đọc nó và vì thế
+
+21
+00:01:24,664 --> 00:01:28,673
+hãy bắt đầu thực hiện một chút khám phá dữ liệu.
+
+22
+00:01:28,673 --> 00:01:33,723
+Hãy thực hiện một số khám phá qua
+
+23
+00:01:33,723 --> 00:01:38,970
+dữ liệu bạn bè ở đây, dữ liệu âm nhạc.
+
+24
+00:01:38,970 --> 00:01:43,400
+Điều đầu tiên mà chúng ta sẽ làm 
+
+25
+00:01:43,400 --> 00:01:46,490
+là lấy song_data và nhìn vào dòng đầu tiên của bảng này.
+
+26
+00:01:47,930 --> 00:01:51,290
+Đây là cái mà dữ liệu bài hát thể hiện.
+
+27
+00:01:51,290 --> 00:01:54,590
+Một người sử dụng cho ID người dùng.
+
+28
+00:01:55,840 --> 00:01:58,090
+Hãy nghe một bài hát một hoặc hai lần.
+
+29
+00:01:58,090 --> 00:02:02,589
+Đây là tên của bài hát, đây là nghệ sĩ và
+
+30
+00:02:02,589 --> 00:02:06,730
+đây là bài hát.
+
+31
+00:02:06,730 --> 00:02:10,520
+Tên là tiêu đề của bản thu âm đã đề cập đến.
+
+32
+00:02:10,520 --> 00:02:16,250
+Như chúng ta thấy, chúng ta có
+
+33
+00:02:16,250 --> 00:02:21,606
+một bảng mà cho chúng ta thấy tần suất
+ mỗi người nghe các bài hát khác nhau.
+
+34
+00:02:21,606 --> 00:02:24,210
+Và sau đó chúng ta sẽ sử dụng cái này để xây dựng bộ tư vấn
+
+35
+00:02:24,210 --> 00:02:26,670
+cái mà tìm ra các bài hát bạn có thể thích nghe.
+
+36
+00:02:26,670 --> 00:02:30,340
+Và chúng ta sẽ khám phá một cặp bộ tư vấn khác nhau
+
+37
+00:02:30,340 --> 00:02:33,760
+như Emily đã chia sẻ với chúng ta trong bài học.
+
+38
+00:02:34,850 --> 00:02:41,230
+Thông thường tôi sẽ hiển thị biểu đồ trên chính ghi chú.
+
+39
+00:02:41,230 --> 00:02:47,467
+Tôi sẽ làm graphlab.canvas.set_target và
+
+40
+00:02:47,467 --> 00:02:50,243
+tôi sẽ nói ipynb.
+
+41
+00:02:50,243 --> 00:02:54,540
+Sau đó chúng ta đã hoàn thành điều đó tôi sẽ lấy song_data của tôi.
+
+42
+00:02:54,540 --> 00:02:58,344
+Và tôi sẽ nhìn vào cột cụ thể, hãy lấy cột bài hát và
+
+43
+00:02:58,344 --> 00:03:03,320
+type.show trong đó, điều này sẽ cho tôi
+
+44
+00:03:03,320 --> 00:03:08,300
+một biểu đồ về các bài hát khác nhau và tần suất chúng được phát.
+
+45
+00:03:08,300 --> 00:03:09,535
+Và đây là cái chúng ta có.
+
+46
+00:03:09,535 --> 00:03:14,062
+Đây là các bài hát khác nhau theo tiêu đề và
+
+47
+00:03:14,062 --> 00:03:20,280
+bạn thấy bài hát này đã được phát 5,970 lần.
+
+48
+00:03:20,280 --> 00:03:26,134
+Bài hát Bjork đã được phát 5,281 lần.
+
+49
+00:03:26,134 --> 00:03:31,270
+Bài hát này, đây là bài hát Brazilian.
+
+50
+00:03:31,270 --> 00:03:35,471
+TVC bởi Catola, 3.185 lần.
+
+51
+00:03:35,471 --> 00:03:40,274
+Một số người thích các bài hát của họ và họ phát chúng rất nhiều.
+
+52
+00:03:40,274 --> 00:03:44,868
+Đây là loại dữ liệu chúng ta đang thấy và
+
+53
+00:03:44,868 --> 00:03:51,160
+nếu bạn nhìn nhanh vào dữ liệu bài hát này, bạn sẽ thấy độ dài.
+
+54
+00:03:51,160 --> 00:03:59,700
+Bạn thấy chúng ta đang nói về 1,1 triệu bài hát.
+
+55
+00:03:59,700 --> 00:04:04,600
+Hàng triệu người sử dụng bài hát, vì vậy 
+đây là các xếp hạng, xếp hạng bài hát.
+
+56
+00:04:04,600 --> 00:04:07,190
+Đây là tập dữ liệu, một tập dữ liệu khá lớn.
+
+57
+00:04:07,190 --> 00:04:13,040
+Nhưng chúng ta sẽ làm một số thứ cùng nhau
+ trên tập dữ liệu lớn này ngay bây giờ.
+
+58
+00:04:14,430 --> 00:04:17,540
+Hãy hỏi, hãy làm nhiều khám phá hơn một chút.
+
+59
+00:04:17,540 --> 00:04:20,846
+Chúng ta đã nói về người sử dụng, có 1 triệu người,
+
+60
+00:04:20,846 --> 00:04:24,840
+khoảng 1 triệu xếp hạng hoặc 1 triệu lượt nghe.
+
+61
+00:04:24,840 --> 00:04:27,290
+Hãy xem có bao nhiêu người sử dụng tham gia ở đây.
+
+62
+00:04:27,290 --> 00:04:33,413
+Tôi sẽ xem,
+
+63
+00:04:33,413 --> 00:04:39,990
+# #Count number of users.
+
+64
+00:04:41,400 --> 00:04:45,320
+Làm điều này tôi sẽ chỉ cho bạn một mẹo nhỏ nữa cái mà hữu ích
+
+65
+00:04:45,320 --> 00:04:47,210
+khi bạn khám phá tập dữ liệu của bạn.
+
+66
+00:04:47,210 --> 00:04:52,860
+Tôi sẽ tạo ra một mảng mới ở đây cho người sử dụng.
+
+67
+00:04:52,860 --> 00:04:58,170
+Và điều này sẽ lấy dữ liệu bài hát mà
+
+68
+00:04:58,170 --> 00:05:03,343
+chúng ta có và nhìn vào cột user_id.
+
+69
+00:05:04,600 --> 00:05:10,670
+Tôi sẽ yêu cầu bạn áp dụng lệnh này.
+
+70
+00:05:10,670 --> 00:05:15,410
+Cái mà chọn ra người sử dụng,
+
+71
+00:05:15,410 --> 00:05:19,120
+hiển thị người sử dụng khác nhau mà chúng ta có.
+
+72
+00:05:19,120 --> 00:05:20,630
+Chỉ với tất cả các lệnh.
+
+73
+00:05:20,630 --> 00:05:24,664
+Nếu tôi yêu cầu độ dài của người sử dụng,
+
+74
+00:05:24,664 --> 00:05:30,010
+bạn sẽ thấy rằng chúng ta có 66,346 người sử dụng
+
+75
+00:05:30,010 --> 00:05:34,900
+trong tạp dữ liệu này với 1 triệu bài hát khác nhau.
+
+76
+00:05:34,900 --> 00:05:38,090
+Bạn nghĩ về xếp hạng ngoại trừ số lần bạn nghe,
+
+77
+00:05:38,090 --> 00:05:39,138
+các hàng bài hát.
+
+78
+00:05:39,138 --> 00:05:43,839
+[NHẠC]

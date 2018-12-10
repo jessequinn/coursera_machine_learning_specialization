@@ -1,0 +1,52 @@
+[MUSIC] So we seen this one example, and
+now let's look at a second house. So I'm going to now prediction for a second fancier house. So let's look at that. So let's call this house2. So, house2 from our sales data,
+sales, is going to be the one, again, we're going to use a filter here. So it's the one whose id is equal to 1925069082. So let's take a look at
+what house2 looks like. House2 was sold in 2015 for $2.2 million. It has 5 bedrooms, 4 and
+a quarter bathrooms, many more bathrooms, 4,640 square feet of living space,
+so it's much bigger. It's about 460 square meters. It's a pretty big house. So let's look at an image. I kinda downloaded also,
+an image for this house. So here's my little cheat sheet for the image, and I'm going to insert it. So scan, so as before we're
+gonna do an image whose source. So, this I downloaded to
+the basic directory here. It's called house-1925069082.jog, close, not jog, but jpeg. So, that should work. So, remember that other
+house cost $620,000. This one costs $2.2 million. Let's take a look at it. It looks fancier. It looks cool, has a bigger yard. But check this out. It's on the water. It's a waterfront house. Now that explains why it costs $2 million. It's fancier, much fancier. So, let's see now what our models
+predict for the value of this property. So, it costs $2.2 million. Let's print what the square
+foot model predicts. So, just like before,
+we're going to do .predict on house2. And, it predicts it costs
+only $1.25 million. So, it didn't do so well. So let's look at what
+the more advanced models, so my_features model.predict does. And before I hit Enter here, it's good to start thinking
+about what should happen here. The other house, the one above,
+where the, the one with more features, more than one features didn't make
+a big difference or actually did worse, was a pretty standard house for Seattle. Standard number of bedrooms,
+standard number of bathrooms, it was kind of common, so you expected
+both models to do about the same. But this house is crazy. It has features which are hard to
+capture just because of the square feet. It has waterfront. It has lots of bathrooms,
+lots of bedrooms. So we expect here for the more
+advanced feature model to do better. Oh, I misspelled something. Oh, I forgot, here my features_model. Sorry about that,
+that was really anticlimactic. But if we run it,
+you see it's 1.38 million. It's a little closer. As you remember from before,
+the error difference was too big, but here it's a little closer
+to the true price. So it does a bit better on this house. Now, just to conclude, let's do a even fancier house, so what I'm gonna look at, so a third house. So the ##Last house is
+gonna be super fancy. And in fact, what we're gonna
+do is take Bill Gates' house. Bill Gates lives in the Seattle area, and
+try to predict what the house looks like. So it has a lot of different properties. And rather than typing them all in,
+I'm going to paste them in. So I'm going to paste it here. And this is what your Gates house
+would have if it were in the data set. It has 8 bedrooms, 25 bathrooms. Bill Gates really needs to go
+to the bathroom, apparently. 25 bathrooms,
+at least this is what it said online. It has 50,000 square feet of housing. That's about 5,000 square meters. That's a big house,
+four floors, lots of stuff. So that's what his house looks like. We actually don't know what the house
+is worth because it's never been sold. I guess he doesn't need the money. [LAUGH] And let's see what that house actually looks like. So, I actually have a little cheat sheet
+here with a link to an image of his house. So, this is a picture of,
+Bill Gates' house. And here we go. Oh, yes, sorry about that. I forgot I had to do,
+tell it it was a markup. And there we go. So, let's see what the model predicts for
+the price of Bill Gates' house. I'm gonna print what
+my_features_model.predict says for Bill Gates' house. Now these are GraphLab created models,
+and they only take SFrames as input. So I have to take that dictionary
+that I just created to describe Bill Gates' house, and
+convert it to an SFrame. So I just type
+graphlab.SFrame(bill_gates), this was a dictionary, which is what we defined
+above here that's called dictionary. And then converts to SFrame,
+and I execute. And it says it predicts it
+to be valued at $13 million. I don't know. It sounds like a lot, but the house might
+be worth a lot more than $13 million. Who knows? And that was exciting. We built two models of house
+prices using county data. We explored it, we use it, and we applied
+it to this task of predicting houses. We even found out what we think Bill
+Gates' house might actually be valued at. [MUSIC]

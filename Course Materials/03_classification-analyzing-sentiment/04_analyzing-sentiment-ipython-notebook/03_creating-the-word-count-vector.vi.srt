@@ -1,0 +1,126 @@
+1
+00:00:00,343 --> 00:00:04,183
+[NHẠC]
+
+2
+00:00:04,183 --> 00:00:07,522
+Là một phần của việc
+sử dụng bộ dữ liệu này,
+
+3
+00:00:07,522 --> 00:00:13,625
+điều đầu tiên chúng ta sẽ làm
+giống như trong bài học này,
+
+4
+00:00:13,625 --> 00:00:18,013
+chúng ta sẽ xây dựng
+một vectơ đếm từ.
+
+5
+00:00:18,013 --> 00:00:25,513
+Xây dựng vecto đếm từ
+cho mỗi một đánh giá.
+
+6
+00:00:28,463 --> 00:00:33,357
+Thông thường bạn phải thực hiện điều này
+và giải thích những gì liên quan đến
+
+7
+00:00:33,357 --> 00:00:38,410
+đánh giá, tách từ, được gọi là
+tokenizing, xây dựng vectơ đếm.
+
+8
+00:00:38,410 --> 00:00:43,230
+Nhưng một trong những điều tuyệt vời
+khi sử dụng các công cụ trong
+
+9
+00:00:43,230 --> 00:00:48,190
+khóa học này là chỉ có một câu lệnh,
+chúng ta có thể xây dựng vecto đếm từ.
+
+10
+00:00:50,030 --> 00:00:53,650
+Trong products, tôi sẽ thêm một cột mới
+
+11
+00:00:53,650 --> 00:00:58,910
+gọi là word_count, cho
+việc đếm từ của chúng ta.
+
+12
+00:00:58,910 --> 00:01:02,782
+Nếu bạn chỉ gọi
+graphlab.text_analytics,
+
+13
+00:01:02,782 --> 00:01:07,102
+đó là một hộp công cụ phân tích
+văn bản cho một loạt các chức năng,
+
+14
+00:01:07,102 --> 00:01:10,080
+có một cái được gọi là count_words.
+
+15
+00:01:10,080 --> 00:01:13,182
+Chú ý có một cái được gọi là count_ngrams 
+nếu bạn muốn sử dụng bi_grams,
+
+16
+00:01:13,182 --> 00:01:14,110
+tri_grams và vân vân.
+
+17
+00:01:15,388 --> 00:01:20,530
+Và cũng như đầu vào, tôi sẽ
+đưa các sản phẩm này là frame,
+
+18
+00:01:20,530 --> 00:01:25,070
+nhưng tôi sẽ gọi nó để đếm
+các từ trong cột đánh giá.
+
+19
+00:01:26,600 --> 00:01:29,020
+Và chúng ta sẽ thực hiện
+điều đó, nó đã hoàn tất.
+
+20
+00:01:29,020 --> 00:01:33,000
+Bây giờ nếu chúng ta nhìn vào
+
+21
+00:01:33,000 --> 00:01:37,610
+bảng sản phẩm khác,
+ở đầu bảng bạn sẽ
+
+22
+00:01:39,240 --> 00:01:43,910
+thấy rằng chúng ta có
+cột thứ tư word_count.
+
+23
+00:01:43,910 --> 00:01:46,750
+Chúng ta sẽ khám phá nhiều hơn nữa.
+
+24
+00:01:46,750 --> 00:01:51,022
+Nhưng bạn thấy với đánh giá
+đầu tiên bao gồm từ "and"
+
+25
+00:01:51,022 --> 00:01:53,310
+năm lần, "stick" một lần.
+
+26
+00:01:53,310 --> 00:01:58,470
+Có thể đó là lý do nó không phải một đánh giá
+sản phẩm tốt như các đánh giá khác.
+
+27
+00:02:01,560 --> 00:02:05,429
+[NHẠC]

@@ -1,0 +1,113 @@
+1
+00:00:04,410 --> 00:00:06,701
+So in this module we're
+gonna talk about regression.
+
+2
+00:00:06,701 --> 00:00:09,486
+Which is one of the most widely
+used statistical tools outs there.
+
+3
+00:00:09,486 --> 00:00:11,650
+And the idea is really simple.
+
+4
+00:00:11,650 --> 00:00:16,070
+So we have some set of features and
+we wanna model how our observations that
+
+5
+00:00:16,070 --> 00:00:22,200
+are associated with these features change
+as we change the values of the features.
+
+6
+00:00:22,200 --> 00:00:25,670
+And we're gonna ground our
+conversation in a case study
+
+7
+00:00:25,670 --> 00:00:28,640
+of trying to predict house values.
+
+8
+00:00:28,640 --> 00:00:32,748
+So here we can imagine that a house has
+some set of features like what's the size
+
+9
+00:00:32,748 --> 00:00:36,420
+of the house, how many bedrooms does
+it have, number of bathrooms and
+
+10
+00:00:36,420 --> 00:00:37,840
+the list goes on and on.
+
+11
+00:00:37,840 --> 00:00:42,110
+And the observation that we have is
+what's the value of the house or
+
+12
+00:00:42,110 --> 00:00:43,770
+the house sales price.
+
+13
+00:00:43,770 --> 00:00:47,120
+But the tools of regression go
+
+14
+00:00:47,120 --> 00:00:50,120
+much beyond just thinking
+about doing prediction tasks.
+
+15
+00:00:50,120 --> 00:00:52,950
+So as we're gonna see in
+the classification course,
+
+16
+00:00:52,950 --> 00:00:56,230
+we can use regression tools for
+classification.
+
+17
+00:00:56,230 --> 00:00:58,830
+So for example,
+let's say we have an email and
+
+18
+00:00:58,830 --> 00:01:01,450
+we wanna classify whether it's spam or
+not spam.
+
+19
+00:01:01,450 --> 00:01:06,120
+Well, that email we can think of having
+features about the text of the e-mail,
+
+20
+00:01:06,120 --> 00:01:10,190
+that's indicative of whether
+that e-mail is spam or not spam.
+
+21
+00:01:10,190 --> 00:01:13,225
+And in addition we can think
+about using regression for
+
+22
+00:01:13,225 --> 00:01:15,580
+analyze the importance of
+the features themselves.
+
+23
+00:01:15,580 --> 00:01:18,884
+And we're gonna talk more about
+that in the regression course.
+
+24
+00:01:18,884 --> 00:01:22,289
+[MUSIC]

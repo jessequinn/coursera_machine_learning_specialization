@@ -1,0 +1,500 @@
+1
+00:00:00,000 --> 00:00:04,234
+[NHẠC]
+
+2
+00:00:04,234 --> 00:00:07,720
+Hãy bắt đầu bằng việc thảo luận một số các
+lĩnh vực mà các hệ thống tư vấn đang đóng
+
+3
+00:00:07,720 --> 00:00:10,010
+một vai trò rất năng động
+đằng sau hậu trường.
+
+4
+00:00:10,010 --> 00:00:14,130
+Và chúng ta sẽ thấy trong cuộc thảo luận này,
+phụ thuộc vào ứng dụng cụ thể
+
+5
+00:00:14,130 --> 00:00:18,370
+các khía cạnh khác nhau của mục tiêu
+chúng ta đang cố gắng tối ưu hóa sẽ là quan trọng.
+
+6
+00:00:19,630 --> 00:00:21,950
+Nhưng trước khi chúng ta bắt đầu
+nói về các hệ thống tư vấn,
+
+7
+00:00:21,950 --> 00:00:25,630
+nó thực sự quan trọng để nói
+về ý tưởng cá nhân hóa
+
+8
+00:00:25,630 --> 00:00:29,800
+bởi vì cá nhân hóa đang làm thay đổi
+trải nghiệm của chúng ta về thế giới.
+
+9
+00:00:29,800 --> 00:00:34,470
+Khi chúng ta nói về việc phân nhóm và
+các học tương tự, có rất nhiều
+
+10
+00:00:34,470 --> 00:00:36,230
+các bài báo trong đó.
+
+11
+00:00:36,230 --> 00:00:38,420
+Trong rất nhiều các trang web.
+
+12
+00:00:38,420 --> 00:00:40,900
+Và chúng ta không thể mong đợi
+duyệt tất cả chúng.
+
+13
+00:00:40,900 --> 00:00:43,930
+Một ví dụ khác ở đây là YouTube.
+
+14
+00:00:43,930 --> 00:00:44,620
+YouTube,
+
+15
+00:00:45,900 --> 00:00:51,610
+Nó được cho rằng có khoảng
+100 giờ video ghi lại một phút.
+
+16
+00:00:51,610 --> 00:00:54,400
+Và câu hỏi là tôi quan tâm về điều gì.
+
+17
+00:00:54,400 --> 00:00:58,610
+Bạn biết không tôi sẽ vào YouTube và 
+tôi muốn xem một số video tôi quantaam.
+
+18
+00:00:58,610 --> 00:01:02,140
+Đây là một ví dụ, rõ ràng
+là quá tải thông tin.
+
+19
+00:01:02,140 --> 00:01:07,450
+Có quá nhiều nội dung
+ở đây cho tôi để vào và
+
+20
+00:01:07,450 --> 00:01:13,790
+tìm cái tôi thích mà không cần
+ai giúp mang nội dung đó cho tôi.
+
+21
+00:01:13,790 --> 00:01:18,900
+Dạng trình duyệt truyền thống là 'history'.
+
+22
+00:01:18,900 --> 00:01:21,420
+Cần một số cách trong đó
+
+23
+00:01:21,420 --> 00:01:24,960
+nội dung liên quan tới tôi
+cần được tự động khai phá.
+
+24
+00:01:24,960 --> 00:01:29,910
+Và khái niệm về cá nhân hóa, tức là chúng ta
+muốn kết nối những người dùng giống như tôi,
+
+25
+00:01:29,910 --> 00:01:34,400
+truy cập YouTube và các thành phần,
+trong trường hợp này
+
+26
+00:01:34,400 --> 00:01:39,380
+sẽ là các video trên YouTube
+được kết nối bằng cách nào đó.
+
+27
+00:01:41,810 --> 00:01:43,100
+Ok, vì thế
+
+28
+00:01:43,100 --> 00:01:47,390
+cá nhân hóa sẽ đóng vai trò chính
+trong các hệ thống tư vấn và
+
+29
+00:01:47,390 --> 00:01:51,970
+bây giờ hãy nói về một số ví dụ mà
+các hệ thống tư vấn đóng vai trò quan trọng.
+
+30
+00:01:51,970 --> 00:01:56,590
+Một ví dụ cổ điển mà chúng ta
+đã đề cập một chút trước đây là
+
+31
+00:01:56,590 --> 00:02:01,460
+ý tưởng của Netflix, ở đây
+mọi người vào và họ xem video.
+
+32
+00:02:01,460 --> 00:02:07,690
+Và Netflix hướng đến việc
+gợi ý các loại phim hoặc
+
+33
+00:02:07,690 --> 00:02:11,370
+chương trình TV mà có thể
+nhiều người quan tâm.
+
+34
+00:02:11,370 --> 00:02:15,180
+Và câu hỏi là chúng ta sẽ làm
+các tư vấn này như thế nào.
+
+35
+00:02:16,890 --> 00:02:21,150
+Ví dụ khác nữa, lại quay lại với cái
+mà chúng ta đã nói trước đây,
+
+36
+00:02:21,150 --> 00:02:23,840
+là Amazon tạo ra các tư vấn sản phẩm.
+
+37
+00:02:23,840 --> 00:02:28,100
+Bạn bảo Amazon, bạn mua một vài sản phẩm
+và bạn sẽ thấy trên trang web đó
+
+38
+00:02:28,100 --> 00:02:31,550
+tạo ra một tư vấn của các sản phẩm
+khác bạn có thể quan tâm.
+
+39
+00:02:31,550 --> 00:02:34,790
+Nhưng điều quan trọng để
+đưa vào trong các tư vấn này
+
+40
+00:02:34,790 --> 00:02:38,310
+không chỉ là tính đến
+
+41
+00:02:38,310 --> 00:02:40,880
+sở thích người có trong phần này.
+
+42
+00:02:40,880 --> 00:02:46,170
+Ví dụ ở đây chúng ta chỉ ra rằng ai đó 
+đã mua một quyển sách về websites và
+
+43
+00:02:46,170 --> 00:02:49,080
+có thể thích quyển khác nữa
+về các ứng dụng web hoặc
+
+44
+00:02:49,080 --> 00:02:53,950
+ví dụ việc mua hàng gần đây của tôi
+trên Amazon là giày cho con trai tôi nhưng
+
+45
+00:02:55,360 --> 00:02:59,160
+tôi mua giày không chỉ là vì tôi thích.
+
+46
+00:02:59,160 --> 00:03:02,580
+Tôi không chỉ tìm giày cho người một tuổi.
+
+47
+00:03:02,580 --> 00:03:06,250
+Có rất nhiều lý do tại sao tôi vào
+Amazon và thực hiện việc mua bán.
+
+48
+00:03:06,250 --> 00:03:09,870
+Và nếu bạn nhìn vào lịch sử
+mua bán bạn sẽ có thể có nhiều
+
+49
+00:03:09,870 --> 00:03:14,080
+gợi ý tốt cho tôi hơn là
+dựa trên một mục đơn lẻ này.
+
+50
+00:03:14,080 --> 00:03:18,850
+Và như vậy, sự tư vấn có thể
+thay đổi theo thời gian.
+
+51
+00:03:18,850 --> 00:03:22,630
+Có sở thích tạo nên tư vấn, ví dụ,
+
+52
+00:03:22,630 --> 00:03:25,180
+cái mà tôi có thể thích thú
+trong việc mua bán hôm nay.
+
+53
+00:03:25,180 --> 00:03:28,381
+Nếu bạn nhìn vào lịch sử mua hàng
+của tôi một năm trước,
+
+54
+00:03:28,381 --> 00:03:31,310
+tôi đã mua rất nhiều các sản phẩm sơ sinh.
+
+55
+00:03:31,310 --> 00:03:33,320
+Các sản phẩm sơ sinh cho trẻ.
+
+56
+00:03:33,320 --> 00:03:37,580
+Nhưng có thể đó không phải là
+cái tôi muốn mua ngày hôm nay.
+
+57
+00:03:37,580 --> 00:03:40,650
+Tư vấn mà Amazon đưa ra cho tôi hôm nay
+
+58
+00:03:40,650 --> 00:03:42,520
+phải phù hợp với thời điểm.
+
+59
+00:03:42,520 --> 00:03:45,840
+Cũng như trên video với sự tư vấn
+được cá nhân hóa thực sự
+
+60
+00:03:45,840 --> 00:03:50,900
+làm nên cuộc cách mạng về cách mọi người
+xem phim và các chương trình TV, cũng như có nhiều
+
+61
+00:03:50,900 --> 00:03:55,570
+các websites cung cấp các audio 
+với các tư vấn mang tính cá nhân.
+
+62
+00:03:55,570 --> 00:03:59,760
+Tuy nhiên trong trường hợp này không
+giống như nghĩ về video theo yêu cầu
+
+63
+00:03:59,760 --> 00:04:03,160
+ở đây chúng ta muốn một bài hát
+để phát sau cái này.
+
+64
+00:04:03,160 --> 00:04:06,150
+Và cái chúng ta muốn là chúng ta
+muốn có một số bài hát rõ ràng.
+
+65
+00:04:06,150 --> 00:04:09,740
+Những bài hát tôi thích tôi muốn
+phát các bài hát tương tự.
+
+66
+00:04:09,740 --> 00:04:16,527
+Tôi không muốn chuyển đổi nhanh chóng
+giữa các bài hát cafe Indi
+
+67
+00:04:16,527 --> 00:04:21,510
+rồi đột ngột chuyển sang
+một bài hát nhạc rock.
+
+68
+00:04:21,510 --> 00:04:24,890
+Nhưng ở cùng thời điểm
+
+69
+00:04:24,890 --> 00:04:29,270
+tôi không muốn một bài hát lặp đi lặp lại.
+
+70
+00:04:29,270 --> 00:04:33,530
+Vì thế tôi muốn có một số
+tư vấn thật rõ ràng nhưng
+
+71
+00:04:33,530 --> 00:04:38,120
+tôi cũng muốn cung cấp một chuỗi
+các bài hát khác nhau cho tôi để nghe.
+
+72
+00:04:39,520 --> 00:04:43,870
+Ok lĩnh vực quan trọng khác nữa 
+mà các hệ thống tư vấn
+
+73
+00:04:43,870 --> 00:04:48,430
+thể hiện vai trò tích cực
+là trong mạng xã hội.
+
+74
+00:04:48,430 --> 00:04:52,740
+Ví dụ Facebook có rất nhiều người dùng.
+
+75
+00:04:52,740 --> 00:04:55,440
+Chúng ta muốn tạo ra sự kết nối
+giữa những người dùng.
+
+76
+00:04:55,440 --> 00:05:00,780
+Ví dụ ở đây có thể là một đồ thị kết nối
+giữa người dùng Facebook và
+
+77
+00:05:00,780 --> 00:05:04,600
+có lẽ tôi là nút màu hồng này, và
+
+78
+00:05:04,600 --> 00:05:08,240
+Facebook muốn giới thiệu nhiều người khác
+ mà tôi có thể quan tâm kết nối với nhau.
+
+79
+00:05:10,380 --> 00:05:14,550
+Trong ứng dụng này và điều quan trọng
+là lưu ý cả người sử dụng và
+
+80
+00:05:14,550 --> 00:05:17,610
+các mục đều cùng một loại.
+
+81
+00:05:17,610 --> 00:05:18,840
+Chúng ta đóng cả hai vai trò.
+
+82
+00:05:18,840 --> 00:05:24,670
+Khi tôi là người dùng Facebook,
+thứ được giới thiệu cho tôi,
+
+83
+00:05:24,670 --> 00:05:26,778
+các thành phần, đó là những người khác.
+
+84
+00:05:26,778 --> 00:05:28,880
+Và chúng ta sẽ đưa ra là người dùng và
+
+85
+00:05:28,880 --> 00:05:32,590
+các thành phần là cùng
+một loại trong ứng dụng này.
+
+86
+00:05:33,660 --> 00:05:37,050
+Nhưng hệ thống tư vấn mà chúng ta
+đang nói đến thực sự tập trung vào
+
+87
+00:05:37,050 --> 00:05:38,470
+dữ liệu trực tuyến.
+
+88
+00:05:38,470 --> 00:05:42,470
+Ngày càng nhiều người nhận ra các
+lĩnh vực khác mà các hệ thống tư vấn
+
+89
+00:05:42,470 --> 00:05:44,460
+có thể đóng một vai trò rất quan trọng.
+
+90
+00:05:44,460 --> 00:05:45,610
+Và chỉ với một ví dụ,
+
+91
+00:05:45,610 --> 00:05:49,270
+chúng ta có thể nghĩ về cái được gọi là sự tương tác drug-target.
+
+92
+00:05:49,270 --> 00:05:53,280
+Và ở đây có thể chúng ta có một số
+loại thuốc đã được nghiên cứu, ví dụ
+
+93
+00:05:53,280 --> 00:05:54,620
+hãy nói về aspirin.
+
+94
+00:05:54,620 --> 00:05:58,520
+Nó đã được nghiên cứu
+để điều trị đau đầu.
+
+95
+00:05:58,520 --> 00:06:03,540
+Nhưng nếu có các công dụng
+gì khác không?
+
+96
+00:06:03,540 --> 00:06:07,370
+Ví dụ để lưu thông máu,
+cho người bệnh tim?
+
+97
+00:06:09,380 --> 00:06:11,370
+Nếu chúng ta có thể thấy
+các mối quan hệ,
+
+98
+00:06:11,370 --> 00:06:16,820
+nếu chúng ta có thể tái sử dụng
+thuốc này cho các điều trị khác,
+
+99
+00:06:16,820 --> 00:06:22,240
+điều đó thực sự hữu ích
+bởi vì nó khá là tốn kém và
+
+100
+00:06:22,240 --> 00:06:26,340
+là quá trình dài để được FDA chấp thuận
+cho một loại thuốc mới nhưng
+
+101
+00:06:26,340 --> 00:06:30,380
+nếu chúng ta có thể uống thuốc
+mà có các loại tác dụng phụ và
+
+102
+00:06:30,380 --> 00:06:34,470
+Các rủi ro liên quan là được biết đến và được nghiên cứu.
+
+103
+00:06:34,470 --> 00:06:41,030
+Sau đó nó dễ dàng hơn để chấp thuận các điều kiện khác,
+
+104
+00:06:41,030 --> 00:06:45,740
+vì thế đây là một trường hợp chúng ta có thể nói, nếu bạn thích Aspirin cho bệnh đau đầu,
+
+105
+00:06:45,740 --> 00:06:48,790
+bạn cũng có thể dùng nó cho bệnh tim.
+
+106
+00:06:48,790 --> 00:06:53,660
+Hệ thống tư vấn đang đóng vai trò trong y học như một ví dụ
+
+107
+00:06:53,660 --> 00:06:57,961
+về sự đa dạng của các ứng dụng nơi mà chúng ta thấy các loại hệ thống.
+
+108
+00:06:57,961 --> 00:07:02,049
+>> [NHẠC]

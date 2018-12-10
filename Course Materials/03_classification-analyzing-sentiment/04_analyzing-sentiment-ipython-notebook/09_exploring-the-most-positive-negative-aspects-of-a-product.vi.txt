@@ -1,0 +1,36 @@
+[NHẠC] Với đánh giá đầu tiên, đã có sản phẩm
+cảm tính được dự đoán là 1, hãy nhìn vào đánh giá đó. Tôi sẽ nhìn vào giraffe_reviews. Cái đầu tiên là 0, chỉ số 0 và chúng ta
+hãy nhìn vào nội dung thực của đánh giá. OK tôi sẽ đọc cái này cho bạn. Nó nói, Sophie, oh Sophie,
+thời điểm của bạn đã đến. Cháu gái của tôi, Violet được
+năm tháng tuổi và bắt đầu mọc răng. Đúng là một niềm vui nhỏ với Sophie. Sophie nhỏ đên với Violet. Oh Violet thực sự rất yêu Sophie [âm thanh]. Sophie được làm từ cao su dẻo
+vật liệu chắc chắn nhưng không cứng. Và nó khá dễ cho Violet
+để đặt nó vào miệng. Ok đó là đánh giá tích cực. Con bé viết một bài thơ về Sophie. Hãy nhìn vào đánh giá thứ hai ở đây. Vì vậy với thành phần 1, nó là
+thành phần thứ hai trong bảng. Hãy nhìn xem đánh giá đó như thế nào. Và ở đây nó nói, tôi không chắc lý do tại sao
+Sophie lại thu hút như vậy với các bạn nhỏ. nhưng cháu gái bảy tháng tuổi của tôi là 
+một trong những người hâm mộ đáng yêu. Cao su thì mềm hơn và dễ cầm nắm. Cháu gái tôi thích nhai nó, [âm thanh]
+trên đôi chân, nhai đôi chân, đôi sừng trên đầu. Cả đôi tai cũng nhai và vân vân. [Âm thanh] con bé thực sự thích nó và
+con bé thích tiếng kêu đó, vì thế rõ ràng nó là một thành công lớn. Đây là hai đánh giá tích cực. Bây giờ hãy để tôi chỉ cho bạn mẹo nhỏ
+python mà bạn có thể sử dụng để chỉ ra các đánh giá tiêu cực nhất. Các đánh giá tiêu cực nhất là
+ở dưới cùng của bảng. Vì thế chúng ta có thể hỏi chiều dài
+của bảng là bao nhiêu và tìm ra phần tử cuối cùng và vân vân. Nhưng với python, chúng ta có thể
+làm điều này một cách dễ dàng. Hãy để tôi cho bạn thấy
+điều gì xảy ra tiếp theo. Chỉ ra các đánh giá tiêu cực nhất. Chúng ta có thể lấy bảng này và
+chỉ cần tạo chỉ số với một số âm, -1. Và nó sẽ đứng ở cuối bảng. -1 là phần tử cuối cùng, -2 là phần tử cuối thứ 2 và vân vân. Hãy nhìn vào đánh giá tiêu cực nhất
+cho hươu cao cổ của chúng ta. Tôi đã quên đặt một thông điệp ở đây,
+vì thế hãy làm điều đó và thực hiện. Được rồi. Đây là đánh giá tiêu cực về Sophie. Con trai của tôi thích Sophie. Tôi đã mua nó cho con trai. Bây giờ con gái của tôi sáu tháng tuổi
+hôm nay suýt bị nghẹn vì nó. Tôi sẽ không bao giờ đưa nó
+cho con bé một lần nữa. Vấn đề là con gái tôi đã rất sợ hãi, gần như nghẹn vì cố nuốt
+con hươu cao cổ này. Và vì thế bạn thấy đánh giá tiêu cực của ai đó
+nói về con hươu cao cổ này như thế nào, đó là một đồ chơi có thể nhai được,
+cũng là một mối nguy hiểm bị hóc. Hãy nhìn vào đánh giá tiêu cực thứ hai. Một lần nữa hươu cao cổ và -2, đánh giá tiêu cực thứ hai và
+chúng ta sẽ nhìn qua nó. Có một điều là mọi người không thích vì
+nó có thể gây nguy hiểm nếu nghẹn. Hãy nhìn cái này. Đồ chơi của đứa trẻ này thì
+hoài cổ và rất đáng yêu. Điều đó nghe có vẻ khá tích cực. Thậm chí đánh giá tiêu cực
+thứ hai này bắt đầu khá tích cực. Tuy nhiên có mùi nhựa cao su
+khác biệt và vị rất kì lạ. Đúng tôi đã thử. Người này đã thử nhai
+đồ chơi của con mình. Đó là lý do trẻ con nhà tôi không thích. Rõ ràng mùi nhựa và người này không thể làm sạch nó. Và trẻ con thì không thích nó. Họ đã trả quá tiền cho đồ chơi này. Điều thứ hai mà mọi người
+phàn nàn là mùi của đồ chơi. Mùi thì ok với tôi nhưng
+có thể là một vấn đề. Ok bây giờ trong những dòng cuối của code,
+chúng ta đã xây dựng một phân tích cảm tính. Một hệ thống mà có thể nhìn vào
+các đánh giá và sắp xếp chúng và chỉ ra các mặt tích cực và
+tiêu cực của sản phẩm cụ thể này. [NHẠC]

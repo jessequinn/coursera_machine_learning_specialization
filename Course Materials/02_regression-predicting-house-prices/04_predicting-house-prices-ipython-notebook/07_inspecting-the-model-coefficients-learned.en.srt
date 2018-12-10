@@ -1,0 +1,86 @@
+1
+00:00:00,265 --> 00:00:04,077
+[MUSIC]
+
+2
+00:00:04,077 --> 00:00:08,090
+In fact, we can actually look at the
+coefficients with that line for our model.
+
+3
+00:00:08,090 --> 00:00:14,270
+So we can take this square foot model that
+we built and we can call the function get.
+
+4
+00:00:16,420 --> 00:00:18,750
+And we can get the coefficients.
+
+5
+00:00:20,900 --> 00:00:23,890
+So these are what in the chorus
+we call the weights.
+
+6
+00:00:25,170 --> 00:00:29,390
+And so, there are two weights,
+two coefficients.
+
+7
+00:00:29,390 --> 00:00:34,840
+The first one is the intercept to
+where this line crosses the y axis.
+
+8
+00:00:34,840 --> 00:00:38,436
+In this case, -$44,000.
+
+9
+00:00:38,436 --> 00:00:43,805
+And the second one is the coefficient
+of the square feet, so this angle,
+
+10
+00:00:43,805 --> 00:00:50,410
+which corresponds to, if you interpret it
+in this case, the price per square feet.
+
+11
+00:00:50,410 --> 00:00:52,636
+How much does a square
+foot of a house cost?
+
+12
+00:00:52,636 --> 00:00:54,880
+500 a square foot, how much it adds.
+
+13
+00:00:54,880 --> 00:00:56,760
+And its $280 per square foot.
+
+14
+00:00:56,760 --> 00:00:59,990
+This is the kind of average for Seattle.
+
+15
+00:00:59,990 --> 00:01:03,280
+Some houses cost more per square foot,
+the ones up here.
+
+16
+00:01:03,280 --> 00:01:04,810
+Some houses cost less.
+
+17
+00:01:04,810 --> 00:01:08,949
+But on the average, if you think about it,
+it's about $208 per square foot, or
+
+18
+00:01:08,949 --> 00:01:11,240
+at least according to
+this regression model.
+
+19
+00:01:14,515 --> 00:01:18,409
+[MUSIC]

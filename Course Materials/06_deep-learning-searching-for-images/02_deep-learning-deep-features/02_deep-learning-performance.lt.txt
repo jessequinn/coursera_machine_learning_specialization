@@ -1,0 +1,34 @@
+Deep learning is exciting because it
+learns these complex features of images. And as we discussed earlier. They've had tremendous impact over
+the recent years in a variety of computer vision applications. Let me show you a couple
+of early examples. So, on the top of the slide here,
+what you see is an example of identifying traffic signs based on neural networks. So these are a data of
+German traffic signs and the idea is for every image,
+identify what sign it is. And they were able to get 99.5%
+accuracy using a deep neural network, which is pretty cool. On the bottom there, you see an example
+that came out of some work from Google on identifying the house numbers based
+on what's called Street View data. This is the data that Google
+uses driving around cars and photographing all sorts of
+streets around the world. And you see the images are pretty complex,
+and still they're able to get 97.8%
+accuracy on the per character level. Now these were exciting results. But the one that changed everything. The really excited field happened in 2012. So for many years, there was a image
+competition called ImageNet. And in 2012, the ImageNet
+competition included 1.2 million training images from about
+1,000 different categories. And the idea was can you
+classify this image. Is it not just a dog, but
+is it a golden retriever or a labrador? Very, very fine level detail. Now there's many teams competing. These are the top 3 teams. A team called OXFORD_VGG,
+which got pretty decent accuracy. So if you look at their top five
+guesses can you get the right thing in five guesses. They were getting only about 25% error. There's a thing called ISI
+that did a little bit better. And those are using traditional
+techniques like the SIFT[1], a little bit more elaborate,
+kinda like that. Now that year,
+is a team called SuperVision. That team used a deep, neural network and
+had a huge gain over the competitors and that performance really sparked a lot of
+excitement of using deep neural networks in computer vision because if they
+have to just use hand coded features, you'd learn them automatically. Now that neural network that won the
+competition with the SuperVision team was called the AlexNet neural network and I'm
+showing here an image from their paper, and that neural network involved 8 layers,
+60 million parameters, and was only possible because of new
+training algorithms the could deal with lots of images and
+lots parameters, and the GPU implementation that would
+really scale to large data sets. [MUZIKA]

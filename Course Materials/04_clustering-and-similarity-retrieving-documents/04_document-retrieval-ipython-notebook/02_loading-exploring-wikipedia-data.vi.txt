@@ -1,0 +1,29 @@
+[NHẠC] Trong bài học này, Emily đã đưa ra các
+kỹ thuật khác nhau để thu hồi tài liệu, khám phá các cách biểu diễn
+dữ liệu như là đếm từ và TFIDF. Bây giờ chúng ta sẽ có một Notebook rất tuyệt vời
+để chúng ta đặt các ý tưởng này cùng nhau và xây dựng một hệ thống thu hồi tài liệu. Sử dụng TFIDF. Hãy cùng làm điều đó. Thông thường chúng ta sẽ
+sử dụng notebook ipython và trong phần này tôi sẽ thay đổi
+tiêu đề thành Document retrieval, và chúng ta có ở đây. Và một lần nữa tôi sẽ giấu tiêu đề đi. Và hãy ẩn thanh công cụ
+để có thêm khoảng trống. Ok hãy tiếp tục và dùng Graphlab Create. Chúng ta sẽ import graphlab vì chúng ta sẽ sử dụng lại nó
+trong notebook của chúng ta. Bây giờ bước đầu tiên chúng ta
+sẽ tải một số dữ liệu. Hãy tải một số dữ liệu văn bản. Đây là dữ liệu văn bản
+rất hay từ wikipedia, và nó là các bài về con người. Bộ dữ liệu hay và tôi chỉ cần tải nó, và chúng ta sẽ thấy people là một s frame, sẽ là graphlab.SFrame từ một tập tin và tập tin đó được gọi là
+people wiki, ngay tại đây. Và đây là cái chúng ta có,
+chúng ta đang tải nó. Điều đầu tiên chúng ta sẽ làm là
+nhìn vào vài dòng đầu của tập tin đó. Tôi sẽ chỉ cần tiếp tục và
+bạn sẽ thấy chúng ta có gì, URI này cơ bản là vị trí của
+trang đó trên wikipedia. Đây là tên của người liên quan. Và nội dung của trang đó là về người đó. Bạn có một số lượng người ở đây. Vì vậy nếu gõ len of people. Trong tập dữ liệu của chúng ta, và ấn enter bạn thấy rằng chúng ta đang nói về 
+59,000 người trong tập dữ liệu. Nó là một bộ dữ liệu tuyệt vời và bạn sẽ thấy với DFIDF chúng ta sẽ
+thực hiện một số tài liệu vô cùng thú vị. Thậm chí trong bộ dữ liệu tương đối lớn này. Điều đầu tiên chúng ta sẽ làm chỉ
+là khám phá dữ liệu của chúng ta. #explore the dataset and checkout the text it contains. Hãy bắt đầu nhìn vào tập
+dữ liệu một cá nhân cụ thể. Và chúng ta sẽ nhìn vào trang Barack Obama là Tổng thống Mỹ đương nhiệm. Ngoài s-frame này tôi sẽ lựa chọn một trong những cái tên, đó là cột tên, là Barack Obama. Và tôi ấn enter, tôi đã tạo ra biến mới gọi là Obama. Nếu bạn nhìn nhanh vào nó, bạn sẽ thấy có URL cho trang Obama, tên Barack Obama
+và nội dung của trang đó. Hãy cùng tìm hiểu và xem
+nội dung đó như thế nào. Với Barack Obama bạn sẽ thấy rằng Barack Hussein Obama sinh
+ngày 4 tháng 8 năm 1961 và là tổng thống thứ 44 của Mỹ. Nội dung thực tế này là một loại dữ liệu. Chúng ta cũng có thể nhìn vào
+tập dữ liệu cá nhân khác. Ví dụ như Có một diễn viên tên là George Clooney
+ người mà đã đóng rất nhiều bộ phim. Vì thế nếu bạn nhìn thấy người
+như là chúng ta lựa chọn, thì sẽ phải lọc một lần nữa
+như chúng ta đã làm. George Clooney là ai? Và tôi sẽ tiếp tục và cho bạn thấy nội dung mà
+chúng ta có với George Clooney. Bạn thấy rằng George Timothy Clooney
+sinh năm 1961. Ông ấy bằng tuổi với Barack Obama
+nhưng ông ấy không phải tổng thống. Ông ấy là một diễn viên người Mỹ, nhà văn. Nhà sản xuất, giám đốc và nhà hoạt động, ngay chỗ này. [NHẠC]

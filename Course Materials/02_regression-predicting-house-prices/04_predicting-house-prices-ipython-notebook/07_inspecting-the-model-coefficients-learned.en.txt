@@ -1,0 +1,12 @@
+[MUSIC] In fact, we can actually look at the
+coefficients with that line for our model. So we can take this square foot model that
+we built and we can call the function get. And we can get the coefficients. So these are what in the chorus
+we call the weights. And so, there are two weights,
+two coefficients. The first one is the intercept to
+where this line crosses the y axis. In this case, -$44,000. And the second one is the coefficient
+of the square feet, so this angle, which corresponds to, if you interpret it
+in this case, the price per square feet. How much does a square
+foot of a house cost? 500 a square foot, how much it adds. And its $280 per square foot. This is the kind of average for Seattle. Some houses cost more per square foot,
+the ones up here. Some houses cost less. But on the average, if you think about it,
+it's about $208 per square foot, or at least according to
+this regression model. [MUSIC]

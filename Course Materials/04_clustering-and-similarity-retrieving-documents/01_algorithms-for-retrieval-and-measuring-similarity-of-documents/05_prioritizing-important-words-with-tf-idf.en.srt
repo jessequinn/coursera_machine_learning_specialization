@@ -1,0 +1,260 @@
+1
+00:00:00,263 --> 00:00:03,263
+[MUSIC]
+
+2
+00:00:03,263 --> 00:00:07,632
+So the normalized count vectors that
+we just described helped address some
+
+3
+00:00:07,632 --> 00:00:10,959
+of the issues with our original
+proposal of just using raw
+
+4
+00:00:10,959 --> 00:00:14,033
+word counts as our
+representation of the document.
+
+5
+00:00:14,033 --> 00:00:18,587
+But there's another issue, which is
+often what we'd like to do is really
+
+6
+00:00:18,587 --> 00:00:21,463
+emphasize the important
+words in a document.
+
+7
+00:00:21,463 --> 00:00:25,526
+So we're gonna discuss a little bit about
+what it means to be an important word and
+
+8
+00:00:25,526 --> 00:00:27,640
+how we can think about emphasizing them.
+
+9
+00:00:28,760 --> 00:00:33,210
+Okay, before we talk about important
+words, let's first talk about rare words.
+
+10
+00:00:33,210 --> 00:00:36,730
+So again, let's imagine that we're
+reading an article about soccer, and
+
+11
+00:00:36,730 --> 00:00:41,340
+in this article there are lots and
+lots of common words like the and
+
+12
+00:00:41,340 --> 00:00:44,100
+player and field and goal.
+
+13
+00:00:44,100 --> 00:00:45,540
+And what we mean by a common word,
+
+14
+00:00:45,540 --> 00:00:47,940
+it's a word that appears
+frequently in the corpus.
+
+15
+00:00:47,940 --> 00:00:52,240
+In the corpus, that's just terminology for
+all the documents out there
+
+16
+00:00:52,240 --> 00:00:55,210
+that we are looking at when we're
+doing this task of retrieval.
+
+17
+00:00:56,760 --> 00:01:01,770
+And what happens though is that these
+common words dominate the similarity
+
+18
+00:01:01,770 --> 00:01:06,130
+metric that we talked about when we
+compare against other documents because,
+
+19
+00:01:06,130 --> 00:01:09,650
+like I said, these words appear
+in lots and lots of documents.
+
+20
+00:01:09,650 --> 00:01:10,570
+Whereas in contrast,
+
+21
+00:01:10,570 --> 00:01:14,560
+there are some very rare words in
+this document we're looking at.
+
+22
+00:01:14,560 --> 00:01:20,270
+Words like "futbol" and "Messi",
+the specific player we're reading about,
+
+23
+00:01:20,270 --> 00:01:23,630
+that get completely swamped
+by all these common words.
+
+24
+00:01:25,210 --> 00:01:28,210
+And these words,
+like "futbol" and "Messi",
+
+25
+00:01:28,210 --> 00:01:32,650
+they get swamped because they just
+appear very infrequently in the corpus.
+
+26
+00:01:32,650 --> 00:01:38,800
+So let's think about how to increase
+the importance of these rare words,
+
+27
+00:01:38,800 --> 00:01:44,040
+because those often are the ones that
+are really relevant in describing what's
+
+28
+00:01:44,040 --> 00:01:48,260
+unique about this article, and what might
+indicate which other articles out there,
+
+29
+00:01:49,680 --> 00:01:51,580
+Carlos for example,
+is interested in reading.
+
+30
+00:01:52,850 --> 00:01:57,838
+Okay, so like we said,
+what characterizes a rare word is the fact
+
+31
+00:01:57,838 --> 00:02:01,375
+that it infrequently
+appears in the corpus and
+
+32
+00:02:01,375 --> 00:02:06,456
+what we wanna do is we somehow wanna
+up-weight these rare words and
+
+33
+00:02:06,456 --> 00:02:13,169
+equivalently to thinking about emphasizing
+words that only appear in a few documents,
+
+34
+00:02:13,169 --> 00:02:18,430
+we can think about taking each word and
+discounting the weight on that
+
+35
+00:02:18,430 --> 00:02:24,178
+word based on how many documents that
+word appears in in the entire corpus.
+
+36
+00:02:24,178 --> 00:02:27,818
+Okay, so a question is, do we really
+want to just emphasize the rare words?
+
+37
+00:02:27,818 --> 00:02:32,690
+Well, we clearly don't want to
+emphasize the very common words,
+
+38
+00:02:32,690 --> 00:02:37,410
+the words like the and a and
+it and everything like that.
+
+39
+00:02:37,410 --> 00:02:40,870
+But what we wanna include are things that
+are very relevant for that document.
+
+40
+00:02:40,870 --> 00:02:46,480
+So not just words like Messi, but
+also probably soccer and field and goal.
+
+41
+00:02:47,610 --> 00:02:50,380
+Things that describe the sport
+that we're looking at,
+
+42
+00:02:50,380 --> 00:02:53,500
+which might be different than even
+another article about sports.
+
+43
+00:02:53,500 --> 00:02:57,410
+An article about basketball
+that talks about basketball
+
+44
+00:02:58,980 --> 00:03:03,700
+hoop and court and words like that.
+
+45
+00:03:03,700 --> 00:03:08,330
+So in this case, we wanna emphasize
+what I'll call important words.
+
+46
+00:03:08,330 --> 00:03:08,830
+Okay?
+
+47
+00:03:10,210 --> 00:03:13,409
+And so what we're gonna trade off
+here is we're gonna think about
+
+48
+00:03:14,590 --> 00:03:17,090
+Words that appear very
+frequently in the document so
+
+49
+00:03:17,090 --> 00:03:20,500
+they're relevant to the document
+that we're currently reading.
+
+50
+00:03:20,500 --> 00:03:23,270
+So I'll call this common locally.
+
+51
+00:03:23,270 --> 00:03:27,572
+And at the same time we want them to
+appear relatively infrequently in
+
+52
+00:03:27,572 --> 00:03:32,692
+the corpus so I'll call this rare globally
+and what characterizes a quote unquote
+
+53
+00:03:32,692 --> 00:03:37,980
+important word Is some trade off between
+this local frequency, and global rarity.
+
+54
+00:03:37,980 --> 00:03:41,909
+[MUSIC]

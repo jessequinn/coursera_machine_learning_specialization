@@ -1,0 +1,28 @@
+[MUSIC] We've built a simple model just relating
+square feet of living space to price of houses and then we explored some
+other features like zip codes, and it's clear the zip codes make a big
+difference and there's other features, bedrooms, that also
+makes a big difference. The question is can we get a better model
+by including more features, more of these? And so let's look at that. So we're gonna do here is build a regression model with more features. So this is using this bigger
+feature set that we just described. So the first one I called the sqft_model. Let's call this the my_features_model. So the my_features_model is again going to
+take graphlab.linear regression.create. So we're gonna create it and
+we're gonna use the training data, just like we did before. Our target is again going to be the price,
+just like before. However, the features here that I'm
+gonna use are going to be those features that are called my
+features which I created earlier. So let's go and execute this. So now I use more features and it's
+straining and I think it's done it's done. Using those, I forget how many,
+eight features. I use, let's just print them out here,
+print my_features. So I use bedrooms, bathrooms, square foot of living,
+square foot of lot, floors and zip code. Now we have two models. We have the sqft_model and
+we have my_features_model. How do they compare in
+terms of performance? So here's what I'm going to do. I'm going to print
+the sqft_model.evaluate, evaluate all my test data. And I'm also going to print the my_features_model.evaluate
+on the same test data. And let's compare,
+let's see what happened. Okay, so to start with, we saw that the biggest error in the
+simple square foot model was $4 million. Now it's down to $3.4 million,
+49, so 3.5 million. So it went down a bit. And root mean squared error,
+the average error, went down from $255,000 as we
+had over here to a $179,000. Now, if you add more and more features,
+your area is likely going to decrease quite a bit more because there's
+quite a bit of data here and there's lots that you can learn. But again, just adding some extra features
+already helped us with our performance. [MUSIC]

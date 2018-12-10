@@ -1,0 +1,7 @@
+[MÚSICA] Hoje iremos falar sobre classificação. Que é talvez uma das áreas
+mais comuns do machine learning, uma das mais utilizadas assim como
+ úteis de machine learning. E, também, talvez
+uma das mais intuitivas. Então, temas como descobrir
+se um e-mail é spam ou não, ou se um documento refere-se a um tópico de desporto, ou é sobre política, ou sobre entretenimento, entre outros. Mas como é habitual,
+iremos começar por um caso de uso, que é um interessante,
+e será sobre avaliação de restaurantes. [MÚSICA]

@@ -1,0 +1,325 @@
+1
+00:00:00,148 --> 00:00:03,886
+[MÚSICA]
+
+2
+00:00:03,886 --> 00:00:07,921
+Ok. Hasta este momento hemos considerado ajuste de datos con una línea
+
+3
+00:00:07,921 --> 00:00:10,560
+ya la pregunta es, ¿Qué hace una buena opción?
+
+4
+00:00:11,600 --> 00:00:16,360
+Entonces, realmente tengo un buena sensación 
+de que mi análisis es muy confiable aquí.
+
+5
+00:00:16,360 --> 00:00:20,900
+Ajuste esta línea, minimice de la suma de cuadrados residuales
+e hice una predicción
+
+6
+00:00:20,900 --> 00:00:22,610
+del valor de mi casa
+
+7
+00:00:22,610 --> 00:00:26,890
+Al hacerlo, aproveche todas estas observaciones 
+que fuí y
+
+8
+00:00:26,890 --> 00:00:29,550
+registre de todas las ventas de casas recientes
+
+9
+00:00:29,550 --> 00:00:33,950
+Y fui, y fui donde caros y le dije, hey, mira mi análisis.
+
+10
+00:00:33,950 --> 00:00:37,480
+Esta es mi estimación del valor de nuestra casa
+
+11
+00:00:37,480 --> 00:00:41,520
+Y el dijo, bien, no estoy muy seguro.
+
+12
+00:00:41,520 --> 00:00:44,944
+Porque la verdad es que, 
+no estoy seguro de que sea una tendencia lineal.
+
+13
+00:00:44,944 --> 00:00:49,384
+En realidad dice. Ésto no es lineal
+
+14
+00:00:49,384 --> 00:00:51,320
+Él dice no es una línea.
+
+15
+00:00:51,320 --> 00:00:55,890
+O de acuerdo a mi dibujo, él dice, amigo,
+ esa no es una relación lineal.
+
+16
+00:00:56,930 --> 00:00:57,730
+Amigo
+
+17
+00:00:57,730 --> 00:00:59,710
+No, no creo que Carlos diga Amigo
+
+18
+00:01:01,180 --> 00:01:02,630
+Pero, de cualquier forma,
+>> él dice "bro"
+
+19
+00:01:02,630 --> 00:01:03,820
+>> Él dice "bro"
+
+20
+00:01:03,820 --> 00:01:05,000
+Está bien. Regresa al principio 
+de ésta.
+
+21
+00:01:05,000 --> 00:01:06,200
+"Bro"
+
+22
+00:01:06,200 --> 00:01:08,570
+Él siempre se refiere a mi como "Bro", por supuesto.
+
+23
+00:01:11,010 --> 00:01:11,750
+Está bien. Regresa al principio 
+de ésta.
+
+24
+00:01:11,750 --> 00:01:16,250
+En fin, el punto es que Carlos 
+no cree que esto sea una relación lineal.
+
+25
+00:01:16,250 --> 00:01:19,400
+Él cree, quizá es una cuadrática.
+
+26
+00:01:19,400 --> 00:01:21,600
+Él dice ¿Intentaste un ajuste cuadratico?
+
+27
+00:01:21,600 --> 00:01:23,060
+Bueno,
+
+28
+00:01:23,060 --> 00:01:25,880
+Ahora que veo la gráfica que el pusó aquí
+
+29
+00:01:25,880 --> 00:01:28,320
+Digo, en realidad esta luce bien
+
+30
+00:01:28,320 --> 00:01:29,990
+¿Y qué tengo que hacer?
+
+31
+00:01:29,990 --> 00:01:35,240
+Tengo que averiguar cual es
+la mejor cuadratica que se ajusta a estos datos.
+
+32
+00:01:35,240 --> 00:01:36,790
+¿Y cómo voy a hacer eso?
+
+33
+00:01:36,790 --> 00:01:40,230
+Voy a tener que ir de nuevo y minimizar
+ la suma de cuadrados residuales.
+
+34
+00:01:42,270 --> 00:01:45,150
+Entonces, estoy por ir a minimizar 
+la suma de cuadrados residuales.
+
+35
+00:01:45,150 --> 00:01:47,900
+Entonces, hablemos de qué involucra esto 
+porque
+
+36
+00:01:47,900 --> 00:01:51,910
+Cuando veo la función cuadratica
+ahora tengo 3 parametros aquí.
+
+37
+00:01:51,910 --> 00:01:57,478
+Aún tengo mi intersección,
+qué es, ¿Donde está esta curva?
+
+38
+00:01:57,478 --> 00:01:59,740
+Arriba o abajo de el eje y.
+
+39
+00:02:02,720 --> 00:02:06,810
+Y luego tengo este termino lineal de x,
+
+40
+00:02:06,810 --> 00:02:11,490
+y luego tengo también este termino adicional aquí,
+el cual es el cuadrado de x.
+
+41
+00:02:11,490 --> 00:02:13,240
+Del cual obtengo el componente cuadrático.
+
+42
+00:02:14,590 --> 00:02:17,080
+Pero quiero hacer un pequeño comentario aquí, 
+un poco aparte del tema,
+
+43
+00:02:17,080 --> 00:02:19,610
+qué esto en realidad 
+sigue llamandose regresión lineal.
+
+44
+00:02:21,480 --> 00:02:25,800
+Y la razón es porque nosotros pensamos en x
+ solo como otra caracteristica.
+
+45
+00:02:25,800 --> 00:02:30,130
+Y lo que vemos es que los w's siempre aparecen como solo w's,
+
+46
+00:02:30,130 --> 00:02:31,900
+no w al cuadrado o alguna otra función de w.
+
+47
+00:02:31,900 --> 00:02:35,470
+Vamos a discutir esto más en detalle
+durante el curso de regresión.
+
+48
+00:02:35,470 --> 00:02:38,120
+Pero recuerda, aún cuando estamos hablando
+acerca de funciones cuadraticas que se ajustan
+
+49
+00:02:38,120 --> 00:02:41,630
+a los datos,
+esto aún es llamado regresión lineal.
+
+50
+00:02:41,630 --> 00:02:44,450
+Okay, pero el punto que quiero resaltar acá es que tenemos tres parametros
+
+51
+00:02:44,450 --> 00:02:46,610
+cuando voy a minimiszar el residuo de la suma de los cuadrados
+
+52
+00:02:46,610 --> 00:02:49,820
+Voy a tener que buscar sobre el espacio de tres cosas disferentes ahora.
+
+53
+00:02:49,820 --> 00:02:55,110
+Tengo que minimizar sobre la combinación de el mejor W_0, W_1 y
+
+54
+00:02:55,110 --> 00:03:00,179
+W_2 y encontrar la curva cuadrática que minimice mi suma residual de cuadrados.
+
+55
+00:03:01,500 --> 00:03:03,010
+De acuerdo, así que estoy muy cerca de ir y
+
+56
+00:03:03,010 --> 00:03:07,530
+hacer este cálculo, el cual de hecho resulta ser también eficiente y de nuevo 
+
+57
+00:03:07,530 --> 00:03:11,380
+vamos a discutir las generalidades de aquello en el curso sobre regresión.
+
+58
+00:03:11,380 --> 00:03:13,620
+Pero entonces Carlos tiene una brillante idea.
+
+59
+00:03:13,620 --> 00:03:14,890
+El dice espera, espera, espera!
+
+60
+00:03:16,000 --> 00:03:20,910
+te hablé acerca del polinomio cuadrático, ¿pero has probado un polinomio de orden 13?
+
+61
+00:03:20,910 --> 00:03:22,580
+Y yo digo: no, no lo hice.
+
+62
+00:03:22,580 --> 00:03:24,380
+Eso tiene sentido.
+
+63
+00:03:24,380 --> 00:03:26,080
+Lo tiene, tiene mucho sentido.
+
+64
+00:03:26,080 --> 00:03:27,490
+Mira esto, esto se ve muy bien.
+
+65
+00:03:28,760 --> 00:03:31,760
+Este es el ajuste que Carlos obtiene con su polinomio de orden 13.
+
+66
+00:03:31,760 --> 00:03:35,520
+El dice: acabo de minimizar tu suma residual de cuadrados.
+
+67
+00:03:35,520 --> 00:03:37,230
+muy bueno, verdad?
+
+68
+00:03:37,230 --> 00:03:39,350
+Mi suma residual de cuadradas es básicamente cero acá.
+
+69
+00:03:40,860 --> 00:03:44,700
+Pero, personalmente no me estoy sintiendo tan bien acerca de esto.
+
+70
+00:03:44,700 --> 00:03:48,640
+debido a que estoy viendo y pienso que mi casa no vale tan poco.
+
+71
+00:03:48,640 --> 00:03:51,689
+yo sé eso, de verdad.
+
+72
+00:03:51,689 --> 00:03:58,060
+Si, hemos hablado acerca de la suma residual de cuadrados como el costo del ajuste
+
+73
+00:03:58,060 --> 00:04:01,440
+Y si, Carlos parece que realmente ha
+
+74
+00:04:01,440 --> 00:04:06,490
+minimizado mi suma residual de cuadrados, pero algo no esta bien para mi.
+
+75
+00:04:06,490 --> 00:04:08,037
+Esta función simplemente se ve rara.
+
+76
+00:04:08,037 --> 00:04:11,679
+[MÚSICA]

@@ -1,0 +1,245 @@
+1
+00:00:00,097 --> 00:00:04,125
+[NHẠC]
+
+2
+00:00:04,125 --> 00:00:07,525
+Ok bây giờ tôi muốn làm một điều cuối cùng,
+
+3
+00:00:07,525 --> 00:00:13,650
+bởi vì nó rất vui và sau đó chúng ta có thể được khuấy động.
+
+4
+00:00:13,650 --> 00:00:21,610
+Cái mà tôi đã làm ở đây, truy vấn về một
+ chiếc xe cụ thể cho một hình ảnh cụ thể.
+
+5
+00:00:21,610 --> 00:00:26,712
+Hãy tạo một hàm mà thực hiện tất cả điều đó 
+và chúng ta có thể tạo bất kì lúc nào tôi muốn.
+
+6
+00:00:26,712 --> 00:00:31,570
+Điều này rất
+
+7
+00:00:31,570 --> 00:00:35,920
+vui để thực hiện.
+
+8
+00:00:35,920 --> 00:00:39,418
+Chỉ để vui thôi.
+
+9
+00:00:39,418 --> 00:00:45,543
+Hãy tạo một lambda để tìm và
+
+10
+00:00:45,543 --> 00:00:51,470
+hiển thị các hình ảnh nearest-neighbor.
+
+11
+00:00:51,470 --> 00:00:54,680
+Đây là một chút về Python.
+
+12
+00:00:54,680 --> 00:00:55,900
+Chúng ta sẽ thực hiện cùng nhau.
+
+13
+00:00:58,230 --> 00:01:00,360
+Chúng ta sẽ dùng lambda này.
+
+14
+00:01:01,470 --> 00:01:05,172
+Tìm, không, chỉ cần hiển thị trực tiếp.
+
+15
+00:01:05,172 --> 00:01:12,268
+Show_neighbors và
+
+16
+00:01:12,268 --> 00:01:20,160
+đây sẽ là một lambda và tôi sẽ lấy chỉ số i của hình ảnh.
+
+17
+00:01:21,320 --> 00:01:22,894
+Đây là cái mà nó sẽ làm.
+
+18
+00:01:22,894 --> 00:01:25,754
+Nó sẽ làm chính xác cái mà chúng ta đã thấy.
+
+19
+00:01:25,754 --> 00:01:31,644
+Nó sẽ có các hình ảnh từ IDs, truy vấn mô hình nearestneighbor,
+
+20
+00:01:31,644 --> 00:01:38,040
+nhưng thay vì truy vấn xe ô tô, hãy truy vấn
+ từ hình ảnh huấn luyện i đến i + 1.
+
+21
+00:01:39,520 --> 00:01:43,480
+Và sau đó chúng ta sẽ lấy hình ảnh và sẽ sử dụng .show vào nó.
+
+22
+00:01:43,480 --> 00:01:46,005
+Đây là một lambda dài.
+
+23
+00:01:46,005 --> 00:01:50,247
+Nhưng sau khi chúng ta tạo nó, chúng ta có thể
+ làm cái gì đó khá gọn gàng với nó.
+
+24
+00:01:50,247 --> 00:01:54,920
+Bây giờ tôi có thể lấy show_neighbors và
+
+25
+00:01:54,920 --> 00:02:00,098
+tôi có chỉ số của chiếc xe cái mà là số 8 và
+
+26
+00:02:00,098 --> 00:02:06,100
+nếu bạn cuộn xuống, bạn sẽ thấy những chiếc xe đỏ.
+
+27
+00:02:06,100 --> 00:02:08,570
+Thực sự rất hay.
+
+28
+00:02:08,570 --> 00:02:11,340
+Bây giờ chúng ta có thể dụng show_neighbors với hình ảnh khác.
+
+29
+00:02:13,520 --> 00:02:16,810
+Tôi thực sự không nghĩ đến điều này, tôi chỉ vừa làm lambda này,
+
+30
+00:02:16,810 --> 00:02:20,340
+hãy thử và chạy các con số.
+
+31
+00:02:20,340 --> 00:02:23,270
+Thế còn số 26 thì sao?
+
+32
+00:02:23,270 --> 00:02:26,518
+Bây giwof nó sẽ tìm các neighbors thậm chí biết nó là gì,
+
+33
+00:02:26,518 --> 00:02:28,270
+26 là chiếc xe ở đây.
+
+34
+00:02:28,270 --> 00:02:30,720
+Hãy để tôi làm một cái lớn hơn để tất cả chúng ta có thể nhìn thấy.
+
+35
+00:02:32,750 --> 00:02:36,800
+Hiển thị neighbors của 26 là chiếc xe màu xanh dương.
+
+36
+00:02:36,800 --> 00:02:40,650
+Điều này chỉ ra một số xe khác, khá là thú vị.
+
+37
+00:02:40,650 --> 00:02:45,755
+Hãy nhặt một số con số, show_neighbors
+
+38
+00:02:45,755 --> 00:02:50,990
+của 2,000 hình ảnh có thể là hình ảnh 1222.
+
+39
+00:02:50,990 --> 00:02:56,970
+Tôi thực sự không biết nó sẽ là cái gì, nhưng 
+bây giờ bạn có thể thấy nó là một con chim.
+
+40
+00:02:56,970 --> 00:02:59,125
+Và bạn thấy nearest-neighbor, oh,
+
+41
+00:02:59,125 --> 00:03:01,409
+những con chim và chúng tương tự nhau.
+
+42
+00:03:01,409 --> 00:03:04,950
+Tôi biết đây là loại đầu đà điểu và các loài khác.
+
+43
+00:03:04,950 --> 00:03:07,290
+Chúng là chim, thật thú vị và
+
+44
+00:03:07,290 --> 00:03:09,170
+hãy nhớ chungsta chỉ sử dụng các tính năng sâu.
+
+45
+00:03:09,170 --> 00:03:12,320
+Bây giờ với điều cuối cùng, show_neighbors và
+
+46
+00:03:12,320 --> 00:03:13,820
+bạn có thể làm ở nhà.
+
+47
+00:03:13,820 --> 00:03:19,082
+Hãy hiển thị các neighbors của hình ảnh 2000.
+
+48
+00:03:19,082 --> 00:03:25,330
+Shift+enter và các neighbors của hình ảnh 2000 là gì?
+
+49
+00:03:25,330 --> 00:03:27,620
+Ok bạn có một chiếc ô tô.
+
+50
+00:03:27,620 --> 00:03:28,660
+Nó đã nhầm.
+
+51
+00:03:28,660 --> 00:03:31,250
+Nó nhận vào một con đà điểu nhưng tất cả giờ lại là ô tô.
+
+52
+00:03:31,250 --> 00:03:36,478
+Các hình ảnh đơn giản thực hiện khá tốt khi thu hồi hình ảnh.
+
+53
+00:03:36,478 --> 00:03:40,100
+Bạn đã thấy tôi đã mắc lỗi trong một vài ví dụ mà chúng ta đã thử.
+
+54
+00:03:40,100 --> 00:03:44,670
+Nhưng thực ra bạn có kết quả tốt và sự biểu thị đẹp.
+
+55
+00:03:44,670 --> 00:03:47,730
+Nó chưa từng được huấn luyện về tập dữ liệu này, trên các hình ảnh này.
+
+56
+00:03:47,730 --> 00:03:50,496
+Các hình ảnh có kích cỡ khác nhau, danh mục khác nhau nhưng
+
+57
+00:03:50,496 --> 00:03:52,594
+nó vẫn hoạt động khá tốt.
+
+58
+00:03:52,594 --> 00:03:53,930
+Đây là các công cụ và 
+
+59
+00:03:53,930 --> 00:03:58,694
+các kỹ thuật có thể được ứng dụng 
+trong nhiều lĩnh vực một cách hữu ích.
+
+60
+00:03:58,694 --> 00:04:02,759
+[NHẠC]

@@ -1,0 +1,5 @@
+[背景音乐]
+翻译: RyukaSuu |审阅: 19waa
+Coursera Global Translator Community 今天我们要讨论的话题是分类 这也是机器学习领域最普遍研究的领域之一 机器学习中最常用和最有用的领域之一 或许也是最有创造性的领域之一 研究诸如判断邮件是否为垃圾邮件 判断一个文件是关于运动话题 还是 关于政治话题 亦或是关于娱乐话题等等 当然 通常我们先从一个比较实用的例子入手 这也是一个比较有趣的例子 关于饭店的点评。 [背景音乐]
+翻译: RyukaSuu |审阅: 19waa
+Coursera Global Translator Community

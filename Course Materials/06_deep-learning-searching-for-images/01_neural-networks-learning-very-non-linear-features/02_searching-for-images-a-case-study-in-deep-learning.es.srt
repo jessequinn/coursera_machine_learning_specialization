@@ -1,0 +1,27 @@
+1
+00:00:00,019 --> 00:00:04,187
+[MÚSICA]
+
+2
+00:00:04,187 --> 00:00:07,873
+Hoy vamos a hablar de uno de los mas emocionantes temas que esta sucediendo con 
+
+3
+00:00:07,873 --> 00:00:09,990
+aprendizaje automático en los últimos años
+
+4
+00:00:09,990 --> 00:00:12,190
+Esta nueva área es llamada Aprendizaje Profundo
+
+5
+00:00:12,190 --> 00:00:16,416
+En particular, vamos a hablar sobre un caso de uso referido a ésta área
+
+6
+00:00:16,416 --> 00:00:19,618
+la compra de productos basado en la similitud de la imágen
+
+7
+00:00:19,618 --> 00:00:22,893
+[MÚSICA]

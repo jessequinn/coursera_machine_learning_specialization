@@ -1,0 +1,24 @@
+[NHẠC] Ok đó là một cách để thu hồi
+một tài liệu được quan tâm. Chỉ cần lấy tất cả các bài báo, scan chúng và tìm một bài tương đồng nhất theo
+ma trận mà chúng ta xác định. Nhưng một thứ khác nữa chúng ta có thể
+quan tâm là phân nhóm các tài liệu liên quan đến nhau, ví dụ. Bạn có thể có một tập bài báo về
+thể thao hoặc tin thế giới hoặc những thứ khác nhau như thế này, và nếu chúng ta có thể
+cấu trúc tài nguyên của chúng ta theo cách này, nếu một người đang đọc
+một bài báo về thể thao, thì chúng ta có thể nhanh chóng
+tìm kiếm tất cả các bài báo về thể thao, thay vì nhìn vào mỗi bài báo
+trong toàn bộ tài nguyên. Nhưng thách thức ở đây là
+những bài báo này sẽ không có nhãn mác. Nó sẽ không giống như New York Times,
+khi bạn vào và ai đó nói , đây là một bài báo về giáo dục. Ok và tất cả chúng ta có các bài báo,
+cái mà chúng ta muốn làm hoặc khám phá những nhóm bài báo cơ bản này. Ok mục đích là để khám phá
+nhóm các bài báo liên quan, và như tôi đã đề cập, một nhóm có thể biểu diễn
+cho một tập các bài báo như thể thao và một nhóm bài báo khác
+đại diện cho tin tức thế giới. Trong thời gian này, hãy giả sử rằng
+ai đó cung cấp cho chúng ta nhãn hiệu, vì thế ai đó lướt qua và đọc từng bài báo hoặc ít nhất là đọc phần giới thiệu của các bài báo
+trong tài nguyen và dán nhãn cho chúng ok những bài báo này là về thể thao. Và những bài báo này là về tin tức thế giới. Và những bài này về giải trí. Một số bài về khoa học. Chúng ta có một số tập bài báo được dán nhãn. Trong trường hợp này khi mà chúng ta
+có bài báo truy vấn và chúng ta muốn gán nó vào một nhóm, điều này
+trở thành vấn đề phân loại đa lớp. Bởi vì câu hỏi ở đây là
+bài báo truy vấn của tôi, tôi không biết nhãn mác liên quan đến nó
+và tôi có một đống nhãn tài liệu. Tôi có nhãn mác về tin thế giới, khoa học,
+thể thao, giải trí và công nghệ, tôi chỉ muốn phân loại bài báo
+này thuộc lớp nào, ok? Đây là câu hỏi. Nó chỉ là một vấn đề phân loại đa lớp. Vì thế nếu đó là một trường hợp, thì sẽ là 
+ví dụ về một bài toán học tập giám sát. [NHẠC]

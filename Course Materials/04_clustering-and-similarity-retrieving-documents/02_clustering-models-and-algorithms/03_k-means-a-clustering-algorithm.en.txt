@@ -1,0 +1,45 @@
+[MUSIC] Well let's look at an algorithm for
+doing clustering that uses this metric of just looking at
+the distance to the cluster center. Okay, so here, we see the data
+that we're gonna wanna cluster. And this algorithm,
+which is called the k-means algorithm, starts by assuming that you
+are gonna end up with k clusters. So you specify the number
+of clusters ahead of time. So the reason the algorithm is called
+k-means is we have k clusters, and we're looking at the means of
+the clusters, just the cluster centers, when we're assigning points
+to the different clusters. Okay, so let's talk about how
+we initialize the algorithm. So the first thing we do
+is we just one example. There are many ways to initialize
+where we put the cluster centers. We will talk about these
+things more in-depth later. But for now, let's just assume that we randomly
+assigned three different cluster centers. If we're going to assume some,
+three means algorithm here. And then the first step is we're
+going to assign every observation to the closest cluster center. So this observation here gets
+assigned to the red cluster. These observations are all closest to the
+green cluster, or this green center here. And these are all closest
+to the blue center. And a way to do this is something that's
+just called a Voronoi tessellation. So we look at the cluster centers and
+well, we can do our define, let me switch again to this magenta color. So here the cluster centers. And we can just define these regions here. And these regions represent areas
+where any observation we might get, so any new observation,
+that's a very bad color on red. What other colors do I have? How about white? Cool, white. So some new observation I get here,
+if it falls within this red region, I know it's closest to
+this red cluster center. So that's what these colored
+regions are representing. Okay so,
+that's the first step of the algorithm. So, what I end up with are observations
+that are assigned to clusters. But I just randomly initialize those
+clusters centers, so I probably don't believe that that really represents
+the structure underlying the data. So what I wanna do is I wanna iterate this
+process, where I then wanna update what my definition is of the cluster center based
+on the observations that I've assigned. So if you remember this red cluster here, it just had one observation
+assigned to it. So when I go to revise the cluster
+center for that cluster, it just moves to the previous observation. But for this green cluster, if I look
+at the previous cluster center here, well I'm gonna move it to
+the center of mass of all these observations that have been
+assigned to the green cluster. And the center of mass
+of all of them is here, so this becomes the new cluster center. And likewise, I do this for
+all of the blue observations. This is the new cluster center for
+this blue observation. Okay, so
+now I have a new set of cluster centers. And what I can do is redraw
+this Voronoi tessellation, and reassign my observations to
+the nearest cluster center. And then I iterate this
+process until convergence. [MUSIC]

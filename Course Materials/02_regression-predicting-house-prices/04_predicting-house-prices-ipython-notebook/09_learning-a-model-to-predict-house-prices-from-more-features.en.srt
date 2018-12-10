@@ -1,0 +1,206 @@
+1
+00:00:00,000 --> 00:00:04,167
+[MUSIC]
+
+2
+00:00:04,167 --> 00:00:07,976
+We've built a simple model just relating
+square feet of living space to price
+
+3
+00:00:07,976 --> 00:00:11,257
+of houses and then we explored some
+other features like zip codes,
+
+4
+00:00:11,257 --> 00:00:15,242
+and it's clear the zip codes make a big
+difference and there's other features,
+
+5
+00:00:15,242 --> 00:00:17,830
+bedrooms, that also
+makes a big difference.
+
+6
+00:00:17,830 --> 00:00:23,462
+The question is can we get a better model
+by including more features, more of these?
+
+7
+00:00:23,462 --> 00:00:27,390
+And so let's look at that.
+
+8
+00:00:29,250 --> 00:00:33,800
+So we're gonna do here is build
+
+9
+00:00:33,800 --> 00:00:39,750
+a regression model with more features.
+
+10
+00:00:41,040 --> 00:00:45,010
+So this is using this bigger
+feature set that we just described.
+
+11
+00:00:45,010 --> 00:00:48,733
+So the first one I called the sqft_model.
+
+12
+00:00:48,733 --> 00:00:52,618
+Let's call this
+
+13
+00:00:52,618 --> 00:00:59,279
+the my_features_model.
+
+14
+00:00:59,279 --> 00:01:07,039
+So the my_features_model is again going to
+take graphlab.linear regression.create.
+
+15
+00:01:07,039 --> 00:01:10,320
+So we're gonna create it and
+we're gonna use the training data,
+
+16
+00:01:10,320 --> 00:01:12,300
+just like we did before.
+
+17
+00:01:12,300 --> 00:01:18,210
+Our target is again going to be the price,
+just like before.
+
+18
+00:01:19,280 --> 00:01:26,437
+However, the features here that I'm
+gonna use are going to be those
+
+19
+00:01:26,437 --> 00:01:31,490
+features that are called my
+features which I created earlier.
+
+20
+00:01:33,160 --> 00:01:36,440
+So let's go and execute this.
+
+21
+00:01:36,440 --> 00:01:41,300
+So now I use more features and it's
+straining and I think it's done it's done.
+
+22
+00:01:41,300 --> 00:01:44,460
+Using those, I forget how many,
+eight features.
+
+23
+00:01:44,460 --> 00:01:51,535
+I use, let's just print them out here,
+print my_features.
+
+24
+00:01:51,535 --> 00:01:53,550
+So I use bedrooms, bathrooms,
+
+25
+00:01:53,550 --> 00:01:57,630
+square foot of living,
+square foot of lot, floors and zip code.
+
+26
+00:01:57,630 --> 00:01:58,770
+Now we have two models.
+
+27
+00:01:58,770 --> 00:02:01,670
+We have the sqft_model and
+we have my_features_model.
+
+28
+00:02:01,670 --> 00:02:04,020
+How do they compare in
+terms of performance?
+
+29
+00:02:04,020 --> 00:02:05,423
+So here's what I'm going to do.
+
+30
+00:02:05,423 --> 00:02:14,792
+I'm going to print
+the sqft_model.evaluate,
+
+31
+00:02:14,792 --> 00:02:19,930
+evaluate all my test data.
+
+32
+00:02:22,490 --> 00:02:24,390
+And I'm also going to print
+
+33
+00:02:25,910 --> 00:02:32,870
+the my_features_model.evaluate
+on the same test data.
+
+34
+00:02:32,870 --> 00:02:36,165
+And let's compare,
+let's see what happened.
+
+35
+00:02:38,080 --> 00:02:40,550
+Okay, so to start with,
+
+36
+00:02:40,550 --> 00:02:46,470
+we saw that the biggest error in the
+simple square foot model was $4 million.
+
+37
+00:02:46,470 --> 00:02:50,970
+Now it's down to $3.4 million,
+49, so 3.5 million.
+
+38
+00:02:50,970 --> 00:02:52,830
+So it went down a bit.
+
+39
+00:02:52,830 --> 00:02:57,390
+And root mean squared error,
+the average error,
+
+40
+00:02:57,390 --> 00:03:04,890
+went down from $255,000 as we
+had over here to a $179,000.
+
+41
+00:03:04,890 --> 00:03:08,530
+Now, if you add more and more features,
+your area is likely going to decrease
+
+42
+00:03:08,530 --> 00:03:11,330
+quite a bit more because there's
+quite a bit of data here and
+
+43
+00:03:11,330 --> 00:03:12,957
+there's lots that you can learn.
+
+44
+00:03:12,957 --> 00:03:19,231
+But again, just adding some extra features
+already helped us with our performance.
+
+45
+00:03:19,231 --> 00:03:19,731
+[MUSIC]

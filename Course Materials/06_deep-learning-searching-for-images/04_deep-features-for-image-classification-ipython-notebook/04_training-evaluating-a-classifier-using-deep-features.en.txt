@@ -1,0 +1,62 @@
+[MUSIC] So, the question here is can we improve the model using deep features. Remember we talked about deep features. We explored those quite a bit in
+this deep learning module how deep features using a technique called transfer
+learning can be trained on one domain, then applied to images in
+another domain to learn something with even a small
+amount of labeled data. So in this case, let's just take a look
+at the length of our train data, just to get a sense of, we have,
+well we have 2,000 images so this is a pretty small data set. And so, we can go ahead and
+see, well can we just 20,000 train images using
+some deep features. So this is the step you take. So we're gonna load deep_learning_model that was pre-trained and so here you can use graphlab.load_model
+to load the model. And have a model that will
+stream on the image net data. It's over here. It's called imagenet _model. And this model stream
+of 1.5 million images, a thousand different categories,
+a different data set, 1.5 million images, it was what
+we discussed, the AlexNet model. It got medium easy access in
+2012 ImageNet competition, so I pretrained a model, and
+then you can use the model to create in our image train a new column called 'deep_features'. And in this new column
+'deep_features' what we're gonna do is take this deep_learning_model
+that we just loaded. Deep_learning_model. And I'm going to apply a function
+called extract_features and what the extract_features does
+is extract those deep features. So does it transfer learning,
+taking features of learning one domain and applies a data set in different domain. So this data set here
+is my image train data. So this is the two commands
+that you have to do. Pretty simple. Let me decrease the font size so
+that it'll be a little bit more visible. The two commands that you have to
+do to do the transfer learning. So take the image net
+training on the network and apply it to this Safari 10 dataset. Now computing this deep features
+takes a few minutes and so I'm not going to do this right now. Instead I'm just gonna tell
+you that our deep mod. If I show you the image_train data. What I did was, if I just show you
+the head, the first few lines. What you'll see is that we have
+an image id, we have an image, which we'll looking at, you have the label,
+and you have a column for deep features. So I precomputed that, and
+I saved it inside the s frame. So it's already saved and precomputed. And it also has another column image_array
+that has the raw pixels that we used to train the raw pixel model. So the deep_features are already in there. But if you run those two commands, you'd
+be computing them yourself on this data set, or in any data set that you want. So let's go ahead and now that we have the deep features, let's train a deep model. So, Given the deep features, let's train a classifier. So now, we're gonna train a simple
+classifier using the deep features. I'm gonna call this deep_ features_model
+instead of the raw pixel model. And the deep_features_model is also gonna
+be just calling logistical regression. So .create and if you remember from
+lecture, we discussed that you can take those deep features and plug in a simple
+classifier at the end in this case, so just plug in logistical regression. So as input,
+I'm gonna give it the image_train_data. And for features, instead of using the raw pixel, I'm going to use the deep_features. And finally, I'm gonna tell it
+that the label, sorry, the target, the thing that I'm trying to predict here,
+is given by the label column. And there you go. So now, we're learning a classifier and
+it's down here, using on those 2,000 images only using, using features completed
+in this deep near network, the one in 2012 deep learning competition. So now, let's first explore the model,
+just apply it for some data. So, I'm going to, we're gonna Apply the deep features model to the first few images of test set. Just like we did with the raw pixel model,
+we're gonna apply it in this case. So remember we took the image_test data
+and we looked at the first three images. So 0, 1 and 2. And here's what those images look like. And I'm gonna type .show and just remind you that we have a cat,
+a car, and another cat. And let's go ahead and
+just run this to see what we predict. So I'm gonna take my deep_feature_model, and I'm going to predict
+on this three images, so image_test of 0:3. And remember cat, car. Cat and it says cat, automobile, cat. So basically it got those
+three exactly right. Which is exciting. So something that sucked really,
+really did badly using the raw pixels. Now using these deep features as well, on
+those three points it gets exactly right. But let's actually evaluate
+the deep model more formally. So, we're gonna do next is compute the test_data accuracy of the deep_features_model. And here we go. So how we're gonna do that? We're just gonna do
+deep_features_model.evaluate just like we did with the raw pixel model. Here we can do .evaluate. And as input we're gonna
+give it the test data. So image_test. And remember the raw pixel
+model got 46% accuracy. It was bad. Here by using deep features we now get
+78% accuracy, which is quite good. It's close to state of the art. Even if you're learning more data
+it's quite good compared to the 46%. So the deep features provide
+you with a great tool for taking just a little bit small piece of
+data, running for the deep features and get quite good accuracy doing
+image classification task here. [MUSIC]

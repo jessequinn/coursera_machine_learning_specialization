@@ -1,0 +1,27 @@
+[NHẠC] Bộ phân loại thực sự cố gắng
+để đưa ra các quyết định. Quyết định một câu là tích cực hay tiêu cực, hoặc là một tập kiểm tra thí nghiệm bao gồm x-rays và các phép đo lường dẫn đến một
+căn bệnh như là cúm hoặc cảm lạnh. Đó là một quyết định cần phải được đưa ra. Vì vậy chúng ta sẽ nói một chút về cách bộ
+phân loại, đặc biệt là phân loại tuyến tính đưa ra quyết định như thế nào. Để hiểu các ranh giới quyết định, giả sử bạn chỉ có hai từ với trọng lượng khác 0. Bạn có từ kinh ngạc với trọng lượng tích cực là 1 và khủng khiếp có trọng lượng tiêu cực âm 1.5. Nếu bạn gặp tình huống này, 
+thì điểm sẽ bằng 1 lần số lượng từ kinh ngạc trong câu trừ đi 1.5
+lần số lượng từ khủng khiếp. Vì vậy chúng ta có thể vẽ điều này
+trên một trục, có trục kinh ngạc và sau đó có trục khủng khiếp. Ví dụ, câu sushi thật kinh ngạc, thức ăn đáng kinh ngạc nhưng
+dịch vụ thì khủng khiếp. Ta có hai kinh ngạc và một khủng khiếp. Nó được vẽ trong điểm (2,1) trên trục. Tương tự như vậy, ba khủng khiếp và một kinh ngạc, và với thứ mà tất cả là kinh ngạc,
+do đó ba kinh ngạc ở một điểm (3.0), và vân vân với các câu khác. Bây giờ chúng ta hãy hiểu rõ một
+chút về cách tính điểm các câu và những gì suy dẫn ra những quyết định của chúng ta. Ví dụ, lấy điểm (3.0) là 3 kinh ngạc, không khủng khiếp. Ba kinh ngạc cho bạn một dự đoán tích cực bởi vì điểm số lớn hơn không. Và điều đó đúng với mọi điểm ở phía dưới bên phải của trục, trong khi các điểm ở bên trên phía bên trái có điểm thấp hơn 0 ví dụ điểm 3 khủng khiếp, 1 kinh ngạc có điểm điểm thấp hơn 0. Những điều này được gọi là tiêu cực. Thực tế, phân tách những dự đoán
+tiêu cực với các dự đoán tích cực là đường thẳng xác định nơi mà
+tôi không biết tích cực là gì và tiêu cực là gì, và đó là đường thẳng với
+1.0 số lượng kinh ngạc - 1.5 số lượng khủng khiếp = 0. Và đó là đường thẳng, tôi không biết,
+dự đoán là không chắc chắn và vì thế chúng ta gọi là ranh giới quyết định. Mọi thứ ở một bên chúng ta dự đoán là tiêu cực, những thứ còn lại chúng ta dự đoán là tiêu cực. Bây giờ nhận thấy ranh giới quyết định, 1.0 số lần kinh ngạc trừ 1.5 số lần khủng khiếp
+bằng 0 là một đường thẳng. Và đó là lý do tại sao nó được gọi
+là phân loại tuyến tính. Nó là ranh giới quyết định tuyến tính. Ranh giới quyết định phân chia các dự đoán tích cực với các dự đoán tiêu cực. Trong trường hợp chỉ có hai đặc tính,
+chúng ta thấy đây là một đường thẳng. Nhưng trường hợp này sẽ khác
+khi chúng ta tăng số lượng đặc tính. Trong không gian hai chiều,
+một hàm tuyến tính là một đường thẳng. Trong không gian ba chiều, chúng ta có ba, 
+ví dụ những từ mà không có trọng lượng và mọi từ khác có trọng lượng bằng 0
+và chúng ta đặt trên một mặt phẳng. Khá khó để vẽ trong không gian ba chiều nhưng các dự đoán tích cực ở phía trên
+mặt phẳng và các dự đoán tiêu cực ở phía dưới và mặt phẳng nằm nghiêng trong không gian. Bây giờ khi bạn không chỉ có ba từ khác 0 mà trong tái ứng dụng bạn sẽ có hàng chục
+đến hàng nghìn từ với trọng lượng khác 0. Và trong trường hợp đó chúng ta
+sẽ gọi là những siêu mặt phẳng, những phân tách nhiều chiều được gọi là siêu mặt phẳng. Bây giờ tất nhiên bạn có thể sử dụng
+nhiều hơn các bộ phân loại tuyến tính. Bạn có thể sử dụng các bộ
+phân loại phức tạp hơn. Và thay vì có các đường thẳng hoặc siêu mặt phẳng, chúng có những hình dạng
+phức tạp hơn hoặc những phân tách gấp khúc. Và chúng ta sẽ học nhiều hơn về điều đó trong khóa học phân loại. >> [NHẠC]

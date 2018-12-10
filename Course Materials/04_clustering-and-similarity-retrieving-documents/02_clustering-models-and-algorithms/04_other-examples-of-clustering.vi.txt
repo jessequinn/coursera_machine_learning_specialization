@@ -1,0 +1,59 @@
+[NHẠC] Ok, chúng ta đã nói khá rõ về
+khái niệm phân nhóm vì ích lợi của việc thu hồi tài liệu,
+nhưng có rất nhiều, rất nhiều các ví dụ khác nơi
+mà phân nhóm rất hữu ích và tôi muốn dành thời gian
+để mô tả một vài điều. Một ứng dụng cho việc tìm kiếm hình ảnh. Hình ảnh mà bạn đang tìm kiếm, bạn vào google image và bạn nhập từ. Vâng nó sẽ rất hữu ích nếu chúng ta có thể
+sắp xếp tất cả hình ảnh chúng ta có bằng một số danh mục như là đại dương,
+hoa hồng, chó, hoàng hôn, đám mây. Vì vậy phân nhóm rất hữu ích
+cho việc tìm kiếm. Ứng dụng khác nữa là chúng ta
+muốn phân nhóm bệnh nhân bằng điều kiện y tế của họ. Mục đích ở đây có thể tốt hơn biểu diễn đặc trưng các quần thể con
+cũng như các bệnh khác nhau. Ví dụ chúng ta có thể thấy
+nhóm bệnh nhân mắc bệnh động kinh. Ba bộ não này đại diện cho
+ba bệnh nhân khác nhau và chúng được cài đặt bộ ghi
+khác nhau đo hoạt động của não. Với mỗi bệnh nhân chúng ta
+có một bộ thu thập ghi âm về cơn động kinh khác nhau. Mỗi một ô màu này đại diện cho một bản ghi khác nhau của
+một cơn động kinh. Và giữa các bệnh nhân khác nhau có thể có cùng loại động kinh. Và cái chúng ta làm là có thể
+lấy tất cả các bản ghi từ ba bệnh nhân khác nhau và
+nghĩ đến việc phân nhóm chúng. Nếu chúng ta xác định các loại
+động kinh khác nhau theo cách này, điều này có thể cho phép chúng ta
+ điều trị tốt hơn các nhóm bệnh nhân chúng ta đang quan sát dựa trên
+việc hiểu các loại động kinh mà họ mắc. Vâng ứng dụng nữa là nghĩ về việc
+giới thiệu sản phẩn trên Amazon. Ví dụ, trên Amazon có rất
+nhiều bên thứ ba đến và họ đưa ra một vài sản phẩm sẽ được bán. Và họ cung cấp một nhãn hiệu cho sán phẩm. Ví dụ, có thể một người muốn
+bán một cái nôi và họ dán nhãn cái nôi, khá hợp lý,
+như là một đồ nội thất. Có thể chúng ta được đăng
+ở danh mục đồ nội thất. Nhưng thay vì đó, chúng ta nhìn xem
+người mua sản phẩm này là ai? Và chúng ta nhìn vào lịch sử
+mua hàng của họ và chúng ta thấy những người khác
+có cùng lịch sử mua hàng giống nhau, có thể người mua sản phẩm này
+cũng mua ghế trẻ em, sau đó có lẽ cái chúng ta có thể làm là
+tìm ra một nhãn hiệu tốt hơn cho cái nôi này, cái mà đã được dán nhãn đồ
+nội thất như một sản phẩm cho trẻ em. Vì vậy ngoài việc khám phá các nhóm
+sản phẩm liên quan, hãy làm điều đó. Dựa trên lịch sử mua hàng
+chúng ta cũng có thể sử dụng điều đó để khám phá các nhóm
+ liên quan đến người sử dụng trên Amazon. Và điều đó có thể được sử dụng để nhắm vào
+các sản phẩm đến người tiêu dùng. Và cuối cùng chúng ta có thể nghĩ
+về sắp xếp kết quả tìm kiếm web. Ví dụ như Từ tìm kiếm có thể có nhiều
+ý nghĩa như từ 'cardinal'. Nếu tôi đánh từ này vào Google, có lẽ
+ý tôi là tôi muốn một bài báo về cardinal, chim, có thể là về một đội bóng chày
+hoặc là một đặc trưng tôn giáo. Nếu chúng ta có thể sắp xếp
+bài báo dựa trên nội dung của chúng, sử dụng cùng một loại ý tưởng
+chúng ta đã nói trong bài học này, thì tôi có thể cải thiện kết quả tìm kiếm
+của tôi mà tôi cung cấp cho mọi người. Và danh sách các ứng dụng cứ tiếp tục. Một cái khác nữa khá là thú vị là nghĩ về bộ sưu tập các khu phố và có một vài ứng dụng mà bạn muốn
+khám phá các khu phố tương tự. Một là nếu chúng ta muốn
+ước tính giá nhà ở một vùng nhỏ. Trong trường hợp này, thách thức thực tế
+là chúng ta chỉ có một vài, hoặc rất thường xuyên, không có
+nhà bán trong khu phố nhỏ. Vậy nếu chúng ta muốn ước tính
+giá nhà trong khu phố đó tại một thời điểm, thì nó rất khó để làm bởi vì chúng ta không có nhà để ước tính. Tuy nhiên nếu chúng ta có thể
+khám phá các khu phố khác mà có loại nhà tương tự, thì chúng ta có thể đưa ra một ước tính
+tốt về ngôi nhà trong khu phố bằng cách tận dụng thông tin
+từ khu phố lân cận đã được phát hiện có liên quan
+đến khu phố hiện tại. Ý tưởng để khám phá các nhóm khu phố và sau đó trong các nhóm chúng ta có thể
+chia sẻ thông tin như là giá bán nhà để tạo ra các tính toán tốt hơn. Đây là giải pháp mà tôi đang
+mô tả, với các nhóm với xu hướng giống nhau và sau đó
+chia sẻ thông tin trong một nhóm. Và cùng một ý tưởng về việc khám phá
+ các khu vực lân cận có thể sử dụng để giúp dự báo tội phạm bạo lực, giúp lực lượng cảnh sát
+ làm tốt hơn trong các khu vực khác nhau. Một lần nữa chúng ta khám phá
+ra những khu phố khác nhau mà có cùng một loại tội phạm, chúng ta
+có thể tạo ra các dự đoán tốt hơn về tỉ lệ của tội phạm bạo lực trong các khu phố và sau đó sử dụng thông tin đó để
+cảnh sát làm việc với các khu vực đó. [NHẠC]

@@ -1,0 +1,100 @@
+[MUSIC] Now, we've talked about that initial
+deployment, taking a model that we learned from recommender systems and deploying as
+a service that your website can query. But there's more to that
+deployment process, and to machine learning in production. There is that deployment piece, but
+there's also the management of models, there is the evaluation, and
+there's monitoring collection of metrics. So let's talk about
+those last three pieces. And those pieces are really about taking
+those models that we've learned seeing how they're performing in practice. Not just in the batch offline process,
+but with real users in practice. And use that information to train
+new models, and deploy new models, and update the models as we gather
+more information about the world. So if we go back to our pipeline which
+involved the batch process and the real time process, now, that feedback piece
+where the user maybe bought the product or didn't buy a product they were recommended
+that gets fed back into both the real time data, but also the historical data
+is going to be very useful for us. We're going to use that feedback
+to go back and learn new models. For example,
+now that we have more historical data, I might learn a second model. Let's call it Model 2 for recommenders,
+which I think is better, and I wanna start serving
+the model in production, and figure out is this Model 2 really
+better than old Model 1 that I had? Which one is better? How do I figure that out? That's some of the key questions
+around managing models in production. So we'll figure out when to update
+to Model 2 if it's worth it, and how do we choose between models. And this is really about monitoring the
+models in production with real users, and understanding what those
+usage patterns look like. And the key piece to monitoring models
+is evaluation of models in production. So this is really combining
+the predictions that we're making with the metrics. What are users doing in
+real time with our system? So the questions around here that you
+need to address with the deploy models are what is the data they
+are collecting from users? Not just the data you had started, but
+what data are you collecting from that real time interaction,
+whether the users are buying or not. And what are the metrics they're going to
+use to measure whether those interactions are good, whether you're getting the right
+kind of response you're hoping for, whether the machine is actually working
+for you in the system that you've built. Now, if we go back to our pipeline,
+you can imagine saying, okay, I'm gonna collect the data, and I'm gonna use to measure the metrics
+that we use to train my model. So for example, when we talked about
+system, we talked about one such metric. We discussed some minimizing
+sum squared error. Now, is this the right metric
+to evaluate in production? It's a god metric to optimize
+a model offline, but in production, you really care about
+whether people buy a product or not, or whether this machine remodel is getting
+your users more engaged for web site. Whether that model is helping people
+use their smartphones better, or their wearable watches, or whatever technology that's using
+machine learning in the background. So sum squared errors or
+some offline training, those matrix are really about
+optimizing the model offline, and figuring out whether model is good,
+and perhaps whether it can be updated. Now, the online matrix, let's say,
+whose buying, the usage matrix, how is this changing, the bottom line for
+my business, this is great about kind of choosing whether the old model is
+better than this new model I've created. And let's talk a little bit about
+what that process looks like. So the question here is,
+should I update my old model with a new one that I learned,
+will they have new data? And there's many questions around this. Why should I update? Why should I take what I've done before,
+and change it with something new? And this has to do with the trends
+in the world of change, new products have come in,
+users tastes have changed. A fad like the chewy giraffe that we've
+talked about goes out of fashion. Nobody else wants it. So we wanna change them all or
+we are gonna update them. So that's what we have to do to say,
+okay, this is why we should update it, but when do we update it,
+when do we say, okay, it's time to take that old model and
+switch it out and put in some new one. This is about tracking real world
+statistics, it's not about intuition, this sounds like the right time, or talking to
+some person who's not looking at data. Maybe some kind of intuitive
+business analysis. This is really about data. So about tracking, those matrix that
+we measure, those statistics, and really coming up with like a quantitative of quality as to say, things have changed,
+it's time to update model. This is what's going to happen
+when we update the model. And this combines those offline
+metrics when we use the chain model. But really online metrics
+that we're capturing. So let's talk about how
+online metrics get used. One example how to choose between models
+using online metrics is what's the idea of AB testing. Let's say you have two models,
+Model 1 and Model 2. And I wanna figure out which
+one is gonna be better, which one should I give to my system. So what I can do is give some of my
+population, call them group A, let's say. Some of the people or
+people from a certain geographic region, let's say people from the United States,
+get Model 1. And then say people from
+a different geographic region, say people from Canada, get Model 2. And so, you look at the behavior between
+those two models, capture some metrics. And let's say that Model 1 does better,
+sorry, Model 1 does worse. It only has 10% click through rate,
+so CTR. So that means only 10% of the time,
+people are buying the product. While with Model 2, it's amazing, 30% of
+the time, people are buying the product. So the CTR, clicks through rate is 30%. So what do you do after you've
+done this test is say okay, I've done the test enough. I've collected enough samples. Now, I'm gonna start serving
+Model 2 instead of Model 1. Now, there are many other issues and caveats around ideas we talked about so
+far. A/B testing,
+deciding when it's time to switch a model, how much data you have to collect,
+what to do. It's very tricky. And it requires a lot of thought,
+and we will talk more about it towards the capstone, but really something
+that you need to think about quite deeply. Now, also thinking about what version
+of model we have, model one, model two, simplification, typically you have many
+data scientists capturing their own models with their own ideas, the question
+is how do they keep track of that? How do you know what data was
+used to train different models? How do they keep track of how they are
+performing which ones are performing well, which ones don't? Is it because of some fluke? Is it because of some real
+property of the data? How do you monitor these dashboards? How do you come up with reports? Say okay, this is what's happening. This is what machinery is doing,
+what difference it's making. All that can be quite complicated. And so, it's very important for
+you to think about not just how do you use machinery in the algorithms,
+how do you write your own method. How do you pick your features? But how do you keep track of that, and
+make sure the models are working and providing the file that you want for
+the system that you've built. [MUSIC]

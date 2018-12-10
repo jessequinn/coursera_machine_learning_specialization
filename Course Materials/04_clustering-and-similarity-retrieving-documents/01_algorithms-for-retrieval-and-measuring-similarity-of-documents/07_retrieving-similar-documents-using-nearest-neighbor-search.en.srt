@@ -1,0 +1,179 @@
+1
+00:00:00,383 --> 00:00:04,253
+[MUSIC]
+
+2
+00:00:04,253 --> 00:00:06,930
+Okay, so we've talked about
+how to represent documents and
+
+3
+00:00:06,930 --> 00:00:10,340
+we've also talked about how to
+measure similarity between documents.
+
+4
+00:00:10,340 --> 00:00:14,170
+So now let's turn to the actual task of
+interest which is retrieving a document.
+
+5
+00:00:15,280 --> 00:00:18,870
+So someone is reading an article,
+we're assuming they like that article and
+
+6
+00:00:18,870 --> 00:00:21,920
+we'd like to present them
+with another article to read.
+
+7
+00:00:21,920 --> 00:00:26,668
+So in particular one of the most popular
+ways of doing this something called
+
+8
+00:00:26,668 --> 00:00:29,480
+nearest neighbor search,
+where we have our query article.
+
+9
+00:00:29,480 --> 00:00:31,460
+That's the article that were reading.
+
+10
+00:00:31,460 --> 00:00:32,650
+And then there's the corpus.
+
+11
+00:00:32,650 --> 00:00:35,930
+That's all of the documents out
+there that we want to search over to
+
+12
+00:00:37,040 --> 00:00:39,070
+recommend some new article.
+
+13
+00:00:39,070 --> 00:00:40,420
+And so what we need to do for
+
+14
+00:00:40,420 --> 00:00:44,800
+our nearest neighbor search is we
+need to specify a distance metric.
+
+15
+00:00:44,800 --> 00:00:48,080
+So this is gonna be our measure
+of similarity that we talked
+
+16
+00:00:48,080 --> 00:00:49,490
+about earlier and
+
+17
+00:00:49,490 --> 00:00:54,670
+then what this algorithm is gonna output
+is a collection of related articles.
+
+18
+00:00:57,020 --> 00:01:01,990
+So one example of nearest neighbor search
+is something called one nearest neighbor,
+
+19
+00:01:01,990 --> 00:01:04,790
+where you have your query article and
+what you're gonna return is just simply
+
+20
+00:01:04,790 --> 00:01:10,940
+the most related article, out of all those
+articles out there, to the query article.
+
+21
+00:01:10,940 --> 00:01:12,130
+And the algorithm is very straightforward.
+
+22
+00:01:12,130 --> 00:01:15,619
+We're just gonna search over
+every article in our corpus,
+
+23
+00:01:15,619 --> 00:01:20,573
+these are all these little green articles,
+and we're gonna compute the similarity
+
+24
+00:01:20,573 --> 00:01:24,900
+using the methods that we described
+earlier between the query article and
+
+25
+00:01:24,900 --> 00:01:27,640
+this article we're
+examining in the corpus.
+
+26
+00:01:27,640 --> 00:01:28,306
+And then,
+
+27
+00:01:28,306 --> 00:01:33,271
+if that similarity is better than the best
+similarity that we've found so far,
+
+28
+00:01:33,271 --> 00:01:38,330
+then we're gonna keep this article as our
+best article that we've found so far.
+
+29
+00:01:39,760 --> 00:01:45,020
+And then at the end after we've iterated
+through every article in our corpus
+
+30
+00:01:45,020 --> 00:01:48,360
+we're gonna look at what was
+the best article that we found.
+
+31
+00:01:48,360 --> 00:01:51,010
+And we're gonna recommend
+this to the reader.
+
+32
+00:01:53,140 --> 00:01:56,710
+A very straightforward variant of this
+is something called k- nearest neighbor
+
+33
+00:01:56,710 --> 00:02:01,220
+search, where instead of just outputting
+the most relevant article that we've
+
+34
+00:02:01,220 --> 00:02:06,360
+found, we're gonna present the reader
+with a collection of k different articles
+
+35
+00:02:06,360 --> 00:02:09,580
+that are the top k most relevant articles.
+
+36
+00:02:09,580 --> 00:02:12,140
+And the way that we do this,
+
+37
+00:02:12,140 --> 00:02:17,300
+the algorithm is newly identical except in
+instead of keeping just the most related
+
+38
+00:02:17,300 --> 00:02:22,340
+article, we're gonna keep a priority
+queue of the top k articles found so far.

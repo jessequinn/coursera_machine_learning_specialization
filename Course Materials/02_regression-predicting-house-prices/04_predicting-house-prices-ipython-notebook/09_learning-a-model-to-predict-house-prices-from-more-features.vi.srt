@@ -1,0 +1,190 @@
+1
+00:00:00,000 --> 00:00:04,167
+[NHẠC]
+
+2
+00:00:04,167 --> 00:00:07,976
+Chúng ta đã xây dựng một mô hình đơn giản
+kết nối giữa diện tích không gian sống với giá trị
+
+3
+00:00:07,976 --> 00:00:11,257
+của ngôi nhà và sau đó chúng ta khám phá
+một số đặc trưng khác như là mã zip,
+
+4
+00:00:11,257 --> 00:00:15,242
+và rõ ràng là mã zip tạo ra sự khác biệt lớn
+và có các đặc trưng khác,
+
+5
+00:00:15,242 --> 00:00:17,830
+phòng ngủ, điều đó cũng
+tạo ra sự khác biệt lớn.
+
+6
+00:00:17,830 --> 00:00:23,462
+Câu hỏi là chúng ta có thể có một mô hình tốt hơn
+bằng việc bao gồm nhiều đặc trưng hơn hay không?
+
+7
+00:00:23,462 --> 00:00:27,390
+Và chúng ta hãy nhìn vào điều đó.
+
+8
+00:00:29,250 --> 00:00:33,800
+Chúng ta sẽ làm ở đây là xây dựng
+
+9
+00:00:33,800 --> 00:00:39,750
+mô hình quy hồi với nhiều đặc trưng hơn.
+
+10
+00:00:41,040 --> 00:00:45,010
+Đây là sử dụng tập đặc trưng lớn hơn mà chúng ta đã mô tả.
+
+11
+00:00:45,010 --> 00:00:48,733
+Điều đầu tiên tôi gọi là sqft_model.
+
+12
+00:00:48,733 --> 00:00:52,618
+Hãy gọi thế này
+
+13
+00:00:52,618 --> 00:00:59,279
+my_features_model.
+
+14
+00:00:59,279 --> 00:01:07,039
+my_features_model sẽ lại lấy graphlab.linear regression.create.
+
+15
+00:01:07,039 --> 00:01:10,320
+Chúng ta sẽ tạo ra nó và
+chúng ta sẽ sử dụng dữ liệu huấn luyện,
+
+16
+00:01:10,320 --> 00:01:12,300
+giống như chúng ta đã làm trước đó.
+
+17
+00:01:12,300 --> 00:01:18,210
+Mục tiêu của chúng ta là sẽ giá cả, giống như trước đây.
+
+18
+00:01:19,280 --> 00:01:26,437
+Tuy nhiên các đặc tính ở đây mà tôi sẽ sử dụng sẽ là
+
+19
+00:01:26,437 --> 00:01:31,490
+các đặc trưng cái mà được gọi là my features
+cái mà tôi đã tạo ra từ đầu.
+
+20
+00:01:33,160 --> 00:01:36,440
+Chúng ta hãy thực hiện điều này.
+
+21
+00:01:36,440 --> 00:01:41,300
+Bây giờ tôi sử dụng nhiều đặc trưng hơn và
+ nó đang căng và tôi nghĩ nó sẽ được làm.
+
+22
+00:01:41,300 --> 00:01:44,460
+Sử dụng những điều này tôi quên tám đặc trưng.
+
+23
+00:01:44,460 --> 00:01:51,535
+Tôi sử dụng chỉ để xuất chúng ra ở đây, xuất my_features.
+
+24
+00:01:51,535 --> 00:01:53,550
+Tôi sử dụng phòng ngủ, phòng tắm,
+
+25
+00:01:53,550 --> 00:01:57,630
+diện tích sống, diện tích lô, sàn và mã zip.
+
+26
+00:01:57,630 --> 00:01:58,770
+Bây giờ chúng ta có hai mô hình.
+
+27
+00:01:58,770 --> 00:02:01,670
+Chúng ta có sqft_model và chúng ta có my_features_model.
+
+28
+00:02:01,670 --> 00:02:04,020
+Chúng so sánh về hiệu suất như thế nào?
+
+29
+00:02:04,020 --> 00:02:05,423
+Ở đây tôi sẽ 
+
+30
+00:02:05,423 --> 00:02:14,792
+Tôi sẽ xuất sqft_model.evaluate,
+
+31
+00:02:14,792 --> 00:02:19,930
+đánh giá tất cả dữ liệu thử nghiệm.
+
+32
+00:02:22,490 --> 00:02:24,390
+Và tôi cũng sẽ xuất
+
+33
+00:02:25,910 --> 00:02:32,870
+my_features_model.evaluate trên một số dữ liệu thử nghiệm.
+
+34
+00:02:32,870 --> 00:02:36,165
+Hãy so sánh, hãy xem điều gì xảy ra.
+
+35
+00:02:38,080 --> 00:02:40,550
+Được rồi để bắt đầu
+
+36
+00:02:40,550 --> 00:02:46,470
+chúng ta đã nhìn thấy sai số lớn nhất trong mô hình
+diện tích đơn giản là bốn triệu đô.
+
+37
+00:02:46,470 --> 00:02:50,970
+Bây giờ nó xuống tới 3.4 triệu đô, 49 và 3.5 triệu.
+
+38
+00:02:50,970 --> 00:02:52,830
+Nó giảm một chút.
+
+39
+00:02:52,830 --> 00:02:57,390
+Và gốc bằng sai số bình phương, sai số trung bình,
+
+40
+00:02:57,390 --> 00:03:04,890
+giảm xuống 255,000 đô như là ở đây chúng ta có 179,000 đô.
+
+41
+00:03:04,890 --> 00:03:08,530
+Bây giờ nếu bạn thêm nhiều đặc trưng nữa, 
+khu vực của bạn có thể sẽ giảm
+
+42
+00:03:08,530 --> 00:03:11,330
+nhiều hơn một chút bởi vì có một vài dữ liệu ở đây và
+
+43
+00:03:11,330 --> 00:03:12,957
+có nhiều lô mà bạn có thể học.
+
+44
+00:03:12,957 --> 00:03:19,231
+Nhưng một lần nữa chỉ cần thêm một số
+đặc trưng bổ sung giúp chúng ta về mặt hiệu suất.
+
+45
+00:03:19,231 --> 00:03:19,731
+[NHẠC]

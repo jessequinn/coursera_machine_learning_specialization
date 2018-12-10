@@ -1,0 +1,71 @@
+[MUSIC] Okay, well we've talked quite exhaustively
+about this notion of clustering for the sake of doing document retrieval,
+but there are lots, and lots of other examples
+where clustering is useful, and I wanna take some time just
+to describe a few of them. So one application is for image search. So imagine you're going and
+you're searching, you go on Google Image search and
+you type in the word ocean. Well it would be really helpful if we
+could structure all the images we have by some set of categories like ocean,
+pink flower, dog, sunset, clouds. So clustering is very helpful for
+doing structured search. Another very different application
+is maybe we wanna group patients by their medical condition. So here a goal might be to better characterize subpopulations as
+well as different diseases. So as an example, we can look at a whole
+bunch of patients that have seizures. So these three brains represent
+three different patients, and they have different recording setups that
+are measuring their seizure activity. And so for each of these patients
+we get a collection of recordings of different seizures that
+they exhibit over time. So each one of these
+colored squares represents a different recording of a seizure. And between these different
+patients there might be similar types of seizures that
+appear in these different patients. And so what we can do is we can take all
+of these seizure recordings from these three different patients and
+think about clustering them. And if we identify different
+types of seizures in this way, this can allow us to better
+treat the types of patient that we're observing based on understanding
+what types seizures they exhibit. Well another application is thinking about
+doing product recommendation on Amazon. So, for example, on Amazon there
+are a lot of third parties that come and they post some product to be sold. And they provide a label
+of what that product is. So, for example,
+maybe a person wants to sell a crib and they label the crib, fairly reasonably,
+as being a furniture item. So maybe we get posted under
+the furniture category. But, if instead,
+we look at who purchases this item? And we look at their purchase history, and we look at other people with
+similar purchase histories, so maybe the person who purchased this
+item also purchased baby car seat, well then maybe what we can do is maybe we can
+infer that a better label for this crib, which had been labeled furniture is really
+to have labeled it as a baby product. So in addition to discovering groups of
+products that are related, that have. Based on purchase histories
+of these items we can also use that to discover groups
+of related users on Amazon. And that can be used for
+targeting products to those users. And finally we can think about
+structuring web search results. So, for example, search terms can have multiple
+meanings like the word "cardinal". If I type this in to Google, maybe I
+mean I want an article about a cardinal, the bird, maybe about the baseball team,
+or about a cardinal, a religious figure. So if we can structure out
+articles based on their content, using the same types of ideas
+we've talked about in this module, then I can improve my search
+results that I provide to people. And the list of applications goes on and
+on. Another one that's quite
+interesting is thinking about collections of neighborhoods and there are a few applications where you
+want to discover similar neighborhoods. One is if we wanna estimate the price
+of a house at a very small local regional level. So in this case, it challenges
+the fact that we only have a few, or very often, no house sale observations
+within a very small neighborhood. So if we wanna estimate the value
+of the house in that neighborhood at a point in time,
+it's very hard to do that because we have no other houses to base
+our estimate off of in that neighborhood. However, if we can discover
+other neighborhoods that have similar types of house dynamics,
+house price dynamics, then we can come up with a good estimate of
+the house in the neighborhood with few or no sales by leveraging information
+from this other neighborhood that was discovered to be related
+to the current neighborhood. So, the idea is to discover
+clusters of neighborhoods, and then within those clusters we can share
+information like these house sales informations to form better estimates. So, this is the solution that I'm
+describing here, is to cluster regions with similar trends, and
+then share information within a cluster. And the same idea of discovering
+related regions can be used for helping to forecast violent crimes, to better
+task police forces to different regions. So again once we discover different
+neighborhoods that have very similar crime dynamics, we can form
+better predictions of the rates of violent crimes in
+those neighborhoods and then use that information to
+task police to those regions. [MUSIC]

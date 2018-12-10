@@ -1,0 +1,5 @@
+[NHẠC] Điều này khá là đơn giản. Nó giống với tài liệu ghi chú truy xuất mà chúng ta đã làm để tìm các tài liệu mà giống với Barack Obama, 
+Clinton, Beckham và những người khác. Hãy tiếp tục và cái chúng ta sẽ làm là huấn luyện một mô hình nearest-neighbors cho việc truy xuất hình ảnh sử dụng các tính năng sâu. Đây là điều khá đơn giản. Và chúng ta sẽ nhập knn_model giống như chúng ta đã làm trong truy xuất tài liệu. Khi mà tôi sử dụng graphlabs nearest neighbors toolkit, chúng ta sẽ mã hóa động từ create để tạo ra mô hình nearest-neibors này, và giống như
+ trong mô hình nearest-neighbors, chúng ta sẽ đưa vào một số dữ liệu,
+ trong trường hợp nó là dữ liệu huấn luyện của tôi. Tôi sẽ nói các tính năng sử dụng là gì. Các tính năng mà tôi sẽ sử dụng là các tính năng sâu. Và sau đó như một lời nhắc, bạn có thể đặt một ID nhãn mác. Nhãn mác ở đây chúng ta sẽ sử dụng ID hình ảnh, cái mà sẽ cho phép chúng ta quay lại và tìm các hình ảnh
+tương ứng với láng giềng gần nhất. [NHẠC]

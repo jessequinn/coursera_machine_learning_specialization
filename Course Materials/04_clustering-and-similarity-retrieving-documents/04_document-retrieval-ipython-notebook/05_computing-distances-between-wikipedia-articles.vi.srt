@@ -1,0 +1,315 @@
+1
+00:00:00,000 --> 00:00:03,755
+[NHẠC]
+
+2
+00:00:03,755 --> 00:00:09,005
+Chúng ta hãy lấy các TFIDF này và
+làm một vài việc thú vị với chúng.
+
+3
+00:00:09,005 --> 00:00:14,398
+Đầu tiên chúng ta sẽ làm bằng tay,
+
+4
+00:00:14,398 --> 00:00:20,100
+ok, hãy để tôi nhập vào đây.
+
+5
+00:00:20,100 --> 00:00:25,150
+Chúng ta sẽ tính bằng tay
+
+6
+00:00:25,150 --> 00:00:30,770
+các khoảng cách giữa mọi người.
+
+7
+00:00:32,230 --> 00:00:36,250
+Mục đích ở đây là để chỉ ra
+các khoảng cách trông như thế nào,
+
+8
+00:00:36,250 --> 00:00:41,700
+để có cảm giác về những gì
+chúng ta đang học từ TFIDF.
+
+9
+00:00:41,700 --> 00:00:45,830
+Ví dụ hãy lấy ba người.
+
+10
+00:00:45,830 --> 00:00:48,090
+Chúng ta đã nói về Obama rồi.
+
+11
+00:00:48,090 --> 00:00:50,020
+Chúng ta đã có biến số Obama ở đây.
+
+12
+00:00:50,020 --> 00:00:51,770
+Hãy tạo ra hai biến mới.
+
+13
+00:00:51,770 --> 00:01:00,116
+Chúng ta nói Clinton
+mà tôi sẽ lựa chọn.
+
+14
+00:01:00,116 --> 00:01:06,050
+Tên của người này giống với
+
+15
+00:01:06,050 --> 00:01:12,290
+Bill Clinton, Tổng thống trước kia của Mỹ.
+
+16
+00:01:15,210 --> 00:01:20,034
+Hãy lựa chọn một người nữa,
+ví dụ hãy chọn Beckham.
+
+17
+00:01:20,034 --> 00:01:25,702
+Beckham là một người Anh nổi tiếng,
+
+18
+00:01:25,702 --> 00:01:30,393
+cầu thủ bóng đá người Anh và
+
+19
+00:01:30,393 --> 00:01:36,843
+chúng ta sẽ lựa chọn ra người
+
+20
+00:01:36,843 --> 00:01:42,511
+mà tên của họ giống nhau,
+
+21
+00:01:42,511 --> 00:01:48,578
+tên thật của anh ấy là
+David Beckham.
+
+22
+00:01:48,578 --> 00:01:53,570
+Bây giờ chúng ta đã lựa chọn Clinton và Beckham,
+ hãy tính sự tương đồng giữa
+
+23
+00:01:53,570 --> 00:01:56,320
+hai người, và tổng thống Barack Obama.
+
+24
+00:01:58,280 --> 00:02:06,078
+Những gì chúng ta sẽ làm là đặt câu hỏi.
+
+25
+00:02:06,078 --> 00:02:10,649
+Obama gần với
+
+26
+00:02:10,649 --> 00:02:16,740
+Clinton hơn Beckham phải không?
+
+27
+00:02:22,593 --> 00:02:24,210
+Ok có một lỗi nhỏ ở đây.
+
+28
+00:02:25,280 --> 00:02:29,806
+Obama gần với Clinton
+hơn Beckham phải không?
+
+29
+00:02:34,707 --> 00:02:38,252
+Bây giờ có nhiều cách để
+đo sự tương đồng hoặc
+
+30
+00:02:38,252 --> 00:02:42,710
+các khoảng cách giữa hai vectơ,
+hoặc trong trường hợp này là hai tài liệu.
+
+31
+00:02:42,710 --> 00:02:44,770
+Chúng ta đã tính TFIDF.
+
+32
+00:02:44,770 --> 00:02:47,880
+Việc chúng ta sẽ làm là
+tính khoảng cách giữa
+
+33
+00:02:47,880 --> 00:02:53,320
+các tài liệu khác nhau, một cái về Clinton,
+một cái về Obama và vân vân.
+
+34
+00:02:53,320 --> 00:02:59,360
+Tôi sẽ sử dụng ma trận
+khoảng cách đã được
+
+35
+00:02:59,360 --> 00:03:02,930
+thực hiện bên trong Graphlab Create,
+ vì thế chúng ta không phải thực hiện chúng.
+
+36
+00:03:02,930 --> 00:03:07,220
+Chúng ta cần phải nhìn vào
+graphlab.distances and ấnTab,
+
+37
+00:03:07,220 --> 00:03:09,450
+bạn sẽ thấy một số lựa chọn ở đây.
+
+38
+00:03:09,450 --> 00:03:15,550
+Khoảng cách Clinton mà chúng ta đã nói,
+khoảng cách cô sin,
+
+39
+00:03:15,550 --> 00:03:20,850
+sự tương đồng jaccard và vân vân
+chúng ta sẽ thấy trong suốt chuỗi học này.
+
+40
+00:03:20,850 --> 00:03:24,300
+Chúng ta sẽ sử dụng khoảng cách cô sin.
+
+41
+00:03:24,300 --> 00:03:28,120
+và chỉ giống như một ghi chú nhỉ, thông thường
+ chúng ta nghĩ về sự tương đồng cô sin.
+
+42
+00:03:28,120 --> 00:03:29,260
+Nếu bạn đã nghe về điều này.
+
+43
+00:03:29,260 --> 00:03:32,570
+số càng cao thì sự tương đồng
+giữa hai bài báo càng nhiều.
+
+44
+00:03:32,570 --> 00:03:38,160
+Ở đây chúng ta có khoảng cách của
+con số này, vì thế càng thấp càng tốt.
+
+45
+00:03:38,160 --> 00:03:43,230
+Khoảng cách cô sin càng thấp,
+các bài báo càng gần.
+
+46
+00:03:43,230 --> 00:03:49,915
+Câu hỏi là khoảng cách cô sin giữa
+
+47
+00:03:49,915 --> 00:03:54,410
+tfidf của Obama và Clinton là gì?
+
+48
+00:03:54,410 --> 00:03:58,240
+Nhưng hãy lưu ý rằng tôi đã lựa chọn
+cột tfidf và tôi phải có số 0 nhỏ
+
+49
+00:03:58,240 --> 00:04:02,360
+ở cuối bởi vì nó là hàng thứ 0 của bảng này.
+
+50
+00:04:02,360 --> 00:04:04,050
+Bảng chỉ có một phần tử trong nó nhưng
+
+51
+00:04:04,050 --> 00:04:05,870
+chúng ta vẫn nói hàng của bảng
+chúng ta đang thấy.
+
+52
+00:04:05,870 --> 00:04:12,880
+Và chúng ta sẽ so sánh tfidf
+của Obama với tfidf của Clinton.
+
+53
+00:04:15,308 --> 00:04:19,360
+Cũng ở 0, khoảng cách cô sin và
+
+54
+00:04:19,360 --> 00:04:21,500
+bạn thấy rằng khoảng cách là 0.83.
+
+55
+00:04:21,500 --> 00:04:26,858
+Bây giờ câu hỏi là khoảng cách giữa chúng
+
+56
+00:04:26,858 --> 00:04:33,861
+trong cùng một số liệu trong khoảng cách cô sin
+ giữa Obama và Beckham là gì?
+
+57
+00:04:33,861 --> 00:04:38,470
+Tôi sẽ nhập Obama
+
+58
+00:04:38,470 --> 00:04:43,310
+tfidf, được tính tại 0,
+
+59
+00:04:43,310 --> 00:04:50,470
+với tfidf của Beckham cũng tại 0.
+
+60
+00:04:50,470 --> 00:04:53,770
+Và bạn sẽ thấy khoảng cách này là 0.97.
+
+61
+00:04:53,770 --> 00:04:58,140
+Khoảng cách lớn hơn bạn có là 1.0.
+
+62
+00:04:58,140 --> 00:05:03,202
+Và trong trường hợp này Obama
+
+63
+00:05:03,202 --> 00:05:08,810
+gần với Clinton hơn rất nhiều là với
+Beckham, điều này có rất nhiều ý nghĩa.
+
+64
+00:05:08,810 --> 00:05:12,210
+Nhưng chúng ta đã làm điều này bằng tay
+với một vài người, làm thế nào chúng ta làm
+
+65
+00:05:12,210 --> 00:05:16,980
+tự động quá trình tìm ra
+sự tương đồng giữa các bài báo.
+
+66
+00:05:16,980 --> 00:05:18,990
+Và trong trường hợp này một người
+giống với người khác như thế nào
+
+67
+00:05:20,610 --> 00:05:26,390
+Trong các bài giảng, Emily đã nói về
+các mô hình hàng xóm gần nhất và
+
+68
+00:05:26,390 --> 00:05:27,850
+cách chúng có thể được
+sử dụng cho việc thu hồi tài liệu.
+
+69
+00:05:27,850 --> 00:05:32,394
+Hôm nay chúng ta sẽ thực sự làm
+một số thao tác thu hồi tài liệu sử dụng
+
+70
+00:05:32,394 --> 00:05:34,679
+mô hình hàng xóm gần nhất.
+
+71
+00:05:34,679 --> 00:05:35,179
+[NHẠC]

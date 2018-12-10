@@ -1,0 +1,70 @@
+[NHẠC] Hãy bắt đầu bằng việc thảo luận một số các
+lĩnh vực mà các hệ thống tư vấn đang đóng một vai trò rất năng động
+đằng sau hậu trường. Và chúng ta sẽ thấy trong cuộc thảo luận này,
+phụ thuộc vào ứng dụng cụ thể các khía cạnh khác nhau của mục tiêu
+chúng ta đang cố gắng tối ưu hóa sẽ là quan trọng. Nhưng trước khi chúng ta bắt đầu
+nói về các hệ thống tư vấn, nó thực sự quan trọng để nói
+về ý tưởng cá nhân hóa bởi vì cá nhân hóa đang làm thay đổi
+trải nghiệm của chúng ta về thế giới. Khi chúng ta nói về việc phân nhóm và
+các học tương tự, có rất nhiều các bài báo trong đó. Trong rất nhiều các trang web. Và chúng ta không thể mong đợi
+duyệt tất cả chúng. Một ví dụ khác ở đây là YouTube. YouTube, Nó được cho rằng có khoảng
+100 giờ video ghi lại một phút. Và câu hỏi là tôi quan tâm về điều gì. Bạn biết không tôi sẽ vào YouTube và 
+tôi muốn xem một số video tôi quantaam. Đây là một ví dụ, rõ ràng
+là quá tải thông tin. Có quá nhiều nội dung
+ở đây cho tôi để vào và tìm cái tôi thích mà không cần
+ai giúp mang nội dung đó cho tôi. Dạng trình duyệt truyền thống là 'history'. Cần một số cách trong đó nội dung liên quan tới tôi
+cần được tự động khai phá. Và khái niệm về cá nhân hóa, tức là chúng ta
+muốn kết nối những người dùng giống như tôi, truy cập YouTube và các thành phần,
+trong trường hợp này sẽ là các video trên YouTube
+được kết nối bằng cách nào đó. Ok, vì thế cá nhân hóa sẽ đóng vai trò chính
+trong các hệ thống tư vấn và bây giờ hãy nói về một số ví dụ mà
+các hệ thống tư vấn đóng vai trò quan trọng. Một ví dụ cổ điển mà chúng ta
+đã đề cập một chút trước đây là ý tưởng của Netflix, ở đây
+mọi người vào và họ xem video. Và Netflix hướng đến việc
+gợi ý các loại phim hoặc chương trình TV mà có thể
+nhiều người quan tâm. Và câu hỏi là chúng ta sẽ làm
+các tư vấn này như thế nào. Ví dụ khác nữa, lại quay lại với cái
+mà chúng ta đã nói trước đây, là Amazon tạo ra các tư vấn sản phẩm. Bạn bảo Amazon, bạn mua một vài sản phẩm
+và bạn sẽ thấy trên trang web đó tạo ra một tư vấn của các sản phẩm
+khác bạn có thể quan tâm. Nhưng điều quan trọng để
+đưa vào trong các tư vấn này không chỉ là tính đến sở thích người có trong phần này. Ví dụ ở đây chúng ta chỉ ra rằng ai đó 
+đã mua một quyển sách về websites và có thể thích quyển khác nữa
+về các ứng dụng web hoặc ví dụ việc mua hàng gần đây của tôi
+trên Amazon là giày cho con trai tôi nhưng tôi mua giày không chỉ là vì tôi thích. Tôi không chỉ tìm giày cho người một tuổi. Có rất nhiều lý do tại sao tôi vào
+Amazon và thực hiện việc mua bán. Và nếu bạn nhìn vào lịch sử
+mua bán bạn sẽ có thể có nhiều gợi ý tốt cho tôi hơn là
+dựa trên một mục đơn lẻ này. Và như vậy, sự tư vấn có thể
+thay đổi theo thời gian. Có sở thích tạo nên tư vấn, ví dụ, cái mà tôi có thể thích thú
+trong việc mua bán hôm nay. Nếu bạn nhìn vào lịch sử mua hàng
+của tôi một năm trước, tôi đã mua rất nhiều các sản phẩm sơ sinh. Các sản phẩm sơ sinh cho trẻ. Nhưng có thể đó không phải là
+cái tôi muốn mua ngày hôm nay. Tư vấn mà Amazon đưa ra cho tôi hôm nay phải phù hợp với thời điểm. Cũng như trên video với sự tư vấn
+được cá nhân hóa thực sự làm nên cuộc cách mạng về cách mọi người
+xem phim và các chương trình TV, cũng như có nhiều các websites cung cấp các audio 
+với các tư vấn mang tính cá nhân. Tuy nhiên trong trường hợp này không
+giống như nghĩ về video theo yêu cầu ở đây chúng ta muốn một bài hát
+để phát sau cái này. Và cái chúng ta muốn là chúng ta
+muốn có một số bài hát rõ ràng. Những bài hát tôi thích tôi muốn
+phát các bài hát tương tự. Tôi không muốn chuyển đổi nhanh chóng
+giữa các bài hát cafe Indi rồi đột ngột chuyển sang
+một bài hát nhạc rock. Nhưng ở cùng thời điểm tôi không muốn một bài hát lặp đi lặp lại. Vì thế tôi muốn có một số
+tư vấn thật rõ ràng nhưng tôi cũng muốn cung cấp một chuỗi
+các bài hát khác nhau cho tôi để nghe. Ok lĩnh vực quan trọng khác nữa 
+mà các hệ thống tư vấn thể hiện vai trò tích cực
+là trong mạng xã hội. Ví dụ Facebook có rất nhiều người dùng. Chúng ta muốn tạo ra sự kết nối
+giữa những người dùng. Ví dụ ở đây có thể là một đồ thị kết nối
+giữa người dùng Facebook và có lẽ tôi là nút màu hồng này, và Facebook muốn giới thiệu nhiều người khác
+ mà tôi có thể quan tâm kết nối với nhau. Trong ứng dụng này và điều quan trọng
+là lưu ý cả người sử dụng và các mục đều cùng một loại. Chúng ta đóng cả hai vai trò. Khi tôi là người dùng Facebook,
+thứ được giới thiệu cho tôi, các thành phần, đó là những người khác. Và chúng ta sẽ đưa ra là người dùng và các thành phần là cùng
+một loại trong ứng dụng này. Nhưng hệ thống tư vấn mà chúng ta
+đang nói đến thực sự tập trung vào dữ liệu trực tuyến. Ngày càng nhiều người nhận ra các
+lĩnh vực khác mà các hệ thống tư vấn có thể đóng một vai trò rất quan trọng. Và chỉ với một ví dụ, chúng ta có thể nghĩ về cái được gọi là sự tương tác drug-target. Và ở đây có thể chúng ta có một số
+loại thuốc đã được nghiên cứu, ví dụ hãy nói về aspirin. Nó đã được nghiên cứu
+để điều trị đau đầu. Nhưng nếu có các công dụng
+gì khác không? Ví dụ để lưu thông máu,
+cho người bệnh tim? Nếu chúng ta có thể thấy
+các mối quan hệ, nếu chúng ta có thể tái sử dụng
+thuốc này cho các điều trị khác, điều đó thực sự hữu ích
+bởi vì nó khá là tốn kém và là quá trình dài để được FDA chấp thuận
+cho một loại thuốc mới nhưng nếu chúng ta có thể uống thuốc
+mà có các loại tác dụng phụ và Các rủi ro liên quan là được biết đến và được nghiên cứu. Sau đó nó dễ dàng hơn để chấp thuận các điều kiện khác, vì thế đây là một trường hợp chúng ta có thể nói, nếu bạn thích Aspirin cho bệnh đau đầu, bạn cũng có thể dùng nó cho bệnh tim. Hệ thống tư vấn đang đóng vai trò trong y học như một ví dụ về sự đa dạng của các ứng dụng nơi mà chúng ta thấy các loại hệ thống. >> [NHẠC]

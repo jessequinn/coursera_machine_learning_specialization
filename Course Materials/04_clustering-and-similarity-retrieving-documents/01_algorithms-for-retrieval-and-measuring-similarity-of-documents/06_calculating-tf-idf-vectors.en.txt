@@ -1,0 +1,52 @@
+Okay, so one way to represent this
+trade-off between something that's common locally but rare globally is
+something that's called TF-IDF or Term frequency- inverse
+document frequency. Okay, so first let's describe what term
+frequency is, and here what we're gonna do is look locally, we're looking just at
+the document that the person is currently reading and we simply count
+the number of words like we did. So this is just our word count factor. But then what we're gonna do is,
+we're gonna downweight this factor base on something
+called the Inverse Document Frequency. So for this, we're gonna look at
+all documents in our corpus and were gonna compute the following thing,
+which is log of the number of documents in
+the corpus divided by 1 plus the number of documents that
+contain the word that we're looking at. Okay, so let's think a little
+bit about why we have this form. So first,
+let's think about a very common word. So, a word appearing in many documents. Well what happens? We end up with the log of some large # / 1 + another large number, and we'll say this is approximately log of 1, which is equal to 0. So what we see here, is that we're gonna
+be very, very strongly downweighting all the way to zero, the counts of any word
+that appears extremely frequently. Where that appears in
+all of our documents. Okay, but in contrast,
+if we have a rare word, were gonna have log of,
+I would say, a large number, assuming we have a large
+number of documents that we were searching over divided
+by 1 + a small number, and this is gonna be, or
+to say some largish number, or a not a zero or a small number. And the reason that we have this one here,
+is the fact that we can't assume that every word appears in any
+document in the corpus. So there might be some word in
+the vocabulary that doesn't appear anywhere in our corpus. And so we wanna avoid dividing by 0. Okay, so let's look at an example
+where there's the index for the word the, and
+let's say that the appears. I don't know.
+Something like a thousand times in the document that I'm looking at,
+and then there's the word messi. Messi appears five times. Okay, now I'm gonna look at computing the
+inverse document frequency for that word. So the word the, let's assume that the word the appears
+in every document in the corpus. Well, really every document except one,
+so I can do some easy math here. So, when I'm looking at this entry, I'm gonna compute log of the number
+of documents in the corpus and let's assume that we have 64
+documents in this corpus. And then we have 1+, and I assume
+that the word the didn't appear in one of these 64 documents,
+must have been a pretty short document. And so, what this gives us is the 0
+that we talking about before. So the the gets downweighted
+completely by zero. In contrast, when we look at Messi,
+let's assume that again we have some 64 total documents and lets assume that the word Messi appears
+only in three of these documents, so we get log of 16, which if we use log
+base two gives us four. Okay, so this is our term frequency, and our inverse document frequency for
+these two words. And when we code to compute the term
+frequency, inverse document frequency, for the specific document which is gonna be
+our new representation of this document, we simply multiply these
+two factors together. So theres some numbers here,
+where the word the, turns into a 0 and then these are some
+other numbers and then the word Messi is gonna be upweighted,
+so a weight of 20. And again, there's some other computation we're doing
+for all the other words in our vocabulary. But the point that we wanna make here is
+the fact that these very common words like the, get downweighted and the rare and potentially very important words
+like Messi are getting upweighted.

@@ -1,0 +1,405 @@
+1
+00:00:00,000 --> 00:00:04,733
+[MUSIC]
+
+2
+00:00:04,733 --> 00:00:08,220
+Cool, so
+this is the data we're working with.
+
+3
+00:00:08,220 --> 00:00:14,160
+It's a pretty neat data set, and
+let's explore it a little bit more.
+
+4
+00:00:14,160 --> 00:00:18,104
+So, in the lectures,
+Emily talked about building word counts.
+
+5
+00:00:18,104 --> 00:00:21,020
+And some of the challenges
+with word count.
+
+6
+00:00:21,020 --> 00:00:24,500
+So let's start by taking a quick
+look at our word counts.
+
+7
+00:00:24,500 --> 00:00:30,840
+So for example, let's #Get the word
+
+8
+00:00:30,840 --> 00:00:36,010
+counts for the Obama article.
+
+9
+00:00:36,010 --> 00:00:38,810
+So we have an article on
+Wikipedia about Barack Obama.
+
+10
+00:00:38,810 --> 00:00:42,280
+And what we're gonna do first is just
+take a quick look at the word counts for
+
+11
+00:00:42,280 --> 00:00:43,790
+that article.
+
+12
+00:00:43,790 --> 00:00:48,090
+So I'm going to take this Obama
+variable that we created, and
+
+13
+00:00:48,090 --> 00:00:52,930
+I'm going to add a new column
+to it called word_count.
+
+14
+00:00:52,930 --> 00:00:57,240
+So this is going to store
+the word count for Barack Obama.
+
+15
+00:00:57,240 --> 00:00:59,840
+And we can do that by just calling.
+
+16
+00:00:59,840 --> 00:01:05,770
+You could write, as we showed in
+the classifications sentiment analysis
+
+17
+00:01:05,770 --> 00:01:08,960
+notebook, you could write the function
+yourself to compute the word counts.
+
+18
+00:01:08,960 --> 00:01:12,940
+But we just have one ready for
+us in the text analytics toolbox.
+
+19
+00:01:12,940 --> 00:01:16,080
+So we just gonna use it
+to get started quickly.
+
+20
+00:01:16,080 --> 00:01:18,247
+So we just call count_words.
+
+21
+00:01:18,247 --> 00:01:22,409
+See this count_ngrams, we're just gonna
+count words, which in the unit grams,
+
+22
+00:01:22,409 --> 00:01:23,193
+single words.
+
+23
+00:01:23,193 --> 00:01:28,109
+And as input, we're gonna
+
+24
+00:01:28,109 --> 00:01:32,407
+give it the Obama text.
+
+25
+00:01:32,407 --> 00:01:34,750
+So I've now done it.
+
+26
+00:01:34,750 --> 00:01:37,048
+And let's take a quick look.
+
+27
+00:01:37,048 --> 00:01:42,781
+Let's just print the Obama word count.
+
+28
+00:01:44,770 --> 00:01:45,280
+And here we go.
+
+29
+00:01:45,280 --> 00:01:48,230
+We've now printed the Obama word count.
+
+30
+00:01:48,230 --> 00:01:53,630
+And you see that operations appeared once,
+represent appears one,
+
+31
+00:01:53,630 --> 00:01:59,360
+office appears two, unemployed appears
+one, and so on for various words.
+
+32
+00:01:59,360 --> 00:02:01,530
+And it's not super intuitive here.
+
+33
+00:02:01,530 --> 00:02:05,570
+So we're gonna play with this a little
+bit, and in the process, I'm gonna show
+
+34
+00:02:05,570 --> 00:02:12,010
+you a cute little data engineering trick
+that might be useful in other areas.
+
+35
+00:02:12,010 --> 00:02:17,904
+So let's, what we're gonna
+
+36
+00:02:17,904 --> 00:02:25,212
+do next is ##Sort the word count for
+
+37
+00:02:25,212 --> 00:02:29,233
+the Obama article.
+
+38
+00:02:30,850 --> 00:02:34,460
+Now, here's something to understand a
+little bit better, if you notice the word
+
+39
+00:02:34,460 --> 00:02:37,620
+counts is really a dictionary this is
+the kind of the Python dictionary.
+
+40
+00:02:37,620 --> 00:02:40,780
+You are given a key,
+in this case, it's the word.
+
+41
+00:02:40,780 --> 00:02:46,400
+For example, Honolulu where he was born,
+weather, marriage and so on.
+
+42
+00:02:46,400 --> 00:02:51,380
+And then, he has a value of 1,
+2, 3, 5, 30, which is the count,
+
+43
+00:02:51,380 --> 00:02:53,320
+how often that word appeared.
+
+44
+00:02:53,320 --> 00:02:57,790
+And so
+what we're going to do is sort this.
+
+45
+00:02:57,790 --> 00:03:02,400
+And to sort those words, we have to
+turn it into a table where one column
+
+46
+00:03:02,400 --> 00:03:06,670
+is the word, the key of the dictionary,
+and the second column is the count.
+
+47
+00:03:06,670 --> 00:03:08,550
+And then we're going to sort that table.
+
+48
+00:03:08,550 --> 00:03:12,470
+So, the way to do this,
+this famous way to learn Python, but
+
+49
+00:03:12,470 --> 00:03:16,600
+let me show you a quick little
+trick that you will find useful.
+
+50
+00:03:16,600 --> 00:03:23,327
+So I'm gonna createa new table called the,
+obama_word_count_table.
+
+51
+00:03:23,327 --> 00:03:29,258
+And what I'm gonna do is take this
+Obama and I'm just gonna select here,
+
+52
+00:03:29,258 --> 00:03:35,883
+out of all the columns in the Obama table,
+I'm gonna select the, word_count.
+
+53
+00:03:35,883 --> 00:03:40,030
+Because this will make
+the printing a little neater.
+
+54
+00:03:40,030 --> 00:03:42,540
+But you could have done that
+with the whole table too.
+
+55
+00:03:42,540 --> 00:03:45,240
+And then,
+I'm gonna call a function called stack.
+
+56
+00:03:47,070 --> 00:03:48,880
+And this function stack
+is extremely useful.
+
+57
+00:03:48,880 --> 00:03:53,700
+It takes one column of an SFrame
+that contains a dictionary, and
+
+58
+00:03:53,700 --> 00:03:56,330
+stacks it one of top of each
+other into multiple columns.
+
+59
+00:03:56,330 --> 00:03:57,290
+In this case, two columns.
+
+60
+00:03:57,290 --> 00:03:59,460
+One for word, and the other one for count.
+
+61
+00:03:59,460 --> 00:04:03,984
+So we're gonna stack a particular
+column called word_count,
+
+62
+00:04:03,984 --> 00:04:07,240
+the one that we really care about.
+
+63
+00:04:07,240 --> 00:04:10,710
+And it generates some new columns.
+
+64
+00:04:10,710 --> 00:04:14,270
+So we have to call them, give them a name.
+
+65
+00:04:14,270 --> 00:04:21,110
+So new_column_name,
+in this case there are two of them.
+
+66
+00:04:21,110 --> 00:04:23,440
+One I'm gonna call, word.
+
+67
+00:04:23,440 --> 00:04:26,900
+And another one,
+I'm just going to call count.
+
+68
+00:04:28,320 --> 00:04:32,946
+And if I execute this and
+we take a look at this table,
+
+69
+00:04:32,946 --> 00:04:38,870
+Obama word count table.head
+just the first few lines.
+
+70
+00:04:38,870 --> 00:04:45,420
+You'll see it shows words normalize,
+sought, combat, but it's not sorted.
+
+71
+00:04:45,420 --> 00:04:46,840
+It's not a sorted table.
+
+72
+00:04:46,840 --> 00:04:51,820
+So what we do next is just take this
+table and just sort it by the count.
+
+73
+00:04:51,820 --> 00:04:55,330
+And we've seen this before,
+but it's pretty simple.
+
+74
+00:04:55,330 --> 00:05:01,320
+So I'm gonna take the Obama count table,
+and I'm gonna call the sort function.
+
+75
+00:05:01,320 --> 00:05:04,502
+And I'm gonna sort it by the count column.
+
+76
+00:05:04,502 --> 00:05:05,810
+Sort by count.
+
+77
+00:05:05,810 --> 00:05:09,541
+And I'm gonna say ascending=false.
+
+78
+00:05:09,541 --> 00:05:13,227
+So, instead of sorting in
+an ascending order, one, two, three,
+
+79
+00:05:13,227 --> 00:05:16,998
+like we'd normally sort,
+we're gonna sort in a descending order.
+
+80
+00:05:16,998 --> 00:05:18,564
+Three, two, one.
+
+81
+00:05:18,564 --> 00:05:23,179
+So, if I press Enter,
+you'll see the most common word is the,
+
+82
+00:05:23,179 --> 00:05:28,331
+followed by in, followed by and,
+of, to, his, eventually Obama.
+
+83
+00:05:28,331 --> 00:05:31,222
+And so, act, a, he.
+
+84
+00:05:31,222 --> 00:05:33,881
+So those are not that informative.
+
+85
+00:05:33,881 --> 00:05:40,042
+And in the lectures, when we were working
+with Emily on them, she covered the issue
+
+86
+00:05:40,042 --> 00:05:45,073
+that these uninformative words can
+drown out the important words.
+
+87
+00:05:45,073 --> 00:05:48,695
+And that's why we introduced
+the notion of tfidf.
+
+88
+00:05:48,695 --> 00:05:53,869
+[MUSIC]

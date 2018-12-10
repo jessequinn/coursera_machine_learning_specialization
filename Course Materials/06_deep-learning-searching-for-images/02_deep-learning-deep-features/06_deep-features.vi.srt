@@ -1,0 +1,418 @@
+1
+00:00:00,185 --> 00:00:04,747
+[NHẠC]
+
+2
+00:00:04,747 --> 00:00:08,230
+Chúng ta đã học về mạng lưới rất thú vị,
+
+3
+00:00:08,230 --> 00:00:12,097
+công cụ có tính chính xác cao nhưng chúng
+ cũng khá là khó để xây dựng và học và
+
+4
+00:00:12,097 --> 00:00:14,640
+đòi hỏi nhiều dữ liệu.
+
+5
+00:00:14,640 --> 00:00:17,510
+Tiếp theo chúng ta sẽ nói về 
+
+6
+00:00:17,510 --> 00:00:21,240
+cái mà được gọi là các đặc tính thực sự
+ cho phép bạn xây dựng mạng lưới,
+
+7
+00:00:21,240 --> 00:00:23,690
+thậm chí khi bạn không có nhiều dữ liệu.
+
+8
+00:00:23,690 --> 00:00:29,340
+Nếu bạn quay lại với đường phân loại dữ liệu hình ảnh,
+
+9
+00:00:29,340 --> 00:00:35,730
+nơi mà chúng ta bắt đầu với một hình ảnh,
+ chúng ta phát hiện một số đặc điểm và các hiển thị khác,
+
+10
+00:00:35,730 --> 00:00:42,220
+và chúng ta đã có một bộ phân loại đơn giản
+ như là bộ phân loại tuyến tính.
+
+11
+00:00:42,220 --> 00:00:45,280
+Câu hỏi ở đây là chúng ta có thể 
+
+12
+00:00:45,280 --> 00:00:48,660
+sử dụng các đặc điểm mà chúng ta học qua mạng lưới bằng cách nào?
+
+13
+00:00:48,660 --> 00:00:54,390
+Công cụ này mới ở các góc, các cạnh thậm chí 
+là khuôn mặt để đưa vào bộ phân loại đó?
+
+14
+00:00:55,410 --> 00:00:56,940
+Chúng ta có thể làm khác không?
+
+15
+00:00:58,830 --> 00:00:59,720
+Ý tưởng ở đây
+
+16
+00:00:59,720 --> 00:01:03,350
+là bạn có các đặc tính cái mà được gọi là nghiên cứu chuyền.
+
+17
+00:01:03,350 --> 00:01:06,940
+Nghiên cứu chuyền là một ý tưởng khá cũ, nó có khá lâu rồi nhưng
+
+18
+00:01:06,940 --> 00:01:12,100
+đã có rất nhiều tác động trong những năm gần đây
+ trong lĩnh vực về mạng lưới.
+
+19
+00:01:12,100 --> 00:01:16,500
+Ý tưởng ở đây là tôi huấn luyện mạng lưới trong trường hợp tôi có rất nhiều
+
+20
+00:01:16,500 --> 00:01:17,510
+dữ liệu.
+
+21
+00:01:17,510 --> 00:01:21,109
+Ví dụ trong nhiệm vụ về tìm sự khác nhau giữa mèo và chó.
+
+22
+00:01:22,110 --> 00:01:27,590
+Tôi đã học được tám tầng, 16 triệu thông số mạng lưới phức tạp.
+
+23
+00:01:27,590 --> 00:01:31,500
+Và tôi nhận được độ chính xác trong nhiệm vụ này.
+
+24
+00:01:31,500 --> 00:01:35,910
+Bây giờ nếu tôi có một chút dữ liệu,
+
+25
+00:01:35,910 --> 00:01:41,080
+không phải là cả tấn dữ liệu cho các nhiệm vụ mới,
+ thì tôi sẽ khám phá ra ghế và
+
+26
+00:01:41,080 --> 00:01:45,150
+con voi, xe ô tô, camera trong hàng trăm mục.
+
+27
+00:01:45,150 --> 00:01:51,420
+Chúng ta có thể sử dụng các tính năng mà
+ chúng ta đã học được ở ví dụ chó và mèo để kết hợp cho
+
+28
+00:01:51,420 --> 00:01:57,209
+bộ phân loại đơn giản và nhận được
+ độ chính xác cao trong 101 danh mục mới.
+
+29
+00:01:58,620 --> 00:02:00,660
+Đó là ý tưởng về nghiên cứu chuyền.
+
+30
+00:02:00,660 --> 00:02:06,270
+Các tính năng mà tôi đã học từ ví dụ mèo và chó đã cung cấp
+
+31
+00:02:06,270 --> 00:02:10,590
+tính chính xác trong nhiệm vụ mới, cái mà
+ phát hiện voi, camera và vân vân.
+
+32
+00:02:11,890 --> 00:02:14,730
+Để hiểu mạng lưới về nghiên cứu chuyền
+
+33
+00:02:14,730 --> 00:02:19,120
+hãy xem lại ý tưởng về mạng lưới đã học.
+
+34
+00:02:19,120 --> 00:02:22,270
+Đây là mạng lưới của ví dụ cho và mèo.
+
+35
+00:02:22,270 --> 00:02:25,660
+Hãy xem chúng ta có độ chính xác cao ở đó với nhiệm vụ, một nhiệm vụ
+
+36
+00:02:25,660 --> 00:02:27,410
+trong ví dụ cho và mèo.
+
+37
+00:02:27,410 --> 00:02:31,970
+Nếu bạn nhìn vào các tầng trước, chúng tập trung nhiều vào nhiệm vụ.
+
+38
+00:02:31,970 --> 00:02:33,212
+Chúng rất cụ thể.
+
+39
+00:02:33,212 --> 00:02:36,295
+Giống như tôi đã cho bạn thấy, có một ví dụ nơi mà có sự khám phá
+
+40
+00:02:36,295 --> 00:02:37,860
+các màu sắc bên trong tầng cuối cùng đó.
+
+41
+00:02:39,050 --> 00:02:41,510
+Bây giờ cái ở giữa là chung chung.
+
+42
+00:02:41,510 --> 00:02:45,470
+Chúng có thể biểu thị những thứ như là 
+các góc, các cạnh và các vòng tròn và
+
+43
+00:02:45,470 --> 00:02:51,310
+các mô hình, những thứ mà có thể khái quát từ nhiệm vụ chó và mèo
+
+44
+00:02:51,310 --> 00:02:57,500
+với nhiệm vụ chung trong 101 danh mục này.
+
+45
+00:02:57,500 --> 00:03:02,453
+Hãy nói về cách chúng ta có thể giải quyết 
+nhiệm vụ thứ hai, 101 danh mục.
+
+46
+00:03:02,453 --> 00:03:07,944
+Chúng ta học về mạng thần kinh với ví dụ 
+cho và mèo có thể ứng dụng trong nhiệm vụ số 2.
+
+47
+00:03:07,944 --> 00:03:09,672
+Bây giờ nếu bạn nghĩ về điều đó,
+
+48
+00:03:09,672 --> 00:03:14,005
+phần cuối của mạng thần kinh rất cụ thể với ví dụ mèo và chó,
+
+49
+00:03:14,005 --> 00:03:17,429
+có lẽ nó không phải là hữu ích để khám phá các ghế.
+
+50
+00:03:17,429 --> 00:03:22,385
+Cái mà chúng ta có thể làm là cắt bỏ 
+các tầng cuối, tầng cuối cùng cho phép thấy nó 
+
+51
+00:03:22,385 --> 00:03:27,287
+trong mạng và giữ trọng lượng cân bằng với các tầng đầu.
+
+52
+00:03:27,287 --> 00:03:30,026
+Bởi vì những điều này đã được khám phá các tính năng tốt.
+
+53
+00:03:30,026 --> 00:03:34,629
+Tầng cuối này với bộ phân tích tuyến tính đơn giản rất đơn giản, vì thế
+
+54
+00:03:34,629 --> 00:03:39,149
+tôi chỉ có thể huấn luyện một ít dữ liệu mà tôi có về ghế,
+
+55
+00:03:39,149 --> 00:03:41,507
+ô tô, voi và camera.
+
+56
+00:03:44,201 --> 00:03:47,853
+Quay trở lại với ví dụ mà chúng ta đã mô tả lúc trước,
+
+57
+00:03:47,853 --> 00:03:49,910
+nơi mà chúng ta có ba tầng.
+
+58
+00:03:49,910 --> 00:03:53,800
+Tầng đầu tiên khám phá các đường chéo và các cạnh.
+
+59
+00:03:53,800 --> 00:03:57,510
+Tầng thứ hai khám phá các mẫu và các góc.
+
+60
+00:03:57,510 --> 00:04:01,580
+Trong khi đó tầng thứ ba là về màu sắc và khuôn mặt,
+
+61
+00:04:01,580 --> 00:04:07,030
+chúng ta có thể sử dụng các tầng cho nhiệm vụ mới, 
+nhưng chúng ta cần phải cẩn thận một chút.
+
+62
+00:04:07,030 --> 00:04:11,773
+Tầng ba có thể là quá cụ thể nhưng tầng một và hai khá là hữu ích.
+
+63
+00:04:11,773 --> 00:04:15,598
+Bây giờ chúng ta đã học về khái niệm nghiên cứu chuyền,
+
+64
+00:04:15,598 --> 00:04:20,481
+hãy xem lại chuỗi nghiên cứu sâu, nhưng sử dụng các tính năng sâu này.
+
+65
+00:04:20,481 --> 00:04:24,580
+Tôi sẽ bắt đầu với một số dữ liệu đã được
+ dán nhãn, chỉ cần một chút là đủ.
+
+66
+00:04:24,580 --> 00:04:27,720
+Và sau đó tôi sẽ xuất các tính năng sử dụng 
+
+67
+00:04:27,720 --> 00:04:30,110
+mạng thần kinh đó giống như chúng ta đã mô tả.
+
+68
+00:04:30,110 --> 00:04:35,021
+Tôi sẽ chia tập dữ liệu thành tập huấn luyện và kiểm tra.
+
+69
+00:04:35,021 --> 00:04:38,488
+Tôi sẽ học bộ phân loại đơn giản như là bộ phân loại tuyến tính,
+
+70
+00:04:38,488 --> 00:04:41,330
+hỗ trợ các máy vecto, những thứ đơn giản.
+
+71
+00:04:41,330 --> 00:04:45,670
+Như là tôi đã xác nhận, bởi vì nó là bộ phân loại đơn giản,
+
+72
+00:04:45,670 --> 00:04:47,900
+không có nhiều thông số để điều chỉnh.
+
+73
+00:04:47,900 --> 00:04:49,100
+Khá là dễ làm.
+
+74
+00:04:49,100 --> 00:04:51,840
+Có thể học với một ít dữ liệu và làm khá tốt.
+
+75
+00:04:52,920 --> 00:04:56,570
+Thực tế chúng ta thấy sự ứng dụng nơi mà ý tưởng này
+
+76
+00:04:56,570 --> 00:05:00,830
+hoạt động cực kì tốt, và chính là ý tưởng 
+mà tôi đã chỉ cho bạn trong ví dụ,
+
+77
+00:05:00,830 --> 00:05:04,970
+ở phần đầu của bài học khi mà tôi chỉ cho bạn cách mua chiếc váy mới.
+
+78
+00:05:04,970 --> 00:05:10,020
+Chúng ta không có nhiều dữ liệu về những bộ váy mô tả 
+trực quan, nhưng chúng ta đã sử dụng cái gì đó
+
+79
+00:05:10,020 --> 00:05:16,940
+mà đã được đào tạo trên imagenet để cung cấp cho bạn
+ trải nghiệm mua sắm một bộ váy đẹp.
+
+80
+00:05:18,030 --> 00:05:22,550
+Bây giờ bạn có thể hỏi các tính năng sâu nói chung là như thế nào?
+
+81
+00:05:22,550 --> 00:05:27,540
+Chúng thực sự được sử dụng cho các nhiệm vụ
+ thú vị, khác thường phải không?
+
+82
+00:05:28,780 --> 00:05:30,540
+Vâng thực sự bạn sẽ rất ngạc nhiên.
+
+83
+00:05:31,750 --> 00:05:33,345
+Thực tế hãy nói về chúng.
+
+84
+00:05:33,345 --> 00:05:36,530
+Một công ti tên là compology.
+
+85
+00:05:36,530 --> 00:05:38,190
+Nó là một công ty khá thú vị.
+
+86
+00:05:38,190 --> 00:05:43,540
+Họ đang cố gắng để tái tạo cách thu thập rác đã được làm.
+
+87
+00:05:43,540 --> 00:05:48,570
+Thông thường xe chở rác đi từ nhà này tới nhà khác, 
+từ công ty này tới công ty khác và
+
+88
+00:05:48,570 --> 00:05:51,780
+thu thập rác hằng ngày, mỗi tuần một lần và vân vân.
+
+89
+00:05:52,830 --> 00:05:56,690
+Họ muốn thay đổi rằng sự tối ưu hóa các xe tải và
+
+90
+00:05:56,690 --> 00:06:00,930
+rác đã được thu thập để làm giảm tối đa thời gian như thế nào.
+
+91
+00:06:00,930 --> 00:06:04,100
+Cách mà họ làm là bằng việc đặt máy camera trên các thùng rác
+
+92
+00:06:04,100 --> 00:06:06,540
+để tìm ra trong đó có gì và nó đầy như thế nào.
+
+93
+00:06:06,540 --> 00:06:14,480
+Chúng ta không có cả tấn dữ liệu đã được dán nhãn về
+ những hình ảnh tìm kiếm các thùng rác đầy, nhưng
+
+94
+00:06:14,480 --> 00:06:19,480
+khi họ làm điều này, sử dụng các tính năng sâu và
+ một chút dữ liệu huấn luyện từ con người,
+
+95
+00:06:19,480 --> 00:06:24,780
+đánh dấu độ sâu của thùng rác để nghiên cứu máy dò rác
+
+96
+00:06:24,780 --> 00:06:29,877
+và có thể tối ưu hóa con đường của xe tải, đẻ phục vụ tốt hơn.
+
+97
+00:06:29,877 --> 00:06:36,650
+Để giảm thời gian xe tải cần để thu thập rác.
+
+98
+00:06:36,650 --> 00:06:38,823
+Các tính năng sâu rất hữu ích với điều này.
+
+99
+00:06:38,823 --> 00:06:44,399
+[NHẠC]

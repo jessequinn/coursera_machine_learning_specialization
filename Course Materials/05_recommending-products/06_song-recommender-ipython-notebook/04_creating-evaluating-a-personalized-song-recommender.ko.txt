@@ -1,0 +1,12 @@
+[음악] 이번에는 개인화를 좀 해보죠 에밀리가 설명한 대로 개인화된 모델입니다 다음으로 개인화가 추가된 노래 추천기를 만들겠습니다 personalize_model라고 하고 이전에 썼던 줄을 다시 씁니다 graphlab 인기도 모델 대신에 항목 유사도 추천기를 씁니다 모듈에서 항목 유사도에 대해 다뤘죠 item_similarity.create를 입력하고 어떻게 되나 보죠 이전과 같이 훈련 데이터를 넣고 사용자 ID 열은 어떤 건지 입력하는데 이 경우 그냥 user_id입니다 항목 ID 열은 곡이었죠 인기도 모델이 아닌 항목 유사도 모델을 만들어봤습니다 다 됐네요 적용을 해볼까요 개인화 모델을 적용해 곡 추천하기 다 됐네요 적용해봅시다 이전에 했던 몇몇 사용자로 시작하죠 개인화 모델 personalized_model에 추천 함수를 호출하고 사용자 0를 입력합니다 이전과 같이 모두에게 추천됐던 Bjork와 다른 가수들이 나오지 않고 Dr. Feelgood, Elizeth Cardoso, 브라질 노래인 Ween, Subhumans 등이 나오네요 어느 정도 흥미로운 결과가 나왔네요 사용자 1에는 뭘 추천할지 볼까요
+개인화 모델이니까 다르겠죠 personalized_model.recommend를 다시 호출하는데 리스트를 입력하는데 사용자 1만 원소로 넣습니다 이러면 추천 결과가 완전히 달라지죠 Florence and the Machine 왠지 이 사용자는 이 가수가 아주 좋은가 보네요 [웃음] 추천이 계속 나옵니다 Apocalyptica와 다른 가수도 있긴 하지만요 이렇게 볼 수 있듯 모델에 개인화가 잘 적용됐습니다 개인화가 있으니 재밌는 일을 해볼 수 있는데 특정 사용자가 어떤 곡을 들어야 할지 추천하는 것뿐만 아니라 곡을 입력해 취향이 비슷한 사람들이 좋아하는 곡이 있는지 알아볼 수 있습니다 어떤 곡을 좋아하는 사람이 다른 곡도 좋아하는지 get_similar_items 함수로 알아볼 수 있죠 항목 리스트를 입력하면 비슷한 것들을 찾아줍니다 예를 들어 readLines 함수는 파일을 U2의 "With Or Without You"란 곡을 아주 좋아한다고 하면 실제로도 좋아합니다 멋진 곡이거든요 U2의 다른 곡들을 보게 될 겁니다 I Still Haven't Found What I'm
+Looking For, Hold Me, Thrill Me, Kiss Me, Kill Me,
+Window in the Skies, Vertigo, Sunday Bloody Sunday, Bad, A Day Without
+Me, Another Place Another Place, Walk On, 이건 괜찮은 곡이죠
+Get On Your Boots까지 모두 U2의 노래입니다 U2의 한 곡을 좋아하면 U2의 다른 곡도
+좋아하는 게 일반적입니다 또 하나 해볼만한 건 개인화 모델을 통해 유사한 항목을 찾는 겁니다 유사한 사용자도 모두 찾을 수 있는데 각 사용자마다 그와 비슷한 다른 사용자를 찾습니다 여기선 유사한 항목을 찾을 텐데 입력할 리스트는 조금 다릅니다 이건 제가 좀 좋아하는 또 다른 곡입니다 Chan Chan이라고 하는데
+라이브 버전이 좋더라고요 Buena Vista Social Club의 곡입니다 이 곡이나 Buena Vista Social Club을 모르신다면 한번 들어보시죠 굉장한 곡입니다 쿠바 밴드인 Buena Vista Social Club의
+Chan Chan을 좋아한다면 Buena Vista Social Club의
+다른 곡들도 좋아하시겠죠 Amor de Loca Juventud 같은 거요 Gotan Project의 "Diferente"을
+좋아하실지도 모르겠네요 아르헨티나 밴드인 Gotan Project는 Gypsy Kings, Flamenco band과
+같은 멋진 밴드인데 여기 같이 있네요 밑에는 Gotan Project의 "Criminal"이 있는데 이것도 그럭저럭 좋아합니다 [음악]

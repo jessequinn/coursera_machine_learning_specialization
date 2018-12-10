@@ -1,0 +1,53 @@
+[NHẠC] Nơi đầu tiên mà mạng nơ ron
+tạo ra sự khác biệt lớn là lĩnh vực thị giác máy tính,
+phân tích hình ảnh và video. Hãy xem một số ví dụ về
+cách học sâu hoặc mạng nơ ron lớn có thể được
+ứng dụng cho thị giác máy tính. Để làm điều đó, tốt hơn hãy hiểu
+các đặc trưng hình ảnh là gì. Trong computer vision, các đặc trưng hình ảnh
+ giống như các máy dò cái mà kết hợp để tạo ra dự đoán. Chúng ta hãy lấy một hình ảnh cụ thể. Giả sử tôi muốn dự đoán liệu là
+hình ảnh này là khuôn mặt hay không. Tôi dùng bộ dò nơ ron, giả sử
+bộ dò mũi, bộ dò mắt, bộ dò mắt khác nữa, bộ dò miệng và nếu tất cả ánh đỏ này,
+bạn có thể thực hiện nó và sử dụng mạng nơ ron, bạn có thể đưa ra đây là
+một khuôn mặt và đó là dự đoán của chúng ta. Đây là một ví dụ đơn giản về cách xây dựng
+ một bộ phân loại cho các hình ảnh, nhưng thực tế chúng không có một
+bộ dò mũi hoặc mắt rõ ràng. Điều xảy ra được gọi là các
+đặc điểm hình ảnh hoặc các điểm quan tâm và có
+nhiều tên cho điều này. Nhưng chúng đã có gắng để
+tìm ra các phân đoạn hình ảnh, các mảnh vá thực sự khác biệt. Sau đó có thể chúng sẽ thấy
+góc xung quanh mắt, có thể góc xung quanh mũi vì thế
+nếu bạn có nhiều máy dò góc, một gương mặt bao gồm các góc. Bộ dò góc ở những vùng quanh
+mắt, miệng và cả hai mắt. Nếu trong một mẫu cụ thể này, bạn thấy rằng bạn có một khuôn mặt. Đó là cách thị giác máy tính hoạt động. Đó là cách phân loại hoạt động. Tất nhiên có các mô hình tổng quát hơn và
+ các mô hình phức tạp hơn nhưng đây là loại cơ bản. Trong nhiều năm các loại bộ dò đặc điểm
+đã được xây dựng bằng tay. Cái phổ biến nhất được gọi
+là đặc điểm SIFT. Và nó đã tái tạo thị giác máy tính
+bởi vì chúng khá là hay và có tính ứng dụng. Có rất nhiều các thứ khác
+cải thiện độ chính xác. Các loại đặc tính có thể được sử dụng. Chúng ta đã nói về điều này đã tạo ra
+ các đặc điểm hình ảnh như là SIFT và hãy nói về cách chúng được
+sử dụng cho phân loại. Cái mà chúng ta làm là chúng ta chạy
+các kết cấu sifted qua hình ảnh và chúng ở các vùng khác nhau. Ví dụ các góc ở mắt và miệng. Sau đó chúng ta tạo một vecto
+mô tả hình ảnh dựa trên cái này, vị trí nơi mà SIFT đặt. Bạn có thể có một số vị trí, và điều này được đánh giá tương đương
+với các từ trong tài liệu. Vậy có từ messy xuất hiện không? Có từ football xuất hiện không? Tương tự, có một góc xuất hiện trong
+một vùng cụ thể trên hình ảnh không? Khi mà chúng ta mô tả về hình ảnh đó,
+chúng ta đưa nó vào bộ phân loại. Ví dụ như Một bộ phân loại tuyến tính đơn giản
+như chúng ta đã nói trước đây. Chúng tôi đang giảng trực tuyến. Nó ở phần trước trong bài học. [cười] chúng ta đã nói đến trong bài học trước đây, bạn có thể đưa vào bộ
+phân loại tuyến tính đơn giản và tên khác là hồi quy ngôn ngữ, hỗ trợ các
+máy vecto và nhiều hơn nữa. Từ đó chúng ta có một phát hiện rằng 
+đây là hình ảnh khuôn mặt hay không phải. Nghe khá hay và nó có một tác động có ý nghĩa
+trong thị giác máy tính. Thách thức là việc tạo ra các
+đặc điểm hình ảnh bằng tay là một quá trình phức tạp và đòi hỏi
+Tiến sĩ giỏi thực hiện. Các mạng nơ ron sẽ khám phá và
+nghiên cứu các đặc điểm một cách tự động. Hãy để tôi cho bạn xem ví dụ về điều đó. Giả sử cho bạn một hình ảnh đầu vào này và đưa nó qua ba tầng mạng nơ ron
+trước khi đưa ra dự đoán. Điều xảy ra là bạn học các bộ đặc trưng, như là SIFT nhưng ở các mức độ
+khác nhau và các tầng khác nhau. Bộ dò này dò các thứ khác nhau, các thuộc tính khác nhau của
+hình ảnh ở các mức độ khác nhau. Tầng đầu tiên bạn có thể học các bộ dò các lỗi nhỏ, cái mà phản ứng lại
+với những thứ như đường chéo. Bộ dò đầu tiên là về việc
+nắm bắt các đường chéo. Phần trung tâm là về việc nắm bắt
+các đường chéo theo hướng khác nhau. Và cái cuối cùng là nắm bắt sự chuyển đổi
+và màu sắc từ tối tới xanh lá. Bây giờ nếu chúng ta nhìn vào tầng tiếp theo,
+bạn sẽ kết hợp các cạnh này, đường chéo trong các bộ dò phức tạp. Ví dụ chúng ta đã khám phá ra dòng này và các bộ dò mẫu. Bạn cũng thấy các bộ dò này
+phản ứng với các góc, tìm ra các góc trong hình ảnh. Ở tầng cuối cùng bạn đưa ra
+các bộ dò phức tạp hơn. Sự đa dạng của hình ảnh
+bạn có thể kết thúc với những thứ mà phản ứng với khuôn mặt. Hoặc có thể nếu bạn có tập dữ liệu lớn hơn,
+thì với những hình ảnh ở đây có hình ảnh san hô. Mạng nơ ron bắt các loại
+hình ảnh khác nhau ở các tầng khác nhau và sau đó
+chúng phân tích tự động. [NHẠC]

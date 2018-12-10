@@ -1,0 +1,432 @@
+1
+00:00:00,000 --> 00:00:04,338
+[NHẠC]
+
+2
+00:00:04,338 --> 00:00:08,644
+OK, để xử lý trường hợp có
+các mặt hàng rất phổ biến này,
+
+3
+00:00:08,644 --> 00:00:13,340
+chúng ta có thể nghĩ về việc chuẩn hóa
+ma trận xuất hiện đồng thời.
+
+4
+00:00:13,340 --> 00:00:17,290
+Và một cách mà chúng ta có thể
+chuẩn hóa ma trận này được gọi là
+
+5
+00:00:17,290 --> 00:00:18,010
+sự tương đồng Jaccard.
+
+6
+00:00:19,048 --> 00:00:21,870
+Tôi muốn đề cập đến khái niệm
+
+7
+00:00:21,870 --> 00:00:25,270
+chuẩn hóa ma trận xuất hiện đồng nhất
+này mà chúng ta đang nói đến,
+
+8
+00:00:25,270 --> 00:00:29,450
+rất giống với những gì chúng ta đã nói đến
+trong bài học về phân loại và tương đồng.
+
+9
+00:00:29,450 --> 00:00:34,940
+Khi chúng ta nói về tf/idf,
+tần số thuật ngữ, tần số tài liệu nghịch đảo.
+
+10
+00:00:34,940 --> 00:00:38,800
+Ở đây chúng ta đã xem các tài liệu
+và chúng ta đã nói rằng
+
+11
+00:00:38,800 --> 00:00:43,540
+những từ thực sự phổ biến chỉ làm lộn xộn
+các từ khác mà chúng ta quan tâm.
+
+12
+00:00:43,540 --> 00:00:47,090
+Và chúng ta đã có cách sử dụng tf/idf để
+
+13
+00:00:47,090 --> 00:00:51,480
+làm chuẩn hóa lại các đếm từ thô mà chúng ta đã
+sử dụng để biểu diễn cho tài liệu của chúng ta.
+
+14
+00:00:51,480 --> 00:00:52,260
+Trong trường hợp này,
+
+15
+00:00:52,260 --> 00:00:57,310
+đây là một khái niệm rất giống với
+việc tính toán một mặt hàng phổ biến.
+
+16
+00:00:58,430 --> 00:01:01,110
+Và cách nó hoạt động khá là trực quan.
+
+17
+00:01:01,110 --> 00:01:06,290
+Chúng ta sẽ chỉ đếm số người
+mua các mặt hàng i và
+
+18
+00:01:06,290 --> 00:01:06,930
+mặt hàng j.
+
+19
+00:01:08,220 --> 00:01:14,000
+Số lượng người mua i và
+
+20
+00:01:14,000 --> 00:01:18,010
+j và đó là cái mà ma trận
+của chúng ta có trước đây.
+
+21
+00:01:18,010 --> 00:01:19,840
+Đó là các đếm thô của chúng ta.
+
+22
+00:01:19,840 --> 00:01:22,410
+Chúng ta sẽ chuẩn hóa chúng bằng
+
+23
+00:01:22,410 --> 00:01:25,349
+số lượng người mua một
+trong những mặt hàng này.
+
+24
+00:01:26,600 --> 00:01:33,461
+Số lượng người mua i hoặc j.
+
+25
+00:01:33,461 --> 00:01:37,500
+Và một biểu đồ Venn đơn giản
+giải thích rất rõ cho điều này.
+
+26
+00:01:40,370 --> 00:01:44,047
+Đây là thế giới những người
+mua mặt hàng i.
+
+27
+00:01:48,700 --> 00:01:53,879
+Và đây là thế giới của những người
+mua mặt hàng j và
+
+28
+00:01:55,672 --> 00:02:00,712
+ở đây trong vùng gạch chéo này,
+là người mua cả i và j.
+
+29
+00:02:04,150 --> 00:02:08,337
+Những gì chúng ta sẽ làm là chúng ta
+dùng các số đếm chúng ta đã có trước đây.
+
+30
+00:02:08,337 --> 00:02:12,213
+Đây là tử số của chúng ta,
+vùng gạch chéo này là mua cả i và j.
+
+31
+00:02:12,213 --> 00:02:16,200
+Chúng ta chỉ làm chuẩn hóa
+theo tổng diện tích.
+
+32
+00:02:16,200 --> 00:02:21,212
+Hãy để tôi đổi các màu ở đây
+để thể hiện rõ hơn.
+
+33
+00:02:27,421 --> 00:02:36,110
+Khoanh vùng thế giới của từng
+người mua mặt hàng i hoặc j.
+
+34
+00:02:36,110 --> 00:02:37,671
+Và đó là mẫu số của chúng ta.
+
+35
+00:02:40,671 --> 00:02:45,519
+Ok, đó là một cách mà chúng ta có thể
+chuẩn hóa ma trận xuất hiện đồng thời,
+
+36
+00:02:45,519 --> 00:02:49,875
+và có những cách khác mà chúng ta có thể
+nghĩ đến như là sự tương đồng cosin và
+
+37
+00:02:49,875 --> 00:02:53,690
+chúng ta sẽ nói về các số liệu
+khác trong khóa học.
+
+38
+00:02:55,540 --> 00:02:57,980
+Nhưng phương pháp này
+có giới hạn của nó.
+
+39
+00:02:57,980 --> 00:03:01,570
+Ở đây, một vấn đề là thực tế
+chỉ xảy ra ở trang hiện tại, nên
+
+40
+00:03:01,570 --> 00:03:04,490
+vấn đề chính là tôi chỉ mua hươu cao cổ Sophie
+
+41
+00:03:04,490 --> 00:03:07,260
+khi tôi nhìn vào các gợi ý cho tôi.
+
+42
+00:03:07,260 --> 00:03:10,220
+Chúng ta khoog nhìn vào toàn bộ
+lịch sử những thứ mà tôi đã mua để
+
+43
+00:03:10,220 --> 00:03:11,830
+đưa ra các giới thiệu này.
+
+44
+00:03:13,800 --> 00:03:18,300
+Hãy nói về cách mà chúng ta có thể
+thay đổi cách tiếp cận để tính đến
+
+45
+00:03:18,300 --> 00:03:19,880
+lịch sử mua hàng của tôi.
+
+46
+00:03:21,270 --> 00:03:25,390
+Ok, một cách tiếp cận đơn giản là
+chỉ tính trung bình trọng số
+
+47
+00:03:25,390 --> 00:03:28,350
+qua các điểm tôi đã đặt trên các sản phẩm.
+
+48
+00:03:28,350 --> 00:03:30,490
+Với mỗi mặt hàng trong lịch sử
+mua hàng của tôi,
+
+49
+00:03:30,490 --> 00:03:32,740
+hãy xem qua một ví dụ cụ thể về điều này.
+
+50
+00:03:32,740 --> 00:03:38,800
+Hãy giả sử rằng các mặt hàng tôi đã
+từng mua trên Amazon là tã và sữa.
+
+51
+00:03:38,800 --> 00:03:42,860
+Bây giờ tôi muốn đưa ra gợi ý
+cho tôi, người chỉ mua tã
+
+52
+00:03:42,860 --> 00:03:48,210
+và sữa, và những gì tôi sẽ làm
+là tôi sẽ xem từng mặt hàng
+
+53
+00:03:48,210 --> 00:03:51,910
+mà tôi có thể nghĩ đến việc giới thiệu,
+và tôi sẽ tính toán điểm như sau.
+
+54
+00:03:51,910 --> 00:03:55,580
+Hãy xem liệu tôi muốn giới thiệu mặt hàng
+
+55
+00:03:55,580 --> 00:03:57,970
+khăn giấy trẻ em cho
+bản thân mình hay không.
+
+56
+00:03:57,970 --> 00:03:59,250
+Và trong trường hợp này,
+
+57
+00:03:59,250 --> 00:04:03,820
+những gì tôi sẽ làm là tôi sẽ tính
+trung bình trọng số qua số lượng tôi
+
+58
+00:04:03,820 --> 00:04:08,760
+sẽ giới thiệu khăn giấy trẻ em
+chỉ dựa trên số tã đã mua trước đây.
+
+59
+00:04:08,760 --> 00:04:11,400
+Đó là kỹ thuật chúng ta đã nói đến.
+
+60
+00:04:11,400 --> 00:04:14,270
+Hãy nhìn vào hàng tã và
+
+61
+00:04:14,270 --> 00:04:17,650
+nhìn số lượng người mua khăn giấy trẻ em.
+
+62
+00:04:17,650 --> 00:04:20,930
+Nhưng sau đó tôi cũng sẽ
+nhìn vào hàng sữa và
+
+63
+00:04:20,930 --> 00:04:24,340
+sau đó nhìn số người mua sữa
+mua khăn giấy trẻ em.
+
+64
+00:04:24,340 --> 00:04:29,040
+Và tôi sẽ tính trung bình hai kết quả để
+xem có bao nhiêu hoặc bao nhiêu khả năng
+
+65
+00:04:30,490 --> 00:04:34,170
+tôi sẽ mua khăn giấy trẻ em,
+đưa vào lịch sử mua hàng mà tôi có.
+
+66
+00:04:35,930 --> 00:04:39,360
+Ok và tất nhiên chúng ta có thể
+làm các thay đổi khác thay vì chỉ là
+
+67
+00:04:39,360 --> 00:04:44,250
+trung bình trọng số đơn giản, tôi có thể cân nhắc mức độ
+nặng nhẹ của lịch sử mua bán gần đây của tôi để
+
+68
+00:04:44,250 --> 00:04:46,980
+tính theo nội dung và vân vân.
+
+69
+00:04:48,250 --> 00:04:51,560
+OK, khi mà tôi muốn đưa ra
+gợi ý, tôi chỉ sắp xếp
+
+70
+00:04:51,560 --> 00:04:55,670
+điểm trung bình trọng số và giới thiệu
+các sản phẩm có trọng số nặng nhất.
+
+71
+00:04:55,670 --> 00:04:59,274
+Tương tự với việc mua hàng
+chúng ta đã nói đến trước đây, nhưng
+
+72
+00:04:59,274 --> 00:05:02,962
+bây giờ chúng ta đang kết hợp trọng lượng
+ dựa trên lịch sử mua hàng của tôi.
+
+73
+00:05:05,004 --> 00:05:07,580
+Ok, nhưng phương pháp này vẫn có một vài hạn chế.
+
+74
+00:05:07,580 --> 00:05:12,890
+Ví dụ nó không sử dụng các địa chỉ liên lạc,
+thời gian trong ngày, ít nhất là không trực tiếp.
+
+75
+00:05:12,890 --> 00:05:17,760
+Nó không sử các đặc điểm của
+người dùng như tuổi hay giới tính hoặc
+
+76
+00:05:17,760 --> 00:05:20,845
+bất kì điều gì như thế,
+vì nó nhóm tất cả
+
+77
+00:05:20,845 --> 00:05:25,160
+người sử dụng với nhau khi nó nghĩ đến việc
+nhìn vào ma trận xuất hiện đồng thời này.
+
+78
+00:05:26,310 --> 00:05:29,030
+Như vậy nó không sử dụng
+các đặc điểm của các sản phẩm.
+
+79
+00:05:29,030 --> 00:05:34,200
+Ok, mọi thứ được kết hợp với nhau
+mà không có bất kì khái niệm
+
+80
+00:05:34,200 --> 00:05:38,550
+các thuộc tính khác nhau của các sản phẩm
+ hoặc người dùng để đưa ra các tư vấn.
+
+81
+00:05:39,850 --> 00:05:42,610
+Và vấn đề lớn nữa mà chúng ta
+đối mặt ở đây là
+
+82
+00:05:42,610 --> 00:05:43,240
+bài toán mới bắt đầu.
+
+83
+00:05:43,240 --> 00:05:46,170
+Và đây là vấn đề thực sự quan trọng
+mà chúng ta đối mặt trong nhiều
+
+84
+00:05:46,170 --> 00:05:46,990
+lĩnh vực khác nhau.
+
+85
+00:05:46,990 --> 00:05:49,130
+Nhưng hãy nói về nó trong trường hợp này.
+
+86
+00:05:49,130 --> 00:05:53,610
+Bài toán mới bắt đầu là thực tế nói rằng
+chúng ta có người dùng mới hoặc
+
+87
+00:05:53,610 --> 00:05:55,290
+một sản phẩm mới.
+
+88
+00:05:55,290 --> 00:05:57,650
+Chúng ta đã tạo dựng các tư vấn như thế nào?
+
+89
+00:05:57,650 --> 00:06:01,830
+Vâng tôi không có quan sát nào
+cho sản phẩm đó, vì thế
+
+90
+00:06:01,830 --> 00:06:06,070
+tôi không có khái niệm về tần suất nó
+được mua cùng với những thứ khác nữa
+
+91
+00:06:06,070 --> 00:06:08,230
+vì nó chưa bao giờ được mua.
+
+92
+00:06:08,230 --> 00:06:12,129
+Như vậy là một người dùng, tôi sẽ không có
+ thông tin về việc mua bán trước đây của mình.
+
+93
+00:06:12,129 --> 00:06:15,929
+[NHẠC]

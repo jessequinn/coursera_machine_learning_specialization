@@ -1,0 +1,23 @@
+[NHẠC] Trong module này chúng ta đã nói về việc
+xây dựng các công cụ phân tích cảm tính sử dụng phân loại. Và bây giờ trong cuốn sổ này,
+chúng ta sẽ đi tiếp và xây dựng một trong số đó. Vì vậy chúng ta sẽ xây dựng bộ
+phân tích cảm tính cho các sản phẩm. Chúng ta sẽ đi thẳng vào và bắt đầu. OK, ở đây chúng ta có notebook
+IPython như mọi khi. Và một lần nữa tôi sẽ giấu đi tiêu đề. Trước khi tôi giấu tiêu đề, tôi muốn thay đồi
+tên của nó, hãy đặt lại tên notebook. Chúng ta sẽ gọi là
+Analyzing product sentiment, bởi vì đây là notebook
+chúng ta đang xây dựng, và tôi sẽ ẩn tiêu đề và tôi sẽ ẩn thanh công cụ chỉ để có
+thêm một chút khoảng trống. Chúng ta sẽ sử dụng Graphlab Create hôm nay, tôi sẽ nhập Graphlab để mình bắt đầu. Ta bắt đầu từ đây Điều đầu tiên chúng ta sẽ làm là đọc dữ liệu. Hãy đọc một số dữ liệu đánh giá sản phẩm. Hãy để tôi đọc vài dữ liệu
+đánh giá sản phẩm. Và đây là tập dữ liệu thực
+mà chúng ta sẽ đọc. Tôi sẽ tạo một SFrame
+gọi là products sử dụng graphlab.DFrame từ
+file cục bộ tôi đã tải về. Bạn cũng sẽ phải tải dữ liệu đó về. Đây là một tập dữ liệu về
+sản phẩm trẻ em của Amazon. Được rồi. Chúng ta đã tải dữ liệu đó, và vì vậy điều đầu tiên mà chúng ta sẽ làm là
+thực hiện một chút khai thác dữ liệu. Hãy khám phá dữ liệu này cùng nhau. Và điều này thật thú vị. Chúng ta có một số dữ liệu sản phẩm,
+vì thế hãy nhìn vào phần đầu của bảng này. Phần đầu chỉ là vài dòng
+đầu tiên tôi đã đưa lên. Như bạn thấy, nó bao gồm
+ba thứ, tên sản phẩm. Planetwise Flannel Wipes là
+về sản phẩm của bạn. Phần đánh giá là "Planetwipes are
+just ok but in my opinion..." Và mức độ đánh giá là 3.0. và trên tổng số năm sao, vậy ba sao
+là mức đánh giá trung bình. Trong khi Planentwise Wipe Pouch,
+người đánh giá này thực sự thích nó, họ đánh giá 5.0. Vậy đây là bộ dữ liệu
+chúng ta đang làm việc. [NHẠC]
