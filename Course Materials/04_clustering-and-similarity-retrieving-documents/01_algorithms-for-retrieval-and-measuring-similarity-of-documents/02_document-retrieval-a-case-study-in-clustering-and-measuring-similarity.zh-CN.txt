@@ -1,7 +1,0 @@
-[背景音乐]
-翻译: RyukaSuu |审阅: 19waa
-Coursera Global Translator Community 在这个部分 我们将要学习聚类和相似度 通常我们会有很多观测数据 我们想从中推断出某种潜在结构 在这里 我们所说的结构是 一组相关观测或集群 同这个课程的其他部分一样 我们将对一个实际应用进行案例研究
-来引出我们要讨论的内容 在这里我们要讨论的实际应用是
-检索感兴趣的文档的任务 [背景音乐]
-翻译: RyukaSuu |审阅: 19waa
-Coursera Global Translator Community

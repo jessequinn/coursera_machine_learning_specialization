@@ -1,8 +1,0 @@
-[NHẠC] Ok trong bài học này chúng ta sẽ nói về 
-sự phân nhóm và sự tương đồng. Và ở đây chúng ta thường có
-rất nhiều sự quan sát và chúng ta muốn suy luận một vài loại
-cấu trúc ẩn dưới những quan sát này. Và trong trường hợp này cấu
-trúc chúng ta sẽ nói tới là các nhóm của những quan sát
-liên quan hoặc các nhóm liên quan. Và như tất cả các bài học của chúng ta, chúng ta sẽ thúc đẩy mọi thứ với một ứng dụng
-thực tế, một trường hợp nghiên cứu. Trong trường hợp này chúng ta sẽ nói về
-nhiệm vụ thu thập tài liệu được quan tâm. [NHẠC]
