@@ -20,5 +20,3 @@ Machine Learning: Classification
 COURSE
 4
 Machine Learning: Clustering & Retrieval
-
-This respository is for COURSE 1.
