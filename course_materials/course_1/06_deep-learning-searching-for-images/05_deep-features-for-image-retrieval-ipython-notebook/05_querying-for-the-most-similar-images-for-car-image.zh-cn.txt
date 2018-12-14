@@ -1,9 +1,0 @@
-[背景音乐]
-翻译: RyukaSuu |审阅: 19waa
-Coursera Global Translator Community 现在我们已经创建了这些辅助函数 一起来用在这里的另外一张图片上 这是一张有点作弊的图片 我找到了一辆车 而且 之后我们会尝试一些例子 我们找到一辆在image_train中的汽车
-它是第8张 所以我按图片顺序查找到了那辆车 这样你就回看到
-让我们看看这张汽车图片 用car_image.show
-我们就会看到实际要找的图片 这就是那张红色的车 你会在这里看到红色的车 问题在于 哪些是那辆车的最近邻 要用的是我们之前创建的命令 get_images_from_ids可以查询那辆车 但我想走点捷径 所以我想用get_images_from_ids 我要用knn_model且 把汽车图片作为输入 所以通过knn_model
-我要查询当前的图片 输出应该是个列表 一个SFrame 而且 之后我要选择SFrame里代表图片的那一列 在此敲入.show 现在 在此之后 你会发现输入应该是这个红色车辆 而且 现在我们有一些与8号汽车车相似的红色汽车 这真的很酷 只需要几行 我们就建立了一个关于一辆车和一只猫的最近邻模型的例子 [背景音乐]
-翻译: RyukaSuu |审阅: 19waa
-Coursera Global Translator Community

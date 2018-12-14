@@ -1,1 +1,0 @@
-[Musik] Heute sprechen wir über die interessantesten Entwicklungen der letzten Jahre auf dem Gebiet Machine Learning. Und zwar den neuen Bereich 'Deep Learning'. Insbesondere beschäftigen wir uns mit einem speziellen Use Case auf diesem Gebiet: Das Einkaufen von Produkten basierend auf der Gleichheit von Bildern. [Musik]

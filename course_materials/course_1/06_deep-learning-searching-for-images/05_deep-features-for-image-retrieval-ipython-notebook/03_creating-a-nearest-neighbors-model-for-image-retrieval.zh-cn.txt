@@ -1,7 +1,0 @@
-[背景音乐]
-翻译: RyukaSuu |审阅: 19waa
-Coursera Global Translator Community 这将会非常简单 它和我们做过的文件检索 notebook 很相似 它用来找和巴拉克·奥巴马 克林顿 贝克汉姆 
-以及其他人相似的文档 那么让我们开始吧 我们需要做的是 训练一个最近邻模型 利用深度特征来检索图片 所以这将会非常简单 和文档检索一样 我们将称它为knn_model 当我使用graphlab nearest_neighbors工具包 我们将编写create去创建这个 最近邻模型
-就像在最近邻模型中 我们将给它一些数据 比如我的训练数据 我将告诉它使用哪些特征 我使用的特征将会完全是那些深度特征 提醒一下 你可以给它一个标记ID 那么这里的标记 我们将使用图像ID 这使得 我们在回溯的时候可以找到最近邻相对应的图片 [背景音乐]
-翻译: RyukaSuu |审阅: 19waa
-Coursera Global Translator Community

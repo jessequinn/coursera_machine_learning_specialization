@@ -1,2 +1,0 @@
-[hudba] V této lekci si probereme jednu z nejvíce vzrušujících věcí, která se udála na poli ML v několika posledních letech. Jde o novu oblast zájmu, označovanou jako deep learning. Na jakém konkrétním use case si deep learning představíme? Půjde o případ vztahující se k nakupování produktů
-výhradně na základě podobnosti obrázků. [hudba]
