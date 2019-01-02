@@ -1,0 +1,92 @@
+[MUSIC] So in modules one and two we described
+how to fit different models and in module two we described how
+to fit very complex models. But at up to our third module
+we had no idea how to access whether that fitted model was going to
+perform well in our prediction tasks. So in module three, that was our
+emphasis in assessing the performance of our fitted module and thinking about
+how we can select between different models to get good predictive performance. So the first notion that we
+introduced in order to measure how good our fit was performing
+was the measure of loss. So this is kind of a negative measure
+of performance where we wanna lose as little as possible
+in making poor predictions. We're just under an assumption that
+our predictions are not perfect. And we discussed two different
+examples of loss metrics that are very commonly used talking about this
+absolute error or this squared error. Then with this loss function, we talked about defining three
+different measures of air. The first was our training error, which we said was not a good assessment of
+the predicted performance of our model. Then we defined something
+called our generalization, or true error, which is what we really want. We wanna say how well are we predicting every possible observation
+that we might see out there. And we said, okay, well can't actually
+compute that so then we defined something called our test error which
+looks at the subset of our data that was not including in the training
+set and looks at the model that was fit on the training data set but now making
+predictions on these held out points. And we said that test error was a noisy
+approximation to our generalization error. And for
+these three different measures of error, we talked about how they varied as
+a function of model complexity. So training error, we know, goes down
+with increasing model complexity but that doesn't indicate
+that we get better and better predictions as we
+increase our model complexity. But in contrast, if we look at
+generalization error, true error, these tend to increase, the errors tend
+to increase after a certain point. We say that that point is when this
+models start to become overfit. Because they perform very well
+on the training data set, but they don't generalize well to
+new data that we have not yet seen. And again, although we discuss this in
+the context of regression, this notion of training, test, generalization error,
+and variations with model complexity is a much more general concept that we'll
+see again in the specialization. We then characterized three different
+sources that contribute to our prediction error. These are,
+the noise that's inherent in the data. This is our irreducible error. We have no control over it. It has nothing to do with our model or
+our estimation procedure but then we talked about this idea of bias and
+variance. So we just described bias as saying
+how well can our model fit the true relationship, averaging over all possible
+training data sets that we might see. Whereas variance was describing
+how much can a fitted function vary from training data set to training
+data set, all of size and observations. So of course noise in the data can
+contribute to our errors in prediction, but of course if our model can't
+adequately describe the true relationship that's also a source of error
+as well as this variability from training set to training set. So of course we want low bias and
+low variance to have good predicted performance, but we saw
+that there's this bias variance trade-off. That as you increase model complexity,
+your bias goes down, but your variance goes up. And so there's this sweet spot
+that trades off between bias and variance and results in the lowest
+what's called mean square error. And that's what we're seeking to find. And like we've said multiple times, machine learning is all about
+exploring this bias variance tradeoff. Then with concluded this module by saying, how are we both going to select our
+model and assess its performance? And for this we said, well we need to actually form
+something called a validation set. So we're going to fit our model
+on the training data set, we're going to select between different
+models or thinking about selecting a tuning perimeter describing these
+different models on our validation set and then testing the performance on our test
+set, where we never touched the test data. In later modules,
+like we're going to describe, we talked about how if you don't have
+enough data to form this validation set, you can think about doing
+cross-validation instead. Then, in our fourth module,
+we talked about rich regression. And remember that as our
+models become more and more complex, we can become overfit and
+what we saw is the symptom of overfitting was that the magnitude of our
+estimated coefficients just exploded. So what ridge regression does
+is it trades off between a measure of fit of our function
+to our training data and a measure of the magnitude
+of the coefficients. And implicitly by balancing
+these two terms we're doing a bias-variance tradeoff. In particular we saw that our rich
+regression objective sought to minimize our residuals sum of squares plus lambda
+plus the L2 norm of our coefficients, and we talked about what the coefficient
+path of our ridge solution looked like, as we varied this tuning parameter, lambda,
+the penalty strength on this L2 norm term. And we saw that as you increase
+this penalty parameter, the magnitude of our coefficients
+become smaller and smaller and smaller. Then for
+our ridge objective just like we did in our standard lease squares objective,
+we computed the gradient, set it equal to zero to get our
+closed-form solution and this looks very similar to our solution we had
+before except with this additional term. And what we talked about in this
+module is the fact that by adding this lambda times the identity matrix. This allowed us to have a solution, even when the number of features was
+larger than the number of observations. And it allowed for a much more quote,
+unquote, regularized solution. That's why it's called
+a regularized regression technique. But the complexity of the solution
+was exactly the same as we had for these squares, cubic in the number
+of features that we have. We also talked about a gradient
+descent implementation of ridge. And as we saw, a key question in what
+solution we would get out of ridge was determined by this
+lambda penalty strength. And so, for this, instead of talking about
+cutting out a validation set to select this tuning parameter, we talked about
+cases where you might not have enough data to do that, and instead described
+this cross validation procedure. [MUSIC]

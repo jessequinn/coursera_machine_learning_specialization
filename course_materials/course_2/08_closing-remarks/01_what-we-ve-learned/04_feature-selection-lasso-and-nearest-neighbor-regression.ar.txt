@@ -1,0 +1,55 @@
+الموسيقى The fifth module was then
+all about feature selection. So, to motivate this, we talked about the
+fact that every house might have a really long list of The attributes
+associated with it and for reasons of both interpretability as well as
+efficiency in forming our predictions. We want to select a sparse subset of
+these features to include in our model. So to perform this feature selection the
+first thing that we talked about we a set of methods that Explicitly searched over
+models with different numbers of features and the exhaustive approach was something
+that's called all subsets selection. But then we also talked about greedy
+procedures like forward selection and saw that these gave,
+perhaps suboptimal solutions, but we're much more efficient than
+the all subsets procedure. But instead of explicitly searching over
+models with different sets of features, we talked about how to use lasso
+regression to implicitly do this feature selection where the objective looks just
+like but instead of using the L2 norm, we're using L1 norm of our coefficients. And we showed how that
+led to sparse solutions. So in particular, if we look at
+the coefficient path associated with lasso We saw that for any value of lambda,
+we ended up, typically, with a sparse solution, getting sparser
+and sparser as we increase lambda. And this was in contrast
+to what we saw for ridge, where the coefficients just got
+smaller and smaller, here we actually end up with the sparse solutions that
+lead to this idea of future selection. Then to optimize this laws of objective,
+we talked about a coordinate descent algorithm where we solved
+collection of one deoptimization problems iterating through the different
+dimensions of our objectives. So in particular the different
+features of our regression model. And what we saw was that for
+lasso we ended up Setting our coefficients according to something that
+we called soft thresholding, where in a certain range
+of the correlation, this correlation coefficient that
+we described in this module. We're gonna set our
+coefficient exactly to zero. And outside that range,
+relative to our least squares solution. We're gonna shrink the value
+of the estimated coefficient. So lasso can lead to these far solutions
+and has shown impact in just really, really large set of
+different applied domains. In our last module, we talked about a set
+of parametric techniques called nearest neighbor and kernel regression. And one nearest neighbor was a really, really simple procedure, the most basic
+procedure that you would imagine doing. But we show that it actually
+could perform really well, especially when you have lots of data. And what this method does is if you're
+going to estimate the value of your house, you just look for the most similar house,
+look at its value, and predict your value to be exactly the same. Then we talked about making this a little
+bit more robust by looking at a set of k-nearest neighbors and then say, well you can also think about weighting
+these k-nearest neighbors when you're going to compute your predicted value
+by how similar they are to you. And then average across these ratings
+to form your estimated prediction. And this led directly to an idea of
+kernel regression, where instead of just waiting a collection of neighbors,
+you actually weighed every observation in your data set, but a lot of
+the kernels that we specify actually set those weights to zero outside a certain
+range and decay them within a given range. And so what this leads to is an idea
+of these very local fits, and we talked about how kernel regression was equivalent
+to forming these locally constant fits, which was in contrast to our parametric
+models, that formed these global fits. So here's a visualization of our kernel
+regression that we saw in this module, and we see how it leads to these really,
+nice, smooth fits. And these fits are very adaptive to the
+complexity of the data that we see, and can increase in complexity as
+we get more and more data. الموسيقى

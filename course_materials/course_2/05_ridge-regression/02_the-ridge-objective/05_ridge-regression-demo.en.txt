@@ -1,0 +1,101 @@
+So here we are back at our
+polynomial regression demo. And remember when we're just
+doing these squares estimation. Let's just quickly scroll through this. Remember we had this data
+generated from a sine function. And when we to fit a degree-2 polynomial,
+things looked pretty reasonable. Degree-4 started looking a bit wigglier,
+larger estimated coefficients and at degree-16 looked really wiggly and had
+these massive, massive coefficients, okay. And now let's get to our ridge regression,
+where we're just gonna take our polynomial regression function and
+modify it. And in using Graph Lab Create it's
+really simple to do the ridge regression modification because, as we mentioned
+before, there's this l2 penalty input. To .linear_regression. And before, when we're doing just lee squares we
+set that L2 penalty equal to zero. And this is this lambda value that
+we're talking about in trading off between fit and model complexity. So here though, we're gonna actually
+specify a value for this penalty. And that's the only modification that
+we have to make in order to implement ridge regression using Graph Lab Create. But again in the assignments for this course you're gonna explore
+implementing these methods yourself. Okay so let's go and define this
+polynomial ridge regression function. And then we're just gonna go through and explore performing a fit of this really
+high order polynomial, this 16th order polynomial that had very wiggly fit,
+crazy coefficients associated with it. But now, looking at solving
+the ridge regression objective for different values of lambda. So to start with, let's consider a really,
+really small lambda value. So a very small penalty on
+the two norm of the coefficients. And what we'd expect is that
+the estimated fit would look very similar to the standard lee squares case. And if we look at the plot,
+this figure looks very very similar, if I scroll up quickly, to the fit we
+had doing just standard lee squares. So that checks out to what we know
+should happen, and, likewise, the coefficients are still these
+really really massive numbers. Okay, but what if we increase
+the strength of our penalty. So let's consider a very large L2 penalty. Here we're considering a value of 100,
+whereas in the case above we were considering a value of one-eighth
+to the -25, so really really tiny. Well in this case,
+we end up with much smaller coefficients. Actually they look really really small. So let's look at what the fit looks like. And we see a really, really smooth curve. And very flat, actually probably
+way too simple of a description for what's really going on in the data. It doesn't seem to capture
+this trend of the data. The value's increasing and
+then decreasing. It just gets a constant fit
+followed by a decrease. So, this seems to be under-fit and so as we expect, what we have is that
+when lambda is really really small we get something similar to our lee
+square solution and when lambda becomes really really large we start approaching
+all the coefficients going to 0. Okay so
+now what we're gonna do is look at the fit as a function of a series of different
+lambda values going from our 1e to the minus 25 all the way
+up to the value of 100. But looking at some other intermediate
+values as well to look at what the fit and coefficients look like
+as we increase lambda. So we're starting with these crazy,
+crazy large values. By the time we're at 1e to the -10 for
+lambda, the values have decreased by two orders of
+magnitude so have times 10 to the 4th now. Then we keep increasing lambda. 1e to the -6. And we get values on
+the order of hundreds for our coefficients, so
+in terms of reasonability of these values I'd say that they start
+looking a little bit more realistic. And then we keep going and you see that the value of the coefficients
+keep decreasing, and when we get to this value of lambda that's 100
+we get these really small coefficients. But now lets look at what the fits are for
+these different lambda values. And here's the plot that
+we've been showing before for this really small lambda. Increasing the lambda a bit smoother fit,
+still pretty wiggly and crazy, especially on these boundary points. Increase lambda more,
+things start looking better. When we get to 1e to the -3,
+this looks pretty good. Especially here, it's hard to tell whether
+the function should be going up or down. I want to emphasize that app boundaries
+where you have few observations, it's very hard to control the fit so
+we believe much more the fit in intermediate regions of our x
+range where we have observations. Okay but then we get to this
+really large lambda and we see that clearly we're over
+smoothing across the data. So a natural question is, out of all these
+possible lambda values we might consider, and all the associated fits,
+which is the one that we should use for forming our predictions? Well, it would be really nice if there
+were some automatic procedure for selecting this lambda value instead
+of me having to go through, specify a large set of lambdas, look at
+the coefficients, look at the fit, and somehow make some judgment call
+about which one I want to use. Well, the good news is that there is
+a way to automatically choose lambda. And this is something we're gonna
+discuss later in this module. So one method that we're gonna
+talk about is something called leave one out cross validation. And what leave one out cross validation
+does is it approximates, so minimizing this leave one out cross-validation
+error that we're gonna talk about, approximates minimizing the average
+mean squared error in our predictions. So, what we're gonna
+do here is we're gonna define this leave one out cross-validation
+function and then apply it to our data. And, this leave one out cross validation function, you're not
+gonna understand what's going on here yet. But you will by the end of this module. You'll be able to implement
+this method yourself. But what it's doing is it's looking at prediction error of different lambda
+values and then choosing one to minimize. But of course we're not looking
+at that on the training error or on the, sorry on the training set or the
+test set, we're using a validation set but in a very specific way. Okay, so now that we've applied this leave one out function to our
+data in some set of specified penalty values, we can look at
+what the plot of this leave one out cross validation error looks like as a
+function of our considered lambda values. And in this case, we actually
+see a curve that's pretty flat. In a bunch of regions. And what this means is
+that our fits are not so sensitive to those choice
+of lambda in these regions. But there is some minimum and we can
+figure out what that minimum is here. So here we're just selecting
+the lambda that has the lowest cross validation error. And then we're gonna fit our polynomial ridge regression model using
+that specific lambda value. And we're printing our coefficients and what you see is we have
+very reasonable numbers. Things on the order of 1, .2, .5, and
+let's look at the associated fit. And things look really nice in this case. So, there is a really nice trend
+throughout most of the range of x. The only place that things look a little
+bit crazy is out here in the boundary. But again, at this boundary region we
+actually don't have any data to really pin down this function. So, considering it's
+a 16 order polynomial, we're shrinking coefficients but
+we don't really have much information about what
+the function should do out here. But what we've seen is that this leave
+one out cross validation technique really nicely selects a lambda
+value that provides a good fit and automatically does this balance
+of bias and variance for us. [MUSIC]

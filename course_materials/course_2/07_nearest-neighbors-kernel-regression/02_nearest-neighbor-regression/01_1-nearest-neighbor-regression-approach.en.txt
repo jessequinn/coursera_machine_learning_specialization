@@ -1,0 +1,85 @@
+[MUSIC] And this simple approach is called
+nearest neighbor regression. So the idea of nearest neighbor regression
+is you have some set of data points, which are shown as these blue circles. And then, when you go to predict the value
+at any point in your input space. All you do is you look for
+the closest observation that you have and what its outputted value is, and you just predict that your value is
+exactly equivalent to that value. Okay, so this is really the simplest
+model you can think of. So here we're showing what
+the resulting fit would look like. So the green line is the fit and we have these little arrows showing
+which are the closest observations. So just to be clear,
+if I'm somewhere in this input space, I have some number of square feet for
+my house. I'm gonna look for the closest observation
+and I'm gonna choose my predicted value for my house to be exactly
+the same as this other observation. So we can see that this leads
+to this idea of having local fits where these local fits are defined
+around each one of our observations. And how local they are,
+how far they stretch is based on where the placement of
+other observations are. And this is called one
+nearest neighbor regression. And this is really what
+people do naturally. So if you think of some real estate agent
+out there and you're selling your house, and the real estate agent wants to
+assess the value of your house. What are they gonna do? Well that agent is gonna look at all the
+other houses that were sold and is gonna say, well what's the most similar house to
+your house and how much did it sell for? So implicitly what this real estate agent
+is doing is looking for your nearest neighbor, which house is most similar to
+yours, and then is gonna assess the value of your house as being exactly equal
+to the sales price of this other house. That's the best guess that
+your real estate agent has for the value of your house and how much
+it's likely to sell for on the market. So let's formalize this
+nearest neighbor method a bit. We're gonna have some data set
+in our housing obligation. It's gonna be pairs of
+house attributes and values associated with each house,
+so the sales price of the house. And so
+we're gonna denote this as (x,y) for some set of observations, 1 to capital N. So this is what we assume our data set is. And then we assume that we have
+some query house which is not in our training data set. So this is some point, xk, this is our some house that
+we're interested in the value. And the first step of the nearest
+neighbor method is to find the closest other house in our dataset. So specifically let's call
+our x nearest neighbor to be the house that minimizes
+over all of our observations, i, the distance between xi and our query house, xk. So to be clear, in the picture
+we had on the previous slide, this x nearest neighbors would
+just be that big pink house. Then what we're gonna do is
+we're simply gonna predict the value of our query house which
+is our big lime green house. To be exactly the value or
+the sales price of this big pink house. So sales price of big pink house. Okay, so really, really,
+really straightforward algorithm. And so just to be clear, let's say this
+was the square feet of our green house. We go, and what we're gonna do is we're
+gonna look for our nearest neighbor. We search along square feet and say, which house has the most
+similar square feet to mine? Happens to be this house,
+this is our pink house. Which will be, if there's space I'll
+just write it here, x nearest neighbor. Actually, I like to write it under,
+where it actually should be, so x, nearest neighbor. And then we say,
+what is the value of that house, which is how much it sold for
+y, nearest neighbor. And that's exactly what we're
+gonna predict for our query house. So the key thing in our nearest
+neighbor method is this distance metric which measures how similar this
+query house is to any other house. And this defines our notion of in
+quotes closest house in the data set. And it's a really, really key thing
+to how the algorithm's gonna perform. For example, what house it's gonna
+say is most similar to my house. So we're gonna talk about
+distance metrics in a little bit. But first, let's talk about what
+one nearest neighbor looks like in higher dimensions because so far, we've assumed that we have just one
+input like square feet and in that case, what we had to do was define
+these transition points. Where we go from one nearest neighbor
+to the next nearest neighbor. And thus changing our predicted values
+across our input space square feet. But how do we think about doing
+this in higher dimensions? Well, what we can do is look at something
+that's called a Voronoi diagram or a Voronoi tessellation. And here, we're showing a picture
+of such a Voronoi tessellation, but just in two dimensions, though this idea
+generalizes to higher dimensions as well. And what we do is we're just gonna
+divide our input space into regions. So in the case of two dimensions, they're just regions in
+this two dimensional space. So I'm just gonna highlight
+one of these regions. And each one of these regions
+is defined by one observation. So here is an observation. And what defines the region is the fact
+that any other point in this region, let's call it x. Let's call this xi, and
+this other point some other x. Well, this point x is closer to xi,
+let me write this. So x closer to xi than any other xj, for j not equal to i. Meaning any other observation. So in pictures, what we're saying
+is that the distance from x to xi is less than the distance to
+any of these other observations. In our dataset. So what that means is,
+let's say that x is our query point. So let's now put a sub q. If x is our query point, then when we go
+to predict the value associated with xq. We're just gonna look at what
+the value was associated with xi, the observation that's
+contained within this region. So this Voronoi diagram might
+look really complicated, but we're not actually going to
+explicitly form all these regions. All we have to do is be able
+to compute the distance and define between any two points in our input
+space and define which is the closest. [MUSIC]

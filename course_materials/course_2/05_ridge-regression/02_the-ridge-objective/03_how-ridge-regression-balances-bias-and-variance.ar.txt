@@ -1,0 +1,20 @@
+[موسيقى] >> Okay, let's talk about this in the
+context of the bias variance trade-off. And what we saw is when
+we had very large lambda, we had a solution with very high bias,
+but low variance. And one way to see this is that, is
+thinking about when we're cranking lambda all the way up to infinity, in that limit,
+we get coefficients shrunk to be zero, and clearly that's a model with
+high bias but low variance. It's completely low variance, it doesn't
+change no matter what data you give me. On the other hand,
+when we had very small lambda, we have a model that is low bias,
+but high variance. And to see this think about setting lambda
+to zero, in which case, we get out just our old solution, our old lee squares or
+minimizing residual sum of squares fit. And there we see that for higher complexity models clearly you're
+gonna have low bias but high variance. So what we see is this lambda
+tuning parameter controls our model complexity and
+controls this bias variance trade-off. Okay, so let's return to our
+polynomial regression demo, but now using ridge regression and
+see if we can ameliorate the issues of over-fitting as we vary
+the choice of lambda. And so we're going to explore this
+ridge regression solution for a couple different choices of
+this lambda tuning parameter. [موسيقى]

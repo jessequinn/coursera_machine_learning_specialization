@@ -1,0 +1,49 @@
+الموسيقى حسناً So now let's think a little
+bit about the solution. So this is our w hat ridge. And what happens if I
+set lambda equal to 0? Well, I get w hat ridge is equal to H transpose H inverse, H transpose y. And that might look very familiar to you. That was exactly equal to our w hat
+least squares, our old solution, before we introduced this
+notion of ridge regression. And what if set lambda
+all the way to infinity? Well then i get w hat ridge equals zero. Because it's like dividing by infinity. When we have this infinity
+appearing in this inverse. Remember the inverse was like our
+matrix analog of division, so that's intuition for
+why w hat ridge is exactly equal to zero. حسناً So this is a little sanity check. That when lambda is equal to zero, this closed form solution we have is exactly
+equal to our least square solution. That's what we had discussed at
+the very beginning of this module. And likewise, when we crank lambda
+all the way up to infinity, our solution is equal to zero. But now what we have is
+we have a closed form for what the solution is for
+some lambda in between zero and infinity. Let's also recall the discussion we
+had about our previous solution, w hat least squares, where we said this H transpose H looks exactly
+like the following where this is our little cartoon of our H
+matrix, where the number for H transpose. Let me actually write it here,
+it'll be clearer. The number of rows is equivalent
+to the number of observations. That's N and the number of columns is equal to the number of features, which we denote as D. And what we said not last module,
+but the module before that, we said H transpose H, the multiplication
+of these two matrices is invertible. In general, if the number of observations
+is greater than the number of features, but really it's the number of linearly
+independent observations being greater than the number of features, and we said the complexity of this inverse
+is cubic in the number of features D. Well now let's think about
+similar properties, but of our ridge regression solution. Where this H transpose H is
+exactly like we had it before. But now before we take our inverse, we're
+adding lambda times the identity matrix. And when you take a scaler and
+multiply by the identity matrix, you just get that value along
+the diagonal, so we get a whole bunch of lambdas along the diagonal and
+zero everywhere else in this matrix. So what ends up happening now is
+the result, H transpose H plus lambda times identity, is invertible always
+when lambda is greater than zero. Even if the number of observations or
+number of linearly independent observations is
+less than the number of features. So this is really important. When you have lots of features. So for large D,
+which has lots of features, and remember, that's how we motivated
+using ridge regression. We're in these really complicated
+models where you have lots and lots of features, a lot of flexibility and
+the potential to over fit. Now we see something very
+explicit about how it helps us. And just to return to
+the discussion on the naming of ridge regression being called
+a regularization technique. ولو تتذكر، I said that we're regularizing
+our standardly square solution. Well we can see that here, because lambda times the identity is making H transpose H plus lambda identity more regular. That's what's allowing us to
+do this inverse even in this other situation,
+this harder situation, and because this result is more regular,
+we call it regularized. حسناً But, the complexity of the inverse is
+still cubic in the number of features we have and often when we're thinking about
+ridge regression, like I said we're thinking about cases where you have lots
+and lots of features, so doing this close form solution that we've shown here
+can be computationally prohibitive. الموسيقى

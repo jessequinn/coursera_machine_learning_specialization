@@ -1,0 +1,544 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Regression Week 4: Ridge Regression Assignment 1
+ </h2>
+ <p>
+  In this assignment, we will run ridge regression multiple times with different L2 penalties to see which one produces the best fit. We will revisit the example of polynomial regression as a means to see the effect of L2 regularization. In particular, we will:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Use a pre-built implementation of regression to run polynomial regression
+   </p>
+  </li>
+  <li>
+   <p>
+    Use matplotlib to visualize polynomial regressions
+   </p>
+  </li>
+  <li>
+   <p>
+    Use a pre-built implementation of regression to run polynomial regression, this time with L2 penalty
+   </p>
+  </li>
+  <li>
+   <p>
+    Use matplotlib to visualize polynomial regressions under L2 regularization
+   </p>
+  </li>
+  <li>
+   <p>
+    Choose best L2 penalty using cross-validation.
+   </p>
+  </li>
+  <li>
+   <p>
+    Assess the final fit using test data.
+   </p>
+  </li>
+ </ul>
+ <p>
+  We will continue to use the House data from previous assignments. (In the next programming assignment for this module, you will implement your own ridge regression learning algorithm using gradient descent.)
+ </p>
+ <h2 level="2">
+  IMPORTANT: Choice of tools
+ </h2>
+ <p>
+  <strong>
+   For the purpose of this assessment, you may choose between GraphLab Create and scikit-learn (with Pandas). You are free to experiment with other tools (e.g. R or Matlab), but they may not produce correct numbers for the quiz questions.
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using GraphLab Create, download the IPython notebook and follow the instructions contained in the notebook.
+   </p>
+  </li>
+  <li>
+   <p>
+    If you are using Pandas+scikit-learn combination, follow through the instructions in this reading.
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  What you need to download
+ </h2>
+ <h3 level="3">
+  If you are using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales data In SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="xTXVRY9KEea9qA4Z6lKA3Q" name="kc_house_data.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the companion IPython Notebook:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="pU4du5b2EeaHjRLnexYMxg" name="week-4-ridge-regression-assignment-1-blank.ipynb">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling IPython notebook from) and unzip the data file.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  If you are not using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="-pWe7o9KEeaKKBK9HFzH_Q" name="kc_house_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales training data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="Xo7CQJABEeanawoaUJkV-g" name="wk3_kc_house_train_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales validation data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="XpKTOZABEearQg4tHxRZaA" name="wk3_kc_house_valid_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales testing data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="XpCXKZABEea1zg7GQZYiTA" name="wk3_kc_house_test_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download csv file containing randomly shuffled rows of training and validation data combined:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="IQZkJpACEeaRtAqhdPgDFA" name="wk3_kc_house_train_valid_shuffled.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales subset 1 data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="XongXJABEeaemQ7Qw8lR8A" name="wk3_kc_house_set_1_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales subset 2 data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="Xo08RJABEeaUSArAHh3eJg" name="wk3_kc_house_set_2_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales subset 3 data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="XovcLZABEeaemQ7Qw8lR8A" name="wk3_kc_house_set_3_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales subset 4 data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="Xo-F0pABEeaOrhKVQ6r_lg" name="wk3_kc_house_set_4_data.csv">
+ </asset>
+ <h2 level="2">
+  Useful resources
+ </h2>
+ <p>
+  You may need to install the software tools or use the free Amazon EC2 machine. Instructions for both options are provided in the reading for Module 1 (Simple Regression).
+ </p>
+ <p>
+  If you are following the IPython Notebook and/or are new to numpy, then you might find the following tutorial helpful:
+ </p>
+ <asset assettype="generic" extension="zip" id="72vP3pb2EeaGYhKBa-7RCg" name="numpy-tutorial.ipynb">
+ </asset>
+ <h2 level="2">
+  If you are using GraphLab Create and the companion IPython Notebook
+ </h2>
+ <p>
+  Open the companion IPython notebook and follow the instructions in the notebook.
+ </p>
+ <h2 level="2">
+  If you are using scikit-learn with Pandas
+ </h2>
+ <p>
+  <strong>
+   1.
+  </strong>
+  Copy and paste an equivalent of ‘polynomial_sframe’ function from Module 3 (Polynomial Regression). This function accepts an array ‘feature’ (of type  pandas.Series) and a maximal ‘degree’ and returns an data frame (of type  pandas.DataFrame) with the first column equal to ‘feature’ and the remaining columns equal to ‘feature’ to increasing integer powers up to ‘degree’.
+ </p>
+ <p>
+  <strong>
+   2.
+  </strong>
+  For the remainder of the assignment we will be working with the house Sales data as in Module 3 (Polynomial Regression). Load in the data and also sort the sales data frame by ‘sqft_living’. When we plot the fitted values we want to join them up in a line and this works best if the variable on the X-axis (which will be ‘sqft_living’) is sorted. For houses with identical square footage, we break the tie by their prices.
+ </p>
+ <pre language="python">import pandas as pd
+
+dtype_dict = {'bathrooms':float, 'waterfront':int, 'sqft_above':int, 'sqft_living15':float, 'grade':int, 'yr_renovated':int, 'price':float, 'bedrooms':float, 'zipcode':str, 'long':float, 'sqft_lot15':float, 'sqft_living':float, 'floors':float, 'condition':int, 'lat':float, 'date':str, 'sqft_basement':int, 'yr_built':int, 'id':str, 'sqft_lot':int, 'view':int}
+
+sales = pd.read_csv('kc_house_data.csv', dtype=dtype_dict)
+sales = sales.sort(['sqft_living','price'])</pre>
+ <p>
+  <strong>
+   3.
+  </strong>
+  Let us revisit the 15th-order polynomial model using the 'sqft_living' input. Generate polynomial features up to degree 15 using `polynomial_sframe()` and fit a model with these features. When fitting the model, use an L2 penalty of 1.5e-5:
+ </p>
+ <pre language="python">l2_small_penalty = 1.5e-5</pre>
+ <p>
+  Note: When we have so many features and so few data points, the solution can become highly numerically unstable, which can sometimes lead to strange unpredictable results. Thus, rather than using no regularization, we will introduce a tiny amount of regularization (l2_penalty=1.5e-5) to make the solution numerically stable. (In lecture, we discussed the fact that regularization can also help with numerical stability, and here we are seeing a practical example.)
+ </p>
+ <p>
+  With the L2 penalty specified above, fit the model and print out the learned weights. Add "alpha=l2_small_penalty" and "normalize=True" to the parameter list of linear_model.Ridge:
+ </p>
+ <pre language="python">from sklearn import linear_model
+import numpy as np
+
+poly15_data = polynomial_sframe(sales['sqft_living'], 15) # use equivalent of `polynomial_sframe`
+model = linear_model.Ridge(alpha=l2_small_penalty, normalize=True)
+model.fit(poly15_data, sales['price'])</pre>
+ <p>
+  <strong>
+   4.
+   <em>
+    Quiz Question: What’s the learned value for the coefficient of feature power_1?
+   </em>
+  </strong>
+ </p>
+ <h3 level="3">
+  Observe Overfitting
+ </h3>
+ <p>
+  <strong>
+   5.
+  </strong>
+  Recall from Module 3 (Polynomial Regression) that the polynomial fit of degree 15 changed wildly whenever the data changed. In particular, when we split the sales data into four subsets and fit the model of degree 15, the result came out to be very different for each subset. The model had a high variance. We will see in a moment that ridge regression reduces such variance. But first, we must reproduce the experiment we did in Module 3.
+ </p>
+ <p>
+  <strong>
+   6.
+  </strong>
+  For this section, please download the provided csv files for each subset and load them with the given list of types:
+ </p>
+ <pre language="python"># dtype_dict same as above
+set_1 = pd.read_csv('wk3_kc_house_set_1_data.csv', dtype=dtype_dict)
+set_2 = pd.read_csv('wk3_kc_house_set_2_data.csv', dtype=dtype_dict)
+set_3 = pd.read_csv('wk3_kc_house_set_3_data.csv', dtype=dtype_dict)
+set_4 = pd.read_csv('wk3_kc_house_set_4_data.csv', dtype=dtype_dict)</pre>
+ <p>
+  <strong>
+   7.
+  </strong>
+  Just as we did in Module 3 (Polynomial Regression), fit a 15th degree polynomial on each of the 4 sets, plot the results and view the weights for the four models. This time, set
+ </p>
+ <pre language="python">l2_small_penalty=1e-9</pre>
+ <p>
+  and use this value for the L2 penalty. Make sure to add "alpha=l2_small_penalty" and "normalize=True" to the parameter list of linear_model.Ridge.
+ </p>
+ <p>
+  The four curves should differ from one another a lot, as should the coefficients you learned.
+ </p>
+ <p>
+  <strong>
+   8.
+   <em>
+    Quiz Question: For the models learned in each of these training sets, what are the smallest and largest values you learned for the coefficient of feature power_1?
+   </em>
+  </strong>
+  (For the purpose of answering this question, negative numbers are considered "smaller" than positive numbers. So -5 is smaller than -3, and -3 is smaller than 5 and so forth.)
+ </p>
+ <h3 level="3">
+  Ridge regression comes to rescue
+ </h3>
+ <p>
+  <strong>
+   9.
+  </strong>
+  Generally, whenever we see weights change so much in response to change in data, we believe the variance of our estimate to be large. Ridge regression aims to address this issue by penalizing "large" weights. (The weights looked quite small, but they are not that small because 'sqft_living' input is in the order of thousands.)
+ </p>
+ <p>
+  <strong>
+   10.
+  </strong>
+  Fit a 15th-order polynomial model on set_1, set_2, set_3, and set_4, this time with a large L2 penalty. Make sure to add "alpha=l2_large_penalty" and "normalize=True" to the parameter list, where the value of l2_large_penalty is given by
+ </p>
+ <pre language="python">l2_large_penalty=1.23e2</pre>
+ <p>
+  These curves should vary a lot less, now that you introduced regularization.
+ </p>
+ <p>
+  <strong>
+   11.
+   <em>
+    QUIZ QUESTION: For the models learned with regularization in each of these training sets, what are the smallest and largest values you learned for the coefficient of feature power_1?
+   </em>
+  </strong>
+  <em>
+  </em>
+  (For the purpose of answering this question, negative numbers are considered "smaller" than positive numbers. So -5 is smaller than -3, and -3 is smaller than 5 and so forth.)
+ </p>
+ <h3 level="3">
+  Selecting an L2 penalty via cross-validation
+ </h3>
+ <p>
+  <strong>
+   12.
+  </strong>
+  Just like the polynomial degree, the L2 penalty is a "magic" parameter we need to select. We could use the validation set approach as we did in the last module, but that approach has a major disadvantage: it leaves fewer observations available for training.
+  <strong>
+   Cross-validation
+  </strong>
+  seeks to overcome this issue by using all of the training set in a smart way.
+ </p>
+ <p>
+  We will implement a kind of cross-validation called k-fold cross-validation. The method gets its name because it involves dividing the training set into k segments of roughtly equal size. Similar to the validation set method, we measure the validation error with one of the segments designated as the validation set. The major difference is that we repeat the process k times as follows:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Set aside segment 0 as the validation set, and fit a model on rest of data, and evalutate it on this validation set
+   </p>
+  </li>
+  <li>
+   <p>
+    Set aside segment 1 as the validation set, and fit a model on rest of data, and evalutate it on this validation set
+   </p>
+  </li>
+  <li>
+   <p>
+    ...
+   </p>
+  </li>
+  <li>
+   <p>
+    Set aside segment k-1 as the validation set, and fit a model on rest of data, and evalutate it on this validation set
+   </p>
+  </li>
+ </ul>
+ <p>
+  After this process, we compute the average of the k validation errors, and use it as an estimate of the generalization error. Notice that all observations are used for both training and validation, as we iterate over segments of data.
+ </p>
+ <p>
+  <strong>
+   13.
+  </strong>
+  To estimate the generalization error well, it is crucial to shuffle the training data before dividing them into segments. We reserve 10% of the data as the test set and randomly shuffle the remainder. Le'ts call the shuffled data 'train_valid_shuffled'.
+ </p>
+ <p>
+  For the purpose of this assignment, let us download the csv file containing pre-shuffled rows of training and validation sets combined:
+ </p>
+ <asset assettype="generic" extension="zip" id="IQZkJpACEeaRtAqhdPgDFA" name="wk3_kc_house_train_valid_shuffled.csv">
+ </asset>
+ <p>
+  In practice, you would shuffle the rows with a dynamically determined random seed.
+ </p>
+ <pre language="python">train_valid_shuffled = pd.read_csv('wk3_kc_house_train_valid_shuffled.csv', dtype=dtype_dict)
+test = pd.read_csv('wk3_kc_house_test_data.csv', dtype=dtype_dict)</pre>
+ <p>
+  <strong>
+   14. D
+  </strong>
+  ivide the combined training and validation set into equal segments. Each segment should receive n/k elements, where n is the number of observations in the training set and k is the number of segments. Since the segment 0 starts at index 0 and contains n/k elements, it ends at index (n/k)-1. The segment 1 starts where the segment 0 left off, at index (n/k). With n/k elements, the segment 1 ends at index (n*2/k)-1. Continuing in this fashion, we deduce that the segment i starts at index (n*i/k) and ends at (n*(i+1)/k)-1.
+ </p>
+ <p>
+  With this pattern in mind, we write a short loop that prints the starting and ending indices of each segment, just to make sure you are getting the splits right.
+ </p>
+ <pre language="python">n = len(train_valid_shuffled)
+k = 10 # 10-fold cross-validation
+
+for i in xrange(k):
+    start = (n*i)/k
+    end = (n*(i+1))/k-1
+    print i, (start, end)</pre>
+ <p>
+  Let us familiarize ourselves with array slicing with Pandas. To extract a continuous slice from a DataFrame, use colon in square brackets. For instance, the following cell extracts rows 0 to 9 of train_valid_shuffled. Notice that the first index (0) is included in the slice but the last index (10) is omitted.
+ </p>
+ <pre language="python">train_valid_shuffled[0:10] # select rows 0 to 9
+</pre>
+ <p>
+  If the observations are grouped into 10 segments, the segment i is given by
+ </p>
+ <pre language="python">start = (n*i)/10
+end = (n*(i+1))/10
+train_valid_shuffled[start:end+1]
+</pre>
+ <p>
+  Meanwhile, to choose the remainder of the data that's not part of the segment i, we select two slices (0:start) and (end+1:n) and paste them together.
+ </p>
+ <pre language="python">train_valid_shuffled[0:start].append(train_valid_shuffled[end+1:n])</pre>
+ <p>
+  <strong>
+   15.
+  </strong>
+  Now we are ready to implement k-fold cross-validation. Write a function that computes k validation errors by designating each of the k segments as the validation set. It accepts as parameters (i) k, (ii) l2_penalty, (iii) dataframe containing input features (e.g. poly15_data) and (iv) column of output values (e.g. price). The function returns the average validation error using k segments as validation sets. We shall assume that the input dataframe does not contain the output column.
+ </p>
+ <p>
+  For each i in [0, 1, ... k-1]:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Compute starting and ending indices of segment i and call 'start' and 'end'
+   </p>
+  </li>
+  <li>
+   <p>
+    Form validation set by taking a slice (start:end+1) from the data.
+   </p>
+  </li>
+  <li>
+   <p>
+    Form training set by appending slice (end+1:n) to the end of slice (0:start).
+   </p>
+  </li>
+  <li>
+   <p>
+    Train a linear model using training set just formed, with a given l2_penalty
+   </p>
+  </li>
+  <li>
+   <p>
+    Compute validation error (RSS) using validation set just formed
+   </p>
+  </li>
+ </ul>
+ <p>
+  e.g. in Python:
+ </p>
+ <pre language="python">def k_fold_cross_validation(k, l2_penalty, data, output):
+    ...
+    return [average validation error]
+</pre>
+ <p>
+  <strong>
+   16.
+  </strong>
+  Once we have a function to compute the average validation error for a model, we can write a loop to find the model that minimizes the average validation error. Write a loop that does the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    We will again be aiming to fit a 15th-order polynomial model using the sqft_living input
+   </p>
+  </li>
+  <li>
+   <p>
+    For each l2_penalty in [10^3, 10^3.5, 10^4, 10^4.5, ..., 10^9] (to get this in Python, you can use this Numpy function: np.logspace(3, 9, num=13).): Run 10-fold cross-validation with l2_penalty.
+   </p>
+  </li>
+  <li>
+   <p>
+    Report which L2 penalty produced the lowest average validation error.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Note: since the degree of the polynomial is now fixed to 15, to make things faster, you should generate polynomial features in advance and re-use them throughout the loop. Make sure to use train_valid_shuffled when generating polynomial features!
+ </p>
+ <p>
+  <strong>
+   17. Quiz Question:
+  </strong>
+  <strong>
+   What is the best value for the L2 penalty according to 10-fold validation?
+  </strong>
+ </p>
+ <p>
+  <strong>
+   18.
+  </strong>
+  Once you found the best value for the L2 penalty using cross-validation, it is important to retrain a final model on all of the training data using this value of l2_penalty. This way, your final model will be trained on the entire dataset.
+ </p>
+ <p>
+  <strong>
+   19. Quiz Question:
+  </strong>
+  <strong>
+   Using the best L2 penalty found above, train a model using all training data. What is the RSS on the TEST data of the model you learn with this L2 penalty?
+  </strong>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

@@ -1,0 +1,74 @@
+[MUSIC] So let's generate some data and
+fit polynomials of increasing degrees and see what happens to
+the estimated coefficients. So to start with, let's just import
+some libraries that are gonna be useful. And then we're gonna just
+create 30 different x values. So, in the end we're gonna create
+a data set with 30 observations. And then what we're gonna do is, we're gonna compute the value
+of this sign functions. So, evaluate the sign function
+at these 30 x values. But of course when we're doing our
+analysis we're going to assume we have noisy data so
+we're gonna add noise to these true sign values to get
+our actual observations. So here we're just adding noise. And then we're gonna put
+this into an S frame. And so here's what our data looks like. We have a set of X values, and
+our corresponding Y values, but of course, it's easier to just
+visualize what this data set looks like. So let's just make a plot of X versus Y. So, here you can see that there's
+an underlying trend like this so the true trend like we talked
+about is this sin function. So it's going up and coming down here and
+these black dots are our observed values. Okay, so now let's get to our
+polynomial regression task and to start with what we're gonna
+do is we're first just gonna. Define our polynomial features so what we're doing with this function
+polynomial underscore features is we're taking our S frame and then we're just
+gonna make a copy of that S frame. And for any degree polynomial
+that we're considering, we're gonna manipulate the S frame to
+include extra columns that are powers of X based on whatever degree we've
+specified for that polynomial. So that's what this function does right
+here and then the very important function is polynomial regression which is
+implementing our multiple regression model using the features specified by this
+polynomial underscore features function. So, again, for simplicity we're just
+using graphlab create and we're gonna use the dot linear regression function
+where the features we're specifying are just the powers specified by the
+degree of the polynomial we're looking at. And then our target is our observation Y,
+and then there are these two terms our l2 penalty and l1 penalty
+that we set to be equal to zero. So this module on ridge regression is
+gonna be all about this l2 penalty, and we're gonna get to that. And then the next module is gonna
+be all about this l1 penalty, but for now, let's just understand
+that if we set these values to zero we just return to our
+standard least squares regression. Okay, so that's what our polynomial
+regression function is doing. And the next function we're gonna
+define allows us to plot our fit. And finally we're gonna define
+a function that allows us to, in a very nice way, print the coefficients
+of our polynomial regression. And for this we're gonna use this
+numpy library because that allows for this really pretty printing
+of our polynomial. Okay, so now we're gonna use
+all these functions again and again as we explore different degrees
+of polynomials fit to this data. So to start with let's just
+consider fitting a very low order degree two polynomial. So first we're gonna do our polynomial
+regression fit taking our s-frame, which we call data, and
+specifying that the degree is two for this polynomial regression. Then let's look at the coefficients
+that we've estimated. And here's where we've done this really
+nice printing of these coefficients using that NumPy library where
+here what we see is that we have some coefficient on X squared,
+a coefficient on X, and just our intercept term here. And these values are, I don't know
+how to call them reasonable or not reasonable, but
+they're relatively small numbers. Number we can kind of appreciate,
+number like five and four and something close to zero. And now let's plot what our
+estimated fit looks like. And this looks pretty good. It's a nice smooth curve. Goes between the values pretty well, and in between values you'd imagine
+believing what this fit is. But now let's go to a slightly
+higher degree polynomial just a order four polynomial. And here we're doing all the steps at
+once, where we're going to fit our model, print the coefficients and plot the fit. And so if we look at
+the estimated coefficients of our fourth order polynomial, we see that the
+coefficients have increased in magnitude. We have numbers like 23 and 53 and a 35. And the fit is looking a bit wigglier. Still actually looks pretty reasonable but
+now let's get to our degree 16 polynomial. So remember we only have
+30 observations and we're trying to fit 16 order polynomial. So what happens here? So in this case, we see that the coefficients have
+just become really, really massive. Here we have 2.583 times 10 to the 6 and
+here 1.295 times 10 to the 7th. So these are really, really,
+really large numbers. And let's look at the fit. As expected,
+this fit is also really wiggly and crazy. And we probably don't believe that this
+is what's really going on in this data. So this is an example pictorially
+of an overfit function. But what we see in the take-home message
+from this demo is the fact that when we're in these situations of being very overfit,
+then we get these very, very, very large estimated coefficients
+associated with our model. So yeah, whoa,
+these coefficients are crazy. So what ridge regression is gonna
+do is it's going to quantify overfitting through this measure of
+the magnitude of the coefficients. [MUSIC]

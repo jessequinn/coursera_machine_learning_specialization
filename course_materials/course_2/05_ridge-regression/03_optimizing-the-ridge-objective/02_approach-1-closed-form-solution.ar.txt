@@ -1,0 +1,48 @@
+الموسيقى Okay, so our first approach is just
+gonna be to set our gradient = 0 and solve for W. لكن قبل أن نبدأ بذلك، let's just do a little linear algebra
+review of what identity matrices are. So the identity matrics is just
+the matrics analog of the number 1 and it can be defined in any dimensions so
+here we show just scalar, here we show a 2 by 2 matrics and
+what we see the identity matrix is it just places 1's along the diagonal and
+0's on the octdiagonal. And that's true in any dimension
+up to having an N by N matrics. We have N1s on the diagonal, and
+every other term in the matrics is 0. So let's discuss a few fun facts
+about the identity matrics. Well if you take the identity matrics,
+and you multiply by a vector V and let's say that this identity
+matrics is sum N by N matrics and it's vectors in N by one matrics,
+you're just gonna get the vector V back. On the other hand, if you multiply this
+identity matrics by another matrics A, you're just gonna get, and so
+the A matrix is some N by M matrics, you're just gonna get that A matrics back. Then we can talk about a matrics inverse. In this case,
+we're talking about a square matrics, so A-1A=I are both N by N matrices. And so by definition, so let me just write that this was
+a matrics that we are multiplying by, and here,
+by definition of the matrics inverse. [SOUND] If we take A-1A,
+then the result is the identity matrics. That's just speak, like when we
+think about dividing scalars, so this inverse is like the matrics
+equivalent of division, so if you think of dividing a scalar
+A by A, you get the number 1. And so this is matrics analog of that. And then likewise again for
+some N by N matrices. If you multiply A by A inverse
+you also get the identity. And you can actually use
+the last few facts to prove this. You can simply think about post
+multiplying both sides by A. And we have A inverse A,
+which we know to be the identity matrics, and then we have A times
+the identity matrics. And, actually I should say, both of these
+results, whether you have V times Sorry, I should just say it in the matrics case. A times the identity,
+you'll likewise get out A. So here we end up with A equals,
+you have identity times A, A = A,
+which is a proof that this holds here. حسناً. There are just some fun facts about
+the identity matrics as well as inverses that are gonna be
+useful in this module and probably in other modules
+we have later on, as well. And what we're gonna do now, now that we understand this identity matrics is simply
+rewrite the total cost that we had, or sorry the gradient of the total
+cost with this identity matrics. So this exactly the same. All we've done is we've replaced W. This W vector, by the identity times W. So these are equivalent. But this is gonna be helpful
+in our next derivation. Okay, so now we can take this equivalent
+form of the gradient of our total cost, and set it equal to zero. So the first thing we can do
+is just divide both sides by two to get rid of those twos. And then when we multiply out we get minus HT y- H-T Hw + lambda Iw =0. And when we're setting this equal to
+zero I'm gonna put the hat on the w, because that's what we're solving for. So then I can bring, sorry,
+there should be a plus sign here. Didn't do that right. So then I can bring
+this to the other side, I get HT H w hat + lambda Iw hat = HT y. And then what I see is I have w hat
+appearing in both of these terms. So I can factor it out. And I get (HT H + lambda I) times w hat. So this is the step where having
+that identity matrics was useful. So I hope it was worth
+everything on the last slide to get that one little punch line. Okay, so this = HTy, and the end result, if we use our little inverse from the previous slide, if I premultiply both sides by HTy H + lambda I inverse, then I get w hat is equal to (HT H + lambda I) -I HT y. حسناً. And in particular, I'm gonna call
+this w hat ridge to indicate that it's the ridge regression solution for
+a specific value of lambda. الموسيقى

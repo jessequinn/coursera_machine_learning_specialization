@@ -1,0 +1,337 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Regression Week 2: Multiple Linear Regression Assignment 1
+ </h2>
+ <p>
+  Predicting House Prices (Multiple Variables)
+ </p>
+ <p>
+  In this notebook you will use data on house sales in King County to predict prices using multiple regression. The first assignment will be about exploring multiple regression in particular exploring the impact of adding features to a regression and measuring error. In the second assignment you will implement a gradient descent algorithm. In this assignment you will:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Use SFrames to do some feature engineering
+   </p>
+  </li>
+  <li>
+   <p>
+    Use built-in GraphLab Create (or otherwise) functions to compute the regression weights (coefficients)
+   </p>
+  </li>
+  <li>
+   <p>
+    Given the regression weights, predictors and outcome write a function to compute the Residual Sum of Squares
+   </p>
+  </li>
+  <li>
+   <p>
+    Look at coefficients and interpret their meanings
+   </p>
+  </li>
+  <li>
+   <p>
+    Evaluate multiple models via RSS
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  If you are doing the assignment with IPython Notebook
+ </h2>
+ <p>
+  An IPython Notebook has been provided below to you for this assignment. This notebook contains the instructions, quiz questions and partially-completed code for you to use as well as some cells to test your code.
+ </p>
+ <h2 level="2">
+  What you need to download
+ </h2>
+ <h3 level="3">
+  If you are using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales data In SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="xTXVRY9KEea9qA4Z6lKA3Q" name="kc_house_data.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the companion IPython Notebook:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="pU2oN5b2EeaPIA6RHcYLuA" name="week-2-multiple-regression-assignment-1-blank.ipynb">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling IPython notebook from) and unzip the data file.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  If you are not using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="-pWe7o9KEeaKKBK9HFzH_Q" name="kc_house_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales training data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="-pMt-Y9KEeaDFA44WujBrw" name="kc_house_train_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the King County House Sales testing data csv file:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="-pPJ1Y9KEeaWMg4j3ZhH-w" name="kc_house_test_data.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     IMPORTANT: use the following types for columns when importing the csv files. Otherwise, they may not be imported correctly: [str, str, float, float, float, float, int, str, int, int, int, int, int, int, int, int, str, float, float, float, float]. If your tool of choice requires a dictionary of types for importing csv files (e.g. Pandas), use:
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <pre language="python">dtype_dict = {'bathrooms':float, 'waterfront':int, 'sqft_above':int, 'sqft_living15':float, 'grade':int, 'yr_renovated':int, 'price':float, 'bedrooms':float, 'zipcode':str, 'long':float, 'sqft_lot15':float, 'sqft_living':float, 'floors':str, 'condition':int, 'lat':float, 'date':str, 'sqft_basement':int, 'yr_built':int, 'id':str, 'sqft_lot':int, 'view':int}</pre>
+ <h2 level="2">
+  Useful resources
+ </h2>
+ <p>
+  You may need to install the software tools or use the free Amazon EC2 machine. Instructions for both options are provided in the reading for Module 1.
+ </p>
+ <h2 level="2">
+  If instead you are using other tools to do your homework
+ </h2>
+ <p>
+  You are welcome, however, to write your own code and use any other libraries, like Pandas or R, to help you in the process.  If you would like to take this path, follow the instructions below.
+ </p>
+ <p>
+  <strong>
+   1.
+  </strong>
+  If you are using SFrame, import graphlab and load in the house data, otherwise you can also download the csv. (Note that we will be using the training and testing csv files provided) e.g in python with SFrames:
+ </p>
+ <pre language="python">sales = graphlab.SFrame('kc_house_data.gl/')</pre>
+ <p>
+  <strong>
+   2.
+  </strong>
+  Split into training and test data Use this command to set the same seed for everyone: e.g. in python with SFrames:
+ </p>
+ <pre language="python">train_data,test_data = sales.random_split(.8,seed=0)</pre>
+ <p>
+  For those students not using SFrames please download the training and testing data csv files.
+ </p>
+ <p>
+  From now on we will train the models using train_data. It will be important that we use the same split here to ensure the results are the same.
+ </p>
+ <p>
+  <strong>
+   3.
+  </strong>
+  Although we often think of multiple regression as including multiple different features (e.g. # of bedrooms, square feet, and # of bathrooms) but we can also consider transformations of existing variables e.g. the log of the square feet or even "interaction" variables such as the product of bedrooms and bathrooms. Add 4 new variables in both your train_data and test_data.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    ‘bedrooms_squared’ = ‘bedrooms’*‘bedrooms’
+   </p>
+  </li>
+  <li>
+   <p>
+    ‘bed_bath_rooms’ = ‘bedrooms’*‘bathrooms’
+   </p>
+  </li>
+  <li>
+   <p>
+    ‘log_sqft_living’ = log(‘sqft_living’)
+   </p>
+  </li>
+  <li>
+   <p>
+    ‘lat_plus_long’ =  ‘lat’ + ‘long’
+   </p>
+  </li>
+ </ul>
+ <p>
+  Before we continue let’s explain these new variables:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Squaring bedrooms will increase the separation between not many bedrooms (e.g. 1) and lots of bedrooms (e.g. 4) since 1^2 = 1 but 4^2 = 16. Consequently this variable will mostly affect houses with many bedrooms.
+   </p>
+  </li>
+  <li>
+   <p>
+    Bedrooms times bathrooms is what's called an "interaction" variable. It is large when both of them are large.
+   </p>
+  </li>
+  <li>
+   <p>
+    Taking the log of square feet has the effect of bringing large values closer together and spreading out small values.
+   </p>
+  </li>
+  <li>
+   <p>
+    Adding latitude to longitude is non-sensical but we will do it anyway (you'll see why)
+   </p>
+  </li>
+ </ul>
+ <p>
+  For those students not using SFrames you should first download and import the training and testing data sets provided and then add the four new variables each to both data sets (training and testing)
+ </p>
+ <p>
+  <strong>
+   4. Quiz Question: what are the mean (arithmetic average) values of your 4 new variables on TEST data? (round to 2 digits)
+  </strong>
+ </p>
+ <p>
+  <strong>
+   5.
+  </strong>
+  Use graphlab.linear_regression.create (or any other regression library/function) to estimate the regression coefficients/weights for predicting ‘price’ for the following three models:(In all 3 models include an intercept -- most software does this by default).
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Model 1: ‘sqft_living’, ‘bedrooms’, ‘bathrooms’, ‘lat’, and ‘long’
+   </p>
+  </li>
+  <li>
+   <p>
+    Model 2: ‘sqft_living’, ‘bedrooms’, ‘bathrooms’, ‘lat’,‘long’, and ‘bed_bath_rooms’
+   </p>
+  </li>
+  <li>
+   <p>
+    Model 3: ‘sqft_living’, ‘bedrooms’, ‘bathrooms’, ‘lat’,‘long’, ‘bed_bath_rooms’, ‘bedrooms_squared’, ‘log_sqft_living’, and ‘lat_plus_long’
+   </p>
+  </li>
+ </ul>
+ <p>
+  You’ll note that the three models here are “nested” in that all of the features of the Model 1 are in Model 2 and all of the features of Model 2 are in Model 3.
+ </p>
+ <p>
+  <em>
+   If you use graphlab.linear_regression.create() to estimate these models please ensure that you set validation_set = None. This way you will get the same answer every time you run the code.
+  </em>
+ </p>
+ <p>
+  <em>
+   Learn all three models on the TRAINING data set. Save your model results for quiz questions later.
+  </em>
+ </p>
+ <p>
+  <strong>
+   6. Quiz Question: What is the sign (positive or negative) for the coefficient/weight for ‘bathrooms’ in Model 1?
+  </strong>
+ </p>
+ <p>
+  <strong>
+   7. Quiz Question: What is the sign (positive or negative) for the coefficient/weight for ‘bathrooms’ in Model 2?
+  </strong>
+ </p>
+ <p>
+  <strong>
+   8.
+  </strong>
+  Is the sign for the coefficient the same in both models? Think about why this might be the case.
+ </p>
+ <p>
+  <strong>
+   9.
+  </strong>
+  Now using your three estimated models compute the RSS (Residual Sum of Squares) on the Training data.
+ </p>
+ <p>
+  <strong>
+   10. Quiz Question: Which model (1, 2 or 3) had the lowest RSS on TRAINING data?
+  </strong>
+ </p>
+ <p>
+  <strong>
+   11.
+  </strong>
+  Now using your three estimated models compute the RSS on the Testing data
+ </p>
+ <p>
+  <strong>
+   12. Quiz Question: Which model (1, 2, or 3) had the lowest RSS on TESTING data?
+  </strong>
+ </p>
+ <p>
+  <strong>
+   13.
+  </strong>
+  Did you get the same answer for 9 and 11? Think about why this might be the case.
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

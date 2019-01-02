@@ -1,0 +1,68 @@
+[MUSIC] So how are we gonna do this? How are we gonna use all of our
+data as our validation set? We're gonna use something
+called K-fold cross validation. Where the first step,
+it's just a preprocessing step. Where we're gonna take our data, and
+divide it into K different blocks. And, we have N total observations, so,
+every block of data is gonna have N over K observations, and these observations
+are randomly assigned to each block. Okay, so, this is really key that
+we're taking our tabulated data. And in this image, even though it looks
+like it just might be parceling out a table of data, the data in each one
+of these blocks is randomly assigned. And for all steps of the algorithm
+that I'm gonna describe now, we're gonna use exactly
+the same data split. So, exactly the same assignments of observations to each one
+of these different blocks. Okay, then for
+each one of these K different blocks, we're gonna cycle through treating
+each block as the validation set. And using all the remaining
+observations to fit the model for every value of lambda. So in particular, we're gonna start by
+saying for a specific value of lambda and we're gonna do a procedure for
+each of the K blocks and at the end we're gonna cycle
+through all values of lambda. So for right now, assume that we're
+looking at a specific lambda value out of a set of possible values we might look at. And now we're gonna cycle through
+each one of our blocks where at the first iteration we're gonna fit
+our model using all the remaining data. That's gonna produce something
+that I'm calling w hat lambda, so indexed by this lambda
+that we're looking at. So we're considering the first
+block as our validation set. Then we're gonna take
+that fitted model and we're gonna assess it's performance
+on this validation site. That's gonna result in some error
+which I'm calling error sub one. Meaning the error on the first block
+of data for this value of lambda. Okay, so I'm gonna keep track,
+of the error for the value of lambda for each block, and then I'm gonna do this for
+every value of lambda. Okay, so
+I'm gonna move on to the next block, treat that as my validation set,
+fit the model on all the remaining data, compute the error of that fitted
+model on that second block of data. Do this on a third block,
+fit data on all the remaining data, assess the performance on the third block, and
+cycle through each of my blocks like this. And at the end, I've tabulated my error across each of these K different
+blocks for this value of lambda. And what I'm gonna do is I'm gonna compute
+what's called the cross validation error of lambda, which is simply an average of the air that
+I had on each of the K different blocks. So now I explicitly see how my
+measure of air, my summary of air for the specific value lambda
+uses all of the data. it's an average across the validation
+sets in each of the different blocks. Then, I'm gonna repeat this procedure for
+every value that I'm considering of lambda and I'm gonna choose the lambda that
+minimizes this cross validation error. So I had to divide my data into K
+different blocks in order to run this K full cross validation algorithm. So a natural question is what
+value of K should I use? Well you can show that the best
+approximation to the generalization error of the model is given when
+you take K to be equal to N. And what that means is that every
+block has just one observation. So this is called leave-one-out
+cross validation. So although it has the best approximation
+of what you're trying to estimate, it tends to be very
+computationally intensive, because what do we have to do for
+every value of lambda? We have to do N fits of our model. And if N is even reasonably large, and if it's complicated to fit our model
+each time, that can be quite intensive. So, instead what people tend
+to do is use K = 5 or 10, this is called 5-fold or
+10-fold cross validation. Okay, so this summarizes our cross
+validation algorithm, which is a really, really important algorithm for
+choosing two name parameters. And even though we discussed this option
+of forming a training validation and test set, typically you're in a situation
+where you don't have enough data to form each one of those. Or at least you don't know if you
+have enough data to have an accurate approximation of generalization error as
+well as assessing the difference between different models, so typically what
+people do is cross validation. They hold out some test set and
+then they do either leave one out, 5-fold, 10-fold cross validation to choose
+their tuning parameter lambda. And this is a really critical step
+in the machine learning workflow is choosing these tuning parameters in
+order to select a model and use that for the predictions or
+various tasks that you're interested in. [MUSIC]

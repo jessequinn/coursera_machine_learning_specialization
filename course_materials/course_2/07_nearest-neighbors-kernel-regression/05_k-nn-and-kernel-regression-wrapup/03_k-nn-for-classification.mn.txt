@@ -1,0 +1,23 @@
+[Хөгжим] So we've talked about using k-NN for
+regression, but these methods can also be very, very
+straightforwardly used for classification. So this is a little warm-up for
+the next course in this specialization, which is our classification course. And let's start out by just
+recalling our classification task, where we're gonna do this in
+the context of spam filtering. Where we have some email as our input, and the output is gonna be whether
+the email is spam or not spam. And we're gonna make this decision
+based on the text of the email. Maybe information about the sender,
+IP and things like this. Well, what we can do is use k-NN for
+classification. Visually we can think about just taking
+all of the emails that we have labeled as spam or not spam and
+throwing them down in some space. Where the distance between
+emails in this space represents how similar the text or
+the sender IP information is. All the inputs or the features we're
+using to represent these emails. And then what we can do,
+is we get some query email that comes in. So, that's this little gray email here. And we're gonna say,
+is it spam or not spam? There's a very intuitive way to do this,
+which is just search for the nearest neighbors of this email. The emails most similar to this email. And then we're just gonna
+do a majority vote on the nearest neighbors to decide whether
+this email is spam or not spam. And what we see in this case, is that
+four of the neighbors are spam, and only one neighbor is not spam, so
+we're gonna label this email as spam. And so this is the really, really
+straightforward approach of using k-NN for classification. [Хөгжим]

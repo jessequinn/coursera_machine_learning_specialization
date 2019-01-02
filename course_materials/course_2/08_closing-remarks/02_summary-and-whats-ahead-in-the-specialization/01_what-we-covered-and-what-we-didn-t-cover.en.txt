@@ -1,0 +1,76 @@
+[MUSIC] Okay, so here's a summary of the large
+set of topics that we've covered in this course. We talked about a bunch
+of models including, different models of linear regression from
+simple regression to multiple regression. We talked about doing ridge regression and
+Lasso. And then, Nearest neighbors and
+kernel regression. And we also talked about some very
+important optimisation algorithms like Gradient descent and Coordinate descent. And really just this notion
+of what is optimization and how do you go about doing it. And then we talked about concepts that
+generalise well beyond regression. This include things like Loss functions, this very important concept of
+the bias variance trade-off. Talking about cross-validation,
+sparsity, overfitting, feature selection, model selection. And these are ideas that we're
+going to see in most of the courses in this specialization. So, we spent a lot of time,
+teaching the methods of this module, and now I've spent a lot of time
+summarizing what we learned, but I want to take a minute to talk about
+what we didn't cover in this course. So there are actually a few
+important topics that unfortunately, we didn't have time to go through in this
+course, and I want to highlight them here. One is the fact that in this course, we
+focus on just having a unit area output. Which, for example, was the value of
+a house or the sales price of a house. But of course you could
+have a multivariate output. And in cases where that multivariate
+output, where the dimensions are correlated, you need to do
+slightly more complicated things. But in contrast if you assume
+that each of these outputs. Are independent of each other,
+then you can just do the methods we described independently for
+each dimension. The other thing that we
+haven't covered yet, is this idea of what's called
+maximum likelihood estimation. We're gonna go through that in
+the classification course, but I wanna mention that in
+the context of regression, if you've heard of maximum
+likelihood estimation. It results in exactly the same
+objective we had with our minimizing our residual sum of squares. Assuming that your model has what
+are called normal or Gaussian errors, that this epsilon term
+that we've talked about. Remember Y equals WX plus epsilon. Well, that epsilon,
+if we assume it's normally distributed, or sometimes people say Gaussian
+distributed, then maximum likelihood estimation is exactly equivalent to
+what we've talked about in this course. And like I said, we'll learn more about maximum likelihood
+estimation in the classification course. But one really, really important thing
+that we didn't talk about in this course, which truthfully pains me, being a
+statistician, are statistical inferences. We just focused on what are called
+these ideas of point estimation. We just returned a W-hat value or
+estimated coefficients, but we didn't talk about any notion of what
+our measure of uncertainty about those estimated coefficients or our predictions. So, again, there's noise inherent to
+the data so we can think of having measures of uncertainty about our
+predictions or our estimated coefficients. So this is referred to as inference and it's a really important topic
+that we did not go through here. Another cool set of methods are what
+are called generalized linear models and we're actually gonna see an example of
+a generalized linear model in the class vacation course, so you will get to see
+this but I want to bring it up here. And what generalized linear
+models allow you to do, is form regressions when you have
+certain restrictions on your output. Like the output is always. Positive or bounded or
+positive and bounded. Or it's gonna be discreet
+value like were gonna talk about in the classification course. Just a yes or no response. We'll, if we're assuming that Gaussian,
+our errors are Gaussian, like they talk about with this
+maximum likelihood estimation or in this course what we talked
+about of having zero mean but the observations were equally likely to
+be above or below the true function and they're actually unbounded in how far
+they could be above or below that true function, well the regression
+models that we've talked about so far are inappropriate for forming
+predictions if those predicted values have these types of constraints or
+specific structures to them. And generalized linear
+models allow us to cope with certain types of these structures,
+very efficiently. Another really powerful tool that we didn't describe in this course is
+something called the Regression tree. And that's because we're gonna cover
+it in the classification course. Actually more generally,
+these methods are referred to as CART, which are Classification And
+Regression Trees. Because what you do is you form a tree. And that structure's the same whether
+we're looking at classification or regression. But, we're gonna focusing on describing
+these structures in the context of classification because they're a lot
+simpler to understand in that context. But I wanna emphasize that those
+same tools that we're gonna learn in the next course can
+be used in regression as well. And of course, there are lots and lots of other methods that we
+haven't described in this course. Regression has an extremely
+long history in statistics, so there are lots of things that
+are potentially of interest. But in this course, we really try to focus
+in on the main concepts that are useful in modern machine learning
+applications of regression.

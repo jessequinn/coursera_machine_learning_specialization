@@ -1,0 +1,33 @@
+[موسيقى] So now let's talk about the complexity
+of this forward stepwise algorithm. And contrast it with
+the all subsets procedure. So how many models did we evaluate here? Well, in the first step, assuming
+that we have a total of D features, we searched over D models. Then, in the second step,
+we had D-1 models to search over. So all remaining features we
+might think about adding. And then the third step,
+we had D-2 features and so on. And a question is, how many steps did
+we take, how many of these and so ons did we have? Well, it depends. It depends on when we chose to stop, but at most we're gonna have D steps,
+which gets us to the full model. So, the complexity of
+this is O(D squared). So at most D steps each on
+the order of looking over D models. And that's gonna be much,
+much less than 2 to the D, which is what we had for all subsets,
+when D is reasonably large. Okay, so
+this procedure is gonna be significantly more computationally efficient or
+feasible than doing all subsets. Well this was just one of many
+possible choices you have for greedy algorithms for
+doing feature selection. As an example, instead of always starting
+from an empty model and growing and growing and growing, adding more features,
+you could do the opposite. You could start from a full model and
+then choose, at each iteration,
+which feature to eliminate. But you could also think
+about combining these steps. So you could do a forward procedure, where
+you search over which feature to add, but then every so often you could go back and
+think about deleting features. Because like we said, you might in the
+forward process, add a feature that later, once you've added another feature,
+is no longer relevant. So, as an example of this, maybe, and it's not completely probably
+true in this application. But maybe once you've added number of
+bedrooms and number of baths, maybe square feet is no longer so relevant since these
+other things can act as a proxy for square feet, or something like that. And there are lots and lots of other
+variants of algorithms people have proposed with different metrics for
+when you add or remove features. And different ways to search over the
+features because this problem of feature selection is really important. It's not a new problem, and so a lot of different procedures
+have been proposed to solve it. [موسيقى]

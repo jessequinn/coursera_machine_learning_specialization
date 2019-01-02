@@ -1,0 +1,222 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Computing regression parameters (closed form example)
+ </h1>
+ <h2 level="2">
+  The data
+ </h2>
+ <p>
+  Consider the following 5 point synthetic data set:
+ </p>
+ <pre>X     Y
+0     1
+1     3
+2     7
+3     13
+4     21</pre>
+ <p>
+  Which is plotted below:
+ </p>
+ <img alt="" assetid="RCuPFroLEeWROg75ViZp8Q" src="data:image/png;base64,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"/>
+ <h2 level="2">
+  What we need
+ </h2>
+ <p>
+  We want the line that “best fits” this data set as measured by residual sum of squares -- the simple linear regression cost. We have a closed form solution that involves the following terms:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    The number of data points (N)
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum (or mean) of the Ys
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum (or mean) of the Xs
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum (or mean) of the product of the Xs and the Ys
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum (or mean) of the Xs squared
+   </p>
+  </li>
+ </ul>
+ <p>
+  Then once we have calculated all of these terms, we can use the formulas to compute the slope and intercept. Recall that we first solve for the slope and then we use the value of the slope to solve for the intercept.  The formula for the slope is a fraction with:
+ </p>
+ <pre language="python">numerator = (sum of X*Y) - (1/N)*((sum of X) * (sum of Y))
+denominator = (sum of X^2) - (1/N)*((sum of X) * (sum of X))</pre>
+ <p>
+  Note that you can divide both the numerator and denominator by N (which doesn’t change the answer!) to get:
+ </p>
+ <pre language="python">numerator = (mean of X * Y) - (mean of X)*(mean of Y)
+denominator = (mean of X^2) - (mean of X)*(mean of X)</pre>
+ <p>
+  Hence, we can use either the sum or the means.
+ </p>
+ <p>
+  The formula in action
+ </p>
+ <p>
+  Method 1: (using sums)
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    N =  5
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum of the Ys = 45
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum of the Xs = 10
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum of the product of the Xs and the Ys = 140
+   </p>
+  </li>
+  <li>
+   <p>
+    The sum of the Xs squared = 30
+   </p>
+  </li>
+ </ul>
+ <p>
+  So that:
+ </p>
+ <pre language="python">numerator = [(140) - (1/5) * (45*10)] = 50
+denominator = [(30) - (1/5) * (10*10)] = 10
+</pre>
+ <p>
+  hence:
+ </p>
+ <pre language="python">slope = 50/10 = 5</pre>
+ <p>
+  Method 2: (using means)
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    The mean of the Ys = 9
+   </p>
+  </li>
+  <li>
+   <p>
+    The mean of the Xs = 2
+   </p>
+  </li>
+  <li>
+   <p>
+    The mean of the product of the Xs and the Ys = 28
+   </p>
+  </li>
+  <li>
+   <p>
+    The mean of the Xs squared = 6
+   </p>
+  </li>
+ </ul>
+ <p>
+  So that
+ </p>
+ <pre language="python">numerator = 28 - 9*2 = 10
+denominator = 6 - 2*2 = 2
+</pre>
+ <p>
+  hence:
+ </p>
+ <pre language="python">slope = 10 / 2 = 5</pre>
+ <p>
+  Then, we can use this computed slope to compute the intercept:
+ </p>
+ <pre language="python">intercept = (mean of Y) - slope * (mean of X)
+intercept = 9 - 5 * 2 = -1</pre>
+ <p>
+  (Food for thought: what if Y and X both have mean 0?)
+ </p>
+ <p>
+  In summary, we have:
+ </p>
+ <p>
+  <strong>
+   slope = 5, intercept = -1
+  </strong>
+ </p>
+ <p>
+  Finally we can add the line to our plot from above:
+ </p>
+ <img alt="" assetid="wDv3qLoLEeW43wpBjgOOlw" src="data:image/png;base64,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"/>
+ <p>
+  The solid black point included in this plot is the point (mean of X, mean of Y).  You’ll notice that this point falls exactly on the regression line!
+ </p>
+ <p>
+  (Food for thought: is this always true? Hint: try plugging in (mean of X) as input into prediction = intercept + slope * input) where you use the formula for intercept).
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

@@ -1,0 +1,51 @@
+[موسيقى] Okay, so
+let's consider the resulting objective, where I'm gonna try and
+search over all possible w vectors. To find the ones that minimize the sum of
+residual sum of squares plus the square of the two norm of w. So that's gonna be my w hat,
+my estimated model parameters. But really what I'd like to do, is I'd
+like to be able to control how much I'm weighing the complexity of the model
+as measured by this magnitude of my coefficient, relative to
+the fit of the model. I'd like to balance between
+these two terms, and so I'm gonna introduce another parameter. And this is called a tuning parameter. With the model, it's a lambda, and this is
+balancing between this fit and magnitude. So let's see what happens
+if I choose lambda to be 0. Well, if I choose lambda to be 0, this magnitude term that we've
+introduced completely disappears and my objective reduces down just to
+minimizing the residual sum of squares. Which was exactly the same
+as my objective before. So, this reduces to minimizing residual sum of squares of w as before. So this is our old solution, Which leads to some w
+hat which I'm gonna call w hat superscript LS for least squares. Because what we were doing
+before is commonly referred to as the least squares solution. So I'm gonna specifically represent
+the parameters associated with that old procedure we're doing
+as the least squares parameters. على الجانب الآخر what if I completely crank up that
+tuning parameter to be infinity? So I have a really, really massively
+large weight on this magnitude term. Massively large being infinitely large. So as large as you can possibly imagine. So what happens to any solution
+where w hat is not equal to 0? So, For solutions where w hat does not equal 0. Then the total cost is what? Well I get something that's non-0
+times infinity plus something, my residual sum of squares,
+whatever that happens to be. But the sum of that is infinity. Okay, so my total cost is infinite. On the other hand,
+what if w hat is exactly equal to 0? Then if w hat equals 0, then total cost is equal
+to the residual sum of squares of this 0 vector. And that's some number, but
+it's probably not infinity. Actually it's not infinity, so the minimizing solution here is
+always gonna be w hat equals 0. Cuz that's the thing that's gonna minimize
+the total cost over all possible w's. Okay, so just to recap, we said that
+if we put that tuning parameter all the way to 0, make it very,
+very small, all the way to 0. Then we return to our
+previously square solution and if we crank that parameter all
+the way up to be infinite. In that limit, we get all of our
+coefficients being exactly 0, okay? But we're gonna be operating in a regime
+where lambda is somewhere in between 0 and infinity. And in this case, Then we know that the magnitude of our
+estimated coefficients, they're gonna be less than or equal to the magnitude of our
+least squares coefficients. In particular,
+the two norm will be less than. But we also know it's gonna be
+greater than or equal to 0. So we're gonna be somewhere
+in between these two regions. And a key question is,
+what lambda do we actually want? How much do we want to bias away
+from our least square solution, which was subject to potentially
+over-fitting, down to this really simple, the most trivial model you can
+consider which is nothing, no model? So, well not no model,
+no coefficients in the model. What's the model if all
+the coefficients are 0? Just noise, we just have y equals epsilon,
+that noise term. Okay, so we're gonna think about somehow
+trading off between these two extremes. Okay, I wanted to mention that this
+is referred to as Ridge regression. And that's also known as
+doing L2 regularization. Because, for reasons that we'll describe
+a little bit more later in this module, we're regularizing the solution
+to the old objective that we had, using this L2 norm term. [موسيقى]

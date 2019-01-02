@@ -1,0 +1,88 @@
+[موسيقى] حسناً
+إذن in cases where you can't do all subsets,
+what can we do? Well, one thing we can do, which is gonna be option number two in our
+series of feature selection algorithms. Is to do a sub-optimal, but tractable approach to
+selecting amongst features. And that's a set of greedy algorithms
+that we're gonna consider now. So, one simple algorithm is what's
+called the forward stepwise algorithm, where you start with some
+set of possible features. And then what you're gonna do is, you're
+going to just greedily walk through each, select the next best feature and
+keep iterating. So, let's be a little bit
+more explicit about this. So, first we're gonna start with
+the empty set, no features. Or you could start with a list of features
+that you know you want to be included in the model. So, for example the constant feature
+which might be your feature, h0. But then what you're gonna do is, you're
+gonna fit your model with whatever your current set of features are to get an
+estimate of the weights on those features. Your estimate of your
+regression coefficients. And then what you're gonna do is,
+you're gonna search over all the possible features that you might add, and choose
+the one that best improves your fit. And so, one measure of this
+might be training errors. So, you choose the feature that
+most reduces your training error. And then you just include that in your
+model, and you recurse this procedure. Where now you have a model
+with some number of features. And you're gonna search over every
+possible feature you might wanna add and choose the next one that drops your
+training error the most, and keep going. So, let's visualize this procedure. For this visualization, we're gonna start with the picture
+that we had in our all subset search. And we're gonna look at how
+the greedy search differs from the search we would have
+done in all subsets. So at the first step,
+we start with no features in our model. So, we're actually gonna be at exactly
+the same point as we were in all subsets. So, start at same training error as all subsets. Which is equivalent to no
+features in the model. And then what we're gonna do is we're
+gonna search over all our features, and choose the one that reduces
+training error the most. And which one is that gonna be? It was actually going to be the same
+one we got for all subsets. Because at that point,
+when we we're doing all subsets and looking over all models of one feature. Again, we have the same choice of choosing the best single feature even though
+we're doing this greedy procedure. When we start with an empty set, our
+first best feature is gonna be the same as the same best feature that
+you would get doing all subsets. So again, stay at all subset solution For best model with one feature. And in that case,
+remember just like in all subsets, we choose square feet as the best
+feature when we have just one feature. But then things can start to diverge. Because when we go to our second
+step in the greedy algorithm, we're forced to keep
+square feet in our model. And we're just greedily gonna
+search over the next feature. That's why it's called greedy. I should've mentioned this previously
+because we're just doing the quote unquote, greedy thing of just saying,
+what's the next best thing, and not thinking globally
+about what might be best. حسناً So in this case, maybe the next best
+thing that we could add to the model, forcing ourselves to keep square feet
+in our model, is year renovated. So, when we think about what greedy finds,
+add two features. We have square feet living and
+year renovated. But if we compare to
+what our all subsets had, it was number of bedrooms and
+number of bathrooms. So, this is where we see that
+things can be different. Because once we're forced
+to keep square feet, maybe the next thing that's
+most relevant to value, you can have these very large old houses,
+but those might not be worth as much. It might be the year that the house was
+renovated that's really relevant to the value. But as we described before, it might be
+reasonable to think that the best model with just two features was number of
+bedrooms and number of bathrooms. Because those are really key attributes
+that people use to value whether a house is a good fit for them. Well, then we continue
+with this procedure. We already had square feet living,
+we had year renovated. And now, in this case, our next
+feature we're gonna add is waterfront, and we're gonna keep
+going on this process. And when's the next time
+that our greedy procedure is gonna meet the same
+solution as all subsets? So, we started at the same point, we said after the first iteration,
+we were at the same point. Well, again, we'll be at the same point
+once we get all the way, obviously, to including all features, coz there's
+only one such model with all features. So, there are a couple points that I
+wanna make about this greedy procedure. One is the fact that from iteration to
+iteration, error can never decrease. And the reason for that is, even if there's nothing else
+that you want to add to your model. Even if everything else is junk, or perhaps only making things a lot
+worse in terms of predictions. You can always just set the weight equal
+to zero on that additional feature. And then you'd have exactly the same model
+you had, which is one fewer feature. And so, the training error
+would be exactly the same. So, we know the training
+error will never increase. And the other thing that we mentioned is
+that eventually, the training error will be equivalent to that of all subsets
+when you're using all of your features, and perhaps, before that as well. Well, when do we stop
+this greedy procedure? Just to really hammer this home,
+I'll just ask the question again. Do we stop when the training
+error is low enough? لا. Remember that training error will decrease
+as we keep adding model complexity. So, as we keep adding more and more
+features, our training error will go down. What about when test error's low enough? Again, no. Remember that we never touch our test
+data when we're searching over model complexity, or
+choosing any kind of tuning parameter. Again, what we're gonna do
+is use our validation set or cross validation to choose when
+to stop this greedy procedure. [موسيقى]

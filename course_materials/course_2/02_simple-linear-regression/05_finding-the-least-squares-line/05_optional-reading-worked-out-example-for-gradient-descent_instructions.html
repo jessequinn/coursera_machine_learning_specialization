@@ -1,0 +1,466 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Computing regression parameters (gradient descent example)
+ </h1>
+ <h2 level="2">
+  The data
+ </h2>
+ <p>
+  Consider the following 5 point synthetic data set:
+ </p>
+ <pre>X     Y
+0     1
+1     3
+2     7
+3     13
+4     21</pre>
+ <p>
+  Which is plotted below:
+ </p>
+ <img alt="" assetid="M66QCLoMEeWHNQ4_8mwyaw" src="data:image/png;base64,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"/>
+ <h2 level="2">
+  What we need
+ </h2>
+ <p>
+  Now that we’ve computed the regression line using a closed form solution let’s do it again but with gradient descent.
+ </p>
+ <p>
+  Recall that:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    The derivative of the cost for the intercept is the sum of the errors
+   </p>
+  </li>
+  <li>
+   <p>
+    The derivative of the cost for the slope is the sum of the product of the errors and the input
+   </p>
+  </li>
+ </ul>
+ <p>
+  We will need a starting value for the slope and intercept, a step_size and a tolerance
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    initial_intercept = 0
+   </p>
+  </li>
+  <li>
+   <p>
+    initial_slope = 0
+   </p>
+  </li>
+  <li>
+   <p>
+    step_size = 0.05
+   </p>
+  </li>
+  <li>
+   <p>
+    tolerance = 0.01
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  The algorithm
+ </h2>
+ <p>
+  In each step of the gradient descent we will do the following:
+ </p>
+ <p>
+  1. Compute the predicted values given the current slope and intercept
+ </p>
+ <p>
+  2. Compute the prediction errors (prediction - Y)
+ </p>
+ <p>
+  3. Update the intercept:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    compute the derivative: sum(errors)
+   </p>
+  </li>
+  <li>
+   <p>
+    compute the adjustment as step_size times the derivative
+   </p>
+  </li>
+  <li>
+   <p>
+    decrease the intercept by the adjustment
+   </p>
+  </li>
+ </ul>
+ <p>
+  4. Update the slope:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    compute the derivative: sum(errors*input)
+   </p>
+  </li>
+  <li>
+   <p>
+    compute the adjustment as step_size times the derivative
+   </p>
+  </li>
+  <li>
+   <p>
+    decrease the slope by the adjustment
+   </p>
+  </li>
+ </ul>
+ <p>
+  5. Compute the magnitude of the gradient
+ </p>
+ <p>
+  6. Check for convergence
+ </p>
+ <h2 level="2">
+  The algorithm in action
+ </h2>
+ <p>
+  <strong>
+   First step:
+  </strong>
+ </p>
+ <p>
+  Intercept = 0
+ </p>
+ <p>
+  Slope = 0
+ </p>
+ <p>
+  1. predictions = [0, 0, 0, 0, 0]
+ </p>
+ <p>
+  2. errors = [-1, -3, -7, -13, -21]
+ </p>
+ <p>
+  3. update Intercept
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([-1, -3, -7, -13, -21])  = -45
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * 45 = -2.25
+   </p>
+  </li>
+  <li>
+   <p>
+    new_intercept = 0 - -2.25 = 2.25
+   </p>
+  </li>
+ </ul>
+ <p>
+  4. update Slope
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([0, 1, 2, 3, 4] * [-1, -3, -7, -13, -21])  = -140
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * 45 = -7
+   </p>
+  </li>
+  <li>
+   <p>
+    new_slope = 0 - -7 = 7
+   </p>
+  </li>
+ </ul>
+ <p>
+  5. magnitude = sqrt(( -45)^2 + (-140)^2) = 147.05
+ </p>
+ <p>
+  6. magnitude &gt; tolerance: not converged
+ </p>
+ <p>
+  <strong>
+   Second step:
+  </strong>
+ </p>
+ <p>
+  Intercept = 2.25
+ </p>
+ <p>
+  Slope = 7
+ </p>
+ <p>
+  1. predictions = [2.25, 9.25, 16.25, 23.25, 30.25]
+ </p>
+ <p>
+  2. errors = [1.25, 6.35, 9.25, 10.25, 9.25]
+ </p>
+ <p>
+  3. update Intercept
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([1.25, 6.35, 9.25, 10.25, 9.25])  = 36.25
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * 36.25 = 1.8125
+   </p>
+  </li>
+  <li>
+   <p>
+    new_intercept = 2.25-1.8125 = 0.4375
+   </p>
+  </li>
+ </ul>
+ <p>
+  4. update Slope
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([0, 1, 2, 3, 4] * [1.25, 6.35, 9.25, 10.25, 9.25])  = 92.5
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * 92.5 = 4.625
+   </p>
+  </li>
+  <li>
+   <p>
+    new_slope =  7 - 4.625 = 2.375
+   </p>
+  </li>
+ </ul>
+ <p>
+  5. magnitude = sqrt((36.25)^2 + (92.5)^2) = 99.35
+ </p>
+ <p>
+  6. magnitude &gt; tolerance: not converged
+ </p>
+ <p>
+  <strong>
+   Third step:
+  </strong>
+ </p>
+ <p>
+  Intercept =  0.4375
+ </p>
+ <p>
+  Slope = 2.375
+ </p>
+ <p>
+  1. predictions = [0.4375, 2.8125, 5.1875, 7.5625, 9.9375]
+ </p>
+ <p>
+  2. errors = [-0.5625,  -0.1875,  -1.8125,  -5.4375, -11.0625]
+ </p>
+ <p>
+  3. update Intercept
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([-0.5625,  -0.1875,  -1.8125,  -5.4375, -11.0625])  = -19.0625
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * = -0.953125
+   </p>
+  </li>
+  <li>
+   <p>
+    new_intercept = 0.4375 - -0.953125 = 1.390625
+   </p>
+  </li>
+ </ul>
+ <p>
+  4. update Slope
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum( [0, 1, 2, 3, 4] * [-0.5625,  -0.1875,  -1.8125,  -5.4375, -11.0625])  = -64.375
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * -64.375= -3.21875
+   </p>
+  </li>
+  <li>
+   <p>
+    new_slope = 2.375 --3.21875 = 5.59375
+   </p>
+  </li>
+ </ul>
+ <p>
+  5. magnitude = sqrt(( -19.0625)^2 + (-64.375)^2) = 67.13806
+ </p>
+ <p>
+  6. magnitude &gt; tolerance: not converged
+ </p>
+ <p>
+  Let’s skip forward a few steps… after the 77th step we have gradient magnitude 0.0107.
+ </p>
+ <p>
+  <strong>
+   78th Step:
+  </strong>
+ </p>
+ <p>
+  Intercept = -0.9937
+ </p>
+ <p>
+  Slope =  4.9978
+ </p>
+ <p>
+  1. predictions = [-0.99374,  4.00406,  9.00187, 13.99967, 18.99748]
+ </p>
+ <p>
+  2. errors = [-1.99374,  1.00406,  2.00187,  0.99967, -2.00252]
+ </p>
+ <p>
+  3. update Intercept
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([-1.99374,  1.00406,  2.00187,  0.99967, -2.00252])  = 0.009341224
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 * 0.009341224 = 0.0004670612
+   </p>
+  </li>
+  <li>
+   <p>
+    new_intercept = -0.9937 - 0.0004670612 = -0.994207
+   </p>
+  </li>
+ </ul>
+ <p>
+  4. update Slope
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    sum([0, 1, 2, 3, 4] * [-1.99374,  1.00406,  2.00187,  0.99967, -2.00252])  = -0.0032767
+   </p>
+  </li>
+  <li>
+   <p>
+    adjustment = 0.05 *-0.0032767 = -0.00016383
+   </p>
+  </li>
+  <li>
+   <p>
+    new_slope = 4.9978 --0.00016383 = 4.9979
+   </p>
+  </li>
+ </ul>
+ <p>
+  5. magnitude = sqrt[()^2 + ()^2] = 0.0098992
+ </p>
+ <p>
+  6. magnitude &lt; tolerance: converged!
+ </p>
+ <p>
+  <strong>
+   Final slope: -0.994
+  </strong>
+ </p>
+ <p>
+  <strong>
+   Final Intercept: 4.998
+  </strong>
+ </p>
+ <p>
+  If you continue you will get to (-1, 5) but at this point the change in RSS (our cost) is negligible.
+ </p>
+ <h2 level="2">
+  Visualizing the steps:
+ </h2>
+ <p>
+  After the first step we have this line:
+ </p>
+ <img alt="" assetid="6sT8KboMEeWHNQ4_8mwyaw" src="data:image/png;base64,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"/>
+ <p>
+  After the second step we have this line:
+ </p>
+ <img alt="" assetid="8nsqrroMEeWoBgp9XA5AxQ" src="data:image/png;base64,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"/>
+ <p>
+  After the third step we have this line:
+ </p>
+ <img alt="" assetid="_-KQSroMEeWHNQ4_8mwyaw" src="data:image/png;base64,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"/>
+ <p>
+  And after the final step we have this line:
+ </p>
+ <img alt="" assetid="BQYszboNEeWkWxKAF3uaOQ" src="data:image/png;base64,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"/>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

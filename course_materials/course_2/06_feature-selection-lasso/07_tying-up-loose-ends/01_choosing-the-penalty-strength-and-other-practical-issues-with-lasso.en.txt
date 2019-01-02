@@ -1,0 +1,62 @@
+[MUSIC] So we've gone through the coordinate
+descent algorithm for solving our lasso objective for
+a specific value of lambda, and that begs the question well how do we
+choose the lambda tuning parameter value? Well, It's exactly the same
+as in ridge regression. If we have enough data, we can think
+about holding out a validation set and using that to choose amongst these
+different model complexities lambda. Or if we don't have enough data,
+we talked about doing cross validation. So these are two very reasonable options
+for choosing this tuning parameter lambda. But in the case of lasso, I just want
+to mention that using these types of procedures, assessing the error on a
+validation set or doing cross validation, it's choosing lambda that provides
+the best predictive accuracy. But what that ends up tending to do is
+choosing a lambda value that's a bit smaller than might be optimal for
+doing model selection, because for predictive accuracy
+having slightly less solutions can actually lead to a little bit better
+predictions on any finite data set, than possibly the true model with
+the sparsest set of features possible. So instead, there are other ways that you
+can choose this tuning parameter lambda and I'll just refer you to other texts
+like this textbook by Kevin Murphy, Machine Leaning A
+Probabilistic Perspective for further discussion on this issue. So let's just conclude by discussing
+a few practical issues with lasso. The first is the fact that, as we've seen
+in multiple different ways throughout this module, lasso shrinks the coefficients
+relative to the least square solution. So what it's doing is increasing
+the bias of the solution in exchange for having lower variance. So this is doing this automatic
+bias variance tradeoff but we might wanna still have
+a low bias solution, so we can actually think about reducing the
+bias of our solution in the following way. This is called debiasing the lasso
+solution, where we run our lasso solver and we get out a set of selected features,
+so those are the features whose weights were not set exactly to zero, and then
+what we do is we take that reduced model. The model with these selected features and we run just standard lease squares
+regression on that reduced model. And in this case, what happens is these
+features that were deemed relevant to our task, their weights after
+doing this debiasing procedure will not be shrunk,
+relative to the weights of a least square solution if we had
+started exactly with that reduced model. But, of course, that was the whole point,
+we didn't know which model, so the lasso is allowing us to
+choose out this model, and then just run least squares on that model. So these plots show a little illustration
+of the benefits of debiasing. So the top figure shows
+the true coefficients for data, so it's generated with 4,096 different coefficients or
+different features in the model, but only 160 of these had positive
+coefficients associated with them. So it's a very sparse setup and
+if you look at the L one reconstruction, that's the second row of this plot,
+you see that it's discovered 1,024 features that have non zero weights, has mean squared error of 0.0072, but if you take those 1,024 non zero weight features and just run least squares
+regression on them, you get the third row. And that has significantly, significantly,
+lower mean square but in contrast, how do you run least squares on
+the full model with 4,096 features? You would get a really, really poor
+estimate of all that's going on and a very large mean square there. So this shows the importance
+of doing both lasso and possibly this debiasing on top of that. Another issue with lasso is, if you
+have a collection of strongly correlated features, lasso will tend to just select
+amongst them pretty much arbitrarily. And what I mean is that, a small tweak in the data might lead
+to one variable included, whereas a different tweak of the data would have a
+different one of these variables included. So we're now housing an application. Maybe you could imagine that square feet
+and lot size are very correlated, and we might just arbitrarily choose
+between these, but in a lot of cases, you actually wanna include the whole
+set of correlated variables. And another issue is the fact that, it's
+been shown empirically that in many cases, rich regression actually outperforms
+lasso in terms of predictive performance. So there are other variants of lasso,
+something called elastic net. That tries to address these set of issues. And what it does is,
+it fuses both the objectives of ridge and lasso, including both an L one and
+an L two penalty. And you can see this paper for further
+discussion of these and other issues with the original lasso objective,
+and how elastic net addresses it. [MUSIC]

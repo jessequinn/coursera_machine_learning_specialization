@@ -1,0 +1,60 @@
+الموسيقى Congratulations for getting through
+this really challenging course. We covered a lot, a lot of ground
+discussing many ideas relating to regression, as well as more general ideas
+that are foundational to machine learning. So let's just recap where we've been, and then look ahead to what's
+next in a specialization. Okay, I know, I love to start slides
+with okay, but that's how it is. So okay, what have we learned
+in this regression course? Well in the first module we talked about
+something called simple regression. Let's just remember what
+simple regression was. This is where we assume that we just had
+a single input and we're just fitting a very simple line as a relationship
+between the input and the output. Then we discussed what the cost
+was of using a given line, and for this we define something we called
+the residual sum of squares. Then once we've defined our
+residual sum of squares, this allows us to assess the different
+fits of different lines. And then with that we can choose which
+best fits our specific training data set. In particular, to find the best fitting
+line, we talked about our objective being an objective over two variables, which
+represented our slope and our intercept. And the specific algorithm that we
+went through in this module was gradient descent, which we discussed
+was an iterative algorithm that moves in the direction of
+the negative gradient. And for convex functions,
+converges to the optimum. We then turn to multiple regression. And multiple regression allowed us to fit more complicated relationships between
+our single input and our output. We talked about polynomial regression,
+seasonality, and lots of different features of our single input that we
+could use in a multiple regression model. But then we talked more generically
+about incorporating different inputs. Like in our housing applications,
+square feet, number of bathrooms, number of bedrooms, lot size, year built,
+as well as features of these inputs. And so generically, we wrote our
+multiple regression model as follows. So it's just a weighted collection of
+our features h of our inputs xi for our ith house. Plus some epsilon term, which is our error representing
+the noise in our observations. Then for this case of multiple regression
+we have some more complicated relationship between, now,
+a whole bunch of features and our output. We talked about how we define
+our residual sum of squares. And then, in order to derive both
+a closed form solution as well as a gradient descent algorithm, we talked about taking the gradient
+of this residual sum of squares. So it's pretty cool how, even when dealing
+with a large collection of features, we can derive a closed-form solution
+which says, just given all of our data, we just have to compute
+the term shown here. And that will give us our estimated set
+of coefficients for all of our features. But we also talked about the fact that
+this could be computationally intensive. It's operations are cubic and the number of features that we have in
+addition to the fact that this matrix, H transpose, H that we might have
+to invert, might not be invertible. And so now we know that this is where
+ridge regression can be so useful. In the cases where we might not
+have a matrix that we can invert, the ridge regression is just a very simple
+modification to this closed-form solution, and leads to forms that
+are always invertible. And thus allows us to handle cases where
+we have lots and lots of features, even more features than
+we have observations. But instead of this closed-form
+solution which we mentioned could be very computationally intensive,
+we talked about a gradient descent algorithm which is an iterative procedure
+for solving this optimization objective. Where we can start at any point
+in our space, so anywhere. And compute the gradient,
+and take these steps. Where, remember,
+there was a step size that we had to set. Where is our step size, here it is. And that determined a lot
+of the properties of how quickly we converged to the optimal. But we showed that,
+in our well-behaved cases, that we would converge to
+this optimal solution. And this idea of gradient descent, or
+this optimization algorithm, is a very general purpose tool that we're gonna
+see again later in this specialization. الموسيقى

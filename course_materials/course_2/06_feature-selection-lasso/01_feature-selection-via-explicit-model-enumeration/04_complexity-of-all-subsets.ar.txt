@@ -1,0 +1,33 @@
+[موسيقى] Well, this all subsets
+algorithm might seem great or at least pretty straight
+forward to implement, but a question is what's the complexity
+of running all subsets? How many models did we have to evaluate? Well, clearly what we evaluated all
+models, but let's quantify what that is. So we looked at the model
+that was just noise. We looked at the model with just the first
+feature, second feature, all the way up to the model with just the first two
+features, the second two features and every possible model up to
+the full model of all D features. And what we can do is we can index each
+one of these models that we searched over by a feature vector. And this feature vector is going to say,
+so for feature one, feature two,
+all the way up to feature D, what we're gonna enter is zero if no, that feature is not in the model, and
+one if yes, that feature is in the model. So it's just gonna be a binary vector
+indicating which features are present. So, in the case of just noise, or no features we have zeros
+along this whole vector. In the case of just the first model, I made the first feature be included in
+the model, we're just gonna have a one in that first feature location,
+and zeros everywhere else. I guess for consistency, let me index
+this as feature zero, feature one. All the way up to feature D. Okay, and we're gonna go through this
+entire set of possible feature vectors, and how many choices are there for
+the first entry, two. How many for the second, two,
+two, two choices for every entry. And how many entries are there? Well, with my new indexing,
+instead of D there's really D plus one. That's just a little notational choice. And I did a little back of the envelope
+calculation for a couple choices of D. So for example, if we had a total of eight
+different features we were looking over, then we would have to
+search over 256 models. That actually might be okay. But if we had 30 features,
+all of a sudden we have to search over 1 billion some number of different models. And if we have 1,000 features, which really is not that many in
+applications we look at these days, all of a sudden we have to search
+over 1.07 times 10 to the 301. And for the example I gave
+with 100 billion features, I don't even know what that number is. Well, I'm sure I could go and
+compute it, but I didn't bother and
+it's clearly just huge. So, what we can see is that typically, and in most situations we're
+faced with these days. It's just computationally prohibitive
+to do this all subset search. [موسيقى]

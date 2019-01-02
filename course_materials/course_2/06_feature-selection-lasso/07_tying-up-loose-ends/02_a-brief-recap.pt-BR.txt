@@ -1,0 +1,10 @@
+[MÚSICA] Em resumo, apresentamos o conceito de "regressão ao cume" que é uma forma regularizada de regressão linear padrão. Nos permite lidar com muitas e muitas caracaterísticas de uma maneira bastante simples. Tanto intuitivamente quanto algoritmamente,
+como nós exploramos neste módulo E o que a regressão faz, é que nós automaticamente realizar uma troca entre viés e "variância". Falamos também sobre como realizar 
+"regressão ao cume" com um valor específico de lambda, e depois falamos
+sobre o método de validação (cross validation) No intuito de selecionar o valor do lambda
+que queremos usar para os modelos que pretedemos fazer previsões. Portanto, em resumo, Nós descrevemos o porque a regressão
+ao cume é uma coisa razoável a se fazer. Motivados com o termo de magnitude
+que a regressão ao cume introduziu. A magnitude dos coeficientes. Penalizando o que faz sentido para o ponto de observação que os modelos que sofrem com overfit tendem a ter
+coeficientes de magnitudes muito altos. Então falamos sobre o objetivo atual da "regressão ao cume" e E pensamos como ela ela se ajusta a magnitude destes coeficientes. Falamos sobre como ajustar os modelos. Tanto como a solução "closed-form" quanto criando gradiente descente. e depois como escolhemos o valor do lambda usando
+"cross-validation" e mostramos como este método generaliza bem através da regressão
+deixando apenas a regressão ao cume. E finalmente falamos sobre como lidamos com termo de interceptação Se voê que tratar especificamente. [MÚSICA]

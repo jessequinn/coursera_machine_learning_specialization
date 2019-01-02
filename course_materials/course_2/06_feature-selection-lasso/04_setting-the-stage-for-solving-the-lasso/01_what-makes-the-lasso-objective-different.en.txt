@@ -1,0 +1,33 @@
+>> [MUSIC] Now that we've described
+our lasso objective and we've given some intuition for
+why it leads to sparse solutions, now let's turn to how we're going
+to optimize our objective and actually solve for our lasso solution, for
+a specific value of lambda, this tuning parameter that's weighing how much we're
+Including this L1 term in our objective. So, in our machine learning workflow for regression, we're talking about this gray
+box here, our machine learning algorithm. And let's first remember
+what we've done for past objectives when we talked about
+least squares and ridge regression. What we did was, we took the gradient
+of our total cost and then we either looked at a closed-form solution,
+setting that gradient equal to zero, or we used the gradient within an iterative
+procedure called gradient descent. Well here's our lasso objective. And let's think about taking the gradient. Well, we know how to take the gradient
+to the residual sum of squares term, but then we get to this L1 objective. And we have some issues. In particular, what's the derivative
+of the absolute value? Because remember our L1
+objective is the sum over j equals zero to d of
+the absolute value of wj. So we're gonna have to take derivatives
+of this absolute value of wj. And when I think about this
+absolute value function. So this is wj, absolute value of wj, well, what's the derivative here? The derivative any point along
+this side is gonna be minus one. The slope of this line is minus one. And the derivative anywhere
+on this half of the plain Is plus one because the slope is plus one. And then I get to this
+critical zero point. And what's the derivative there? There's actually no derivative
+that exists at that point. So instead of thinking about gradients
+defined by these derivatives, we can talk about something
+called subgradients. And we're gonna discuss
+the concept of subgradients in a more advanced, optional video. But just know that they exist,
+and they're crucial to the derivation of the algorithms we're
+gonna talk about for the lasso objective. And if you're interested in learning more,
+stay tuned for our optional advanced video. But even if you could compute
+this derivative that we're saying doesn't exist for
+this absolute value function, there's still no closed-form solution for
+our lasso objective. So we can't do the closed-form option, but we could do our gradient
+descent algorithm. But again not using gradients,
+using subgradients. [MUSIC]

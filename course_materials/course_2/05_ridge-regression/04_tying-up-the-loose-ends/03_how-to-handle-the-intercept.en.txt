@@ -1,0 +1,64 @@
+[MUSIC] Well we discussed ridge regression and
+cross-validation. But we kinda brushed under the rug
+what can be a fairly important issue when we discussed our ridge
+regression objective, which is how to deal with the intercept term
+that's commonly included in most models. So in particular let's recall our multiple
+regression model, which is shown here. And so far we've just treated
+generically that there's some h0 of x, that's our first feature
+with coefficient w0. But as we mentioned two modules ago,
+typically, that first feature is
+treated to be what's called the constant feature, so that w0 just
+represents the intercept of the model. So if you're thinking of
+some hyper-point issues, where is it sitting along that y-axis? And then all the other features
+are some arbitrary set of other terms that you might be interested in. Okay. Well if we have this constant
+feature in our model, then the model that I wrote on the previous
+slide simplifies to the following. Where in this case when we think of
+our matrix notation for having And different observations. When we're forming our H matrix,
+the first column of that matrix, that's the coefficient for
+the w0 term, the w0 coefficient. So in this special case, that entire first
+column is filled entirely with ones. So that we get w0 all along as the first
+feature for every observation. Okay so
+this is the specific form that our H matrix is gonna take in this case where
+we have an intercept term in the model. Now let's return to our standard
+ridge regression objective that we had where we said we have
+the RSS(w) + lambda times ||w||_2 squared where that ||w||_2
+vector included w_0 for the intercept term in the models
+where that's what it represents. So a question is does this
+really make sense to do? Because what this is doing is it's
+encouraging that intercept term to be small. That's what this ridge
+regression penalty is doing. And do we want a small intercept? So it's useful to think about doing ridge
+regression when you're adding lots and lots of features but regardless of how
+many features you add to your model, does that really matter in how we're thinking
+about the magnitude of the intercept? Not really. So it probably doesn't make
+a lot of sense intuitively to think about shrinking the intercept just because we have this very flexible
+model with lots of other features. So let's think about how to address this. Okay, the first option we have is
+not to penalize the intercept term. And the way we can do that is to
+separate out that w0 coefficient from all the other w's. w1, w2 all the way up to wd, when we're
+thinking about that penalty term. So we have residual sum of squares of w0,
+and what I'll call w rest,
+all those other w's. And when we add our ridge
+regression penalty, the 2 norm is only taken
+of that w rest factor. All those w's not including our intercept. So a question is,
+how do we implement this in practice? How is this gonna modify the closed
+form solution or the gradient descent algorithm that we showed previously when
+we weren't handling this specific case. So the very simple
+modification we can make is simply defining something
+that I'm calling Imod. It's a modified identity matrix. That has a 0 in the first entry,
+and so in the one one entry, and all the other elements are exactly
+the same as an identity matrix before. So to be explicit our H transpose H terms
+is gonna look just as it did before but now this lambda Imod has a 0. So this is the entry. Corresponding to the w0 index. And then we have lambdas as before everywhere else on this diagonal
+and of course still our 0s off diagonal. Okay, now let's look at our
+gradient descent algorithm. And here it's gonna be very simple, we
+just add in a special case that if we're updating our intercept term, so
+if we're looking at that zero feature, we're just gonna use our old re-sqaures update. No shrinkage to w0, but otherwise, for all other features we're gonna do the ridge update. Okay so we see algorithmically its
+very straightforward to make this modification where we don't want
+to penalize that intercept term. But there's another option we have
+which is to transform the data. So in particular if we center
+the data about 0 as a pre-processing step then it doesn't matter so much we're
+shrinking the intercept towards 0 and not correcting for that,
+because when we have data centered about 0 in general we tend to believe that
+the intercept will be pretty small. So here what I'm saying is step one, first we transform all our y
+observations to have mean 0. And then as a second step we just run
+exactly the ridge regression we described at the beginning of this module. Where we don't account for the fact
+that there's this intercept term at all. So, that's another perfectly
+reasonable solution to this problem. [MUSIC]

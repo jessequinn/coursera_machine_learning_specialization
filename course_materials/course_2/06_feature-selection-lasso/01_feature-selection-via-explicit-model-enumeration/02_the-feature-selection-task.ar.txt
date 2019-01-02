@@ -1,0 +1,48 @@
+الموسيقى في هذا النموذج, we're gonna discuss how to select amongst
+a set of features to include in our model. And to do this, we're first gonna start by
+describing a way to explicitly search over all possible models. And then what we're gonna do is describe
+a way to implicitly do a feature selection using regularized regression, akin to the types of ideas we were talking
+about when we discussed ridge regression. So let's start by motivating
+this feature selection task. So question is, why might you want to
+select amongst your set of features? One is for efficiency. So let's say you have a problem
+which has 100 billion features. That might sound like a lot. It is actually a lot, but there are many
+applications out there these days where we're faced with this many features. Well, every time we go to do
+prediction with 100 billion features, that multiplication we have to do
+between our feature vector and the weights on all these features is
+really computationally intensive. In contrast, if we assume that
+the weights on our features are sparse, and what I mean by that is
+that there are many zeros, then things can be done
+much more efficiently. Because when we're going to form our
+prediction, all we need to do is sum over all of the features
+whose weights are not zero. But another reason for wanting to do this feature selection and
+the one that perhaps might be more common, at least classically, is for the reason
+of interpretability, where we wanna understand what are the features relevant
+for, for example, a prediction task. So, for example, in our housing
+application, we might have a really long list of possible features
+associated with every house. This is actually an example of a set
+of features that were listed for a house that was listed on Zillow. And there are lots and lots of detailed
+things, including what roof type the house has, and whether it includes a microwave
+or not when it's getting sold. ويكمن السؤال في، are all these features really relevant
+to assessing the value of the house, or at least how much somebody will go and
+pay for the house? They probably wouldn't mind if
+they're spending a couple $100,000 to go buy a microwave. That's probably not factoring in very
+significantly in making their decision about the value of the house. So when we're faced with
+all these features, we might wanna select a subset
+that are really representative or relevant to our task of
+predicting the value of a house. So here I've shown perhaps a reasonable
+subset of features that we might use for assessing the value. And one question we're gonna
+go through in this module is, how do we think about
+choosing this subset? And another application we talked about
+a couple modules ago was this reading your mind task, where we get a scan
+of your brain, and for our sake, we can just think of this as an image. And then we'd like to predict
+whether you are happy or sad in response to
+whatever you were shown. So when we went to take the scan of your
+brain, you're shown either a word, or an image, or something like this. And we wanna be able to predict how you
+felt about that just from your brain scan. So we talked about the fact that
+we treat our inputs, our features, as just the voxels. We can think of them as just pixels
+in this image, and wanted to relate those pixel intensities to this output,
+this response of happiness. And in many cases, maybe what we'd
+like to do is find a small subset of regions in the brain that
+are relevant to this prediction task. And so here again is a reason for
+interpretability, that we might wanna do this
+feature selection task. الموسيقى

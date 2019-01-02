@@ -1,0 +1,76 @@
+[MUSIC] At the beginning of this module, we talked about this idea of fitting
+globally versus fitting locally. Now that we've seen k nearest
+neighbors and kernel regression, I wanna formalize this idea. So in particular, let's look at what happens when we just
+fit a constant function to our data. So in that case that's just computing
+what's called a global average where we take all of our observations,
+add them together and take the average or just divide by that total
+number of observations. So that's exactly equivalent to summing
+over a weighted set of our observations, where the weights are exactly the same
+on each of our data points, and then dividing by the total
+sum of these weights. So now that we've put our global average
+in this form, things start to look very similar to the kernel regression
+ideas that we've looked at. Where here it's almost like
+kernel regression, but we're including every
+observation in our fit, and we're having exactly the same
+weights on every observation. So that's like using this box car kernel
+that puts the same weights on all observations, and just having
+a really really massively large bandwidth parameters such that for
+every point in our input space all the other observations
+are gonna be included in the fit. But now let's contrast that with a more
+standard version of kernel regression, which leads to what we're gonna
+think of as locally constant fits. Because [COUGH] if we look at
+the kernel regression equation, what we see is that,
+it's exactly what we had for our global average, but
+now it's gonna be weighted by this kernel. Where in a lot of cases,
+what that kernel is doing, is it's putting a hard limit that some
+observations outside of our window of around whatever target point what we're
+looking at, are out of our calculation. So the simplest case we can talk
+about is this box car kernel, that's gonna put equal weights
+over all observations, but just local to our target point x,o. And so, we're gonna get a constant fit
+but, just at that one target point, and then we're going to get a different
+constant fit at the next target point, and the next one, and the next one. And, I want to be clear that
+the resulting output isn't a stair case kind of function. It's not a collection
+of these constant fits. It is a collection of the constant fits,
+but just at a single point. So we're taking a single point,
+doing another constant fit, taking the single point, which is at that
+target, and as we're doing this over all our different inputs that's
+what's defining this green curve. Okay, but if we look at another kernel, like our Epanechnikov kernel that has the
+weights decaying over this fixed region. Well, it is still doing a constant fit,
+but how is it figuring out what the level of that
+line should be at our target point? Well, what it's doing is, it's just down weighting observations that
+are further from our target point and emphasizing more heavily the observations
+more close to our target point. So this is just a weighted global
+average but its no longer global it's local because we're only looking at
+observations within this defined window. So we're doing this weighted average
+locally at each one of our input points and tracing out this green curve. So, this hopefully makes
+very clear how before in the types of linear regression
+models we were talking about, we were doing these global fits which in the
+simplest case, was just a constant model. That was our most basic model we could
+consider having just the constant feature and now what we're talking about is
+doing exactly the same thing but locally and so locally that it's at
+every single point at our input space. So this kernel regression method
+that we've described so far, we've now motivated as fitting a constant
+function locally at each observation, well more than each observation,
+each point in our input space. And this is referred to as
+locally weighted averages but instead of fitting a constant
+at each point in our input space we could have likewise fit a line or
+polynomial. And so what this leads to is
+something that's called locally weighted linear regression. We are not going to go through the details
+of of locally weighted linear regression in this module. It's fairly straightforward. It's a similar idea to
+these local constant fits, but now plugging in a line or polynomial. But I wanted to leave you with a couple
+rules of thumb for which fit you might choose between a different set of
+polynomials that you have options over. And one thing that fitting a local line
+instead of a local constant helps you with are those boundary effects
+that we talked about before. The fact that you get these
+large biases at the boundary. So you can show very formally that these
+local linear fits help with that bias, and if we talk about local quadratic fits,
+that helps with bias that you get at points of curvature in
+the interior view of space. So, for example, we see that blue curve we've been
+trying to fit, and if we go back, maybe it's worth quickly jumping back
+to what our fit looks like we see that, towards the boundary we get large biases,
+and right at the point of curvature, we also have a bias where we're under fitting
+the true curvature of that blue function. And so the local quadratic fit
+helps with fitting that curvature. But what it does is it actually
+leads to a larger variance so that can be unattractive. So in general just a basic recommendation
+is to use just a standard local linear regression, fitting lines
+at every point in the input space. [MUSIC]

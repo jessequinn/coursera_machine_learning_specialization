@@ -1,0 +1,75 @@
+[MUSIC] So instead of this closed form solution
+that can be computationally prohibitive and think about using our group gradient
+descent algorithm to solve our ridge regression. And let's just talk about
+the element y's update that we have. So it's the update to
+the jth feature weight. And remember here I'm showing the gradient
+of our total cost, just as a reminder. And what we do is we take
+our previous weight for the jth feature and
+we subtract Ada our step size, times. Whatever this gradient update
+dictates to form our new weight. And what does this gradient tell us? Well, this first term here on this line is exactly what we had before from
+our residual sum of squares term. So this is same as, before this comes from our
+residual sum of squares term. But now in addition to this we
+have another term appearing. We have this term. So, this is our new term that comes from, The jth component of 2 lambda w is w vector. Okay, so one thing we see is we have a wjt appearing in two places. So we can combine these and simplify the form of this expression to
+get a little bit more interpretability. So what we see is that,
+our update first takes wjt and multiplies by 1- 2 x our step
+size x our tuning parameter. So, times Ada and Lambda and, here,
+we know that Ada is greater than 0. And, we know that Lambda is
+greater than or equal to 0. And, so the result is 2 x Ada x
+Lambda is going to be greater than 0. So, when we have 1- a positive number. We know that this is going to be, this
+thing here is going to be less than or equal to 1. But the other thing we want is we want
+the result of this to be positive. So to enforce that we're going to say
+that 2 Ada Lambda has to be less than 1. Okay, so it's a positive
+quantity that is less than 1. Okay, so what we're doing is we're
+taking our previous coefficient and we're multiplying by some number that's
+less than 1, a positive number less than 1, so what that's doing is it's just
+shrinking the value by some amount, at some fraction. And then we have this update here
+which is the same update that we had just from our residual
+summer squares as before so I'll just call this our update term From residual sum of squares. And so let's draw a picture
+of what's happening here. And what I'm gonna do is I'm gonna
+draw a picture that's a function of iterations going this way. And magnitude of the coefficients
+along the y axis. But this is just a little cartoon. So, we're gonna say that
+at some iteration T, we have a coefficient wjt. And what we're doing in ridge regression is we're introducing
+this intermediate step where here we first shrink
+the value of the coefficient. According to 1- 2 Ada Lamba. So, this is 1- 2 Ada Lamda x wjt. And so, just to be very clear this is an intermediate step introduced in ridge regression. So this is some iteration T. This is some in between iteration and
+when we get to iteration T + 1. What we do is we take
+whatever this update term is. It could be positive. It could be negative, and
+we modify this shrunken coefficient. So let's just assume for this illustration
+that it's positive, some positive value. So, I'm going to take the last
+value of my shrunken coefficient. I'm gonna draw it here. And then I'm gonna add some amount. Wait, let's see,
+I'm gonna add an amount that makes it, let's say a little bit less than
+what my coefficient was before. So. Sorry, my pen is acting crazy here. So I'm gonna add this is
+my little update term from RSS. And this will give me wj at iteration T+1. And let's contrast with what our old
+standard least squares algorithm did. So previously in red, Just RSS. Which was our least squares solution. We had wj t, so
+we've started at the same point. But instead of shrinking the coefficient
+with this intermediate step, we just took this little update term from residual sum
+of squares and modified this coefficient. So I'm gonna try and map over to time to iteration T + 1 and then add the same amount,
+the same update term so again this is the same update
+term that I'm adding to wjt but this is gonna give me my wjt + 1 according to the least squares algorithm. Okay, so just to be clear, what's
+going on here in case this picture was not helpful to you, is in the ridge
+regression case we're taking our previous value of our coefficient,
+our jth regression coefficient. And the first thing we're doing,
+before we decide whether what our fit term is saying we should
+do to it, is we first shrink it. At every iteration we first take
+the last value and we make it smaller. And that's where the model
+complexity term is coming in. Where we're saying we want smaller
+coefficients to avoid over fitting, but then after that we're
+going to say well okay let's listen to how well my
+model's fitting the data. That's where this update
+term is coming in and we're going to modify our
+our shrunken coefficient. And in contrast, our old solution never
+did that shrinking first, it just said, okay, let's just listen to the fit, and
+listen to the fit, and listen to the fit at every iteration and that's where we
+could get into issues of overfitting. Okay, so here's a summary of our standard
+lee squares gradient descent algorithm. This is what we had again two
+modules ago where we just initialize our weights vector, and while not
+converge for every feature dimension. We're going to go through, compute this partial derivative
+of the residual sum of squares. That's that update term I was
+talking about on the last slide. And then I'm going to use that to modify my previous coefficient
+according to the step size Ada. And I'm gonna keep iterating
+until convergence. Okay, so this is what you code up before. Now let's look at what we do
+to have to modify this code to get a rich regression variant. And notice that the only change is
+in this line for updating wj where, instead of taking wjt and doing this
+update with what I'm calling partial here, we're taking 1- 2 Ada Lambda x wj and
+doing the update. So it's a trivial, trivial,
+trivial modification to your code. And that's really cool. It's very ,very, very simple to implement ridge regression
+given a specific Lambda value. [MUSIC]
