@@ -1,0 +1,512 @@
+1
+00:00:00,000 --> 00:00:04,630
+[MUSIC]
+
+2
+00:00:04,630 --> 00:00:08,935
+Well, let's start with the idea of early
+stopping where we keep going down but
+
+3
+00:00:08,935 --> 00:00:11,870
+we stop before the tree gets too complex.
+
+4
+00:00:11,870 --> 00:00:13,940
+So, how does that work?
+
+5
+00:00:13,940 --> 00:00:17,460
+Simply recall that as we
+add more depth to the tree
+
+6
+00:00:17,460 --> 00:00:19,100
+we're increasing
+the complexity of the model.
+
+7
+00:00:19,100 --> 00:00:23,916
+And so if we are avoiding
+these super complex models
+
+8
+00:00:23,916 --> 00:00:27,500
+now we can just avoid very deep trees.
+
+9
+00:00:28,730 --> 00:00:33,440
+So the first early stopping
+condition is absolutely simple,
+
+10
+00:00:33,440 --> 00:00:35,480
+just limit the depth of the tree.
+
+11
+00:00:35,480 --> 00:00:39,270
+Now we know that the training error
+goes down as you increase the depth
+
+12
+00:00:39,270 --> 00:00:42,370
+of the tree, but
+the true error goes down and then goes up.
+
+13
+00:00:42,370 --> 00:00:46,850
+So maybe there's some magical
+max depth where before that,
+
+14
+00:00:46,850 --> 00:00:50,880
+the trees are simple,
+they get to good true error, but
+
+15
+00:00:50,880 --> 00:00:53,970
+after that the trees get too complex and
+the true error keeps going up.
+
+16
+00:00:54,990 --> 00:01:00,333
+And so somehow, this max depth is going to
+be a magic parameter we're going to
+
+17
+00:01:00,333 --> 00:01:06,128
+provide, where we stop going down
+the recursion once we hit that max_depth.
+
+18
+00:01:06,128 --> 00:01:09,335
+And just like any other magic
+parameter in machine learning,
+
+19
+00:01:09,335 --> 00:01:11,254
+you have to figure out how to pick it.
+
+20
+00:01:11,254 --> 00:01:17,990
+And the answer is validation set or
+cross-validation.
+
+21
+00:01:17,990 --> 00:01:20,037
+Never use a validation set, sorry,
+
+22
+00:01:20,037 --> 00:01:23,086
+never use your test set to
+pick your magic parameters.
+
+23
+00:01:23,086 --> 00:01:26,670
+So this what you are to do with max_depth.
+
+24
+00:01:26,670 --> 00:01:31,450
+Limiting the depth is just one approach
+for limiting the complexive decision tree.
+
+25
+00:01:32,700 --> 00:01:36,950
+However, if you limit the depth you're
+cutting every branch the same way, but
+
+26
+00:01:36,950 --> 00:01:39,600
+some branches might want
+to go further than others.
+
+27
+00:01:39,600 --> 00:01:42,360
+Let's take a look at an approach
+where some branches might go
+
+28
+00:01:42,360 --> 00:01:43,340
+down further than others.
+
+29
+00:01:43,340 --> 00:01:44,530
+So for example,
+
+30
+00:01:44,530 --> 00:01:49,590
+we can limit we can stop recursing if the
+classification error doesn't get better.
+
+31
+00:01:50,780 --> 00:01:52,069
+So we split up credit and
+
+32
+00:01:52,069 --> 00:01:55,171
+now we're looking at what
+happens if we recur some poor.
+
+33
+00:01:55,171 --> 00:02:00,613
+So of the five safe loans that we
+have in poor, with credit score poor,
+
+34
+00:02:00,613 --> 00:02:05,965
+and the 16 risky loans of credit
+card poor, if we just stop there and
+
+35
+00:02:05,965 --> 00:02:09,600
+made no splits we'd be
+making five mistakes.
+
+36
+00:02:10,930 --> 00:02:17,795
+The error will be 5 out
+of 21 which is 0.24.
+
+37
+00:02:17,795 --> 00:02:22,860
+Now if I were to try to split
+on the other features, term and
+
+38
+00:02:22,860 --> 00:02:26,780
+income, suppose that
+neither of them helped.
+
+39
+00:02:26,780 --> 00:02:30,860
+Suppose that neither of them
+decreased the training error.
+
+40
+00:02:30,860 --> 00:02:34,940
+So training error we're still 0.24 for
+both of them, what should I do?
+
+41
+00:02:34,940 --> 00:02:38,650
+Now I could try to split
+on one then keep going, but
+
+42
+00:02:38,650 --> 00:02:40,526
+that will make the tree more and
+more complex.
+
+43
+00:02:40,526 --> 00:02:47,050
+So a second early stopping condition
+we might use is to say stop there.
+
+44
+00:02:47,050 --> 00:02:51,130
+If the tree error is not decreasing,
+don't make the tree more complex.
+
+45
+00:02:51,130 --> 00:02:54,920
+Use Occam's Razor and
+stop the process right there and
+
+46
+00:02:54,920 --> 00:03:00,520
+just say everything after credit
+goes poor is just a risky loan.
+
+47
+00:03:00,520 --> 00:03:05,340
+And then just focus on what to do
+with the note where credit is fair.
+
+48
+00:03:06,840 --> 00:03:11,800
+So the second type of early stopping
+criteria we're exploring is
+
+49
+00:03:11,800 --> 00:03:13,670
+keep recursing, but
+
+50
+00:03:13,670 --> 00:03:18,960
+stop if the tree error does not decrease,
+don't make the tree more complex.
+
+51
+00:03:18,960 --> 00:03:22,190
+Now there's a few practical
+caveats about this.
+
+52
+00:03:22,190 --> 00:03:26,490
+First, typically you don't just stop,
+the error doesn't decrease at all.
+
+53
+00:03:26,490 --> 00:03:27,695
+You put a magic parameter,
+
+54
+00:03:27,695 --> 00:03:30,587
+you say stop if the error doesn't
+increase by more than absulum.
+
+55
+00:03:30,587 --> 00:03:36,480
+Let's say If it doesn't increase
+by more than 1% we just stop.
+
+56
+00:03:36,480 --> 00:03:40,100
+Then there's a few pitfalls
+in practice for this rule and
+
+57
+00:03:40,100 --> 00:03:43,100
+we talk about those a little
+bit in the context of pruning.
+
+58
+00:03:43,100 --> 00:03:45,840
+So this is a rule that you should
+be super careful about, but
+
+59
+00:03:45,840 --> 00:03:47,590
+it's very useful in practice.
+
+60
+00:03:47,590 --> 00:03:50,250
+So something to definitely keep in mind.
+
+61
+00:03:51,660 --> 00:03:55,810
+The third type of early stopping
+rule is extremely important, and
+
+62
+00:03:55,810 --> 00:03:57,430
+you should always include it.
+
+63
+00:03:57,430 --> 00:04:01,640
+And it just says, if there is only
+a few data points left in a node,
+
+64
+00:04:01,640 --> 00:04:05,470
+don't split any further, because then
+you're really risking overfitting.
+
+65
+00:04:05,470 --> 00:04:08,300
+So an example would be looking at,
+we had that case or
+
+66
+00:04:08,300 --> 00:04:10,040
+credit that was equal to fair.
+
+67
+00:04:10,040 --> 00:04:14,400
+Well there is only one safe loan there and
+two risky loans.
+
+68
+00:04:14,400 --> 00:04:18,330
+So total of only three data
+points fall inside of that node.
+
+69
+00:04:18,330 --> 00:04:21,314
+In that case, if we are trying to spilt
+further we are going to find lots of
+
+70
+00:04:21,314 --> 00:04:24,855
+patterns in the data that don't make much
+sense because there is very little data to
+
+71
+00:04:24,855 --> 00:04:26,580
+support those patterns.
+
+72
+00:04:26,580 --> 00:04:27,700
+With three data points,
+
+73
+00:04:27,700 --> 00:04:32,750
+I don't know if I really trust a decision
+tree algorithm to make tons of decision.
+
+74
+00:04:32,750 --> 00:04:35,610
+So I'll just stop recursing right there.
+
+75
+00:04:35,610 --> 00:04:40,423
+In general, we should always set
+kind of parameters, say Nmin,
+
+76
+00:04:40,423 --> 00:04:44,122
+which says if a node has
+few data points then Nmin.
+
+77
+00:04:44,122 --> 00:04:47,060
+Or Nmin or less,
+
+78
+00:04:47,060 --> 00:04:51,860
+then just stop recursing right there and
+call that early stopping condition three.
+
+79
+00:04:51,860 --> 00:04:54,550
+This one you should always
+implement no matter what.
+
+80
+00:04:56,385 --> 00:04:59,755
+For example,
+here I'm suggesting setting Nmin to 10.
+
+81
+00:04:59,755 --> 00:05:04,465
+10 is quite a nice number for Nmin if you
+have a relatively small dataset size.
+
+82
+00:05:04,465 --> 00:05:06,985
+If you have a huge dataset
+size you might set it to 100.
+
+83
+00:05:06,985 --> 00:05:11,921
+But somewhere between 10 and
+100 is a good value for Nmin.
+
+84
+00:05:11,921 --> 00:05:16,611
+So let's summarize the early stopping
+conditions that we described in this
+
+85
+00:05:16,611 --> 00:05:21,370
+approach to try to find decision
+trees that are not too complex.
+
+86
+00:05:21,370 --> 00:05:22,280
+There are three.
+
+87
+00:05:22,280 --> 00:05:25,250
+The first one is limiting
+the depth of the tree.
+
+88
+00:05:25,250 --> 00:05:27,900
+That's a relatively good condition to set.
+
+89
+00:05:27,900 --> 00:05:33,480
+You should set that one to be something
+pretty carefully using cross validation.
+
+90
+00:05:33,480 --> 00:05:38,331
+The second one is stop recursing if the
+classification error does not decrease by
+
+91
+00:05:38,331 --> 00:05:42,629
+enough, increase by zero or
+doesn't increase by more than absolute.
+
+92
+00:05:42,629 --> 00:05:45,588
+It is a little risky but
+can be very useful.
+
+93
+00:05:45,588 --> 00:05:49,400
+The third one, extremely useful,
+we should always do it,
+
+94
+00:05:49,400 --> 00:05:53,170
+stop recursing if there is not that
+many data points left inside of a node.
+
+95
+00:05:54,230 --> 00:05:57,110
+So these are some of the key
+early stopping conditions
+
+96
+00:05:57,110 --> 00:05:58,980
+a decision tree algorithm
+should be thinking about.
+
+97
+00:06:00,070 --> 00:06:03,987
+If we go back to the decision tree video
+learning for the decision tree algorithm
+
+98
+00:06:03,987 --> 00:06:07,558
+that we discussed in the previous module,
+we start with the empty tree.
+
+99
+00:06:07,558 --> 00:06:09,954
+We selected a feature to split on,
+
+100
+00:06:09,954 --> 00:06:15,337
+then we said stop if there was nothing
+left to do and just make the prediction.
+
+101
+00:06:15,337 --> 00:06:16,990
+This is the majority class.
+
+102
+00:06:18,320 --> 00:06:23,030
+And otherwise we want to recurse and
+go back to step two.
+
+103
+00:06:23,030 --> 00:06:29,212
+Now, we considered two stopping
+conditions in the previous module.
+
+104
+00:06:31,879 --> 00:06:36,231
+And to those we are adding
+the three early stopping
+
+105
+00:06:36,231 --> 00:06:40,340
+conditions that we just described.
+
+106
+00:06:40,340 --> 00:06:44,087
+And so small modifications
+to the code we've already
+
+107
+00:06:44,087 --> 00:06:48,925
+built gives you this extra factor
+to help prevent some overfitting.
+
+108
+00:06:48,925 --> 00:06:53,249
+[MUSIC]

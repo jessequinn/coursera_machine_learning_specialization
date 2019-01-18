@@ -1,0 +1,24 @@
+[MUSIC] And now, we have the complete gradient
+ascent algorithm for logistic regression. Extremely simple,
+extremely useful and very cool. So we're going to start
+from some point say, w0 and we're just going to follow the gradient
+here until we get to the optimal here, which we're gonmna and
+we're going to stop when the norm of the gradient is sufficiently small
+with respect to tolerance parameter. Epsilon, like we discussed
+in the regression case. And every time we take an iteration,
+we go feature by feature or coefficient by coefficient
+compute that partial derivative, which is back to coefficient j. So what is the derivative
+with respect coefficient and then we just update
+the coefficient by wj(t+1) by wjt plus the stub size times this
+derivative that we just computed. So this is notation for
+the derivative l at t, which respects the parameter wj. And at the core of the derivative,
+the only little computation that we have to do Is this one over here,
+which is computing the probability that the data point has value
+plus one with the parameters wt. So, what's that equal to? Well, this is just exactly
+the logistic regression model. So, I'm going to do a change of
+colors transformation here and just do this in blue so it will stand out. This last little bit is just
+one over 1+e to the -w, which is whatever it is at iteration t. Transpose a h(of xi). So I just compute that prediction,
+whatever my model thinks. I subtract to the indicators
+this a positive example, multiplied by the feature value and
+there you go. Some more data points. Simple algorithm, really useful,
+really, really useful. [MUSIC]

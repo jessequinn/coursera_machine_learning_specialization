@@ -1,0 +1,31 @@
+[MUSIC] In this module we're going to talk about
+the specific boosting algorithm called AdaBoost. AdaBoost is one of the early machine
+learning algorithms for boosting. It's extremely useful. It's very simple to implement. And it's quite effective. There are others. I'll mention another interesting one
+towards the end of the module but let's start with AdaBoost. This is the famous AdaBoost algorithm, which was created by Freund and Schapire
+in 1999, amazing useful algorithm. So you start by seeing every
+data point the same way. You don't know which ones are hard,
+which ones are easy. They all have the same weight. And so you can start with them all weight,
+we'll start with them with weight 1 over N, because it makes everything
+kind of work out a little better. And we'll talk about why in a few slides,
+but we start to all data points having
+the same what's called uniform weight. So in this case alpha i is one over n. And then for each iteration of AdaBoost,
+as you go to learn the first decision stamp or the first simple
+classifier or the first weight classifier, the second one, or
+the third one all the way to capital T. What we do is we learn ft on
+weighted data is alpha i. So that's the data,
+is the weights start with 1 over N but they get different over time. Then we compute
+the coefficient w hat t for this new classify ft that we learned. And then we recompute the weights alpha i. And we keep going, and finally once we're
+done we say that the prediction y hat is the sign of the weighted
+combination of f1, f2, f3, f4 weighted by these coefficients
+that we learn from later. So there are two fundamental
+problems we need to address when we're thinking about AdaBoost. One is, how do you compute
+the coefficient w hat t, let's call that problem 1
+in our module for today. So problem 1 is how much do
+I trust ftF in this case? So if I trust ft a lot,
+I should give it a very high weight. If I trust ft very little, I should give it a very low weight, or
+a very low coefficient, I should say. And then problem 2 is how do you
+recompute this weight on the data points? Let's call that problem 2. And so, problem 2 here is how do we weigh mistakes more? So we want to increase
+the weights of mistakes. So in the main part of this module,
+we're going to talk about how do you compute w hat t and
+how we can update alpha i's, and it's going to be pretty simple,
+relatively intuitive, extremely useful. [MUSIC]

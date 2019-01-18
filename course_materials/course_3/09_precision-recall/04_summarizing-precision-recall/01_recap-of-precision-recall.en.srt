@@ -1,0 +1,107 @@
+1
+00:00:00,000 --> 00:00:04,914
+[MUSIC]
+
+2
+00:00:04,914 --> 00:00:08,446
+In this module, we will discuss some
+very important fundamental concept,
+
+3
+00:00:08,446 --> 00:00:10,390
+which is evaluating classifiers.
+
+4
+00:00:10,390 --> 00:00:14,165
+And in particular, we talked about
+precision-recall, which is a concept
+
+5
+00:00:14,165 --> 00:00:18,535
+that's widely used, way beyond some of
+the classifiers we talked about here.
+
+6
+00:00:18,535 --> 00:00:21,975
+So basically any classification problem
+you're going to see in industry.
+
+7
+00:00:21,975 --> 00:00:24,115
+We saw that just straight accuracy or
+
+8
+00:00:24,115 --> 00:00:26,694
+error metrics may not be the right
+things for your application.
+
+9
+00:00:26,694 --> 00:00:29,582
+And you need to look at something else and
+
+10
+00:00:29,582 --> 00:00:33,562
+precision recall is one of the first
+things you might want to look at.
+
+11
+00:00:33,562 --> 00:00:36,282
+Precision captures the fraction
+
+12
+00:00:36,282 --> 00:00:40,012
+of your top of your positive predictions
+that are actually positive and
+
+13
+00:00:40,012 --> 00:00:45,772
+recall talks about of all positive
+predictions positive sentences out there,
+
+14
+00:00:45,772 --> 00:00:48,640
+which ones did you find,
+which ones did you label as positive.
+
+15
+00:00:48,640 --> 00:00:51,750
+So we talked about the trade-off
+in between precision and recall,
+
+16
+00:00:51,750 --> 00:00:56,490
+and how you can navigate that trade-off
+with that trade-off parameter t,
+
+17
+00:00:56,490 --> 00:01:01,270
+in terms of probability, and really get
+this beautiful precision trade-off curves.
+
+18
+00:01:01,270 --> 00:01:06,870
+And finally, we talked about comparing
+models with this precision at k metric,
+
+19
+00:01:06,870 --> 00:01:09,409
+which is one that I particularly like for
+a lot of applications.
+
+20
+00:01:10,450 --> 00:01:14,816
+I want to take a moment here to
+thank my colleague, Krishna Sridhar,
+
+21
+00:01:14,816 --> 00:01:18,801
+who is instrumental at helping
+these slides come together and
+
+22
+00:01:18,801 --> 00:01:21,271
+creating the ideas behind this module
+
+23
+00:01:21,271 --> 00:01:25,909
+[MUSIC]

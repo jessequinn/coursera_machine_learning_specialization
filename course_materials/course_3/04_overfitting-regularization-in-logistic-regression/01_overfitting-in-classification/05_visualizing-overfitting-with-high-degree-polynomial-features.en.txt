@@ -1,0 +1,44 @@
+[MUSIC] Next, let's see what happens if
+we use degree 6 features to fit a logistic regression classifier
+on the same data set. So now our features go all the way up
+to x2 to the 6th, and x1 to the 6th. It's a lot more features, a lot more
+coefficients to be learned from data. Now, if I take this data set and
+I fit it for logistic regression classifier,
+I get the following decision boundary. It fits the training data extremely well. If you look very carefully,
+it actually gets zero training error, which should be a warning sign for
+you, by the way, as we mentioned. And if you look at the decision boundary,
+it's extremely complicated [BLANK AUDIO] complex. Some people might say,
+here's a technical term for it. Crazy [LAUGH] decision boundary. So even though it has zero training error,
+it has some weird artifacts to it. So for example, I'm highlighting
+here a region in space where even though all around it's surrounded by
+a prediction that's positive, right in the middle of that circle it thinks that
+the score should be less than zero so for that region we're saying
+that y hat should be- 1. And if it doesn't make any sense to
+me because it is right around it, every point is positive 1. Why should I expect the points
+in the middle there to be- 1? The data does it supported at all. And in fact if you look at
+the magnitude of the coefficients, they're starting to get large. All the natural parabola had
+coefficients of around 1- 0.5. Now, we're getting coefficients
+of the order of 42 or more, which are 10 to 40 times bigger
+than the ones they had before. And that is early warning
+sign of over fitting, as we discussed in the regression class. Now, let's take that one step further, and fit a logistic regression model that
+uses polynomial features of degree 20. So this is going all the way up
+to x1 to the power of 20 and x2 to the power of 20, so really,
+really high order polynomials. If you look at the boundary that
+we learned, I mean come on. I'll say that this,
+I can say it's truly crazy. It's really pretty complicated, gets all
+the data right, but it's highly unsmooth. And if you look at the learned weight,
+and there, the coefficients are of the order 3,000,
+4,000, minus 2,000, they're much, much bigger than that
+simple parabola that we learned. It gets all that training data right,
+but it's clearly overfitting, and it's clearly outputting very
+large estimated polynomials. Very largest, make the coefficients. And so, we're going to watch very
+carefully to mind to those coefficients, we'll try to avoid over fitting. So the notion of overfitting
+classification is very similar to that of regression, except that the error now is
+measured in terms of classification error. And there might be some sort of
+parameters that we learned here, w hat. Which seem to do very well in the training
+data, maybe even this crazy boundaries. While there was some other parameter w*,
+and so there's another coefficients w*. That would have done much
+better in terms of true error. And the question's how do we go and push our learning process to be
+more like w* than it is to w hat? And we'll do that by push
+a promises to be not as massive, not as huge, pushing towards zero,
+as we did with regularization. [MUSIC]

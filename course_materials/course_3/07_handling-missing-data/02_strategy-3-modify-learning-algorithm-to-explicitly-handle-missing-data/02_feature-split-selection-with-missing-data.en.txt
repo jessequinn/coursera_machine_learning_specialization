@@ -1,0 +1,62 @@
+[MUSIC] At the core of the decision tree algorithm
+is choosing the feature to split on and that's the place we're going to modify
+it to also choose what to do with that missing data. Regarding the most important question
+in decision tree learning is figuring out what feature to split up. And so now when we look at
+what features split on, we're not just going to decide
+what feature to split on, we're also going to decide, which branch
+to take when we see a missing value? And so conceptually,
+it's just a very very simplification algorithm we described
+in the previous module. But now, we're just going to add this
+extra search to figure out where to put that missing data. Just like with grading
+learning decision trees, we can just focus on learning decision
+stump to understand what's going on here. So, we chose to split on credit. Credit can be excellent, fair or
+poor and the branch here on the right is the one where all data
+points have credit equals poor. And now, we might decide that the missing
+data is going to go into that branch. So now we're going to take all
+the data that was missing and the data where credit equals poor,
+and feed it into that node. That's what's going to happen
+with categorical data. Now when we have numeric data, when they use those threshold splits that
+we discussed in the previous module. And in this case, when my threshold
+income is less than $50,000 or greater than $50,000. And if we decided that missing data or
+data where the income is unknown, when the feed it to the same node of
+those the income was less than 50,000. That's the decisions that we are going
+to try to make inside of our learning algorithm. Now, we have to decide where
+this data's going to go. So let's say, we choose to split a credit
+or considering splitting a credit. If we consider spilling of credit,
+what should we do with the missing data? Should we put it with
+people of excellent credit, for people with fair credit or
+with some people with poor credit? I don't know what's best or
+we have a principle for doing this. As the principle says, choose the branch
+that leads to the lowest classification error, just like we did before. Let say, they were considering splitting
+on credit and we'll consider assigning the missing data to the branch
+where the credit was excellent. Let see what happens. So in this example,
+we have three data points with missing data, these three here. And we're considering assigning those data
+points to the branch where the credit was excellent. So, we had two kinds of data. We had the observe data and then there, we had in the exon branch,
+we had nine safe loans, zero risk. In the fair branch,
+we had eight safe loans and four risky. And in the poor branch,
+we have 4 safe loans and 12 risky. Now, we have the three extra data points. And in this three extra data points as you
+can see, there's two risky and one safe. So, we're thinking about
+adding these two risky and one safe into the excellent branch. So, what are the grand totals here? The grand totals are ten safe and
+two risky inside the excellent branch and then the same for the other two branches,
+because we're not in excellent data. So what's the overall total error
+of the resulting decision tree? Well, for the excellent branch,
+we're going to predict safe. So, we're going to make two mistakes. For the fair branch,
+we're going to predict safe. So we're going to make four mistakes and
+for the poor branch, we're going to predict risky and
+we're going to make four mistakes. So overall, we're going to make 10
+mistakes and our total was 40 data points, so the total error here
+is 0.25 one-quarter. Now we do the same for
+every single option, every single branch. So, we tried putting the unknown data
+with the excellent and got error 0.5. We tried to put it with the fair branch,
+we get A 0.25 error as well. But if we try to put it
+with the last branch here, with the poor branch,
+we get an error of 0.225. And so that's a lower error,
+so this is the winner. So the best thing to do would be to assign unknowns to the poor batch
+to credit equals poor, which is exactly what we
+did in the earlier tree. This is the modification of
+the tree splitting algorithm to take into account missing data,
+gets a little complicated. But it's generally,
+kind of simple idea we just described. You're leaving here for a reference,
+if you choose to implement it. But overall, the fundamental concept
+is you can use this idea of embedding, handling of missing data inside of
+the learning algorithm to get better overall performance. [MUSIC]

@@ -1,0 +1,1257 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Exploring Ensemble Methods
+ </h1>
+ <p>
+  In this homework we will explore the use of boosting. For this assignment, we will use the pre-implemented gradient boosted trees in Graphlab-Create. You will:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Use SFrames to do some feature engineering.
+   </p>
+  </li>
+  <li>
+   <p>
+    Train a boosted ensemble of decision-trees (gradient boosted trees) on the lending club dataset.
+   </p>
+  </li>
+  <li>
+   <p>
+    Predict whether a loan will default along with prediction probabilities (on a validation set).
+   </p>
+  </li>
+  <li>
+   <p>
+    Evaluate the trained model and compare it with a baseline.
+   </p>
+  </li>
+  <li>
+   <p>
+    Find the most positive and negative loans using the learned model.
+   </p>
+  </li>
+  <li>
+   <p>
+    Explore how the number of trees influences classification performance.
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  If you are doing the assignment with IPython Notebook
+ </h2>
+ <p>
+  An IPython Notebook has been provided below to you for this assignment. This notebook contains the instructions, quiz questions and partially-completed code for you to use as well as some cells to test your code.
+ </p>
+ <p>
+  <strong>
+   Make sure that you are using the latest version of GraphLab Create.
+  </strong>
+ </p>
+ <h2 level="2">
+  What you need to download
+ </h2>
+ <h3 level="3">
+  If you are using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the Lending club data In SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vTFakZb5EeaPaAqL2XDGfA" name="lending-club-data.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the companion IPython Notebook:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vUVX-Zb5EeaNJRJXiCw1bA" name="module-8-boosting-assignment-1-blank.ipynb">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling IPython notebook from) and unzip the data file.
+   </p>
+  </li>
+  <li>
+   <p>
+    Follow the instructions contained in the IPython notebook.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  If you are not using GraphLab Create
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using SFrame, download the LendingClub dataset in SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vTFakZb5EeaPaAqL2XDGfA" name="lending-club-data.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using a different package, download the LendingClub dataset in CSV format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="RLfVh5cTEeaMvRLid-X_BA" name="lending-club-data.csv">
+ </asset>
+ <h2 level="2">
+  If you are using GraphLab Create and the companion IPython Notebook
+ </h2>
+ <p>
+  Open the companion IPython notebook and follow the instructions in the notebook.
+ </p>
+ <h2 level="2">
+  If you are using other tools
+ </h2>
+ <p>
+  This section is designed for people using tools other than GraphLab Create. Even though some instructions are specific to scikit-learn, most part of the assignment should be applicable to other tools as well. However,
+  <strong>
+   we highly suggest you use
+   <a href="https://github.com/turi-code/SFrame">
+    SFrame
+   </a>
+   since it is open source.
+  </strong>
+  In this part of the assignment, we describe general instructions, however we will tailor the instructions for SFrame and scikit-learn.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you choose to use SFrame and scikit-learn, you should be able to follow the instructions here and complete the assessment.
+    <strong>
+     All code samples given here will be applicable to SFrame and scikit-learn
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    You are free to experiment with any tool of your choice, but
+    <strong>
+     some many not produce correct numbers for the quiz questions.
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  Load the Lending Club dataset
+ </h3>
+ <p>
+  We will be using a dataset from the
+  <a href="https://eventing.coursera.org/api/redirectStrict/2A2dgegf87tw1ItV9HsWPBcEGmUK05erM-kN3fmDePr7tRAtWw9BwgJMXN8PkEp9a_uOaRHOZXXdRWTypY4zkQ.g2rN099OdFhEudtiltTFfw.wpioK0GzzaGpoSphCaFGAe72Saoj3MdqmVfonqfXFz0kIRBchb0BXdpXlz04IdcutWs2cg8YTVGYnZbPH3tH1NS6Cz3Ws17Z_8Kxww6eF55LQAcnKnT5iq0nyaMEmTOk61MB6b3bsq95JRMcUTV4FzIiXuK3h5IMACoGVymSc0mIgqBOJWyuO4zxIt0FzOJZ_NAw72x4S96oYfSVvJAdMcGC2usc6krcMgUU39AeH97g153MndxVFlxcw_wI0_V_nLcRno5PKGLzItt8dpgmUmEfw_XnT31CazNK_swWRtY">
+   LendingClub
+  </a>
+  .
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Load the dataset into a data frame named
+    <strong>
+     loans
+    </strong>
+    . Using SFrame, this would look like
+   </p>
+  </li>
+ </ol>
+ <pre language="python">import sframe
+loans = sframe.SFrame('lending-club-data.gl/')</pre>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  To install SFrame (without installing GraphLab Create), run
+ </p>
+ <pre language="sh">pip install sframe</pre>
+ <h3 level="3">
+  Exploring some features
+ </h3>
+ <p>
+  2. Let's quickly explore what the dataset looks like. First, print out the column names to see what features we have in this dataset. On SFrame, you can run this code:
+ </p>
+ <pre language="python">loans.column_names()</pre>
+ <p>
+  Here, we should see that we have some feature columns that have to do with grade of the loan, annual income, home ownership status, etc.
+ </p>
+ <h3 level="3">
+  Modifying the target column
+ </h3>
+ <p>
+  The target column (label column) of the dataset that we are interested in is called bad_loans. In this column
+  <strong>
+   1
+  </strong>
+  means a risky (bad) loan
+  <strong>
+   0
+  </strong>
+  means a safe loan.
+ </p>
+ <p>
+  In order to make this more intuitive and consistent with the lectures, we reassign the target to be:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     +1
+    </strong>
+    as a safe loan
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     -1
+    </strong>
+    as a risky (bad) loan
+   </p>
+  </li>
+ </ul>
+ <p>
+  3. We put this in a new column called
+  <strong>
+   safe_loans
+  </strong>
+  .
+ </p>
+ <pre language="python"># safe_loans =  1 =&gt; safe
+# safe_loans = -1 =&gt; risky
+loans['safe_loans'] = loans['bad_loans'].apply(lambda x : +1 if x==0 else -1)
+loans = loans.remove_column('bad_loans')</pre>
+ <h3 level="3">
+  Selecting features
+ </h3>
+ <p>
+  In this assignment, we will be using a subset of features (categorical and numeric). The features we will be using are
+  <strong>
+   described in the code comments
+  </strong>
+  below. If you are a finance geek, the
+  <a href="https://www.lendingclub.com/">
+   LendingClub
+  </a>
+  website has a lot more details about these features.
+ </p>
+ <p>
+  4. The features we will be using are described in the code comments below. Extract these feature columns and target column from the dataset. We will only use these features.
+ </p>
+ <pre language="python">target = 'safe_loans'
+features = ['grade',                     # grade of the loan (categorical)
+            'sub_grade_num',             # sub-grade of the loan as a number from 0 to 1
+            'short_emp',                 # one year or less of employment
+            'emp_length_num',            # number of years of employment
+            'home_ownership',            # home_ownership status: own, mortgage or rent
+            'dti',                       # debt to income ratio
+            'purpose',                   # the purpose of the loan
+            'payment_inc_ratio',         # ratio of the monthly payment to income
+            'delinq_2yrs',               # number of delinquincies
+             'delinq_2yrs_zero',          # no delinquincies in last 2 years
+            'inq_last_6mths',            # number of creditor inquiries in last 6 months
+            'last_delinq_none',          # has borrower had a delinquincy
+            'last_major_derog_none',     # has borrower had 90 day or worse rating
+            'open_acc',                  # number of open credit accounts
+            'pub_rec',                   # number of derogatory public records
+            'pub_rec_zero',              # no derogatory public records
+            'revol_util',                # percent of available credit being used
+            'total_rec_late_fee',        # total late fees received to day
+            'int_rate',                  # interest rate of the loan
+            'total_rec_int',             # interest received to date
+            'annual_inc',                # annual income of borrower
+            'funded_amnt',               # amount committed to the loan
+            'funded_amnt_inv',           # amount committed by investors for the loan
+            'installment',               # monthly payment owed by the borrower
+           ]
+</pre>
+ <h3 level="3">
+  Skipping observations with missing values
+ </h3>
+ <p>
+  Recall from the lectures that one common approach to coping with missing values is to
+  <strong>
+   skip
+  </strong>
+  observations that contain missing values.
+ </p>
+ <p>
+  5. Using SFrame, we run the following code to do so:
+ </p>
+ <pre language="python">loans, loans_with_na = loans[[target] + features].dropna_split()
+
+# Count the number of rows with missing data
+num_rows_with_na = loans_with_na.num_rows()
+num_rows = loans.num_rows()
+print 'Dropping %s observations; keeping %s ' % (num_rows_with_na, num_rows)</pre>
+ <p>
+  In Pandas, we'd run
+ </p>
+ <pre language="python">loans = loans[[target] + features].dropna()</pre>
+ <p>
+  Your tool may provide a function to skip observations with missing values. Consult appropriate manuals.
+ </p>
+ <p>
+  Fortunately, as you should find, there are not too many missing values. We are retaining most of the data.
+ </p>
+ <h3 level="3">
+  Notes to people using other tools
+ </h3>
+ <p>
+  <strong>
+   If you are using SFrame, proceed to the section "
+  </strong>
+  <strong>
+   Make sure the classes are balanced".
+  </strong>
+ </p>
+ <p>
+  <strong>
+   If you are NOT using SFrame, download the list of indices for the training and validation sets
+  </strong>
+  :
+ </p>
+ <asset assettype="generic" extension="zip" id="eeAkDpcCEeahEhKiddgzxA" name="module-8-assignment-1-train-idx.json">
+ </asset>
+ <asset assettype="generic" extension="zip" id="eeHSX5cCEea9mwoGlQi6MA" name="module-8-assignment-1-validation-idx.json">
+ </asset>
+ <p>
+  Then follow the following steps:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Apply one-hot encoding to
+    <strong>
+     loans
+    </strong>
+    . Your tool may have a function for one-hot encoding. Alternatively, see #7 for implementation hints.
+   </p>
+  </li>
+  <li>
+   <p>
+    Load the JSON files into the lists
+    <strong>
+     train_idx
+    </strong>
+    and
+    <strong>
+     validation_idx
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Perform train/validation split using
+    <strong>
+     train_idx
+    </strong>
+    and
+    <strong>
+     validation_idx
+    </strong>
+    . In Pandas, for instance:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">train_data = loans.iloc[train_idx]
+validation_data = loans.iloc[validation_idx]</pre>
+ <p>
+  IMPORTANT: If you are using a programming language with 1-based indexing (e.g. R, Matlab), make sure to increment all indices by 1.
+ </p>
+ <p>
+  Note. Some elements in loans are included neither in
+  <strong>
+   train_data
+  </strong>
+  nor
+  <strong>
+   validation_data
+  </strong>
+  . This is to perform sampling to achieve class balance.
+ </p>
+ <p>
+  Now proceed to the section "Gradient boosted tree classifier", skipping three sections below.
+ </p>
+ <h3 level="3">
+  Make sure the classes are balanced
+ </h3>
+ <p>
+  6. We saw in an earlier assignment that this dataset is also imbalanced. We will undersample the larger class (safe loans) in order to balance out our dataset. We used seed=1 to make sure everyone gets the same results.
+ </p>
+ <pre language="python">safe_loans_raw = loans[loans[target] == 1]
+risky_loans_raw = loans[loans[target] == -1]
+
+# Undersample the safe loans.
+percentage = len(risky_loans_raw)/float(len(safe_loans_raw))
+safe_loans = safe_loans_raw.sample(percentage, seed = 1)
+risky_loans = risky_loans_raw
+loans_data = risky_loans.append(safe_loans)
+
+print "Percentage of safe loans                 :", len(safe_loans) / float(len(loans_data))
+print "Percentage of risky loans                :", len(risky_loans) / float(len(loans_data))
+print "Total number of loans in our new dataset :", len(loans_data)</pre>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  There are many approaches for dealing with imbalanced data, including some where we modify the learning algorithm. These approaches are beyond the scope of this course, but some of them are reviewed in this
+  <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=5128907&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F5173046%2F05128907.pdf%3Farnumber%3D5128907">
+   paper
+  </a>
+  . For this assignment, we use the simplest possible approach, where we subsample the overly represented class to get a more balanced dataset. In general, and especially when the data is highly imbalanced, we recommend using more advanced methods.
+ </p>
+ <h3 level="3">
+  One-hot encoding
+ </h3>
+ <p>
+  For scikit-learn's decision tree implementation, it numerical values for it's data matrix. This means you will have to turn categorical variables into binary features via one-hot encoding.
+ </p>
+ <p>
+  7. We've seen this same piece of code in earlier assignments. Again, feel free to use this piece of code as is. Refer to the API documentation for a deeper understanding.
+ </p>
+ <pre language="python">loans_data = risky_loans.append(safe_loans)
+
+categorical_variables = []
+for feat_name, feat_type in zip(loans_data.column_names(), loans_data.column_types()):
+    if feat_type == str:
+        categorical_variables.append(feat_name)
+
+for feature in categorical_variables:
+    loans_data_one_hot_encoded = loans_data[feature].apply(lambda x: {x: 1})
+    loans_data_unpacked = loans_data_one_hot_encoded.unpack(column_name_prefix=feature)
+
+    # Change None's to 0's
+    for column in loans_data_unpacked.column_names():
+        loans_data_unpacked[column] = loans_data_unpacked[column].fillna(0)
+
+    loans_data.remove_column(feature)
+    loans_data.add_columns(loans_data_unpacked)
+
+loans_data.column_names()</pre>
+ <p>
+  Note that the column names are slightly different now, since we used one-hot encoding.
+ </p>
+ <h3 level="3">
+  Split data into training and validation
+ </h3>
+ <p>
+  8. We split the data into training data and validation data. We used seed=1 to make sure everyone gets the same results. We will use the validation data to help us select model parameters.
+ </p>
+ <pre language="python">train_data, validation_data = loans_data.random_split(.8, seed=1)</pre>
+ <p>
+  Call the training and validation sets
+  <strong>
+   train_data
+  </strong>
+  and
+  <strong>
+   validation_data
+  </strong>
+  , respectively.
+ </p>
+ <h3 level="3">
+  Gradient boosted tree classifier
+ </h3>
+ <p>
+  Gradient boosted trees are a powerful variant of boosting methods; they have been used to win many
+  <a href="https://www.kaggle.com/">
+   Kaggle
+  </a>
+  competitions, and have been widely used in industry. We will explore the predictive power of multiple decision trees as opposed to a single decision tree.
+ </p>
+ <p>
+  <strong>
+   Additional reading:
+  </strong>
+  If you are interested in gradient boosted trees, here is some additional reading material:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <a href="https://turi.com/learn/userguide/supervised-learning/boosted_trees_classifier.html">
+     GraphLab Create user guide
+    </a>
+   </p>
+  </li>
+  <li>
+   <p>
+    <a href="http://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf">
+     Advanced material on boosted trees
+    </a>
+   </p>
+  </li>
+ </ul>
+ <p>
+  We will now train models to predict safe_loans using the features above. In this section, we will experiment with training an ensemble of 5 trees.
+ </p>
+ <p>
+  9. Now, let's use the built-in scikit learn gradient boosting classifier (
+  <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html">
+   sklearn.ensemble.GradientBoostingClassifier
+  </a>
+  ) to create a gradient boosted classifier on the training data. You will need to import
+  <strong>
+   sklearn
+  </strong>
+  ,
+  <strong>
+   sklearn.ensemble
+  </strong>
+  , and
+  <strong>
+   numpy
+  </strong>
+  .
+ </p>
+ <p>
+  You will have to first convert the SFrame into a numpy data matrix. See
+  <a href="https://turi.com/products/create/docs/generated/graphlab.SFrame.to_numpy.html">
+   the API
+  </a>
+  for more information. You will also have to extract the label column.
+  <strong>
+   Make sure to set max_depth=6 and
+  </strong>
+  <strong>
+   n_estimators=5.
+  </strong>
+ </p>
+ <h3 level="3">
+  Making predictions
+ </h3>
+ <p>
+  Just like we did in previous sections, let us consider a few positive and negative examples
+  <strong>
+   from the validation set
+  </strong>
+  . We will do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Predict whether or not a loan is likely to default.
+   </p>
+  </li>
+  <li>
+   <p>
+    Predict the probability with which the loan is likely to default.
+   </p>
+  </li>
+ </ul>
+ <p>
+  10. First, let's grab 2 positive examples and 2 negative examples. In SFrame, that would be:
+ </p>
+ <pre language="python">validation_safe_loans = validation_data[validation_data[target] == 1]
+validation_risky_loans = validation_data[validation_data[target] == -1]
+
+sample_validation_data_risky = validation_risky_loans[0:2]
+sample_validation_data_safe = validation_safe_loans[0:2]
+
+sample_validation_data = sample_validation_data_safe.append(sample_validation_data_risky)
+sample_validation_data</pre>
+ <p>
+  11. For each row in the
+  <strong>
+   sample_validation_data
+  </strong>
+  , write code to make
+  <strong>
+   model_5
+  </strong>
+  predict whether or not the loan is classified as a
+  <strong>
+   safe loan
+  </strong>
+  . (Hint: if you are using scikit-learn, you can use the
+  <strong>
+   <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier.predict">
+    .predict()
+   </a>
+  </strong>
+  method)
+ </p>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  What percentage of the predictions on sample_validation_data did model_5 get correct?
+ </p>
+ <h3 level="3">
+  Prediction Probabilities
+ </h3>
+ <p>
+  12. For each row in the
+  <strong>
+   sample_validation_data
+  </strong>
+  , what is the probability (according
+  <strong>
+   model_5
+  </strong>
+  ) of a loan being classified as
+  <strong>
+   safe
+  </strong>
+  ? (Hint: if you are using scikit-learn, you can use the
+  <strong>
+   <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier.predict_proba">
+    .predict_proba()
+   </a>
+  </strong>
+  method)
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Which loan has the highest probability of being classified as a
+  <strong>
+   safe loan
+  </strong>
+  ?
+ </p>
+ <p>
+  <strong>
+   Checkpoint:
+  </strong>
+  Can you verify that for all the predictions with probability &gt;= 0.5, the model predicted the label
+  <strong>
+   +1
+  </strong>
+  ?
+ </p>
+ <h3 level="3">
+  Evaluating the model on the validation data
+ </h3>
+ <p>
+  Recall that the accuracy is defined as follows:
+ </p>
+ <p hasmath="true">
+  $$\mbox{accuracy} = \dfrac{\mbox{# correctly classified data points}}{\mbox{# total data points}}$$
+ </p>
+ <p>
+  13. Evaluate the accuracy of the
+  <strong>
+   model_5
+  </strong>
+  on the
+  <strong>
+   validation_data
+  </strong>
+  . (Hint: if you are using scikit-learn, you can use the
+  <strong>
+   <a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier.score">
+    .score()
+   </a>
+  </strong>
+  method)
+ </p>
+ <p>
+  14. Calculate the number of
+  <strong>
+   false positives
+  </strong>
+  made by the model on the
+  <strong>
+   validation_data
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : What is the number of
+  <strong>
+   false positives
+  </strong>
+  on the
+  <strong>
+   validation_data
+  </strong>
+  ?
+ </p>
+ <p>
+  15. Calculate the number of
+  <strong>
+   false negatives
+  </strong>
+  made by the model on the
+  <strong>
+   validation_data
+  </strong>
+  .
+ </p>
+ <h3 level="3">
+  Comparison with decision trees
+ </h3>
+ <p>
+  In the earlier assignment, we saw that the prediction accuracy of the decision trees was around
+  <strong>
+   0.64
+  </strong>
+  . In this assignment, we saw that
+  <strong>
+   model_5
+  </strong>
+  has an accuracy of approximately
+  <strong>
+   0.67
+  </strong>
+  .
+ </p>
+ <p>
+  Here, we quantify the benefit of the extra 3% increase in accuracy of
+  <strong>
+   model_5
+  </strong>
+  in comparison with a single decision tree from the original decision tree assignment.
+ </p>
+ <p>
+  As we explored in the earlier assignment, we calculated the cost of the mistakes made by the model. We again consider the same costs as follows:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     False negatives
+    </strong>
+    : Assume a cost of $10,000 per false negative.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     False positives
+    </strong>
+    : Assume a cost of $20,000 per false positive.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Assume that the number of false positives and false negatives for the learned decision tree was
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     False negatives
+    </strong>
+    : 1936
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     False positives
+    </strong>
+    : 1503
+   </p>
+  </li>
+ </ul>
+ <p>
+  Using the costs defined above and the number of false positives and false negatives for the decision tree, we can calculate the total cost of the mistakes made by the decision tree model as follows:
+ </p>
+ <pre language="python">cost = $10,000 * 1936  + $20,000 * 1503 = $49,420,000
+</pre>
+ <p>
+  The total cost of the mistakes of the model is $49.42M. That is a
+  <strong>
+   lot of money
+  </strong>
+  !.
+ </p>
+ <p>
+  16. Calculate the cost of mistakes made by
+  <strong>
+   model_5
+  </strong>
+  on the
+  <strong>
+   validation_data
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz Question
+  </strong>
+  : Using the same costs of the false positives and false negatives, what is the cost of the mistakes made by the boosted tree model (
+  <strong>
+   model_5
+  </strong>
+  ) as evaluated on the
+  <strong>
+   validation_set
+  </strong>
+  ?
+ </p>
+ <p>
+  <strong>
+   Reminder
+  </strong>
+  : Compare the cost of the mistakes made by the boosted trees model with the decision tree model. The extra 3% improvement in prediction accuracy can translate to several million dollars! And, it was so easy to get by simply boosting our decision trees.
+ </p>
+ <h3 level="3">
+  Most positive &amp; negative loans.
+ </h3>
+ <p>
+  In this section, we will find the loans that are most likely to be predicted
+  <strong>
+   safe
+  </strong>
+  . We can do this in a few steps:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Step 1
+    </strong>
+    : Use the
+    <strong>
+     model_5
+    </strong>
+    (the model with 5 trees) and make
+    <strong>
+     probability predictions
+    </strong>
+    for all the loans in
+    <strong>
+     validation_data
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Step 2
+    </strong>
+    : Similar to what we did in the very first assignment, add the probability predictions as a column called
+    <strong>
+     predictions
+    </strong>
+    into
+    <strong>
+     validation_data
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Step 3
+    </strong>
+    : Sort the data (in descreasing order) by the probability predictions.
+   </p>
+  </li>
+ </ul>
+ <p>
+  17. Start here with
+  <strong>
+   Step 1
+  </strong>
+  &amp;
+  <strong>
+   Step 2
+  </strong>
+  . Make predictions using
+  <strong>
+   model_5
+  </strong>
+  for all examples in the
+  <strong>
+   validation_data
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Checkpoint:
+  </strong>
+  For each row, the probabilities should be a number in the range
+  <strong>
+   [0, 1]
+  </strong>
+  .
+ </p>
+ <p>
+  18. Now, we are ready to go to
+  <strong>
+   Step 3
+  </strong>
+  . You can now use the prediction column to sort the loans in
+  <strong>
+   validation_data
+  </strong>
+  (in descending order) by prediction probability. Find the top 5 loans with the highest probability of being predicted as a
+  <strong>
+   safe loan
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : What grades are the top 5 loans?
+ </p>
+ <p>
+  19. Repeat this exercise to find the 5 loans (in the
+  <strong>
+   validation_data
+  </strong>
+  ) with the
+  <strong>
+   lowest probability
+  </strong>
+  of being predicted as a
+  <strong>
+   safe loan.
+  </strong>
+ </p>
+ <h3 level="3">
+  Effects of adding more trees
+ </h3>
+ <p>
+  In this assignment, we will train 5 different ensemble classifiers in the form of gradient boosted trees.
+ </p>
+ <p>
+  20. Train models with 10, 50, 100, 200, and 500 trees. Use the
+  <strong>
+   n_estimators
+  </strong>
+  parameter to control the number of trees. Remember to keep
+  <strong>
+   max_depth = 6
+  </strong>
+  .
+ </p>
+ <p>
+  Call these models
+  <strong>
+   model_10, model_50, model_100, model_200,
+  </strong>
+  and
+  <strong>
+   model_500
+  </strong>
+  , respectively. This may take a few minutes to run.
+ </p>
+ <h3 level="3">
+  Compare accuracy on entire validation set
+ </h3>
+ <p>
+  Now we will compare the predicitve accuracy of our models on the validation set.
+ </p>
+ <p>
+  21. Evaluate the
+  <strong>
+   accuracy
+  </strong>
+  of the 10, 50, 100, 200, and 500 tree models on the
+  <strong>
+   validation_data
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Which model has the
+  <strong>
+   best
+  </strong>
+  accuracy on the
+  <strong>
+   validation_data
+  </strong>
+  ?
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Is it always true that the model with the most trees will perform best on test data?
+ </p>
+ <h3 level="3">
+  Plot the training and validation error vs. number of trees
+ </h3>
+ <p>
+  Recall from the lecture that the classification error is defined as
+ </p>
+ <p hasmath="true">
+  $$[\mbox{classification error}] = 1 - [\mbox{accuracy}]$$
+ </p>
+ <p>
+  In this section, we will plot the training and validation errors versus the number of trees to get a sense of how these models are performing. We will compare the 10, 50, 100, 200, and 500 tree models.
+  <strong>
+   You will need matplotlib in order to visualize the plots.
+  </strong>
+ </p>
+ <p>
+  22. First, make sure this block of code runs on your computer.
+ </p>
+ <pre language="python">import matplotlib.pyplot as plt
+%matplotlib inline
+def make_figure(dim, title, xlabel, ylabel, legend):
+    plt.rcParams['figure.figsize'] = dim
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    if legend is not None:
+        plt.legend(loc=legend, prop={'size':15})
+    plt.rcParams.update({'font.size': 16})
+    plt.tight_layout()</pre>
+ <p>
+  In order to plot the classification errors (on the
+  <strong>
+   train_data
+  </strong>
+  and
+  <strong>
+   validation_data
+  </strong>
+  ) versus the number of trees, we will need lists of all the errors.
+ </p>
+ <p>
+  <strong>
+   Steps to follow:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Step 1:
+    </strong>
+    Calculate the classification error for each model on the training data (
+    <strong>
+     train_data
+    </strong>
+    ).
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Step 2:
+    </strong>
+    Store the training errors into a list (called
+    <strong>
+     training_errors
+    </strong>
+    ) that looks like this: [train_err_10, train_err_50, ..., train_err_500]
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Step 3:
+    </strong>
+    Calculate the classification error of each model on the validation data (
+    <strong>
+     validation_data
+    </strong>
+    ).
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Step 4:
+    </strong>
+    Store the validation classification error into a list (called
+    <strong>
+     validation_errors
+    </strong>
+    ) that looks like this:[validation_err_10, validation_err_50, ..., validation_err_500]
+   </p>
+  </li>
+ </ul>
+ <p>
+  Once that has been completed, we will give code that should be able to evaluate correctly and generate the plot.
+ </p>
+ <p>
+  23. Let us start with
+  <strong>
+   Step 1
+  </strong>
+  . Write code to compute the classification error on the
+  <strong>
+   train_data
+  </strong>
+  for models
+  <strong>
+   model_10
+  </strong>
+  ,
+  <strong>
+   model_50
+  </strong>
+  ,
+  <strong>
+   model_100
+  </strong>
+  ,
+  <strong>
+   model_200
+  </strong>
+  , and
+  <strong>
+   model_500
+  </strong>
+  .
+ </p>
+ <p>
+  24. Now, let us run
+  <strong>
+   Step 2
+  </strong>
+  . Save the training errors into a list called
+  <strong>
+   training_errors.
+  </strong>
+ </p>
+ <pre language="python">training_errors = [train_err_10, train_err_50, train_err_100, train_err_200, train_err_500]</pre>
+ <p>
+  25. Now, onto
+  <strong>
+   Step 3
+  </strong>
+  . Write code to compute the classification error on the
+  <strong>
+   validation_data
+  </strong>
+  for models
+  <strong>
+   model_10
+  </strong>
+  ,
+  <strong>
+   model_50
+  </strong>
+  ,
+  <strong>
+   model_100
+  </strong>
+  ,
+  <strong>
+   model_200
+  </strong>
+  , and
+  <strong>
+   model_500
+  </strong>
+  .
+ </p>
+ <p>
+  26. Now, let us run
+  <strong>
+   Step 4
+  </strong>
+  . Save the training errors into a list called
+  <strong>
+   validation_errors.
+  </strong>
+ </p>
+ <pre language="python">validation_errors = [validation_err_10, validation_err_50, validation_err_100, validation_err_200, validation_err_500]</pre>
+ <p>
+  27. Now, we will plot the
+  <strong>
+   training_errors
+  </strong>
+  and
+  <strong>
+   validation_errors
+  </strong>
+  versus the number of trees. We will compare the 10, 50, 100, 200, and 500 tree models. We provide some plotting code to visualize the plots within this notebook.
+ </p>
+ <p>
+  28. Run the following code to visualize the plots.
+ </p>
+ <pre language="python">plt.plot([10, 50, 100, 200, 500], training_errors, linewidth=4.0, label='Training error')
+plt.plot([10, 50, 100, 200, 500], validation_errors, linewidth=4.0, label='Validation error')
+
+make_figure(dim=(10,5), title='Error vs number of trees',
+            xlabel='Number of trees',
+            ylabel='Classification error',
+            legend='best')</pre>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : Does the training error reduce as the number of trees increases?
+ </p>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : Is it always true that the validation error will reduce as the number of trees increases?
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

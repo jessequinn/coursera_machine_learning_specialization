@@ -1,0 +1,58 @@
+[MUSIC] I'd like to take a moment now to
+summarize we've seen boosting and what impacts it's had in the real world. Let's talk about AdaBoost. So AdaBoost is one of the early
+types of boosting algorithms. Extremely useful, but
+there other algorithms out there. In particular,
+there's one called gradient boosting, which is slightly more complicated but
+extremely similar. And it's like AdaBoost, but
+it can be useful not not just for basic classification, but for
+other of types of loss functions for the types of problems and it's what
+most people use, so gradient boosting. It's kind of generalization kind of boost,
+you can think about it that way. Then there's other related
+ways to learn ensembles, the most popular one is
+called random forests. So random forest is a lot like boost
+in the sense that it tries to learn an example of classifiers in this case,
+decision trees, but it could be other types of classifiers. And instead of using boosting,
+it uses an approach called bagging. And just very briefly, what you do with
+bagging is, you take your data set, and you sample different subset of the data,
+which is kind of like learning on different sub datasets, and we learn
+the decision tree on each one of them. You just average the outputs. So you're not optimizing
+the coefficients that we had, and we're learning from
+different subset of data. It's easier to parallelize, but it tends
+not perform as well as boosting for a fixed number of trees. So for 100 trees, or 100 serial stumps, boosting tends to perform
+better than random forest. Now let's take a moment to discuss impact boosting has had in
+the machine learning world. And hint, hint, it's been huge. It's amongst the most useful machine
+learning approaches out there. It's useful in a wide range of fields so,
+for example, in computer vision a lot of the default algorithm in
+computer vision is boosting, like face detection algorithms
+where you take your camera, you point it at something and
+tries to detect your face. Of which their that uses
+boosting very useful. If you look at machinery competition
+they've become very popular the last two or three years from places
+like Kaggle or KDD Cup. Most winners, so this is more than half, I think it's about 70% of winners actually
+use boosting to win their competition. If fact, they use Boosta Freeze, and
+this looks at wide range of tasks like malware detection or
+fraud detection or ranking web searches, and even interesting physics tasks
+like detecting the Higgs Boson. All those problems and all those challenges have been
+won by boosting decision trees. And this is perhaps one of
+the most deployed advanced machinery methods out there. Particularly the notion of ensembles. So for example,
+if you know about Netflix which is an online place we can
+watch movies online. This kind of company, they recommend
+what movie you might want to watch next. That system uses boosting. Actually uses an example of crossfires. But more interestingly, they had a
+competition a few years ago, where people tried to provide better recommendations
+and the winner was one that treated assemble of many, many, many classifiers
+in order to create better recommendations. So assembles, you'll see them everywhere. Sometimes they optimize boosting, sometimes they optimize with
+different techniques like bagging. And sometimes people just by
+hand tuned away to say okay, I'm going to give you one to this,
+half to that. I don't recommend the last approach,
+I recommend boosting as a one to use. Great, so in this module we've explored
+the notion of an ensemble classifier and we formalized ensembles as the way to
+combination of the loads of different classifiers and we discussed generally
+the boosting algorithm where the next classifier focuses on
+the mistakes that we made so far. As well as Adaboost,
+which is a special case for classification where we show you how to come up with
+the coefficients of each classifier and the weights on the data. We've discussed how to
+implement decision stumps, with the decision stumps,
+extremely easy to do. And then talked a little bit about
+the conversions property of how the AdaBoosting tends to go to 0, but you
+have to be concerned a little bit about the over 50, although it tends to
+be a robust over 50 in practice. [MUSIC]

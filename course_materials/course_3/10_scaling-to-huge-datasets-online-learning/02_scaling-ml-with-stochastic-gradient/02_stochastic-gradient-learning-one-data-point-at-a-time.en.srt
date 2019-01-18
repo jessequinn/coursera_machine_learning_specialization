@@ -1,0 +1,238 @@
+1
+00:00:00,000 --> 00:00:04,246
+[MUSIC]
+
+2
+00:00:04,246 --> 00:00:07,827
+What we're going to do about it is
+introduce an algorithm called stochastic
+
+3
+00:00:07,827 --> 00:00:10,030
+gradient instead of the standard gradient.
+
+4
+00:00:10,030 --> 00:00:13,470
+So the standard gradient says,
+update the parameter
+
+5
+00:00:13,470 --> 00:00:16,490
+by computing the contribution of
+every data point and sum it up.
+
+6
+00:00:17,890 --> 00:00:20,440
+Stochastic gradient in its
+simple possible way says,
+
+7
+00:00:20,440 --> 00:00:23,940
+you don't have to use every single
+data point just use one data point.
+
+8
+00:00:26,220 --> 00:00:27,271
+That's not exact gradient.
+
+9
+00:00:27,271 --> 00:00:30,730
+That's kind of an approximation
+to the gradient as we will see.
+
+10
+00:00:31,750 --> 00:00:35,040
+And then instead of using
+just a single data point,
+
+11
+00:00:35,040 --> 00:00:38,390
+every time we're going to do an update
+will use a different data point.
+
+12
+00:00:38,390 --> 00:00:42,850
+So we're just going to use one gradient
+but we use a different one every time.
+
+13
+00:00:42,850 --> 00:00:46,490
+And this simple change,
+as we will see, is extremely powerful.
+
+14
+00:00:48,670 --> 00:00:52,530
+Let's now dig in and understand that
+change we hinted at where you use a little
+
+15
+00:00:52,530 --> 00:00:56,990
+bit of data to compute the gradient
+instead of using an entire data set.
+
+16
+00:00:56,990 --> 00:00:59,580
+And in fact we're just going to use
+one data point to compute the gradient
+
+17
+00:00:59,580 --> 00:01:00,450
+instead of everything.
+
+18
+00:01:01,930 --> 00:01:06,390
+So this is the gradient ascent
+algorithm for logistic regression.
+
+19
+00:01:06,390 --> 00:01:08,730
+The one that we've seen
+earlier in the course.
+
+20
+00:01:08,730 --> 00:01:11,350
+And I'm sure in the gradient
+explicitly over here.
+
+21
+00:01:12,480 --> 00:01:16,080
+Now, it requires a sum over data points
+
+22
+00:01:16,080 --> 00:01:17,940
+which is the thing that
+we're trying to avoid.
+
+23
+00:01:17,940 --> 00:01:22,530
+We're not going to do a sum over data
+points at every update, at every duration.
+
+24
+00:01:22,530 --> 00:01:24,260
+So let's throw out that sum.
+
+25
+00:01:24,260 --> 00:01:27,900
+But each time we're going to
+pick a different data point.
+
+26
+00:01:28,950 --> 00:01:33,920
+So, we're going to introduce an outer loop
+here where we loop over the data points,
+
+27
+00:01:33,920 --> 00:01:37,590
+1 through N and then we compute
+
+28
+00:01:37,590 --> 00:01:42,240
+a gradient with respect to that data
+point and then we update the parameters.
+
+29
+00:01:42,240 --> 00:01:43,710
+And we do that one at a time.
+
+30
+00:01:45,270 --> 00:01:49,410
+So in gradient ascent we did
+a sum over all data points.
+
+31
+00:01:49,410 --> 00:01:51,180
+In stochastic gradient,
+
+32
+00:01:51,180 --> 00:01:54,520
+we just going to approximate the gradient
+by the contribution of one data point.
+
+33
+00:01:54,520 --> 00:01:55,910
+And we'll see why that works.
+
+34
+00:01:56,950 --> 00:02:00,920
+But let's go back to our table,
+and investigate the total time for
+
+35
+00:02:00,920 --> 00:02:05,790
+one step of stochastic gradient ascent.
+
+36
+00:02:05,790 --> 00:02:10,890
+So, if it takes 1 millisecond to compute
+the contribution data point x i,
+
+37
+00:02:10,890 --> 00:02:12,720
+you have a 1,000 data points.
+
+38
+00:02:12,720 --> 00:02:14,440
+Gradient takes 1 second.
+
+39
+00:02:14,440 --> 00:02:19,010
+Stochastic gradient is going to take
+you 1 millisecond to make the update,
+
+40
+00:02:19,010 --> 00:02:22,930
+because it only looks at one data point.
+
+41
+00:02:22,930 --> 00:02:26,000
+If it takes 1 second to compute
+the contribution data point
+
+42
+00:02:26,000 --> 00:02:30,097
+it's going to take you
+1 second per update.
+
+43
+00:02:30,097 --> 00:02:33,990
+If he goes back to two millisecond but
+you have 10 data points it's
+
+44
+00:02:33,990 --> 00:02:38,630
+still going to cost you one
+millisecond per update.
+
+45
+00:02:38,630 --> 00:02:42,710
+If he takes one millisecond to compute
+the data point they have 10 billion
+
+46
+00:02:42,710 --> 00:02:47,050
+data points they still going to take
+you one millisecond to make an update.
+
+47
+00:02:48,570 --> 00:02:51,850
+So this looks too good to be true,
+and in a way it is.
+
+48
+00:02:53,090 --> 00:02:57,060
+But the thing to remember is that each
+update is going to be much cheaper
+
+49
+00:02:57,060 --> 00:02:57,990
+than with gradient.
+
+50
+00:02:57,990 --> 00:03:01,998
+But you might need more updates than you
+did with gradient in the first place.
+
+51
+00:03:01,998 --> 00:03:06,729
+[MUSIC]

@@ -1,0 +1,285 @@
+1
+00:00:00,000 --> 00:00:05,016
+[MUSIC]
+
+2
+00:00:05,016 --> 00:00:09,820
+So we've made a small change to the
+gradient algorithm but it is still big.
+
+3
+00:00:09,820 --> 00:00:13,150
+We start looking at all
+the data points one at a time.
+
+4
+00:00:13,150 --> 00:00:15,480
+Why should this even work?
+
+5
+00:00:15,480 --> 00:00:17,221
+Why is this a good idea at all?
+
+6
+00:00:17,221 --> 00:00:20,576
+Let's spend a little bit of time
+getting intuition of why it works.
+
+7
+00:00:20,576 --> 00:00:24,708
+And this intuition is going to
+help us understand the behavior of
+
+8
+00:00:24,708 --> 00:00:26,619
+the algorithm in practice.
+
+9
+00:00:26,619 --> 00:00:30,648
+In this picture,
+I'm showing you the landscape,
+
+10
+00:00:30,648 --> 00:00:34,959
+the counter plot for
+our sentiment analysis problem,
+
+11
+00:00:34,959 --> 00:00:40,317
+which is the data that we'll be
+using throughout our module today.
+
+12
+00:00:40,317 --> 00:00:44,165
+But just for a subset of the data where
+we're only looking at two possible
+
+13
+00:00:44,165 --> 00:00:47,840
+features, coefficient for awful and
+the coefficient for awesome.
+
+14
+00:00:48,910 --> 00:00:52,840
+And if we were to start
+here at this point,
+
+15
+00:00:54,080 --> 00:00:57,050
+this would be the exact
+gradient that would compute.
+
+16
+00:00:59,090 --> 00:01:04,154
+And that exact gradient gives you the best
+
+17
+00:01:04,154 --> 00:01:10,673
+possible improvement of going
+from wt to wt plus one.
+
+18
+00:01:10,673 --> 00:01:13,772
+That's the best thing
+you could possibly do.
+
+19
+00:01:13,772 --> 00:01:18,813
+Now, there are many other directions
+that also improve the value,
+
+20
+00:01:18,813 --> 00:01:22,230
+improve the likelihood, the quality.
+
+21
+00:01:22,230 --> 00:01:29,127
+So for example, if we were to take
+this other direction over here and
+
+22
+00:01:29,127 --> 00:01:34,090
+we reached some parameter
+w prime is still okay.
+
+23
+00:01:36,051 --> 00:01:41,510
+Because it is still going uphill
+we're increasing the likelihood.
+
+24
+00:01:41,510 --> 00:01:42,410
+In other words,
+
+25
+00:01:42,410 --> 00:01:48,100
+the likelihood of w prime is going to
+be greater than the likelihood of wt.
+
+26
+00:01:49,350 --> 00:01:54,730
+So in fact, any direction
+that take uphill will be good
+
+27
+00:01:54,730 --> 00:01:56,470
+the gradient is just the best direction.
+
+28
+00:01:57,790 --> 00:02:01,360
+The gradient direction is
+the sum of the contributions for
+
+29
+00:02:01,360 --> 00:02:02,950
+each one of the data points.
+
+30
+00:02:02,950 --> 00:02:05,804
+So, if I look at that gradient direction.
+
+31
+00:02:06,871 --> 00:02:14,580
+It is the sum over my data points of the
+contributions for each one of these xis.
+
+32
+00:02:14,580 --> 00:02:19,200
+So this is the, each one of these red
+lines here are the contributions from
+
+33
+00:02:19,200 --> 00:02:24,070
+a data point,
+
+34
+00:02:24,070 --> 00:02:28,342
+from each
+
+35
+00:02:28,342 --> 00:02:32,960
+xiyi, which is this part of the equation,
+here.
+
+36
+00:02:34,070 --> 00:02:39,170
+So interestingly,
+most contributions point upwards.
+
+37
+00:02:39,170 --> 00:02:45,620
+So, all of these over here
+are pointing in an upward direction.
+
+38
+00:02:45,620 --> 00:02:50,180
+So if I were to pick any of those,
+I would make some progress.
+
+39
+00:02:50,180 --> 00:02:53,830
+If I picked any of the other ones,
+like the ones back here,
+
+40
+00:02:53,830 --> 00:02:57,130
+this would not make progress,
+this would be bad directions.
+
+41
+00:03:00,790 --> 00:03:04,770
+But on average,
+most of them are good directions.
+
+42
+00:03:04,770 --> 00:03:09,404
+And this is why stochastic gradient works.
+
+43
+00:03:09,404 --> 00:03:13,619
+In stochastic gradient, we're just
+going to pick one of these directions.
+
+44
+00:03:16,045 --> 00:03:18,730
+And most of them are okay.
+
+45
+00:03:18,730 --> 00:03:21,010
+So most of the time,
+we're going to make progress.
+
+46
+00:03:21,010 --> 00:03:24,580
+Sometimes when we take a bad direction,
+we won't make progress.
+
+47
+00:03:24,580 --> 00:03:25,900
+We'll make negative progress.
+
+48
+00:03:25,900 --> 00:03:28,820
+But on average, we're going to
+be making positive progress.
+
+49
+00:03:28,820 --> 00:03:33,530
+And so, that's exactly why
+stochastic gradient works.
+
+50
+00:03:33,530 --> 00:03:35,820
+So if you think about
+the stochastic gradient algorithm,
+
+51
+00:03:35,820 --> 00:03:38,040
+we're going one data point at a time.
+
+52
+00:03:38,040 --> 00:03:40,510
+And picking the direction
+associated with that data point and
+
+53
+00:03:40,510 --> 00:03:42,130
+maybe taking a little step.
+
+54
+00:03:42,130 --> 00:03:46,760
+So, at first iteration we might pick this
+data point and make some progress and
+
+55
+00:03:46,760 --> 00:03:51,490
+the second one make this number too
+here and make negative progress.
+
+56
+00:03:51,490 --> 00:03:55,125
+But in the third one, I pick another
+one that makes positive progress and
+
+57
+00:03:55,125 --> 00:03:57,638
+I pick a fourth one that
+makes positive progress.
+
+58
+00:03:57,638 --> 00:04:01,318
+And I pick a fifth one that doesn't and
+I pick a sixth one that does and so on.
+
+59
+00:04:01,318 --> 00:04:05,677
+And so, most of the time we're
+making positive progress and
+
+60
+00:04:05,677 --> 00:04:08,504
+overall the likelihood is improving.
+
+61
+00:04:08,504 --> 00:04:12,909
+[MUSIC]

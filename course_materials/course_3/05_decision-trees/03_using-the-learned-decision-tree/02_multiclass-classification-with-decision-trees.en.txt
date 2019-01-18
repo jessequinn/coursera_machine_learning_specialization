@@ -1,0 +1,34 @@
+[MUSIC] Now, decision trees can be used for
+binary classification. They can also be used for
+multiclass classification with, basically, no modifications. So for example, let's say that in the same
+setting, we are given the input as Loan Application and we have a classifier
+that starts to predict an output, but it's not just whether
+the loans are safe or risky. But some loans I just
+don't even think about it. Danger, danger, danger, don't touch them. So the question is how do we make
+a decision whether a loan is safe, risky or danger? Let's see an example of the rate
+class classification here and we'll see a decision stamp, but the same
+thing applies to a bigger decision tree. So it's input we're given a dataset,
+for example, we might only have one feature credit and
+the credit can have those three values, excellent, fair and poor and then the
+output here can be safe, risky or danger. If you look at the root here,
+you'll see that there's now three possible categories, safe loans,
+risky loans and danger loans. And if you split on credit, we'll see
+pretty naturally that some of these loans fall in the excellent bin, some fall in
+the fair bin, some fall in the poor bin. And the ones that fall
+in the excellent bin, you see that the majority here are safe,
+so we predict safe. For the fair bin, we see the majority
+is risky, so we predict risky. But for the poor credit and the majority's
+dangerous, so we don't even touch those. We discussed that we can make predictions
+based on the majority class for each one of these splits here, but
+it turns out that with decision trees, if you don't predict the probability of a
+class, it's actually very simple as well. So, all we have to do is look at
+the fraction of the data that's associated with a particular label or
+value for each one of these leaves. So for example, for
+this case here where credit was poor. We predicted the y hat was danger,
+we can actually ask for the probability of danger. Given the input x and
+in our case here would say that if your input takes you down this branch, then 7 out of what is this 11 of
+the data points are dangerous. So we'd say, the probability
+of danger is 0.64 while say, the probability of safe
+loan is 3 out of 11. So there's a way for
+us predict both probabilities and the actual value of the outcome, and
+both are very useful in practice. [MUSIC]

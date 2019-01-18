@@ -1,0 +1,65 @@
+[MUSIC] So far when we talked about gradient
+decent and gradient ascent we had the step size parameter a that we
+just assumed to be given. Let's talk a little about how to
+choose that step size parameter a. Spoiler alert this is really hard,
+it requires lots of tuning and one of the annoying things
+about gradient assent approach. We're going to talk about a few heuristics
+of how we might want to do that. Now one of the most important things
+you can do when you're trying to pick the step size is to build
+what's called a learning curve, and this is what I'm
+showing you right here. So in the x axis we have
+the iteration number which in our gradient algorithm we call t. So this is one iteration,
+two iterations, and so on. And then for each iteration, or
+maybe you do this every ten iterations or every few iterations. Here I did it every one iteration. You measure the log likelihood
+over all of the data. So this is basically the log of
+the product over my data points one through N of
+the probability of YI given XI and the current estimate at
+iteration T of the parameters. So this is your quality metric. want to measure the quality metric after
+each iteration, after each update. And you'll see that the quality
+metric is getting bigger and bigger in a pretty smooth way,
+which is nice. We start from a lower number,
+about minus 37,000, remember we talked about
+these numbers being negative. And then they go up and up and up as we
+deal with, if we had more iterations. And this for
+a particular step size value, eta equals right here which is equals
+to ten to the minus five. So it's a relatively small step size, and
+that's how we get this curve over here. Which is, looks pretty decent,
+and it keeps going up. Now, how'd I end up with eta 10 to the -5? Basically what we're going to do is try
+a bunch of different parameters data and try to hone in to a good one. And to understand what can happen with
+a parameter data which is too small or too large, let us observe those
+lending curves, and by observing them, you get an idea, get a sense of
+a possible behavior to observe in your data and
+then use that to pick a good parameter. Now, for 10 to the minus 5,
+I called it a little small, because as you can see, the curve is
+still going up after 50 iterations. So maybe one thing to think
+about is that we need to do more than 50 iterations in this case. So that's another thing to observe,
+not only are we picking eta, we're thinking when are we done,
+what's the stopping criteria. And here the curve is still going up so
+we should keep going. Now, what would happen if you
+pick a eta that's too small? So now let's observe two curves. The top one, is the one we just observed,
+where the eta has value 10 to the -5 and the green curve is,
+eta's ten times smaller. Eta is 10 to the -6. And what we observe there's
+two smooth curves, but the 10 to the -5 goes up much quicker and
+gets to a higher likelihood value. So here again we're plotting l of wt. Getting to a higher likelihood value
+then the one to ten minus six, but that line six is still going. It's just a really small step size so
+it's climbing up the hill. That we have in really, really, really,
+really small steps, small steps, small steps, so it's going to take a long
+time to get to the top of the hill. Eventually will, but
+it's going to take a long time. So you see, if you were to try this plot. You see the tension minus five is probably
+a better parameter than tension minus six. So that's a good thing so
+you got time two minus five its looking pretty good maybe you want to
+try something a little bit larger so if you try something larger you're taking
+bigger steps towards the top of the hill. So here I'm comparing what happens if I
+try eta step size 10 to the minus five, as opposed to this other
+sine curve which is eta being 1.5 times 10 to the minus 5. So here we're picking
+a parameter which is 50% larger. And this is really interesting,
+really interesting behavior. We've observed this
+behavior a lot in practice. So this early phase,
+here so you get some early oscillation,but once you start getting to the beginning it doesn't do something so
+good. But once you start getting towards
+the top of the hill you see that towards the end the larger parameter
+values tend to make more progress. So smooth, so this has, Zion, has smooth, faster progress at the end. And you see that it's starting to get
+even higher values of likelihood, so higher quality. Remember that higher here is better. As we get more iterations. So it's kind of interesting,
+if a parameter is bigger, not too big or bigger, you might see some
+oscillations in the beginning, but it tends to smooth out and do well. So then you might say okay 1.5 times 10
+to the minus five seems pretty good let's try something even a bit larger. [MUSIC]

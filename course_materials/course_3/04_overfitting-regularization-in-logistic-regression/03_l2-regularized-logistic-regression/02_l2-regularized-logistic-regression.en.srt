@@ -1,0 +1,325 @@
+1
+00:00:00,000 --> 00:00:04,629
+[MUSIC]
+
+2
+00:00:04,629 --> 00:00:09,309
+Now we have these two terms that we're
+trying to balance between each other.
+
+3
+00:00:09,309 --> 00:00:13,074
+And there's going to be a parameter
+just like in regression,
+
+4
+00:00:13,074 --> 00:00:17,289
+that helps us explore how much we
+put emphasis on fitting the data,
+
+5
+00:00:17,289 --> 00:00:22,584
+versus how much emphasis we put on making
+the magnitude of the coefficients small.
+
+6
+00:00:22,584 --> 00:00:26,698
+And this parameter, we would call
+Lambda or the tuning parameter, or
+
+7
+00:00:26,698 --> 00:00:29,430
+the magic parameter,
+or the magic constant.
+
+8
+00:00:30,660 --> 00:00:34,580
+And so, if you think about it, there's
+three regimes here for us to explore.
+
+9
+00:00:34,580 --> 00:00:38,990
+Where Lambda is equal to zero,
+let's see what happens.
+
+10
+00:00:38,990 --> 00:00:43,360
+So when Lambda is equal to zero,
+this problem reduces to just optimizing.
+
+11
+00:00:44,980 --> 00:00:51,070
+So maximizing over W of the likelihood
+only, so only the likelihood term.
+
+12
+00:00:51,070 --> 00:00:57,143
+Which means that we get to the standard
+maximum likelihood solution,
+
+13
+00:00:57,143 --> 00:01:02,130
+an unpenalized MLE solution.
+
+14
+00:01:02,130 --> 00:01:07,040
+So, that's probably not a good idea to
+set it to zero, because I don't, I have
+
+15
+00:01:07,040 --> 00:01:10,770
+this really bad over fitting problems,
+and not preventing the over fitting.
+
+16
+00:01:10,770 --> 00:01:13,330
+Now, if I set Lambda to be too large,
+for example,
+
+17
+00:01:13,330 --> 00:01:16,030
+if I set it to be infinity, what happens?
+
+18
+00:01:16,030 --> 00:01:23,170
+Well, the optimization
+becomes the maximum over W.
+
+19
+00:01:23,170 --> 00:01:30,105
+Or if L of W minus infinity times
+the norm of the parameters,
+
+20
+00:01:30,105 --> 00:01:34,419
+which means the LW gets drowned out.
+
+21
+00:01:34,419 --> 00:01:38,958
+All I care about is that infinity term and
+so,
+
+22
+00:01:38,958 --> 00:01:45,181
+that pushes me to only care
+about penalizing the parameters.
+
+23
+00:01:45,181 --> 00:01:50,590
+About penalizing the coefficient, say,
+
+24
+00:01:50,590 --> 00:01:55,548
+another parameter, so penalizing W,
+
+25
+00:01:55,548 --> 00:02:00,668
+or penalizing that large coefficient.
+
+26
+00:02:00,668 --> 00:02:05,570
+Which will lead to just setting
+all of the Ws equal to zero.
+
+27
+00:02:05,570 --> 00:02:06,790
+Everything be zero.
+
+28
+00:02:06,790 --> 00:02:10,354
+Also now, I've got a good idea because
+I'm not fitting the data at all,
+
+29
+00:02:10,354 --> 00:02:14,573
+I set all the parameters to zero, it's not
+doing anything good, ignoring the data.
+
+30
+00:02:14,573 --> 00:02:18,269
+So the area that we care about
+is somewhere in between.
+
+31
+00:02:18,269 --> 00:02:23,540
+So a Lambda between zero and infinity,
+
+32
+00:02:23,540 --> 00:02:28,333
+which balances the data fit against
+
+33
+00:02:28,333 --> 00:02:32,816
+magnitude of the coefficients.
+
+34
+00:02:36,773 --> 00:02:37,930
+Very good.
+
+35
+00:02:37,930 --> 00:02:39,390
+So we're going to try to find the Lambda.
+
+36
+00:02:39,390 --> 00:02:42,240
+If it's between zero and
+infinity, it fits our data well.
+
+37
+00:02:43,620 --> 00:02:48,130
+And this process,
+where we're trying to find a Lambda and
+
+38
+00:02:48,130 --> 00:02:52,760
+we're trying to fit the data
+with this L2 penalty,
+
+39
+00:02:52,760 --> 00:02:57,020
+it's called L2 regularized
+logistic regression.
+
+40
+00:02:57,020 --> 00:02:59,000
+In the regression case,
+we called this ridge regression,
+
+41
+00:02:59,000 --> 00:03:02,239
+here it doesn't have a fancy name, it's
+just L2 regularized logistic regression.
+
+42
+00:03:03,580 --> 00:03:07,670
+Now, you might ask this point,
+how do I pick Lambda?
+
+43
+00:03:07,670 --> 00:03:11,270
+Well, if you took the regression course,
+you should know the answer already.
+
+44
+00:03:12,930 --> 00:03:16,936
+Now, use your training data,
+because as Lambda goes to zero,
+
+45
+00:03:16,936 --> 00:03:19,519
+you going to fit the training data better.
+
+46
+00:03:19,519 --> 00:03:21,609
+You're not going to be able
+to pick Lambda that way.
+
+47
+00:03:21,609 --> 00:03:24,960
+Never ever use your test data, ever.
+
+48
+00:03:24,960 --> 00:03:29,250
+So, you either use a validation set,
+if you have lots of data or
+
+49
+00:03:29,250 --> 00:03:32,680
+use cross validation for
+smaller data sets.
+
+50
+00:03:32,680 --> 00:03:37,257
+So in the regression course, we cover
+this picking the parameter Lambda for
+
+51
+00:03:37,257 --> 00:03:40,992
+the regression study, and
+this is the same kind of idea here.
+
+52
+00:03:40,992 --> 00:03:45,519
+Use a validation set or
+use cross-validation always.
+
+53
+00:03:47,655 --> 00:03:51,907
+Lambda can be viewed as
+a parameter that helps us go
+
+54
+00:03:51,907 --> 00:03:56,780
+between the high variance model and
+the high bias model.
+
+55
+00:03:56,780 --> 00:03:59,449
+And try to find a way
+to balance the bias and
+
+56
+00:03:59,449 --> 00:04:02,660
+variance in terms of
+the bias variance tradeoff.
+
+57
+00:04:02,660 --> 00:04:06,979
+So when Lambda is very large,
+we have W is going to zero, and so
+
+58
+00:04:06,979 --> 00:04:11,982
+we have large bias and we know,
+they are not fitting the data very well.
+
+59
+00:04:11,982 --> 00:04:14,457
+We have low variance,
+no matter where your data set is,
+
+60
+00:04:14,457 --> 00:04:16,730
+you get the same kind of parameters.
+
+61
+00:04:16,730 --> 00:04:17,380
+In extreme,
+
+62
+00:04:17,380 --> 00:04:20,760
+when Lambda is extremely large, you get
+zero no matter what data set you have.
+
+63
+00:04:21,980 --> 00:04:28,420
+If Lambda is very small, you get
+a very good fit to the training data,
+
+64
+00:04:28,420 --> 00:04:32,550
+so you have low bias but
+you can have a very high variance.
+
+65
+00:04:32,550 --> 00:04:35,679
+If the data changes a little bit, you get
+a completely different decision boundary.
+
+66
+00:04:36,970 --> 00:04:40,793
+And so in that sense, Lambda controls
+the bias of variance trade off for
+
+67
+00:04:40,793 --> 00:04:45,280
+this regularization setting in logistic
+regression or in classification.
+
+68
+00:04:45,280 --> 00:04:47,627
+Just like you did in regular regression.
+
+69
+00:04:47,627 --> 00:04:51,899
+[MUSIC]

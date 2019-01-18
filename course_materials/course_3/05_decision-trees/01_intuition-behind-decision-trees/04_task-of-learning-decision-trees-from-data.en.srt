@@ -1,0 +1,249 @@
+1
+00:00:00,045 --> 00:00:04,491
+[MUSIC]
+
+2
+00:00:04,491 --> 00:00:09,525
+>> Let's now explore in more depth that
+learning task of learning decision tree.
+
+3
+00:00:09,525 --> 00:00:12,708
+So just like before we're giving
+a set of training data, and
+
+4
+00:00:12,708 --> 00:00:14,830
+we extract some features from that.
+
+5
+00:00:14,830 --> 00:00:18,950
+And then we're going to take this
+decision tree model, T of x, and
+
+6
+00:00:18,950 --> 00:00:21,630
+use it to predict y hat.
+
+7
+00:00:21,630 --> 00:00:24,300
+So let's explore the T of x in
+a little bit more detail and
+
+8
+00:00:24,300 --> 00:00:27,420
+discuss what the learning
+process might look like here.
+
+9
+00:00:27,420 --> 00:00:31,270
+In particular we're given a data set here,
+which is a table where each row
+
+10
+00:00:31,270 --> 00:00:35,393
+corresponds to a data point,
+and we have our features here,
+
+11
+00:00:35,393 --> 00:00:40,810
+h1 of x, h2 of x, h3 of x.
+
+12
+00:00:40,810 --> 00:00:43,980
+So credit, term, and income, so in this
+example it's only going to be three
+
+13
+00:00:43,980 --> 00:00:49,689
+features, and then when try to predict a,
+what we call, loan status.
+
+14
+00:00:50,770 --> 00:00:55,570
+Which is this variable y, which is
+whether the loan is risky or safe.
+
+15
+00:00:55,570 --> 00:00:59,430
+And our goal is to learn the decision tree
+that can help us make that prediction.
+
+16
+00:00:59,430 --> 00:01:02,870
+Given one or more of these input features.
+
+17
+00:01:04,290 --> 00:01:09,830
+More generally we're going to be given N
+observations from our data of the form xi,
+
+18
+00:01:09,830 --> 00:01:12,150
+yi where yi is the true label.
+
+19
+00:01:12,150 --> 00:01:16,390
+And, we're trying to optimize some kind
+of a quality metric that tries to fit
+
+20
+00:01:16,390 --> 00:01:20,880
+a tree that is as good as possible
+with respect to that metric.
+
+21
+00:01:20,880 --> 00:01:23,610
+And, in the case of the decision
+trees the metrics we're going to use
+
+22
+00:01:23,610 --> 00:01:26,220
+Is just straight up classification error.
+
+23
+00:01:26,220 --> 00:01:29,110
+There are other metrics that you may
+use for decision trees, but just for
+
+24
+00:01:29,110 --> 00:01:32,590
+this module we just want to focus
+straight up on classification error.
+
+25
+00:01:32,590 --> 00:01:35,960
+And classification error measures
+the fraction of mistakes that we make
+
+26
+00:01:35,960 --> 00:01:38,030
+when we try to make prediction
+of the trailing data.
+
+27
+00:01:38,030 --> 00:01:41,460
+So that's the number of incorrect
+predictions divided by the total number of
+
+28
+00:01:41,460 --> 00:01:43,150
+examples, just like we saw.
+
+29
+00:01:43,150 --> 00:01:45,490
+In the logistic regression case.
+
+30
+00:01:45,490 --> 00:01:47,940
+The best possible value here is 0,
+no mistakes,
+
+31
+00:01:47,940 --> 00:01:49,450
+and the worst possible value here is 1.
+
+32
+00:01:49,450 --> 00:01:53,200
+I made as many mistakes
+as there are data points.
+
+33
+00:01:53,200 --> 00:01:56,850
+So hopefully you don't have error 1,
+hopefully you have error closer to 0.
+
+34
+00:01:56,850 --> 00:01:59,747
+So now that we've seen
+classification error,
+
+35
+00:01:59,747 --> 00:02:02,970
+we can state more clearly
+where our learning goal is.
+
+36
+00:02:02,970 --> 00:02:07,140
+Given the dataset, find the tree that
+minimizes the classification error.
+
+37
+00:02:07,140 --> 00:02:09,830
+The question is, how hard is this problem?
+
+38
+00:02:09,830 --> 00:02:12,220
+How hard is this learning task?
+
+39
+00:02:12,220 --> 00:02:14,842
+And it turns out that this is
+an extremely hard learning task.
+
+40
+00:02:14,842 --> 00:02:18,520
+There's exponentially many combination
+of decision trees out there.
+
+41
+00:02:18,520 --> 00:02:21,500
+Even if you consider just
+one branch of decision tree.
+
+42
+00:02:21,500 --> 00:02:26,180
+Selecting what features to come next in
+an order can be a really hard problem and
+
+43
+00:02:26,180 --> 00:02:28,500
+lead to explanation in many combinations.
+
+44
+00:02:28,500 --> 00:02:29,020
+And in fact, for
+
+45
+00:02:29,020 --> 00:02:33,440
+those familiar with this, this is an
+example what's called an NP hard problem.
+
+46
+00:02:33,440 --> 00:02:37,840
+So, it's a really hard problem and
+there are no approximation algorithms for
+
+47
+00:02:37,840 --> 00:02:40,820
+this problem with guarantees, but
+there is some simple ideas of heuristics
+
+48
+00:02:40,820 --> 00:02:42,808
+that tend to perform
+extremely well in practice.
+
+49
+00:02:42,808 --> 00:02:45,705
+And we're going to talk
+about one such idea today,
+
+50
+00:02:45,705 --> 00:02:49,380
+Wwhich is called the greedy,
+simple greedy algorithm, basically.
+
+51
+00:02:49,380 --> 00:02:53,023
+And we're going to incrementally
+build a tree, one layer at a time,
+
+52
+00:02:53,023 --> 00:02:56,809
+in order to get the best possible
+classification error at each step.
+
+53
+00:02:56,809 --> 00:02:57,309
+>> [MUSIC]

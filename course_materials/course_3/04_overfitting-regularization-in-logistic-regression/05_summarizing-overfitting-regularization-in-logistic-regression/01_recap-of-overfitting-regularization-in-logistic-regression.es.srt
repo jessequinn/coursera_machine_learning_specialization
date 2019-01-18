@@ -1,0 +1,73 @@
+1
+00:00:00,000 --> 00:00:04,735
+[MÚSICA]
+
+2
+00:00:04,735 --> 00:00:08,226
+Genial, ya hemos visto la noción
+del sobreajuste en clasificación,
+
+3
+00:00:08,226 --> 00:00:09,982
+especialmente regresión logística.
+
+4
+00:00:09,982 --> 00:00:13,718
+Ya hemos visto cómo las fronteras de decisión
+se vuelven complicadas a medida comienza
+
+5
+00:00:13,718 --> 00:00:14,534
+el sobreajuste.
+
+6
+00:00:14,534 --> 00:00:17,018
+Cómo los valores de estos parametros
+tienden a incrementarse
+
+7
+00:00:17,018 --> 00:00:19,943
+Cómo obtener excesiva confianza
+sobre nuestras predicciones.
+
+8
+00:00:19,943 --> 00:00:24,356
+Introdujimos la noción de
+regularización para tratar de
+
+9
+00:00:24,356 --> 00:00:28,060
+mitigar el crecimiento de estos parámetros.
+
+10
+00:00:28,060 --> 00:00:32,450
+Al hacerlo, vimos cómo pueden tomar
+las ideas de regresión logística, las cuales
+
+11
+00:00:32,450 --> 00:00:39,480
+estaban, hasta ahora, mas del lado teórico
+que estar listas para el trabajo práctico real.
+
+12
+00:00:39,480 --> 00:00:43,510
+Debes ser capaz de tomar esas ideas
+e implementarlas en la práctica 
+
+13
+00:00:43,510 --> 00:00:48,310
+usando regularización L2, y también verás
+cómo la regularización L1 puede tener sentido.
+
+14
+00:00:48,310 --> 00:00:52,243
+No hemos descripto cómo implementarla,
+pero es similar a lo que hiciste antes
+
+15
+00:00:52,243 --> 00:00:53,503
+para el último problema.
+
+16
+00:00:53,503 --> 00:00:58,439
+[MÚSICA]

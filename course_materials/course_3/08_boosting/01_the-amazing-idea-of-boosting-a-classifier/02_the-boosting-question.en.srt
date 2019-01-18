@@ -1,0 +1,310 @@
+1
+00:00:00,000 --> 00:00:04,710
+[MUSIC]
+
+2
+00:00:04,710 --> 00:00:09,440
+We've now seen classifiers like logistic
+regression, and we've also seen decision
+
+3
+00:00:09,440 --> 00:00:13,030
+trees, which are great ways to
+build classifiers that fit data.
+
+4
+00:00:13,030 --> 00:00:17,910
+Now in this module we're going to
+talk about something called boosting,
+
+5
+00:00:17,910 --> 00:00:21,390
+which is an amazing kind of trick,
+they can do machine learning,
+
+6
+00:00:21,390 --> 00:00:23,560
+and it applies to any classifier.
+
+7
+00:00:23,560 --> 00:00:28,090
+But it takes its quality or how well it
+fits data or its error and boosts it and
+
+8
+00:00:28,090 --> 00:00:31,430
+make it better and
+better by combining multiple classifiers.
+
+9
+00:00:31,430 --> 00:00:34,870
+The approach that we're going to
+discuss today has had amazing impact
+
+10
+00:00:34,870 --> 00:00:36,210
+in the machine learning world.
+
+11
+00:00:36,210 --> 00:00:37,120
+It's pretty simple.
+
+12
+00:00:37,120 --> 00:00:39,100
+There's a little bit of math but
+not too bad.
+
+13
+00:00:39,100 --> 00:00:40,350
+Easy to implement and
+
+14
+00:00:40,350 --> 00:00:43,040
+it's going to make a huge difference
+when you go into the real world data.
+
+15
+00:00:44,250 --> 00:00:48,150
+The way we can think intuitively about
+boosting is that we can start to fork out
+
+16
+00:00:48,150 --> 00:00:52,340
+weak classifiers, so these are the things
+like a simple logistic regressor,
+
+17
+00:00:52,340 --> 00:00:56,050
+a shallow decision tree or
+maybe even a decision stump.
+
+18
+00:00:56,050 --> 00:00:59,980
+And the question is what can we say
+about these simple classifiers or
+
+19
+00:00:59,980 --> 00:01:01,160
+weak classifiers?
+
+20
+00:01:01,160 --> 00:01:03,300
+In general,
+they have some good properties.
+
+21
+00:01:03,300 --> 00:01:07,440
+They have low variance so
+they tend not to overfit which is awesome.
+
+22
+00:01:07,440 --> 00:01:11,250
+However, they tend to have high bias,
+so they don't fit our data really well.
+
+23
+00:01:11,250 --> 00:01:15,328
+So, decision stuff is not likely
+to give you really great accuracy.
+
+24
+00:01:15,328 --> 00:01:20,343
+And so if you look at the learning
+curves associated with such models,
+
+25
+00:01:20,343 --> 00:01:23,330
+let's say a logistic regression model.
+
+26
+00:01:23,330 --> 00:01:25,760
+If you start from a very
+simple weak classifier,
+
+27
+00:01:25,760 --> 00:01:28,640
+you don't have very good fit to the data,
+so high training error.
+
+28
+00:01:28,640 --> 00:01:32,040
+But the training error decreases with
+more and more and more features.
+
+29
+00:01:32,040 --> 00:01:34,710
+However, as we know,
+the true error decreases, and
+
+30
+00:01:34,710 --> 00:01:37,220
+then increases as you start to over fit.
+
+31
+00:01:37,220 --> 00:01:42,345
+And our goal here is to find kind of
+this optimal tradeoff between bias and
+
+32
+00:01:42,345 --> 00:01:43,420
+variance.
+
+33
+00:01:43,420 --> 00:01:48,450
+Now we know the weak classifiers are great
+because they have low bias but we
+
+34
+00:01:48,450 --> 00:01:53,410
+need something that's a little stronger in
+order to get good quality, low test error.
+
+35
+00:01:53,410 --> 00:01:55,572
+And the fundamental question is,
+how do we that?
+
+36
+00:01:55,572 --> 00:02:00,020
+How do we go from a weak classifier
+to something that has lower error?
+
+37
+00:02:00,020 --> 00:02:02,040
+One approach is to add more features.
+
+38
+00:02:02,040 --> 00:02:05,640
+So for example, if you're using polynomial
+features in logistic regression,
+
+39
+00:02:05,640 --> 00:02:08,450
+we can add second order polynomials,
+third order polynomials,
+
+40
+00:02:08,450 --> 00:02:11,290
+fourth order polynomials, and so
+on, try to avoid overfitting.
+
+41
+00:02:11,290 --> 00:02:15,560
+And decision trees, we can go deeper and
+deeper in the decision tree.
+
+42
+00:02:15,560 --> 00:02:17,998
+But the fundamental question
+here in boosting is,
+
+43
+00:02:17,998 --> 00:02:21,684
+is there something else that we can do
+that helps us improve our classifiers,
+
+44
+00:02:21,684 --> 00:02:24,990
+that takes this weak classifier and
+makes it a stronger classifier?
+
+45
+00:02:26,130 --> 00:02:30,207
+This idea of boosting starts from
+a beautiful mathematical conjecture,
+
+46
+00:02:30,207 --> 00:02:33,450
+or question, that Kearns and
+Valiant posed in 1998.
+
+47
+00:02:33,450 --> 00:02:36,450
+And the question was,
+can we take weak classifiers,
+
+48
+00:02:36,450 --> 00:02:42,300
+let's say decision stumps, and boost them,
+combine them together, multivote them
+
+49
+00:02:42,300 --> 00:02:47,020
+in some kind of voting schema in order to
+get a stronger classify error of that?
+
+50
+00:02:47,020 --> 00:02:52,180
+And amazingly, Rob Schapire and
+others just a year or two later
+
+51
+00:02:52,180 --> 00:02:55,860
+came up with an algorithm called boosting
+that really showed that this was possible.
+
+52
+00:02:55,860 --> 00:02:59,430
+And this algorithm really
+changed all of machine learning.
+
+53
+00:02:59,430 --> 00:03:04,620
+In fact, it's had an amazing
+impact on the whole field.
+
+54
+00:03:04,620 --> 00:03:07,876
+It's a default approach for
+many computer vision tasks, for
+
+55
+00:03:07,876 --> 00:03:10,580
+many systems that are deployed
+in industry today.
+
+56
+00:03:10,580 --> 00:03:15,900
+For example, things that figure out what
+search results you do when you search for
+
+57
+00:03:15,900 --> 00:03:17,400
+something on a search engine, or
+
+58
+00:03:17,400 --> 00:03:22,230
+what ads to show you when you
+visit a page or search something.
+
+59
+00:03:22,230 --> 00:03:24,580
+So boosting has had tremendous impact.
+
+60
+00:03:24,580 --> 00:03:27,198
+It's the technique that wins
+a lot of those machine learning
+
+61
+00:03:27,198 --> 00:03:28,900
+competitions you might see out there.
+
+62
+00:03:28,900 --> 00:03:31,820
+So there's a company called Kaggle that
+does a bunch of those competitions.
+
+63
+00:03:31,820 --> 00:03:34,860
+Boosting wins more than
+half of those competitions.
+
+64
+00:03:34,860 --> 00:03:39,912
+So it's a really exciting, really useful
+approach for doing machine learning.
+
+65
+00:03:39,912 --> 00:03:44,209
+[MUSIC]

@@ -1,0 +1,47 @@
+[MUSIC] Throughout this course we have
+evaluated classifiers in one key way. We measured error or
+the accuracy of that classifier. But it turns out that for
+many real world applications, error or accuracy is not great
+measure to try to understand whether classifier is doing
+the right thing for you. And in this module, we're going to
+talk about precision recall, which is a really cool, very simple way
+to evaluate classifiers that captures something that's needed for
+a wide range of applications. And we'll use a cool, fun application as a kind of running
+example throughout the module. So here's the idea. Let's say I have a restaurant and
+I have a goal. I want to increase the number of guests, the number of people,
+coming to my restaurant by 30%. And I say, I'm going to do a cool
+advertising campaign to do that. But nobody wants to just get
+those ads in the mail or spam email as their advertising campaign. So I want to be innovative, I want to be
+authentic about my advertising campaign. And the way that I want to be authentic is
+that when I use the voice of my customers to talk about how great the restaurant is. So when I'm looking at customer reviews,
+and then I find great things in there, great nuggets, to be able to tell everyone
+about how great my restaurant is. So I want to find great quotes, key positive sentences that describe
+amazing things about my restaurant. And may even find some spokespeople
+that are really eloquent, they explain really well what
+they love about my restaurant. So that's my goal. And so, I might do that automatically
+by taking the restaurant reviews and posting key sentences or key things
+that people are saying on my website. So that anybody who lands there can see
+the latest greatest of what's being said. So I want to do a lot of
+these restaurant reviews, and I want to automate a lot of that process. So I want to do it. So just like we described in the first
+course in this specialization, we're going to take the restaurant reviews, and
+we're going to split them into sentences. So for every sentence,
+some are positive about my restaurant, some are negative,
+I want to be able to evaluate. So for example, if the sentence says, easily the best sushi in Seattle,
+that's my input xi. And when I feed that for
+the sentence sentiment classifier and get an output y hat I which is either
+positive sentiment or negative sentiment. And I want to do that for
+every sentence in every review that I get. And, in fact,
+I might even do that in real time. Every time a new review comes in, I'm
+going to feed it through this classifier model, and start to predict y hat i
+has been positive for some sentences. These are the great ones,
+the ones I want to show off, the ones I want to talk about. And then y hat i -1, this is the negative
+ones, I want to ignore those. So I only care about the positive ones,
+and I'm going to do my best to
+take those positive sentences, show them in a way that people really
+feel, man, my restaurant is awesome. I'm going to go there for sushi. So how do I find those positive sentences? I am going to do a sentiment classifier. How do I know the sentiment classifier
+is really good, I can trust it, I can put those sentences on my
+website without having to check every time a sentence goes up? This is the key point. We are talking about
+automating machine learning. You have to really trust
+the machine learning model. So if I give you a particular, say,
+accuracy, is that enough trust for me to just automatically feed reviews into
+something that shows up in my website? [MUSIC]

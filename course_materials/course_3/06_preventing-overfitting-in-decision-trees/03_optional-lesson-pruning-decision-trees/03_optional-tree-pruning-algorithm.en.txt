@@ -1,0 +1,42 @@
+[MUSIC] Next we'll describe
+the pruning procedure which takes this cost function
+that we describe and uses it to throw away decisions in
+the tree that were not that important. The idea is pretty simple, consider a
+split in the decision tree and usually we start from the bottom, so we'll start
+here with this candidate split to prune. Should we split on term after
+we split first on credit and then on the income mm,
+should we do that split or not. Well we can use our cost function
+to figure out what to do. So let's say that the tree
+that showed everything here has an error of 0.25 in the training data,
+but we're trying to decide whether to split or
+not. Well, let's see how many leaves we have. We have one, two, three, four, five,
+six leaves and if we use a lambda of 0.3, then the total here,
+the error plus lambda times the number of leaves will be 0.25
+plus 0.18 which is 0.43. So that's the total, grand total here. Now let's see what happens after we do
+the pruning, if we were to do the pruning. So if we were to do the pruning,
+let's say that the smaller tree is being pruned where this last year has been
+pruned has slightly higher training error. So, training error min up to 0.26 and
+you're like, should I really do it? Well let's look at the number of leaves. Its one, two, three, four, five leaves,
+and so we're here five leaves and say, okay, we have five leaves
+instead of six, so one less leaf. The training error went up a little bit, but if you do five times 0.3,
+which is rounded, you get 0.15. You add that to 0.26,
+you get a grand total of 0.41 and magically say this new tree
+Tsmaller is looking promising. It has worse training error by
+a little bit but lower overall cost. And so since it has lower overall cost,
+we're going to end up pruning, good idea. So that's the kind of simplification that
+looks okay in a simple example, when you have a massive tree of tons of data, it's
+hard to imagine how this things can prune. But it must happen, otherwise you're going to have tremendous
+amounts of over fitting in decision trees. We're not just going to do the pruning
+procedure for the very bottom of the tree, we're going to keep going up the tree and
+revisit every decision that we've made in the decision tree and say is it worth
+pruning, is this worth pruning it? Is it worth pruning income after credit? Is it worth pruning term after credit? Is it worth pruning credit itself and
+just have the root node? So we're going to check all those out and
+then find the best tree after this pruning procedure
+and output that as our solution. For completeness,
+I've included here the full algorithm for building up a decision tree using pruning. It's a little bit more contrived,
+I'll leave you this reference for those who want to implement it themselves,
+but it's relatively simple to implement and not that different than what
+you might have done in the regular case. This kind of idea is
+fundamental though and it's used in every decision tree learning
+approach out there with small caveats and changes in the parameters,
+but overall, same idea. [MUSIC]

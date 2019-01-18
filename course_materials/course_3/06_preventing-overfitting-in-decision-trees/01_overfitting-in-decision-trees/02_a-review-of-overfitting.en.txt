@@ -1,0 +1,31 @@
+[MUSIC] We've now seen the basics of decision
+trees, which are an amazing type of classifier than can be used for
+when the range of different types of data. However, decision trees
+are highly prone to overfitting. And so, let's dig in a little bit in this
+module on how we can avoid overfitting in the context of decision trees. And as a reminder, we're going to continue
+to use our loan application evaluation system as a running example
+where loan data will come in and we'll be able to predict whether that's
+a safe loan or a risky loan application. And so, that's the decision
+making we're trying to make. And from that loan application,
+we're going to learn the decision tree that allows us to traverse
+down the tree and make a prediction as to whether
+a particular loan is risky or safe. And so, the input is going to be xi and the output is going to be this y hat i
+that we're going to predict from data. Let's first, spend a quick minute
+reviewing overfitting and then dig in as to how it happens in decision trees, which
+hint, hint is going to be really bad. As we all recall, overfitting is the fact
+that separates the training error with then goes down to zero as we make our
+models more and more complex and the true error, which goes down with the complexity
+of the model, but then spikes backup. And so more specifically, overfitting
+happens when we end up model w hat, which has low training_error,
+but high true_error. But there was some other model or
+model parameters, w*, which had maybe higher training_error,
+but definitely lower true_error. And so, that's the overfitting problem. And when somehow, pick a model that's less
+complex to avoid that kind of overfitting. So we saw this effect in logistic
+regression quite pronouncedly where as we increase the degree of the polynomial,
+we got this crazier and crazier decision boundaries where we saw overfitting,
+which was bad overfitting over here. But overfitting for polynomials of
+degree six and then polynomials of degree 20 here for features,
+this is a technical term that I use. I think I use crazy decision boundary,
+but let's call it crazy overfitting. So really, bad stuff. And so, we're trying to
+avoid overly complex models. And as well see with decision trees, models can get overly
+complex very quickly. [MUSIC]

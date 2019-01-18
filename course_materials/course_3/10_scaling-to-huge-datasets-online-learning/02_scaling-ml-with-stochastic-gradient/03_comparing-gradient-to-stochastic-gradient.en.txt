@@ -1,0 +1,47 @@
+[MUSIC] Let's take a moment to compare gradient to
+stochastic gradient to really understand how the two approaches
+relate to each other. And we see that this very,
+very small change in your algorithm and your implementation is going to
+make a big difference. So we're going to build
+out the table here, comparing the two approaches, gradient
+in blue, stochastic gradient in green. And we saw already that gradient
+is slow at computing an update for large data,
+while stochastic gradient is fast. It doesn't depend on the dataset size,
+it's always fast. But the question is,
+what's the total time? Each iteration is cheaper for stochastic
+gradient, but is it cheaper overall? And there's two answers to this question. In theory, stochastic gradient for
+large datasets is always faster, always. In practice, it's a little bit more
+nuanced, but it's often faster, so it's often a good thing to do. However, stochastic gradient
+has a significant problem, it's much more sensitive to the choice of
+parameters like the choice of step size, and it has lots of practical problems. And so a lot of the focus of today's
+module is to talk about those practical challenges to stochastic
+gradient and how to overcome them. And how to get the most benefit of
+the small change to your algorithm. We'll see a lot of pictures like this, so I'm going to take a few
+minutes to explain it. This picture compares gradient
+to stochastic gradient. So the red line here is the behavior of
+gradient as you iterate through data, so as you make passes through datum. And on the y axis we see the data
+likelihood, so higher is better, we fit in the data better. The blue line here is stochastic gradient. And to be able to compare the two
+approaches, on the x axis I'm not showing exactly running time, but I'm showing you
+how many data points you need to touch. So stochastic gradient is going to make
+an update every time he sees a data point. Gradient is going to make update every
+time this makes full pass of the data. And so, we're showing how many
+passes we're making over the data. So the full x axis here is
+ten passes over the data, and you see that after ten passes over the
+data, gradient is going to a likelihood that's much lower than that
+of stochastic gradient. Stochastic gradient goes to
+a point that's much higher. And even if you look at it in
+the longer scales you'll see, stochastic gradient's
+going to converge faster. However, it doesn't convert
+smoothly to the optimal solution. It oscillates around the optimal solution,
+and we will understand today why that happens. And oscillation, some of the challenges that
+are introduced by stochastic gradient. So now I've extended it from 10 passes
+over the data to 100 passes over the data, and now we see the gradient
+is getting to solutions very close to that stochastic gradient. But again, you see a lot of noise and a lot of oscillation
+from stochastic gradient. Sometimes it's good, sometimes it's bad,
+sometimes it's good, sometimes it's bad. So that's the challenge there. So here's a summary of what we've learned. Make a tiny change to our algorithm. Instead of using the whole
+dataset to compute the gradient, use a single data point,
+call that stochastic gradient. going to get better quality faster. However, it's going to be tricky, there's going to be some oscillations, and
+you have to learn some of the practical issues that you need to address in
+order to make this really effective. But this change is going to allow you
+to scale to billions of data points. Even on your desktop you'll be
+able to deal with a ton of data, which is really super exciting. [MUSIC]

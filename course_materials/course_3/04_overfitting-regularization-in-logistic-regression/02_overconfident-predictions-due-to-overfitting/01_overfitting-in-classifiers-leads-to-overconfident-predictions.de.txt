@@ -1,0 +1,55 @@
+[Musik] In classification the concept of
+over-fitting can be even stranger than it is in regression because here we're not
+just predicting a particular value. A price for house or even whether
+reduce positive or negative but we're often asking probabilistic
+questions like what is the probability that this review is positive? So let's see what over-fitting means with
+respect to estimating probabilities. So as you remember from
+the previous modules, we talked about the relationship
+between the score on the data, so that's w transpose h, which we raise
+from minus infinity to plus infinity. And actual estimate for probabilities, the probability of y equals plus
+one let's say given its input x and w as a sigmoid applied to
+the score function w transpose h. So that's the model we're working with and if you remember as we see over 50 we
+see w's becoming bigger and bigger. This coefficient's becoming bigger and
+bigger and bigger and bigger which means that w
+transposed h becomes huge, massive, and that pushes us either if it's
+massively positive to saying that the probability is exactly one,
+pretty confident they are one or if they're massively negative,
+they're confident they are zero. So over-fitting in classification,
+especially for logistic regression can have
+very devastating effects. It can yield this really
+massive coefficients which push w transposed h score
+to be very positive or very negative, which puts the sigmoid
+to be exactly 1 or exactly 0. And so not only are we over-fitting but we're really confident
+about our predictions. We think that this is
+exactly a positive review when we should more assertive about it. So let's observe how
+that shows up the data. Let's go back to the simple
+example that we had before where we're just fitting a function,
+a classifier using two features, number of awesome's and number of awful's. Let's say the coefficient
+of awesome is +1, and the coefficient of awful is -1,
+and we have an input. Two awesome's, one awful. If you look at the difference between the
+number of awful's and number of awesome's, you have one here cause there's
+one awesome within these awful's. And so
+the actual score that we get is one, which means the estimated probability Of a positive review is 0.73 is probability review is positive. And I can live with that you know,
+I have a review, it has two awesome's, two things are awesome about
+the restaurant were awesome, it's more of a half probability of being a positive
+review but not a lot more than half. If I take the same coefficients, nothings
+changed, the same input, but I apply these coefficients by two Now I have two
+awesome's and, sorry, two awesome's one awful still as input, but the
+coefficients are plus two and minus two. Now the curve becomes steeper. And so if I look at the same point where
+the difference between awesome's and awful's are at one, and
+I look at my predicted probability. Now I've increased it tremendously. Now I see the probability of
+positive review, is about 0.88. I'm even more confident that
+the same exact review is positive. So that doesn't seem as good,
+88% chance that it's positive. But let's push the coefficiencts up more,
+let's say that the coefficient of awesome is plus six and
+the coefficient for awful is minus six. Now if I look at the same point. The same import. The same difference between awesome's and
+awful's and I push that up. I get this pre scare result it says that the probability of being
+a positive root 0.997. I can't trust that. Is it really a case of 0.997 probability? The review of two awesome's and
+one awful is positive? That doesn't make sense. So as you can see, we have the same
+decision boundary still crossing at 0. The coefficients are just
+getting a bit bigger every time. But my estimated probability of the review
+becomes steeper and steeper more and more likely. Which is another type of over 50 that
+we observe in logistic regression. So not only the curves with them weird and
+wiggly but the estimated probabilities become
+close to zero and close to one. So let's look at our data set and
+see how we observe the same, the same effect right there. [Musik]

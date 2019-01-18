@@ -1,0 +1,23 @@
+[موسيقى] And now we're back. So, we computed the or we defined
+the likelihood function for logistic regression, we computed its derivative, we
+talked about simple real ascent algorithm for finding the best parameters and
+for those who went through that full, kind of slow, mathematical revision you
+saw where that gradient came from, but that was totally optional. We can go back and
+summarize where we are right now. So now learning problem. We have some training data, we threw
+this some feature extractor that gets us H of X, and we saw a discretion model
+that says the probability that it's a positive review is one over one
+plus E to the minus W transpose H. And then we define the quality metric
+which is the likelihood function and we use gradient ascent to
+optimize it to get w hat. And the gradient descent algorithm is
+pretty simple and pretty intuitive. Now, you're able to define what the
+quality metric is for logistic regression. You can interpret the likelihood function
+as being kind of the probability that you get training data right. And you're going to maximize that. We talked about the gradient
+ascent algorithm that does it with really simple updates, and
+we had this optional section where we derived a gradient ascent
+algorithm from scratch. Next module, we're going to
+take this one step further and explore the idea of regularization and
+over-fitting logistic regression, which is a really important
+thing in practice. So that's where we're going to
+go in the next module. But now you're ready, even at this point,
+supplement your own logistic regression algorithm from scratch,
+which is super exciting. [موسيقى]

@@ -1,0 +1,404 @@
+1
+00:00:00,000 --> 00:00:04,608
+S
+
+2
+00:00:04,608 --> 00:00:07,012
+With all that in mind
+let's just dig in and
+
+3
+00:00:07,012 --> 00:00:11,140
+observe how overfitting comes about
+in the context of decision trees.
+
+4
+00:00:11,140 --> 00:00:15,555
+When we start learning decision
+tree we learn the decision stump,
+
+5
+00:00:15,555 --> 00:00:17,725
+which is a very simple
+boundary between the data.
+
+6
+00:00:17,725 --> 00:00:20,525
+Let's saying there's a simple
+example would be using something of
+
+7
+00:00:20,525 --> 00:00:22,895
+vertical line or horizontal line.
+
+8
+00:00:22,895 --> 00:00:27,625
+So in this case, when the decisions
+with respect to x(1) as to
+
+9
+00:00:27,625 --> 00:00:32,559
+whether it's less than -0.07 or
+greater than 0.07.
+
+10
+00:00:32,559 --> 00:00:36,090
+So if it's less than,
+we are going to predict -1 and
+
+11
+00:00:36,090 --> 00:00:40,560
+that will correspond to this side
+of the decision boundary, but
+
+12
+00:00:40,560 --> 00:00:45,540
+if it's greater than -0.07 we are going
+to predict +1 and we are going to
+
+13
+00:00:46,750 --> 00:00:51,220
+be falling to the right side
+of the decision boundary.
+
+14
+00:00:51,220 --> 00:00:54,920
+So that's a very simple decision boundary
+with just a depth 1 decision tree or
+
+15
+00:00:54,920 --> 00:00:59,390
+a decision stump, but
+as we increase the depth,
+
+16
+00:00:59,390 --> 00:01:02,020
+that situation becomes more and
+more complex.
+
+17
+00:01:02,020 --> 00:01:04,100
+The decision boundaries become more and
+more complex.
+
+18
+00:01:04,100 --> 00:01:05,144
+So we can see,
+
+19
+00:01:05,144 --> 00:01:11,252
+as you increase the depth you increase
+the complexity of the decision boundaries.
+
+20
+00:01:15,003 --> 00:01:19,370
+Until we end up with a super crazy
+one here where the depth is 10.
+
+21
+00:01:19,370 --> 00:01:27,810
+And so, that depth=10 decision
+boundary has 0.00 training error.
+
+22
+00:01:27,810 --> 00:01:32,781
+So the training error at this point
+goes down from 0.22 which is relatively
+
+23
+00:01:32,781 --> 00:01:37,754
+high for decision stamp through 0.13,
+0.10, which are depth two and
+
+24
+00:01:37,754 --> 00:01:41,219
+depth three decision trees,
+which looked okay to this
+
+25
+00:01:41,219 --> 00:01:46,070
+crazy decision tree of depth 10,
+which had zero training error.
+
+26
+00:01:46,070 --> 00:01:50,200
+And this should be a big warning sign for
+you.
+
+27
+00:01:52,450 --> 00:01:54,040
+And now we should sad face.
+
+28
+00:01:55,845 --> 00:02:00,550
+We've seen that with decision trees, as
+we increase the depth, the training error
+
+29
+00:02:00,550 --> 00:02:05,500
+goes down until we get to a point where
+training error could either reach zero,
+
+30
+00:02:05,500 --> 00:02:09,080
+and very often actually does in this
+case with decision tree of depth 10.
+
+31
+00:02:09,080 --> 00:02:12,570
+So we could say,
+decision tree of depth 10, that's great,
+
+32
+00:02:12,570 --> 00:02:15,980
+it has zero training error, so
+that's a perfect decision tree.
+
+33
+00:02:15,980 --> 00:02:19,660
+But in reality,
+it's not a perfect decision tree.
+
+34
+00:02:19,660 --> 00:02:23,110
+And as we know,
+even though the training error is zero,
+
+35
+00:02:23,110 --> 00:02:26,080
+the true error can shoot up.
+
+36
+00:02:26,080 --> 00:02:32,583
+And so this can be a really highly
+over fitting decision tree.
+
+37
+00:02:32,583 --> 00:02:37,260
+So it's good to take a step back and
+really understand a little bit better
+
+38
+00:02:37,260 --> 00:02:42,540
+why the training error of decision trees
+tend to go down so quickly with depth.
+
+39
+00:02:42,540 --> 00:02:46,200
+So let's take this simple example where
+we're just learning decision stump.
+
+40
+00:02:46,200 --> 00:02:49,120
+We have 40 data points,
+just like we've been using,
+
+41
+00:02:49,120 --> 00:02:53,070
+22 of them were safe loans, 18 were risky.
+
+42
+00:02:53,070 --> 00:02:55,060
+And we chose first to split on credit.
+
+43
+00:02:56,570 --> 00:03:01,510
+Now the question is why did we
+choose to split on credit first?
+
+44
+00:03:01,510 --> 00:03:03,670
+Why was that the first feature we chose?
+
+45
+00:03:03,670 --> 00:03:06,730
+And the reason we choose to split
+on credit first is because it
+
+46
+00:03:06,730 --> 00:03:09,500
+improved the training error the most.
+
+47
+00:03:09,500 --> 00:03:13,605
+Improved the training
+error from 0.45 to 0.20.
+
+48
+00:03:13,605 --> 00:03:16,590
+So that was a good first split to make.
+
+49
+00:03:16,590 --> 00:03:19,750
+Now, if we go back and
+review the algorithm for
+
+50
+00:03:19,750 --> 00:03:24,970
+choosing what the best decision split is,
+the best feature to split on is,
+
+51
+00:03:24,970 --> 00:03:28,100
+we'd try every single possible feature and
+
+52
+00:03:28,100 --> 00:03:32,600
+pick the one that decreases
+the training error the most.
+
+53
+00:03:34,460 --> 00:03:36,870
+And so at every step of the way,
+
+54
+00:03:36,870 --> 00:03:39,380
+what are the features that
+decrease the training error?
+
+55
+00:03:39,380 --> 00:03:41,530
+And we're adding features that
+decrease the training error.
+
+56
+00:03:41,530 --> 00:03:43,590
+And we're adding features and
+decreasing the error.
+
+57
+00:03:43,590 --> 00:03:46,710
+And eventually we'll drive
+the training error to zero.
+
+58
+00:03:46,710 --> 00:03:49,460
+Unless of course we get to some points
+where we can't drive the training error
+
+59
+00:03:49,460 --> 00:03:51,870
+down because we've run out
+of features to split on and
+
+60
+00:03:51,870 --> 00:03:55,990
+we have positive points on top of
+negative points, but that's a side note.
+
+61
+00:03:55,990 --> 00:03:58,670
+Most importantly is to remember
+the training error test go down,
+
+62
+00:03:58,670 --> 00:04:00,120
+down down, down.
+
+63
+00:04:00,120 --> 00:04:04,627
+And so that going down as we increase the
+depth is what leads to this low training
+
+64
+00:04:04,627 --> 00:04:07,839
+error, which often leads to
+these very complex trees,
+
+65
+00:04:07,839 --> 00:04:10,050
+which are very prone to overfitting.
+
+66
+00:04:11,230 --> 00:04:14,460
+And here's a real world
+dataset from loan data.
+
+67
+00:04:14,460 --> 00:04:18,570
+Where we actually observed that
+big bad overfitting problem.
+
+68
+00:04:18,570 --> 00:04:23,830
+So if we take the depth of the tree,
+and we push it all the way to depth 18,
+
+69
+00:04:23,830 --> 00:04:28,880
+we'll see that the training
+error has gone down a lot.
+
+70
+00:04:28,880 --> 00:04:33,680
+And the blue line, which gets you down
+to about eight percent training error,
+
+71
+00:04:33,680 --> 00:04:35,010
+which is extremely low.
+
+72
+00:04:35,010 --> 00:04:40,640
+However, if you look at the validation
+set error, man that was not so good.
+
+73
+00:04:40,640 --> 00:04:48,340
+Maybe that's around 39%, and so
+there's a big gap between the two.
+
+74
+00:04:49,800 --> 00:04:54,190
+Which we'll characterize
+as a form of over fitting.
+
+75
+00:04:56,330 --> 00:05:02,240
+If somehow you were able to pick
+the best depth for a decision tree,
+
+76
+00:05:02,240 --> 00:05:07,880
+which in this case was depth seven.
+
+77
+00:05:10,040 --> 00:05:14,715
+Then you notice that in this case,
+
+78
+00:05:17,141 --> 00:05:21,741
+The validation error
+
+79
+00:05:21,741 --> 00:05:26,601
+is just under 35%.
+
+80
+00:05:26,601 --> 00:05:31,341
+In other words, if i could pick the right
+
+81
+00:05:31,341 --> 00:05:36,900
+depth I would get 39% validation error.
+
+82
+00:05:36,900 --> 00:05:41,110
+But, if I let it go until
+very low training error,
+
+83
+00:05:41,110 --> 00:05:43,380
+I get a validation error of 39%.
+
+84
+00:05:43,380 --> 00:05:47,230
+So going all the way, bad idea.
+
+85
+00:05:47,230 --> 00:05:49,053
+Gotta stop a little earlier.
+
+86
+00:05:49,053 --> 00:05:53,109
+S

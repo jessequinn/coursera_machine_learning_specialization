@@ -1,0 +1,270 @@
+1
+00:00:00,127 --> 00:00:04,492
+[MUSIC]
+
+2
+00:00:04,492 --> 00:00:08,520
+We've now outlined the greedy algorithm
+for learning and decision tree.
+
+3
+00:00:08,520 --> 00:00:12,020
+The first thing we're going to explore is
+this idea of picking what feature to split
+
+4
+00:00:12,020 --> 00:00:12,780
+on next.
+
+5
+00:00:13,810 --> 00:00:17,560
+We split in our example, credit first, and
+
+6
+00:00:17,560 --> 00:00:20,740
+if we can split some different feature,
+how do we decide what to do?
+
+7
+00:00:20,740 --> 00:00:24,510
+And it turns out that this
+feature selection problem,
+
+8
+00:00:24,510 --> 00:00:28,320
+this feature splitting learning problem,
+can be viewed as the problem of learning
+
+9
+00:00:28,320 --> 00:00:33,010
+what's called a decision stump, which
+is that one level on the decision tree.
+
+10
+00:00:33,010 --> 00:00:36,570
+For those not familiar with it, a tree,
+it's kind of this really big thing, but
+
+11
+00:00:36,570 --> 00:00:39,520
+if you cut it, you're only left
+with the little bit at the bottom.
+
+12
+00:00:39,520 --> 00:00:40,550
+And that thing is called the stump.
+
+13
+00:00:40,550 --> 00:00:43,790
+So its a really, really,
+really short piece of a tree.
+
+14
+00:00:43,790 --> 00:00:47,890
+So how do you run a decision stump or
+a level 1 decision tree from data.
+
+15
+00:00:47,890 --> 00:00:51,310
+So we are given a data set like
+this just like we had before and
+
+16
+00:00:51,310 --> 00:00:54,010
+our goal here is to learn
+a 1 level decision tree.
+
+17
+00:00:54,010 --> 00:00:58,640
+So were given the top node or
+the root node of the data so
+
+18
+00:00:58,640 --> 00:01:01,600
+we have a point to safe some
+of the data points are risky.
+
+19
+00:01:01,600 --> 00:01:04,000
+There's 40 examples, in our case, and
+
+20
+00:01:04,000 --> 00:01:08,150
+it turns out that 22 of those are safe
+loans, and 18 are risky loans.
+
+21
+00:01:08,150 --> 00:01:10,810
+That's what our data set looks like.
+
+22
+00:01:10,810 --> 00:01:12,200
+Now, I have a histogram but
+
+23
+00:01:12,200 --> 00:01:16,480
+as we're building this figures they
+can get really big and complicated.
+
+24
+00:01:16,480 --> 00:01:18,380
+So I'm going to compress it a little bit.
+
+25
+00:01:18,380 --> 00:01:20,470
+Instead of showing the histogram and
+the numbers 22 and
+
+26
+00:01:20,470 --> 00:01:26,130
+18, I'm just going to show the numbers
+22 and 18 to simplify the visualization.
+
+27
+00:01:26,130 --> 00:01:27,710
+So now when you see that root node,
+
+28
+00:01:27,710 --> 00:01:30,320
+you should interpret it as
+we have 40 data points.
+
+29
+00:01:30,320 --> 00:01:35,750
+22 are green which is safe loans,
+18 are orange which are risky loans.
+
+30
+00:01:37,070 --> 00:01:41,770
+And starting from there, how do we go and
+build that decision stump?
+
+31
+00:01:41,770 --> 00:01:44,320
+So in our case, we had all the data.
+
+32
+00:01:44,320 --> 00:01:49,100
+We split on credit, and we decided that
+some subset of data had excellent credit,
+
+33
+00:01:49,100 --> 00:01:51,080
+some had fair, and some had poor.
+
+34
+00:01:51,080 --> 00:01:57,430
+So we assign each one of those
+subsets the subsequent node.
+
+35
+00:01:57,430 --> 00:02:02,000
+In our new kind of visualization notation,
+we have the original root node with all
+
+36
+00:02:02,000 --> 00:02:07,600
+the data, 22 risky and 18,
+sorry, 22 safe and 18 risky.
+
+37
+00:02:07,600 --> 00:02:12,086
+For X and
+credit we have some sort of data where 9
+
+38
+00:02:12,086 --> 00:02:15,460
+of them were safe and 0 were risky.
+
+39
+00:02:15,460 --> 00:02:17,660
+So, 9 in green, 0 in orange.
+
+40
+00:02:17,660 --> 00:02:22,210
+For fair credit we have 9 safe, 4 risky.
+
+41
+00:02:22,210 --> 00:02:27,430
+And for poor credit we have 4 safe,
+and 14 risky.
+
+42
+00:02:27,430 --> 00:02:32,740
+So that's what it later looks like at the
+next level, after we've done the splits.
+
+43
+00:02:32,740 --> 00:02:36,100
+These nodes here in the middle
+we call intermediate nodes.
+
+44
+00:02:37,420 --> 00:02:41,700
+Now, for each intermediate node we can try
+to make a prediction in decision stump.
+
+45
+00:02:41,700 --> 00:02:46,650
+So for example for poor credit
+we see the majority of the data
+
+46
+00:02:46,650 --> 00:02:51,150
+in there has risky associated with it.
+
+47
+00:02:51,150 --> 00:02:54,310
+So we predicate that'll be a risky loan.
+
+48
+00:02:54,310 --> 00:03:01,430
+For fair credit, we see that the majority
+9 versus 4 have, are safe loans.
+
+49
+00:03:01,430 --> 00:03:03,190
+So we predict that to be a safe loan.
+
+50
+00:03:03,190 --> 00:03:07,580
+And for excellent credit, we predict that
+to be a safe loan, because 9 versus 0 So
+
+51
+00:03:07,580 --> 00:03:09,330
+nine safe loans in there.
+
+52
+00:03:09,330 --> 00:03:13,760
+So for each node, we look at
+the majority value to make a prediction.
+
+53
+00:03:13,760 --> 00:03:16,660
+And you've now learned
+your first decision stump.
+
+54
+00:03:16,660 --> 00:03:20,890
+It's a pretty simple one, but
+to get better predictions and
+
+55
+00:03:20,890 --> 00:03:26,250
+more accuracy, we're going to
+explore that more and split further.
+
+56
+00:03:26,250 --> 00:03:30,360
+But before we split further, we're
+going to discuss why we picked credit to
+
+57
+00:03:30,360 --> 00:03:34,951
+do the first split as opposed to say, for
+example, the term of the loan or income.
+
+58
+00:03:34,951 --> 00:03:39,239
+[MUSIC]

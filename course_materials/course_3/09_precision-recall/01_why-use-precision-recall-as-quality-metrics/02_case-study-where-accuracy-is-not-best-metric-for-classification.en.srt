@@ -1,0 +1,301 @@
+1
+00:00:00,000 --> 00:00:04,952
+[MUSIC]
+
+2
+00:00:04,952 --> 00:00:09,272
+Throughout this course we have
+evaluated classifiers in one key way.
+
+3
+00:00:09,272 --> 00:00:12,660
+We measured error or
+the accuracy of that classifier.
+
+4
+00:00:12,660 --> 00:00:16,500
+But it turns out that for
+many real world applications, error or
+
+5
+00:00:16,500 --> 00:00:19,610
+accuracy is not great
+measure to try to understand
+
+6
+00:00:19,610 --> 00:00:22,360
+whether classifier is doing
+the right thing for you.
+
+7
+00:00:22,360 --> 00:00:26,010
+And in this module, we're going to
+talk about precision recall,
+
+8
+00:00:26,010 --> 00:00:30,970
+which is a really cool, very simple way
+to evaluate classifiers that captures
+
+9
+00:00:30,970 --> 00:00:33,930
+something that's needed for
+a wide range of applications.
+
+10
+00:00:33,930 --> 00:00:35,249
+And we'll use a cool,
+
+11
+00:00:35,249 --> 00:00:39,282
+fun application as a kind of running
+example throughout the module.
+
+12
+00:00:39,282 --> 00:00:40,600
+So here's the idea.
+
+13
+00:00:41,960 --> 00:00:44,060
+Let's say I have a restaurant and
+I have a goal.
+
+14
+00:00:44,060 --> 00:00:45,780
+I want to increase the number of guests,
+
+15
+00:00:45,780 --> 00:00:48,404
+the number of people,
+coming to my restaurant by 30%.
+
+16
+00:00:48,404 --> 00:00:52,270
+And I say, I'm going to do a cool
+advertising campaign to do that.
+
+17
+00:00:52,270 --> 00:00:55,660
+But nobody wants to just get
+those ads in the mail or
+
+18
+00:00:55,660 --> 00:00:58,460
+spam email as their advertising campaign.
+
+19
+00:00:58,460 --> 00:01:03,150
+So I want to be innovative, I want to be
+authentic about my advertising campaign.
+
+20
+00:01:03,150 --> 00:01:07,760
+And the way that I want to be authentic is
+that when I use the voice of my customers
+
+21
+00:01:08,800 --> 00:01:11,305
+to talk about how great the restaurant is.
+
+22
+00:01:11,305 --> 00:01:14,910
+So when I'm looking at customer reviews,
+and then I find great things in there,
+
+23
+00:01:14,910 --> 00:01:19,350
+great nuggets, to be able to tell everyone
+about how great my restaurant is.
+
+24
+00:01:19,350 --> 00:01:22,350
+So I want to find great quotes,
+
+25
+00:01:22,350 --> 00:01:25,890
+key positive sentences that describe
+amazing things about my restaurant.
+
+26
+00:01:25,890 --> 00:01:29,630
+And may even find some spokespeople
+that are really eloquent,
+
+27
+00:01:29,630 --> 00:01:33,190
+they explain really well what
+they love about my restaurant.
+
+28
+00:01:33,190 --> 00:01:33,810
+So that's my goal.
+
+29
+00:01:34,910 --> 00:01:39,650
+And so, I might do that automatically
+by taking the restaurant reviews and
+
+30
+00:01:39,650 --> 00:01:44,260
+posting key sentences or key things
+that people are saying on my website.
+
+31
+00:01:44,260 --> 00:01:48,270
+So that anybody who lands there can see
+the latest greatest of what's being said.
+
+32
+00:01:49,840 --> 00:01:52,300
+So I want to do a lot of
+these restaurant reviews, and
+
+33
+00:01:52,300 --> 00:01:54,530
+I want to automate a lot of that process.
+
+34
+00:01:54,530 --> 00:01:55,900
+So I want to do it.
+
+35
+00:01:55,900 --> 00:01:58,950
+So just like we described in the first
+course in this specialization, we're
+
+36
+00:01:58,950 --> 00:02:02,600
+going to take the restaurant reviews, and
+we're going to split them into sentences.
+
+37
+00:02:02,600 --> 00:02:06,400
+So for every sentence,
+some are positive about my restaurant,
+
+38
+00:02:06,400 --> 00:02:08,510
+some are negative,
+I want to be able to evaluate.
+
+39
+00:02:08,510 --> 00:02:10,950
+So for example, if the sentence says,
+
+40
+00:02:10,950 --> 00:02:14,430
+easily the best sushi in Seattle,
+that's my input xi.
+
+41
+00:02:14,430 --> 00:02:18,380
+And when I feed that for
+the sentence sentiment classifier and
+
+42
+00:02:18,380 --> 00:02:24,080
+get an output y hat I which is either
+positive sentiment or negative sentiment.
+
+43
+00:02:24,080 --> 00:02:29,350
+And I want to do that for
+every sentence in every review that I get.
+
+44
+00:02:29,350 --> 00:02:31,020
+And, in fact,
+I might even do that in real time.
+
+45
+00:02:31,020 --> 00:02:34,220
+Every time a new review comes in, I'm
+going to feed it through this classifier
+
+46
+00:02:34,220 --> 00:02:38,930
+model, and start to predict y hat i
+has been positive for some sentences.
+
+47
+00:02:38,930 --> 00:02:41,130
+These are the great ones,
+the ones I want to show off,
+
+48
+00:02:41,130 --> 00:02:42,720
+the ones I want to talk about.
+
+49
+00:02:42,720 --> 00:02:48,160
+And then y hat i -1, this is the negative
+ones, I want to ignore those.
+
+50
+00:02:48,160 --> 00:02:50,210
+So I only care about the positive ones,
+and
+
+51
+00:02:50,210 --> 00:02:53,560
+I'm going to do my best to
+take those positive sentences,
+
+52
+00:02:53,560 --> 00:02:58,370
+show them in a way that people really
+feel, man, my restaurant is awesome.
+
+53
+00:02:58,370 --> 00:03:00,110
+I'm going to go there for sushi.
+
+54
+00:03:00,110 --> 00:03:03,470
+So how do I find those positive sentences?
+
+55
+00:03:03,470 --> 00:03:05,000
+I am going to do a sentiment classifier.
+
+56
+00:03:05,000 --> 00:03:08,730
+How do I know the sentiment classifier
+is really good, I can trust it,
+
+57
+00:03:08,730 --> 00:03:12,540
+I can put those sentences on my
+website without having to check
+
+58
+00:03:12,540 --> 00:03:14,880
+every time a sentence goes up?
+
+59
+00:03:14,880 --> 00:03:16,612
+This is the key point.
+
+60
+00:03:16,612 --> 00:03:18,480
+We are talking about
+automating machine learning.
+
+61
+00:03:18,480 --> 00:03:21,240
+You have to really trust
+the machine learning model.
+
+62
+00:03:21,240 --> 00:03:25,527
+So if I give you a particular, say,
+accuracy, is that enough trust for
+
+63
+00:03:25,527 --> 00:03:30,472
+me to just automatically feed reviews into
+something that shows up in my website?
+
+64
+00:03:30,472 --> 00:03:34,669
+[MUSIC]

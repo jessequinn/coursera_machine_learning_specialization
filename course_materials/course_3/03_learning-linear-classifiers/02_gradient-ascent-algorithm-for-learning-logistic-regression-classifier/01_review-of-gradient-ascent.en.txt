@@ -1,0 +1,67 @@
+[MUSIC] We'll start with a very quick
+review of gradient ascent. In the regression course, Emily went
+into quite a lot of detail explaining the gradient ascent algorithm,
+where it comes from, and the details. I really recommend you go
+back to that if you want to remind yourself of where
+it all comes from. I'm just going to do a very,
+very, very quick review here so that we remember the fundamentals. You can think about the gradient
+ascent algorithm as a kind of hill climbing algorithm. If you look at the picture on the left
+here if you only had one parameter w, you can imagine starting at some point,
+let's say w t with t iteration, and then moving little bit uphill
+to the next parameter, w t+1. And the amount you move from one to the
+other has to do with this term over here, which is the derivative of our likelihood
+function with respect to the parameter w. And its computed at
+the current parameter w t. Now remember we have this little
+extra coefficient parameter eta, which we call the step size. A little later in the module,
+we're going to discuss how that step size actually gets picked and
+what effect it has. But imagine it's given, so you're
+going to move by eta times the step size. And so you move here, then you move
+a little bit, and you keep moving, moving, moving, moving uphill, and eventually you
+get to the top of the hill to the optimum, which may be,
+we're going to call w star for right now. And this is our goal, to get to that very,
+very top of the hill. Now that we seen kind of hill climbing
+the abstract way, getting to that top of the hill, so we step up until we
+hit the top here which is w's term. We can talk about when we know we
+are done in the interpretive algorithm, when have we converged? So you might remember that at
+the optimum of convex functions and what we are dealing with today
+is a convex function and we talked in quite a bit of detail what
+that means, but just in general we'll have the derivative with respect to w for
+likelihood is going to be equal to zero at the optimum here,
+because that curve flattens out. Now, if we could get to the point where
+the derivative is equal to zero we would be absolutely done. However we're never going to
+get there exactly, so we're going to stop when
+the derivative is small enough. So we stop when the derivative
+with respect to parameter w computed to
+recurrent parameter wt. So we'll stop when the derivative
+is smaller than some taller s parameter epsilon. And, you know, sent out some small
+numbers, 0.001 or something. Depends on your problem,
+you'll explore this in your homework. But keep going,
+you won't get exactly to the top, but you're going to get pretty close to
+the top and that will be your w hat. So we'll continue going up and up and up until our derivative
+is sufficiently small. Now that was for a one dimensional space,
+but we have now a large animation space because we can have thousands
+of coefficients we're trying to fit. So, instead of computing
+a one dimensional derivative, we need what's called a gradient. And a gradient is just a stacking
+here of the derivative of l with respect to the first
+parameter the zero. The partial relative of l with respect to
+the second parameter of w1 all the way to the derivative l the partial derivative
+with respect to the last parameter wd. So this is a D + 1 dimensional vector for when you have D features. And in our case here, if we start
+from this point and the derivative is taken this way, the gradient is
+going to be something like this maybe. And that's what
+the gradient correspond to. And then we're just going to
+follow that gradient all the way to the top of the hill. In a little bit more detail,
+more pictorially, we're going to set some sub-points. They're mainly heuristics for
+where to start, but let's say we start over here and
+we're just going to follow the gradient. And so on the right side I'm showing you what are called the contour plots. And so it corresponds to the level
+set to the contours of this line. So if I start on the left side over here,
+it's kind of like starting over here. I take a gradient step and I can keep following it until
+I get to the optimum here, which is going to be rw* and
+that corresponds to climbing this hill until I get to the top of the hill,
+which is going to be rw*. And again, Emily went to quite a bit
+of detail on contour plots and how they relate to that 3D plot. But that's our goal. So finally, just as a reminder, here's what the gradient
+ascent algorithm looks like. You start from some point, w 0,
+and so you might say w = 0, or random parameters or something else. And you just keep following the gradient until the magnitude of the gradient
+is sufficiently small. So that's our algorithm,
+that's going to take us to the optimum. And it's simplified over here and
+the eta here is our famous step size. Great, so now we're done for
+a review of gradient ascent. [MUSIC]

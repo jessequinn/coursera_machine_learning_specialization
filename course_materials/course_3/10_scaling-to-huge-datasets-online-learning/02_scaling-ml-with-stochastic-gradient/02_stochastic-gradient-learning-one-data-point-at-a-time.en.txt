@@ -1,0 +1,36 @@
+[MUSIC] What we're going to do about it is
+introduce an algorithm called stochastic gradient instead of the standard gradient. So the standard gradient says,
+update the parameter by computing the contribution of
+every data point and sum it up. Stochastic gradient in its
+simple possible way says, you don't have to use every single
+data point just use one data point. That's not exact gradient. That's kind of an approximation
+to the gradient as we will see. And then instead of using
+just a single data point, every time we're going to do an update
+will use a different data point. So we're just going to use one gradient
+but we use a different one every time. And this simple change,
+as we will see, is extremely powerful. Let's now dig in and understand that
+change we hinted at where you use a little bit of data to compute the gradient
+instead of using an entire data set. And in fact we're just going to use
+one data point to compute the gradient instead of everything. So this is the gradient ascent
+algorithm for logistic regression. The one that we've seen
+earlier in the course. And I'm sure in the gradient
+explicitly over here. Now, it requires a sum over data points which is the thing that
+we're trying to avoid. We're not going to do a sum over data
+points at every update, at every duration. So let's throw out that sum. But each time we're going to
+pick a different data point. So, we're going to introduce an outer loop
+here where we loop over the data points, 1 through N and then we compute a gradient with respect to that data
+point and then we update the parameters. And we do that one at a time. So in gradient ascent we did
+a sum over all data points. In stochastic gradient, we just going to approximate the gradient
+by the contribution of one data point. And we'll see why that works. But let's go back to our table,
+and investigate the total time for one step of stochastic gradient ascent. So, if it takes 1 millisecond to compute
+the contribution data point x i, you have a 1,000 data points. Gradient takes 1 second. Stochastic gradient is going to take
+you 1 millisecond to make the update, because it only looks at one data point. If it takes 1 second to compute
+the contribution data point it's going to take you
+1 second per update. If he goes back to two millisecond but
+you have 10 data points it's still going to cost you one
+millisecond per update. If he takes one millisecond to compute
+the data point they have 10 billion data points they still going to take
+you one millisecond to make an update. So this looks too good to be true,
+and in a way it is. But the thing to remember is that each
+update is going to be much cheaper than with gradient. But you might need more updates than you
+did with gradient in the first place. [MUSIC]

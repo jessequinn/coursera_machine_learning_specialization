@@ -1,0 +1,393 @@
+1
+00:00:00,102 --> 00:00:04,607
+[MUSIC]
+
+2
+00:00:04,607 --> 00:00:08,551
+So, let's see a little example we're
+going to go through by hand and
+
+3
+00:00:08,551 --> 00:00:12,800
+show what the derivative would be for
+a particular parameter.
+
+4
+00:00:12,800 --> 00:00:18,220
+We have a model and it says that so
+far at iteration t w0 is
+
+5
+00:00:18,220 --> 00:00:23,710
+equal to 0, w1 is equal to 1,
+and w2 equal to minus 2.
+
+6
+00:00:23,710 --> 00:00:27,543
+This is our current estimate wt.
+
+7
+00:00:27,543 --> 00:00:30,900
+And the question is,
+how we're going to modify it?
+
+8
+00:00:30,900 --> 00:00:32,870
+How are we going to
+compute the derivative?
+
+9
+00:00:32,870 --> 00:00:37,860
+And we're going to compute the partial
+derivative of the likelihood function
+
+10
+00:00:39,360 --> 00:00:44,070
+with respect to the parameter w1.
+
+11
+00:00:45,486 --> 00:00:48,880
+And the parameter w1 is going
+to multiply the first feature,
+
+12
+00:00:48,880 --> 00:00:53,630
+which is h1 of x which,
+in our case, is number of awesomes.
+
+13
+00:00:56,650 --> 00:01:00,420
+So, what is the contribution that each
+one of these data points will have
+
+14
+00:01:00,420 --> 00:01:03,070
+to the derivative with the equation above.
+
+15
+00:01:04,180 --> 00:01:06,080
+That's what we're trying to do.
+
+16
+00:01:06,080 --> 00:01:07,900
+So if you look at the question above, for
+
+17
+00:01:07,900 --> 00:01:11,230
+each one of these we're going to make a
+prediction according to the current model
+
+18
+00:01:11,230 --> 00:01:14,130
+as to whether that data point
+is actually a plus one.
+
+19
+00:01:14,130 --> 00:01:18,740
+So for the first one, which has two
+awesomes and one awful we get to
+
+20
+00:01:18,740 --> 00:01:23,930
+the tree label plus one, but our model
+only assigns 0.5 probability to it.
+
+21
+00:01:23,930 --> 00:01:25,420
+So not perfect.
+
+22
+00:01:26,710 --> 00:01:29,172
+What contribution does that
+have to the derivative?
+
+23
+00:01:29,172 --> 00:01:31,400
+Well, let's just go through
+the equation above.
+
+24
+00:01:31,400 --> 00:01:37,340
+So, h1 of xi is the number
+on the left here, is two.
+
+25
+00:01:37,340 --> 00:01:41,540
+And it multiplies the difference
+between the indicator function.
+
+26
+00:01:41,540 --> 00:01:42,980
+Is this a positive example?
+
+27
+00:01:42,980 --> 00:01:45,210
+Yes, it is a positive example.
+
+28
+00:01:45,210 --> 00:01:50,500
+And, the probability that we
+get from data which is 0.5.
+
+29
+00:01:50,500 --> 00:01:58,280
+So the contribution here is 2 times
+(1-0.5) which is exactly equal to 1.
+
+30
+00:01:58,280 --> 00:02:00,740
+Let's look at the next data point.
+
+31
+00:02:00,740 --> 00:02:06,989
+The next data point the h1
+of x has value zero.
+
+32
+00:02:08,090 --> 00:02:12,460
+So in this case w1 is not important to it,
+but now just let's go through.
+
+33
+00:02:12,460 --> 00:02:15,880
+This is multiplying the indicator,
+is this a positive example?
+
+34
+00:02:15,880 --> 00:02:21,470
+In this case it's not, so it's zero minus
+the probability that the model signs for
+
+35
+00:02:21,470 --> 00:02:26,468
+this to be a positive label
+which in this case is 0.02,
+
+36
+00:02:26,468 --> 00:02:30,700
+and the total here contribution
+is going to be zero.
+
+37
+00:02:30,700 --> 00:02:35,049
+It's interesting for this particular data
+point, the model gets it extremely right,
+
+38
+00:02:35,049 --> 00:02:38,927
+it says the probability's positive
+is very, very, very small, 0.02,
+
+39
+00:02:38,927 --> 00:02:42,569
+which means it's very likely to be
+a negative example which in fact it is,
+
+40
+00:02:42,569 --> 00:02:44,363
+it's two awfuls, zero awesomes.
+
+41
+00:02:44,363 --> 00:02:46,600
+Now, let's look at the third example.
+
+42
+00:02:46,600 --> 00:02:47,990
+It's a bit of an unusual example.
+
+43
+00:02:47,990 --> 00:02:51,550
+It has three awesomes and three awfuls.
+
+44
+00:02:51,550 --> 00:02:54,610
+And it is actually a negative example, and
+
+45
+00:02:54,610 --> 00:02:58,270
+the model thinks it is pretty
+likely to be a negative example, so
+
+46
+00:02:58,270 --> 00:03:04,100
+it's 0.05 probability of being positive,
+so 95% chances of being negative.
+
+47
+00:03:04,100 --> 00:03:08,330
+So once the contribution says to the
+derivative, okay so let's look at h1 of x,
+
+48
+00:03:08,330 --> 00:03:10,360
+in this case is three.
+
+49
+00:03:10,360 --> 00:03:14,070
+It multiplies the difference
+between the indicator
+
+50
+00:03:14,070 --> 00:03:15,440
+that there is a positive example.
+
+51
+00:03:15,440 --> 00:03:17,470
+So in this case it's not so it's zero.
+
+52
+00:03:17,470 --> 00:03:22,200
+Minus the probability assigned to
+the positive example which is 0.05.
+
+53
+00:03:22,200 --> 00:03:24,950
+If you multiply this together,
+you get minus 0.15, so
+
+54
+00:03:24,950 --> 00:03:30,690
+that's the contribution,
+contribution is negative to the gradient.
+
+55
+00:03:30,690 --> 00:03:36,131
+Now for the final example,
+we have four awesomes, one awful,
+
+56
+00:03:36,131 --> 00:03:42,613
+so four is h1(x), is a positive example so
+the indicator has value one.
+
+57
+00:03:42,613 --> 00:03:49,212
+And the probability the model
+thinks it's positive is 0.88.
+
+58
+00:03:49,212 --> 00:03:51,170
+So the contribution here is four.
+
+59
+00:03:51,170 --> 00:03:57,984
+That multiplies 1- 0.88,
+which is 0.12 times 4 is 0.48.
+
+60
+00:04:00,750 --> 00:04:03,740
+Great, and so the total derivative
+
+61
+00:04:03,740 --> 00:04:08,180
+is just going to be the sum of each one
+of these contributions added up together.
+
+62
+00:04:08,180 --> 00:04:14,290
+So, the derivative of l computed at wt,
+
+63
+00:04:14,290 --> 00:04:19,696
+with respect to the parameter w1.
+
+64
+00:04:19,696 --> 00:04:22,690
+It's just going to be the sum
+of these four contributions.
+
+65
+00:04:22,690 --> 00:04:30,132
+So 1+0-0.15+0.48 which is equal
+
+66
+00:04:30,132 --> 00:04:36,274
+to if you add it all together 1.33.
+
+67
+00:04:38,250 --> 00:04:42,020
+And now I'm going to do a little
+change of colors transformation here,
+
+68
+00:04:42,020 --> 00:04:44,310
+let's go to a color.
+
+69
+00:04:44,310 --> 00:04:48,050
+Let's write the update rule for
+the parameter w1.
+
+70
+00:04:48,050 --> 00:04:51,110
+We computed this derivative,
+let's do the update.
+
+71
+00:04:51,110 --> 00:04:55,700
+So w1 at the next iteration,
+iteration t+1,
+
+72
+00:04:55,700 --> 00:05:00,448
+is going to be equal to w1 at iteration t.
+
+73
+00:05:00,448 --> 00:05:04,588
+Plus eta, the step size that multiplies
+
+74
+00:05:04,588 --> 00:05:09,217
+the derivative of the likelihood function,
+
+75
+00:05:09,217 --> 00:05:13,720
+at wt, with respect to the parameter w1.
+
+76
+00:05:13,720 --> 00:05:15,890
+Which is the one that we're updating here.
+
+77
+00:05:15,890 --> 00:05:21,410
+Now let's suppose we set eta to be 0.1.
+
+78
+00:05:21,410 --> 00:05:22,550
+It's a bit of a large number.
+
+79
+00:05:22,550 --> 00:05:25,130
+But it makes our updates
+here a little simple.
+
+80
+00:05:25,130 --> 00:05:27,472
+So what does this update rule says?
+
+81
+00:05:27,472 --> 00:05:32,933
+w1 at iteration t + 1 is w1 iteration t,
+
+82
+00:05:32,933 --> 00:05:36,434
+which was 1 + eta 0.1.
+
+83
+00:05:36,434 --> 00:05:41,767
+That multiplies the derivative
+we just computed right here,
+
+84
+00:05:41,767 --> 00:05:48,855
+1.33, which means that the new parameter
+is going to be equal to 1.133.
+
+85
+00:05:48,855 --> 00:05:52,756
+We just made our parameter a little
+bit bigger, which is great.
+
+86
+00:05:52,756 --> 00:05:58,279
+[MUSIC]

@@ -1,0 +1,292 @@
+1
+00:00:00,000 --> 00:00:04,884
+[MUSIC]
+
+2
+00:00:04,884 --> 00:00:07,927
+Now to figure out what sentence
+I want to put onto my website,
+
+3
+00:00:07,927 --> 00:00:12,290
+I want to make sure that my classifier
+is good at identifying those sentences.
+
+4
+00:00:12,290 --> 00:00:13,820
+So I want to make sure
+its performance is good.
+
+5
+00:00:13,820 --> 00:00:16,580
+And what does good performance mean?
+
+6
+00:00:16,580 --> 00:00:19,310
+In general, well it depends on the task.
+
+7
+00:00:19,310 --> 00:00:23,763
+And the question is, what does good
+performance mean for my task at hand?
+
+8
+00:00:23,763 --> 00:00:26,536
+For deciding what sentences to show.
+
+9
+00:00:26,536 --> 00:00:33,550
+And so previously, in the first course, we
+asked the question, what is good accuracy?
+
+10
+00:00:33,550 --> 00:00:34,740
+What is good accuracy in general?
+
+11
+00:00:34,740 --> 00:00:39,130
+And we compare good accuracy
+with say a random classifier.
+
+12
+00:00:39,130 --> 00:00:43,000
+So, for example the binary classification
+class with two classes that we're talking
+
+13
+00:00:43,000 --> 00:00:49,030
+about, random gets 50%, so
+0.5 classification error,
+
+14
+00:00:49,030 --> 00:00:51,899
+and so should do at least better than 0.5.
+
+15
+00:00:51,899 --> 00:00:55,560
+If you have multiple classes then
+
+16
+00:00:55,560 --> 00:00:59,930
+you get classification error 1 / k, so
+for 3 classes, you get a 0.66 and so on.
+
+17
+00:00:59,930 --> 00:01:04,690
+So at the very, very least, we said,
+you should do at least better than random.
+
+18
+00:01:04,690 --> 00:01:09,270
+But that's not enough to make me decide,
+doing that at random is not enough to
+
+19
+00:01:09,270 --> 00:01:14,030
+make you decide to deploy this service
+into the website of my restaurant.
+
+20
+00:01:14,030 --> 00:01:15,440
+So I need to think about something else.
+
+21
+00:01:17,060 --> 00:01:21,470
+Then in the first course let's explore
+the question of imbalanced classes.
+
+22
+00:01:21,470 --> 00:01:26,650
+What happens, for example, when there's
+a lot more data of one category or
+
+23
+00:01:26,650 --> 00:01:28,490
+one class versus the other.
+
+24
+00:01:28,490 --> 00:01:35,988
+So as an example, let's say that
+my classifier has 90% accuracy.
+
+25
+00:01:35,988 --> 00:01:40,140
+But my restaurant sucks,
+90% of the reviews are negative.
+
+26
+00:01:40,140 --> 00:01:41,370
+What does that mean?
+
+27
+00:01:41,370 --> 00:01:45,570
+That means the classifier might be
+saying that everything's negative.
+
+28
+00:01:45,570 --> 00:01:46,670
+Everything is negative.
+
+29
+00:01:46,670 --> 00:01:49,460
+It doesn't find any of
+those positive reviews.
+
+30
+00:01:49,460 --> 00:01:52,700
+So the performance might look pretty
+good in terms of accuracy, but
+
+31
+00:01:52,700 --> 00:01:56,180
+it's never going to find those 10% of
+
+32
+00:01:56,180 --> 00:01:59,320
+positive reviews which I'm
+desperately now, because it's so bad.
+
+33
+00:01:59,320 --> 00:02:05,160
+I'm desperately trying to put into
+my website and so this is also bad.
+
+34
+00:02:06,440 --> 00:02:11,440
+And so now let's step back and
+think about the task that we have,
+
+35
+00:02:11,440 --> 00:02:14,510
+this automated marketing campaign task.
+
+36
+00:02:14,510 --> 00:02:17,350
+And ask what is good performance for me?
+
+37
+00:02:17,350 --> 00:02:18,730
+Is it accuracy, is it 90%?
+
+38
+00:02:18,730 --> 00:02:22,560
+It's not, it's about two things.
+
+39
+00:02:23,600 --> 00:02:29,120
+First, if I show something on my website,
+it better be good, it better be positive.
+
+40
+00:02:30,230 --> 00:02:35,640
+Man, if I show a negative review on
+my website, it's a double whammy.
+
+41
+00:02:35,640 --> 00:02:37,930
+So, first people are going to my website,
+they're reading about me and
+
+42
+00:02:37,930 --> 00:02:40,340
+they're reading bad things
+there that people are saying.
+
+43
+00:02:40,340 --> 00:02:42,700
+Nobody's going to want to
+come to my website.
+
+44
+00:02:42,700 --> 00:02:44,850
+So what I want to make sure
+is that I'm very precise,
+
+45
+00:02:44,850 --> 00:02:48,270
+whenever I show something, it's good,
+so that means high precision.
+
+46
+00:02:49,770 --> 00:02:54,190
+The other thing that I have to worry about
+is finding all those positive reviews.
+
+47
+00:02:54,190 --> 00:02:56,790
+Maybe my restaurant is not that good, and
+
+48
+00:02:56,790 --> 00:02:59,660
+those positive reviews
+are not that common.
+
+49
+00:02:59,660 --> 00:03:02,580
+So I want to make sure I find
+all of the positive reviews, so
+
+50
+00:03:02,580 --> 00:03:06,170
+I can have a chance of showing all
+the positive reviews on my website.
+
+51
+00:03:06,170 --> 00:03:07,800
+And that's called recall.
+
+52
+00:03:07,800 --> 00:03:12,590
+So precision is how precise I am at
+showing good stuff on my website,
+
+53
+00:03:12,590 --> 00:03:15,830
+recall is how precise I am,
+how good I am, at finding
+
+54
+00:03:15,830 --> 00:03:20,300
+all the positive reviews amongst all
+the reviews, all the sentences out there.
+
+55
+00:03:20,300 --> 00:03:23,120
+So I want to be good
+into those two metrics,
+
+56
+00:03:23,120 --> 00:03:26,915
+not the single accuracy number
+that we talked about before.
+
+57
+00:03:26,915 --> 00:03:30,960
+Precision-recall is generally
+an extremely important
+
+58
+00:03:32,210 --> 00:03:35,010
+type of metric for evaluating classifiers.
+
+59
+00:03:35,010 --> 00:03:37,140
+People use it in practice all the time.
+
+60
+00:03:37,140 --> 00:03:39,410
+We're going to discuss them in
+quite a bit of detail today.
+
+61
+00:03:39,410 --> 00:03:44,020
+And it's something that you should
+be extremely familiar with if you're
+
+62
+00:03:44,020 --> 00:03:46,856
+starting to use machine learning practice.
+
+63
+00:03:46,856 --> 00:03:51,129
+[MUSIC]

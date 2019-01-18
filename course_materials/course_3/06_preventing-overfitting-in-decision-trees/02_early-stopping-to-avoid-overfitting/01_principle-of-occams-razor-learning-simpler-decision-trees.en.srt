@@ -1,0 +1,357 @@
+1
+00:00:00,170 --> 00:00:04,438
+[MUSIC]
+
+2
+00:00:04,438 --> 00:00:08,538
+So what does it mean to avoid overfitting
+in decision trees, what does it mean to
+
+3
+00:00:08,538 --> 00:00:12,272
+stop a little earlier, or what does it
+mean to try to simplify the types of
+
+4
+00:00:12,272 --> 00:00:17,080
+trees that we learned so that we don't
+have these crazy overfitting problems.
+
+5
+00:00:17,080 --> 00:00:20,270
+And what we'll use is
+a type of regularization
+
+6
+00:00:20,270 --> 00:00:23,500
+which bias is a sort simpler trees, and
+
+7
+00:00:23,500 --> 00:00:27,690
+that's also can philosophically relate
+to the concept called Occam's razor.
+
+8
+00:00:27,690 --> 00:00:29,870
+And so let's talk about that principal.
+
+9
+00:00:31,405 --> 00:00:35,610
+It's interesting that this idea of finding
+simpler trees simpler explanations for
+
+10
+00:00:35,610 --> 00:00:41,180
+data is a concept that goes
+back to a long, long time, so
+
+11
+00:00:41,180 --> 00:00:45,620
+many people call it Occam's razor,
+because of William of Occam,
+
+12
+00:00:46,680 --> 00:00:50,550
+who was talking about this
+concept around the 13th Century.
+
+13
+00:00:50,550 --> 00:00:53,630
+Although, this goes back to Pythagoras and
+Aristotle.
+
+14
+00:00:53,630 --> 00:00:57,030
+We know 2,000 years or so before that, but
+
+15
+00:00:57,030 --> 00:01:01,790
+basically the concept there has
+been of the possible hypothesis of
+
+16
+00:01:01,790 --> 00:01:06,410
+the possible explanations as
+we'll of the possible trees.
+
+17
+00:01:06,410 --> 00:01:09,277
+You should always pick the one
+that explains the data
+
+18
+00:01:09,277 --> 00:01:13,902
+with as simple an explanation as possible,
+so for example, let's say that you have
+
+19
+00:01:13,902 --> 00:01:17,830
+that you go to the doctor, and
+say I have these two symptoms S1 and S2.
+
+20
+00:01:17,830 --> 00:01:23,480
+Let's say I have a terrible red
+headache and a terrible soar throat.
+
+21
+00:01:24,540 --> 00:01:27,930
+So, there's two options
+the doctor might see.
+
+22
+00:01:27,930 --> 00:01:34,885
+A brain tumor explains the headache and
+
+23
+00:01:34,885 --> 00:01:41,830
+a throat infection explains a soar throat.
+
+24
+00:01:43,520 --> 00:01:49,010
+Or it could say, okay, there's another
+disease, let's say common cold,
+
+25
+00:01:49,010 --> 00:01:53,290
+that explains both the headache and
+the sore throat.
+
+26
+00:01:53,290 --> 00:01:56,300
+And in that case it's probably better,
+
+27
+00:01:56,300 --> 00:02:02,460
+probably more likely that it's just one
+disease that explains both symptoms.
+
+28
+00:02:02,460 --> 00:02:05,040
+Then having two separate diseases
+one explains symptom one,
+
+29
+00:02:05,040 --> 00:02:06,920
+the other one explains symptom two.
+
+30
+00:02:08,200 --> 00:02:09,760
+Now, it's kind of a general idea.
+
+31
+00:02:09,760 --> 00:02:14,437
+The way that Occam talked about
+it was among competing hypothesis
+
+32
+00:02:14,437 --> 00:02:18,784
+the one that fields assumptions
+should always be selected.
+
+33
+00:02:18,784 --> 00:02:22,440
+And so fewest assumptions
+is simplest in our case.
+
+34
+00:02:23,550 --> 00:02:28,620
+In a contest of decision trees, the
+Occam's razor principle says if you have
+
+35
+00:02:28,620 --> 00:02:33,180
+two trees that have similar classification
+error, pick the simpler one.
+
+36
+00:02:33,180 --> 00:02:36,540
+So, let's go through the examples below.
+
+37
+00:02:36,540 --> 00:02:41,210
+Let's see, we have the training error.
+
+38
+00:02:41,210 --> 00:02:44,860
+For four different trees, and
+then we have the validation error for
+
+39
+00:02:44,860 --> 00:02:46,700
+four different trees.
+
+40
+00:02:46,700 --> 00:02:49,680
+So we observe a couple different things.
+
+41
+00:02:51,870 --> 00:02:56,775
+We observe that two trees have
+the same validation error,
+
+42
+00:02:56,775 --> 00:03:00,577
+and that one tree has
+a very low train error but
+
+43
+00:03:00,577 --> 00:03:06,430
+higher validation error, so
+the lower tree is clearly overfit.
+
+44
+00:03:06,430 --> 00:03:10,180
+The super complex tree is definitely bad.
+
+45
+00:03:11,910 --> 00:03:16,781
+But interestingly, what you do about
+these two trees, the moderate and one,
+
+46
+00:03:16,781 --> 00:03:21,790
+and the more complex one they
+get same validation error, but
+
+47
+00:03:21,790 --> 00:03:25,152
+one has higher train error,
+you can say well,
+
+48
+00:03:25,152 --> 00:03:29,930
+you know what the simpler trees probably
+better is less likely to overfit.
+
+49
+00:03:29,930 --> 00:03:35,390
+So, I'm probably going to pick
+the moderately complex tree
+
+50
+00:03:36,470 --> 00:03:41,770
+that gives me reasonable train error and
+no validation error.
+
+51
+00:03:41,770 --> 00:03:47,250
+So, that's kind of intellectually,
+conceptually validating kind of idea.
+
+52
+00:03:47,250 --> 00:03:50,700
+Try to fix simpler trees that explain
+the data relatively well, and
+
+53
+00:03:50,700 --> 00:03:52,111
+do well in the validation set.
+
+54
+00:03:53,650 --> 00:03:58,519
+But to get this right, we have to go and
+dig in, and define what a simpler tree is.
+
+55
+00:03:59,800 --> 00:04:02,780
+So the question here is
+what makes a tree simpler?
+
+56
+00:04:02,780 --> 00:04:07,818
+And so we have this really complex, high
+depth, complicated tree on the left or
+
+57
+00:04:07,818 --> 00:04:12,690
+the shallower,
+two level decision tree on the right.
+
+58
+00:04:12,690 --> 00:04:15,110
+And clearly,
+the one on the right is simpler.
+
+59
+00:04:15,110 --> 00:04:19,540
+So if they both have similar performance,
+let's pick the simple trees.
+
+60
+00:04:19,540 --> 00:04:22,170
+But in general,
+let's try to bias our algorithms
+
+61
+00:04:22,170 --> 00:04:24,510
+to find the simpler trees rather
+than the more complex ones.
+
+62
+00:04:26,532 --> 00:04:30,600
+We're going to see next, some modification
+of the decision tree algorithm
+
+63
+00:04:30,600 --> 00:04:33,940
+that's going to bias ourselves
+to simpler trees, so
+
+64
+00:04:33,940 --> 00:04:38,620
+in other words, let's try to avoid
+complex trees and focus on simpler trees.
+
+65
+00:04:38,620 --> 00:04:40,490
+And the question is how do we do that?
+
+66
+00:04:40,490 --> 00:04:42,340
+And there's two main
+approaches out there for
+
+67
+00:04:42,340 --> 00:04:45,570
+doing that one is what's
+called early stopping.
+
+68
+00:04:45,570 --> 00:04:49,080
+Instead of keeping making your
+tree deeper and deeper and deeper,
+
+69
+00:04:49,080 --> 00:04:54,285
+somehow stop earlier to avoid
+overfitting and stop a simpler trees.
+
+70
+00:04:54,285 --> 00:04:57,525
+The more advanced approach
+tends to work much better.
+
+71
+00:04:57,525 --> 00:05:00,875
+It's called pruning where
+you build a deeper tree and
+
+72
+00:05:00,875 --> 00:05:03,675
+then you chop off some
+leaves at the bottom, some
+
+73
+00:05:03,675 --> 00:05:08,405
+decisions that were not that important and
+come up with a simpler tree that way.
+
+74
+00:05:08,405 --> 00:05:11,465
+We're going to talk about both of
+these approaches in today's module.
+
+75
+00:05:11,465 --> 00:05:16,299
+[MUSIC]

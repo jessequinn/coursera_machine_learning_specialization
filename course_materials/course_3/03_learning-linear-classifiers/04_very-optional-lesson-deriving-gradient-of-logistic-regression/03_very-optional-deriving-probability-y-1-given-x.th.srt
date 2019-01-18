@@ -1,0 +1,127 @@
+1
+00:00:00,000 --> 00:00:04,134
+[ดนตรี]
+
+2
+00:00:04,134 --> 00:00:08,518
+We've now seen how to compute the log
+likelihood, but before continuing,
+
+3
+00:00:08,518 --> 00:00:11,738
+we're going to have to express
+the probability of y = -1
+
+4
+00:00:11,738 --> 00:00:15,190
+because we've only so
+far expressed the probability y = +1.
+
+5
+00:00:15,190 --> 00:00:17,110
+This is still part of that very,
+
+6
+00:00:17,110 --> 00:00:21,390
+very optional PhD level only
+derivation of the gradient.
+
+7
+00:00:21,390 --> 00:00:24,163
+So this is only for
+those who are really interested.
+
+8
+00:00:24,163 --> 00:00:28,919
+We need to take a moment to derive
+what is the probability that y = -1
+
+9
+00:00:28,919 --> 00:00:32,951
+if the following up here is
+the probability that y = +1?
+
+10
+00:00:32,951 --> 00:00:35,010
+So let's just derive that.
+
+11
+00:00:35,010 --> 00:00:40,800
+So the probability that y = -1 given x and
+w
+
+12
+00:00:40,800 --> 00:00:47,680
+is just one minus the probability
+that y is equal to +1 given x and w.
+
+13
+00:00:47,680 --> 00:00:50,850
+This is just because
+probabilities add up to one.
+
+14
+00:00:50,850 --> 00:00:58,330
+So, let's plug that in,
+that's one minus one times one plus
+
+15
+00:00:58,330 --> 00:01:04,300
+E to the minus W transpose h(x).
+
+16
+00:01:04,300 --> 00:01:10,130
+I just plugged it in with
+the definition of probability of y=+1.
+
+17
+00:01:10,130 --> 00:01:18,250
+Now, if we multiply both elements
+by 1+e to the -w transpose x,
+
+18
+00:01:18,250 --> 00:01:24,195
+we get the probability
+that y is equal to -1 is,
+
+19
+00:01:24,195 --> 00:01:33,170
+so I'm multiplying both terms
+by 1+e to the -w transpose h(x).
+
+20
+00:01:33,170 --> 00:01:40,076
+So the one is 1 + e to
+the -w transpose h(x) and
+
+21
+00:01:40,076 --> 00:01:45,000
+then you get 80 minus one.
+
+22
+00:01:45,000 --> 00:01:49,727
+So the whole thing here simplifies to e
+
+23
+00:01:49,727 --> 00:01:54,454
+to the -w transpose h(x) divided by
+
+24
+00:01:54,454 --> 00:01:58,897
+1+e to the -w transpose h(x).
+
+25
+00:02:01,916 --> 00:02:02,420
+Pretty cool.
+
+26
+00:02:02,420 --> 00:02:04,100
+Very simple.
+
+27
+00:02:04,100 --> 00:02:04,965
+มาเริ่มกันเถอะ
+
+28
+00:02:04,965 --> 00:02:08,029
+[ดนตรี]

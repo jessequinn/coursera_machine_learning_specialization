@@ -1,0 +1,335 @@
+1
+00:00:00,025 --> 00:00:04,892
+[SOUND] We started with alpha
+i's being uniform, the same for
+
+2
+00:00:04,892 --> 00:00:10,237
+all data points, one over n, and
+now we want to change them to focus
+
+3
+00:00:10,237 --> 00:00:15,694
+more on those difficult data points
+where we're making mistakes.
+
+4
+00:00:15,694 --> 00:00:18,583
+So the question is where
+did f t make mistakes or
+
+5
+00:00:18,583 --> 00:00:20,850
+what data points f t got right.
+
+6
+00:00:20,850 --> 00:00:22,355
+If f t got a particular data point,
+
+7
+00:00:22,355 --> 00:00:26,966
+xi right, we want to decrease
+alpha i because we got it right.
+
+8
+00:00:26,966 --> 00:00:32,250
+But if we got xi wrong,
+then want to increase our phi so the next
+
+9
+00:00:32,250 --> 00:00:37,400
+decision style we classify our homes in
+and does better in this particular input.
+
+10
+00:00:39,100 --> 00:00:44,020
+Again, the AdaBoost theorem provides us
+with a slightly intimidating formula for
+
+11
+00:00:44,020 --> 00:00:46,100
+how to update the weights out for i.
+
+12
+00:00:46,100 --> 00:00:49,640
+But if you take a moment to interpret it,
+we'll see this one is extremely intuitive,
+
+13
+00:00:49,640 --> 00:00:51,980
+and there's something quite nice.
+
+14
+00:00:51,980 --> 00:00:53,560
+So let's take a quick look at it.
+
+15
+00:00:53,560 --> 00:00:59,600
+So it says that alpha i gets
+an update depending on whether on ft
+
+16
+00:00:59,600 --> 00:01:05,760
+gets the data point right because this is
+correct or whether ft makes a mistake.
+
+17
+00:01:07,140 --> 00:01:10,040
+In this we'll see we're going to increase
+the weight of data points where we
+
+18
+00:01:10,040 --> 00:01:13,400
+made mistakes and we're going to decrease
+the weight of data points we got right.
+
+19
+00:01:13,400 --> 00:01:14,780
+So let's take a look at this.
+
+20
+00:01:16,200 --> 00:01:19,590
+So let's take one xi and
+lets suppose that we got it correct.
+
+21
+00:01:21,710 --> 00:01:26,510
+So, we're the top line here and
+notice that this equation depends on
+
+22
+00:01:26,510 --> 00:01:30,100
+whatever the coefficients that
+was assigned to this classifier.
+
+23
+00:01:30,100 --> 00:01:31,730
+So, the classifier was good.
+
+24
+00:01:31,730 --> 00:01:33,170
+We only changed a way to more but
+
+25
+00:01:33,170 --> 00:01:36,200
+if the classifiers was terrible we're
+going to change the weights less.
+
+26
+00:01:36,200 --> 00:01:39,902
+So, let's say the classifier was good and
+we gave it weight 2.3.
+
+27
+00:01:39,902 --> 00:01:43,310
+So what we're doing here,
+we're looking at the formula,
+
+28
+00:01:43,310 --> 00:01:48,040
+we're multiplying alpha i by e
+to the -w hat t, which is 2.3.
+
+29
+00:01:48,040 --> 00:01:53,310
+And if you take your calculator out,
+you see that this is 0.1.
+
+30
+00:01:53,310 --> 00:01:56,395
+So, we're taking the data
+points to our right, and
+
+31
+00:01:56,395 --> 00:02:01,040
+we multiply the weight of those data
+points, by 0.1, so dividing by 10.
+
+32
+00:02:01,040 --> 00:02:02,180
+So what effect does that do?
+
+33
+00:02:03,570 --> 00:02:07,945
+We're going to decrease
+the importance of this data point
+
+34
+00:02:07,945 --> 00:02:14,870
+ff xi, yi, so this particular data point.
+
+35
+00:02:16,180 --> 00:02:20,450
+Now let's look at a case where we
+got the data point correct but
+
+36
+00:02:20,450 --> 00:02:23,480
+the cost that we learn is random.
+
+37
+00:02:23,480 --> 00:02:27,860
+So, it had to wait zero just like
+we discussed a few slides ago.
+
+38
+00:02:27,860 --> 00:02:32,144
+So it's overall weight 0.5 is weight 0.
+
+39
+00:02:32,144 --> 00:02:37,928
+In this case we're multiplying
+the coefficient L5, but e to the minus 0.
+
+40
+00:02:37,928 --> 00:02:40,920
+Which is = 1, What does that mean?
+
+41
+00:02:40,920 --> 00:02:45,060
+That means that when I keep
+the importance of this data point
+
+42
+00:02:45,060 --> 00:02:49,910
+the same, that also makes a ton of sense.
+
+43
+00:02:49,910 --> 00:02:53,110
+So this was a classified that was
+terrible and we gave it a weight of 0,
+
+44
+00:02:53,110 --> 00:02:56,830
+we are going to ignore it, and so since
+we are ignoring it we are not changing
+
+45
+00:02:56,830 --> 00:03:00,770
+anything about how we rate all data points
+we are just going to keep going as if
+
+46
+00:03:00,770 --> 00:03:03,680
+nothing's happened because nothing's
+changed on their overall assemble.
+
+47
+00:03:04,970 --> 00:03:09,490
+Now let's look at the opposite case
+when we actually made mistakes so
+
+48
+00:03:09,490 --> 00:03:14,980
+let's say that we got xi incorrect so
+we made a mistake.
+
+49
+00:03:16,090 --> 00:03:18,820
+In this case,
+we're in the second line here.
+
+50
+00:03:18,820 --> 00:03:23,587
+So if it was a good classifier
+it had the w hat t of 2.3,
+
+51
+00:03:23,587 --> 00:03:29,269
+then we're going to multiply
+the weight by each of the power 2.3,
+
+52
+00:03:29,269 --> 00:03:36,800
+so this is e to the 2.3, which if you do
+the math is 9.98, so approximately 10.
+
+53
+00:03:36,800 --> 00:03:38,580
+So it's 10 times bigger.
+
+54
+00:03:38,580 --> 00:03:44,700
+And so, what we doing is increasing the
+importance of this mistake significantly.
+
+55
+00:03:47,400 --> 00:03:50,170
+So the next classify is going to pay much
+more attention to this particular data
+
+56
+00:03:50,170 --> 00:03:51,800
+point because it was a mistaken one.
+
+57
+00:03:53,570 --> 00:03:57,920
+Now finally, just very quickly,
+what happens if we make a mistake, but
+
+58
+00:03:57,920 --> 00:04:01,960
+we have that random classifier that
+had weight 0, we didn't care about it.
+
+59
+00:04:01,960 --> 00:04:04,422
+So the multiplication here is e0,
+
+60
+00:04:04,422 --> 00:04:09,670
+which is again = 1 which means we keep the
+importance of this data point the same.
+
+61
+00:04:12,360 --> 00:04:17,740
+So very good we now seen this
+cool update from AdaBoost,
+
+62
+00:04:17,740 --> 00:04:21,310
+which makes a ton of sense increase
+the weights of data points where we made
+
+63
+00:04:21,310 --> 00:04:24,740
+mistakes and decrease the ones we
+didn't make mistakes in simulator and
+
+64
+00:04:24,740 --> 00:04:28,380
+we're going to use it in
+our AdaBoost algorithm.
+
+65
+00:04:29,990 --> 00:04:32,300
+So if we update our algorithm, or
+
+66
+00:04:32,300 --> 00:04:35,590
+we stacked it with uniform weights,
+we learned classifier f of t.
+
+67
+00:04:35,590 --> 00:04:40,090
+We updated its, or
+computed its coefficient, w hat t.
+
+68
+00:04:40,090 --> 00:04:43,160
+Now we can update the weights
+of the data points, alpha i.
+
+69
+00:04:44,190 --> 00:04:48,029
+Using the simple formula from the previous
+slide which increases the weight of
+
+70
+00:04:48,029 --> 00:04:51,414
+mistakes, decreases the weights
+of the correct classifications.
+
+71
+00:04:51,414 --> 00:04:55,539
+[MUSIC]

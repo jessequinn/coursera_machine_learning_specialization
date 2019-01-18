@@ -1,0 +1,41 @@
+Now that we learned about
+the likelihood function, the thing that were trying to maximize,
+let's talk about gradient ascent algorithm that tries to make it
+as large as possible. In this section, were going to go through
+a little bit of math, a little bit of detail but in the end, the gradient
+ascent algorithm for learning a logistic regression classifier is going to be
+extremely simple and extremely intuitive. Even if the likelihood function's a little
+bit fuzzy for you and the gradient stuff's not totally clear but in the end,
+the algorithm that you're going to implement is going to be something that
+only requires a few lines of code. In fact,
+you'll be able to do that extremely easy. Good. We defined the model we want to fit,
+the logistic regression model, we talked about the quality max trick,
+the likelihood function, now we're going to define
+the gradient ascent algorithm. Which is machine learning algorithm that tries
+to make the likelihood function as large as possible to find their famous
+W hat fits our data really well. Now, we can go back to this picture
+that we've seen a few times where we have multiple lines and
+they have likelihood function and we're trying to find the one
+that has best likelihood. This line here with the W0 = 1,
+W1 = 0.5, W2 = -1.5. We now know that the likelihood function
+is exactly this function up here. The product over my data point of
+the probability of the true label given the input centers that we have. Our goal is to take this l and optimize it with gradient ascent. That's what we're going to
+go after right now. As a quick, quick, quick review,
+we have our likelihood function and when I find the parameter values
+that take this likelihood function, so that this is the W0, W1, W2, which is a function of three parameters
+in this little example over here. We're trying to find the maximum
+over all possible parameters W0, W1, and W2 and
+there's infinitely many of those, so if you try to enumerate it will
+be impossible to try them all. But gradient ascent is this magically
+simple but wonderful algorithm where you start from some point over
+here in the parameter space, which might be the weight for awful is 0,
+the weight for awesome is -6. And you slowly climb up the hill
+in order to find the optimum, the top of the hill here,
+which going to be our famous W hat. They might say that the weight for
+awesome is, it's probably going to be a positive
+number, so maybe somewhere like this, say 0.5 and the weight for
+awful is maybe -1. Now in this plot, I've only shown
+two of the coordinates W1 and W2. I didn't show W0 because it's really
+hard to plot in four-dimensional space. Four dimensions, so I'm just showing
+you three out of those four dimensions. Now, let's discuss the gradient ascent
+algorithm to go ahead and do that. [MUSIC]

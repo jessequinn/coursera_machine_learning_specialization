@@ -1,0 +1,13 @@
+[MÚSICA] Como hemos visto, el sobreajuste de árboles de 
+decisión es un problema fundamental que debe ser abordado. Y hemos visto un par de formas
+diferentes de abordar este problema. Nos fijamos en la detención temprana. Así que, a medida que recorremos el árbol, vamos a parar con antelación para evitar 
+llegar a un árbol muy complejo y al sobreajuste. Y luego hablamos sobre la poda, donde
+tomamos un árbol enorme y luego cortamos, cortamos y lo simplificamos. La poda es muy importante en
+situaciones prácticas, y entonces gastamos un poco de tiempo pasando
+a través de los detalles de esto pero era una sección opcional en la conferencia. Pero sólo quiero asegurarme de que si ves por ahi 
+un algoritmo que hace poda para árboles de decisión, esa
+es una especie de idea de lo que está siendo ejecutado. Entonces, el sobreajuste de árboles de decisión
+es un tema fundamental, pero ahora tenemos cómo abordarlo. Y permíteme finalizar agradeciendo
+a mi colega, Krishna Seridhar, quien ha sido realmente fundamental
+al crear estas diapositivas y al poder hacer que esta conferencia
+tan estupenda como sea posible. [MÚSICA]

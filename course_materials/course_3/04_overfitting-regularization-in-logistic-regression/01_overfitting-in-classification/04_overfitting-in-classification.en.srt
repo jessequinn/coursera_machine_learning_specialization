@@ -1,0 +1,352 @@
+1
+00:00:00,000 --> 00:00:04,016
+[MUSIC]
+
+2
+00:00:04,016 --> 00:00:09,310
+So next let's discuss what does
+over-fitting look like for a classifier.
+
+3
+00:00:10,750 --> 00:00:13,650
+So we talked about a wide
+range of classifiers, so for
+
+4
+00:00:13,650 --> 00:00:19,820
+example here I am fitting a linear
+classifier to the data and it's our usual
+
+5
+00:00:19,820 --> 00:00:26,330
+example with predicting that their review
+is positive or negative for a restaurant.
+
+6
+00:00:26,330 --> 00:00:30,940
+And so we see that the points below
+the line have score greater than 0.
+
+7
+00:00:30,940 --> 00:00:32,990
+The points above the line
+have scored less than 0.
+
+8
+00:00:32,990 --> 00:00:36,350
+So below the line I predict as positive,
+above the line I predict as negative.
+
+9
+00:00:36,350 --> 00:00:41,220
+And you get this very,
+very simple line in this simple example.
+
+10
+00:00:41,220 --> 00:00:45,250
+For this module I've created a simple data
+set shown here on the lower left with
+
+11
+00:00:45,250 --> 00:00:50,690
+positive and negative examples and I want
+to fit a bunch of different reference
+
+12
+00:00:50,690 --> 00:00:55,370
+classifiers to it to really observe
+how over-fitting happens in practice.
+
+13
+00:00:55,370 --> 00:01:00,830
+So first, I'm going to fit a simple
+classifier with a linear feature so
+
+14
+00:01:00,830 --> 00:01:03,935
+it's just the constant that is zero,
+
+15
+00:01:03,935 --> 00:01:09,250
+the coefficient of x1 which
+is going to be w1 and
+
+16
+00:01:09,250 --> 00:01:13,740
+the coefficient of x2 which
+is going to be w2 and if I
+
+17
+00:01:13,740 --> 00:01:17,546
+learn the logistical rational classifier
+in this data I get the following results.
+
+18
+00:01:17,546 --> 00:01:24,790
+The constant becomes 0.23 the co-efficient
+of x one becomes one point twelve and
+
+19
+00:01:24,790 --> 00:01:30,850
+the co-efficient of x
+two becomes minus 1.07.
+
+20
+00:01:30,850 --> 00:01:34,520
+So, on the right here I'm showing
+the resulting decision boundary
+
+21
+00:01:34,520 --> 00:01:36,030
+from this classifier.
+
+22
+00:01:36,030 --> 00:01:41,430
+So, this line here corresponds to
+
+23
+00:01:41,430 --> 00:01:47,210
+the point where 0.23 plus 1.12
+
+24
+00:01:47,210 --> 00:01:53,360
+x 1 minus 1.
+
+25
+00:01:53,360 --> 00:01:59,630
+Let's clear that a little bit,
+minus 1 point
+
+26
+00:02:01,740 --> 00:02:05,500
+07, x2 is equal to 0.
+
+27
+00:02:05,500 --> 00:02:10,890
+So this is our observation of
+that transition from the points
+
+28
+00:02:10,890 --> 00:02:15,960
+down here where the Score(x)
+is greater than 0 and
+
+29
+00:02:15,960 --> 00:02:21,390
+the points over here where
+the Score(x) is less than zero.
+
+30
+00:02:21,390 --> 00:02:25,130
+So the points above that line in
+predicting is being negative points and
+
+31
+00:02:25,130 --> 00:02:27,430
+the points below the line is
+predicting them to be positive.
+
+32
+00:02:28,450 --> 00:02:31,140
+And you see some interesting
+things in this simple
+
+33
+00:02:31,140 --> 00:02:34,930
+data set with just a simple classifier.
+
+34
+00:02:34,930 --> 00:02:39,110
+You see that the, and this is a pretty
+decent job of separating the positives
+
+35
+00:02:39,110 --> 00:02:43,510
+from the negatives but there are a few
+points here where they are mis-classified
+
+36
+00:02:43,510 --> 00:02:47,400
+in the training data so this plus is
+over here and this minus is over here.
+
+37
+00:02:47,400 --> 00:02:50,660
+And the question is, can I do better?
+
+38
+00:02:50,660 --> 00:02:54,430
+Can I fit a model with maybe
+slightly fancier features
+
+39
+00:02:54,430 --> 00:02:55,976
+that does better on this data set?
+
+40
+00:02:55,976 --> 00:03:01,390
+To fit our data model, I'm going to try
+now what are called quadratic features.
+
+41
+00:03:01,390 --> 00:03:04,890
+So, I'm going to consider,
+not just one, x1, and x2, but
+
+42
+00:03:04,890 --> 00:03:08,250
+I'm also going to consider x1 squared,
+and x2 squared.
+
+43
+00:03:09,300 --> 00:03:13,350
+Note that this is not general quadratic
+features, and not considering x1
+
+44
+00:03:13,350 --> 00:03:17,510
+times x2 or the cross terms,
+because then they becomes pretty big.
+
+45
+00:03:17,510 --> 00:03:21,230
+Later on so I'm just going to do
+this simple quadratic feature.
+
+46
+00:03:21,230 --> 00:03:23,690
+And if I learn a classifier
+on the same data,
+
+47
+00:03:23,690 --> 00:03:25,460
+I get a really cool decision boundary.
+
+48
+00:03:25,460 --> 00:03:28,190
+And then the decision boundary,
+when I project it
+
+49
+00:03:28,190 --> 00:03:31,900
+into this two-dimensional space,
+becomes this kind of curved parabola.
+
+50
+00:03:31,900 --> 00:03:39,409
+So the coefficient in this case
+of The constant becomes 1.68,
+
+51
+00:03:39,409 --> 00:03:43,712
+x1 is 1.39, x2 is -0.59.
+
+52
+00:03:43,712 --> 00:03:48,440
+Both of these numbers
+are different from the ones on
+
+53
+00:03:48,440 --> 00:03:53,320
+the previous slide because
+the parameters are all updated.
+
+54
+00:03:53,320 --> 00:03:56,870
+Within this view of
+the quadratic terms and
+
+55
+00:03:56,870 --> 00:04:02,599
+here the quadratic terms become
+minus 0.17 and minus 0.96.
+
+56
+00:04:02,599 --> 00:04:08,234
+And using this quadratic
+terms I get this beautiful
+
+57
+00:04:08,234 --> 00:04:14,395
+quadratic decision boundary
+over here which basically
+
+58
+00:04:14,395 --> 00:04:20,556
+says that 1.68 plus 1.39 X1 minus 0.59x2
+
+59
+00:04:20,556 --> 00:04:26,869
+minus 0.17x1 squared minus 0.96x2 squared.
+
+60
+00:04:26,869 --> 00:04:32,021
+This whole thing is equal to zero, and
+
+61
+00:04:32,021 --> 00:04:38,783
+the points now,
+on the left side of the parabola,
+
+62
+00:04:38,783 --> 00:04:46,028
+are the ones that have Score(x),
+be less than 0 and
+
+63
+00:04:46,028 --> 00:04:51,663
+the points on the right
+side here are those
+
+64
+00:04:51,663 --> 00:04:56,660
+where a score of x is greater than 0.
+
+65
+00:04:56,660 --> 00:05:02,880
+And you get this beautiful curve where yes
+you still make a couple of mistakes but
+
+66
+00:05:02,880 --> 00:05:05,598
+I tell you,
+those mistakes seem okay to me.
+
+67
+00:05:05,598 --> 00:05:11,000
+The data pre-well you should
+never expect for real data sets.
+
+68
+00:05:11,000 --> 00:05:14,790
+For everything like, in fact,
+as we will see later in this module,
+
+69
+00:05:14,790 --> 00:05:18,470
+getting everything right should
+be a big sign of warning for you.
+
+70
+00:05:18,470 --> 00:05:23,600
+But I get pretty good fit and
+it looks beautiful and
+
+71
+00:05:23,600 --> 00:05:28,510
+note, by the way, that the coefficients
+that I learn over here are pretty good.
+
+72
+00:05:28,510 --> 00:05:32,330
+They look like a natural magnitude,
+about one, 0.5, and so on.
+
+73
+00:05:32,330 --> 00:05:35,945
+Now let's see what happens when you
+do an even higher degree polynomial.
+
+74
+00:05:35,945 --> 00:05:40,939
+[MUSIC]

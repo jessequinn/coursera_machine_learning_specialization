@@ -1,0 +1,19 @@
+[MUSIC] Let's take a final minute to summarize
+what we have seen in today's module. Around scaling to large datasets and
+online learning. Now, we use gradient to
+scale to large datasets, but this is not the only approach that's used. In fact, a lot of scaling that we do is
+about dealing with multicore processors. So, the fact that processors have multiple
+cores and it can do parallel computation. And then, using large computers clusters
+with 10 of machines, 100 machines, 1,000 machines,
+100,000 machines, and so on. And this requires new kinds of machinery
+algorithms which are called distributed and parallel algorithms that can be
+spread out over a thousand machine. It's a very important topic. It's actually what a lot of my
+personal research is about. How do you do this written machine or any
+algorithms, unfortunately is not something that are not going to have time
+to cover in the current course. As a summary we seen that a small
+modification of your gradient algorithm can incredible improvement in
+the overall running time of the approach, and that makes a huge
+difference in practice. The many practical challenges associated
+in gradient is extremely useful. And the same kind of techniques that
+we saw here can also be used for online learning which is a whole
+different type of machine learning which is also of great practical significance. [MUSIC]

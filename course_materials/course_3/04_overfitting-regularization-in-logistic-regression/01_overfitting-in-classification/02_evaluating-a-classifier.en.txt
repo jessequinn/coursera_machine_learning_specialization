@@ -1,0 +1,40 @@
+We've now seen linear classifiers,
+in particular, logistic and reaction is a really core
+example of those, and how to learn them from data using
+gradient descent algorithms. So we're now ready to
+build those classifiers. However, when we go into practical
+settings we have to think about over fitting, which is very significant problem
+in machine learning and in particular for logistic aggression can
+be really troublesome. So let's see how we can avoid
+over fitting in this setting. In order to explore the concept of over
+fitting we need to better understand how we measure error in
+classification in general. So for a classifier, we typically start
+with some data that has been labeled as positive or negative reviews, and then
+we split that data into a training set which we use to train our model and
+a validation set, which would then take the results of the learned model and
+use it to evaluate our classifier. So let's talk a little bit about the
+evaluation of a classifier, in general. As we discussed in the first course. We measure a classifier's performance
+using what's called classification error. For example, if I give a sentence,
+the sushi was great, and it's labeled positive, and I want to
+measure my error in that sentence, what I do is I feed the sentence
+into my classifier. The sushi was great, but I hide that
+label, so that the classifier doesn't get to know whether the sentence
+was labeled as positive or negative in the training data. And then I compare the output, y hat
+of my classifier with the true label. In this case they both agree, so
+the classifier is correct, so I add one to the correct column. However, if I take another sentence,
+so for example, I take the sentence, the food was okay, which in the training
+set was labeled as a negative example. But this is a little bit of
+a euphemism from America. Is it positive, is it negative? People say okay when they mean bad stuff. The classifier might not be familiar
+with that kind of cultural jargon. So when you hide the label, the classifier
+might say y why hat is positive but really it's a negative label. And the classifiers then made a mistake. So now we put plus one
+in the mistake column. So in general we're going to go example
+by example in a validation set and measure which one's we got right and
+which one's we made a mistake. And now we can measure what's called the
+error or classification error in our data. So let me turn my pen on here,
+and I'm going to use white here. So it's really simple. There are measures the fraction of
+data points where we made mistakes. So it's the ratio between the number of mistakes that I made and the total number of data points. Sometimes we also talk
+about accuracy as well, which is one minus
+the number of the error. So here, we talk about,
+instead of the number of mistakes. It's the number of data
+points where we got them correct divided by the total
+number of data points. Very good. [MUSIC]

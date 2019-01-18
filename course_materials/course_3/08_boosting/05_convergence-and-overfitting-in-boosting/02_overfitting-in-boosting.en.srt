@@ -1,0 +1,381 @@
+1
+00:00:00,070 --> 00:00:04,667
+[MUSIC]
+
+2
+00:00:04,667 --> 00:00:09,647
+So, let's compare a boosted
+serial stump to a decision tree.
+
+3
+00:00:09,647 --> 00:00:15,126
+So, this is the decision tree blog that
+we saw in the decision tree model.
+
+4
+00:00:15,126 --> 00:00:21,368
+So this is on real a real dataset is
+based on the loan applications and
+
+5
+00:00:21,368 --> 00:00:26,185
+we see the training error as
+we make the decision tree
+
+6
+00:00:26,185 --> 00:00:31,240
+deeper tends to go down,
+down and down and we saw that.
+
+7
+00:00:31,240 --> 00:00:36,947
+But the test error, which is kind of
+related to true error goes down for
+
+8
+00:00:36,947 --> 00:00:42,095
+a while and you have here the best depth,
+which is maybe seven.
+
+9
+00:00:42,095 --> 00:00:46,378
+But eventually, it goes backup.
+
+10
+00:00:46,378 --> 00:00:52,090
+So let's say after that 18 over here,
+the training error's down to 8%.
+
+11
+00:00:52,090 --> 00:00:54,796
+So it's a really low training error, but
+
+12
+00:00:54,796 --> 00:00:58,754
+the test error has gone up to 39% and
+we observe over 15.
+
+13
+00:00:58,754 --> 00:01:01,900
+And in fact, we observe a huge gap here.
+
+14
+00:01:01,900 --> 00:01:07,612
+There are things now,
+by the way is the best decision tree has
+
+15
+00:01:07,612 --> 00:01:13,219
+classification error in the test
+set of about 34% or so.
+
+16
+00:01:13,219 --> 00:01:17,746
+Now, let's see what happens
+with the senior stamps that
+
+17
+00:01:17,746 --> 00:01:20,115
+boosted on the same data set.
+
+18
+00:01:20,115 --> 00:01:22,485
+You get a plot that
+looks kind of like this,
+
+19
+00:01:22,485 --> 00:01:26,233
+you see that the training arrow
+keeps decreasing per iteration.
+
+20
+00:01:26,233 --> 00:01:28,706
+So, this is the train error.
+
+21
+00:01:28,706 --> 00:01:35,030
+So as the theorem predicts,
+it decreases as and
+
+22
+00:01:35,030 --> 00:01:40,088
+the test error in this case is actually
+
+23
+00:01:40,088 --> 00:01:44,054
+going down with iterations.
+
+24
+00:01:44,054 --> 00:01:46,933
+So, we're not observing
+over 15 at least yet.
+
+25
+00:01:46,933 --> 00:01:52,782
+And after 18 rounds of boosting,
+so 18 decision stumps,
+
+26
+00:01:52,782 --> 00:01:58,972
+we have 32% test error,
+which is better than a decision tree.
+
+27
+00:01:58,972 --> 00:02:04,509
+Yet, in fact, that's the best decision
+tree and the over fitting is much letter.
+
+28
+00:02:04,509 --> 00:02:06,940
+So, this gap here is much smaller.
+
+29
+00:02:08,490 --> 00:02:11,154
+So, the gap between
+your training error and
+
+30
+00:02:11,154 --> 00:02:15,770
+the test error is kind of related to
+that over fitting quantity that we have.
+
+31
+00:02:15,770 --> 00:02:18,625
+Now we said,
+we're not observing over 15 yet.
+
+32
+00:02:18,625 --> 00:02:23,107
+So, let's run booster stamps for
+more iterations and see what happens.
+
+33
+00:02:23,107 --> 00:02:26,109
+So let's see what happens when we
+keep on boosting and adding more
+
+34
+00:02:26,109 --> 00:02:29,712
+decision stems on the x-axis, this is
+adding more and more decision stems and
+
+35
+00:02:29,712 --> 00:02:33,608
+more tree instead of only one tree and see
+what happens to the classification error.
+
+36
+00:02:33,608 --> 00:02:36,950
+We see here that the training
+error keeps decreasing.
+
+37
+00:02:39,284 --> 00:02:46,807
+Just like we expected by the theorem,
+but the test error has stabilized.
+
+38
+00:02:46,807 --> 00:02:50,046
+So, the test performance
+tends to stay constant.
+
+39
+00:02:50,046 --> 00:02:52,867
+And in fact, it stays constant for
+many iterations.
+
+40
+00:02:52,867 --> 00:02:59,043
+So if I pick T anywhere in this range,
+we will do about the same.
+
+41
+00:02:59,043 --> 00:03:07,057
+So, any of these values for
+
+42
+00:03:07,057 --> 00:03:11,941
+T would be fine.
+
+43
+00:03:14,564 --> 00:03:20,646
+So now we seen how boosting the sound
+is seems to be stabilizing,
+
+44
+00:03:20,646 --> 00:03:25,744
+but the question is do we observe
+overfitting and boosting?
+
+45
+00:03:25,744 --> 00:03:29,670
+And in fact,
+we do observe over 15 with boosting,
+
+46
+00:03:29,670 --> 00:03:33,789
+but boosting tends to be
+quite robust in overfitting.
+
+47
+00:03:33,789 --> 00:03:36,831
+So if you use too many trees or
+too few trees, there's a huge range, but
+
+48
+00:03:36,831 --> 00:03:37,817
+that's really okay.
+
+49
+00:03:37,817 --> 00:03:41,548
+So here,
+I'm going up to 5,000 decisions stamps,
+
+50
+00:03:41,548 --> 00:03:44,748
+which is this type of
+boosting we are doing here.
+
+51
+00:03:44,748 --> 00:03:47,372
+The best test error was about 31%.
+
+52
+00:03:47,372 --> 00:03:52,267
+But if I kept going too far,
+I go to 5000 overfitting that test
+
+53
+00:03:52,267 --> 00:03:56,102
+error is going up, but
+is doesn't go up that much.
+
+54
+00:03:56,102 --> 00:03:59,388
+It goes up to 33%, so
+there's some over overfitting here.
+
+55
+00:03:59,388 --> 00:04:05,159
+Very importantly in these examples,
+I've been showing you the test error and
+
+56
+00:04:05,159 --> 00:04:08,838
+talking about what happens
+overfitting mostly.
+
+57
+00:04:08,838 --> 00:04:09,735
+But as we know,
+
+58
+00:04:09,735 --> 00:04:13,957
+we need to be very careful of how we
+pick the parameters of our algorithm.
+
+59
+00:04:13,957 --> 00:04:17,719
+So how do we pick capital T,
+which is when we stop boosting?
+
+60
+00:04:17,719 --> 00:04:20,714
+We have five decision stamps,
+5,000 decision stamps.
+
+61
+00:04:20,714 --> 00:04:25,521
+And this is just like selecting the magic
+parameters or all sorts of algorithms and
+
+62
+00:04:25,521 --> 00:04:30,187
+almost every algorithm out there model
+has a parameter trades off complexity,
+
+63
+00:04:30,187 --> 00:04:33,044
+that for decision tree,
+number of features, or
+
+64
+00:04:33,044 --> 00:04:35,901
+magnitude of weights in
+logistic regression and
+
+65
+00:04:35,901 --> 00:04:40,260
+here is the number of rounds of
+boosting with the quality of the fit.
+
+66
+00:04:40,260 --> 00:04:42,170
+So, just like lambda in regularization.
+
+67
+00:04:43,820 --> 00:04:47,648
+We can't use the training data,
+because the training tends to go down with
+
+68
+00:04:47,648 --> 00:04:50,892
+iterations of boosting, so
+you say that T should be infinite.
+
+69
+00:04:50,892 --> 00:04:55,553
+Shouldn't be here really big and
+should never, never, never,
+
+70
+00:04:55,553 --> 00:04:59,971
+ever, ever, ever,
+ever use the test data, so that's bad.
+
+71
+00:04:59,971 --> 00:05:04,093
+I was just showing you an illustrative
+examples, but you should never do that.
+
+72
+00:05:04,093 --> 00:05:05,578
+So, what should we do?
+
+73
+00:05:05,578 --> 00:05:10,454
+Well, you should either use a validation
+set if you have a lot of data.
+
+74
+00:05:10,454 --> 00:05:12,017
+If you have a big dataset,
+
+75
+00:05:12,017 --> 00:05:15,795
+you select a subpart of that to
+just pick the magic parameters.
+
+76
+00:05:15,795 --> 00:05:19,150
+And if your dataset is not that large
+you should use cross-validation.
+
+77
+00:05:19,150 --> 00:05:23,214
+And in the regression course, we talked
+about how to use validation sets and
+
+78
+00:05:23,214 --> 00:05:26,963
+how to use cross-validations to
+pick magic parameters like lambda,
+
+79
+00:05:26,963 --> 00:05:30,480
+the def decision tree or
+the number rounds of boosting Capital T.
+
+80
+00:05:30,480 --> 00:05:35,339
+[MUSIC]

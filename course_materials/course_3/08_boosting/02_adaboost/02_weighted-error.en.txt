@@ -1,0 +1,57 @@
+[MUSIC] >> Let's start talking about
+how do you compute w hat t. And this quantity's intuitive and has to
+know how good, or how much we trust ft. The classify we learn that's
+[INAUDIBLE] iteration. So, specifically,
+if ft is good, we like it, it's doing well in our data,
+we want w hat t to be large. In fact, if ft has really,
+really great accuracy, very low error, we want wt to be really big. However if ft is really bad, if it really is terrible at making
+predictions, we should down weight it. We should not trust that particular vote. So in other words, how do we measure
+whether a classifier's good or not? As we said, we said ft is good
+if he has low training error. However you have to remember
+that we have weighted data. So what we really care about is
+how well it's doing weighted data. For example, if we're weighing more
+certain datapoints because they're really high, they're making lots of mistakes
+on those, we want to make sure that the classifier has low error
+on those really hard mistakes. And so let's look at measuring
+error on weighted data. Measuring error and weighted data is very similar to
+measuring error in regular data. You have a data point. For example, the sushi was great and is labeled as positive,
+but now we have a weight. In this case, alpha, which might be 1.2. So this is a data point which
+is say above average importance. So we want to measure the weighted
+total of the correct examples and the weighted total of the mistakes. So we take our learned classifier, f of t,
+and we feed that review, in this case, the sushi was great, but we hide the
+label, which in this case was positive. And now we compare the prediction. For example, let's say that y
+hat was plus one for this input. It's the same as the two labels correct,
+so we add the weight 1.2 to the weight
+of other correct examples we've seen. So that's awesome. But let's say we have another data point. The food was OK,
+which is labeled truly as negative, and we talked about this example before. We feed food was OK to a classifier. We hide the label. Minus 1.
+But our classifier gets confused. It doesn't know the cultural reference,
+the food was OK, and thinks it is a positive example,
+y hat is plus 1, and it's a mistake. So we take the weight of
+this data point 0.5 and add it to the total
+weight of the mistakes. So keep adding the weight of the mistakes
+versus the weight of the correct classifications. And use that to measure the error. Now that we have seen and intuitive notion of what a weighted error
+is, let's write the down the equations for the weighted error, so
+we can be sure if we need to implement it. So, the first thing we need to measure is
+the total weight of all the mistakes, so the sum of our mistakes of
+the weight of those data points. So this is the sum over the datapoint,
+so i equals 1 through N, of an indicator that says,
+was this a mistake? So is y hat i different than yi? So this just measure whether it was
+a mistake, and if it was a mistake we don't just count it as a mistake, we count
+it whatever weight that datapoint has. So we're going to weigh that
+contribution by alpha i. And now, to compute the error,
+we're going to normalize it so it's a number between zero and one, so we have to divide it by
+the total weight of all the data points. So it's the sum over i equals 1 through N
+of the weight of all the data points of i. And these are the two
+quantities that we care about, and the weighted error can
+be denoted by the total weight of the mistakes divided by
+the total weight of all data points. Extremely simple, the best possible
+error you could hope for is 0.0. Now, the worst error is 1.0, which means that we're
+making mistakes everywhere. But notice that if we're
+making mistakes everywhere, if we emerge a class fire we're
+going to get everything right. So the way to think about it is in
+the worst possible case in some ways is how random does. So a random classifier
+will get error of 0.5, and we discussed this in the first course
+of how a random classifier gets error 0.5 on a binary
+classification problem like this. So now that we've seen the weighted error,
+let's look at how we can update the coefficient w hat
+t of the function that we learn. >> [MUSIC]

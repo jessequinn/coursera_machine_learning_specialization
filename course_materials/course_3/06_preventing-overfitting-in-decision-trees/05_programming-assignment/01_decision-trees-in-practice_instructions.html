@@ -1,0 +1,1564 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Decision Trees in Practice
+ </h1>
+ <p>
+  In this assignment we will explore various techniques for preventing overfitting in decision trees. We will extend the implementation of the binary decision trees that we implemented in the previous assignment. You will have to use your solutions from this previous assignment and extend them.
+ </p>
+ <p>
+  In this assignment you will:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Implement binary decision trees with different early stopping methods.
+   </p>
+  </li>
+  <li>
+   <p>
+    Compare models with different stopping parameters.
+   </p>
+  </li>
+  <li>
+   <p>
+    Visualize the concept of overfitting in decision trees.
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  If you are doing the assignment with IPython Notebook
+ </h2>
+ <p>
+  An IPython Notebook has been provided below to you for this assignment. This notebook contains the instructions, quiz questions and partially-completed code for you to use as well as some cells to test your code.
+ </p>
+ <p>
+  <strong>
+   Make sure that you are using the latest version of GraphLab Create.
+  </strong>
+ </p>
+ <h2 level="2">
+  What you need to download
+ </h2>
+ <h3 level="3">
+  If you are using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the Lending club data In SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vTFakZb5EeaPaAqL2XDGfA" name="lending-club-data.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the companion IPython Notebook:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="F7ACSLADEeaoWA59UGLCkA" name="module-6-decision-tree-practical-assignment-blank">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling IPython notebook from) and unzip the data file.
+   </p>
+  </li>
+  <li>
+   <p>
+    Follow the instructions contained in the IPython notebook.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  If you are not using GraphLab Create
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using SFrame, download the LendingClub dataset in SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vTFakZb5EeaPaAqL2XDGfA" name="lending-club-data.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using a different package, download the LendingClub dataset in CSV format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="RLfVh5cTEeaMvRLid-X_BA" name="lending-club-data.csv">
+ </asset>
+ <h2 level="2">
+  If you are using GraphLab Create and the companion IPython Notebook
+ </h2>
+ <p>
+  Open the companion IPython notebook and follow the instructions in the notebook.
+ </p>
+ <h2 level="2">
+  If you are using other tools
+ </h2>
+ <p>
+  This section is designed for people using tools other than GraphLab Create.
+  <strong>
+   You will not need any machine learning packages
+  </strong>
+  since we will be implementing decision trees from scratch.
+  <strong>
+   W
+  </strong>
+  <strong>
+   e highly suggest you use
+   <a href="https://github.com/turi-code/SFrame">
+    SFrame
+   </a>
+   since it is open source.
+  </strong>
+  In this part of the assignment, we describe general instructions, however we will tailor the instructions for SFrame.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you choose to use SFrame, you should be able to follow the instructions in the next section and complete the assessment.
+    <strong>
+     All code samples given here will be applicable to SFrame
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    You are free to experiment with any tool of your choice, but
+    <strong>
+     some many not produce correct numbers for the quiz questions.
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  If you are using
+  <a href="https://github.com/turi-code/SFrame">
+   SFrame
+  </a>
+ </h2>
+ <p>
+  Make sure to download the companion IPython notebook:
+ </p>
+ <asset assettype="generic" extension="zip" id="F7ACSLADEeaoWA59UGLCkA" name="module-6-decision-tree-practical-assignment-blank">
+ </asset>
+ <p>
+  You will be able to follow along exactly
+  <strong>
+   if you replace the first two lines of code with these two lines:
+  </strong>
+ </p>
+ <pre>import sframe
+loans = sframe.SFrame('lending-club-data.gl/')</pre>
+ <p>
+  After running this,
+  <strong>
+   you can follow the rest of the IPython notebook and disregard the rest of this reading.
+  </strong>
+ </p>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  To install SFrame (without installing GraphLab Create), run
+ </p>
+ <pre>pip install sframe</pre>
+ <h2 level="2">
+  If you are NOT using SFrame
+ </h2>
+ <p>
+  1. Load in the LendingClub dataset with the software of your choice.
+ </p>
+ <p>
+  2. As before, we reassign the labels to have +1 for a safe loan, and -1 for a risky (bad) loan. You should have code analogous to
+ </p>
+ <pre>loans['safe_loans'] = loans['bad_loans'].apply(lambda x : +1 if x==0 else -1)
+loans = loans.remove_column('bad_loans')</pre>
+ <p>
+  3. We will be using the same 4 categorical features as in the previous assignment:
+ </p>
+ <pre>features = ['grade',              # grade of the loan
+            'term',               # the term of the loan
+            'home_ownership',     # home_ownership status: own, mortgage or rent
+            'emp_length',         # number of years of employment
+           ]
+target = 'safe_loans'</pre>
+ <p>
+  Extract these feature columns and target column from the dataset, and discard the rest of the feature columns.
+ </p>
+ <h3 level="3">
+  Notes to people using other tools
+ </h3>
+ <p>
+  <strong>
+   If you are using SFrame, proceed to the section "Subsample dataset to make sure classes are balanced".
+  </strong>
+ </p>
+ <p>
+  <strong>
+   If you are NOT using SFrame, download the list of indices for the training and validation sets
+  </strong>
+  :
+ </p>
+ <asset assettype="generic" extension="zip" id="eeDA7pcCEea9mwoGlQi6MA" name="module-6-assignment-train-idx.json">
+ </asset>
+ <asset assettype="generic" extension="zip" id="eeGEipcCEea_cQqzDLeQwg" name="module-6-assignment-validation-idx.json">
+ </asset>
+ <p>
+  Then follow the following steps:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Apply one-hot encoding to
+    <strong>
+     loans
+    </strong>
+    . Your tool may have a function for one-hot encoding.
+   </p>
+  </li>
+  <li>
+   <p>
+    Load the JSON files into the lists
+    <strong>
+     train_idx
+    </strong>
+    and
+    <strong>
+     validation_idx
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Perform train/validation split using
+    <strong>
+     train_idx
+    </strong>
+    and
+    <strong>
+     validation_idx
+    </strong>
+    . In Pandas, for instance:
+   </p>
+  </li>
+ </ul>
+ <pre>train_data = loans.iloc[train_idx]
+validation_data = loans.iloc[validation_idx]</pre>
+ <p>
+  IMPORTANT: If you are using a programming language with 1-based indexing (e.g. R, Matlab), make sure to increment all indices by 1.
+ </p>
+ <p>
+  Note. Some elements in loans are included neither in
+  <strong>
+   train_data
+  </strong>
+  nor
+  <strong>
+   validation_data
+  </strong>
+  . This is to perform sampling to achieve class balance.
+ </p>
+ <p>
+  Now proceed to the section "Early stopping methods for decision trees", skipping three sections below.
+ </p>
+ <h3 level="3">
+  Subsample dataset to make sure classes are balanced
+ </h3>
+ <p>
+  4. Just as we did in the previous assignment, we will undersample the larger class (safe loans) in order to balance out our dataset. This means we are throwing away many data points. You should have code analogous to
+ </p>
+ <pre>safe_loans_raw = loans[loans[target] == 1]
+risky_loans_raw = loans[loans[target] == -1]
+
+# Since there are less risky loans than safe loans, find the ratio of the sizes
+# and use that percentage to undersample the safe loans.
+percentage = len(risky_loans_raw)/float(len(safe_loans_raw))
+safe_loans = safe_loans_raw.sample(percentage, seed = 1)
+risky_loans = risky_loans_raw
+loans_data = risky_loans.append(safe_loans)
+
+print "Percentage of safe loans                 :", len(safe_loans) / float(len(loans_data))
+print "Percentage of risky loans                :", len(risky_loans) / float(len(loans_data))
+print "Total number of loans in our new dataset :", len(loans_data)</pre>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  There are many approaches for dealing with imbalanced data, including some where we modify the learning algorithm. These approaches are beyond the scope of this course, but some of them are reviewed in this
+  <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=5128907&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F69%2F5173046%2F05128907.pdf%3Farnumber%3D5128907">
+   paper
+  </a>
+  . For this assignment, we use the simplest possible approach, where we subsample the overly represented class to get a more balanced dataset. In general, and especially when the data is highly imbalanced, we recommend using more advanced methods.
+ </p>
+ <h3 level="3">
+  Transform categorical data into binary features
+ </h3>
+ <p>
+  Just like the previous assignment, we will implement
+  <strong>
+   binary decision trees
+  </strong>
+  . Since all of our features are currently categorical features, we want to turn them into binary features. Here is a reminder of what one-hot encoding is.
+ </p>
+ <p>
+  For instance, the
+  <strong>
+   home_ownership
+  </strong>
+  feature represents the home ownership status of the loanee, which is either own, mortgage or rent. For example, if a data point has the feature
+ </p>
+ <pre>   {'home_ownership': 'RENT'}</pre>
+ <p>
+  we want to turn this into three features:
+ </p>
+ <pre> { 
+   'home_ownership = OWN'      : 0, 
+   'home_ownership = MORTGAGE' : 0, 
+   'home_ownership = RENT'     : 1
+ }</pre>
+ <p>
+  5. This technique of turning categorical variables into binary variables is called one-hot encoding. Using the software of your choice, perform one-hot encoding on the four features described above.
+  <strong>
+   You should now have 25 binary features.
+  </strong>
+ </p>
+ <h3 level="3">
+  Train-validation split
+ </h3>
+ <p>
+  6. Split the data into a train-validation split with 80% of the data in the training set and 20% of the data in the validation set. Call these datasets
+  <strong>
+   train_data
+  </strong>
+  and
+  <strong>
+   validation
+  </strong>
+  <strong>
+   _data
+  </strong>
+  , respectively. Using SFrame, this would look like:
+ </p>
+ <pre>train_data, validation_data = loans_data.random_split(.8, seed=1)</pre>
+ <p>
+  (with
+  <strong>
+   seed=1
+  </strong>
+  to ensure people get the same results.)
+ </p>
+ <h3 level="3">
+  Early stopping methods for decision trees
+ </h3>
+ <p>
+  In this section, we will extend the
+  <strong>
+   binary tree implementation
+  </strong>
+  from the previous assignment in order to handle some early stopping conditions. Recall the 3 early stopping methods that were discussed in lecture:
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Reached a
+    <strong>
+     maximum depth
+    </strong>
+    . (set by parameter
+    <em>
+     max_depth
+    </em>
+    ).
+   </p>
+  </li>
+  <li>
+   <p>
+    Reached a
+    <strong>
+     minimum node size
+    </strong>
+    . (set by parameter
+    <em>
+     min_node_size
+    </em>
+    ).
+   </p>
+  </li>
+  <li>
+   <p>
+    Don't split if the
+    <strong>
+     gain in error reduction
+    </strong>
+    is too small. (set by parameter
+    <em>
+     min_error_reduction
+    </em>
+    ).
+   </p>
+  </li>
+ </ol>
+ <p>
+  For the rest of this assignment, we will refer to these three as
+  <strong>
+   early stopping conditions 1, 2, and 3
+  </strong>
+  .
+ </p>
+ <h3 level="3">
+  Early stopping condition 1: Maximum depth
+ </h3>
+ <p>
+  Recall that we already implemented the maximum depth stopping condition in the previous assignment. In this assignment, we will experiment with this condition a bit more and also write code to implement the 2nd and 3rd early stopping conditions.
+ </p>
+ <p>
+  We will be reusing code from the previous assignment and then building upon this. We will
+  <strong>
+   alert you
+  </strong>
+  when you reach a function that was part of the previous assignment so that you can simply copy and past your previous code.
+ </p>
+ <h3 level="3">
+  Early stopping condition 2: Minimum node size
+ </h3>
+ <p>
+  The function
+  <strong>
+   reached_minimum_node_size
+  </strong>
+  takes 2 arguments:
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    The data (from a node)
+   </p>
+  </li>
+  <li>
+   <p>
+    The minimum number of data points that a node is allowed to split on,
+    <em>
+     min_node_size
+    </em>
+    .
+   </p>
+  </li>
+ </ol>
+ <p>
+  7. This function simply calculates whether the number of data points at a given node is less than or equal to the specified minimum node size. This function will be used to detect this early stopping condition in the
+  <strong>
+   decision_tree_create
+  </strong>
+  function. Your code should be analogous to
+ </p>
+ <pre>def reached_minimum_node_size(data, min_node_size):
+    # Return True if the number of data points is less than or equal to the minimum node size.
+    ## YOUR CODE HERE</pre>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Given an intermediate node with 6 safe loans and 3 risky loans, if the min_node_size parameter is 10, what should the tree learning algorithm do next?
+ </p>
+ <h3 level="3">
+  Early stopping condition 3: Minimum gain in error reduction
+ </h3>
+ <p>
+  The function
+  <strong>
+   error_reduction
+  </strong>
+  takes 2 arguments:
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    The error
+    <strong>
+     before
+    </strong>
+    a split,
+    <em>
+     error_before_split
+    </em>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    The error
+    <strong>
+     after
+    </strong>
+    a split,
+    <em>
+     error_after_split
+    </em>
+    .
+   </p>
+  </li>
+ </ol>
+ <p>
+  8. This function computes the gain in error reduction, i.e., the difference between the error before the split and that after the split. This function will be used to detect this early stopping condition in the
+  <strong>
+   decision_tree_create
+  </strong>
+  function. Your code should be analogous to
+ </p>
+ <pre>def error_reduction(error_before_split, error_after_split):
+    # Return the error before the split minus the error after the split.
+    ## YOUR CODE HERE</pre>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Assume an intermediate node has 6 safe loans and 3 risky loans. For each of 4 possible features to split on, the error reduction is 0.0, 0.05, 0.1, and 0.14, respectively. If the
+  <strong>
+   minimum gain in error reduction
+  </strong>
+  parameter is set to 0.2, what should the tree learning algorithm do next?
+ </p>
+ <h3 level="3">
+  Grabbing binary decision tree helper functions from past assignment
+ </h3>
+ <p>
+  9. Recall from the previous assignment that we wrote a function
+  <strong>
+   intermediate_node_num_mistakes
+  </strong>
+  that calculates the number of
+  <strong>
+   misclassified examples
+  </strong>
+  when predicting the
+  <strong>
+   majority class
+  </strong>
+  . This is used to help determine which feature is best to split on at a given node of the tree.
+  <strong>
+   Use your code from the previous assignment. It should be analogous to
+  </strong>
+ </p>
+ <pre>def intermediate_node_num_mistakes(labels_in_node):
+    # Corner case: If labels_in_node is empty, return 0
+    if len(labels_in_node) == 0:
+        return 0
+    
+    # Count the number of 1's (safe loans)
+    ## YOUR CODE HERE
+    
+    # Count the number of -1's (risky loans)
+    ## YOUR CODE HERE
+                
+    # Return the number of mistakes that the majority classifier makes.
+    ## YOUR CODE HERE</pre>
+ <p>
+  10. We then wrote a function
+  <strong>
+   best_splitting_feature
+  </strong>
+  that finds the best feature to split on given the data and a list of features to consider.
+  <strong>
+   Use your code from the previous assignment. It should be analogous to
+  </strong>
+ </p>
+ <pre>def best_splitting_feature(data, features, target):
+    
+    target_values = data[target]
+    best_feature = None # Keep track of the best feature 
+    best_error = 10     # Keep track of the best error so far 
+    # Note: Since error is always &lt;= 1, we should intialize it with something larger than 1.
+
+    # Convert to float to make sure error gets computed correctly.
+    num_data_points = float(len(data))  
+    
+    # Loop through each feature to consider splitting on that feature
+    for feature in features:
+        
+        # The left split will have all data points where the feature value is 0
+        left_split = data[data[feature] == 0]
+        
+        # The right split will have all data points where the feature value is 1
+        ## YOUR CODE HERE
+        right_split =    
+            
+        # Calculate the number of misclassified examples in the left split.
+        # Remember that we implemented a function for this! (It was called intermediate_node_num_mistakes)
+        # YOUR CODE HERE
+        left_mistakes =             
+
+        # Calculate the number of misclassified examples in the right split.
+        ## YOUR CODE HERE
+        right_mistakes = 
+            
+        # Compute the classification error of this split.
+        # Error = (# of mistakes (left) + # of mistakes (right)) / (# of data points)
+        ## YOUR CODE HERE
+        error = 
+
+        # If this is the best error we have found so far, store the feature as best_feature and the error as best_error
+        ## YOUR CODE HERE
+        if error &lt; best_error:
+            
+    
+    return best_feature # Return the best feature we found</pre>
+ <p>
+  11. Finally, recall the function
+  <strong>
+   create_leaf
+  </strong>
+  from the previous assignment, which creates a leaf node given a set of target values.
+  <strong>
+   Use your code from the previous assignment. It should be analogous to
+  </strong>
+ </p>
+ <pre>def create_leaf(target_values):
+    
+    # Create a leaf node
+    leaf = {'splitting_feature' : None,
+            'left' : None,
+            'right' : None,
+            'is_leaf':     }   ## YOUR CODE HERE
+    
+    # Count the number of data points that are +1 and -1 in this node.
+    num_ones = len(target_values[target_values == +1])
+    num_minus_ones = len(target_values[target_values == -1])
+    
+    # For the leaf node, set the prediction to be the majority class.
+    # Store the predicted class (1 or -1) in leaf['prediction']
+    if num_ones &gt; num_minus_ones:
+        leaf['prediction'] =          ## YOUR CODE HERE
+    else:
+        leaf['prediction'] =          ## YOUR CODE HERE
+        
+    # Return the leaf node        
+    return leaf </pre>
+ <h3 level="3">
+  Incorporating new early stopping conditions in binary decision tree implementation
+ </h3>
+ <p>
+  12. Now, you will implement a function that builds a decision tree handling the three early stopping conditions described in this assignment. In particular, you will write code to detect early stopping conditions 2 and 3. You implemented above the functions needed to detect these conditions. The 1st early stopping condition,
+  <strong>
+   max_depth
+  </strong>
+  , was implemented in the previous assignment and you will not need to reimplement this. In addition to these early stopping conditions, the typical stopping conditions of having no mistakes or no more features to split on (which we denote by "stopping conditions" 1 and 2) are also included as in the previous assignment.
+ </p>
+ <p>
+  <strong>
+   Implementing early stopping condition 2: minimum node size:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Step 1:
+    </strong>
+    Use the function
+    <strong>
+     reached_minimum_node_size
+    </strong>
+    that you implemented earlier to write an if condition to detect whether we have hit the base case, i.e., the node does not have enough data points and should be turned into a leaf. Don't forget to use the
+    <em>
+     min_node_size
+    </em>
+    argument.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Step 2:
+    </strong>
+    Return a leaf. This line of code should be the same as the other (pre-implemented) stopping conditions.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Implementing early stopping condition 3: minimum error reduction:
+  </strong>
+ </p>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  This has to come after finding the best splitting feature so we can calculate the error after splitting in order to calculate the error reduction. Recall that classification error is defined as:
+ </p>
+ <p hasmath="true">
+  $$\mbox{classification error} = \dfrac{\mbox{# mistakes}}{\mbox{# total examples}}$$
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Step 1: Calculate the
+    <strong>
+     classification error before splitting
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Step 2: Calculate the
+    <strong>
+     classification error after splitting
+    </strong>
+    . This requires calculating the number of mistakes in the left and right splits, and then dividing by the total number of examples.
+   </p>
+  </li>
+  <li>
+   <p>
+    Step 3: Use the function
+    <strong>
+     error_reduction
+    </strong>
+    to that you implemented earlier to write an if condition to detect whether the reduction in error is less than the constant provided (
+    <em>
+     min_error_reduction
+    </em>
+    ). Don't forget to use that argument.
+   </p>
+  </li>
+  <li>
+   <p>
+    Step 4: Return a leaf. This line of code should be the same as the other (pre-implemented) stopping conditions.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Your code should be analogous to
+ </p>
+ <pre>def decision_tree_create(data, features, target, current_depth = 0, 
+                         max_depth = 10, min_node_size=1, 
+                         min_error_reduction=0.0):
+    
+    remaining_features = features[:] # Make a copy of the features.
+    
+    target_values = data[target]
+    print "--------------------------------------------------------------------"
+    print "Subtree, depth = %s (%s data points)." % (current_depth, len(target_values))
+    
+    
+    # Stopping condition 1: All nodes are of the same type.
+    if intermediate_node_num_mistakes(target_values) == 0:
+        print "Stopping condition 1 reached. All data points have the same target value."                
+        return create_leaf(target_values)
+    
+    # Stopping condition 2: No more features to split on.
+    if remaining_features == []:
+        print "Stopping condition 2 reached. No remaining features."                
+        return create_leaf(target_values)    
+    
+    # Early stopping condition 1: Reached max depth limit.
+    if current_depth &gt;= max_depth:
+        print "Early stopping condition 1 reached. Reached maximum depth."
+        return create_leaf(target_values)
+    
+    # Early stopping condition 2: Reached the minimum node size.
+    # If the number of data points is less than or equal to the minimum size, return a leaf.
+    if           ## YOUR CODE HERE 
+        print "Early stopping condition 2 reached. Reached minimum node size."
+        return   ## YOUR CODE HERE
+    
+    # Find the best splitting feature
+    splitting_feature = best_splitting_feature(data, features, target)
+    
+    # Split on the best feature that we found. 
+    left_split = data[data[splitting_feature] == 0]
+    right_split = data[data[splitting_feature] == 1]
+    
+    # Early stopping condition 3: Minimum error reduction
+    # Calculate the error before splitting (number of misclassified examples 
+    # divided by the total number of examples)
+    error_before_split = intermediate_node_num_mistakes(target_values) / float(len(data))
+    
+    # Calculate the error after splitting (number of misclassified examples 
+    # in both groups divided by the total number of examples)
+    left_mistakes =    ## YOUR CODE HERE
+    right_mistakes =   ## YOUR CODE HERE
+    error_after_split = (left_mistakes + right_mistakes) / float(len(data))
+    
+    # If the error reduction is LESS THAN OR EQUAL TO min_error_reduction, return a leaf.
+    if         ## YOUR CODE HERE
+        print "Early stopping condition 3 reached. Minimum error reduction."
+        return   ## YOUR CODE HERE 
+    
+    
+    remaining_features.remove(splitting_feature)
+    print "Split on feature %s. (%s, %s)" % (\
+                      splitting_feature, len(left_split), len(right_split))
+    
+    
+    # Repeat (recurse) on left and right subtrees
+    left_tree = decision_tree_create(left_split, remaining_features, target, 
+                                     current_depth + 1, max_depth, min_node_size, min_error_reduction)        
+    
+    ## YOUR CODE HERE
+    right_tree = 
+    
+    
+    return {'is_leaf'          : False, 
+            'prediction'       : None,
+            'splitting_feature': splitting_feature,
+            'left'             : left_tree, 
+            'right'            : right_tree}</pre>
+ <h3 level="3">
+  Build a tree!
+ </h3>
+ <p>
+  13. Now that your code is working, train a tree model on the
+  <strong>
+   train_data
+  </strong>
+  with
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     max_depth
+    </em>
+    = 6
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     min_node_size
+    </em>
+    = 100,
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     min_error_reduction
+    </em>
+    = 0.0
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Warning
+  </strong>
+  : This code block may take a minute to learn. Call this model
+  <strong>
+   my_decision_tree_new
+  </strong>
+  . Your code should be analogous to
+ </p>
+ <pre>my_decision_tree_new = decision_tree_create(train_data, features, 'safe_loans', max_depth = 6, 
+                                min_node_size = 100, min_error_reduction=0.0)</pre>
+ <p>
+  14. Let's now train a tree model
+  <strong>
+   ignoring early stopping conditions 2 and 3
+  </strong>
+  so that we get the
+  <strong>
+   same tree
+  </strong>
+  as in the previous assignment. To ignore these conditions, we set
+  <em>
+   min_node_size
+  </em>
+  =0 and
+  <em>
+   min_error_reduction
+  </em>
+  =-1 (a negative value). Call this model
+  <strong>
+   my_decision_tree_old
+  </strong>
+  . Your code should be analogous to
+ </p>
+ <pre>my_decision_tree_old = decision_tree_create(train_data, features, 'safe_loans', max_depth = 6,                                 min_node_size = 0, min_error_reduction=-1)</pre>
+ <h3 level="3">
+  Making predictions
+ </h3>
+ <p>
+  15. Recall that in the previous assignment you implemented a function classify to classify a new point x using a given tree. We will need that function here.
+  <strong>
+   Use your code from the previous assignment. It should be analogous to
+  </strong>
+ </p>
+ <pre>def classify(tree, x, annotate = False):
+       # if the node is a leaf node.
+    if tree['is_leaf']:
+        if annotate:
+             print "At leaf, predicting %s" % tree['prediction']
+        return tree['prediction']
+     else:
+        # split on feature.
+        split_feature_value = x[tree['splitting_feature']]
+        if annotate:
+             print "Split on %s = %s" % (tree['splitting_feature'], split_feature_value)
+        if split_feature_value == 0:
+            return classify(tree['left'], x, annotate)
+        else:
+               ### YOUR CODE HERE</pre>
+ <p>
+  16. Now, let's consider the first example of the validation set and see what the
+  <strong>
+   my_decision_tree_new
+  </strong>
+  model predicts for this data point. Your code should be analogous to
+ </p>
+ <pre>print validation_set[0]
+print 'Predicted class: %s ' % classify(my_decision_tree_new, validation_set[0])
+</pre>
+ <p>
+  17. Let's add some annotations to our prediction to see what the prediction path was that lead to this predicted class:
+ </p>
+ <pre>classify(my_decision_tree_new, validation_set[0], annotate = True)</pre>
+ <p>
+  18. Let's now recall the prediction path for the decision tree learned in the previous assignment, which we recreated here as my_decision_tree_old.
+ </p>
+ <pre>classify(my_decision_tree_old, validation_set[0], annotate = True)</pre>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : For
+  <strong>
+   my_decision_tree_new
+  </strong>
+  trained with
+  <em>
+   max_depth
+  </em>
+  = 6,
+  <em>
+   min_node_size
+  </em>
+  = 100,
+  <em>
+   min_error_reduction
+  </em>
+  =0.0, is the prediction path for validation_set[0] shorter, longer, or the same as for
+  <strong>
+   my_decision_tree_old
+  </strong>
+  that ignored the early stopping conditions 2 and 3?
+ </p>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : For
+  <strong>
+   my_decision_tree_new
+  </strong>
+  trained with
+  <em>
+   max_depth
+  </em>
+  = 6,
+  <em>
+   min_node_size
+  </em>
+  = 100,
+  <em>
+   min_error_reduction
+  </em>
+  =0.0, is the prediction path for any point always shorter, always longer, always the same, shorter or the same, or longer or the same as for
+  <strong>
+   my_decision_tree_old
+  </strong>
+  that ignored the early stopping conditions 2 and 3?
+ </p>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : For a tree trained on
+  <strong>
+   any
+  </strong>
+  dataset using
+  <em>
+   max_depth
+  </em>
+  = 6,
+  <em>
+   min_node_size
+  </em>
+  = 100,
+  <em>
+   min_error_reduction
+  </em>
+  =0.0, what is the maximum number of splits encountered while making a single prediction?
+ </p>
+ <h3 level="3">
+  Evaluating the model
+ </h3>
+ <p>
+  19. Now let us evaluate the model that we have trained. You implemented this evaluation in the function
+  <strong>
+   evaluate_classification_error
+  </strong>
+  from the previous assignment.
+  <strong>
+   Use your code from the previous assignment. It should be analogous to
+  </strong>
+ </p>
+ <pre>def evaluate_classification_error(tree, data):
+    # Apply classify(tree, x) to each row in your data
+    prediction = data.apply(lambda x: classify(tree, x))
+    
+    # Once you've made the prediction, calculate the classification error
+    ## YOUR CODE HERE</pre>
+ <p>
+  20. Now, let's use this function to evaluate the classification error of
+  <strong>
+   my_decision_tree_new
+  </strong>
+  on the
+  <strong>
+   validation_set
+  </strong>
+  . Your code should be analogous to
+ </p>
+ <pre>evaluate_classification_error(my_decision_tree_new, validation_set)</pre>
+ <p>
+  21. Now, evaluate the validation error using
+  <strong>
+   my_decision_tree_old
+  </strong>
+  .
+ </p>
+ <pre>evaluate_classification_error(my_decision_tree_old, validation_set)</pre>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Is the validation error of the new decision tree (using early stopping conditions 2 and 3) lower than, higher than, or the same as that of the old decision tree from the previous assignment?
+ </p>
+ <h3 level="3">
+  Exploring the effect of
+  <em>
+   max_depth
+  </em>
+ </h3>
+ <p>
+  We will compare three models trained with different values of the stopping criterion. We intentionally picked models at the extreme ends (
+  <strong>
+   too small
+  </strong>
+  ,
+  <strong>
+   just right
+  </strong>
+  , and
+  <strong>
+   too large
+  </strong>
+  ).
+ </p>
+ <p>
+  22. Train three models with these parameters:
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    <strong>
+     model_1
+    </strong>
+    :
+    <em>
+     max_depth
+    </em>
+    = 2 (too small)
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     model_2
+    </strong>
+    :
+    <em>
+     max_depth
+    </em>
+    = 6 (just right)
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     model_3
+    </strong>
+    :
+    <em>
+     max_depth
+    </em>
+    = 14 (may be too large)
+   </p>
+  </li>
+ </ol>
+ <p>
+  For each of these three, set
+  <em>
+   min_node_size
+  </em>
+  = 0 and
+  <em>
+   min_error_reduction
+  </em>
+  = -1. Make sure to call the models
+  <strong>
+   model_1, model_2,
+  </strong>
+  and
+  <strong>
+   model_3
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  Each tree can take up to a few minutes to train. In particular,
+  <strong>
+   model_3
+  </strong>
+  will probably take the longest to train.
+ </p>
+ <p>
+  23. Let us evaluate the models on the
+  <strong>
+   train
+  </strong>
+  and
+  <strong>
+   validation
+  </strong>
+  data. Let us start by evaluating the classification error on the training data. Your code should be analogous to:
+ </p>
+ <pre>print "Training data, classification error (model 1):", evaluate_classification_error(model_1, train_data)
+print "Training data, classification error (model 2):", evaluate_classification_error(model_2, train_data)
+print "Training data, classification error (model 3):", evaluate_classification_error(model_3, train_data)</pre>
+ <p>
+  24. Now evaluate the classification error on the validation data.
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Which tree has the smallest error on the validation data?
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Does the tree with the smallest error in the training data also have the smallest error in the validation data?
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Is it always true that the tree with the lowest classification error on the
+  <strong>
+   training
+  </strong>
+  set will result in the lowest classification error in the
+  <strong>
+   validation
+  </strong>
+  set?
+ </p>
+ <h3 level="3">
+  Measuring the complexity of the tree
+ </h3>
+ <p>
+  Recall in the lecture that we talked about deeper trees being more complex. We will measure the complexity of the tree as
+ </p>
+ <pre>  complexity(T) = number of leaves in the tree T</pre>
+ <p>
+  25. Here, we provide a function count_leaves that counts the number of leaves in a tree. Using this implementation, compute the number of nodes in model_1, model_2, and model_3. This code is in Python. If you are using another language, make sure your code is analogous to
+ </p>
+ <pre>def count_leaves(tree):
+    if tree['is_leaf']:
+        return 1
+    return count_leaves(tree['left']) + count_leaves(tree['right'])</pre>
+ <p>
+  26. Using the function
+  <strong>
+   count_leaves
+  </strong>
+  , compute the number of nodes in
+  <strong>
+   model_1
+  </strong>
+  ,
+  <strong>
+   model_2
+  </strong>
+  , and
+  <strong>
+   model_3
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Which tree has the largest complexity?
+ </p>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Is it always true that the most complex tree will result in the lowest classification error in the
+  <strong>
+   validation_set
+  </strong>
+  ?
+ </p>
+ <h3 level="3">
+  Exploring the effect of
+  <em>
+   min_error
+  </em>
+ </h3>
+ <p>
+  We will compare three models trained with different values of the stopping criterion. We intentionally picked models at the extreme ends (
+  <strong>
+   negative
+  </strong>
+  ,
+  <strong>
+   just right
+  </strong>
+  , and
+  <strong>
+   too positive
+  </strong>
+  ).
+ </p>
+ <p>
+  27. Train three models with these parameters:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     model_4
+    </strong>
+    :
+    <em>
+     min_error_reduction
+    </em>
+    = -1 (ignoring this early stopping condition)
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     model_5
+    </strong>
+    :
+    <em>
+     min_error_reduction
+    </em>
+    = 0 (just right)
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     model_6
+    </strong>
+    :
+    <em>
+     min_error_reduction
+    </em>
+    = 5 (too positive)
+   </p>
+  </li>
+ </ul>
+ <p>
+  For each of these three, we set
+  <em>
+   max_depth
+  </em>
+  = 6, and
+  <em>
+   min_node_size
+  </em>
+  = 0. Make sure to call the models
+  <strong>
+   model_4, model_5,
+  </strong>
+  and
+  <strong>
+   model_6
+  </strong>
+  .
+ </p>
+ <p>
+  Note: Each tree can take up to 30 seconds to train.
+ </p>
+ <p>
+  28. Calculate the accuracy of each model (
+  <strong>
+   model_4
+  </strong>
+  ,
+  <strong>
+   model_5
+  </strong>
+  , or
+  <strong>
+   model_6
+  </strong>
+  ) on the validation set. Your code should be analogous to
+ </p>
+ <pre>print "Validation data, classification error (model 4):", evaluate_classification_error(model_4, validation_set)
+print "Validation data, classification error (model 5):", evaluate_classification_error(model_5, validation_set)
+print "Validation data, classification error (model 6):", evaluate_classification_error(model_6, validation_set)</pre>
+ <p>
+  29. Using the
+  <strong>
+   count_leaves
+  </strong>
+  function, compute the number of leaves in each of each models in (model_4, model_5, and model_6).
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Using the complexity definition above, which model (
+  <strong>
+   model_4
+  </strong>
+  ,
+  <strong>
+   model_5
+  </strong>
+  , or
+  <strong>
+   model_6
+  </strong>
+  ) has the largest complexity? Did this match your expectation?
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  <strong>
+   model_4
+  </strong>
+  and
+  <strong>
+   model_5
+  </strong>
+  have similar classification error on the validation set but
+  <strong>
+   model_5
+  </strong>
+  has lower complexity? Should you pick
+  <strong>
+   model_5
+  </strong>
+  over
+  <strong>
+   model_4
+  </strong>
+  ?
+ </p>
+ <h3 level="3">
+  Exploring the effect of
+  <em>
+   min_node_size
+  </em>
+ </h3>
+ <p>
+  We will compare three models trained with different values of the stopping criterion. Again, intentionally picked models at the extreme ends (
+  <strong>
+   too small
+  </strong>
+  ,
+  <strong>
+   just right
+  </strong>
+  , and
+  <strong>
+   just right
+  </strong>
+  ).
+ </p>
+ <p>
+  30. Train three models with these parameters:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     model_7
+    </strong>
+    :
+    <em>
+     min_node_size
+    </em>
+    = 0 (too small)
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     model_8
+    </strong>
+    :
+    <em>
+     min_node_size
+    </em>
+    = 2000 (just right)
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     model_9
+    </strong>
+    :
+    <em>
+     min_node_size
+    </em>
+    = 50000 (too large)
+   </p>
+  </li>
+ </ul>
+ <p>
+  For each of these three, we set
+  <em>
+   max_depth
+  </em>
+  = 6, and
+  <em>
+   min_error_reduction
+  </em>
+  = -1. Make sure to call these models
+  <strong>
+   model_7, model_8,
+  </strong>
+  and
+  <strong>
+   model_9.
+  </strong>
+ </p>
+ <p>
+  Note: Each tree can take up to 30 seconds to train.
+ </p>
+ <p>
+  31. Calculate the accuracy of each model (
+  <strong>
+   model_7
+  </strong>
+  ,
+  <strong>
+   model_8
+  </strong>
+  , or
+  <strong>
+   model_9
+  </strong>
+  ) on the validation set.
+ </p>
+ <p>
+  32. Using the count_leaves function, compute the number of leaves in each of each models (
+  <strong>
+   model_7
+  </strong>
+  ,
+  <strong>
+   model_8
+  </strong>
+  , and
+  <strong>
+   model_9
+  </strong>
+  ).
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Using the results obtained in this section, which model (
+  <strong>
+   model_7
+  </strong>
+  ,
+  <strong>
+   model_8
+  </strong>
+  , or
+  <strong>
+   model_9
+  </strong>
+  ) would you choose to use?
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

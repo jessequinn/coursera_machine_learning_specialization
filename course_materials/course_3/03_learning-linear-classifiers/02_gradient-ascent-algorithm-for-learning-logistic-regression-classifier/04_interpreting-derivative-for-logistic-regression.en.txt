@@ -1,0 +1,50 @@
+[MUSIC] All right, we saw a numeric example of
+how those derivatives get computed. It's really simple computations. Now let's go back and interpret
+a little bit what the derivative means. So let's say we have a particular
+parameter that we're trying to update, w j, and we have a particular data point
+x i, want to look at its contribution and it turns out that for x i,
+h j(x i) has value one. Say that that's what happened, so what is the contribution that this data
+point has on the total derivative? So if you call this
+contribution here delta i, and I chose hj of xi t1 because then we don't have to worry too much about future value,
+we can just focus on that difference. Let's interpret that difference. So, let's first look at
+the case where yi is positive, it's a positive training example. And, our model, it's pretty sure that
+it's a positive training example. So, it says the probability that y equals
++1, it's approximately equal to one. So let's interpret what happens. So, in this case delta i is going to be equal to the difference between one, the indicator function is paused there and
+the probability here, which is approximately one, so this whole
+thing is going to be approximately zero. In other words,
+the data points are positive, the model thinks it's
+a positive data point. So that the contribution here is
+zero means don't change anything. From the perspective of this parameter,
+you shouldn't change anything. Which makes sense. You get it right. Let's see what happens if
+you get it completely wrong. So this is the second case where
+it's a positive training example but the probability y = +1 is approximately 0. We are getting this training
+example totally wrong. In this case delta i is
+the difference between the indicator, which has a value 1 and the probability here has a value 0 and
+so it's approximately 1. So delta i is really big. And so what is this imply? This implies that this data
+point wants us to increase the coefficient, w j,
+the one that we just tried to increase. It says push the derivative up, add this
+little delta that makes it more positive. And remember that if xhj
+is a positive number and is getting multiplied by a bigger coefficient
+because we just made it a little bigger, that implies that the score of hi becomes larger and
+that implies in a sense the probability that y is equal to +1 given xi and
+w increases. And that is extremely intuitive. So, if we're getting the data point really
+wrong, we get this positive delta i, which is going to increase my parameter,
+which is is going to increase my score, which makes in the next step. In the next iteration, the probability
+this data point's positive higher. So we're going the right direction. Now, let's go through this a little
+quicker, we can look at the case where yi is negative and you just get
+the same thing with flipped sign. So, for example, If yi is negative but I'm getting the prediction right,
+so this is a negative data point. We'll see that delta i
+is approximately equal to 0 which implies don't change anything. It makes sense, I've got everything right,
+why would I change anything? However, in the case where
+the data points were negative, but the prediction I've made was that there
+were positive data point, then delta i would be the difference between
+the indicator which in this case is 0, and the probability,
+which is approximately 1. So this delta i would be negative,
+would be approximately -1. Which would lead wj to decrease which would imply that the score of xi decreases and it leads to the probability of y=+1 given x i and w, to decrease. Yay. It fits the negative datapoint and we get
+it wrong, we decrease the coefficient to make that probability of
+it being positive smaller and increase the probability
+it will be negative. So cool. We've gone through a little bit of
+interpretation of how this gradient helps us push the coefficients bigger for
+positive training example. And more negative, smaller for
+negative training examples, which is exactly what we wanted for
+that score function.

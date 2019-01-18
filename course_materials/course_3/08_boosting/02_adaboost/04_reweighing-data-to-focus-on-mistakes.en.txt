@@ -1,0 +1,53 @@
+[SOUND] We started with alpha
+i's being uniform, the same for all data points, one over n, and
+now we want to change them to focus more on those difficult data points
+where we're making mistakes. So the question is where
+did f t make mistakes or what data points f t got right. If f t got a particular data point, xi right, we want to decrease
+alpha i because we got it right. But if we got xi wrong,
+then want to increase our phi so the next decision style we classify our homes in
+and does better in this particular input. Again, the AdaBoost theorem provides us
+with a slightly intimidating formula for how to update the weights out for i. But if you take a moment to interpret it,
+we'll see this one is extremely intuitive, and there's something quite nice. So let's take a quick look at it. So it says that alpha i gets
+an update depending on whether on ft gets the data point right because this is
+correct or whether ft makes a mistake. In this we'll see we're going to increase
+the weight of data points where we made mistakes and we're going to decrease
+the weight of data points we got right. So let's take a look at this. So let's take one xi and
+lets suppose that we got it correct. So, we're the top line here and
+notice that this equation depends on whatever the coefficients that
+was assigned to this classifier. So, the classifier was good. We only changed a way to more but if the classifiers was terrible we're
+going to change the weights less. So, let's say the classifier was good and
+we gave it weight 2.3. So what we're doing here,
+we're looking at the formula, we're multiplying alpha i by e
+to the -w hat t, which is 2.3. And if you take your calculator out,
+you see that this is 0.1. So, we're taking the data
+points to our right, and we multiply the weight of those data
+points, by 0.1, so dividing by 10. So what effect does that do? We're going to decrease
+the importance of this data point ff xi, yi, so this particular data point. Now let's look at a case where we
+got the data point correct but the cost that we learn is random. So, it had to wait zero just like
+we discussed a few slides ago. So it's overall weight 0.5 is weight 0. In this case we're multiplying
+the coefficient L5, but e to the minus 0. Which is = 1, What does that mean? That means that when I keep
+the importance of this data point the same, that also makes a ton of sense. So this was a classified that was
+terrible and we gave it a weight of 0, we are going to ignore it, and so since
+we are ignoring it we are not changing anything about how we rate all data points
+we are just going to keep going as if nothing's happened because nothing's
+changed on their overall assemble. Now let's look at the opposite case
+when we actually made mistakes so let's say that we got xi incorrect so
+we made a mistake. In this case,
+we're in the second line here. So if it was a good classifier
+it had the w hat t of 2.3, then we're going to multiply
+the weight by each of the power 2.3, so this is e to the 2.3, which if you do
+the math is 9.98, so approximately 10. So it's 10 times bigger. And so, what we doing is increasing the
+importance of this mistake significantly. So the next classify is going to pay much
+more attention to this particular data point because it was a mistaken one. Now finally, just very quickly,
+what happens if we make a mistake, but we have that random classifier that
+had weight 0, we didn't care about it. So the multiplication here is e0, which is again = 1 which means we keep the
+importance of this data point the same. So very good we now seen this
+cool update from AdaBoost, which makes a ton of sense increase
+the weights of data points where we made mistakes and decrease the ones we
+didn't make mistakes in simulator and we're going to use it in
+our AdaBoost algorithm. So if we update our algorithm, or we stacked it with uniform weights,
+we learned classifier f of t. We updated its, or
+computed its coefficient, w hat t. Now we can update the weights
+of the data points, alpha i. Using the simple formula from the previous
+slide which increases the weight of mistakes, decreases the weights
+of the correct classifications. [MUSIC]

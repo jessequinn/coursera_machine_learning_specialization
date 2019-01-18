@@ -1,0 +1,31 @@
+[MÚSICA] Hemos visto los aspectos básicos de los
+árboles de decisión, los cuales son un tipo clasificador que pueden ser usados en un
+rango de diferentes tipos de datos. Sin embargo, los árboles de decisión
+son muy propensos al sobreajuste. Entonces, vamos a profundizar un poco en este
+módulo en cómo podemos evitar el sobreajuste en el contexto de árboles de decisión. Y como recordatorio, vamos a seguir
+utilizando como ejemplo nuestro sistema de evaluación de solicitud de préstamo,
+donde los datos de préstamos llegarán y vamos a ser capaces de predecir si
+el préstamo es seguro o arriesgado. Y así, esa es la toma de decisión
+que estamos intentando hacer. Y de esa solicitud de préstamo,
+vamos a aprender el árbol de decisión que nos permite
+recorrer el árbol y realizar la predicción de si un
+préstamo en particular es seguro o arriesgado. Y así, la entrada será xi, y la salida va a ser ŷi 
+que vamos a predecir de los datos. Primero, hagamos una revisión
+del sobreajuste y luego veamos en cómo ocurre en árboles de decisión,
+lo cual, anticipo, va a ser realmente malo. Como recordamos, el sobreajuste es el hecho
+que separa el error de entrenamiento, el cual tiende a cero a medida incrementamos
+la complejidad de nuestro modelo, y el error verdadero, el cual disminuye con la complejidad
+del modelo, pero luego se incrementa. Más específicamente, el sobreajuste
+sucede cuando acabamos con un modelo ŵ, que tiene error de entrenamiento bajo,
+pero error verdadero alto. Pero había otro modelo, o 
+parámetros de modelo, w* , que tenía tal vez error de entrenamiento mas alto,
+pero definitivamente error verdadero mas pequeño. Y ése es el problema del sobreajuste. Y cuando de alguna manera, elegimos un modelo
+con menor complejidad para evitar ese tipo de sobreajuste. Vimos este efecto, en regresión logística, 
+muy pronunciadamente a medida que incrementamos el grado del polinomio,
+obteníamos una frontera de decisión más y más irregular, donde vimos sobreajuste,
+lo cual era un mal sobreajuste aquí Pero el sobreajuste para polinomios de 
+grado seis y luego polinomios de grado 20 para las características,
+este es un término técnico que uso. Creo  que utilizo frontera de decisión "loca",
+pero llamémosle sobreajuste "loco". Algo realmente malo. Y por eso, estamos intentando
+evitar modelos excesivamente complejos. Y como veremos con árboles de decisión, los modelos pueden hacerse
+demasiado complejos muy rapidamente. [MÚSICA]

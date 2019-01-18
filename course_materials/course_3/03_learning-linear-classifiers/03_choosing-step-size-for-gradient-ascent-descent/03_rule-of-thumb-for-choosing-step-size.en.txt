@@ -1,0 +1,37 @@
+[MUSIC] So, here's the rule of
+thumb of how you can pick the learning step size eta when
+you're doing graded descent. Unfortunately, there's some theory
+behind things they might want to do, but it's kind of hard to
+apply those in practice. Here's the most practical
+thing you can do. You try several values of the parameter,
+exponentially spaced between each other. Like 10 to the minus 4, to 10 to
+the minus 6, that's exponentially spaced. And the goal is plot the learning curves
+to find an eta that is too small. So the curve is moving too slowly,
+too slowly, too slowly. And then you find an eta that is too
+large, these wild oscillations and it's diverging even. And now we have a big value and
+a small value, and then, you can try values in between, again, exponentially space. Spaced and pick one that leads to the best training likelihood. And that's how you do it. Pretty simple heuristic, but
+it's basically something that you will have to do if you're
+implementing this from scratch. Now note that so
+far we've looked at only fixed step size. Every iteration we used
+the same step size, like ten to the minus five, everywhere. Here's an advanced step. In theory and often in practice, it's good to pick step sizes
+that decrease over iterations. So in the beginning, you take really big steps because
+you're very far away from the optimum. But towards the end they
+take much smaller steps, smaller steps to just hone
+in to that perfect value. So if you imagine you
+take the contour plots, in the beginning you're taking
+big steps like this, but to be able to get to the optimum, you
+take very little steps towards the end. And that's how you kind of hone
+in to the optimal here w hat. So what is that equation for
+the step size look like? There may be various
+ways of defining them. I'm just going to give you one pretty
+practical example, which often works well. So you pick a step size that depends
+on the iterations of iteration t. You're going to use eta t. And the way you're going to
+write it is by writing eta 0. Some constant that you tune using the same
+kinds of ideas that are described above to find the minimum, the maximum,
+the range in between. And then you divide that
+by the iteration number t. That's it. So iteration one use eta 0. Iteration two use eta 0 over 2. Iteration three it is 0 over 3,
+over 4, over 5, and so on. And that way the step size keeps getting
+smaller and smaller and smaller. So this is an advanced step for the
+applications that we're going to discuss in this module, constant step
+size will do just fine for you. But, for kind of more advanced settings,
+you might use a decreasing step size. [MUSIC]

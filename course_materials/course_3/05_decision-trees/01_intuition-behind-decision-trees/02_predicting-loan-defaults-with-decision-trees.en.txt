@@ -1,0 +1,53 @@
+[MUSIC] Now that we've taken a deep
+dive into a linear classifier, namely logistic regression, let's jump
+into a different kind of classifier. One called a decision tree,
+which is extremely useful in practice, especially when it combines
+with something called boosting, which you're going to see
+in an upcoming module. In this module, we're going to jump in
+to another really interesting real world example, which falls more into
+the financial data modelling part. It turns out that decision
+trees are extremely useful and used a lot in the finance industry, so
+we're going to jump into something in that domain to give you a little bit more
+experience to that kind of data, in particular when you look at
+evaluating loan applications. So lets say, I want to buy a house. I'm excited,
+I want to buy this particular house. To buy it, I don't have all the money,
+I need to take a loan from the bank. So the bank is going to look at some
+properties of my history, like my credit, what has it been like in the past? How much money I make? How long my loan is of which time I'm
+willing to spend before I pay it off? And other personal information about me,
+like my gender, age and so on. And he's going to take
+that information and try to make a prediction as to whether
+loaning me money is a risky thing or not. So, let me give you a little bit
+more details on the kinds of things that people measure when they try
+to make loan application decisions. So typically, you look at credit history, which looks at all the other loans I've
+taken in the past and my credit cards and all that and
+have I paid those off on time. Then we look at my income,
+how much money do I make today? And we'll also look at what's called the
+term of the loan, which may be 3 years, 5 years, 15 years, 30 years, which is the period of time
+I'm going to take to pay back that loan. So, let's take a three-year loan
+means I pay back within three years. And finally, a look at information about
+the particular individual like my age, whether married and so on. So, given this information, I want to make a prediction as to whether
+loaning me money is a risky thing or not. So, a loan application system
+might look something like this. You get as input all the loan information
+that fill up a bunch of forms. It goes through a system if we
+have machine learning system or maybe minor created one. Hopefully, machine loan system, which is going to make a prediction
+whether this loan is safe. It's okay to make that loan or
+whether it's risky. So, some applications is going to be
+classified as safe while others will come in and be classified as risky. And the bank may be unevenly making
+loans to risky applications, but often to save funds and we can view this loan
+application as a classification problem. I'm given this input information
+from my form and let's called the x, all information about me and my loan. I pushed it through the classifier
+modelm which going to make a decision. Let say y plus 1, y height equal plus 1,
+if it's a safe loan and y height equals minus 1
+if it's a risky loan. In this module, we're going to use what
+is called decision tress classifier. It might look a little bit like this,
+you start the application and look at some particular feature
+of the particular input. Let's say, what has my credit been like? If my credit has been excellent, I just make the loan without looking
+at any other information about me. But if my credit has been only fair,
+I look at the term of the loan. If the term is short,
+maybe it's too risky. But if the loan is long,
+maybe I'll take enough time to pay it off. Now if my credit is poor,
+I don't stop there. I look further where my income is even
+if my credit didn't pass being poor by making a bunch of money,
+maybe I'm willing to make a long-term loan to somebody with poor credit
+that makes a bunch of money. But if you don't make that much money and
+your credit is poor, then you're out of luck. No loans for you. [MUSIC]

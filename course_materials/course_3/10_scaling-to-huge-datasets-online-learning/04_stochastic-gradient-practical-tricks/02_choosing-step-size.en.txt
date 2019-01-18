@@ -1,0 +1,39 @@
+[MUSIC] The second question on stochastic gradient
+is how do you pick the step size eta. And this is a significant issue
+just like it is with gradient. Both of them, it's kind of annoying, it's a pain to figure out to
+pick that coefficient eta. But it turns out that because of the
+oscillations to the stochastic gradient, picking eta can be even more annoying,
+much more annoying. So, if we go back to our data set and
+when we've been using it, I've shown you this blue curve many times. This was the best eta that I could find,
+the best step size. Now, if I were to pick smaller step sizes. So, smaller ETAs, it will behave kind of
+like stocha elect regular gradient. It will be slower to converge and
+you see less oscillations. But, it will eventually get there,
+but I mean, much slower. So, we worry about that a bit. On the other hand,
+instead of using the best step size, we try to use a larger step
+size because we thought, what could make more
+progress more quickly? You'll see this crazy oscillations and
+the oscillations are much worse than you observe with gradient,
+and I showed you gradient. So, you have to be really
+careful to pick a too large things can behave
+extremely erratically. And in fact, if you picked step size very, very large,
+you can end up with behaviors like this. So, this black line here
+was an eta that was way too large, that's a technical
+term here that we'd like to use. And in this case, the solution is not even close to anything we got even with etas of oscillations that we have
+showed you in the previous slide. It's a huge gap and so, etas too large leads to really bad
+behavior in stochastic gradient. The rule of thumb that we described for
+gradient, for picking eta is basically the same as the one for
+picking step size for stochastic gradient. The same as for gradient, but unfortunately it
+requires much more trial and error. So, it's even more annoying, so you might
+spent a lot of time in the trial and error even though it's a hundred times faster
+than converge, it's possible to spend a hundred times more effort trying to find
+the right step size, just be prepared. But, we just try several values
+exponentially spaced from each other. And try to find somewhere between
+an eta that's too small and an eta that is too big, and
+then find one that's just right. And, I mentioned this in the gradient
+section, but for stochastic gradients, even more important, for those who end
+up exploring this further, there's an advanced step where you would make
+the step size decrease over iterations. And so, for example, you might have an eta
+that depends on what iteration you're in and often you set it to
+something like some constant here eta zero divided by
+the iteration number t. Iteration number, and
+this approach tends to reduce noise and make things behave quite a bit better. [MUSIC]

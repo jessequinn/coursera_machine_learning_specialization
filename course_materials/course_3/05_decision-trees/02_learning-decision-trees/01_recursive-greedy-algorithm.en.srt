@@ -1,0 +1,306 @@
+1
+00:00:00,000 --> 00:00:04,107
+[MUSIC]
+
+2
+00:00:04,107 --> 00:00:08,826
+We'll start with a high level outline
+of the learning algorithm for decision
+
+3
+00:00:08,826 --> 00:00:13,410
+trees and then we'll dig into some core
+details in order to make it happen.
+
+4
+00:00:14,530 --> 00:00:19,517
+So typically, we'll start with an empty
+tree where you have some data,
+
+5
+00:00:19,517 --> 00:00:23,296
+some loans labeled as safe,
+others labeled as risky.
+
+6
+00:00:23,296 --> 00:00:25,259
+And this node in the tree,
+
+7
+00:00:25,259 --> 00:00:30,260
+which is called the root node contains
+the whole data set and what we
+
+8
+00:00:30,260 --> 00:00:36,390
+show here is a histogram of the number
+of vales that have safe or risky loans.
+
+9
+00:00:36,390 --> 00:00:41,129
+So this can give you all the data, then
+I'm going to pick a feature to split on,
+
+10
+00:00:41,129 --> 00:00:42,180
+split the tree.
+
+11
+00:00:42,180 --> 00:00:45,232
+So for example here,
+I'm splitting the tree on credit and
+
+12
+00:00:45,232 --> 00:00:47,362
+credit can take three possible values.
+
+13
+00:00:47,362 --> 00:00:52,111
+So, I can take the subset of data that
+corresponds to excellent credit and
+
+14
+00:00:52,111 --> 00:00:55,110
+just feed it to here
+the left side of that tree.
+
+15
+00:00:56,260 --> 00:01:00,580
+I can take the subset of data that
+corresponds to fair credit value,
+
+16
+00:01:00,580 --> 00:01:02,800
+which corresponds middle
+side of the tree and
+
+17
+00:01:02,800 --> 00:01:07,660
+then poor is the subset of data
+to the right side of the tree.
+
+18
+00:01:07,660 --> 00:01:11,180
+And so as you can see there,
+there's more data points with say,
+
+19
+00:01:11,180 --> 00:01:13,940
+poor credit than there are those
+with excellent credit.
+
+20
+00:01:15,970 --> 00:01:20,690
+Now that we've assigned subsets of data
+to which one of the subsequent nodes,
+
+21
+00:01:20,690 --> 00:01:24,420
+we can visualize that data
+using histograms again.
+
+22
+00:01:24,420 --> 00:01:28,628
+So the top histogram here corresponds
+to everything all the data,
+
+23
+00:01:28,628 --> 00:01:31,558
+but the histogram on
+the branch here on the left
+
+24
+00:01:31,558 --> 00:01:35,407
+corresponds to the data points
+where credit was excellent.
+
+25
+00:01:35,407 --> 00:01:38,951
+The ones in the middle corresponds to
+data points where credit was fair and
+
+26
+00:01:38,951 --> 00:01:42,930
+the ones on the right corresponds to
+data points where credit was poor.
+
+27
+00:01:42,930 --> 00:01:49,317
+As you can see, the set where credit
+was excellent has a lot of safe loans.
+
+28
+00:01:49,317 --> 00:01:53,210
+Where the one where credit was poor
+has more risky than it has safe loans.
+
+29
+00:01:54,890 --> 00:01:58,217
+And next, we'll continue splitting
+each one of these branch,
+
+30
+00:01:58,217 --> 00:01:59,578
+each one of the datasets.
+
+31
+00:01:59,578 --> 00:02:04,584
+However, if you consider this first node,
+the node where the credit
+
+32
+00:02:04,584 --> 00:02:10,340
+was excellent you see that all of the
+examples in this node are labeled as safe.
+
+33
+00:02:10,340 --> 00:02:11,464
+These are all safe loans.
+
+34
+00:02:11,464 --> 00:02:13,509
+So, there's no point in keep on splitting.
+
+35
+00:02:13,509 --> 00:02:18,230
+We just predict that everything that
+has excellent credit is a safe loan.
+
+36
+00:02:19,330 --> 00:02:22,220
+Now for the other two,
+we need to keep on going.
+
+37
+00:02:22,220 --> 00:02:28,810
+So for example, for the loans where
+we have a credit rating of fair.
+
+38
+00:02:28,810 --> 00:02:31,190
+We're going to build the next
+tree going down from there.
+
+39
+00:02:31,190 --> 00:02:34,296
+And for those data points where
+the credit rating was poor, again,
+
+40
+00:02:34,296 --> 00:02:37,220
+we'll keep on building trees from there.
+
+41
+00:02:37,220 --> 00:02:40,880
+So, that's the recursive greedy algorithm
+that we're going to discuss and
+
+42
+00:02:40,880 --> 00:02:41,840
+build today.
+
+43
+00:02:43,630 --> 00:02:46,538
+We can now discuss at a high-level
+the greedy algorithm for
+
+44
+00:02:46,538 --> 00:02:49,461
+learning a decision tree and
+it is a very simple algorithm.
+
+45
+00:02:49,461 --> 00:02:55,426
+I start let's say, for empty tree and
+I pick a feature to split on.
+
+46
+00:02:55,426 --> 00:02:57,199
+In our case, we split on credit.
+
+47
+00:02:57,199 --> 00:03:00,474
+So we decided to say, take my data and
+split on which data points have
+
+48
+00:03:00,474 --> 00:03:05,060
+excellent credit, which ones have fair
+credit and which ones have poor credit.
+
+49
+00:03:05,060 --> 00:03:08,550
+And then for each subset of data,
+excellent, fair,
+
+50
+00:03:08,550 --> 00:03:12,280
+poor, I continue thinking
+about what to do next.
+
+51
+00:03:12,280 --> 00:03:17,079
+So I decide in the case of excellent
+credit, there was nothing else to do.
+
+52
+00:03:17,079 --> 00:03:21,086
+So I stop, but in the other two cases,
+there was more to do and
+
+53
+00:03:21,086 --> 00:03:24,020
+what I do is what's called a recursion.
+
+54
+00:03:24,020 --> 00:03:27,710
+I go back to step two, but
+only look at the subset of the data
+
+55
+00:03:27,710 --> 00:03:32,310
+that has credit fair and then only look
+at subset of data that has credit poor.
+
+56
+00:03:34,370 --> 00:03:38,080
+Now if you look at this algorithm so
+far, it sounds a little abstract, but
+
+57
+00:03:38,080 --> 00:03:41,070
+there is a few points that we
+need to make more concrete.
+
+58
+00:03:41,070 --> 00:03:44,230
+We have to decide how to pick
+the feature to split on.
+
+59
+00:03:44,230 --> 00:03:46,854
+We split on credit in our example, but
+
+60
+00:03:46,854 --> 00:03:52,032
+we could have split on something else
+like the term of the loan or my income.
+
+61
+00:03:52,032 --> 00:03:56,909
+And then since we having recursion
+here at the end, we have to figure out
+
+62
+00:03:56,909 --> 00:04:02,650
+when to stop recursion, when to not go and
+expand another node in the tree.
+
+63
+00:04:02,650 --> 00:04:07,580
+So, we'll discuss these two important
+tasks in the rest of this module.
+
+64
+00:04:07,580 --> 00:04:12,259
+[MUSIC]

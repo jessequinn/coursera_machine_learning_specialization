@@ -1,0 +1,48 @@
+[MUSIC] Next, we're going to take a few minutes to
+talk about the famous AdaBoost theorem and what it's practical implications are,
+which are extremely interesting. So, if you remember, the way that boosting
+came about is that Kearns and Valiant had this famous question, can you combine
+weak classifiers to make a stronger one? Actually, Valiant is
+a touring award winner, so really famous professor from Harvard. And Schapire, a couple of years later, came up with the idea of boosting, which
+really changed the machine learning field. And so if you look at the iterations of boosting in the x axis here,
+in the training error for our dataset, we observe a very practical effect
+that we see in a lot of boosting data. We're going to start with
+a really bad training error. So first decision stump has
+training error of 22.5%. So, not good at all. After thirty iterations,
+as we saw a little earlier, we're going to get all the data
+points right in our training data and I showed you kind of that crazy
+decision boundary for this. So we see a smooth transition where
+the classification error tends to go down. Tends to go down and the value goes
+to zero and actually stays at zero. And that's a key insight
+of the boosting theorem. So here is the famous AdaBoost Theorem
+which underlines all the choices we made in the algorithm and really has
+had a lot of impact on machine learning. Basically the theorem says under
+some technical conditions and all theorems are like this. Now if you were to be able to say some
+restrictions apply, see store for details. And so
+you say under some technical conditions, the training error of the classifier
+goes to zero, ss the number of iterations of the number and some models
+considered capital T goes to infinity. So in other words pictorially we'll
+see that we expect the training error, which is this thing here on the y axis,
+to go eventually to zero. Now that's eventually. It might oscillate a little
+bit in the middle, however, what the theorem says is that
+it tends to generally decrease, eventually become zero, usually,
+and then stick at zero. So we're going to see this high in
+the beginning, wiggle, wiggle, wiggle, but tends to go down, and then hit a certain
+value, usually zero, and sticks at zero. Now, let me just take
+a minute to talk about those technical distances starts with details. It turns out the technical condition
+is something quite important. It says that at every iteration T,
+we can find a weak learner. So a decision stump that
+has weighted error at least a little bit lower than 0.5. So it is at least better than random. That's what the theorem says. It seems like intuitively,
+it would show us by the classifier that it's better than random,
+even with the data. But, it turns out that this
+is not always possible. So, here is a counter example,
+which is a really extreme counter example, but there's other examples
+where it's not possible. So for example,
+if you have a negative point here, and you have a positive point on top of
+it, there's never going to be a decision stump that can separate the positive
+point on top of the negative point. So the conditions of boosting
+algorithm might not be satisfied, of the boosting AdaBoost theorem. However, nevertheless, boosting usually
+takes your training error to zero or somewhere quite low if the number
+of iterations go to infinity. So, we do observe that decreasing practice
+although they're are some technical conditions in theorems, so it might not go
+exactly to zero, but it can get really, really low. [MUSIC]

@@ -1,0 +1,47 @@
+[MUSIC] AdaBoost uses this slightly intimidating
+formula to figure out what w hat t should be, but it has to be pretty intuitive
+if you look at it in a bit more detail. This formula is derived from
+a famous theorem, AdaBoost theorem, which I want to mention very briefly
+towards the end of the module. But it's the formula that lets you find
+classifiers that keep getting better and better, and help boosting to
+get to the optimal solution. So, lets look at this one in a little bit
+more detail by exploring a few possible cases. So, the question is is ft good? If ft is really good, it has really low error with the training
+data that say, weighted error. So for example, if that weighted error is
+0.01, then it's a really good classifier. The question is first, lets see what
+happens to this famous middle term here when the weighted error is 0.01. So the middle term is 1-0.01/0.01, which is equal to 99. And next, to complete w hat t, we're going to take a half times
+the log of this number 99. And so
+if you do one-half times the log of 99, you're going to get 2.3. So this was an excellent classifier and
+we gave it a weight of 2.3, which is high. Now, let's see what happens if
+we output a random classifier. So as we said,
+a random classifier has weighted error of 0.5 is not something to be trusted. So if you plug this in, 1-0.5/0.5, yields the magic number 1. And if you look at a half of log of one,
+what's log of one? It's 0, so w hat t is 0. So what we learn,
+if a classifier is just random, it's not doing anything meaningful. We count it by zero. We say, you're terrible,
+we're going to ignore you and you might have friends who
+are kind of like this. They say random stuff, you never trust what they say,
+you put zero weight on their opinions. So, that's what AdaBoost is too. Now we're going to get to a really,
+really, really interesting case. Let's suppose that your classify is
+terrible, it gets 0.99 weighted error. So its getting almost everything wrong,
+it's worse than random. Let's see what happens to the term
+in the middle here of our equation. You get 1-0.99/0.99, which is equal to 0.01 and guess what happens when you
+take a half log of 0.01? You get -2.3. And when I first saw this, I thought,
+wow, this AdaBoost theorem is beautiful, but take a moment to kind of
+internalize what just happened. We had this terrible classifier. But yet, we gave it pretty high weight,
+2.3, but with a negative sign and why is that? Because a terrible, terrible classifier
+might be terrible but if we take 1-f of t. So if we do exactly the opposite of what
+it says, it's an awesome classifier. In other words, if we invert a classifier,
+we're going to do awesomely. And AdaBoost automatically does that for
+you. And so this is again,
+kind of the using the friend analogy. You might have a friend who
+always has really good opinions, but they're all always like wrong. And so, we do exactly the opposite
+of what that person says. Maybe this is how you hear your parents or
+something, or some friends. You say, okay, you say, I should do A,
+I'm going to do the opposite of that. And by doing that,
+I might do great things in the world. And so AdaBoost automatically figures
+that out for you, which is awesome. Now lets revisit the AdaBoost algorithm
+that we've been talking about and in this part of the module, we're going to be exploring how do we
+compute the coefficient w hat t and we saw that can be computed by
+this really simple formula. We compute the weighted error of f of
+t and we just say, w hat t is one-half of the log of 1 minus weighted error
+divided by the weighted error. And with that, we have a w hat t and we can focus on figuring out
+how to come up with alpha Is. And we want alpha i is to be high where
+ft makes mistakes or does [INAUDIBLE]. [MUSIC]

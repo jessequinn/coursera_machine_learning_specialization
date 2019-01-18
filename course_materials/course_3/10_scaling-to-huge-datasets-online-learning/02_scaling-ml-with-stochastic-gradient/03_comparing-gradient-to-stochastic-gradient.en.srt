@@ -1,0 +1,305 @@
+1
+00:00:00,000 --> 00:00:04,458
+[MUSIC]
+
+2
+00:00:04,458 --> 00:00:09,040
+Let's take a moment to compare gradient to
+stochastic gradient to really understand
+
+3
+00:00:09,040 --> 00:00:11,820
+how the two approaches
+relate to each other.
+
+4
+00:00:11,820 --> 00:00:14,712
+And we see that this very,
+very small change in your algorithm and
+
+5
+00:00:14,712 --> 00:00:17,090
+your implementation is going to
+make a big difference.
+
+6
+00:00:18,950 --> 00:00:20,540
+So we're going to build
+out the table here,
+
+7
+00:00:20,540 --> 00:00:25,520
+comparing the two approaches, gradient
+in blue, stochastic gradient in green.
+
+8
+00:00:25,520 --> 00:00:31,300
+And we saw already that gradient
+is slow at computing an update for
+
+9
+00:00:31,300 --> 00:00:34,550
+large data,
+while stochastic gradient is fast.
+
+10
+00:00:34,550 --> 00:00:38,160
+It doesn't depend on the dataset size,
+it's always fast.
+
+11
+00:00:38,160 --> 00:00:40,640
+But the question is,
+what's the total time?
+
+12
+00:00:40,640 --> 00:00:44,550
+Each iteration is cheaper for stochastic
+gradient, but is it cheaper overall?
+
+13
+00:00:44,550 --> 00:00:47,430
+And there's two answers to this question.
+
+14
+00:00:47,430 --> 00:00:53,030
+In theory, stochastic gradient for
+large datasets is always faster, always.
+
+15
+00:00:54,030 --> 00:00:58,320
+In practice, it's a little bit more
+nuanced, but it's often faster, so
+
+16
+00:00:58,320 --> 00:00:59,450
+it's often a good thing to do.
+
+17
+00:01:00,620 --> 00:01:04,450
+However, stochastic gradient
+has a significant problem,
+
+18
+00:01:04,450 --> 00:01:09,360
+it's much more sensitive to the choice of
+parameters like the choice of step size,
+
+19
+00:01:09,360 --> 00:01:12,200
+and it has lots of practical problems.
+
+20
+00:01:12,200 --> 00:01:16,520
+And so a lot of the focus of today's
+module is to talk about those
+
+21
+00:01:16,520 --> 00:01:20,090
+practical challenges to stochastic
+gradient and how to overcome them.
+
+22
+00:01:20,090 --> 00:01:23,679
+And how to get the most benefit of
+the small change to your algorithm.
+
+23
+00:01:24,810 --> 00:01:26,200
+We'll see a lot of pictures like this,
+
+24
+00:01:26,200 --> 00:01:28,860
+so I'm going to take a few
+minutes to explain it.
+
+25
+00:01:28,860 --> 00:01:32,910
+This picture compares gradient
+to stochastic gradient.
+
+26
+00:01:32,910 --> 00:01:38,430
+So the red line here is the behavior of
+gradient as you iterate through data,
+
+27
+00:01:38,430 --> 00:01:41,080
+so as you make passes through datum.
+
+28
+00:01:41,080 --> 00:01:45,010
+And on the y axis we see the data
+likelihood, so higher is better,
+
+29
+00:01:45,010 --> 00:01:45,869
+we fit in the data better.
+
+30
+00:01:46,940 --> 00:01:49,460
+The blue line here is stochastic gradient.
+
+31
+00:01:50,510 --> 00:01:54,646
+And to be able to compare the two
+approaches, on the x axis I'm not showing
+
+32
+00:01:54,646 --> 00:01:59,352
+exactly running time, but I'm showing you
+how many data points you need to touch.
+
+33
+00:01:59,352 --> 00:02:03,775
+So stochastic gradient is going to make
+an update every time he sees a data point.
+
+34
+00:02:03,775 --> 00:02:08,266
+Gradient is going to make update every
+time this makes full pass of the data.
+
+35
+00:02:08,266 --> 00:02:12,590
+And so, we're showing how many
+passes we're making over the data.
+
+36
+00:02:12,590 --> 00:02:15,620
+So the full x axis here is
+ten passes over the data,
+
+37
+00:02:15,620 --> 00:02:20,470
+and you see that after ten passes over the
+data, gradient is going to a likelihood
+
+38
+00:02:20,470 --> 00:02:24,070
+that's much lower than that
+of stochastic gradient.
+
+39
+00:02:24,070 --> 00:02:26,136
+Stochastic gradient goes to
+a point that's much higher.
+
+40
+00:02:26,136 --> 00:02:30,527
+And even if you look at it in
+the longer scales you'll see,
+
+41
+00:02:30,527 --> 00:02:34,300
+stochastic gradient's
+going to converge faster.
+
+42
+00:02:34,300 --> 00:02:39,200
+However, it doesn't convert
+smoothly to the optimal solution.
+
+43
+00:02:39,200 --> 00:02:41,198
+It oscillates around the optimal solution,
+and
+
+44
+00:02:41,198 --> 00:02:43,230
+we will understand today why that happens.
+
+45
+00:02:43,230 --> 00:02:44,200
+And oscillation,
+
+46
+00:02:44,200 --> 00:02:47,580
+some of the challenges that
+are introduced by stochastic gradient.
+
+47
+00:02:47,580 --> 00:02:51,530
+So now I've extended it from 10 passes
+over the data to 100 passes over the data,
+
+48
+00:02:51,530 --> 00:02:54,070
+and now we see the gradient
+is getting to solutions
+
+49
+00:02:54,070 --> 00:02:56,198
+very close to that stochastic gradient.
+
+50
+00:02:56,198 --> 00:02:57,820
+But again, you see a lot of noise and
+
+51
+00:02:57,820 --> 00:03:00,100
+a lot of oscillation
+from stochastic gradient.
+
+52
+00:03:00,100 --> 00:03:03,800
+Sometimes it's good, sometimes it's bad,
+sometimes it's good, sometimes it's bad.
+
+53
+00:03:03,800 --> 00:03:05,120
+So that's the challenge there.
+
+54
+00:03:06,730 --> 00:03:08,140
+So here's a summary of what we've learned.
+
+55
+00:03:09,190 --> 00:03:11,060
+Make a tiny change to our algorithm.
+
+56
+00:03:11,060 --> 00:03:14,069
+Instead of using the whole
+dataset to compute the gradient,
+
+57
+00:03:14,069 --> 00:03:17,370
+use a single data point,
+call that stochastic gradient.
+
+58
+00:03:17,370 --> 00:03:19,110
+going to get better quality faster.
+
+59
+00:03:20,580 --> 00:03:22,650
+However, it's going to be tricky,
+
+60
+00:03:22,650 --> 00:03:26,820
+there's going to be some oscillations, and
+you have to learn some of the practical
+
+61
+00:03:26,820 --> 00:03:29,870
+issues that you need to address in
+order to make this really effective.
+
+62
+00:03:29,870 --> 00:03:34,140
+But this change is going to allow you
+to scale to billions of data points.
+
+63
+00:03:34,140 --> 00:03:37,755
+Even on your desktop you'll be
+able to deal with a ton of data,
+
+64
+00:03:37,755 --> 00:03:39,717
+which is really super exciting.
+
+65
+00:03:39,717 --> 00:03:43,999
+[MUSIC]

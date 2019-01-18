@@ -1,0 +1,148 @@
+1
+00:00:00,000 --> 00:00:04,312
+[MUSIC]
+
+2
+00:00:04,312 --> 00:00:07,694
+Next, let's visualize
+the path the gradient takes,
+
+3
+00:00:07,694 --> 00:00:12,670
+as opposed to stochastic gradient,
+what I call the convergence paths.
+
+4
+00:00:12,670 --> 00:00:16,660
+And as you will see, the stochastic
+gradient oscillates a bit more, but
+
+5
+00:00:16,660 --> 00:00:19,110
+gets you close to that optimal solution.
+
+6
+00:00:20,810 --> 00:00:24,890
+So just before in the black line,
+I'm showing the path of gradient,
+
+7
+00:00:24,890 --> 00:00:28,440
+and you see that that path is very
+smooth and it does very nicely.
+
+8
+00:00:28,440 --> 00:00:31,660
+In the red line, I show you
+the path of stochastic gradient.
+
+9
+00:00:31,660 --> 00:00:33,300
+You see that this is a noisier path.
+
+10
+00:00:36,130 --> 00:00:43,210
+It does get us to the right solution but
+one thing to note though is that It
+
+11
+00:00:44,240 --> 00:00:49,760
+doesn't convergent stop like gradient
+does, it oscillates around the optimal.
+
+12
+00:00:52,470 --> 00:00:54,910
+And this is going to be one of
+the practical issues that we're going to
+
+13
+00:00:54,910 --> 00:00:58,900
+address when we talk about how to get
+stochastic gradient to work in practice
+
+14
+00:01:00,010 --> 00:01:01,070
+but it's a significant issue.
+
+15
+00:01:02,510 --> 00:01:05,960
+Another view of stochastic gradient
+oscillating around the optimum,
+
+16
+00:01:05,960 --> 00:01:07,150
+can be viewed in this plot.
+
+17
+00:01:07,150 --> 00:01:09,420
+The one we've been using for
+quite awhile and
+
+18
+00:01:09,420 --> 00:01:13,610
+you see that gradient is
+smoothly making progress.
+
+19
+00:01:13,610 --> 00:01:18,820
+But stochastic gradient is this
+noisy curve as it makes progress,
+
+20
+00:01:18,820 --> 00:01:21,100
+and as it converges.
+
+21
+00:01:21,100 --> 00:01:22,418
+It's oscillating around the optimal.
+
+22
+00:01:27,007 --> 00:01:28,370
+Let's summarize.
+
+23
+00:01:28,370 --> 00:01:32,520
+Gradient ascent looks for
+the direction of greatest improvement and
+
+24
+00:01:32,520 --> 00:01:37,359
+steepest ascent direction and does that
+by summing over all possible data points.
+
+25
+00:01:38,830 --> 00:01:44,240
+Stochastic gradient on the other hand
+tries to find some direction which usually
+
+26
+00:01:44,240 --> 00:01:44,940
+makes progress.
+
+27
+00:01:44,940 --> 00:01:49,000
+So, for example by picking one data
+point to estimate the gradient and
+
+28
+00:01:49,000 --> 00:01:52,670
+on average it makes a ton of progress and
+
+29
+00:01:52,670 --> 00:01:57,650
+because of that it tends to converge much
+faster but it's noisier than optimum.
+
+30
+00:01:57,650 --> 00:02:02,150
+So, even in that simple example we've been
+using today It's over a hundred times
+
+31
+00:02:02,150 --> 00:02:06,720
+faster than gradient conversion
+much much faster to converge.
+
+32
+00:02:06,720 --> 00:02:10,692
+But, it gets noisy in the end.

@@ -1,0 +1,29 @@
+[MUSIC] Now we know everything about
+logistic regression classifiers and the representation. What the impact of parameters are,
+how they can be used for classification, how they can be used for
+multi class classification. That's the foundation we need to
+talk about linear classifiers and to do the rest of this
+classification course. In this module, we're going to dig in and
+really figure out how to learn the parameters for
+the logistic regression classifier. But let's start with a quick review
+just to get us in the same mindset. Now remember, we had this product
+reviews or restaurant reviews, and we wanted to figure out, for example, that
+the sushi and everything else were awesome as input has a high probability of being a
+positive review, while the sushi was good. The service was okay has a probability
+of only 0.55 of being a positive review. In other words, we want to learn
+a classifier of the form probability of y given x, where y is the output label
+positive and negative review and x is the input sentence,
+the actual review. So we talked about this task and
+we discussed linear classifiers where with an associate a weight where
+a coefficient with every input feature, in our case, would be worse like good,
+great, awesome and so on and positive words may have
+positive coefficients and negative words may have
+negative coefficients. Of the coefficients [INAUDIBLE]
+words appear in that particular input centers and that's [INAUDIBLE]
+from minus infinity to plus infinity. So, we squeeze that into
+the line 01 to be able to predict the probability that
+the review is positive given the text of the review and the logistic
+regression model, that probability is defined by 1 over 1 plus e
+to the minus w transposed h. So we explored this quite
+a bit in the last module. Just want to warm us up and get us into how do we learn these
+particular coefficients w hat from data. [MUSIC]

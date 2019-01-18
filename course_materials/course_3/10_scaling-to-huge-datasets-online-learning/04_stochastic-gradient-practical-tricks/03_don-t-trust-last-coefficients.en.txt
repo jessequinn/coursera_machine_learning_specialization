@@ -1,0 +1,20 @@
+[MUSIC] As we saw in our plot, stochastic gradient
+tends to oscillate around the optimum. And so you should never trust the last
+parameter it finds, unfortunately. Gradient will eventually
+stabilize on the optimal solution. So even though it takes
+a hundred times longer or more, like was shown in this example, so if you look at the x-axis a hundred times
+more time to converge, you get there. And you feel really good
+when you get there. Stochastic gradient, when you think
+it converged, is really that it's oscillating around the optimum, and
+that can lead to bad practical behavior. So for example here,
+I'm just giving you some numbers, say w at iteration 1000 might look really,
+really bad. But maybe W at iteration 1005 looks
+really, really good and needs some kind of approach to minimize the risk of picking
+a really bad one or a really good one. And there is a very simple technique
+which works really well in practice, and theoretically is what you should do. So all the theorems require
+something like this. And what it says is. When you are outputting w hat,
+your final self-coefficient, you don't use the last value, w(t), capital T, you use the average of
+all the values that you've computed. All the coefficients you
+computed along the way. So, what I'm showing here is what your
+algorithm should output as it's fitting the solution to make some
+predictions in the real world. >> [MUSIC]

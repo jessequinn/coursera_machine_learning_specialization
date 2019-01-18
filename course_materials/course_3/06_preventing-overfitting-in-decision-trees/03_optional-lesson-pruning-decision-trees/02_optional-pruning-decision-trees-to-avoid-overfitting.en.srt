@@ -1,0 +1,411 @@
+1
+00:00:00,000 --> 00:00:04,211
+[MUSIC]
+
+2
+00:00:04,211 --> 00:00:07,152
+Next, we're going to explore
+a different approach for
+
+3
+00:00:07,152 --> 00:00:09,055
+finding simpler decision trees.
+
+4
+00:00:09,055 --> 00:00:11,841
+We're going to grow them all the way and
+we're going to try pruning.
+
+5
+00:00:11,841 --> 00:00:16,360
+And the way we going to prune it is
+kind of like stopping criteria when
+
+6
+00:00:16,360 --> 00:00:20,731
+the prune thing that don't
+improve our error enough.
+
+7
+00:00:20,731 --> 00:00:24,989
+So, we have two ways to
+try to find simpler trees.
+
+8
+00:00:24,989 --> 00:00:29,835
+One way was to stop recursing earlier, and
+
+9
+00:00:29,835 --> 00:00:34,910
+the second one was to expand and
+then prove.
+
+10
+00:00:34,910 --> 00:00:40,831
+Let's explore the second one, because
+it's a great complement to the first.
+
+11
+00:00:40,831 --> 00:00:45,497
+Our goal is going to be to take
+the complete way that we learned by going
+
+12
+00:00:45,497 --> 00:00:46,146
+too far.
+
+13
+00:00:46,146 --> 00:00:52,542
+Man, going too far and
+somehow top of some stuff remove it and
+
+14
+00:00:52,542 --> 00:00:57,185
+then simplify it in order
+to come up with what
+
+15
+00:00:57,185 --> 00:01:01,710
+will be a better way in
+terms of true error.
+
+16
+00:01:03,180 --> 00:01:06,064
+So, here's a kind of motivational picture.
+
+17
+00:01:06,064 --> 00:01:10,409
+You might end up with a complex tree
+if you don't stop too early and
+
+18
+00:01:10,409 --> 00:01:15,004
+you can imagine trying to come up
+with some fancy way to stop earlier.
+
+19
+00:01:15,004 --> 00:01:16,731
+But instead of doing this,
+
+20
+00:01:16,731 --> 00:01:21,510
+you just go a little too far and
+then we're going to back track.
+
+21
+00:01:21,510 --> 00:01:23,790
+So we're going to start
+from this complex tree and
+
+22
+00:01:23,790 --> 00:01:28,520
+we're going to simplify it until
+we get a reasonable tree that has
+
+23
+00:01:28,520 --> 00:01:33,200
+maybe higher training error,
+but has better true error.
+
+24
+00:01:35,050 --> 00:01:37,700
+The fundamental question though
+is what makes a tree simpler?
+
+25
+00:01:38,990 --> 00:01:41,930
+Clearly, if it have a super
+
+26
+00:01:41,930 --> 00:01:46,160
+deep tree on the left versus there's
+a shallow tree on the right.
+
+27
+00:01:46,160 --> 00:01:49,488
+So in other words,
+if you're looking at depth,
+
+28
+00:01:49,488 --> 00:01:53,241
+then it is a here's a technical
+term that I like to use.
+
+29
+00:01:53,241 --> 00:01:56,956
+No brainier.
+
+30
+00:01:56,956 --> 00:02:01,397
+It is a no-brainier that the tree on
+the right is simpler than the tree on
+
+31
+00:02:01,397 --> 00:02:02,570
+the left.
+
+32
+00:02:02,570 --> 00:02:09,127
+So, is depth the measure we want to use to
+quality what complexity of these trees is?
+
+33
+00:02:09,127 --> 00:02:14,142
+It turns out that depth is not a very
+good metric and the reason is the core
+
+34
+00:02:14,142 --> 00:02:18,840
+problem is that some features might
+have more values than others.
+
+35
+00:02:18,840 --> 00:02:23,363
+And so, some features might lead
+to more splits than others.
+
+36
+00:02:23,363 --> 00:02:26,989
+So here, both trees have the same depth.
+
+37
+00:02:29,486 --> 00:02:35,441
+And so
+the question is which one is simpler?
+
+38
+00:02:36,840 --> 00:02:39,190
+And we will see this problem all the time.
+
+39
+00:02:39,190 --> 00:02:44,520
+And intuitively, the more leaves you have,
+the more complex the tree is.
+
+40
+00:02:44,520 --> 00:02:47,943
+So we're going to introduce this function,
+L(T),
+
+41
+00:02:47,943 --> 00:02:51,535
+which just measures the number
+of leaves the tree has.
+
+42
+00:02:51,535 --> 00:02:54,238
+And so
+the tree on the left here has five leaves,
+
+43
+00:02:54,238 --> 00:02:56,660
+the tree on the right has two leaves.
+
+44
+00:02:56,660 --> 00:03:01,078
+And so we're going to say,
+the tree on the right is simpler.
+
+45
+00:03:01,078 --> 00:03:03,150
+And now,
+we're getting somewhere interesting.
+
+46
+00:03:03,150 --> 00:03:06,867
+So now, we can start talking about
+the complexity of decision trees.
+
+47
+00:03:06,867 --> 00:03:12,421
+So for example, this super complex one on
+the left had the number of leaves here
+
+48
+00:03:12,421 --> 00:03:19,210
+was one, two, three, four, five, six while
+the one that's too simple on the right.
+
+49
+00:03:19,210 --> 00:03:22,992
+The number of leaves it had was one and
+
+50
+00:03:22,992 --> 00:03:27,630
+somehow I want to find
+a solution in between.
+
+51
+00:03:27,630 --> 00:03:33,440
+A solution in between will allow us to
+adopt the logical deeper some branches
+
+52
+00:03:33,440 --> 00:03:40,070
+shallower in others, but try to keep
+the number of leaves as good as possible.
+
+53
+00:03:40,070 --> 00:03:45,690
+And so
+just like other areas in machine learning,
+
+54
+00:03:45,690 --> 00:03:49,190
+we're going to introduce some kind of
+trade off between these two concepts.
+
+55
+00:03:50,580 --> 00:03:55,260
+The two concepts we want to trade
+off to the two quantities are how
+
+56
+00:03:55,260 --> 00:03:59,951
+well my tree fits the data and
+what the complexity of the tree is.
+
+57
+00:03:59,951 --> 00:04:04,037
+So the total cost is going to be a measure
+of fit and a measure of complexity.
+
+58
+00:04:04,037 --> 00:04:04,745
+We saw this in regression.
+
+59
+00:04:04,745 --> 00:04:06,185
+We saw this in logistic regression.
+
+60
+00:04:06,185 --> 00:04:08,147
+We're seeing this again in decision tree.
+
+61
+00:04:08,147 --> 00:04:11,769
+Here, the measure of fit is just
+classification error in the training data.
+
+62
+00:04:11,769 --> 00:04:14,841
+So training error and the measure of
+complexity is going to be number of
+
+63
+00:04:14,841 --> 00:04:16,780
+leaves, and
+we're going to balance the two.
+
+64
+00:04:18,050 --> 00:04:22,226
+So more specifically, we're going to
+use Error(T) to node the error,
+
+65
+00:04:22,226 --> 00:04:26,760
+classification error training data and
+L(T) to note the number of leaves.
+
+66
+00:04:28,090 --> 00:04:29,690
+And as we will see,
+
+67
+00:04:29,690 --> 00:04:33,119
+we'll have a magic parameter to trade
+off between those two quantities.
+
+68
+00:04:34,240 --> 00:04:39,104
+In particular, we're going to use lambda
+to denote that magic parameter that
+
+69
+00:04:39,104 --> 00:04:43,363
+we can fit then for validation set
+where we have cross validation.
+
+70
+00:04:43,363 --> 00:04:48,954
+When lambda equals 0, we're back to the
+standard decision tree learning process.
+
+71
+00:04:52,090 --> 00:04:55,053
+When lambda is infinite,
+we have infinite penalty.
+
+72
+00:04:57,510 --> 00:05:02,168
+So we're going to have infinite penalty,
+
+73
+00:05:02,168 --> 00:05:07,511
+which means we're going to
+just learn a tree that
+
+74
+00:05:07,511 --> 00:05:12,307
+has no decisions in it, so just the root.
+
+75
+00:05:12,307 --> 00:05:14,442
+So, we're going to learn
+something like this.
+
+76
+00:05:14,442 --> 00:05:20,270
+Root and then a class.
+
+77
+00:05:20,270 --> 00:05:24,910
+And in this case,
+we're just going to say that y hat for
+
+78
+00:05:24,910 --> 00:05:28,406
+all data points is the majority class.
+
+79
+00:05:28,406 --> 00:05:30,399
+In other words,
+lambda is equal to infinity.
+
+80
+00:05:30,399 --> 00:05:34,305
+We're just going to output the majority
+class, when lambda is equal to 0,
+
+81
+00:05:34,305 --> 00:05:36,070
+it's crazy deep decision tree.
+
+82
+00:05:36,070 --> 00:05:41,922
+When lambda is in between,
+that's where we came here.
+
+83
+00:05:41,922 --> 00:05:48,749
+So, this is going to balance the fit and
+the complexity of the tree.
+
+84
+00:05:50,838 --> 00:05:57,151
+More specifically, we're going to go
+from that complex tree to a simple
+
+85
+00:05:57,151 --> 00:06:04,106
+tree by using a pruning approach where
+the pruning is based on this function,
+
+86
+00:06:04,106 --> 00:06:10,851
+which balances the Error(T) plus lambda
+times the number of leaves in T.
+
+87
+00:06:10,851 --> 00:06:14,609
+[MUSIC]

@@ -1,0 +1,327 @@
+1
+00:00:00,000 --> 00:00:04,643
+[MUSIC]
+
+2
+00:00:04,643 --> 00:00:08,071
+Now that we've taken a deep
+dive into a linear classifier,
+
+3
+00:00:08,071 --> 00:00:12,749
+namely logistic regression, let's jump
+into a different kind of classifier.
+
+4
+00:00:12,749 --> 00:00:16,032
+One called a decision tree,
+which is extremely useful in practice,
+
+5
+00:00:16,032 --> 00:00:19,033
+especially when it combines
+with something called boosting,
+
+6
+00:00:19,033 --> 00:00:21,430
+which you're going to see
+in an upcoming module.
+
+7
+00:00:22,490 --> 00:00:25,700
+In this module, we're going to jump in
+to another really interesting real world
+
+8
+00:00:25,700 --> 00:00:29,380
+example, which falls more into
+the financial data modelling part.
+
+9
+00:00:29,380 --> 00:00:32,676
+It turns out that decision
+trees are extremely useful and
+
+10
+00:00:32,676 --> 00:00:37,208
+used a lot in the finance industry, so
+we're going to jump into something in that
+
+11
+00:00:37,208 --> 00:00:41,122
+domain to give you a little bit more
+experience to that kind of data,
+
+12
+00:00:41,122 --> 00:00:44,783
+in particular when you look at
+evaluating loan applications.
+
+13
+00:00:44,783 --> 00:00:46,176
+So lets say, I want to buy a house.
+
+14
+00:00:46,176 --> 00:00:48,453
+I'm excited,
+I want to buy this particular house.
+
+15
+00:00:48,453 --> 00:00:53,410
+To buy it, I don't have all the money,
+I need to take a loan from the bank.
+
+16
+00:00:53,410 --> 00:00:57,451
+So the bank is going to look at some
+properties of my history, like my credit,
+
+17
+00:00:57,451 --> 00:00:59,206
+what has it been like in the past?
+
+18
+00:00:59,206 --> 00:01:00,980
+How much money I make?
+
+19
+00:01:00,980 --> 00:01:06,360
+How long my loan is of which time I'm
+willing to spend before I pay it off?
+
+20
+00:01:06,360 --> 00:01:10,561
+And other personal information about me,
+like my gender, age and so on.
+
+21
+00:01:10,561 --> 00:01:12,720
+And he's going to take
+that information and
+
+22
+00:01:12,720 --> 00:01:17,650
+try to make a prediction as to whether
+loaning me money is a risky thing or not.
+
+23
+00:01:17,650 --> 00:01:20,500
+So, let me give you a little bit
+more details on the kinds of things
+
+24
+00:01:20,500 --> 00:01:24,490
+that people measure when they try
+to make loan application decisions.
+
+25
+00:01:24,490 --> 00:01:26,970
+So typically, you look at credit history,
+
+26
+00:01:26,970 --> 00:01:30,670
+which looks at all the other loans I've
+taken in the past and my credit cards and
+
+27
+00:01:30,670 --> 00:01:33,330
+all that and
+have I paid those off on time.
+
+28
+00:01:34,980 --> 00:01:37,360
+Then we look at my income,
+how much money do I make today?
+
+29
+00:01:38,470 --> 00:01:42,530
+And we'll also look at what's called the
+term of the loan, which may be 3 years,
+
+30
+00:01:42,530 --> 00:01:43,640
+5 years, 15 years,
+
+31
+00:01:43,640 --> 00:01:48,220
+30 years, which is the period of time
+I'm going to take to pay back that loan.
+
+32
+00:01:48,220 --> 00:01:51,257
+So, let's take a three-year loan
+means I pay back within three years.
+
+33
+00:01:51,257 --> 00:01:55,625
+And finally, a look at information about
+the particular individual like my age,
+
+34
+00:01:55,625 --> 00:01:57,470
+whether married and so on.
+
+35
+00:01:57,470 --> 00:01:59,562
+So, given this information,
+
+36
+00:01:59,562 --> 00:02:04,958
+I want to make a prediction as to whether
+loaning me money is a risky thing or not.
+
+37
+00:02:04,958 --> 00:02:08,720
+So, a loan application system
+might look something like this.
+
+38
+00:02:08,720 --> 00:02:12,703
+You get as input all the loan information
+that fill up a bunch of forms.
+
+39
+00:02:12,703 --> 00:02:15,615
+It goes through a system if we
+have machine learning system or
+
+40
+00:02:15,615 --> 00:02:16,926
+maybe minor created one.
+
+41
+00:02:16,926 --> 00:02:18,284
+Hopefully, machine loan system,
+
+42
+00:02:18,284 --> 00:02:20,560
+which is going to make a prediction
+whether this loan is safe.
+
+43
+00:02:20,560 --> 00:02:23,640
+It's okay to make that loan or
+whether it's risky.
+
+44
+00:02:23,640 --> 00:02:27,206
+So, some applications is going to be
+classified as safe while others will come
+
+45
+00:02:27,206 --> 00:02:28,623
+in and be classified as risky.
+
+46
+00:02:28,623 --> 00:02:33,838
+And the bank may be unevenly making
+loans to risky applications, but often
+
+47
+00:02:33,838 --> 00:02:39,800
+to save funds and we can view this loan
+application as a classification problem.
+
+48
+00:02:39,800 --> 00:02:43,806
+I'm given this input information
+from my form and let's called the x,
+
+49
+00:02:43,806 --> 00:02:45,957
+all information about me and my loan.
+
+50
+00:02:45,957 --> 00:02:49,090
+I pushed it through the classifier
+modelm which going to make a decision.
+
+51
+00:02:49,090 --> 00:02:53,400
+Let say y plus 1, y height equal plus 1,
+if it's a safe loan and
+
+52
+00:02:53,400 --> 00:02:56,690
+y height equals minus 1
+if it's a risky loan.
+
+53
+00:02:56,690 --> 00:02:59,834
+In this module, we're going to use what
+is called decision tress classifier.
+
+54
+00:02:59,834 --> 00:03:03,908
+It might look a little bit like this,
+you start the application and
+
+55
+00:03:03,908 --> 00:03:07,497
+look at some particular feature
+of the particular input.
+
+56
+00:03:07,497 --> 00:03:09,135
+Let's say, what has my credit been like?
+
+57
+00:03:09,135 --> 00:03:11,068
+If my credit has been excellent,
+
+58
+00:03:11,068 --> 00:03:15,220
+I just make the loan without looking
+at any other information about me.
+
+59
+00:03:15,220 --> 00:03:18,889
+But if my credit has been only fair,
+I look at the term of the loan.
+
+60
+00:03:18,889 --> 00:03:22,186
+If the term is short,
+maybe it's too risky.
+
+61
+00:03:22,186 --> 00:03:25,630
+But if the loan is long,
+maybe I'll take enough time to pay it off.
+
+62
+00:03:25,630 --> 00:03:28,220
+Now if my credit is poor,
+I don't stop there.
+
+63
+00:03:28,220 --> 00:03:32,407
+I look further where my income is even
+if my credit didn't pass being poor by
+
+64
+00:03:32,407 --> 00:03:35,995
+making a bunch of money,
+maybe I'm willing to make a long-term
+
+65
+00:03:35,995 --> 00:03:40,000
+loan to somebody with poor credit
+that makes a bunch of money.
+
+66
+00:03:40,000 --> 00:03:43,574
+But if you don't make that much money and
+your credit is poor,
+
+67
+00:03:43,574 --> 00:03:45,094
+then you're out of luck.
+
+68
+00:03:45,094 --> 00:03:46,729
+No loans for you.
+
+69
+00:03:46,729 --> 00:03:50,949
+[MUSIC]

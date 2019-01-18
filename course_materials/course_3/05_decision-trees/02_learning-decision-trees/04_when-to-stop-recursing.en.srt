@@ -1,0 +1,322 @@
+1
+00:00:00,000 --> 00:00:04,031
+[MUSIC]
+
+2
+00:00:04,031 --> 00:00:07,307
+Now that we're able to pick
+a feature to split on,
+
+3
+00:00:07,307 --> 00:00:13,220
+we need to decide what to do next, how
+to recurse, and when to decide to stop.
+
+4
+00:00:13,220 --> 00:00:16,620
+So, our goal now has gone beyond
+just learning a decision stump or
+
+5
+00:00:16,620 --> 00:00:20,370
+to start first level of decision tree or
+picking that first feature to split on,
+
+6
+00:00:20,370 --> 00:00:23,240
+and learning a whole
+decision tree from data.
+
+7
+00:00:23,240 --> 00:00:27,170
+So if you look at our decision stump
+that we learned splitting on credit,
+
+8
+00:00:27,170 --> 00:00:30,840
+if you look at that first split where
+credit was excellent, we see that every
+
+9
+00:00:30,840 --> 00:00:36,240
+single data point in there was a safe
+long, so there's nothing else to do.
+
+10
+00:00:36,240 --> 00:00:40,840
+There's no reason to recourse or trying
+more, we just make that what's called
+
+11
+00:00:40,840 --> 00:00:45,300
+a leaf node because all other splits
+will also be predicted as safe.
+
+12
+00:00:46,310 --> 00:00:50,650
+But for the other two, for
+the cases where credit was fair, or
+
+13
+00:00:50,650 --> 00:00:52,210
+the cases where credit was poor.
+
+14
+00:00:52,210 --> 00:00:54,890
+We need to look at the subset of
+the data that has fair credit, and
+
+15
+00:00:54,890 --> 00:00:59,170
+the subset of data that has poor credit,
+and build the next decision stump from
+
+16
+00:00:59,170 --> 00:01:02,770
+each one of these, and then from there
+build the next decision stumps, and so on.
+
+17
+00:01:04,210 --> 00:01:07,370
+So, in our example,
+if we were to keep going and
+
+18
+00:01:07,370 --> 00:01:10,270
+build an extra decision stop for
+the data that is fair,
+
+19
+00:01:10,270 --> 00:01:15,068
+where credit was fair, you will see that
+the results would be something like this.
+
+20
+00:01:15,068 --> 00:01:18,490
+I would split on term next,
+that would be the best thing to do.
+
+21
+00:01:18,490 --> 00:01:22,590
+And then if we look at data
+that has poor credit we
+
+22
+00:01:22,590 --> 00:01:26,750
+will figure out the next best thing
+there is to split on the income, and for
+
+23
+00:01:26,750 --> 00:01:30,520
+the points of low income
+everything was risky.
+
+24
+00:01:30,520 --> 00:01:33,140
+So we stop splitting from there, so
+
+25
+00:01:33,140 --> 00:01:38,450
+credit poor income low everything's risky
+no need to do dilemma decision stem.
+
+26
+00:01:38,450 --> 00:01:43,640
+But for the other case where the credit
+was poor the income was high, we see
+
+27
+00:01:43,640 --> 00:01:48,320
+there's some risky point some safe points,
+we do another decision stem from there.
+
+28
+00:01:48,320 --> 00:01:51,900
+And then if you were to do that
+we've learned something like this,
+
+29
+00:01:51,900 --> 00:01:54,380
+which completes our entire data.
+
+30
+00:01:54,380 --> 00:01:55,750
+I started the decision tree.
+
+31
+00:01:55,750 --> 00:02:00,800
+So you see now that we have branches that
+take us to leaves in every possible split.
+
+32
+00:02:02,500 --> 00:02:05,520
+So what we describe here is what's
+called the recursive algorithm.
+
+33
+00:02:05,520 --> 00:02:09,570
+It starts with a process where we
+pick the best feature to split on,
+
+34
+00:02:09,570 --> 00:02:14,690
+then we split our data into decision
+stump with the selected feature,
+
+35
+00:02:14,690 --> 00:02:17,540
+and then for
+each leaf of the decision stump or
+
+36
+00:02:17,540 --> 00:02:21,920
+each node associated with it we go
+back and learn a new decision stump.
+
+37
+00:02:21,920 --> 00:02:26,890
+And the question is, we keep iterating
+like this forever or do we stop somewhere?
+
+38
+00:02:27,900 --> 00:02:31,679
+So what are the criteria to stop
+recursing is the question here.
+
+39
+00:02:31,679 --> 00:02:33,820
+And the criteria are extremely simple.
+
+40
+00:02:34,950 --> 00:02:37,240
+So the first criteria we've already seen.
+
+41
+00:02:37,240 --> 00:02:40,850
+For the nodes I've selected here including
+that first nodes where credit was
+
+42
+00:02:40,850 --> 00:02:46,570
+excellent every single nodes associated
+with data points of just one category or
+
+43
+00:02:46,570 --> 00:02:48,680
+one class same output.
+
+44
+00:02:48,680 --> 00:02:53,250
+So, for accident there
+everything will save, and for
+
+45
+00:02:54,310 --> 00:03:00,780
+the case where the credit was fair, but
+the term was 3 years everything was risky.
+
+46
+00:03:00,780 --> 00:03:06,100
+So, as we can see for those there's no
+point in keep on splitting, so the first
+
+47
+00:03:06,100 --> 00:03:11,080
+stop in condition is stop splitting when
+all the data agrees on the value of y.
+
+48
+00:03:11,080 --> 00:03:12,080
+There's nothing to do there.
+
+49
+00:03:13,200 --> 00:03:17,160
+And there's a second criteria which is
+
+50
+00:03:17,160 --> 00:03:21,310
+only happened over here where
+we stopped splitting, and
+
+51
+00:03:21,310 --> 00:03:27,250
+we still had some data points with
+safe and risky loans inside that node.
+
+52
+00:03:27,250 --> 00:03:30,750
+However, we had used up all of
+the features in our dataset.
+
+53
+00:03:30,750 --> 00:03:33,410
+We only had three features here,
+credit, income, and
+
+54
+00:03:33,410 --> 00:03:37,770
+term, and on that branch of decision
+tree we used all of them up.
+
+55
+00:03:37,770 --> 00:03:38,900
+There's nothing left to split on.
+
+56
+00:03:40,150 --> 00:03:43,370
+We get the same things if you
+keep splitting them forever.
+
+57
+00:03:43,370 --> 00:03:46,360
+And so the two stopping
+criteria actually very simple
+
+58
+00:03:46,360 --> 00:03:50,070
+stop if every data point agrees or
+stop if you run out of features.
+
+59
+00:03:51,310 --> 00:03:54,040
+So if we go back now to
+our greedy algorithm for
+
+60
+00:03:54,040 --> 00:03:59,000
+learning decision trees we see that
+step two you just pick the feature that
+
+61
+00:03:59,000 --> 00:04:01,740
+minimizes the classification
+errors we discussed.
+
+62
+00:04:01,740 --> 00:04:05,190
+And then we have these two stopping
+conditions here that we just described,
+
+63
+00:04:05,190 --> 00:04:08,470
+two extremely simple ones,
+and then we just recurse and
+
+64
+00:04:08,470 --> 00:04:10,900
+keep going until those stopping
+conditions are reached.
+
+65
+00:04:10,900 --> 00:04:13,838
+Either we use all the features,
+use them all up or
+
+66
+00:04:13,838 --> 00:04:16,428
+all the data points
+agree on the value of y.
+
+67
+00:04:16,428 --> 00:04:20,528
+[MUSIC]

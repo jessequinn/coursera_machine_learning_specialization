@@ -1,0 +1,59 @@
+[MUSIC] So what does it mean to avoid overfitting
+in decision trees, what does it mean to stop a little earlier, or what does it
+mean to try to simplify the types of trees that we learned so that we don't
+have these crazy overfitting problems. And what we'll use is
+a type of regularization which bias is a sort simpler trees, and that's also can philosophically relate
+to the concept called Occam's razor. And so let's talk about that principal. It's interesting that this idea of finding
+simpler trees simpler explanations for data is a concept that goes
+back to a long, long time, so many people call it Occam's razor,
+because of William of Occam, who was talking about this
+concept around the 13th Century. Although, this goes back to Pythagoras and
+Aristotle. We know 2,000 years or so before that, but basically the concept there has
+been of the possible hypothesis of the possible explanations as
+we'll of the possible trees. You should always pick the one
+that explains the data with as simple an explanation as possible,
+so for example, let's say that you have that you go to the doctor, and
+say I have these two symptoms S1 and S2. Let's say I have a terrible red
+headache and a terrible soar throat. So, there's two options
+the doctor might see. A brain tumor explains the headache and a throat infection explains a soar throat. Or it could say, okay, there's another
+disease, let's say common cold, that explains both the headache and
+the sore throat. And in that case it's probably better, probably more likely that it's just one
+disease that explains both symptoms. Then having two separate diseases
+one explains symptom one, the other one explains symptom two. Now, it's kind of a general idea. The way that Occam talked about
+it was among competing hypothesis the one that fields assumptions
+should always be selected. And so fewest assumptions
+is simplest in our case. In a contest of decision trees, the
+Occam's razor principle says if you have two trees that have similar classification
+error, pick the simpler one. So, let's go through the examples below. Let's see, we have the training error. For four different trees, and
+then we have the validation error for four different trees. So we observe a couple different things. We observe that two trees have
+the same validation error, and that one tree has
+a very low train error but higher validation error, so
+the lower tree is clearly overfit. The super complex tree is definitely bad. But interestingly, what you do about
+these two trees, the moderate and one, and the more complex one they
+get same validation error, but one has higher train error,
+you can say well, you know what the simpler trees probably
+better is less likely to overfit. So, I'm probably going to pick
+the moderately complex tree that gives me reasonable train error and
+no validation error. So, that's kind of intellectually,
+conceptually validating kind of idea. Try to fix simpler trees that explain
+the data relatively well, and do well in the validation set. But to get this right, we have to go and
+dig in, and define what a simpler tree is. So the question here is
+what makes a tree simpler? And so we have this really complex, high
+depth, complicated tree on the left or the shallower,
+two level decision tree on the right. And clearly,
+the one on the right is simpler. So if they both have similar performance,
+let's pick the simple trees. But in general,
+let's try to bias our algorithms to find the simpler trees rather
+than the more complex ones. We're going to see next, some modification
+of the decision tree algorithm that's going to bias ourselves
+to simpler trees, so in other words, let's try to avoid
+complex trees and focus on simpler trees. And the question is how do we do that? And there's two main
+approaches out there for doing that one is what's
+called early stopping. Instead of keeping making your
+tree deeper and deeper and deeper, somehow stop earlier to avoid
+overfitting and stop a simpler trees. The more advanced approach
+tends to work much better. It's called pruning where
+you build a deeper tree and then you chop off some
+leaves at the bottom, some decisions that were not that important and
+come up with a simpler tree that way. We're going to talk about both of
+these approaches in today's module. [MUSIC]

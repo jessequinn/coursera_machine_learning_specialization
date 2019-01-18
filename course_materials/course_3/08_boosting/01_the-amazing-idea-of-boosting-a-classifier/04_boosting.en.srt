@@ -1,0 +1,483 @@
+1
+00:00:00,000 --> 00:00:04,585
+[MUSIC]
+
+2
+00:00:04,585 --> 00:00:08,752
+So now that we've talked about
+several models, let's dive in into
+
+3
+00:00:08,752 --> 00:00:14,330
+boosting more generally, and then a
+specific example of a boosting algorithm.
+
+4
+00:00:14,330 --> 00:00:18,000
+So think about a learning
+problem where we take some data,
+
+5
+00:00:18,000 --> 00:00:21,630
+we learn a classifier which
+gives us some output, f(x), and
+
+6
+00:00:21,630 --> 00:00:26,205
+we use it to predict on some data so
+we say that y hat is a sign of f(x).
+
+7
+00:00:27,280 --> 00:00:28,920
+So if we take some data and
+
+8
+00:00:28,920 --> 00:00:32,520
+we try to make a prediction,
+we might learn see a decision stop.
+
+9
+00:00:32,520 --> 00:00:35,720
+So let's say you try to split on income,
+we look at
+
+10
+00:00:35,720 --> 00:00:40,020
+folks with income greater than 100,000,
+folks with income less than 100,000, and
+
+11
+00:00:40,020 --> 00:00:42,320
+how do we learn the actual
+predictions that we make?
+
+12
+00:00:42,320 --> 00:00:44,432
+Well, we look at the rows of our data,
+
+13
+00:00:44,432 --> 00:00:49,015
+the rows where the income was greater
+than 100,000, and we see that for those,
+
+14
+00:00:49,015 --> 00:00:54,820
+3 were safe loans and 1 was a risky loan,
+so we're going to predict y hat = safe.
+
+15
+00:00:54,820 --> 00:01:00,369
+Now, if we look at incomes of less than
+100,000, we'll see that we have 4 safe and
+
+16
+00:01:00,369 --> 00:01:05,730
+3 risky, so again we predict safe, so
+both sides we're going to predict safe.
+
+17
+00:01:05,730 --> 00:01:08,890
+As it turns out that we do this first
+decision stump, seems okay, but
+
+18
+00:01:08,890 --> 00:01:10,830
+it doesn't seem great on the data.
+
+19
+00:01:10,830 --> 00:01:14,277
+And so, decision stump wasn't enough
+to capture the information with
+
+20
+00:01:14,277 --> 00:01:15,760
+the limited data.
+
+21
+00:01:15,760 --> 00:01:18,320
+So a boosting will do is
+take that decision stump,
+
+22
+00:01:18,320 --> 00:01:21,660
+evaluate it, look at how well
+it's doing in our data, and
+
+23
+00:01:21,660 --> 00:01:26,420
+learn a next decision stump,
+a next weak classifier and then next
+
+24
+00:01:26,420 --> 00:01:30,410
+the classifier is going to focus on the
+data points where the first one was bad.
+
+25
+00:01:31,410 --> 00:01:33,803
+So in other words,
+this is a very important point.
+
+26
+00:01:33,803 --> 00:01:37,938
+In other words, we're going to look at
+where we're making mistakes so far and
+
+27
+00:01:37,938 --> 00:01:40,782
+want to increase,
+see the proportion or the impact or
+
+28
+00:01:40,782 --> 00:01:44,610
+how much we care about the points
+where we've made mistakes.
+
+29
+00:01:44,610 --> 00:01:47,530
+And we load in another classifier that
+takes care of the points that made
+
+30
+00:01:47,530 --> 00:01:49,620
+mistakes and then we load another one and
+another one.
+
+31
+00:01:49,620 --> 00:01:52,750
+And eventually, as we'll see, will
+actually converge to a great classifier.
+
+32
+00:01:54,120 --> 00:01:57,460
+What does it mean to learn the data
+points were made mistakes?
+
+33
+00:01:57,460 --> 00:02:00,640
+What it means is that we're
+going to assign a weight,
+
+34
+00:02:00,640 --> 00:02:05,255
+alpha i to the positive number to
+every data point in our dataset.
+
+35
+00:02:06,300 --> 00:02:10,740
+And that weight, when it's higher, it
+means that data point is more important.
+
+36
+00:02:10,740 --> 00:02:15,370
+So you can imagine a learning problem
+where we have data, not just like
+
+37
+00:02:15,370 --> 00:02:19,570
+we've done so far in this course, but we
+have data with weights associated with it.
+
+38
+00:02:19,570 --> 00:02:21,760
+And now we're going to
+learn from weighted data.
+
+39
+00:02:21,760 --> 00:02:25,350
+What there is to learn from weighted data,
+the way to think about it is that,
+
+40
+00:02:25,350 --> 00:02:29,810
+those alpha is correspond to kind of
+
+41
+00:02:29,810 --> 00:02:33,140
+data points counting more than
+one time if its greater than one.
+
+42
+00:02:33,140 --> 00:02:34,840
+So for example, if alpha i is 2,
+
+43
+00:02:34,840 --> 00:02:37,686
+you can think about that data
+point is counting twice.
+
+44
+00:02:37,686 --> 00:02:40,570
+If the data point was half you could
+think about data point counting as
+
+45
+00:02:40,570 --> 00:02:41,890
+half of a data point.
+
+46
+00:02:41,890 --> 00:02:45,308
+But everything in the learning
+algorithm stays exactly the same.
+
+47
+00:02:45,308 --> 00:02:49,686
+It just that instead of counting data
+points you count kind of weights of data
+
+48
+00:02:49,686 --> 00:02:50,300
+points.
+
+49
+00:02:50,300 --> 00:02:53,240
+What happens in our
+decision stump approach?
+
+50
+00:02:53,240 --> 00:02:57,406
+So we had that first decision stump,
+it was not a great, especially for
+
+51
+00:02:57,406 --> 00:03:01,850
+folks with lower income and so we learned
+it's weight, which are higher for
+
+52
+00:03:01,850 --> 00:03:06,453
+the places where we've made mistakes and
+now we learn the new decision stump.
+
+53
+00:03:06,453 --> 00:03:10,377
+Let's say again we split the columns,
+again, written 100,000 less 100,000.
+
+54
+00:03:10,377 --> 00:03:14,167
+When we look at the classifications
+decisions that we make, for greater than
+
+55
+00:03:14,167 --> 00:03:18,305
+100,000 what we do is we sum the weight
+of the data points that were risky, and
+
+56
+00:03:18,305 --> 00:03:20,315
+incomes greater than 100,000.
+
+57
+00:03:20,315 --> 00:03:24,221
+So in this case we're summing 0.5, 0.8,
+
+58
+00:03:24,221 --> 00:03:29,653
+0.7 which adds up to 2 and then for
+the risky ones it's 1.2 and
+
+59
+00:03:29,653 --> 00:03:33,970
+so we're going to make
+a prediction of y hat is safe.
+
+60
+00:03:33,970 --> 00:03:36,440
+So it's the weighted
+sum of the data points.
+
+61
+00:03:36,440 --> 00:03:40,270
+For income less than 100,000,
+same kind of idea.
+
+62
+00:03:40,270 --> 00:03:42,430
+We'll go through the data points,
+look at the ones that were risk and
+
+63
+00:03:42,430 --> 00:03:44,930
+ones that were safe and
+sum up the weight of those.
+
+64
+00:03:44,930 --> 00:03:48,038
+And we see the total
+weight of risky that 65,
+
+65
+00:03:48,038 --> 00:03:53,570
+the total weight of safe loans is 3, so
+we're going to predict what is risky.
+
+66
+00:03:53,570 --> 00:03:56,140
+So this decision stump is now
+going to be a bit better.
+
+67
+00:03:56,140 --> 00:03:59,440
+So we're going to combine this one
+with the previous one and others and
+
+68
+00:03:59,440 --> 00:04:03,340
+others until we create
+this ensemble classifier.
+
+69
+00:04:04,380 --> 00:04:08,440
+Now, this idea of learning from weighted
+data is not just about decision stumps.
+
+70
+00:04:08,440 --> 00:04:13,608
+It's the result that most machine
+learning algorithms accept weighted data.
+
+71
+00:04:13,608 --> 00:04:17,120
+So I'm going to show you very briefly
+what happens if you are doing logistical
+
+72
+00:04:17,120 --> 00:04:19,410
+regression and you have weighted data.
+
+73
+00:04:19,410 --> 00:04:22,460
+So if you look at the equation on the
+bottom here, that's exactly the equation
+
+74
+00:04:22,460 --> 00:04:26,250
+of logistic regressions derivative,
+or the update function that we do.
+
+75
+00:04:26,250 --> 00:04:30,500
+This is the thing that you would implement
+if you run a logistic regression model.
+
+76
+00:04:30,500 --> 00:04:32,250
+Now, you say, I have this weighted data,
+
+77
+00:04:32,250 --> 00:04:34,480
+I have to reimplement
+everything from scratch.
+
+78
+00:04:34,480 --> 00:04:36,190
+My god, my god, my god.
+
+79
+00:04:36,190 --> 00:04:38,192
+And it turns out that it's very simple.
+
+80
+00:04:38,192 --> 00:04:39,500
+You should look at
+the middle of the equation,
+
+81
+00:04:39,500 --> 00:04:42,950
+we have the sum over
+data points over here.
+
+82
+00:04:42,950 --> 00:04:44,880
+And now, so we just sum our data points.
+
+83
+00:04:44,880 --> 00:04:47,740
+We're just going to weigh
+the contribution of each data point.
+
+84
+00:04:47,740 --> 00:04:53,920
+So we just add that weight alpha i to
+each term in the sum and we're done.
+
+85
+00:04:53,920 --> 00:04:56,040
+We now have logistic regression for
+weighted data.
+
+86
+00:04:57,520 --> 00:05:00,640
+So we showed you two examples, decision
+stumps and logistics regression but
+
+87
+00:05:00,640 --> 00:05:03,640
+in general it's quite easy
+to learn with the data.
+
+88
+00:05:03,640 --> 00:05:06,230
+So boosting can be viewed
+as a greedy algorithm for
+
+89
+00:05:06,230 --> 00:05:07,820
+learning an ensemble from data.
+
+90
+00:05:07,820 --> 00:05:11,326
+We train the first classssifier,
+let's say f1(x),
+
+91
+00:05:11,326 --> 00:05:17,150
+if you just have f1(x) just predict
+the sign of f1 to be your output of y hat.
+
+92
+00:05:17,150 --> 00:05:19,580
+Now, then you re-weight your data
+
+93
+00:05:19,580 --> 00:05:23,730
+by weighting more data points where we
+made mistakes, where f1 makes mistakes.
+
+94
+00:05:23,730 --> 00:05:26,632
+And now we run another classifier, f2 and
+
+95
+00:05:26,632 --> 00:05:30,744
+we learn the coefficients which for
+these classifiers, and
+
+96
+00:05:30,744 --> 00:05:36,154
+now our prediction if we just do 2 steps
+of this is w hat 1, f1 + w hat 2, f2.
+
+97
+00:05:36,154 --> 00:05:38,360
+And the sign of that is y hat.
+
+98
+00:05:39,770 --> 00:05:44,656
+So that is kind of like the keep
+adding new classifiers,
+
+99
+00:05:44,656 --> 00:05:49,458
+optimizing the weights to focus
+on more difficult data points and
+
+100
+00:05:49,458 --> 00:05:54,367
+then learning the coefficients
+between different classifiers.
+
+101
+00:05:54,367 --> 00:05:58,909
+[MUSIC]

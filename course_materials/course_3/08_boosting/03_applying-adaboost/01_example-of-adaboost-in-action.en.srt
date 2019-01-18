@@ -1,0 +1,360 @@
+1
+00:00:00,000 --> 00:00:05,421
+[MUSIC]
+
+2
+00:00:05,421 --> 00:00:09,378
+Now let's take that third example we've
+used to illustrate different machine
+
+3
+00:00:09,378 --> 00:00:13,290
+learning algorithms in this module and
+explore it in the context of AdaBoost.
+
+4
+00:00:13,290 --> 00:00:16,890
+And it's going to give us a lot of insight
+as to how boosting works in practice.
+
+5
+00:00:18,420 --> 00:00:20,770
+So for the first classifier f1,
+
+6
+00:00:20,770 --> 00:00:25,066
+we work directly off the original data,
+all points have the same weight.
+
+7
+00:00:25,066 --> 00:00:27,844
+That's right.
+
+8
+00:00:27,844 --> 00:00:32,120
+And so the learning process we have
+is going to be standard learning.
+
+9
+00:00:33,440 --> 00:00:36,280
+So nothing changes in
+your learning algorithm
+
+10
+00:00:36,280 --> 00:00:38,250
+since every data point
+has the same weight.
+
+11
+00:00:38,250 --> 00:00:43,330
+And in this case we're learning a decision
+stump and so here is the decision boundary
+
+12
+00:00:43,330 --> 00:00:48,140
+that does it's best to try to separate
+positive examples from negative examples.
+
+13
+00:00:48,140 --> 00:00:50,044
+It splits right around 0.
+
+14
+00:00:51,740 --> 00:00:57,120
+It's actually minus 0.07, if you remember
+from the decision tree classifier.
+
+15
+00:00:57,120 --> 00:00:59,610
+So this is the first decision stump, f1.
+
+16
+00:00:59,610 --> 00:01:03,100
+Now to learn the second decision stump,
+
+17
+00:01:03,100 --> 00:01:08,680
+f2, we have to reweigh our data based
+on how much f1 did, so how well f1 did.
+
+18
+00:01:08,680 --> 00:01:12,790
+So we're going to look at
+our decision boundary and
+
+19
+00:01:12,790 --> 00:01:17,170
+we're going to weigh data points
+that were mistakes higher.
+
+20
+00:01:17,170 --> 00:01:21,710
+And here in the picture I'm denoting them
+by bigger minus signs and plus signs.
+
+21
+00:01:21,710 --> 00:01:26,640
+So if you look at the data points here
+on the left, they were mistakes or
+
+22
+00:01:26,640 --> 00:01:30,500
+the minus on this side, and
+this plus is over here.
+
+23
+00:01:31,638 --> 00:01:34,710
+They were also made mistakes,
+so we increased our weight and
+
+24
+00:01:34,710 --> 00:01:38,200
+we decreased the weight of everybody
+else and we see that the pluses here
+
+25
+00:01:38,200 --> 00:01:42,690
+became here bigger and
+the minuses in this region became larger.
+
+26
+00:01:42,690 --> 00:01:44,490
+So that's how we update our weight.
+
+27
+00:01:45,940 --> 00:01:49,640
+And now let's look at the next step.
+
+28
+00:01:49,640 --> 00:01:55,720
+Learning the classifier f2 in the second
+Iteration based on this weighted data.
+
+29
+00:01:56,930 --> 00:02:00,120
+Using the weighted data,
+we'll learn the following decision stump.
+
+30
+00:02:00,120 --> 00:02:02,730
+And you see that now we're
+still having a vertical split,
+
+31
+00:02:02,730 --> 00:02:07,288
+we have a horizontal split, and
+it's a better split for weighted data.
+
+32
+00:02:07,288 --> 00:02:12,888
+Split for these weights on the left and
+
+33
+00:02:12,888 --> 00:02:15,873
+it's kind of cool.
+
+34
+00:02:15,873 --> 00:02:20,040
+So in the first iteration
+we decided to split on x 1.
+
+35
+00:02:20,040 --> 00:02:23,378
+In the second one we split on x2, and
+
+36
+00:02:23,378 --> 00:02:27,930
+this is x2 greater than or
+less than 1.3 or so.
+
+37
+00:02:27,930 --> 00:02:33,300
+And you'll see that it gets all the
+minuses correct on top but it makes some
+
+38
+00:02:33,300 --> 00:02:36,750
+mistakes on the minuses in the bottom, but
+it gets the pluses correct in the bottom.
+
+39
+00:02:38,110 --> 00:02:42,820
+So as opposed to the vertical split here,
+we now have a horizontal split.
+
+40
+00:02:42,820 --> 00:02:45,070
+So now we've learned there
+are decision stems f1 and f2,
+
+41
+00:02:45,070 --> 00:02:48,170
+and the question here is
+how do we combine them?
+
+42
+00:02:48,170 --> 00:02:52,410
+So if you go through with the AdaBoost
+formula you'll see that the w hat 1
+
+43
+00:02:52,410 --> 00:02:58,150
+the weight of the first decision
+stop is going to be 0.61,
+
+44
+00:02:58,150 --> 00:02:59,090
+then w hat 2 is going to 0.53.
+
+45
+00:02:59,090 --> 00:03:02,410
+So we trust the first decision stamp
+a little bit more than we trust the second
+
+46
+00:03:02,410 --> 00:03:03,510
+one which makes sense.
+
+47
+00:03:03,510 --> 00:03:06,720
+The second one doesn't seem as good,
+but when you add them together,
+
+48
+00:03:06,720 --> 00:03:09,960
+you start getting a very
+interesting decision boundary.
+
+49
+00:03:09,960 --> 00:03:15,270
+So you get the points in the top
+left here are ones where we
+
+50
+00:03:15,270 --> 00:03:21,650
+definitely think that y hear is minus 1,
+so definitely negatives.
+
+51
+00:03:21,650 --> 00:03:29,070
+On the bottom right here, it's some
+definite positives y hat equals plus 1.
+
+52
+00:03:29,070 --> 00:03:32,800
+And then for the other two regions,
+
+53
+00:03:32,800 --> 00:03:37,320
+we can think about these as being
+regions of higher uncertainty.
+
+54
+00:03:37,320 --> 00:03:44,480
+So these are uncertain which
+right now makes sense,
+
+55
+00:03:44,480 --> 00:03:47,510
+but as you add more decision stumps
+we're going to be more sure that some of
+
+56
+00:03:47,510 --> 00:03:52,040
+the points on the left tier bottom
+are negative and right top are negative.
+
+57
+00:03:52,040 --> 00:03:57,260
+Now, if you keep our numbers going for
+30 iterations the first thing
+
+58
+00:03:57,260 --> 00:04:01,870
+that we notice is that we get all the data
+points right, so our training error is 0.
+
+59
+00:04:01,870 --> 00:04:08,376
+The second thing you'll notice, and
+here I'm going to use a technical term for
+
+60
+00:04:08,376 --> 00:04:12,392
+this, is that the decision
+boundary is crazy.
+
+61
+00:04:12,392 --> 00:04:16,818
+This is our technical term, and then if
+you combine these two insides We figure
+
+62
+00:04:16,818 --> 00:04:19,769
+out, okay we don't really
+trust this classifier,
+
+63
+00:04:19,769 --> 00:04:22,200
+we're probably over-fitting the data.
+
+64
+00:04:24,370 --> 00:04:25,890
+So it fits perfectly on the train later,
+
+65
+00:04:25,890 --> 00:04:29,520
+it maybe doesn't do as
+well with a little error.
+
+66
+00:04:29,520 --> 00:04:34,050
+So overfitting something that
+will happen in boasting,
+
+67
+00:04:34,050 --> 00:04:35,930
+we'll talk about a little bit next.
+
+68
+00:04:37,180 --> 00:04:40,320
+So let's take a deep breath and
+summarize what we've done so far.
+
+69
+00:04:40,320 --> 00:04:44,280
+We described simple classifiers, and we
+said that we're going to learn the simple
+
+70
+00:04:44,280 --> 00:04:47,440
+classifiers and take the volt
+between them to make predictions.
+
+71
+00:04:47,440 --> 00:04:49,550
+And then we described
+this AdaBoost algorithm,
+
+72
+00:04:49,550 --> 00:04:52,360
+which is a pretty simple
+approach to learning
+
+73
+00:04:52,360 --> 00:04:55,200
+a non-simple classifier using
+this technique of boosting
+
+74
+00:04:55,200 --> 00:04:59,030
+where you're boosting up the weight of
+data points when we're making mistakes.
+
+75
+00:04:59,030 --> 00:05:05,235
+And simple to implement from practice.
+
+76
+00:05:05,235 --> 00:05:06,669
+[MUSIC]

@@ -1,0 +1,223 @@
+1
+00:00:04,960 --> 00:00:06,530
+Now that we learned about
+the likelihood function,
+
+2
+00:00:06,530 --> 00:00:10,530
+the thing that were trying to maximize,
+let's talk about gradient ascent algorithm
+
+3
+00:00:10,530 --> 00:00:13,330
+that tries to make it
+as large as possible.
+
+4
+00:00:13,330 --> 00:00:16,770
+In this section, were going to go through
+a little bit of math, a little bit of
+
+5
+00:00:16,770 --> 00:00:20,442
+detail but in the end, the gradient
+ascent algorithm for learning a logistic
+
+6
+00:00:20,442 --> 00:00:24,432
+regression classifier is going to be
+extremely simple and extremely intuitive.
+
+7
+00:00:24,432 --> 00:00:30,980
+Even if the likelihood function's a little
+bit fuzzy for you and the gradient
+
+8
+00:00:30,980 --> 00:00:34,594
+stuff's not totally clear but in the end,
+the algorithm that you're going to
+
+9
+00:00:34,594 --> 00:00:38,330
+implement is going to be something that
+only requires a few lines of code.
+
+10
+00:00:38,330 --> 00:00:40,210
+In fact,
+you'll be able to do that extremely easy.
+
+11
+00:00:41,570 --> 00:00:42,090
+Good.
+
+12
+00:00:42,090 --> 00:00:45,280
+We defined the model we want to fit,
+the logistic regression model,
+
+13
+00:00:45,280 --> 00:00:48,360
+we talked about the quality max trick,
+the likelihood function,
+
+14
+00:00:48,360 --> 00:00:51,121
+now we're going to define
+the gradient ascent algorithm.
+
+15
+00:00:51,121 --> 00:00:55,082
+Which is machine learning algorithm that tries
+to make the likelihood function as large
+
+16
+00:00:55,082 --> 00:00:58,240
+as possible to find their famous
+W hat fits our data really well.
+
+17
+00:00:59,310 --> 00:01:01,950
+Now, we can go back to this picture
+that we've seen a few times where
+
+18
+00:01:01,950 --> 00:01:04,930
+we have multiple lines and
+they have likelihood function and
+
+19
+00:01:04,930 --> 00:01:07,810
+we're trying to find the one
+that has best likelihood.
+
+20
+00:01:07,810 --> 00:01:11,680
+This line here with the W0 = 1,
+W1 = 0.5, W2 = -1.5.
+
+21
+00:01:11,680 --> 00:01:19,810
+We now know that the likelihood function
+is exactly this function up here.
+
+22
+00:01:19,810 --> 00:01:24,560
+The product over my data point of
+the probability of the true label
+
+23
+00:01:24,560 --> 00:01:27,490
+given the input centers that we have.
+
+24
+00:01:28,670 --> 00:01:34,650
+Our goal is to take this l and
+
+25
+00:01:34,650 --> 00:01:42,470
+optimize it with gradient ascent.
+
+26
+00:01:42,470 --> 00:01:43,780
+That's what we're going to
+go after right now.
+
+27
+00:01:47,000 --> 00:01:53,620
+As a quick, quick, quick review,
+we have our likelihood function and
+
+28
+00:01:53,620 --> 00:01:57,820
+when I find the parameter values
+that take this likelihood function,
+
+29
+00:01:57,820 --> 00:01:59,930
+so that this is the W0, W1, W2,
+
+30
+00:01:59,930 --> 00:02:04,340
+which is a function of three parameters
+in this little example over here.
+
+31
+00:02:04,340 --> 00:02:08,700
+We're trying to find the maximum
+over all possible parameters W0,
+
+32
+00:02:08,700 --> 00:02:13,270
+W1, and W2 and
+there's infinitely many of those, so
+
+33
+00:02:13,270 --> 00:02:16,430
+if you try to enumerate it will
+be impossible to try them all.
+
+34
+00:02:16,430 --> 00:02:21,065
+But gradient ascent is this magically
+simple but wonderful algorithm where you
+
+35
+00:02:21,065 --> 00:02:24,317
+start from some point over
+here in the parameter space,
+
+36
+00:02:24,317 --> 00:02:29,130
+which might be the weight for awful is 0,
+the weight for awesome is -6.
+
+37
+00:02:29,130 --> 00:02:34,320
+And you slowly climb up the hill
+in order to find the optimum,
+
+38
+00:02:34,320 --> 00:02:39,480
+the top of the hill here,
+which going to be our famous W hat.
+
+39
+00:02:39,480 --> 00:02:44,043
+They might say that the weight for
+awesome is,
+
+40
+00:02:44,043 --> 00:02:51,649
+it's probably going to be a positive
+number, so maybe somewhere like this,
+
+41
+00:02:51,649 --> 00:02:56,580
+say 0.5 and the weight for
+awful is maybe -1.
+
+42
+00:02:56,580 --> 00:03:00,560
+Now in this plot, I've only shown
+two of the coordinates W1 and W2.
+
+43
+00:03:00,560 --> 00:03:07,443
+I didn't show W0 because it's really
+hard to plot in four-dimensional space.
+
+44
+00:03:07,443 --> 00:03:11,981
+Four dimensions, so I'm just showing
+you three out of those four dimensions.
+
+45
+00:03:13,653 --> 00:03:18,204
+Now, let's discuss the gradient ascent
+algorithm to go ahead and do that.
+
+46
+00:03:18,204 --> 00:03:22,479
+[MUSIC]

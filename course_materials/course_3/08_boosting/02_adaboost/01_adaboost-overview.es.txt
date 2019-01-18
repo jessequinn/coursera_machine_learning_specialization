@@ -1,0 +1,24 @@
+[MÚSICA] En éste módulo vamos a hablar
+sobre el algoritmo de boosting llamado AdaBoost. AdaBoost es uno de los primeros algoritmos
+de aprendizaje automático para boosting. Es extremadamente útil. Es muy fácil de implementar. Y es bastante eficaz. Hay otros. Voy a mencionar uno interesante
+al final del módulo, pero empecemos con AdaBoost. Este es el famoso algoritmo AdaBoost, el cual fue creado por Freund y Schapire
+en 1999, un algoritmo increíblemente útil. Se comienza viendo cada dato
+de la misma manera. no se sabe cuáles son difíciles y cuáles fáciles. Todos tienen el mismo peso. Se puede empezar con todos los pesos igual a 1.
+Nosotros empezaremos con 1/N, porque este valor hace el trabajo un poco mejor. Y vamos explicar el por qué
+un poco mas adelante, pero iniciamos todos los datos
+con peso uniforme. En este caso, alfa es 1/N Y luego para cada iteración de AdaBoost,
+a medida que se aprende la primera decisión o el primer clasificador simple
+o el primer clasificador de peso, el segundo, el tercero,
+y así hasta T. Lo que hacemos es aprender ft con el
+dato de peso alfa i Es decir, esos datos son 
+los pesos que inician en 1/N pero cambian con el tiempo. Luego calculamos el coeficiente ŵt para este nuevo clasificador ft que aprendimos. Y luego recalculamos
+los pesos alfa i. Continuamos, y una vez que terminamos
+decimos que la predicción ŷ es el signo de la combinación
+ponderada de f1, f2, f3 f4, ponderados por esos coeficientes
+que aprendimos antes. Entonces, hay dos problemas fundamentales
+que necesitamos abordar cuando estamos pensando en AdaBoost. El primero es, cómo calcular
+el coeficiente ŵ.t, llamémosle problema 1 en nuestro módulo de hoy. el cual es ¿cuánto  confío en f.t en este caso? Si confío mucho en f.t, debería darle un peso muy alto. Si confío muy poco en f.t, debería darle un coeficiente muy bajo. Y luego, el problema 2 es
+¿cómo recalcular este peso en los datos? Llamémosle problema 2. Y entonces, el problema 2 es ¿Cómo más pesamos los errores? Así que queremos incrementar
+los pesos de los errores. En la parte principal de este módulo,
+vamos a hablar sobre cómo calcular ŵ.t y cómo actualizar los alfa.i, y será bastante sencillo, relativamente intuitivo
+y extremadamente útil. [MÚSICA]

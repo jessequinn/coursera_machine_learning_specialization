@@ -1,0 +1,61 @@
+[MUSIC] Now we've seen multiple ways
+that overfitting can be bad for classification especially
+from logistic regression and how very massive parameters
+can be a really bad thing. So, what we're going to do next is
+introduce a notion of regularization just like we did regression to
+penalize this really large parameters in order to get a more reasonable outcome. So we're still talking about
+the same logistical regression model where we take data we do some
+feature extraction to it we fit this model one over one plus
+e to the minus w transpose x. But the quality metric for this machine
+in the algorithm is going to change to push us away from
+really large coefficients. So in particular we're going to
+balance how well we fit the data with the magnitude of coefficients as
+to avoid this massive coefficients. In the context of logistic regression, we're balancing two things
+to measure total quality. The measure of fit. Which was the data likelihood,
+the thing that's bigger is better, how well I fit the data, and
+then the magnitude of the coefficients, where the coefficients
+are too big are problematic. So we have one thing that we want
+to be big, the likelihood, and the other thing we want to be small,
+which is the minds of coefficients, we're going to optimize the quality
+minus this complex metric here. And so we want to balance between the two. So what do those mean? Let's substantiate that more clearly
+In the context of logistic regression. The quality metric in logistic
+regression is the data likelihood, and we talked about it quite
+a bit in the previous module. Now one little side note here that
+we're going to use in this module is that we don't typically optimize
+the data likelihood directly. We optimize the log of
+the data likelihood, because that makes math a lot simpler. And it makes the gradients
+behave a lot better. In the options section
+in the previous model, we talked about this quite a bit,
+and we explored it in detail. If you skipped that section, just think about the log as a way
+to make those numbers less extreme. So we take the log. So the method for quality is going to
+be the log of the data likelihood, and we're going to make that
+log as big as possible. So we see that the likelihood is going
+to be what we're going to optimize when we try to make it big. But at the same time,
+we're trying to make something small, which is the magnitude of the coefficient. So there are different metrics for magnitude of coefficients,
+just like we explored in regression. There's two that we're
+going to use in this module. One is the sum of the squares, also called
+the L2 norm, the square of the L2 norm. And because it's noted by W2 squared and
+it's just very simple. It's the square of the first
+coefficient plus the square of the second coefficient plus the square
+of the third coefficient and so on plus the square of the last
+coefficient, w d squared. That's if you used the L2 norm. We can also use the sum of the absolute
+values, also called the L1 norm, and it's denoted by this here. And instead of being the squares,
+it's w0, absolute value, plus W one absolute value plus w two absolute value all the way to the absolute
+value of the last coefficient. Now in the regression course we
+explored these notions quite a bit but the main reason we take the square of
+the absolute value is that we want to make sure to penalize highly positive and
+highly negative numbers in the same way, so by doing the search squaring of some
+value, i'll make the output here positive. When I make this norms as low as possible. So both of these approaches
+are penalize larger weight. Actually, i should say
+penalize large coefficients. However, as we saw in the regression
+class by using the L one norm, I'm also going to get what's
+called a sparse solution. So the sparse doesn't point
+play in regression but it also plays a role in classification for
+example. And in this module we're going to explore
+a little bit of both of these concepts. And we're going to start with the L2 norm,
+or the sum of the squares. So now that we've reviewed these concepts,
+we can now formalize the problem, the quality that we're trying to maximize. And so I want to maximize over my choice parameter W's of
+the trade off between two things. The likelihood of my data and
+actually the log of it. So, log of the data likelihood. And some notion of penalty for
+the magnitude of the coefficients, which it will start with
+this L2 penalty notion. [MUSIC]

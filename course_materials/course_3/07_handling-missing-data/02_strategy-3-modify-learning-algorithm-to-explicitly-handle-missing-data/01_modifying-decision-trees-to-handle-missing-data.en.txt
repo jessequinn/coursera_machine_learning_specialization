@@ -1,0 +1,60 @@
+[MUSIC] In my opinion the best thing you can
+to do to deal with missing data is to make your algorithm, machine learning
+algorithm, robust to missing data. In other words, make sure that
+an algorithm adapt to missing data. And that's exactly what we're going to
+do in this particular module. And we're going to do it in
+the context of decision trees, because a simple modification of decision
+trees, they can handle missing data. So, how we going to
+deal with missing data? Let us try to understand a little better what happened in the context
+of the decision trees? So I have this input xi where the credit
+was poor and income was unknown. I go down the decision tree,
+I hit credit poor, so I take the branch here, poor. And then I hit income,
+but income was unknown. Income was question mark. So what do I do then? So what we're going to do is
+assign a branch to follow when the data is unknown,
+when the value is unknown. And in this case, I'm going to
+associate all unknown data, for example, with the branch
+where income was low. So if your income was unknown,
+take the branch low and from there I'm just going to
+predict that this loan was risky. So in other words, in our decision tree
+we're going to make explicit decisions as to where question marks or
+missing values, unknown values will go. We've introduced a decision to what
+happens when we hit an unknown value at this point of the decision tree. But we may have unknown values any point
+of decision tree, so we're going to make decisions everywhere as to what
+should happen when we see unknown values. So for every decision known, when I
+choose one of them its right to absorb the unknown values and
+notice that those are going to be specific decisions we're going to make
+associated with every diamond known or every decision known in the decision
+tree so for credit we're going to have the unknowns or question marks
+going to the fair branch for income, it was poor. And we look at income,
+we're going to go down the lower branch. When credit equals poor and
+income is high we look at term and, in this case,
+when term is equal to five years, we're going to put the unknowns, or the
+question marks, in the five year bunch. However, note take a note of this, we might choose to say that
+when credit goes fair and we look at term the unknowns in this case
+will go to the term equals three years. So the decision that we make
+about where unknowns go does not need to be the same in
+different parts of the decision tree. So we take different decisions here, About the questions marks, or unknowns. And that's the beauty of
+the approach that we're describing, because we're going to optimize, just like
+we're optimizing of the decision trees, we're going to optimize
+where the unknowns will go, in order to minimize
+the classification error. Now if a learning tree like this and
+we're given an input, for example, where the credit is
+unknown and the income was high, and the term was 5 years,
+we can go down this tree and traverse. Well, credit was unknown,
+the term was 5 years, so I'm going to predict it's a safe loan. While if I have another input
+where the credit is poor, the income is high, the term was
+question mark when the different branch of the decision tree will go
+down credit poor, income high and the term here unknown goes down
+the same as the five year loan and again we'll predict safe. In general, approaches that
+explicitly handle missing data in the algorithm itself
+can be quite helpful. They can help address missing data
+training time and prediction time. And can make more accurate
+predictions in general. And we just talked about
+an example in decision trees. The downside though is that it requires it
+to modify the actual learning algorithm to deal with missing data. In the case of decision trees,
+I'm going to describe kind of a very simple modification
+that can make this happen, but this can be very complex for
+other algorithms. And even for decision trees, if you're
+going to make it really, really good, it might be more complex than
+what we're talking about next. But the idea here is
+fundamentally important. [MUSIC]

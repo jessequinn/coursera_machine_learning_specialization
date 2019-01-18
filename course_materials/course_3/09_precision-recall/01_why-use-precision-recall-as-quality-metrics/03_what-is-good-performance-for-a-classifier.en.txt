@@ -1,0 +1,42 @@
+[MUSIC] Now to figure out what sentence
+I want to put onto my website, I want to make sure that my classifier
+is good at identifying those sentences. So I want to make sure
+its performance is good. And what does good performance mean? In general, well it depends on the task. And the question is, what does good
+performance mean for my task at hand? For deciding what sentences to show. And so previously, in the first course, we
+asked the question, what is good accuracy? What is good accuracy in general? And we compare good accuracy
+with say a random classifier. So, for example the binary classification
+class with two classes that we're talking about, random gets 50%, so
+0.5 classification error, and so should do at least better than 0.5. If you have multiple classes then you get classification error 1 / k, so
+for 3 classes, you get a 0.66 and so on. So at the very, very least, we said,
+you should do at least better than random. But that's not enough to make me decide,
+doing that at random is not enough to make you decide to deploy this service
+into the website of my restaurant. So I need to think about something else. Then in the first course let's explore
+the question of imbalanced classes. What happens, for example, when there's
+a lot more data of one category or one class versus the other. So as an example, let's say that
+my classifier has 90% accuracy. But my restaurant sucks,
+90% of the reviews are negative. What does that mean? That means the classifier might be
+saying that everything's negative. Everything is negative. It doesn't find any of
+those positive reviews. So the performance might look pretty
+good in terms of accuracy, but it's never going to find those 10% of positive reviews which I'm
+desperately now, because it's so bad. I'm desperately trying to put into
+my website and so this is also bad. And so now let's step back and
+think about the task that we have, this automated marketing campaign task. And ask what is good performance for me? Is it accuracy, is it 90%? It's not, it's about two things. First, if I show something on my website,
+it better be good, it better be positive. Man, if I show a negative review on
+my website, it's a double whammy. So, first people are going to my website,
+they're reading about me and they're reading bad things
+there that people are saying. Nobody's going to want to
+come to my website. So what I want to make sure
+is that I'm very precise, whenever I show something, it's good,
+so that means high precision. The other thing that I have to worry about
+is finding all those positive reviews. Maybe my restaurant is not that good, and those positive reviews
+are not that common. So I want to make sure I find
+all of the positive reviews, so I can have a chance of showing all
+the positive reviews on my website. And that's called recall. So precision is how precise I am at
+showing good stuff on my website, recall is how precise I am,
+how good I am, at finding all the positive reviews amongst all
+the reviews, all the sentences out there. So I want to be good
+into those two metrics, not the single accuracy number
+that we talked about before. Precision-recall is generally
+an extremely important type of metric for evaluating classifiers. People use it in practice all the time. We're going to discuss them in
+quite a bit of detail today. And it's something that you should
+be extremely familiar with if you're starting to use machine learning practice. [MUSIC]

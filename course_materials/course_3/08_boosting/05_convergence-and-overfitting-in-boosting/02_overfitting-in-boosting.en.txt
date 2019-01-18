@@ -1,0 +1,63 @@
+[MUSIC] So, let's compare a boosted
+serial stump to a decision tree. So, this is the decision tree blog that
+we saw in the decision tree model. So this is on real a real dataset is
+based on the loan applications and we see the training error as
+we make the decision tree deeper tends to go down,
+down and down and we saw that. But the test error, which is kind of
+related to true error goes down for a while and you have here the best depth,
+which is maybe seven. But eventually, it goes backup. So let's say after that 18 over here,
+the training error's down to 8%. So it's a really low training error, but the test error has gone up to 39% and
+we observe over 15. And in fact, we observe a huge gap here. There are things now,
+by the way is the best decision tree has classification error in the test
+set of about 34% or so. Now, let's see what happens
+with the senior stamps that boosted on the same data set. You get a plot that
+looks kind of like this, you see that the training arrow
+keeps decreasing per iteration. So, this is the train error. So as the theorem predicts,
+it decreases as and the test error in this case is actually going down with iterations. So, we're not observing
+over 15 at least yet. And after 18 rounds of boosting,
+so 18 decision stumps, we have 32% test error,
+which is better than a decision tree. Yet, in fact, that's the best decision
+tree and the over fitting is much letter. So, this gap here is much smaller. So, the gap between
+your training error and the test error is kind of related to
+that over fitting quantity that we have. Now we said,
+we're not observing over 15 yet. So, let's run booster stamps for
+more iterations and see what happens. So let's see what happens when we
+keep on boosting and adding more decision stems on the x-axis, this is
+adding more and more decision stems and more tree instead of only one tree and see
+what happens to the classification error. We see here that the training
+error keeps decreasing. Just like we expected by the theorem,
+but the test error has stabilized. So, the test performance
+tends to stay constant. And in fact, it stays constant for
+many iterations. So if I pick T anywhere in this range,
+we will do about the same. So, any of these values for T would be fine. So now we seen how boosting the sound
+is seems to be stabilizing, but the question is do we observe
+overfitting and boosting? And in fact,
+we do observe over 15 with boosting, but boosting tends to be
+quite robust in overfitting. So if you use too many trees or
+too few trees, there's a huge range, but that's really okay. So here,
+I'm going up to 5,000 decisions stamps, which is this type of
+boosting we are doing here. The best test error was about 31%. But if I kept going too far,
+I go to 5000 overfitting that test error is going up, but
+is doesn't go up that much. It goes up to 33%, so
+there's some over overfitting here. Very importantly in these examples,
+I've been showing you the test error and talking about what happens
+overfitting mostly. But as we know, we need to be very careful of how we
+pick the parameters of our algorithm. So how do we pick capital T,
+which is when we stop boosting? We have five decision stamps,
+5,000 decision stamps. And this is just like selecting the magic
+parameters or all sorts of algorithms and almost every algorithm out there model
+has a parameter trades off complexity, that for decision tree,
+number of features, or magnitude of weights in
+logistic regression and here is the number of rounds of
+boosting with the quality of the fit. So, just like lambda in regularization. We can't use the training data,
+because the training tends to go down with iterations of boosting, so
+you say that T should be infinite. Shouldn't be here really big and
+should never, never, never, ever, ever, ever,
+ever use the test data, so that's bad. I was just showing you an illustrative
+examples, but you should never do that. So, what should we do? Well, you should either use a validation
+set if you have a lot of data. If you have a big dataset, you select a subpart of that to
+just pick the magic parameters. And if your dataset is not that large
+you should use cross-validation. And in the regression course, we talked
+about how to use validation sets and how to use cross-validations to
+pick magic parameters like lambda, the def decision tree or
+the number rounds of boosting Capital T. [MUSIC]

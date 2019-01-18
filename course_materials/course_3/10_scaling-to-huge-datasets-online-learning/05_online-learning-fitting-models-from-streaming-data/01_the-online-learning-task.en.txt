@@ -1,0 +1,45 @@
+[MUSIC] Now it seems to cast a gradient
+which is really exciting. Simple algorithm, simple modification to gradient,
+which really speeds up in practice. Has many practical challenges, and
+we talked about several of those, and how to address them. But now, I would like to step back,
+and think about a broader question, what's called online learning,
+of how do we learn from streaming data. And we see that is one way to learn
+from data that arrives over time or streaming data. Let's define the idea of online learning. But first, let's look at what
+we've been doing so far. What we've been doing so
+far in this course, and in the regression course,
+is what's called batch learning. I'm given the full data set. And I'm going to run some machine
+algorithm over this data set, maybe gradient, and
+do many pass over the data. And finally output my best guess,
+my best estimate, for the coefficients, and we're going to
+call that W hot and we're done. That's batch learning. Online learning is something different. Actually, what you are doing
+here is online learning. But that's a different
+kind of online learning. What we're talking about here
+is online machine learning. And in online machine learning, data raise
+over time, one data point at a time. So, for example, as we'll see next,
+ad serving ads on web pages, is an example, where your things
+are arriving one data point at a time. And so, that's where data is coming in. And your machine learning algorithm,
+sees a little trench of that data, one little bit. Let's say, a timesstamp one,
+takes it in, and makes an estimate of the coefficient,
+say w hat 1. And the timestamp two,
+this is another little bit of the data, and makes another estimate
+of the coefficient w hat 2. And the timestamp three,
+it makes another estimate w hat 3. Timestamp four, a little more data and
+makes an estimate w hat4. So every timestamp is making a new
+estimate, so it can make new predictions. To better the ideas,
+let's look at really practical real world example of where online learning makes a
+huge difference, and it's on ad targeting. So let's see on navigating the web and
+you hit the particular website, what's happening behind
+the scenes when you're shown ads? Well some information about you, like your
+age, or the websites you've visited, and some of the information about the website,
+like the text of the website, are fed into a machine learning algorithm, that's
+going to use some set of quotations, w hat t, to figure out what's
+the best ads to show you. And we're going to call
+that y hat suggested ads. It might show you ad 1,
+ad 2, ad 3, and so on. And then, look at the website. You're like, cool,
+that's a really interesting ad. And you go and you click on ad two. Well, when you click on ad two, the machine learning algorithm figures
+out that you clicked on ad two, and assigns true label,
+for website ad two. That's where you clicked on. And then the machine learning
+algorithm takes the and updates its coefficient from w
+high t to w high t plus one. And what we describe so far, is really how ad systems work,
+a lot of them work in practice. So this is a little bit of an is really
+something that makes a big difference in the real world. [MUSIC]

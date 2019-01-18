@@ -1,0 +1,56 @@
+[MUSIC] Now that we're able to pick
+a feature to split on, we need to decide what to do next, how
+to recurse, and when to decide to stop. So, our goal now has gone beyond
+just learning a decision stump or to start first level of decision tree or
+picking that first feature to split on, and learning a whole
+decision tree from data. So if you look at our decision stump
+that we learned splitting on credit, if you look at that first split where
+credit was excellent, we see that every single data point in there was a safe
+long, so there's nothing else to do. There's no reason to recourse or trying
+more, we just make that what's called a leaf node because all other splits
+will also be predicted as safe. But for the other two, for
+the cases where credit was fair, or the cases where credit was poor. We need to look at the subset of
+the data that has fair credit, and the subset of data that has poor credit,
+and build the next decision stump from each one of these, and then from there
+build the next decision stumps, and so on. So, in our example,
+if we were to keep going and build an extra decision stop for
+the data that is fair, where credit was fair, you will see that
+the results would be something like this. I would split on term next,
+that would be the best thing to do. And then if we look at data
+that has poor credit we will figure out the next best thing
+there is to split on the income, and for the points of low income
+everything was risky. So we stop splitting from there, so credit poor income low everything's risky
+no need to do dilemma decision stem. But for the other case where the credit
+was poor the income was high, we see there's some risky point some safe points,
+we do another decision stem from there. And then if you were to do that
+we've learned something like this, which completes our entire data. I started the decision tree. So you see now that we have branches that
+take us to leaves in every possible split. So what we describe here is what's
+called the recursive algorithm. It starts with a process where we
+pick the best feature to split on, then we split our data into decision
+stump with the selected feature, and then for
+each leaf of the decision stump or each node associated with it we go
+back and learn a new decision stump. And the question is, we keep iterating
+like this forever or do we stop somewhere? So what are the criteria to stop
+recursing is the question here. And the criteria are extremely simple. So the first criteria we've already seen. For the nodes I've selected here including
+that first nodes where credit was excellent every single nodes associated
+with data points of just one category or one class same output. So, for accident there
+everything will save, and for the case where the credit was fair, but
+the term was 3 years everything was risky. So, as we can see for those there's no
+point in keep on splitting, so the first stop in condition is stop splitting when
+all the data agrees on the value of y. There's nothing to do there. And there's a second criteria which is only happened over here where
+we stopped splitting, and we still had some data points with
+safe and risky loans inside that node. However, we had used up all of
+the features in our dataset. We only had three features here,
+credit, income, and term, and on that branch of decision
+tree we used all of them up. There's nothing left to split on. We get the same things if you
+keep splitting them forever. And so the two stopping
+criteria actually very simple stop if every data point agrees or
+stop if you run out of features. So if we go back now to
+our greedy algorithm for learning decision trees we see that
+step two you just pick the feature that minimizes the classification
+errors we discussed. And then we have these two stopping
+conditions here that we just described, two extremely simple ones,
+and then we just recurse and keep going until those stopping
+conditions are reached. Either we use all the features,
+use them all up or all the data points
+agree on the value of y. [MUSIC]

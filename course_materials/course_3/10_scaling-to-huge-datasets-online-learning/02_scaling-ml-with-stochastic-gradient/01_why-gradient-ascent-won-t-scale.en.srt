@@ -1,0 +1,269 @@
+1
+00:00:00,000 --> 00:00:04,728
+[MUSIC]
+
+2
+00:00:04,728 --> 00:00:09,168
+The simplest form of ascent
+a gradient says when an estimated
+
+3
+00:00:09,168 --> 00:00:12,240
+gradient one data point at a time.
+
+4
+00:00:12,240 --> 00:00:13,790
+So lets see what that looks like.
+
+5
+00:00:15,505 --> 00:00:18,600
+We're back to our gradient, the sun
+setting where we are going to start,
+
+6
+00:00:18,600 --> 00:00:20,540
+from some point in space.
+
+7
+00:00:20,540 --> 00:00:24,840
+We're going to compute the gradient
+of the likelihood function,
+
+8
+00:00:24,840 --> 00:00:27,920
+take a little step in that space,
+then compute the gradient again,
+
+9
+00:00:27,920 --> 00:00:31,220
+take another little step, another
+little step, and another little step.
+
+10
+00:00:31,220 --> 00:00:35,710
+And this is the algorithm on
+the right that we'll be using
+
+11
+00:00:35,710 --> 00:00:38,410
+throughout this module and before that.
+
+12
+00:00:38,410 --> 00:00:42,018
+The question here is how
+expensive is this algorithm?
+
+13
+00:00:42,018 --> 00:00:44,642
+Let's look at the case
+of logistic regression,
+
+14
+00:00:44,642 --> 00:00:48,100
+just to remind ourselves
+of how expensive that is.
+
+15
+00:00:48,100 --> 00:00:53,930
+What we need to do here is sum
+function over each data point.
+
+16
+00:00:53,930 --> 00:00:58,300
+And you can think about it as
+the contribution to the gradient the data
+
+17
+00:00:58,300 --> 00:01:03,890
+point xi, yi has, and we're adding
+those up through each data point.
+
+18
+00:01:03,890 --> 00:01:09,610
+And so,
+I'm going to denote here by this term,
+
+19
+00:01:09,610 --> 00:01:14,480
+the derivative l subscript
+i with respect to
+
+20
+00:01:14,480 --> 00:01:19,250
+the priority wj is the contribution
+of i data point to the gradient.
+
+21
+00:01:19,250 --> 00:01:23,870
+And what we're doing here Is summing
+up each one of these contributions
+
+22
+00:01:23,870 --> 00:01:27,650
+in order to compute the final
+gradient that we're going to take,
+
+23
+00:01:27,650 --> 00:01:30,520
+the final update for the parameters.
+
+24
+00:01:30,520 --> 00:01:34,850
+So how computationally costly
+is it to do this approach?
+
+25
+00:01:34,850 --> 00:01:37,420
+So let's ask that question.
+
+26
+00:01:37,420 --> 00:01:41,450
+So for example, if I were to say
+
+27
+00:01:41,450 --> 00:01:45,200
+computing the contribution of one
+data point takes me one millisecond.
+
+28
+00:01:45,200 --> 00:01:47,360
+It's really fast,
+it only takes me one millisecond.
+
+29
+00:01:47,360 --> 00:01:50,945
+When I have 1,000 data points,
+then that's not too bad.
+
+30
+00:01:50,945 --> 00:01:54,250
+1,000 milliseconds is one second.
+
+31
+00:01:55,960 --> 00:01:59,550
+I don't feel too bad about that outcome.
+
+32
+00:01:59,550 --> 00:02:02,720
+What if you have a much more complex
+model, like a neural network or
+
+33
+00:02:02,720 --> 00:02:07,700
+something, where one update takes 1
+second instead of 1 millisecond, and
+
+34
+00:02:07,700 --> 00:02:08,940
+you have 1000 data points?
+
+35
+00:02:10,420 --> 00:02:15,350
+Now computing 1 step of
+gradient requires 1000 seconds,
+
+36
+00:02:15,350 --> 00:02:19,020
+which if you can't do this in your head,
+I can't.
+
+37
+00:02:19,020 --> 00:02:23,019
+By Cheetah is 16.7 minutes.
+
+38
+00:02:23,019 --> 00:02:25,890
+Now things are getting
+a little bit more complicated.
+
+39
+00:02:25,890 --> 00:02:30,070
+So 16.7 minutes is a lot to wait, but
+
+40
+00:02:30,070 --> 00:02:34,850
+a thousand data points is nothing.
+
+41
+00:02:34,850 --> 00:02:39,000
+We said YouTube has five billion
+data points per day or more.
+
+42
+00:02:39,000 --> 00:02:42,650
+So let's say that we're going
+back to the one millisecond case.
+
+43
+00:02:42,650 --> 00:02:46,420
+It only takes 1 millisecond to compute
+that gradient contribution, but
+
+44
+00:02:46,420 --> 00:02:50,280
+you have 10 million data points,
+what happens?
+
+45
+00:02:50,280 --> 00:02:53,310
+Well the total time now becomes 2.8 hours.
+
+46
+00:02:57,060 --> 00:03:00,700
+So things are starting to get nasty but
+again,
+
+47
+00:03:00,700 --> 00:03:03,440
+10 million data points is not that much.
+
+48
+00:03:03,440 --> 00:03:07,340
+YouTube has five billion,
+ten billion more per day.
+
+49
+00:03:07,340 --> 00:03:09,800
+So what happens if you have
+ten billion data points and
+
+50
+00:03:09,800 --> 00:03:13,248
+it takes you just one millisecond to
+compute that creating contribution?
+
+51
+00:03:13,248 --> 00:03:20,700
+Then it's going to take us
+10 billion milliseconds,
+
+52
+00:03:20,700 --> 00:03:27,050
+which I cheated here, it's 115.7 days.
+
+53
+00:03:27,050 --> 00:03:31,904
+So it's going to take about four months,
+approximately,
+
+54
+00:03:31,904 --> 00:03:35,210
+just to compute one gradient.
+
+55
+00:03:35,210 --> 00:03:37,598
+And if you remember from implementation,
+
+56
+00:03:37,598 --> 00:03:40,861
+you have to do many gradient
+updates before you converge.
+
+57
+00:03:40,861 --> 00:03:46,465
+So this is definitely not going to work,
+you need to do something about it.
+
+58
+00:03:46,465 --> 00:03:47,360
+[MUSIC]

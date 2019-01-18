@@ -1,0 +1,47 @@
+[MUSIC] In this module we'll cover a couple basic
+strategies for dealing with missing data, and then we'll cover a modification
+in the decision tree algorithm. We're actually going to be able to deal
+missing data in a much smarter way. Now the basic most common of
+dealing with missing data is what's called purification. So I'm just going to
+throw out missing data. So I start with a data set where for
+some data points, some of the feature values are missing. And somehow when I skip some of these
+features, some of these data points, I end up with a data set and
+output here h(x) where nothing is missing. Everything's observed. So skipping data and
+purifications with skipping data is the most obvious thing
+that you might want to do. So if I have nine data points over here,
+and three of them have missing data,
+so these are the three rows here. Then, I could just say, okay, there's
+now only three missing, not too bad. I'm just going to skip them. And so, I'm going to take my 9 and decrease it to just 6 and
+call that my data set. And if you only have a few missing values,
+maybe this is an okay thing to do. Skipping data points with missing values,
+however, can be a problematic idea. So, for example, in this case, you have the feature term
+missing in a lot of different data points. In fact, six out of nine data
+points the term feature is missing. So if I were just to skip those, I'll
+go from a data set with nine features, so if nine data points,
+to a data set with only three data points. So it'll become much, much smaller. And that's really bad because term here
+is missing on more than 50% of the data. So if you look, we go down from
+9 to a much, much smaller value. And that can happen and makes your training much worse
+because much less data here. And so, in this cases, if you just have one feature which has
+lots of missing values, one another simple approach is to say instead of skipping
+data points you could skip features, and now instead of having fewer data
+points you just have fewer features. [BLANK AUDIO] So that's a reasonable
+alternative in this case. So there are two basic kinds of
+skipping that you might want to do when you have missing data. You can either skip data points
+that have missing data or skip features that have missing data. And somehow you have to make a decision
+of whether to skip a data point, skip features, or
+skip some data points and some features and that's a kind of
+complicated decision to make. In general this idea of skipping
+is good because it's easy, it kind of just takes your data set and
+simplifies it a bunch. It can be applied to any algorithm
+because you just simplify the data and you just feed it to any algorithm,
+but it has some challenges. Now removing data, removing features is always a kind of
+painful thing, data is important. You don't want to do that and its often
+unclear if you should remove features, to remove data points, what impact it
+will have on your answer if you do. Most fundamentally even if you really
+skip too much at training time at prediction time if you had
+a question mark what do you do? This approach does not address
+missing data at prediction time. And so
+people do this approach all the time. And I'm okay with it if you just have
+kind of one case here or case there. But it's a pretty
+dangerous approach to take. I don't fully recommend skipping as
+an approach to dealing missing data. [MUSIC]

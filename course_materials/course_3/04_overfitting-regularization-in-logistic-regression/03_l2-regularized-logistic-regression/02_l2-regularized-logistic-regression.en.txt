@@ -1,0 +1,51 @@
+[MUSIC] Now we have these two terms that we're
+trying to balance between each other. And there's going to be a parameter
+just like in regression, that helps us explore how much we
+put emphasis on fitting the data, versus how much emphasis we put on making
+the magnitude of the coefficients small. And this parameter, we would call
+Lambda or the tuning parameter, or the magic parameter,
+or the magic constant. And so, if you think about it, there's
+three regimes here for us to explore. Where Lambda is equal to zero,
+let's see what happens. So when Lambda is equal to zero,
+this problem reduces to just optimizing. So maximizing over W of the likelihood
+only, so only the likelihood term. Which means that we get to the standard
+maximum likelihood solution, an unpenalized MLE solution. So, that's probably not a good idea to
+set it to zero, because I don't, I have this really bad over fitting problems,
+and not preventing the over fitting. Now, if I set Lambda to be too large,
+for example, if I set it to be infinity, what happens? Well, the optimization
+becomes the maximum over W. Or if L of W minus infinity times
+the norm of the parameters, which means the LW gets drowned out. All I care about is that infinity term and
+so, that pushes me to only care
+about penalizing the parameters. About penalizing the coefficient, say, another parameter, so penalizing W, or penalizing that large coefficient. Which will lead to just setting
+all of the Ws equal to zero. Everything be zero. Also now, I've got a good idea because
+I'm not fitting the data at all, I set all the parameters to zero, it's not
+doing anything good, ignoring the data. So the area that we care about
+is somewhere in between. So a Lambda between zero and infinity, which balances the data fit against magnitude of the coefficients. Very good. So we're going to try to find the Lambda. If it's between zero and
+infinity, it fits our data well. And this process,
+where we're trying to find a Lambda and we're trying to fit the data
+with this L2 penalty, it's called L2 regularized
+logistic regression. In the regression case,
+we called this ridge regression, here it doesn't have a fancy name, it's
+just L2 regularized logistic regression. Now, you might ask this point,
+how do I pick Lambda? Well, if you took the regression course,
+you should know the answer already. Now, use your training data,
+because as Lambda goes to zero, you going to fit the training data better. You're not going to be able
+to pick Lambda that way. Never ever use your test data, ever. So, you either use a validation set,
+if you have lots of data or use cross validation for
+smaller data sets. So in the regression course, we cover
+this picking the parameter Lambda for the regression study, and
+this is the same kind of idea here. Use a validation set or
+use cross-validation always. Lambda can be viewed as
+a parameter that helps us go between the high variance model and
+the high bias model. And try to find a way
+to balance the bias and variance in terms of
+the bias variance tradeoff. So when Lambda is very large,
+we have W is going to zero, and so we have large bias and we know,
+they are not fitting the data very well. We have low variance,
+no matter where your data set is, you get the same kind of parameters. In extreme, when Lambda is extremely large, you get
+zero no matter what data set you have. If Lambda is very small, you get
+a very good fit to the training data, so you have low bias but
+you can have a very high variance. If the data changes a little bit, you get
+a completely different decision boundary. And so in that sense, Lambda controls
+the bias of variance trade off for this regularization setting in logistic
+regression or in classification. Just like you did in regular regression. [MUSIC]

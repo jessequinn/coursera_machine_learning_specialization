@@ -1,0 +1,39 @@
+[MUSIC] >> Let's now explore in more depth that
+learning task of learning decision tree. So just like before we're giving
+a set of training data, and we extract some features from that. And then we're going to take this
+decision tree model, T of x, and use it to predict y hat. So let's explore the T of x in
+a little bit more detail and discuss what the learning
+process might look like here. In particular we're given a data set here,
+which is a table where each row corresponds to a data point,
+and we have our features here, h1 of x, h2 of x, h3 of x. So credit, term, and income, so in this
+example it's only going to be three features, and then when try to predict a,
+what we call, loan status. Which is this variable y, which is
+whether the loan is risky or safe. And our goal is to learn the decision tree
+that can help us make that prediction. Given one or more of these input features. More generally we're going to be given N
+observations from our data of the form xi, yi where yi is the true label. And, we're trying to optimize some kind
+of a quality metric that tries to fit a tree that is as good as possible
+with respect to that metric. And, in the case of the decision
+trees the metrics we're going to use Is just straight up classification error. There are other metrics that you may
+use for decision trees, but just for this module we just want to focus
+straight up on classification error. And classification error measures
+the fraction of mistakes that we make when we try to make prediction
+of the trailing data. So that's the number of incorrect
+predictions divided by the total number of examples, just like we saw. In the logistic regression case. The best possible value here is 0,
+no mistakes, and the worst possible value here is 1. I made as many mistakes
+as there are data points. So hopefully you don't have error 1,
+hopefully you have error closer to 0. So now that we've seen
+classification error, we can state more clearly
+where our learning goal is. Given the dataset, find the tree that
+minimizes the classification error. The question is, how hard is this problem? How hard is this learning task? And it turns out that this is
+an extremely hard learning task. There's exponentially many combination
+of decision trees out there. Even if you consider just
+one branch of decision tree. Selecting what features to come next in
+an order can be a really hard problem and lead to explanation in many combinations. And in fact, for those familiar with this, this is an
+example what's called an NP hard problem. So, it's a really hard problem and
+there are no approximation algorithms for this problem with guarantees, but
+there is some simple ideas of heuristics that tend to perform
+extremely well in practice. And we're going to talk
+about one such idea today, Wwhich is called the greedy,
+simple greedy algorithm, basically. And we're going to incrementally
+build a tree, one layer at a time, in order to get the best possible
+classification error at each step. >> [MUSIC]

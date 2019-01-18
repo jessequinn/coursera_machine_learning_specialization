@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:04,422
+[MUSIK]
+
+2
+00:00:04,422 --> 00:00:07,800
+Wir sahen wie ein Entscheindungsbaum auf Grundlage von Daten erzeugt wird.
+
+3
+00:00:07,800 --> 00:00:11,240
+Es ist ein cooler, einfacher und rekursiver Algorithmus.
+
+4
+00:00:11,240 --> 00:00:16,390
+Die wichtigsten Entscheidungen sind nach welchem Feature ein Knoten teilt und wann aufgehört wird zu teilen.
+
+5
+00:00:16,390 --> 00:00:20,020
+Im nächsten Modul werden wir über verschiedene Wege Overfitting ...
+
+6
+00:00:20,020 --> 00:00:21,570
+... in Entscheidungsbäumen zu vermeiden sprechen.
+
+7
+00:00:21,570 --> 00:00:26,740
+Sie sollten bereit sein zu verstehen, wie ein Entscheidungsbaum auf Grundlage von Daten erstellt wird.
+
+8
+00:00:26,740 --> 00:00:29,180
+Implementieren Sie diesen Algorithmus und ...
+
+9
+00:00:29,180 --> 00:00:32,510
+... treffen Vorhersagen mit Hilfe des von Ihnen trainierten Entscheidungsbaums.
+
+10
+00:00:32,510 --> 00:00:35,610
+Seien sie auch bereit Entscheidungsgrenzen von Entscheidungsbäumen zu erkunden und ...
+
+11
+00:00:35,610 --> 00:00:39,810
+... wie sie im Zusammenhang stehen zu Entscheidungsgrenzen von zum Beispiel logistischer Regression.
+
+12
+00:00:39,810 --> 00:00:43,030
+Lasse Sie mich abschließend meinem Kollegen ...
+
+13
+00:00:43,030 --> 00:00:47,495
+... Krishna danken, der entscheidend dazu beigetragen hat, die Folien in diesem Modul zu erstellen.
+
+14
+00:00:48,520 --> 00:00:51,921
+Ich wertschätze all die Mühe, die Krishna auf sich genommen hat.
+
+15
+00:00:51,921 --> 00:00:56,259
+[MUSIK]

@@ -1,0 +1,118 @@
+1
+00:00:00,000 --> 00:00:04,908
+[MUSIC]
+
+2
+00:00:04,908 --> 00:00:11,650
+As we saw in our plot, stochastic gradient
+tends to oscillate around the optimum.
+
+3
+00:00:11,650 --> 00:00:15,690
+And so you should never trust the last
+parameter it finds, unfortunately.
+
+4
+00:00:16,820 --> 00:00:20,279
+Gradient will eventually
+stabilize on the optimal solution.
+
+5
+00:00:20,279 --> 00:00:23,306
+So even though it takes
+a hundred times longer or
+
+6
+00:00:23,306 --> 00:00:25,955
+more, like was shown in this example, so
+
+7
+00:00:25,955 --> 00:00:31,043
+if you look at the x-axis a hundred times
+more time to converge, you get there.
+
+8
+00:00:31,043 --> 00:00:33,780
+And you feel really good
+when you get there.
+
+9
+00:00:33,780 --> 00:00:37,680
+Stochastic gradient, when you think
+it converged, is really that it's
+
+10
+00:00:37,680 --> 00:00:42,050
+oscillating around the optimum, and
+that can lead to bad practical behavior.
+
+11
+00:00:43,340 --> 00:00:46,920
+So for example here,
+I'm just giving you some numbers,
+
+12
+00:00:46,920 --> 00:00:50,500
+say w at iteration 1000 might look really,
+really bad.
+
+13
+00:00:50,500 --> 00:00:56,100
+But maybe W at iteration 1005 looks
+really, really good and needs some kind of
+
+14
+00:00:56,100 --> 00:01:00,940
+approach to minimize the risk of picking
+a really bad one or a really good one.
+
+15
+00:01:02,000 --> 00:01:07,050
+And there is a very simple technique
+which works really well in practice, and
+
+16
+00:01:07,050 --> 00:01:08,890
+theoretically is what you should do.
+
+17
+00:01:08,890 --> 00:01:12,020
+So all the theorems require
+something like this.
+
+18
+00:01:12,020 --> 00:01:13,230
+And what it says is.
+
+19
+00:01:13,230 --> 00:01:16,710
+When you are outputting w hat,
+your final self-coefficient,
+
+20
+00:01:16,710 --> 00:01:21,420
+you don't use the last value, w(t),
+
+21
+00:01:21,420 --> 00:01:25,970
+capital T, you use the average of
+all the values that you've computed.
+
+22
+00:01:25,970 --> 00:01:28,715
+All the coefficients you
+computed along the way.
+
+23
+00:01:28,715 --> 00:01:33,045
+So, what I'm showing here is what your
+algorithm should output as it's fitting
+
+24
+00:01:33,045 --> 00:01:36,113
+the solution to make some
+predictions in the real world.
+
+25
+00:01:36,113 --> 00:01:40,239
+>> [MUSIC]

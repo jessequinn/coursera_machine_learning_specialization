@@ -1,0 +1,404 @@
+1
+00:00:00,000 --> 00:00:04,821
+[MUSIC]
+
+2
+00:00:04,821 --> 00:00:08,840
+At the core of boosting is the idea
+of an ensemble classifier.
+
+3
+00:00:08,840 --> 00:00:11,640
+So let's revisit the idea of,
+say, decision stump.
+
+4
+00:00:11,640 --> 00:00:14,955
+A decision stump may take our data as
+input and might look at some particular
+
+5
+00:00:14,955 --> 00:00:19,015
+feature, let's say, income and
+ask, is income greater than 100K?
+
+6
+00:00:19,015 --> 00:00:23,095
+If yes, we say a loan is safe, and
+if not, we might say the loan is risky.
+
+7
+00:00:23,095 --> 00:00:27,401
+And so the output here, y hat, is +1 or
+
+8
+00:00:27,401 --> 00:00:30,212
+-1, depending on whether we
+think the loan is safe or risky.
+
+9
+00:00:30,212 --> 00:00:34,622
+We're going to use the following notation
+just to be clear in today's module.
+
+10
+00:00:34,622 --> 00:00:38,588
+We're going to use f(x) to denote one
+of these weak simple classifiers or
+
+11
+00:00:38,588 --> 00:00:41,002
+a classifier in general, so that's the f.
+
+12
+00:00:41,002 --> 00:00:45,880
+And so what boosting does starts not
+just from a single decision stump,
+
+13
+00:00:45,880 --> 00:00:51,920
+but it combines many of them together
+in order to improve the prediction.
+
+14
+00:00:51,920 --> 00:00:55,054
+So, for example, you may have
+a decision stump that splits on income,
+
+15
+00:00:55,054 --> 00:00:58,817
+another one that splits on credit history,
+another one on how much savings you have,
+
+16
+00:00:58,817 --> 00:01:01,050
+and the market conditions, and so on.
+
+17
+00:01:01,050 --> 00:01:06,422
+So if you're giving a particular input,
+for example, your income is 120K,
+
+18
+00:01:06,422 --> 00:01:10,135
+so the first decision boost
+here is going to vote with f1,
+
+19
+00:01:10,135 --> 00:01:13,410
+that the loan is safe, so
+it's going to vote +1.
+
+20
+00:01:13,410 --> 00:01:15,483
+But your credit history is bad, so
+
+21
+00:01:15,483 --> 00:01:19,550
+the second decision stump
+here is going to vote -1, f2.
+
+22
+00:01:19,550 --> 00:01:22,441
+And, say, the third one,
+because your savings are low,
+
+23
+00:01:22,441 --> 00:01:24,683
+is going to vote risky -1,
+and the third one,
+
+24
+00:01:24,683 --> 00:01:28,760
+market conditions, turned out to be
+good so you're going to vote +1.
+
+25
+00:01:28,760 --> 00:01:33,884
+And the question here the boosting asks
+is, how do you combine in an ensemble
+
+26
+00:01:33,884 --> 00:01:39,904
+way this -1, +1 votes from different
+classifiers, f1 through f4, in this case.
+
+27
+00:01:39,904 --> 00:01:44,723
+And so the way that we combine is by
+having some sort of weights that deal with
+
+28
+00:01:44,723 --> 00:01:47,110
+what is called the ensemble models.
+
+29
+00:01:47,110 --> 00:01:50,190
+So the weights here are w1, w2, w3, w4.
+
+30
+00:01:50,190 --> 00:01:55,290
+And we multiply the outputs from each of
+the classifiers, add them up together and
+
+31
+00:01:55,290 --> 00:01:56,430
+then take the sign of that.
+
+32
+00:01:56,430 --> 00:01:58,540
+If the sign is positive, we output +1.
+
+33
+00:01:58,540 --> 00:02:00,578
+If the sign is negative, we output -1.
+
+34
+00:02:00,578 --> 00:02:03,210
+So it's kind of a weighted voting schema.
+
+35
+00:02:03,210 --> 00:02:07,630
+This weighted voting schema,
+amazing, really awesome.
+
+36
+00:02:07,630 --> 00:02:09,690
+And let's see a little bit
+more of what that looks like.
+
+37
+00:02:11,290 --> 00:02:14,172
+So let's suppose that we have
+a particular set of weights and
+
+38
+00:02:14,172 --> 00:02:18,144
+we have multiple decision stumps, so
+classifiers that have provided their vote.
+
+39
+00:02:18,144 --> 00:02:22,158
+Let's see more explicitly what
+that output value would be.
+
+40
+00:02:22,158 --> 00:02:26,925
+So, for example, if the weights of each
+classifier is shown on the right here,
+
+41
+00:02:26,925 --> 00:02:31,409
+then we're going to say that output that
+we're going to predict is going to be
+
+42
+00:02:31,409 --> 00:02:33,209
+the sign of w1, which is 2.
+
+43
+00:02:33,209 --> 00:02:39,293
+Then multiply the vote of f1,
+which is +1 plus w2, which is 1.5, so
+
+44
+00:02:39,293 --> 00:02:45,669
+we believe that the second decision stump
+is not as important as the first one,
+
+45
+00:02:45,669 --> 00:02:50,130
+and the vote there was -1,
+so that multiplies -1.
+
+46
+00:02:50,130 --> 00:02:54,732
+Then, for the third one, again,
+we say that the weight is 1.5, and
+
+47
+00:02:54,732 --> 00:02:58,338
+again we say it's not as
+important as the first one, but
+
+48
+00:02:58,338 --> 00:03:02,742
+as important as the second one,
+and the prediction there was -1.
+
+49
+00:03:02,742 --> 00:03:05,278
+And finally, for the last one,
+we might say that the weight is 0.5.
+
+50
+00:03:05,278 --> 00:03:09,890
+So this is the least important
+of all of these classifiers.
+
+51
+00:03:09,890 --> 00:03:15,360
+And the function here that, the output
+of f4 here was +1, was a safe loan.
+
+52
+00:03:16,430 --> 00:03:21,960
+So we have these votes, these weights,
+we multiply them together and
+
+53
+00:03:21,960 --> 00:03:25,980
+we see that the output
+of this F classifier for
+
+54
+00:03:25,980 --> 00:03:33,510
+the input xi is the sign of -0.5,
+which is equal to or
+
+55
+00:03:33,510 --> 00:03:38,690
+implies that y hat i is -1.
+
+56
+00:03:38,690 --> 00:03:41,670
+So even though there was two positive
+votes and two negative votes, and the most
+
+57
+00:03:41,670 --> 00:03:46,670
+important classifier, the first one, was
+a positive vote, when you add it up and
+
+58
+00:03:46,670 --> 00:03:50,860
+you average the results,
+you get a risky loan as an output.
+
+59
+00:03:52,010 --> 00:03:56,010
+Now this is a simple example of what's
+called an ensemble classifier or
+
+60
+00:03:56,010 --> 00:03:57,950
+the combination multiple classifiers.
+
+61
+00:03:57,950 --> 00:04:00,280
+As we'll see, this kind of ensemble model,
+
+62
+00:04:00,280 --> 00:04:05,220
+this kind of combination is what
+everybody uses in industry to be able to
+
+63
+00:04:05,220 --> 00:04:11,470
+solve complex decision problems,
+complex classification problems.
+
+64
+00:04:11,470 --> 00:04:13,140
+Just to make sure we're
+all on the same page,
+
+65
+00:04:13,140 --> 00:04:17,270
+I'm going to just formally define
+the ensemble learning problem.
+
+66
+00:04:17,270 --> 00:04:20,271
+So we're given some data,
+where y is either +1 or -1,
+
+67
+00:04:20,271 --> 00:04:24,379
+there's also multiclass version of this,
+we're just going to talk about +1 or
+
+68
+00:04:24,379 --> 00:04:27,770
+-1 in today's module, and
+we have some input, x.
+
+69
+00:04:27,770 --> 00:04:35,780
+We have some data that allows us to
+learn f1, f2, all the way to fT,
+
+70
+00:04:35,780 --> 00:04:40,140
+which are the T weight classifiers, or
+just classifiers, that we learn from data.
+
+71
+00:04:40,140 --> 00:04:44,091
+And then some coefficients that
+we learn from data, w-hat1,
+
+72
+00:04:44,091 --> 00:04:46,370
+w-hat2, all the way to w-hatT.
+
+73
+00:04:46,370 --> 00:04:49,260
+And once we learn them,
+making a prediction is very similar
+
+74
+00:04:49,260 --> 00:04:52,010
+to what you do for logistic regression or
+a linear classifier.
+
+75
+00:04:52,010 --> 00:04:55,720
+It's just the sign of the weighted sum
+of the votes from each classifier.
+
+76
+00:04:55,720 --> 00:05:00,900
+And so if you look at this, it looks
+a lot like a linear classification model,
+
+77
+00:05:00,900 --> 00:05:04,090
+logistic regression and
+all of those, exactly the same.
+
+78
+00:05:04,090 --> 00:05:08,180
+However, not only are we
+learning the ws from data,
+
+79
+00:05:08,180 --> 00:05:09,800
+we're actually learning the features.
+
+80
+00:05:09,800 --> 00:05:13,110
+In those models,
+we had hs to represent our features.
+
+81
+00:05:13,110 --> 00:05:14,529
+Here, the feature are these fs,
+
+82
+00:05:14,529 --> 00:05:18,170
+which are the weight classifiers
+that we're going to learn from data.
+
+83
+00:05:18,170 --> 00:05:23,320
+So we can think about boosting as
+an approach to learn features from data.
+
+84
+00:05:23,320 --> 00:05:24,469
+And it's really super exciting.
+
+85
+00:05:24,469 --> 00:05:29,509
+[MUSIC]

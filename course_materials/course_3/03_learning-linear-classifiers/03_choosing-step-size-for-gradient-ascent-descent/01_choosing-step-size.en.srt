@@ -1,0 +1,411 @@
+1
+00:00:00,000 --> 00:00:04,921
+[MUSIC]
+
+2
+00:00:04,921 --> 00:00:09,683
+So far when we talked about gradient
+decent and gradient ascent we had the step
+
+3
+00:00:09,683 --> 00:00:13,270
+size parameter a that we
+just assumed to be given.
+
+4
+00:00:13,270 --> 00:00:16,960
+Let's talk a little about how to
+choose that step size parameter a.
+
+5
+00:00:16,960 --> 00:00:21,260
+Spoiler alert this is really hard,
+it requires lots of tuning and
+
+6
+00:00:21,260 --> 00:00:24,800
+one of the annoying things
+about gradient assent approach.
+
+7
+00:00:24,800 --> 00:00:27,800
+We're going to talk about a few heuristics
+of how we might want to do that.
+
+8
+00:00:28,960 --> 00:00:31,560
+Now one of the most important things
+you can do when you're trying to
+
+9
+00:00:31,560 --> 00:00:34,860
+pick the step size is to build
+what's called a learning curve,
+
+10
+00:00:34,860 --> 00:00:37,180
+and this is what I'm
+showing you right here.
+
+11
+00:00:37,180 --> 00:00:40,490
+So in the x axis we have
+the iteration number
+
+12
+00:00:40,490 --> 00:00:43,340
+which in our gradient algorithm we call t.
+
+13
+00:00:43,340 --> 00:00:46,480
+So this is one iteration,
+two iterations, and so on.
+
+14
+00:00:46,480 --> 00:00:49,780
+And then for each iteration, or
+maybe you do this every ten iterations or
+
+15
+00:00:49,780 --> 00:00:51,510
+every few iterations.
+
+16
+00:00:51,510 --> 00:00:53,530
+Here I did it every one iteration.
+
+17
+00:00:53,530 --> 00:00:57,630
+You measure the log likelihood
+over all of the data.
+
+18
+00:00:57,630 --> 00:01:03,950
+So this is basically the log of
+the product over my data points
+
+19
+00:01:03,950 --> 00:01:09,460
+one through N of
+the probability of YI given XI
+
+20
+00:01:10,920 --> 00:01:15,400
+and the current estimate at
+iteration T of the parameters.
+
+21
+00:01:15,400 --> 00:01:17,050
+So this is your quality metric.
+
+22
+00:01:17,050 --> 00:01:21,640
+want to measure the quality metric after
+each iteration, after each update.
+
+23
+00:01:21,640 --> 00:01:24,580
+And you'll see that the quality
+metric is getting bigger and
+
+24
+00:01:24,580 --> 00:01:28,270
+bigger in a pretty smooth way,
+which is nice.
+
+25
+00:01:28,270 --> 00:01:32,910
+We start from a lower number,
+about minus 37,000,
+
+26
+00:01:32,910 --> 00:01:36,220
+remember we talked about
+these numbers being negative.
+
+27
+00:01:36,220 --> 00:01:43,750
+And then they go up and up and up as we
+deal with, if we had more iterations.
+
+28
+00:01:43,750 --> 00:01:49,740
+And this for
+a particular step size value, eta equals
+
+29
+00:01:49,740 --> 00:01:54,880
+right here which is equals
+to ten to the minus five.
+
+30
+00:01:54,880 --> 00:02:00,320
+So it's a relatively small step size, and
+that's how we get this curve over here.
+
+31
+00:02:00,320 --> 00:02:04,100
+Which is, looks pretty decent,
+and it keeps going up.
+
+32
+00:02:04,100 --> 00:02:07,168
+Now, how'd I end up with eta 10 to the -5?
+
+33
+00:02:07,168 --> 00:02:11,860
+Basically what we're going to do is try
+a bunch of different parameters data and
+
+34
+00:02:11,860 --> 00:02:14,500
+try to hone in to a good one.
+
+35
+00:02:14,500 --> 00:02:18,600
+And to understand what can happen with
+a parameter data which is too small or
+
+36
+00:02:18,600 --> 00:02:22,520
+too large, let us observe those
+lending curves, and by observing them,
+
+37
+00:02:22,520 --> 00:02:27,248
+you get an idea, get a sense of
+a possible behavior to observe in
+
+38
+00:02:27,248 --> 00:02:31,960
+your data and
+then use that to pick a good parameter.
+
+39
+00:02:31,960 --> 00:02:35,120
+Now, for 10 to the minus 5,
+I called it a little small,
+
+40
+00:02:35,120 --> 00:02:40,480
+because as you can see, the curve is
+still going up after 50 iterations.
+
+41
+00:02:40,480 --> 00:02:43,780
+So maybe one thing to think
+about is that we need to do
+
+42
+00:02:45,540 --> 00:02:50,790
+more than 50 iterations in this case.
+
+43
+00:02:52,540 --> 00:02:56,400
+So that's another thing to observe,
+not only are we picking eta,
+
+44
+00:02:56,400 --> 00:02:59,800
+we're thinking when are we done,
+what's the stopping criteria.
+
+45
+00:02:59,800 --> 00:03:02,260
+And here the curve is still going up so
+we should keep going.
+
+46
+00:03:03,530 --> 00:03:06,990
+Now, what would happen if you
+pick a eta that's too small?
+
+47
+00:03:08,240 --> 00:03:10,580
+So now let's observe two curves.
+
+48
+00:03:10,580 --> 00:03:15,880
+The top one, is the one we just observed,
+where the eta has value 10 to
+
+49
+00:03:15,880 --> 00:03:21,860
+the -5 and the green curve is,
+eta's ten times smaller.
+
+50
+00:03:21,860 --> 00:03:24,260
+Eta is 10 to the -6.
+
+51
+00:03:24,260 --> 00:03:27,970
+And what we observe there's
+two smooth curves, but
+
+52
+00:03:27,970 --> 00:03:33,830
+the 10 to the -5 goes up much quicker and
+gets to a higher likelihood value.
+
+53
+00:03:33,830 --> 00:03:39,500
+So here again we're plotting l of wt.
+
+54
+00:03:39,500 --> 00:03:43,660
+Getting to a higher likelihood value
+then the one to ten minus six, but
+
+55
+00:03:43,660 --> 00:03:44,820
+that line six is still going.
+
+56
+00:03:44,820 --> 00:03:49,390
+It's just a really small step size so
+it's climbing up the hill.
+
+57
+00:03:49,390 --> 00:03:52,870
+That we have in really, really, really,
+really small steps, small steps,
+
+58
+00:03:52,870 --> 00:03:56,700
+small steps, so it's going to take a long
+time to get to the top of the hill.
+
+59
+00:03:56,700 --> 00:03:58,690
+Eventually will, but
+it's going to take a long time.
+
+60
+00:03:58,690 --> 00:04:02,370
+So you see, if you were to try this plot.
+
+61
+00:04:02,370 --> 00:04:06,909
+You see the tension minus five is probably
+a better parameter than tension minus six.
+
+62
+00:04:08,020 --> 00:04:11,350
+So that's a good thing so
+you got time two minus five its
+
+63
+00:04:11,350 --> 00:04:14,250
+looking pretty good maybe you want to
+try something a little bit larger so
+
+64
+00:04:14,250 --> 00:04:18,990
+if you try something larger you're taking
+bigger steps towards the top of the hill.
+
+65
+00:04:20,620 --> 00:04:28,130
+So here I'm comparing what happens if I
+try eta step size 10 to the minus five,
+
+66
+00:04:28,130 --> 00:04:33,092
+as opposed to this other
+sine curve which is eta
+
+67
+00:04:33,092 --> 00:04:39,280
+being 1.5 times 10 to the minus 5.
+
+68
+00:04:39,280 --> 00:04:43,360
+So here we're picking
+a parameter which is 50% larger.
+
+69
+00:04:43,360 --> 00:04:46,300
+And this is really interesting,
+really interesting behavior.
+
+70
+00:04:46,300 --> 00:04:49,040
+We've observed this
+behavior a lot in practice.
+
+71
+00:04:49,040 --> 00:04:53,826
+So this early phase,
+here so you get some early
+
+72
+00:04:53,826 --> 00:04:58,370
+oscillation,but once you start getting to
+
+73
+00:04:58,370 --> 00:05:03,421
+the beginning it doesn't do something so
+good.
+
+74
+00:05:03,421 --> 00:05:08,135
+But once you start getting towards
+the top of the hill you see that towards
+
+75
+00:05:08,135 --> 00:05:12,700
+the end the larger parameter
+values tend to make more progress.
+
+76
+00:05:12,700 --> 00:05:17,260
+So smooth, so this has, Zion, has smooth,
+
+77
+00:05:19,730 --> 00:05:22,670
+faster progress at the end.
+
+78
+00:05:22,670 --> 00:05:27,710
+And you see that it's starting to get
+even higher values of likelihood,
+
+79
+00:05:27,710 --> 00:05:28,860
+so higher quality.
+
+80
+00:05:28,860 --> 00:05:31,420
+Remember that higher here is better.
+
+81
+00:05:33,550 --> 00:05:35,760
+As we get more iterations.
+
+82
+00:05:35,760 --> 00:05:40,660
+So it's kind of interesting,
+if a parameter is bigger, not too big or
+
+83
+00:05:40,660 --> 00:05:43,000
+bigger, you might see some
+oscillations in the beginning,
+
+84
+00:05:43,000 --> 00:05:47,150
+but it tends to smooth out and do well.
+
+85
+00:05:47,150 --> 00:05:51,939
+So then you might say okay 1.5 times 10
+to the minus five seems pretty good let's
+
+86
+00:05:51,939 --> 00:05:53,837
+try something even a bit larger.
+
+87
+00:05:53,837 --> 00:05:58,139
+[MUSIC]

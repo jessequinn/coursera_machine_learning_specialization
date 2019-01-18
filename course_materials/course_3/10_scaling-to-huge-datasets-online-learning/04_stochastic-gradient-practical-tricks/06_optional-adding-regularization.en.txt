@@ -1,0 +1,35 @@
+[MUSIC] We're now down to our final
+practical issue stochastic gradient, which again is going to
+be an optional section. And the question is,
+how do we introduce regularization and what impact it has on the updates. And this is going to be pretty significant if you want to implement it
+yourself in a general way. Again, optional section
+because it's pretty detailed. So let's remind ourselves of
+the regularized likelihood. So, we have some total party metric
+defined in the pit of our data, which is the log likelihood. And some measures of the complex of
+the parameters which in our case, here we're using w squared,
+the actual normal for the parameters, and we wanted to compute the gradient
+of this regularized likelihood to make some progress, and
+avoid over fitting. So, the total derivative is the derivative
+of the first term, the quality, which is the sum over the data points
+of the contribution of each data point, the thing that got really expensive. And the contribution of the second one,
+once we introduced that parameter, lambda, to trade off the two things, talked about
+this a lot, contribution is -2 lambda wj. And we derive this update during an earlier module on
+regularized logistic regression. Now this is how we do straight up
+gradient updates with regularization. The question is what do we do? We only do stochastic
+gradient with regularization. So, if you remember stochastic gradient,
+we just said we take the contribution for single data point, and if we added up those contributions
+we get exactly the gradient. This is why it worked, because the sum of these stochastic
+gradients equal the gradient. And so, to my theme that, we need to think
+about how to set up the regularization term such that the sum of the stochastic
+gradients also is equal to the gradient. And one way to think about this is
+that we take the regularization and divide it by N. So in practice you want to do this. You want to say that
+the total derivative for stochastic gradient is contribution
+data point minus two over n lambda wj. And so if you were to add this up
+you get back to the full gradient. So with regularization now,
+the algorithm stays the same, but the contribution data point is its
+gradient minus two over n lambda wj. That's the contribution from
+the regularization point. If you are using mini-batches,
+you'd adapt that times. So you had the sum of the contributions
+from each data point And then it will be 2 b over n lambda w j. So this is how we take
+care of regularization. Again very small change,
+it's going to behave way better.

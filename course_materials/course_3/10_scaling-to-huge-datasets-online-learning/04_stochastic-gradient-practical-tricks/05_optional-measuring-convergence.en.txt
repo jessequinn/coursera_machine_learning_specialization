@@ -1,0 +1,49 @@
+[MUSIC] The second practical issue we're going
+to talk about is how do you measure convergence for stochastic gradient. If you have to look at all the data
+points to figure out they have converged, then the whole process is going to
+be pointless and meaningless. So we need to think about new
+techniques of measuring convergence. This, again,
+is going to be an optional section. It's very practical for
+those those who actually want to use and implement a really practical
+stochastic gradient algorithm. One way to think about it is,
+how do they actually make this plot? Here's a plot where a stochastic gradient
+gets the optimum before a single pass over the data, while gradient is taking
+100 or more passes over the data. If to get one point in
+this plot I had to compute the whole likelihood over the entire
+data set, that would require me, for every little blue dot,
+to make a pass over the entire data set. Which make the whole thing really slow. If I had to make a pass over a data
+set to compute the likelihood, might as well just use full gradient and
+not have this noisy problems. And so, we need to rethink how
+we're going to compute conversions, how we're going to plot
+that we're making progress. And here there'll be a really,
+really simple trick, really easy, really beautiful, that we can do. So I'm showing here the stochastic
+gradient ascent algorithm for logistic regression,
+the one that we've been using so far. So I go data point by data point, and I
+compute the contribution to the gradient, which is this part,
+this thing I'm calling partial j. Now if I wanted to compute the log
+likelihood of the data to see what my quality was, how well I'm doing, I'll
+have to compute the following equation for data point i. If the data point were a positive
+data point, I take the log of y = +1 given xi and the current parameters,
+current coefficient. And, if the data point
+were a negative yi = -1, then I need to take the log
+of the probability yi = -1, which turns out to be log of 1- P(y = +1). And so here's the beautiful thing, the thing that I need to compute
+the likelihood for a data point is exactly the same as the thing that
+I needed to compute the gradient. And so, I've already computed. I can compute the contribution
+likelihood of this one data point. Which is great. I can't do it for everybody, but
+I can do it for one data point. So every iteration t, I can compute
+the likelihood of a particular data point. I can't use that measure conversions
+because I could do well one data point classified perfectly but not for others,
+so it would be a very noisy thing. But if I want to compute how well I'm
+doing, let's say, after 75 iterations, what I can do is look at the last
+few data points, how well I did. And the likelihood for
+those data points, average it out, and then create the smoother curve. And so, for every time stamp I want to
+keep an average, it's called a moving average, of the last few likelihoods
+in order to measure convergence. And so in the plot here,
+the plot that I be showing to you, now I can tell you truth in
+advertising what it actually was. The blue line here was
+not straight up gradient, it was many batches of size 100,
+which is a great number to use. It still converts much
+faster than gradient. And to draw that blue line, I average the
+likelihood over the last 30 data points. So that's how I build a plot, and this
+is how you would have to build a plot if you're going to go through this whole
+process of stochastic gradient. [MUSIC]

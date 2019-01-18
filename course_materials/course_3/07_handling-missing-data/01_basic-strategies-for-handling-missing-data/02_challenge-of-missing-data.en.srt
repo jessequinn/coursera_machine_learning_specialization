@@ -1,0 +1,291 @@
+1
+00:00:00,000 --> 00:00:04,670
+[MUSIC]
+
+2
+00:00:04,670 --> 00:00:09,510
+So far in this specialization data
+has always looked pretty beautiful.
+
+3
+00:00:09,510 --> 00:00:13,000
+We sometimes end the look at little
+features in the area like taking raw text
+
+4
+00:00:13,000 --> 00:00:19,710
+and turning into counts of words,
+the TFIDF, sometimes we created
+
+5
+00:00:19,710 --> 00:00:25,370
+more advanced feature like polynomials,
+sines and cosines and so on.
+
+6
+00:00:25,370 --> 00:00:26,770
+We did feature transformations,
+
+7
+00:00:26,770 --> 00:00:31,390
+feature engineering but
+we always observe all of our data, so
+
+8
+00:00:31,390 --> 00:00:35,320
+for every feature we always observe every
+possible value for every data point.
+
+9
+00:00:36,330 --> 00:00:40,840
+Now that,
+is rarely true in the real world.
+
+10
+00:00:40,840 --> 00:00:43,290
+Real world data tends to be pretty messy,
+and
+
+11
+00:00:43,290 --> 00:00:48,430
+often is fraught with missing data,
+and unobserved values.
+
+12
+00:00:48,430 --> 00:00:52,230
+And this is a significant issue we
+should always be on the lookout for.
+
+13
+00:00:52,230 --> 00:00:55,870
+In today's module, we're going to talk
+about some of the basic concepts and ideas
+
+14
+00:00:55,870 --> 00:01:00,730
+of what you can do to try to address,
+missing data in a learning problem.
+
+15
+00:01:02,770 --> 00:01:06,510
+Approaches to dealing with missing data
+are better understood in the context of
+
+16
+00:01:06,510 --> 00:01:08,410
+a particular learning algorithm.
+
+17
+00:01:08,410 --> 00:01:13,100
+So for this module, we're going to pick
+decision trees as a way to kind of better
+
+18
+00:01:13,100 --> 00:01:17,770
+see the impact of missing data, and some
+of the key approaches to dealing with it.
+
+19
+00:01:17,770 --> 00:01:20,380
+Again, we're going to be
+dealing with loan data.
+
+20
+00:01:20,380 --> 00:01:25,160
+So as input xi is coming out, another term
+of the loan, your credit history, and so
+
+21
+00:01:25,160 --> 00:01:27,920
+on, we're going to push it
+through this crazy decision tree,
+
+22
+00:01:27,920 --> 00:01:31,600
+set to make a decision, whether your
+loan is safe, or your loan is risky.
+
+23
+00:01:31,600 --> 00:01:35,120
+Which is going to be the output y hat i,
+that we're trying to decide here.
+
+24
+00:01:36,360 --> 00:01:41,560
+As we discussed thus far, we've assumed
+that all the data was fully observed.
+
+25
+00:01:41,560 --> 00:01:42,440
+So nothing was missing.
+
+26
+00:01:42,440 --> 00:01:45,440
+So for every row of the data, for
+every feature we observed, for
+
+27
+00:01:45,440 --> 00:01:47,790
+example the credit was excellent,
+fair, or poor.
+
+28
+00:01:47,790 --> 00:01:51,360
+If the term of the loan was three years or
+five years, if the income was high or low.
+
+29
+00:01:51,360 --> 00:01:55,380
+And we will observe the output of course,
+say for risky.
+
+30
+00:01:55,380 --> 00:01:59,120
+Now, in reality you may have missing data.
+
+31
+00:01:59,120 --> 00:02:03,170
+So missing data, for example in this
+highlighted row might say I know that for
+
+32
+00:02:03,170 --> 00:02:08,080
+this particular loan application
+the credit was poor, the income was high.
+
+33
+00:02:08,080 --> 00:02:10,290
+Turned out to be a risky loan, but
+
+34
+00:02:10,290 --> 00:02:14,350
+nobody entered in there, whether the loan
+was a three year loan or five year loan.
+
+35
+00:02:15,630 --> 00:02:18,310
+And that may be true for
+multiple data points.
+
+36
+00:02:18,310 --> 00:02:20,910
+And the question is,
+what can we do about this?
+
+37
+00:02:20,910 --> 00:02:24,360
+What impact is on our learning algorithm,
+what happens?
+
+38
+00:02:24,360 --> 00:02:28,930
+Well missing data can impact a learning
+algorithm both in the training phase,
+
+39
+00:02:28,930 --> 00:02:31,640
+because I don't know how to
+train a model when you have this
+
+40
+00:02:31,640 --> 00:02:34,020
+question marks we know
+what values those are.
+
+41
+00:02:34,020 --> 00:02:37,750
+And it can have an impact
+on prediction time.
+
+42
+00:02:37,750 --> 00:02:41,700
+Let's say I build a great decision tree,
+I put it out in the wild.
+
+43
+00:02:41,700 --> 00:02:44,260
+Banks.
+Somebody an application in there but
+
+44
+00:02:44,260 --> 00:02:46,670
+we don't know a particular entry.
+
+45
+00:02:46,670 --> 00:02:47,810
+What predictions do we make?
+
+46
+00:02:49,330 --> 00:02:54,480
+So, let's be more specific, let's say that
+we have this tree that I learned from data
+
+47
+00:02:54,480 --> 00:02:59,390
+and I have particular input where the
+credit was poor, the term was five years
+
+48
+00:02:59,390 --> 00:03:02,950
+but the income was a question mark,
+I don't know the income of this person.
+
+49
+00:03:02,950 --> 00:03:08,310
+So, I tried to go down the decision tree,
+I hit credit first, credit was poor.
+
+50
+00:03:08,310 --> 00:03:12,100
+I hit income, that was a question mark.
+
+51
+00:03:12,100 --> 00:03:15,240
+I didn't know it was unknown,
+what do we do next?
+
+52
+00:03:16,710 --> 00:03:17,840
+So where a learning problem,
+
+53
+00:03:17,840 --> 00:03:22,170
+where you have some training data we tried
+some features, fed some machinery model,
+
+54
+00:03:22,170 --> 00:03:27,710
+which then use a quality metric
+to learn a decision tree T of x.
+
+55
+00:03:27,710 --> 00:03:32,910
+But, we're in a setting, where some of the
+data, might be missing a training time.
+
+56
+00:03:34,150 --> 00:03:37,090
+And, some of the data might
+be missing a prediction time.
+
+57
+00:03:37,090 --> 00:03:37,670
+And what do we do?
+
+58
+00:03:37,670 --> 00:03:41,150
+What we're going to do is modify the
+machinery model a little bit, the decision
+
+59
+00:03:41,150 --> 00:03:45,450
+tree model a little bit, to be able to
+deal with this kind of missing data.
+
+60
+00:03:45,450 --> 00:03:46,299
+Let's see how.
+
+61
+00:03:46,299 --> 00:03:49,842
+[MUSIC]

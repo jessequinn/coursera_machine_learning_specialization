@@ -1,0 +1,55 @@
+[MUSIC] We'll now take a few minutes to
+instantiate this abstract algorithm we described and see what it looks like in
+the context of learning decision stumps. There is other boosted decision stumps, it's a really nice simple default
+way of training on your data. And so, it's one that we'll just
+go through a little further and it'll help us ground some of
+the concepts that we looked at so far. So here I've outlined the other boost
+algorithm that we discussed before in the previous slides, but just to be clear we're going to talk about
+linear decision stump for f of t, and figuring out how to update it,
+figure out its coefficient, w hat t. Our first step is figuring out how
+to learn the next decision stump, that's going to be f of t. And this is just going to be like
+standard decision stump learning. We're going to try splitting it on
+each feature, income, credit history, savings, market conditions. And figure out how well each of
+the resulting decisions stumps are a way to data. And notice that in our process we
+might split on income multiple times. So in multiple considerations we
+might revisit the same feature. So we're going to try each
+of those features, and for each one of them,
+measure the weighted error on string data. So for say splitting on income,
+the weight of the error might be 0.2. For splitting on credit, it might be 0.35. For splitting on savings, it might be 0.3. And finally,
+if you split the market conditions, it might be the worst of
+these four decision stumps. On this weighted data,
+it might have a weighted error of 0.4. So, we're picking the best feature, the
+one that has lowest weighted error, and so we're going to pick
+that first one split on. We're going to split on income,
+we'll get to the 100,000. And so f of t's,
+going to be that decision stamp, that says income's good to 100,000,
+if yes, safe, if not, is a risky loan. Now, the final question is, what coefficient we give to
+this particular classifier? So all we have to is plug 0.2 into
+the formula, and if we plug it in and do the math, 0.69 is the result. So the coefficient of this first
+decision stem is just going to be 0.69. Going back to the algorithm,
+we discussed how we are going to learn this new stuff from data and
+how we figure out its coefficient. Let's next talk about how to update
+the weight of i of each data point. So here's the intuitive
+process what happens. We have our data points and I'm highlighting them here depending on
+their income just like we did before. But I'm going to make a prediction
+using this decision stamp. The question is how good is this decision
+stamp income greater than 100,000, and if you look at it, it makes mistakes in some
+of the data points and get others right. So I marked the correct ones in bright
+green and mistakes in bright red. And if we take the previous weights,
+alpha for each one of these data points, I'm going to highlight where
+those weights were right there. We need to compute the new weight
+based on the formula above, which is standard formula. So, we're going to plug in the w
+hat that we computed, 0.69, into the formula to figure out what to
+multiply each one of those weights by. So, plug it in. You'll see that each of
+the -0.69 is a half, so for every correct data point one is half
+its weight, and each of the 0.69 is two. So for every incorrect data point,
+we're going to double its weight. So I'm going to go row by row, for the ones in green I got correct,
+I'm going to half the weights. So for the first row there the weight
+before was 0.5 and now becomes 0.25. The next one was 1.5 becomes
+0.75 because of their correct. For third row I made a mistake,
+its weight before was 1.5. Now I'm going to double it,
+I'm going to make it 3. So it can go datapoint by datapoint and
+then multiplied by two, or divided by two, the weight, depending on whether we
+got that data point right or not. Extremely simple to be able to boost
+the decision stump classifier, and these tend do extremely well
+on a wide range of data sets. [MUSIC]

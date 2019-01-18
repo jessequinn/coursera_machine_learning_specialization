@@ -1,0 +1,29 @@
+[MÚSICA] Ahora que sabemos todo sobre
+clasificadores en regresión logísitca y su representación, Cómo impactan los parámetros,
+cómo pueden ser usados para clasificación, cómo pueden ser usados
+para clasificación multiclase. Esas son las bases que necesitamos
+para hablar sobre clasificadores lineales y para realizar el resto de este
+curso de clasificación. En éste módulo vamos a
+profundizar y averiguar cómo aprender los parámetros
+para el clasificador de regresión logística. Empecemos con una rápida revisión
+para estar en la misma sintonía. Como recordamos, teníamos esta
+revisión de producto o revisión de restaurante, y queríamos averiguar, por ejemplo, si
+"el sushi y todo lo demás estuvo genial" tenía una alta probabilidad de ser
+una opinión positiva, mientras "el sushi estuvo bien, el servicio estuvo OK" tenía una probabilidad
+de sólo 0.55 de ser una opinión positiva. En otras palabras, queremos aprender un
+clasificador de la forma probabilidad de y dado x, donde y es la etiqueta de salida
+opinión positiva o negativa, y x es la oración de entrada,
+la opinión actual. Hemos hablado sobre esta tarea y
+discutido los clasificadores lineales donde asociamos un peso o un coeficiente
+con cada característica de entrada, en nuestro caso podían ser palabras como
+bueno, genial, increíble, etcétera, y las palabras positivas podían tener
+coeficientes positivos, y las palabras negativas coeficientes negativos.
+Definimos la función score, que es la ponderación de los coeficientes de las palabras
+que aparecen en una oración [] de entrada particular, y el score puede variar entre
+menos infinito a más infinito. [] Entonces lo comprimíamos al
+segmento 01 para poder predecir la probabilidad de que
+la opinión sea positiva dado el texto del comentario y el modelo
+de regresión logística. Esa probabilidad está definida por 1 sobre 1 + e
+a la menos w transpuesta h. Ya habíamos explorado
+esto en el módulo anterior. Sólo para seguir el ritmo y entrar a ver cómo aprender estos
+coeficientes ŵ a partir de los datos. [MÚSICA]

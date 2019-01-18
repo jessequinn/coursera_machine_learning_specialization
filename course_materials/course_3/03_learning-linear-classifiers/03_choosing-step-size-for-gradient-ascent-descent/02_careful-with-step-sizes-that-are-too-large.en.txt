@@ -1,0 +1,45 @@
+[MUSIC] So now let's try a little bit larger and
+compare and see what happens. So remember we have our first curve,
+the blue curve, where eta was 10 to the minus 5. Then we have the scion curve
+where eta was 50% larger so 10 to 1.5 times 10 to the -5. And now we tried even larger parameter. So this is the red line, this is eta = 2.5 times 10 to the -5. So this is 2.5 times
+bigger than the blue line. And what we see, we see bigger
+oscillations in the beginning and the early oscillation phase goes on for
+a long time. As you see, the oscillations
+are decreasing towards the end, but decreasing, but we still pick
+the parameter that is too big. You see the oscillations
+is not converging. There's a gap, significant gap
+in the likelihood function, l of w so the red one,
+2.5 times 10 to the -5 is too big. So let's understand a little better
+why those oscillations come about. So, if I were to use the loose, very smooth step size, what happens is,
+I start from the starting point and I take these little steps and I'm kind
+of following this nice smooth curve. All the way to my desired parameter,
+w hat. If you pick a step size that is too big, I look at a gradient here and it's looking
+pretty good, a direction in the beginning. So let me change colors there
+just to make it super obvious. So I'm going to use green to the note that this step size,
+which is too big, so I start here. I find the gradient direction but
+I take a step that's too big. Boom, I went to somewhere
+really far away over here so it took an eta that was too big. And now I compute the gradient here,
+and it's in this direction, and boom, we took a step size of too big. I ended up over here, and
+then I compute the gradient and I get something in this direction and then
+boom I take a step size that's too big, I ended up here and
+that step size is too big and so on. And you keep oscillating back and
+forth these really big steps. Now in this case, in the red line,
+2.5 x 10 to the minus 5. You see this oscillations are decreasing,
+so eventually it's going to get closer and
+closer to w hat. But you have to be careful. Now let's see what happens when we pick
+a eta parameter, they're just too, too, too large. What I've done here is taken
+a much bigger parameter, so I picked a eta,
+which has a step size 10 to the -4. Remember they're the ones who
+were over ten to minus five, as you can see they're increasing,
+this is ten to the minus four, so ten times bigger than this blue line
+here which is eta ten to the minus five. First thing they observe is
+why all the oscillations? This parameter is too big,
+things are going everywhere, doesn't seem to be converging and
+the likelihood value is much, much lower than of the other parameters. The other way to look at it is, look,
+we thought that the difference between the red parameter, which was, we thought
+was too big and the blue parameter, which was better with
+the cyan one was a big gap, but look at the gap between, this all
+curves look really small because we had to make the scale much bigger to
+show this wildly oscillating one. So ten to the minus four was too big. So here's what I've learned, we've
+learned that ten to minus six, too small, ten to the minus four is too big. Now, we have a range between
+the too big and too small, and we can search in that range. [MUSIC]

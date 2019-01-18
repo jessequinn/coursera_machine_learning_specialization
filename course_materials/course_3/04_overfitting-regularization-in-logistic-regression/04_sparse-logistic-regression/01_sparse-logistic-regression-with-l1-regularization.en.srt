@@ -1,0 +1,505 @@
+1
+00:00:00,000 --> 00:00:04,719
+[MUSIC]
+
+2
+00:00:04,719 --> 00:00:08,550
+So far we've discussed how to
+regularize logistic regression.
+
+3
+00:00:08,550 --> 00:00:11,770
+We briefly mentioned what happens
+when you we have L1 regularized
+
+4
+00:00:11,770 --> 00:00:12,710
+logistic regression.
+
+5
+00:00:12,710 --> 00:00:15,160
+Let's talk about it in
+a little bit more detail.
+
+6
+00:00:15,160 --> 00:00:16,190
+Unlike in a regression course,
+
+7
+00:00:16,190 --> 00:00:20,920
+we're not going to derive the learning
+algorithm for L1 regularize with
+
+8
+00:00:20,920 --> 00:00:24,350
+the sync regression can be the similar
+thing to what you did with lasso.
+
+9
+00:00:24,350 --> 00:00:27,210
+We're just going to show kind of
+the impact it has on our data.
+
+10
+00:00:28,410 --> 00:00:29,860
+On our learn models.
+
+11
+00:00:31,370 --> 00:00:33,338
+So recall the notion of sparsity.
+
+12
+00:00:33,338 --> 00:00:39,410
+So a model sparse when many of those wj's
+are equal to zero and that can help us
+
+13
+00:00:39,410 --> 00:00:43,890
+with both efficiency and interpretability
+of the models as we saw in regression.
+
+14
+00:00:43,890 --> 00:00:49,370
+So for example, let's say that we have
+a lot of data and a lot of features so
+
+15
+00:00:49,370 --> 00:00:54,820
+the number of w's that you have can be a
+100 billion, 100 billion possible values.
+
+16
+00:00:54,820 --> 00:00:58,500
+Things can in practice in
+all sorts of settings.
+
+17
+00:00:58,500 --> 00:01:02,040
+For example, many of the spam filters
+out there have hundreds of billions of
+
+18
+00:01:02,040 --> 00:01:04,700
+parameters in them, or
+coefficients they learn from data.
+
+19
+00:01:06,010 --> 00:01:08,590
+So this has a couple problems.
+
+20
+00:01:08,590 --> 00:01:10,850
+It can be expensive to make a prediction.
+
+21
+00:01:10,850 --> 00:01:12,719
+You have to go through 100 billion values.
+
+22
+00:01:14,200 --> 00:01:18,200
+However if I have a sparse
+solution where many of these
+
+23
+00:01:18,200 --> 00:01:22,500
+w's are actually equal to zero then
+when I'm trying to make a prediction.
+
+24
+00:01:22,500 --> 00:01:28,810
+So I'm judging will be at the sine
+of wj times the feature hj of xi.
+
+25
+00:01:28,810 --> 00:01:33,168
+I only have to look at
+no zero quotations wj.
+
+26
+00:01:33,168 --> 00:01:34,247
+Everything else can be ignored.
+
+27
+00:01:34,247 --> 00:01:38,579
+So if I have a 100 billion coefficients
+but only say 100,000 of those are non zero
+
+28
+00:01:38,579 --> 00:01:41,150
+then it's going to be much
+faster to make a prediction.
+
+29
+00:01:41,150 --> 00:01:42,810
+This makes a huge difference in practice.
+
+30
+00:01:44,210 --> 00:01:48,320
+The other impact that sparsity has
+having many zero coefficients being zero
+
+31
+00:01:48,320 --> 00:01:50,840
+is that it can help you interpret
+the non zero coefficients.
+
+32
+00:01:50,840 --> 00:01:53,900
+So you can look at the small number
+of non zero coefficients and
+
+33
+00:01:53,900 --> 00:01:57,170
+try to make an interpretation,
+this is why a prediction gets made.
+
+34
+00:01:58,630 --> 00:02:02,580
+Such interpretations can be used for
+practice in many ways, so
+
+35
+00:02:02,580 --> 00:02:08,350
+how you learn logistic regression
+classifier with sparsity in that,
+
+36
+00:02:08,350 --> 00:02:10,390
+sparsity inducing penalty.
+
+37
+00:02:10,390 --> 00:02:14,370
+So what you do is take the same
+log-likelihood function Lw but
+
+38
+00:02:14,370 --> 00:02:17,870
+we add extra L1 penalty.
+
+39
+00:02:17,870 --> 00:02:20,780
+Which is the sum of
+the absolute value of w0,
+
+40
+00:02:20,780 --> 00:02:23,910
+the absolute value of w1 all
+the way to the absolute value wd.
+
+41
+00:02:23,910 --> 00:02:26,420
+So by just changing the squares,
+
+42
+00:02:26,420 --> 00:02:30,360
+sum of squares to be sum of absolute
+values we go into what's called L1
+
+43
+00:02:30,360 --> 00:02:33,200
+regularized logistic regression
+which gives you sparse solutions.
+
+44
+00:02:33,200 --> 00:02:36,000
+So that small change leads
+to sparse solutions.
+
+45
+00:02:37,810 --> 00:02:41,440
+So just like we did
+with L2 regularization.
+
+46
+00:02:41,440 --> 00:02:44,950
+Here, we're also going to have a parameter
+
+47
+00:02:44,950 --> 00:02:49,460
+lander which controls how much
+regularization we introduce.
+
+48
+00:02:49,460 --> 00:02:51,920
+So how much penalty we're
+going to introduce.
+
+49
+00:02:51,920 --> 00:02:55,490
+And objective becomes
+the log-likelihood of the data,
+
+50
+00:02:55,490 --> 00:02:59,540
+minus lambda times the sum of these
+absolute values, the L1 penalty.
+
+51
+00:02:59,540 --> 00:03:05,930
+When lambda equals to 0,
+we have no regularization,
+
+52
+00:03:09,430 --> 00:03:13,687
+which leads us to the standard MLE
+
+53
+00:03:13,687 --> 00:03:20,110
+solution.
+
+54
+00:03:20,110 --> 00:03:24,579
+Just like we had in the case
+of L2 regularization.
+
+55
+00:03:28,690 --> 00:03:34,329
+Now when lambda is equal to infinity,
+
+56
+00:03:34,329 --> 00:03:37,677
+we have only penalty so
+
+57
+00:03:37,677 --> 00:03:42,799
+all weight is on regularization.
+
+58
+00:03:46,920 --> 00:03:53,397
+And that's going to lead to w hat being
+everything 0, all 0 coefficients.
+
+59
+00:03:53,397 --> 00:03:59,131
+Now the case that we really care about
+was on lambda similar between 0 and
+
+60
+00:03:59,131 --> 00:04:03,846
+infinity which leads to what
+are called Sparse Solutions.
+
+61
+00:04:07,476 --> 00:04:14,241
+Where some wj's are now
+going to be equal to 0 but
+
+62
+00:04:14,241 --> 00:04:18,862
+hopefully, many other wj's and
+
+63
+00:04:18,862 --> 00:04:25,973
+this is the maximum wj hats
+are going to be exactly 0.
+
+64
+00:04:25,973 --> 00:04:29,377
+So that's what we're
+going to try to aim for.
+
+65
+00:04:29,377 --> 00:04:31,623
+So let's revisit those coefficient paths,
+and
+
+66
+00:04:31,623 --> 00:04:34,261
+here I'm showing you coefficient
+paths of L2 penalty.
+
+67
+00:04:34,261 --> 00:04:41,363
+You see that when the lambda parameter's
+low, you have large coefficients learned,
+
+68
+00:04:41,363 --> 00:04:47,699
+and when the lambda parameters gets
+larger, you got smaller coefficients.
+
+69
+00:04:50,728 --> 00:04:55,934
+So, they go from large to small,
+but they're never exactly 0.
+
+70
+00:04:58,441 --> 00:05:02,157
+So, the coefficients
+never become exactly 0.
+
+71
+00:05:02,157 --> 00:05:05,959
+If you look however at the coefficient
+paths when the regularization is L1,
+
+72
+00:05:05,959 --> 00:05:08,249
+well guess if would be
+much more interesting.
+
+73
+00:05:08,249 --> 00:05:11,056
+So, for example, in the beginning,
+
+74
+00:05:11,056 --> 00:05:16,120
+the coefficient of the smiley
+face oops that should be frowny.
+
+75
+00:05:16,120 --> 00:05:22,252
+That should be smiley face
+has a large positive value.
+
+76
+00:05:22,252 --> 00:05:29,580
+But eventually becomes
+exactly zero from here on.
+
+77
+00:05:31,530 --> 00:05:37,380
+And similarly, the coefficient for
+the frowney face
+
+78
+00:05:37,380 --> 00:05:42,860
+is a large negative value, but
+eventually over here the frowney face
+
+79
+00:05:44,540 --> 00:05:49,580
+has a coefficient that becomes 0.
+
+80
+00:05:49,580 --> 00:05:52,750
+And so it goes from large
+all the way to exactly zero.
+
+81
+00:05:52,750 --> 00:05:54,650
+And we see that for
+many of the other words.
+
+82
+00:05:54,650 --> 00:05:59,547
+For example in the beginning
+the coefficient of the word hate is pretty
+
+83
+00:05:59,547 --> 00:06:05,357
+high and that's a pretty important word
+but around here hate becomes irrelevant.
+
+84
+00:06:08,910 --> 00:06:12,284
+And so as just a quick reminder,
+these are product reviews and trying to
+
+85
+00:06:12,284 --> 00:06:16,130
+figure out whether it's a positive or
+negative review for the product.
+
+86
+00:06:16,130 --> 00:06:19,940
+And work with, we can look at what
+coefficient stays non zero for
+
+87
+00:06:19,940 --> 00:06:21,370
+the longest time.
+
+88
+00:06:21,370 --> 00:06:26,255
+And this is exactly this line over here,
+where it never hits 0,
+
+89
+00:06:26,255 --> 00:06:28,160
+never stays exactly 0.
+
+90
+00:06:28,160 --> 00:06:31,915
+And this is a co-efficient
+of the word disappointed.
+
+91
+00:06:34,528 --> 00:06:37,468
+So, you might be disappointed
+to learn that frowny face is
+
+92
+00:06:37,468 --> 00:06:38,909
+not the one that becomes 0.
+
+93
+00:06:38,909 --> 00:06:42,367
+But in the beginning,
+disappoint is not as,
+
+94
+00:06:42,367 --> 00:06:47,827
+the coefficient is not as large,
+not as significant as a frowny face but
+
+95
+00:06:47,827 --> 00:06:52,018
+it's the one that stays negative for
+the longest.
+
+96
+00:06:52,018 --> 00:06:55,190
+And so frowny face is not,
+you might be disappointed
+
+97
+00:06:55,190 --> 00:06:59,098
+to know that friendly face is not
+as important as disappointed.
+
+98
+00:06:59,098 --> 00:07:02,713
+[LAUGH] And disappointed probably because
+it's prevalent in more reviews and
+
+99
+00:07:02,713 --> 00:07:06,350
+when you say disappointed you're
+really like in a negative review.
+
+100
+00:07:06,350 --> 00:07:09,290
+That coefficient goes on for a long time.
+
+101
+00:07:09,290 --> 00:07:10,778
+So you see these transitions.
+
+102
+00:07:10,778 --> 00:07:15,334
+So the coefficients of those small
+numbers like reviews goes to zero.
+
+103
+00:07:15,334 --> 00:07:20,105
+Earlier on, the smiley face will last for
+a while then it becomes zero.
+
+104
+00:07:20,105 --> 00:07:23,311
+Frowny face lasts for longer and
+then it becomes exactly zero.
+
+105
+00:07:23,311 --> 00:07:27,359
+But propositionally large lambdas,
+all those are zero except for
+
+106
+00:07:27,359 --> 00:07:29,315
+the coefficient at this point.
+
+107
+00:07:29,315 --> 00:07:33,459
+[MUSIC]

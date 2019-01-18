@@ -1,0 +1,116 @@
+1
+00:00:00,267 --> 00:00:04,690
+[MUSIC]
+
+2
+00:00:04,690 --> 00:00:08,326
+We've discussed a little bit of
+this loan application domain and
+
+3
+00:00:08,326 --> 00:00:11,340
+showed you a little example
+of the decision tree.
+
+4
+00:00:11,340 --> 00:00:14,560
+Let's dive in and explore the decision
+tree a little bit further.
+
+5
+00:00:15,600 --> 00:00:21,100
+So, I start for my loan application and
+I could go down one branch or
+
+6
+00:00:21,100 --> 00:00:25,980
+one path of this decision tree and
+say If this application somebody would
+
+7
+00:00:25,980 --> 00:00:30,650
+file credit that's fair and
+is a short-term loan,
+
+8
+00:00:30,650 --> 00:00:34,060
+let's say three year loan, then this
+is considered a risky application.
+
+9
+00:00:35,090 --> 00:00:38,300
+If I take another path of
+the decision tree, let's say,
+
+10
+00:00:38,300 --> 00:00:42,070
+I'll look at somebody whose credit
+is poor but the income is high but
+
+11
+00:00:42,070 --> 00:00:45,220
+it's a short term loan again,
+I might consider it a risky application.
+
+12
+00:00:46,720 --> 00:00:50,750
+In general I'm going to
+be given an imput xi.
+
+13
+00:00:50,750 --> 00:00:54,370
+In this case it has assignments to each
+one of those input features that say
+
+14
+00:00:54,370 --> 00:00:59,380
+credit poor, income high, and
+term five years longer term loan.
+
+15
+00:00:59,380 --> 00:01:04,660
+And then I traverse the path down the tree
+to make a prediction which in this case
+
+16
+00:01:04,660 --> 00:01:06,560
+y hat i would be safe.
+
+17
+00:01:06,560 --> 00:01:09,860
+So this is the model predicts
+to be a safe loan to make.
+
+18
+00:01:11,790 --> 00:01:17,600
+So just in generally, the task that we're
+looking at is given some input, xi, I'm
+
+19
+00:01:17,600 --> 00:01:22,910
+going to traverse the decision tree down
+the particular branches of that input,
+
+20
+00:01:22,910 --> 00:01:27,170
+which in the example that we just did
+was a traversal that looks like this.
+
+21
+00:01:27,170 --> 00:01:29,750
+And then I'm going to make
+a prediction y-hat i.
+
+22
+00:01:29,750 --> 00:01:36,063
+Which might be that this loan is safe and
+so our goal is to learn that tree
+
+23
+00:01:36,063 --> 00:01:41,104
+T(x) that let's us make
+predictions about our data.
+
+24
+00:01:41,104 --> 00:01:45,529
+[MUSIC]

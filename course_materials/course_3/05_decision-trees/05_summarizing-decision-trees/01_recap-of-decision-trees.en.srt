@@ -1,0 +1,69 @@
+1
+00:00:00,000 --> 00:00:04,422
+[MUSIC]
+
+2
+00:00:04,422 --> 00:00:07,800
+And we have now seen how to
+build a decision tree from data.
+
+3
+00:00:07,800 --> 00:00:11,240
+It's pretty cool, simple,
+really recursive algorithm,
+
+4
+00:00:11,240 --> 00:00:16,390
+main choice to be made is what feature
+to split on and when to stop splitting.
+
+5
+00:00:16,390 --> 00:00:20,020
+In the next module we're going to talk
+about ways to address over fitting
+
+6
+00:00:20,020 --> 00:00:21,570
+in decision trees.
+
+7
+00:00:21,570 --> 00:00:26,740
+But you should be ready now to understand
+how to build a decision tree from data,
+
+8
+00:00:26,740 --> 00:00:29,180
+really implement that algorithm, and
+
+9
+00:00:29,180 --> 00:00:32,510
+be able to make predictions from
+the decision trees that you learn.
+
+10
+00:00:32,510 --> 00:00:35,610
+As well as to explore decision
+boundaries of decision trees and
+
+11
+00:00:35,610 --> 00:00:39,810
+how they relate to decision boundaries
+of say logistic regression.
+
+12
+00:00:39,810 --> 00:00:43,030
+And let me close by thanking my colleague
+
+13
+00:00:43,030 --> 00:00:47,495
+Krishna who was instrumental in making
+the slides that you saw in this module.
+
+14
+00:00:48,520 --> 00:00:51,921
+I really appreciate all the effort
+that Krishna put into this.
+
+15
+00:00:51,921 --> 00:00:56,259
+[MUSIC]

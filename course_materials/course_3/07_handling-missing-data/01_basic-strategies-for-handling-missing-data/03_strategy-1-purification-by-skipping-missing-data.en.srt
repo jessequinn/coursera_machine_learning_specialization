@@ -1,0 +1,285 @@
+1
+00:00:00,000 --> 00:00:04,738
+[MUSIC]
+
+2
+00:00:04,738 --> 00:00:09,312
+In this module we'll cover a couple basic
+strategies for dealing with missing data,
+
+3
+00:00:09,312 --> 00:00:13,320
+and then we'll cover a modification
+in the decision tree algorithm.
+
+4
+00:00:13,320 --> 00:00:17,060
+We're actually going to be able to deal
+missing data in a much smarter way.
+
+5
+00:00:18,120 --> 00:00:22,340
+Now the basic most common of
+dealing with missing data
+
+6
+00:00:22,340 --> 00:00:24,170
+is what's called purification.
+
+7
+00:00:24,170 --> 00:00:28,390
+So I'm just going to
+throw out missing data.
+
+8
+00:00:28,390 --> 00:00:31,450
+So I start with a data set where for
+some data points,
+
+9
+00:00:31,450 --> 00:00:34,450
+some of the feature values are missing.
+
+10
+00:00:34,450 --> 00:00:38,300
+And somehow when I skip some of these
+features, some of these data points,
+
+11
+00:00:38,300 --> 00:00:46,240
+I end up with a data set and
+output here h(x) where nothing is missing.
+
+12
+00:00:46,240 --> 00:00:47,120
+Everything's observed.
+
+13
+00:00:48,420 --> 00:00:51,540
+So skipping data and
+purifications with skipping data
+
+14
+00:00:51,540 --> 00:00:53,990
+is the most obvious thing
+that you might want to do.
+
+15
+00:00:53,990 --> 00:00:57,730
+So if I have nine data points over here,
+and
+
+16
+00:00:57,730 --> 00:01:02,930
+three of them have missing data,
+so these are the three rows here.
+
+17
+00:01:02,930 --> 00:01:08,070
+Then, I could just say, okay, there's
+now only three missing, not too bad.
+
+18
+00:01:08,070 --> 00:01:09,850
+I'm just going to skip them.
+
+19
+00:01:09,850 --> 00:01:13,600
+And so, I'm going to take my 9 and
+
+20
+00:01:13,600 --> 00:01:19,650
+decrease it to just 6 and
+call that my data set.
+
+21
+00:01:19,650 --> 00:01:23,550
+And if you only have a few missing values,
+maybe this is an okay thing to do.
+
+22
+00:01:24,657 --> 00:01:31,830
+Skipping data points with missing values,
+however, can be a problematic idea.
+
+23
+00:01:31,830 --> 00:01:32,820
+So, for example,
+
+24
+00:01:32,820 --> 00:01:37,880
+in this case, you have the feature term
+missing in a lot of different data points.
+
+25
+00:01:37,880 --> 00:01:42,920
+In fact, six out of nine data
+points the term feature is missing.
+
+26
+00:01:42,920 --> 00:01:47,845
+So if I were just to skip those, I'll
+go from a data set with nine features,
+
+27
+00:01:47,845 --> 00:01:52,590
+so if nine data points,
+to a data set with only three data points.
+
+28
+00:01:52,590 --> 00:01:55,340
+So it'll become much, much smaller.
+
+29
+00:01:55,340 --> 00:02:00,480
+And that's really bad because term here
+is missing on more than 50% of the data.
+
+30
+00:02:00,480 --> 00:02:07,000
+So if you look, we go down from
+9 to a much, much smaller value.
+
+31
+00:02:07,000 --> 00:02:10,860
+And that can happen and
+
+32
+00:02:10,860 --> 00:02:14,101
+makes your training much worse
+because much less data here.
+
+33
+00:02:15,230 --> 00:02:17,520
+And so, in this cases,
+
+34
+00:02:17,520 --> 00:02:21,610
+if you just have one feature which has
+lots of missing values, one another simple
+
+35
+00:02:21,610 --> 00:02:25,230
+approach is to say instead of skipping
+data points you could skip features, and
+
+36
+00:02:25,230 --> 00:02:29,062
+now instead of having fewer data
+points you just have fewer features.
+
+37
+00:02:29,062 --> 00:02:33,900
+[BLANK AUDIO] So that's a reasonable
+alternative in this case.
+
+38
+00:02:34,910 --> 00:02:38,630
+So there are two basic kinds of
+skipping that you might want to do
+
+39
+00:02:38,630 --> 00:02:40,210
+when you have missing data.
+
+40
+00:02:40,210 --> 00:02:46,010
+You can either skip data points
+that have missing data or
+
+41
+00:02:46,010 --> 00:02:49,200
+skip features that have missing data.
+
+42
+00:02:49,200 --> 00:02:54,470
+And somehow you have to make a decision
+of whether to skip a data point,
+
+43
+00:02:54,470 --> 00:02:56,600
+skip features, or
+skip some data points and
+
+44
+00:02:56,600 --> 00:03:00,070
+some features and that's a kind of
+complicated decision to make.
+
+45
+00:03:00,070 --> 00:03:03,330
+In general this idea of skipping
+is good because it's easy,
+
+46
+00:03:03,330 --> 00:03:06,030
+it kind of just takes your data set and
+simplifies it a bunch.
+
+47
+00:03:06,030 --> 00:03:09,230
+It can be applied to any algorithm
+because you just simplify the data and
+
+48
+00:03:09,230 --> 00:03:13,820
+you just feed it to any algorithm,
+but it has some challenges.
+
+49
+00:03:13,820 --> 00:03:15,270
+Now removing data,
+
+50
+00:03:15,270 --> 00:03:20,610
+removing features is always a kind of
+painful thing, data is important.
+
+51
+00:03:20,610 --> 00:03:25,440
+You don't want to do that and its often
+unclear if you should remove features,
+
+52
+00:03:25,440 --> 00:03:28,330
+to remove data points, what impact it
+will have on your answer if you do.
+
+53
+00:03:30,880 --> 00:03:35,760
+Most fundamentally even if you really
+skip too much at training time
+
+54
+00:03:35,760 --> 00:03:40,590
+at prediction time if you had
+a question mark what do you do?
+
+55
+00:03:40,590 --> 00:03:45,100
+This approach does not address
+missing data at prediction time.
+
+56
+00:03:45,100 --> 00:03:48,860
+And so
+people do this approach all the time.
+
+57
+00:03:48,860 --> 00:03:53,840
+And I'm okay with it if you just have
+kind of one case here or case there.
+
+58
+00:03:53,840 --> 00:03:56,530
+But it's a pretty
+dangerous approach to take.
+
+59
+00:03:56,530 --> 00:04:00,699
+I don't fully recommend skipping as
+an approach to dealing missing data.
+
+60
+00:04:00,699 --> 00:04:05,059
+[MUSIC]

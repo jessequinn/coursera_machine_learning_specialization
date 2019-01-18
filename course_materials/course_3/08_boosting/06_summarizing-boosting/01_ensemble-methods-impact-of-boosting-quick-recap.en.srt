@@ -1,0 +1,360 @@
+1
+00:00:00,205 --> 00:00:04,246
+[MUSIC]
+
+2
+00:00:04,246 --> 00:00:07,745
+I'd like to take a moment now to
+summarize we've seen boosting and
+
+3
+00:00:07,745 --> 00:00:10,890
+what impacts it's had in the real world.
+
+4
+00:00:10,890 --> 00:00:12,560
+Let's talk about AdaBoost.
+
+5
+00:00:12,560 --> 00:00:15,740
+So AdaBoost is one of the early
+types of boosting algorithms.
+
+6
+00:00:15,740 --> 00:00:19,380
+Extremely useful, but
+there other algorithms out there.
+
+7
+00:00:19,380 --> 00:00:20,950
+In particular,
+there's one called gradient boosting,
+
+8
+00:00:20,950 --> 00:00:23,430
+which is slightly more complicated but
+extremely similar.
+
+9
+00:00:24,800 --> 00:00:27,780
+And it's like AdaBoost, but
+it can be useful not not just for
+
+10
+00:00:27,780 --> 00:00:31,030
+basic classification, but for
+other of types of loss functions for
+
+11
+00:00:31,030 --> 00:00:34,842
+the types of problems and it's what
+most people use, so gradient boosting.
+
+12
+00:00:34,842 --> 00:00:38,170
+It's kind of generalization kind of boost,
+you can think about it that way.
+
+13
+00:00:38,170 --> 00:00:41,150
+Then there's other related
+ways to learn ensembles,
+
+14
+00:00:41,150 --> 00:00:44,560
+the most popular one is
+called random forests.
+
+15
+00:00:44,560 --> 00:00:48,870
+So random forest is a lot like boost
+in the sense that it tries to learn
+
+16
+00:00:48,870 --> 00:00:52,050
+an example of classifiers in this case,
+decision trees, but
+
+17
+00:00:52,050 --> 00:00:53,960
+it could be other types of classifiers.
+
+18
+00:00:53,960 --> 00:00:57,240
+And instead of using boosting,
+it uses an approach called bagging.
+
+19
+00:00:57,240 --> 00:01:01,400
+And just very briefly, what you do with
+bagging is, you take your data set, and
+
+20
+00:01:01,400 --> 00:01:04,650
+you sample different subset of the data,
+which is kind of like learning on
+
+21
+00:01:04,650 --> 00:01:08,405
+different sub datasets, and we learn
+the decision tree on each one of them.
+
+22
+00:01:08,405 --> 00:01:09,930
+You just average the outputs.
+
+23
+00:01:09,930 --> 00:01:12,540
+So you're not optimizing
+the coefficients that we had, and
+
+24
+00:01:12,540 --> 00:01:14,550
+we're learning from
+different subset of data.
+
+25
+00:01:14,550 --> 00:01:19,220
+It's easier to parallelize, but it tends
+not perform as well as boosting for
+
+26
+00:01:19,220 --> 00:01:20,000
+a fixed number of trees.
+
+27
+00:01:20,000 --> 00:01:22,499
+So for 100 trees, or 100 serial stumps,
+
+28
+00:01:22,499 --> 00:01:25,383
+boosting tends to perform
+better than random forest.
+
+29
+00:01:25,383 --> 00:01:28,460
+Now let's take a moment to discuss impact
+
+30
+00:01:28,460 --> 00:01:30,650
+boosting has had in
+the machine learning world.
+
+31
+00:01:30,650 --> 00:01:33,940
+And hint, hint, it's been huge.
+
+32
+00:01:33,940 --> 00:01:38,150
+It's amongst the most useful machine
+learning approaches out there.
+
+33
+00:01:39,290 --> 00:01:44,030
+It's useful in a wide range of fields so,
+for example, in computer vision a lot of
+
+34
+00:01:44,030 --> 00:01:48,480
+the default algorithm in
+computer vision is boosting,
+
+35
+00:01:48,480 --> 00:01:51,140
+like face detection algorithms
+where you take your camera,
+
+36
+00:01:51,140 --> 00:01:53,990
+you point it at something and
+tries to detect your face.
+
+37
+00:01:53,990 --> 00:01:57,260
+Of which their that uses
+boosting very useful.
+
+38
+00:01:57,260 --> 00:02:00,880
+If you look at machinery competition
+they've become very popular the last
+
+39
+00:02:00,880 --> 00:02:05,080
+two or three years from places
+like Kaggle or KDD Cup.
+
+40
+00:02:05,080 --> 00:02:07,780
+Most winners, so this is more than half,
+
+41
+00:02:07,780 --> 00:02:12,460
+I think it's about 70% of winners actually
+use boosting to win their competition.
+
+42
+00:02:12,460 --> 00:02:17,754
+If fact, they use Boosta Freeze, and
+this looks at wide range of tasks
+
+43
+00:02:17,754 --> 00:02:22,961
+like malware detection or
+fraud detection or ranking web searches,
+
+44
+00:02:22,961 --> 00:02:28,910
+and even interesting physics tasks
+like detecting the Higgs Boson.
+
+45
+00:02:28,910 --> 00:02:29,940
+All those problems and
+
+46
+00:02:29,940 --> 00:02:33,940
+all those challenges have been
+won by boosting decision trees.
+
+47
+00:02:33,940 --> 00:02:39,120
+And this is perhaps one of
+the most deployed advanced
+
+48
+00:02:39,120 --> 00:02:41,260
+machinery methods out there.
+
+49
+00:02:41,260 --> 00:02:43,250
+Particularly the notion of ensembles.
+
+50
+00:02:43,250 --> 00:02:47,142
+So for example,
+if you know about Netflix which is
+
+51
+00:02:47,142 --> 00:02:52,510
+an online place we can
+watch movies online.
+
+52
+00:02:52,510 --> 00:02:56,820
+This kind of company, they recommend
+what movie you might want to watch next.
+
+53
+00:02:56,820 --> 00:02:59,450
+That system uses boosting.
+
+54
+00:02:59,450 --> 00:03:01,390
+Actually uses an example of crossfires.
+
+55
+00:03:01,390 --> 00:03:04,540
+But more interestingly, they had a
+competition a few years ago, where people
+
+56
+00:03:04,540 --> 00:03:09,160
+tried to provide better recommendations
+and the winner was one that treated
+
+57
+00:03:09,160 --> 00:03:13,420
+assemble of many, many, many classifiers
+in order to create better recommendations.
+
+58
+00:03:13,420 --> 00:03:15,800
+So assembles, you'll see them everywhere.
+
+59
+00:03:15,800 --> 00:03:17,150
+Sometimes they optimize boosting,
+
+60
+00:03:17,150 --> 00:03:20,148
+sometimes they optimize with
+different techniques like bagging.
+
+61
+00:03:20,148 --> 00:03:23,750
+And sometimes people just by
+hand tuned away to say okay,
+
+62
+00:03:23,750 --> 00:03:25,920
+I'm going to give you one to this,
+half to that.
+
+63
+00:03:25,920 --> 00:03:29,133
+I don't recommend the last approach,
+I recommend boosting as a one to use.
+
+64
+00:03:30,190 --> 00:03:34,980
+Great, so in this module we've explored
+the notion of an ensemble classifier and
+
+65
+00:03:34,980 --> 00:03:40,010
+we formalized ensembles as the way to
+combination of the loads of different
+
+66
+00:03:40,010 --> 00:03:43,890
+classifiers and we discussed generally
+the boosting algorithm where
+
+67
+00:03:43,890 --> 00:03:47,070
+the next classifier focuses on
+the mistakes that we made so far.
+
+68
+00:03:47,070 --> 00:03:50,700
+As well as Adaboost,
+which is a special case for classification
+
+69
+00:03:50,700 --> 00:03:55,590
+where we show you how to come up with
+the coefficients of each classifier and
+
+70
+00:03:55,590 --> 00:03:57,640
+the weights on the data.
+
+71
+00:03:57,640 --> 00:04:02,340
+We've discussed how to
+implement decision stumps,
+
+72
+00:04:02,340 --> 00:04:05,380
+with the decision stumps,
+extremely easy to do.
+
+73
+00:04:05,380 --> 00:04:08,274
+And then talked a little bit about
+the conversions property of how
+
+74
+00:04:08,274 --> 00:04:11,798
+the AdaBoosting tends to go to 0, but you
+have to be concerned a little bit about
+
+75
+00:04:11,798 --> 00:04:14,913
+the over 50, although it tends to
+be a robust over 50 in practice.
+
+76
+00:04:14,913 --> 00:04:19,249
+[MUSIC]

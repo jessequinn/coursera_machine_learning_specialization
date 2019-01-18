@@ -1,0 +1,474 @@
+1
+00:00:00,945 --> 00:00:04,022
+[MUSIC]
+
+2
+00:00:04,022 --> 00:00:10,431
+>> [SOUND] This has taken a little while,
+but we're ready for that final step.
+
+3
+00:00:10,431 --> 00:00:15,340
+In this very, very optional derivation,
+you don't have to watch it.
+
+4
+00:00:15,340 --> 00:00:18,830
+It's for those who are super
+interested finishing it off and
+
+5
+00:00:18,830 --> 00:00:22,400
+showing how to compute that gradient.
+
+6
+00:00:22,400 --> 00:00:26,900
+And so this is just the end game here.
+
+7
+00:00:26,900 --> 00:00:29,930
+Took the long life function for
+a single data point, and
+
+8
+00:00:29,930 --> 00:00:32,240
+showed that it can be written
+in this particular form.
+
+9
+00:00:32,240 --> 00:00:38,480
+And now we're going to take the derivative
+of that with respect to parameter wj.
+
+10
+00:00:38,480 --> 00:00:40,540
+That's the last thing that we'll do here.
+
+11
+00:00:40,540 --> 00:00:44,360
+So what's the partial derivative
+of the log likelihood function
+
+12
+00:00:44,360 --> 00:00:47,880
+with respect to parameter wj?
+
+13
+00:00:47,880 --> 00:00:52,490
+So this is the sum of two terms, so
+it just becomes the derivative of the sum.
+
+14
+00:00:52,490 --> 00:00:55,710
+So let's look at the first term.
+
+15
+00:00:55,710 --> 00:00:59,880
+So minus one, minus to indicate
+a function, that doesn't depend on wj.
+
+16
+00:00:59,880 --> 00:01:04,066
+So that can be pulled out, and so
+
+17
+00:01:04,066 --> 00:01:12,460
+we just get minus 1 minus the indicator
+of yi is equal to plus 1.
+
+18
+00:01:12,460 --> 00:01:17,420
+Whatever the partial derivative
+
+19
+00:01:17,420 --> 00:01:22,510
+is with respect to wj of w transpose,
+
+20
+00:01:22,510 --> 00:01:26,870
+h of xi, and that's OK.
+
+21
+00:01:26,870 --> 00:01:29,820
+And now we have the second term.
+
+22
+00:01:29,820 --> 00:01:34,280
+So in the second term we're going to use
+blue, so change of colors transformation.
+
+23
+00:01:34,280 --> 00:01:39,655
+So it's going to be minus
+the partial derivative with
+
+24
+00:01:39,655 --> 00:01:47,660
+respect to the parameter wj of log of 1
+plus e to the minus w transpose h of xi.
+
+25
+00:01:48,840 --> 00:01:50,690
+Now, this is a little scary.
+
+26
+00:01:51,830 --> 00:01:54,229
+Lots of partial derivatives,
+lots of logs, but
+
+27
+00:01:54,229 --> 00:01:57,270
+it turns out that the answer
+is really simple.
+
+28
+00:01:57,270 --> 00:01:59,799
+So, i'm going to work you through this.
+
+29
+00:02:00,930 --> 00:02:03,980
+And then we'll get to that
+beautiful solution at the end.
+
+30
+00:02:03,980 --> 00:02:09,360
+So let's take the first term, what is
+the partial derivative with respect to wj
+
+31
+00:02:09,360 --> 00:02:12,270
+of w transpose h of xi?
+
+32
+00:02:14,160 --> 00:02:14,980
+What is that equal to?
+
+33
+00:02:16,560 --> 00:02:20,560
+Well the w transpose h is really
+the sum of every possible term,
+
+34
+00:02:20,560 --> 00:02:23,470
+every possible feature,
+of the coefficient times the feature.
+
+35
+00:02:24,940 --> 00:02:28,640
+Most of the terms don't depend on wj,
+there's only one term that depends on wj,
+
+36
+00:02:28,640 --> 00:02:36,230
+and that's exactly hj, so that
+derivative is just going to be hj of xi.
+
+37
+00:02:36,230 --> 00:02:40,270
+So I'm not doing that very explicitly but
+you can convince yourselves at home.
+
+38
+00:02:42,180 --> 00:02:44,978
+Now let's look at the second term.
+
+39
+00:02:44,978 --> 00:02:51,220
+So, the second term is where the beauty
+of the universe comes to play.
+
+40
+00:02:51,220 --> 00:02:54,790
+You going to end up with something
+extremely simple, extremely beautiful.
+
+41
+00:02:54,790 --> 00:03:01,440
+So the question here is what is
+the partial derivative with respect to wj
+
+42
+00:03:01,440 --> 00:03:08,280
+of this crazy function log of 1 plus
+e to the minus w transpose h of xi.
+
+43
+00:03:11,210 --> 00:03:16,930
+Now, let me warn you that deriving
+this takes many steps and
+
+44
+00:03:16,930 --> 00:03:18,242
+I'm not going to go through all of them.
+
+45
+00:03:18,242 --> 00:03:22,370
+You have to use the factor that the
+derivative of the log of some function is
+
+46
+00:03:22,370 --> 00:03:24,170
+derivative of that function
+by the dot function.
+
+47
+00:03:24,170 --> 00:03:28,440
+There's a bunch of different math
+steps that you may not remember and
+
+48
+00:03:28,440 --> 00:03:31,900
+we said push out what the result is.
+
+49
+00:03:31,900 --> 00:03:37,330
+And the result is minus hj of xi.
+
+50
+00:03:37,330 --> 00:03:41,610
+Note that it's just like up
+here there's an hj of xi.
+
+51
+00:03:41,610 --> 00:03:46,460
+That multiplies a really
+exciting beautiful term.
+
+52
+00:03:47,530 --> 00:03:52,890
+E to the power of minus w transpose,
+
+53
+00:03:52,890 --> 00:04:01,490
+h of xi divided by 1plus e to
+the minus w transpose h of xi.
+
+54
+00:04:01,490 --> 00:04:08,180
+Please take a moment to enjoy the beauty
+of the logistic regression model.
+
+55
+00:04:10,817 --> 00:04:13,540
+>> We're going to change colors here
+because it's just too much fun.
+
+56
+00:04:15,430 --> 00:04:18,514
+Now what is this term here equal to?
+
+57
+00:04:18,514 --> 00:04:23,374
+The probability that y is
+equal to minus one when
+
+58
+00:04:23,374 --> 00:04:28,123
+the input is x i and
+you're using parameter w.
+
+59
+00:04:28,123 --> 00:04:36,380
+That's how that probability showed up
+in a derivative in the first place.
+
+60
+00:04:36,380 --> 00:04:39,300
+You went through a lot of math and
+then you got that probability back.
+
+61
+00:04:40,970 --> 00:04:49,718
+So the result if you
+plug these two terms in,
+
+62
+00:04:49,718 --> 00:04:54,446
+are for the first term,
+
+63
+00:04:54,446 --> 00:05:01,302
+the red term here, you get minus,
+
+64
+00:05:01,302 --> 00:05:06,741
+1 minus the indicator that
+
+65
+00:05:06,741 --> 00:05:12,210
+yi is plus 1 times hj of xi.
+
+66
+00:05:12,210 --> 00:05:18,970
+And from the second term,
+the blue term here, you get minus and
+
+67
+00:05:18,970 --> 00:05:25,180
+then there is another minus, and so
+
+68
+00:05:25,180 --> 00:05:30,608
+you end up with a minus minus,
+a plus hj of xi
+
+69
+00:05:30,608 --> 00:05:37,240
+that multiples the probability
+that y is equal to minus 1,
+
+70
+00:05:37,240 --> 00:05:41,720
+given xi and w.
+
+71
+00:05:41,720 --> 00:05:44,100
+Always keep a few steps that
+your going to do at home.
+
+72
+00:05:44,100 --> 00:05:49,356
+One of the core things is plug
+in the probability that y equals
+
+73
+00:05:49,356 --> 00:05:54,521
+plus one is one minus the probability
+of y equals minus one.
+
+74
+00:05:54,521 --> 00:05:59,701
+And just moving a bunch of stuff around,
+but you'll end up with
+
+75
+00:05:59,701 --> 00:06:05,176
+exactly what we're hoping for,
+which is the derivative of the log
+
+76
+00:06:05,176 --> 00:06:10,192
+likelihood with respect to parameter j,
+is simply hj of xi.
+
+77
+00:06:10,192 --> 00:06:15,188
+That multiplies the difference
+between the indicator that yi
+
+78
+00:06:15,188 --> 00:06:19,980
+is equal to plus 1, so
+it's a positive example.
+
+79
+00:06:19,980 --> 00:06:24,260
+Minus the probability that
+y is equal to plus 1,
+
+80
+00:06:24,260 --> 00:06:27,880
+given the input xi and the parameter is w.
+
+81
+00:06:29,490 --> 00:06:33,470
+And this is exactly what I showed
+you earlier as what the answer was.
+
+82
+00:06:33,470 --> 00:06:36,940
+So that is really, really cool.
+
+83
+00:06:38,740 --> 00:06:39,820
+Now we're almost done.
+
+84
+00:06:39,820 --> 00:06:46,140
+So for one datapoint, we have
+the contribution of the derivative is
+
+85
+00:06:46,140 --> 00:06:52,200
+hj times the difference between
+the indicator and the actual value.
+
+86
+00:06:52,200 --> 00:06:58,050
+Now if you want to compute the derivative
+of the likelihood function for
+
+87
+00:06:58,050 --> 00:07:04,350
+all of the datapoints respect to wj,
+all you have to do is sum.
+
+88
+00:07:04,350 --> 00:07:06,010
+So you just sum over datapoints.
+
+89
+00:07:06,010 --> 00:07:09,610
+So sum over i equals 1
+through N of the term above.
+
+90
+00:07:09,610 --> 00:07:16,310
+So hj of xi,
+that multiplies the difference between
+
+91
+00:07:16,310 --> 00:07:20,420
+the indicator of yi equals plus 1
+
+92
+00:07:20,420 --> 00:07:25,160
+minus the probability yi equals plus 1.
+
+93
+00:07:25,160 --> 00:07:27,150
+Given xi and w.
+
+94
+00:07:33,167 --> 00:07:33,900
+>> Very cool.
+
+95
+00:07:33,900 --> 00:07:36,510
+For those brave enough to have gone
+through this advanced material,
+
+96
+00:07:36,510 --> 00:07:37,560
+I really commend you.
+
+97
+00:07:37,560 --> 00:07:39,750
+This is exciting things.
+
+98
+00:07:39,750 --> 00:07:44,020
+It is how that derivative gets computed,
+and
+
+99
+00:07:44,020 --> 00:07:47,280
+it's also how many other derivatives
+in machine learning are computed.
+
+100
+00:07:47,280 --> 00:07:49,710
+So this is just one example of that.
+
+101
+00:07:49,710 --> 00:07:52,560
+And so, I hope you enjoyed it.
+
+102
+00:07:52,560 --> 00:07:55,192
+Now we can go back to the main thread,
+thanks.
+
+103
+00:07:55,192 --> 00:08:01,909
+>> [MUSIC]

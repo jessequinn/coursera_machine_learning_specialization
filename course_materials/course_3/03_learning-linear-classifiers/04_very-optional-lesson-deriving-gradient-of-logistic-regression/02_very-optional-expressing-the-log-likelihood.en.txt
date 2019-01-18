@@ -1,0 +1,32 @@
+[MUSIC] Now that we've seen that the log
+can be an important function, when applied to the likelihood ensure that
+we're going to have to express in terms of the log likelihood computer gradient. This continues to be part of that very, very optional PhD level only
+derivation that we're doing here. Now let's revisit the likelihood
+function that we discussed and see how the log plays a role. So the key here is that the log of the sum
+is the sum of the logs that we discussed. And in our case,
+if you have the log of the product of i equals 1 through N of some function, let's call it Fi,
+then that is equal to the sum of i equals one through
+N of the log of Fi. So, the log of the product
+is the sum of the logs. And so, in our case,
+what we're going to get is the log likelihood function is going to
+be the sum of i = 1 through n of the log of the probability of yi,
+given xi and w. Now, if you're thinking about derivatives,
+you'll see exactly why the log was useful. The derivative of products is really
+a complicated thing, but once we've taken the log, the derivative of the sum
+is just the sum of the derivative. And so that's going to simplify
+all the math that we have to do. And that's the core reason
+that we take the log. There's a few other technical reasons,
+but that's one very important one. Okay, so that was trick number one. Take the log. Trick number two is to introduce
+indicator functions just like we showed in the derivative that we had before. So, if we take the log
+likelihood function. So, this is the sum of the log with
+the probability of yi given xi and w. That can be written as
+the sum of two terms. The indicator that yi is +1
+has the probability of yi=+1, plus the indicative y is -1
+has the probability of y=-1. So in other words, if it's, if yi=+1 then the first
+term comes to play and the second term becomes zero. But if YI is equal to minus one, then the first term becomes zero,
+then the second term becomes active. And so we see that because of this,
+we get exactly the equation above. But, the indicators are going
+to make our life a lot simpler throughout the derivatives and
+all of the operations that we need to do. Here is an interesting thing. So far we've only talked about
+the probability y = +1, but in this equation we have
+the probability y = -1. Interesting. [MUSIC]

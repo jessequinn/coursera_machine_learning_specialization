@@ -1,0 +1,54 @@
+[MUSIC] The second approach we see when dealing
+with missing data is purification by what's called imputation. It's filling in the missing
+values with question marks with some best guesses of
+what might have happened. I'm personally not a hoarder. I don't collect a lot of things. I don't really care about stuff that much. But when it comes to data,
+I really feel bad about throwing it away. I don't want to throw away data. And so going down from nine data points
+to six data points, this pains me. I don't think it's a really good idea. Imputation is an alternative to this. It's to say, okay, instead of
+throwing away those question marks, let's try to get a best guess of where
+that question mark value might be and just fill in those values. And this is the kind of
+approach you might take. You take your input data which might
+have some missing values in it. You take your best guess at filling
+in those missing values and now you have a data set where
+everything has been filled in. For example, in a nine row data set
+here we have these three question marks. And we could say the term is unknown for
+these three question marks. When I fill in those values with my best
+guess which might be three year loan. For the three values over here. Why did I choose three
+year loan to fill it in? Well if you look at the original data set, there were four three year loans
+versus two five year loans, so four here was my best guess. And you can think about it
+as my best simple guess. So I just took a simple approach, just whatever was most
+popular I filled those in. So the way that imputation might
+work in this simple approach, the rule might say for
+categorical data like of excellent, fair, poor, three year, five year. You just put in the most popular value and
+it's called the mode of distribution. For numerical data, I would suggest you put in either
+the average or the median value. Now, these are just simple logistics. There're many more advanced and
+interesting ways to impute missing values. There's something called
+expectation-maximization, or Algorithm, which is an algorithm that
+does this in a very interesting way. Now we just described a very
+simple thing in this course. Addressing missing data by imputation
+has advantages and disadvantages. It's easy to understand and implement. It can be applied to any model because
+after you fill in your data you just fit in to any algorithm you have you don't
+have to modify anything, so that's great. And it can be used as a prediction type
+because whenever you hit a question mark you fill it in in the same way that
+you did with the training data. So if you have a question mark for
+term you just fill it in three years, three alone is just like it
+did in the training data. So that's great. However, imputation like this, especially
+a simple imputation that I describe, can be extremely problematic,
+because it introduces a bias. Every question mark in term
+will put in three years. We then use any other information
+we plug in the same value. And this could result into
+really bad systematic errors. So step back and take an example. I live in the state of Washington in
+the US, and let's say that in the state of Washington it's illegal to put
+the age into the loan application. That means that if the loan applications
+come from the state of Washington, age is always a question mark. In other states maybe not a question mark,
+but age is always a question mark here. If you train a model
+across the United States, everybody from the state of Washington
+will have age question mark. You're going to fill in the average
+age into the application. Let's say, 40, then you're going to
+believe that everybody in the state of Washington who is applying for
+a loan is age 40. And that's going to
+introduce a systematic bias into the loan applications
+in the state of Washington. And that's going to lead to
+all sorts of weird behavior, unhappy people, bad predictions, bad idea. So imputation like this has its pluses but it's also a complicated idea because
+it can introduce terrible biases. So in the third part of this module, we're
+going to talk about an alternative that can address some of the challenges
+of the first two methods. [MUSIC]

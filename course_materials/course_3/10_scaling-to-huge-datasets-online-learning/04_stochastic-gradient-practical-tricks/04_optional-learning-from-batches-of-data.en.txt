@@ -1,0 +1,43 @@
+[MUSIC] The next few sections of this
+module are going to talk about more practical issues with
+a stochastic gradient, which you need to address for
+implementing those algorithms. I made the next few sections optional
+because it can get really tedious to go through all these practical details. You now already got a sense
+of how finicky it can be. There's many other practical details,
+I'm going to make those sections optional. So the first one is that learning from
+one data point is just way too noisy, usually you use a few data points. And this is called mini-batches. So we really illustrated two extremes so
+far. We illustrated gradient where you make
+a full pass through the data, and you use N data points for
+every update of your coefficient. And then we talked about stochastic
+gradient, where you look at just one data point when you're making up data and
+the coefficients. And the question is,
+is there something in between, where you looked at B data points,
+say 100? And that's called mini-batches,
+it reduces noise, increases stability, and it's the right thing to do. And 100 is a really good number to use,
+by the way. Here I'm showing the convergence paths of
+the same problem we've been looking at, but comparing batch size
+of 1 with batch size of 25. And here you observe two things. First, the batch size of
+25 makes a convergence path smoother, which is a good thing. But the second thing to observe
+which is even more interesting is, when you get around optimum batch size of
+one, really oscillates around the optimum. Well, batch size of 25,
+it oscillates better, so it has better behavior
+around the optimal. And by better behavior, it's going to make it much easier
+to use this approach in practice. So mini-batches are a great thing to do. So now we've introduced one more parameter
+to be tuned in this stochastic algorithm, this is the batch size B. If it's too large then it behaves
+just like gradient, for example, if you use batch size of N, it's
+exactly the gradient ascent algorithm, so in this case,
+the red line here is batch size too large. If the batch size is too small, you have
+bad oscillation, or bad behavior of. So B, too small in this case,
+it isn't converged very well. But if you pick the best batch size,
+B, you have very nice behavior. You quickly get to great solution,
+and you stay around that. So picking the right batch
+size makes a big difference. So let's go back to a simple stochastic
+gradient algorithm, and modify it, and reduce the notion of batch sizes. So instead of looking one
+data point at a time, we're going to look at
+one batch at a time. And if the batch size is size of B,
+we have N over B batch sizes for data set of size N. So if we have 1 billion data points and
+batch size 100, it's 1 billion over 100 of those. And now we go batch by batch, but instead of considering one data point at
+a time in the competition of the gradient, we now consider the B data
+points in that mini-batch. And the equation here just shows you
+the math behind basically the obvious thing of just taking 100 data points and use that just to estimate the gradient
+instead of 1 or instead of 1 billion. [MUSIC]

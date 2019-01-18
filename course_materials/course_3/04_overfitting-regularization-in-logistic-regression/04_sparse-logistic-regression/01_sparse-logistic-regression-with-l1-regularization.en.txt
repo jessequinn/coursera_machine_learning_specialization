@@ -1,0 +1,79 @@
+[MUSIC] So far we've discussed how to
+regularize logistic regression. We briefly mentioned what happens
+when you we have L1 regularized logistic regression. Let's talk about it in
+a little bit more detail. Unlike in a regression course, we're not going to derive the learning
+algorithm for L1 regularize with the sync regression can be the similar
+thing to what you did with lasso. We're just going to show kind of
+the impact it has on our data. On our learn models. So recall the notion of sparsity. So a model sparse when many of those wj's
+are equal to zero and that can help us with both efficiency and interpretability
+of the models as we saw in regression. So for example, let's say that we have
+a lot of data and a lot of features so the number of w's that you have can be a
+100 billion, 100 billion possible values. Things can in practice in
+all sorts of settings. For example, many of the spam filters
+out there have hundreds of billions of parameters in them, or
+coefficients they learn from data. So this has a couple problems. It can be expensive to make a prediction. You have to go through 100 billion values. However if I have a sparse
+solution where many of these w's are actually equal to zero then
+when I'm trying to make a prediction. So I'm judging will be at the sine
+of wj times the feature hj of xi. I only have to look at
+no zero quotations wj. Everything else can be ignored. So if I have a 100 billion coefficients
+but only say 100,000 of those are non zero then it's going to be much
+faster to make a prediction. This makes a huge difference in practice. The other impact that sparsity has
+having many zero coefficients being zero is that it can help you interpret
+the non zero coefficients. So you can look at the small number
+of non zero coefficients and try to make an interpretation,
+this is why a prediction gets made. Such interpretations can be used for
+practice in many ways, so how you learn logistic regression
+classifier with sparsity in that, sparsity inducing penalty. So what you do is take the same
+log-likelihood function Lw but we add extra L1 penalty. Which is the sum of
+the absolute value of w0, the absolute value of w1 all
+the way to the absolute value wd. So by just changing the squares, sum of squares to be sum of absolute
+values we go into what's called L1 regularized logistic regression
+which gives you sparse solutions. So that small change leads
+to sparse solutions. So just like we did
+with L2 regularization. Here, we're also going to have a parameter lander which controls how much
+regularization we introduce. So how much penalty we're
+going to introduce. And objective becomes
+the log-likelihood of the data, minus lambda times the sum of these
+absolute values, the L1 penalty. When lambda equals to 0,
+we have no regularization, which leads us to the standard MLE solution. Just like we had in the case
+of L2 regularization. Now when lambda is equal to infinity, we have only penalty so all weight is on regularization. And that's going to lead to w hat being
+everything 0, all 0 coefficients. Now the case that we really care about
+was on lambda similar between 0 and infinity which leads to what
+are called Sparse Solutions. Where some wj's are now
+going to be equal to 0 but hopefully, many other wj's and this is the maximum wj hats
+are going to be exactly 0. So that's what we're
+going to try to aim for. So let's revisit those coefficient paths,
+and here I'm showing you coefficient
+paths of L2 penalty. You see that when the lambda parameter's
+low, you have large coefficients learned, and when the lambda parameters gets
+larger, you got smaller coefficients. So, they go from large to small,
+but they're never exactly 0. So, the coefficients
+never become exactly 0. If you look however at the coefficient
+paths when the regularization is L1, well guess if would be
+much more interesting. So, for example, in the beginning, the coefficient of the smiley
+face oops that should be frowny. That should be smiley face
+has a large positive value. But eventually becomes
+exactly zero from here on. And similarly, the coefficient for
+the frowney face is a large negative value, but
+eventually over here the frowney face has a coefficient that becomes 0. And so it goes from large
+all the way to exactly zero. And we see that for
+many of the other words. For example in the beginning
+the coefficient of the word hate is pretty high and that's a pretty important word
+but around here hate becomes irrelevant. And so as just a quick reminder,
+these are product reviews and trying to figure out whether it's a positive or
+negative review for the product. And work with, we can look at what
+coefficient stays non zero for the longest time. And this is exactly this line over here,
+where it never hits 0, never stays exactly 0. And this is a co-efficient
+of the word disappointed. So, you might be disappointed
+to learn that frowny face is not the one that becomes 0. But in the beginning,
+disappoint is not as, the coefficient is not as large,
+not as significant as a frowny face but it's the one that stays negative for
+the longest. And so frowny face is not,
+you might be disappointed to know that friendly face is not
+as important as disappointed. [LAUGH] And disappointed probably because
+it's prevalent in more reviews and when you say disappointed you're
+really like in a negative review. That coefficient goes on for a long time. So you see these transitions. So the coefficients of those small
+numbers like reviews goes to zero. Earlier on, the smiley face will last for
+a while then it becomes zero. Frowny face lasts for longer and
+then it becomes exactly zero. But propositionally large lambdas,
+all those are zero except for the coefficient at this point. [MUSIC]

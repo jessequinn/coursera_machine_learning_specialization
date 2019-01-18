@@ -1,0 +1,57 @@
+[MUSIC] We're going to start by defining this idea
+of precision a little bit more formally. So precision is, after showed my website,
+which fraction were actually positive? In general, it's the fraction of positive
+predictions that are actually positive. Precision then is the fraction of positive
+predictions that were actually positive. So let's say that my algorithm predicted
+that the six sentences were positive. So it predicted y hat = + 1 for
+the six sentences. But in reality, only four out of
+those six were truly positive. So we got four truly positive ones,
+and two false positives in the mix. So it's precision was four, six. So in general, we have a set of
+data points we're calling positive, that we're predicting
+to be positive y hat. In this case y = + 1,
+some of them are truly positive. The yi is + 1. But some of them were actually not
+positive so that yi was actually- 1. And the question is, how big a fraction of those are the ones
+that actually truly positive? So here is where we can review that notion
+of true positives and true negatives. And so we can look at this table where,
+when in the rows we have the true label, yi. While in the columns we have
+the predicted label, y hat. And so if the truth is positive and the predictor is positive,
+we call that a true positive. It was positive and it was true. If the true label is- 1 and the prediction
+is- 1, we call that true negative. It was negative, and
+we predicted negative,- 1. So both of those are correct. But there are two types
+of mistakes you can make. The first type,
+those are called false negatives. It was truly a positive review, but
+we predicted it to be negative. So yi was + 1, y hat was- 1. And finally, a false positive
+is one where the true label was- 1, but the prediction was + 1. So the truth was negative would predict
+that it's going to be positive, so it's false positive. I find it very helpful to ground
+these ideas of false positive and false negative in the context of
+an example, to really feel it and really understand what the impact
+of those mistakes can be. So let's look at this matrix here again. If you look at the top left, we have a truly positive sentence,
+so it was a plus 1 sentence. And we got it right,
+we had a + 1 prediction. So that's no mistake, that's great. Similarly for the bottom right,
+we didn't make a mistake. We had a- 1 sentence, so a negative sentence, and
+we made a negative prediction. Now the problematic was, I did only two. So let's look first at the top one. So what happened here, was that I had
+a positive sentence, but a- 1 prediction. So, what does this actually means? Those are positive sentence in the word. Did they fall with negative? So, I missed the sentences
+to show my website. Maybe this is not too bad, you know, there
+might be some positive things I've said. So, maybe missing one is not that bad but
+it's still a problem. But let's look at the other quadrant here. The other quadrant is when
+we have- 1 sentence but I made a + 1 prediction. In other words, it was a negative sentence in the world in
+a review and I thought it was positive. So that means I showed a bad thing. I showed a bad review on my website. So this is quite problematic. I showed a bad review on the website,
+maybe said the sushi sucked, everybody read it,
+nobody comes to my restaurant anymore. Big, big, big, big trouble. With these definitions, we can now talk about precision
+in a little bit more precise way. So, precision is the fraction
+of the true positives to all my positive predictions, so
+the true positives to the false positives, and it has best possible value 1. That means that everything I predict will
+be positive is actually positive, and worst possible value 0. Everything I predict will be
+positive Turned out to be negative. In our example here,
+we had four true positives, so four things that I predicted to be
+positive, and were actually positive. And then we had four positives and two negatives in there, so we had a grand
+total here of four-sixths or two-thirds. Just like I said in the beginning. So, two mistakes, four correct. Now, in the context of our application,
+what would happen would be, I'm going to show the six
+sentences of my website. Unfortunately, I ended up showing two
+negative sentences on my website. So, for example,
+I'll show that this one here, which says the seaweed salad was just okay,
+the vegetable salad was just ordinary and so basically the salad sucked in my
+restaurant and so that might not be good. I don't want to show bad
+stuff on my website. So, I want to make sure that
+I'm high precision which means things that are predicted to be
+positive are actually positive. [MUSIC]

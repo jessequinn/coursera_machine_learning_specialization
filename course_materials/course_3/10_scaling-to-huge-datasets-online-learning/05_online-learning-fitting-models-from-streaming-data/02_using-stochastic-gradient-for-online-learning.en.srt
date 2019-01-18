@@ -1,0 +1,307 @@
+1
+00:00:00,018 --> 00:00:04,576
+[MUSIC]
+
+2
+00:00:04,576 --> 00:00:07,330
+And this is an example of
+an online learning problem.
+
+3
+00:00:07,330 --> 00:00:09,050
+Data is arriving over time.
+
+4
+00:00:09,050 --> 00:00:14,115
+You see an import xi and
+you need to make a prediction, y hat i.
+
+5
+00:00:14,115 --> 00:00:18,410
+So, the input may be texting the web
+page information about you and
+
+6
+00:00:18,410 --> 00:00:21,540
+y hat i might be a prediction
+about what ads you might click on.
+
+7
+00:00:22,930 --> 00:00:27,400
+And then, given what happens in the real
+world, whether you're clicking an ad,
+
+8
+00:00:27,400 --> 00:00:31,180
+in which case yt might be ad two,
+or you don't click on anything,
+
+9
+00:00:31,180 --> 00:00:35,070
+in which case yt would be none of
+the above, no ad was good for you.
+
+10
+00:00:35,070 --> 00:00:40,080
+Whatever that is gets fed into a machine
+learning algorithm that improves its
+
+11
+00:00:40,080 --> 00:00:43,190
+coefficients, so
+it can improve its performance over time.
+
+12
+00:00:44,910 --> 00:00:50,130
+The question is how do we design a machine
+learning algorithm that behaves like this?
+
+13
+00:00:50,130 --> 00:00:52,090
+What's a good example of
+a machine learning algorithm?
+
+14
+00:00:52,090 --> 00:00:55,210
+It can improve its performance over
+time in an online fashion like this.
+
+15
+00:00:56,530 --> 00:00:58,100
+And it turns out that we've seen one.
+
+16
+00:00:58,100 --> 00:00:58,963
+Stochastic gradient.
+
+17
+00:00:58,963 --> 00:01:01,652
+Stochastic gradient is a learning
+algorithm that can be used for
+
+18
+00:01:01,652 --> 00:01:02,950
+online learning.
+
+19
+00:01:02,950 --> 00:01:04,110
+So let's review it.
+
+20
+00:01:04,110 --> 00:01:05,870
+You give me some initial
+set of coefficients,
+
+21
+00:01:05,870 --> 00:01:07,300
+say everything is equal to zero.
+
+22
+00:01:07,300 --> 00:01:10,350
+Every time we stop, you get some input xi.
+
+23
+00:01:10,350 --> 00:01:18,060
+You can make a prediction y hat t based on
+your current estimate of the coefficients.
+
+24
+00:01:18,060 --> 00:01:21,980
+And then,
+you're given that true label, yt,
+
+25
+00:01:21,980 --> 00:01:24,618
+and you want to feed
+those into an algorithm.
+
+26
+00:01:24,618 --> 00:01:29,010
+Well, stochastic gradients will take those
+inputs and use it to compute the gradient,
+
+27
+00:01:29,010 --> 00:01:32,250
+and then just update the coefficients, so
+
+28
+00:01:32,250 --> 00:01:37,970
+w j t + 1 is going to be w j t,
++ eta times the gradient,
+
+29
+00:01:37,970 --> 00:01:41,230
+which is computed from these observed
+quantities in the real world.
+
+30
+00:01:42,550 --> 00:01:46,850
+So, online learning is a different kind
+of learning that we haven't talked at
+
+31
+00:01:46,850 --> 00:01:51,390
+all about in the specialization but
+it's really important to practice.
+
+32
+00:01:51,390 --> 00:01:53,400
+So when data arrives over time and
+
+33
+00:01:53,400 --> 00:01:56,360
+you need to make a decision right
+away of what to do with it.
+
+34
+00:01:56,360 --> 00:01:58,700
+But based on that decision,
+you're going to get some feedback and
+
+35
+00:01:58,700 --> 00:02:02,420
+you're going to update the parameters
+immediately and keep going.
+
+36
+00:02:02,420 --> 00:02:05,970
+This online learning approach, where you
+update the parameters immediately as you
+
+37
+00:02:05,970 --> 00:02:09,550
+see some information in the real world,
+can be extremely useful.
+
+38
+00:02:09,550 --> 00:02:12,630
+So, for example,
+your model is always up to date.
+
+39
+00:02:12,630 --> 00:02:16,520
+It's always based on the latest data,
+latest information in the world.
+
+40
+00:02:16,520 --> 00:02:19,640
+It can have lower computational
+cost because you can use
+
+41
+00:02:19,640 --> 00:02:23,680
+techniques like stochastic gradient
+that don't have to look at all the data.
+
+42
+00:02:23,680 --> 00:02:26,690
+And in fact, you don't even have to
+store all the data if it's too massive.
+
+43
+00:02:28,240 --> 00:02:31,160
+However, most people do store the data
+because they might want to use it later.
+
+44
+00:02:31,160 --> 00:02:32,160
+So that's a side note.
+
+45
+00:02:32,160 --> 00:02:33,130
+But you don't have to.
+
+46
+00:02:34,300 --> 00:02:39,300
+However it has some really
+difficult practical properties.
+
+47
+00:02:39,300 --> 00:02:42,330
+So this system that you have to build,
+the actual
+
+48
+00:02:42,330 --> 00:02:45,980
+design of how data interacts with
+the world and where problems get stored,
+
+49
+00:02:45,980 --> 00:02:49,640
+the coefficients get stored and all
+that is really complex and complicated.
+
+50
+00:02:49,640 --> 00:02:51,010
+It's hard to maintain.
+
+51
+00:02:51,010 --> 00:02:53,500
+If you have oscillations in your
+machine learning algorithm,
+
+52
+00:02:53,500 --> 00:02:58,000
+it can do really stupid things, and nobody
+want their website to do stupid things.
+
+53
+00:02:58,000 --> 00:03:03,060
+And you don't really trust those machinery
+stochastic gradient updates, necessarily.
+
+54
+00:03:03,060 --> 00:03:05,080
+Sometimes it can give you bad predictions.
+
+55
+00:03:05,080 --> 00:03:11,530
+And so, in practice, most companies
+don't do something like this.
+
+56
+00:03:11,530 --> 00:03:16,930
+They, what they do is they save their
+data for a little while and update their
+
+57
+00:03:16,930 --> 00:03:22,110
+models with the data from last hour or
+from the last day or from the last week.
+
+58
+00:03:22,110 --> 00:03:22,700
+It's very common.
+
+59
+00:03:22,700 --> 00:03:29,160
+So it's very common, for example,
+for a large like retailer, to every
+
+60
+00:03:29,160 --> 00:03:34,540
+night change its recommender system and
+run a big service every night to do that.
+
+61
+00:03:34,540 --> 00:03:38,700
+And you can think about that as
+an extreme version of mini-batches that
+
+62
+00:03:38,700 --> 00:03:40,550
+we talked about earlier in this module.
+
+63
+00:03:40,550 --> 00:03:43,360
+But now the batch is the whole
+data from the whole day.
+
+64
+00:03:43,360 --> 00:03:47,086
+For you,
+it will be those 5 billion page views.
+
+65
+00:03:47,086 --> 00:03:51,109
+[MUSIC]

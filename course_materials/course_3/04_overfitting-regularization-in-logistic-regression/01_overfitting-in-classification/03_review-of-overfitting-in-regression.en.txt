@@ -1,0 +1,40 @@
+[MUSIC] Now that we've talked about
+Classification Error, we can explore the notion of
+Overfitting in classification. Before we start, let's review what we
+talked about when we discussed overfitting the regression course. Going back to the regression course, we had this running example of
+where we're trying to predict price of the house in the y axis
+given some features of the house. In this case, the x axis is the square
+feet or the size of the house. And we see on the left here a really nice,
+smooth curve that helps us predict what's the
+price for house given it's square feet. However if instead of using a second
+degree polynomial like we did on the left, we use a higher or lower polynomial we
+might get a really crazy wiggly line that fits the training data extremely well but
+doesn't generalize beyond the training data to data in the test set or
+in the truth in the real world. so in this case we say that the model
+F here has over-fit the training data. Now in classification, we going to
+have the same kinds of problems and we're going to have to try to address it. What happens when you learn the model,
+which is too good on the training data is training error that is too low but
+doesn't do well on the true error. Now let's preview some of these
+overfitting plots which we discussed quite a lot in the regression course. So, here in the x axis I'm
+showing the model complexity. The model in the left is
+a very simple constant model, while the model in the right is
+a crazily polynomial very high degree. So, if you look at the training error, when you use a constant model it doesn't
+do really well in the training data. But it feels this crazy
+high degree polynomial, you might get zero training error. And somewhere in between,
+we get training error. There is decreasing like that,
+and eventually goes to zero. So this is my training error. And the problem with
+training error goes to zero is if you look the underlying model,
+it doesn't do well on other houses. So the true error is very high
+when you don't have a lot of data. Sorry when your models very simple. But it's also very high when
+your models very complex. And the true error function has this
+kind of characteristic process. It goes down and then goes up. So this is the true error. So overfitting is going to happen when we pick something that's
+too good in the training data. So it's somewhere over here, but it
+doesn't do well with aspect to true error. So in other words, you get some w hat over
+here that has very low training error, but high true error while there were
+exists some other certain parameters. We can call them w*, which might not have
+done as well in the training data, but man, they did much better as
+performance in the true error. And so we want to try to avoid
+taking these highly-performant models in the training data that
+don't do well in the real world. So we want to shift From the right
+here to the left to avoid overfitting. Now this was for the regression setting. Next we'll talk about it in
+the classification setting. [MUSIC]

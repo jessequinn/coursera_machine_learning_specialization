@@ -1,0 +1,70 @@
+1
+00:00:00,000 --> 00:00:04,422
+[MÚSICA]
+
+2
+00:00:04,422 --> 00:00:07,800
+Ya vimos cómo contruir un
+árbol de decisión a partir de los datos.
+
+3
+00:00:07,800 --> 00:00:11,240
+Es en realidad un algoritmo recursivo
+genial, sencillo.
+
+4
+00:00:11,240 --> 00:00:16,390
+La principal elección que debe hacerse es 
+en qué característica dividir y cuándo parar de dividir.
+
+5
+00:00:16,390 --> 00:00:20,020
+En el siguiente módulo vamos a hablar
+sobre la manera de abordar el sobreajuste
+
+6
+00:00:20,020 --> 00:00:21,570
+en árboles de decisión.
+
+7
+00:00:21,570 --> 00:00:26,740
+Pero ahora debes estar listo para entender
+cómo construir un árbol de decisión a partir de los datos.
+
+8
+00:00:26,740 --> 00:00:29,180
+en realidad, implementar ese algoritmo, y
+
+9
+00:00:29,180 --> 00:00:32,510
+ser capaz de realizar predicciones desde
+los árboles de decisión que has aprendido.
+
+10
+00:00:32,510 --> 00:00:35,610
+Así como explorar fronteras de decisión
+de árboles de decisión, y
+
+11
+00:00:35,610 --> 00:00:39,810
+cómo se relacionan con fronteras de decisión
+de, digamos, regresión logística.
+
+12
+00:00:39,810 --> 00:00:43,030
+Y permíteme finalizar
+agradeciendo a mi colega
+
+13
+00:00:43,030 --> 00:00:47,495
+Krishna, quien fue fundamental en la realización
+de las diapositivas que has visto en este módulo.
+
+14
+00:00:48,520 --> 00:00:51,921
+Realmente aprecio todo el esfuerzo
+que Krishna puso en esto.
+
+15
+00:00:51,921 --> 00:00:56,259
+[MÚSICA]

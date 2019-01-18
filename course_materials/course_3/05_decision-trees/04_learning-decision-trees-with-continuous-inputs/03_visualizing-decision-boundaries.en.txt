@@ -1,0 +1,61 @@
+[MUSIC] We'll close off this module by
+exploring a little bit more detail. I'll try example of decision trees and comparing it to our example of
+logistic regression from before. Here is the example that we will consider, is one that we considered in
+the logistic regression module. We're taking this dataset here and fitting a logistic regression,
+decision boundary is on the right here. And we can see the parameters
+that we learned from data. So this is if we just did
+a simple degree one polynomial feature is just going to
+straight up linear features. Let's see what happens when we build
+a decision stump on the same data. So If you do a single level decision
+tree and you apply to this data set, what we'll do is we'll split on x1 and
+if you try out the threshold values you'll see that on the left
+side we'll have x1 less than- 0.07 and on the right side will be
+x1 greater than- 0.07. You see for the ones on the right. We have more positive examples so we're going to predict positive,
+while the ones on the left, we have more negative examples, so
+we're going to predict negative. And you'll see that they correspond. So here's our split. - 0.07. This first left on the tree will
+correspond to points on the left there, and the second one will correspond
+to points on the right. Extremely twittered. So unlike, rational we're able to
+get the diagonal decision boundary. Here we're only going to get straight up,
+or straight across, decision boundary. At least in the first split. Now, if we keep going with the degree of
+the algorithm, and we take another split for each one of these intermediate nodes,
+we'll see that for the data where x1 is less than- 0.07,
+we might split on x1 again, and make predictions which in this
+case would be splitting on x1, less than- 1.66, and on both cases, we're predicting to be- 1, so a negative data point, so- 1,- 1. But for x1 greater than- 0.07, we now split on x2,
+whether it's bigger than or greater than 1.55, which in our split
+on our data is over here, 1.55. That's where x2 would be. And we see that now we have, for the data
+which is smaller than 1.55, in x2, we have 11 positive examples,
+so we predict + 1. But for
+the data which is greater than 1.55, we have three negative examples,
+so we predict- 1. And so now we have a much
+more interesting region so the split, these two nodes here on
+the right, one corresponds to this big green area and the other one
+corresponds to this little box on the top. And we can imagine continuing
+this process, splitting again and again and again as we'll see next,
+but one important thing to know is that when you have continuous variables
+and And this is a really important point. Unlike for discrete ones or for categorical ones, we can split
+on the same variable multiple times. So we can split the next one and split the
+next one again, or we can split the next one and the next two, then the next
+one and again, and we'll see that. So in this example that we talked about, we can keep the decision tree
+learning process growing. So in Depth 1 we just get a decision
+stump which corresponds to the vertical line that we drew in the beginning- 0.07. If we go to Depth 2, we get this little
+box that contains most of the positive examples but it is still some
+misclassifications over here, and then if you kept going, splitting, splitting,
+splitting, splitting, splitting, splitting all the way to Depth 10, we
+get this really crazy decision boundary. And if you look at it carefully,
+what you'll see is that, and I'm going to draw over the decision boundary here, but
+if you look at it a little bit carefully, you'll see that it basically makes,
+no mistakes, so it has 0 training error. And we can compare what we saw
+with Logistic Regression with what we're seeing with Decision Trees,
+and understand again, in preview for what we will see next module,
+kind of the notion of overfitting. So, in Logistic Regression we started
+with Degree 1 parameter features, and we saw in Degree 2 had a really nice
+fit of the data, is a nice parable. You didn't get everything right,
+but you did pretty well. And the degree six polynomial had
+a really crazy decision boundary. It got zero training error, but
+I didn't really trust those predictions, we didn't really trust those prediction. With the decision tree, what you control
+is the depth of the decision tree and so Depth 1 was just a decision stamp. It didn't do so well. If you go to Depth 3, it looks like
+a little bit of a jagged line, but it looks like a pretty
+nice decision boundary. It makes a few mistakes,
+but it looks pretty good. If you look at Depth 10,
+you get this crazy decision boundary, has zero training error, but
+is likely to be over fitting. [MUSIC]

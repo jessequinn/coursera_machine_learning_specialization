@@ -1,0 +1,155 @@
+1
+00:00:00,000 --> 00:00:04,681
+[MUSIC]
+
+2
+00:00:04,681 --> 00:00:08,185
+Now we know everything about
+logistic regression classifiers and
+
+3
+00:00:08,185 --> 00:00:09,870
+the representation.
+
+4
+00:00:09,870 --> 00:00:13,040
+What the impact of parameters are,
+how they can be used for classification,
+
+5
+00:00:13,040 --> 00:00:15,230
+how they can be used for
+multi class classification.
+
+6
+00:00:15,230 --> 00:00:18,160
+That's the foundation we need to
+talk about linear classifiers and
+
+7
+00:00:18,160 --> 00:00:21,080
+to do the rest of this
+classification course.
+
+8
+00:00:21,080 --> 00:00:23,880
+In this module, we're going to dig in and
+really figure out
+
+9
+00:00:23,880 --> 00:00:27,870
+how to learn the parameters for
+the logistic regression classifier.
+
+10
+00:00:27,870 --> 00:00:30,510
+But let's start with a quick review
+just to get us in the same mindset.
+
+11
+00:00:31,720 --> 00:00:36,600
+Now remember, we had this product
+reviews or restaurant reviews, and
+
+12
+00:00:36,600 --> 00:00:41,430
+we wanted to figure out, for example, that
+the sushi and everything else were awesome
+
+13
+00:00:41,430 --> 00:00:47,010
+as input has a high probability of being a
+positive review, while the sushi was good.
+
+14
+00:00:47,010 --> 00:00:52,500
+The service was okay has a probability
+of only 0.55 of being a positive review.
+
+15
+00:00:52,500 --> 00:00:57,000
+In other words, we want to learn
+a classifier of the form probability of y
+
+16
+00:00:57,000 --> 00:01:01,720
+given x, where y is the output label
+positive and negative review and
+
+17
+00:01:01,720 --> 00:01:03,420
+x is the input sentence,
+the actual review.
+
+18
+00:01:04,430 --> 00:01:08,640
+So we talked about this task and
+we discussed linear classifiers where with
+
+19
+00:01:08,640 --> 00:01:14,780
+an associate a weight where
+a coefficient with every input feature,
+
+20
+00:01:14,780 --> 00:01:18,770
+in our case, would be worse like good,
+great, awesome and so
+
+21
+00:01:18,770 --> 00:01:23,350
+on and positive words may have
+positive coefficients and
+
+22
+00:01:23,350 --> 00:01:29,260
+negative words may have
+negative coefficients.
+
+23
+00:01:31,700 --> 00:01:34,810
+Of the coefficients [INAUDIBLE]
+words appear in that particular
+
+24
+00:01:34,810 --> 00:01:40,110
+input centers and that's [INAUDIBLE]
+from minus infinity to plus infinity.
+
+25
+00:01:40,110 --> 00:01:44,500
+So, we squeeze that into
+the line 01 to be able to
+
+26
+00:01:44,500 --> 00:01:48,770
+predict the probability that
+the review is positive given
+
+27
+00:01:49,870 --> 00:01:54,810
+the text of the review and the logistic
+regression model, that probability is
+
+28
+00:01:54,810 --> 00:01:59,570
+defined by 1 over 1 plus e
+to the minus w transposed h.
+
+29
+00:02:00,860 --> 00:02:03,350
+So we explored this quite
+a bit in the last module.
+
+30
+00:02:03,350 --> 00:02:05,411
+Just want to warm us up and
+
+31
+00:02:05,411 --> 00:02:11,508
+get us into how do we learn these
+particular coefficients w hat from data.
+
+32
+00:02:11,508 --> 00:02:16,159
+[MUSIC]

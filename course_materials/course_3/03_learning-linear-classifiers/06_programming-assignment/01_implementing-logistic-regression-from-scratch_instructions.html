@@ -1,0 +1,1351 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Implementing logistic regression from scratch
+ </h1>
+ <p>
+  The goal of this assignment is to implement your own logistic regression classifier. You will:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Extract features from Amazon product reviews.
+   </p>
+  </li>
+  <li>
+   <p>
+    Convert an SFrame into a NumPy array.
+   </p>
+  </li>
+  <li>
+   <p>
+    Implement the link function for logistic regression.
+   </p>
+  </li>
+  <li>
+   <p>
+    Write a function to compute the derivative of the log likelihood function with respect to a single coefficient.
+   </p>
+  </li>
+  <li>
+   <p>
+    Implement gradient ascent.
+   </p>
+  </li>
+  <li>
+   <p>
+    Given a set of coefficients, predict sentiments.
+   </p>
+  </li>
+  <li>
+   <p>
+    Compute classification accuracy for the logistic regression model.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Let's get started!
+ </p>
+ <h2 level="2">
+  If you are doing the assignment with IPython Notebook
+ </h2>
+ <p>
+  An IPython Notebook has been provided below to you for this assignment. This notebook contains the instructions, quiz questions and partially-completed code for you to use as well as some cells to test your code.
+ </p>
+ <p>
+  <strong>
+   Make sure that you are using the latest version of GraphLab Create.
+  </strong>
+ </p>
+ <h2 level="2">
+  What you need to download
+ </h2>
+ <h3 level="3">
+  If you are using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the Amazon product review dataset (subset) in SFrame format. Notice the subset suffix:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vSztwJb5EeaPaAqL2XDGfA" name="amazon_baby_subset.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the companion IPython notebook:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vTAiRpb5EeaGYhKBa-7RCg" name="module-3-linear-classifier-learning-assignment-blank.ipynb">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the list of 193 significant words:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vS5NF5b5Eeamuwrx1W7CKA" name="important_words.json">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using Amazon EC2, download the binary files for NumPy arrays from the link below. See the companion notebook for the instructions.
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="aS9dBpb-EeaXRw6bxrYUfA" name="module-3-assignment-numpy-arrays.npz">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Save both of these files in the same directory (where you are calling IPython notebook from) and unzip the data file.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  If you are not using GraphLab Create:
+ </h3>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using SFrame, download the Amazon product review dataset (subset) in SFrame format. Notice the subset suffix:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vSztwJb5EeaPaAqL2XDGfA" name="amazon_baby_subset.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you are using a different package, download the Amazon product review dataset (subset) in CSV format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="soHdxJcDEea2tg7d5YqbXg" name="amazon_baby_subset.csv">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the list of 193 significant words:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="vS5NF5b5Eeamuwrx1W7CKA" name="important_words.json">
+ </asset>
+ <h2 level="2">
+  If you are using GraphLab Create and the companion IPython Notebook
+ </h2>
+ <p>
+  Open the companion IPython notebook and follow the instructions in the notebook.
+ </p>
+ <h2 level="2">
+  If you are using other tools
+ </h2>
+ <p>
+  This section is designed for people using tools other than GraphLab Create.
+  <strong>
+   You will not need any machine learning packages
+  </strong>
+  since we will be implementing logistic regression from scratch.
+  <strong>
+   W
+  </strong>
+  <strong>
+   e highly suggest you use
+   <a href="https://github.com/turi-code/SFrame">
+    SFrame
+   </a>
+   since it is open source.
+  </strong>
+  In this part of the assignment, we describe general instructions, however we will tailor the instructions for SFrame.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If you choose to use SFrame, you should be able to follow the instructions in the next section and complete the assessment.
+    <strong>
+     All code samples given here will be applicable to SFrame
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    You are free to experiment with any tool of your choice, but
+    <strong>
+     some many not produce correct numbers for the quiz questions.
+    </strong>
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  If you are using
+  <a href="https://github.com/turi-code/SFrame">
+   SFrame
+  </a>
+ </h2>
+ <p>
+  Make sure to download the companion IPython notebook:
+ </p>
+ <asset assettype="generic" extension="zip" id="vTAiRpb5EeaGYhKBa-7RCg" name="module-3-linear-classifier-learning-assignment-blank.ipynb">
+ </asset>
+ <p>
+  You will be able to follow along exactly
+  <strong>
+   if you replace the first two lines of code with these two lines:
+  </strong>
+ </p>
+ <pre language="python">import sframe
+products = sframe.SFrame('amazon_baby_subset.gl/')
+</pre>
+ <p>
+  After running this,
+  <strong>
+   you can follow the rest of the IPython notebook and disregard the rest of this reading.
+  </strong>
+ </p>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  To install SFrame (without installing GraphLab Create), run
+ </p>
+ <pre language="sh">pip install sframe</pre>
+ <h2 level="2">
+  If you are NOT using SFrame
+ </h2>
+ <h3 level="3">
+  Load review dataset
+ </h3>
+ <p>
+  <strong>
+   1.
+  </strong>
+  For this assignment, we will use a subset of the Amazon product review dataset. The subset was chosen to contain similar numbers of positive and negative reviews, as the original dataset consisted primarily of positive reviews.
+ </p>
+ <p>
+  Load the dataset into a data frame named
+  <strong>
+   products
+  </strong>
+  . One column of this dataset is
+  <strong>
+   sentiment
+  </strong>
+  , corresponding to the class label with +1 indicating a review with positive sentiment and -1 for negative sentiment.
+ </p>
+ <p>
+  <strong>
+   2.
+  </strong>
+  Let us quickly explore more of this dataset. The
+  <strong>
+   name
+  </strong>
+  column indicates the name of the product. Try listing the name of the first 10 products in the dataset.
+ </p>
+ <p>
+  After that, try counting the number of positive and negative reviews.
+ </p>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  For this assignment, we eliminated class imbalance by choosing a subset of the data with a similar number of positive and negative reviews.
+ </p>
+ <h3 level="3">
+  Apply text cleaning on the review data
+ </h3>
+ <p>
+  <strong>
+   3.
+  </strong>
+  In this section, we will perform some simple feature cleaning using data frames. The last assignment used all words in building bag-of-words features, but here we limit ourselves to 193 words (for simplicity). We compiled a list of 193 most frequent words into the JSON file named
+  <strong>
+   important_words.json
+  </strong>
+  . Load the words into a list
+  <strong>
+   important_words
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   4.
+  </strong>
+  Let us perform 2 simple data transformations:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Remove punctuation
+   </p>
+  </li>
+  <li>
+   <p>
+    Compute word counts (only for
+    <strong>
+     important_words
+    </strong>
+    )
+   </p>
+  </li>
+ </ul>
+ <p>
+  We start with the first item as follows:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    If your tool supports it, fill n/a values in the
+    <strong>
+     review
+    </strong>
+    column with empty strings. The n/a values indicate empty reviews. For instance, Pandas's the fillna() method lets you replace all N/A's in the
+    <strong>
+     review
+    </strong>
+    columns as follows:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">products = products.fillna({'review':''})  # fill in N/A's in the review column</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Write a function
+    <strong>
+     remove_punctuation
+    </strong>
+    that takes a line of text and removes all punctuation from that text. The function should be analogous to the following Python code:
+   </p>
+  </li>
+ </ul>
+ <pre language="python">def remove_punctuation(text):
+    import string
+    return text.translate(None, string.punctuation)</pre>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Apply the
+    <strong>
+     remove_punctuation
+    </strong>
+    function on every element of the
+    <strong>
+     review
+    </strong>
+    column and assign the result to the new column
+    <strong>
+     review_clean
+    </strong>
+    .
+    <strong>
+     Note.
+    </strong>
+    Many data frame packages support
+    <strong>
+     apply
+    </strong>
+    operation for this type of task. Consult appropriate manuals.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   5.
+  </strong>
+  Now we proceed with the second item. For each word in
+  <strong>
+   important_words
+  </strong>
+  , we compute a count for the number of times the word occurs in the review. We will store this count in a separate column (one for each word). The result of this feature processing is a single column for each word in
+  <strong>
+   important_words
+  </strong>
+  which keeps a count of the number of times the respective word occurs in the review text.
+ </p>
+ <p>
+  <strong>
+   Note:
+  </strong>
+  There are several ways of doing this. One way is to create an anonymous function that counts the occurrence of a particular word and apply it to every element in the
+  <strong>
+   review_clean
+  </strong>
+  column. Repeat this step for every word in
+  <strong>
+   important_words
+  </strong>
+  . Your code should be analogous to the following:
+ </p>
+ <pre language="python">for word in important_words:
+    products[word] = products['review_clean'].apply(lambda s : s.split().count(word))
+</pre>
+ <p>
+  <strong>
+   6.
+  </strong>
+  After #4 and #5,  the data frame
+  <strong>
+   products
+  </strong>
+  should contain one column for each of the 193
+  <strong>
+   important_words
+  </strong>
+  . As an example, the column
+  <strong>
+   perfect
+  </strong>
+  contains a count of the number of times the word
+  <strong>
+   perfect
+  </strong>
+  occurs in each of the reviews.
+ </p>
+ <p>
+  <strong>
+   7.
+  </strong>
+  Now, write some code to compute the number of product reviews that contain the word
+  <strong>
+   perfect
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Hint:
+  </strong>
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    First create a column called
+    <strong>
+     contains_perfect
+    </strong>
+    which is set to 1 if the count of the word
+    <strong>
+     perfect
+    </strong>
+    (stored in column perfect is &gt;= 1.
+   </p>
+  </li>
+  <li>
+   <p>
+    Sum the number of 1s in the column
+    <strong>
+     contains_perfect
+    </strong>
+    .
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Quiz Question
+  </strong>
+  . How many reviews contain the word
+  <strong>
+   perfect
+  </strong>
+  ?
+ </p>
+ <h3 level="3">
+  Convert data frame to multi-dimensional array
+ </h3>
+ <p>
+  <strong>
+   8.
+  </strong>
+  It is now time to convert our data frame to a multi-dimensional array. Look for a package that provides a highly optimized matrix operations. In the case of Python, NumPy is a good choice.
+ </p>
+ <p>
+  Write a function that extracts columns from a data frame and converts them into a multi-dimensional array. We plan to use them throughout the course, so make sure to get this function right.
+ </p>
+ <p>
+  The function should accept three parameters:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     dataframe
+    </strong>
+    : a data frame to be converted
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     features
+    </strong>
+    : a list of string, containing the names of the columns that are used as features.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     label
+    </strong>
+    : a string, containing the name of the single column that is used as class labels.
+   </p>
+  </li>
+ </ul>
+ <p>
+  The function should return two values:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    one 2D array for features
+   </p>
+  </li>
+  <li>
+   <p>
+    one 1D array for class labels
+   </p>
+  </li>
+ </ul>
+ <p>
+  The function should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Prepend a new column
+    <strong>
+     constant
+    </strong>
+    to
+    <strong>
+     dataframe
+    </strong>
+    and fill it with 1's. This column takes account of the intercept term. Make sure that the
+    <strong>
+     constant
+    </strong>
+    column appears first in the data frame.
+   </p>
+  </li>
+  <li>
+   <p>
+    Prepend a string 'constant' to the list
+    <strong>
+     features
+    </strong>
+    . Make sure the string 'constant' appears first in the list.
+   </p>
+  </li>
+  <li>
+   <p>
+    Extract columns in
+    <strong>
+     dataframe
+    </strong>
+    whose names appear in the list
+    <strong>
+     features
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Convert the extracted columns into a 2D array using a function in the data frame library. If you are using Pandas, you would use  as_matrix()  function.
+   </p>
+  </li>
+  <li>
+   <p>
+    Extract the single column in
+    <strong>
+     dataframe
+    </strong>
+    whose name corresponds to the string
+    <strong>
+     label
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Convert the column into a 1D array.
+   </p>
+  </li>
+  <li>
+   <p>
+    Return the 2D array and the 1D array.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Users of SFrame or Pandas would execute these steps as follows:
+ </p>
+ <pre language="python">def get_numpy_data(dataframe, features, label):
+    dataframe['constant'] = 1
+    features = ['constant'] + features
+    features_frame = dataframe[features]
+    feature_matrix = features_frame.as_matrix()
+    label_sarray = dataframe[label]
+    label_array = label_sarray.as_matrix()
+    return(feature_matrix, label_array)</pre>
+ <p>
+  <strong>
+   9.
+  </strong>
+  Using the function written in #8, extract two arrays
+  <strong>
+   feature_matrix
+  </strong>
+  and
+  <strong>
+   sentiment
+  </strong>
+  . The 2D array
+  <strong>
+   feature_matrix
+  </strong>
+  would contain the content of the columns given by the list
+  <strong>
+   important_words
+  </strong>
+  . The 1D array
+  <strong>
+   sentiment
+  </strong>
+  would contain the content of the column
+  <strong>
+   sentiment
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  How many features are there in the
+  <strong>
+   feature_matrix
+  </strong>
+  ?
+ </p>
+ <p>
+  <strong>
+   Quiz Question:
+  </strong>
+  Assuming that the intercept is present, how does the number of features in
+  <strong>
+   feature_matrix
+  </strong>
+  relate to the number of features in the logistic regression model?
+ </p>
+ <h3 level="3">
+  Estimating conditional probability with link function
+ </h3>
+ <p>
+  <strong>
+   10.
+  </strong>
+  Recall from lecture that the link function is given by
+ </p>
+ <p hasmath="true">
+  $$P(y_i = +1 | \mathbf{x}_i, \mathbf{w}) = \dfrac{1}{1 + \exp{(-\mathbf{w}^\intercal h(\mathbf{x}_i))}},$$
+ </p>
+ <p hasmath="true">
+  where the feature vector $$h(\mathbf{x}_i)$$ represents the word counts of
+  <strong>
+   important_words
+  </strong>
+  in the review $$\mathbf{x}_i$$. Write a function named
+  <strong>
+   predict_probability
+  </strong>
+  that implements the link function.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Take two parameters:
+    <strong>
+     feature_matrix
+    </strong>
+    and
+    <strong>
+     coefficients
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    First compute the dot product of
+    <strong>
+     feature_matrix
+    </strong>
+    and
+    <strong>
+     coefficients
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p hasmath="true">
+    Then compute the link function $$P(y = +1 | \mathbf{x}, \mathbf{w})$$.
+   </p>
+  </li>
+  <li>
+   <p>
+    Return the predictions given by the link function.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Your code should be analogous to the following Python function:
+ </p>
+ <pre language="python">'''
+produces probablistic estimate for P(y_i = +1 | x_i, w).
+estimate ranges between 0 and 1.
+'''
+def predict_probability(feature_matrix, coefficients):
+    # Take dot product of feature_matrix and coefficients  
+    # YOUR CODE HERE
+    score = ...
+    
+    # Compute P(y_i = +1 | x_i, w) using the link function
+    # YOUR CODE HERE
+    predictions = ...
+    
+    # return predictions
+    return predictions</pre>
+ <p>
+  <strong>
+   Aside
+  </strong>
+  . How the link function works with matrix algebra
+ </p>
+ <p hasmath="true">
+  Since the word counts are stored as columns in
+  <strong>
+   feature_matrix
+  </strong>
+  , each i-th row of the matrix corresponds to the feature vector $$h(\mathbf{x}_i)$$:
+ </p>
+ <p hasmath="true">
+  $$[\mbox{feature_matrix}] = \left[\begin{array}{c} h(\mathbf{x}_1)^\intercal \\ h(\mathbf{x}_2)^\intercal \\ \vdots \\ h(\mathbf{x}_N)^\intercal\end{array}\right] = \left[\begin{array}{cccc}h_0(\mathbf{x}_1) &amp; h_1(\mathbf{x}_1) &amp; \cdots &amp; h_D(\mathbf{x}_1) \\ h_0(\mathbf{x}_2) &amp; h_1(\mathbf{x}_2) &amp; \cdots &amp; h_D(\mathbf{x}_2) \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ h_0(\mathbf{x}_N) &amp; h_1(\mathbf{x}_N) &amp; \cdots &amp; h_D(\mathbf{x}_N) \end{array}\right] $$
+ </p>
+ <p hasmath="true">
+  By the rules of matrix multiplication, the score vector containing elements $$\mathbf{w}^\intercal h(\mathbf{x}_i)$$ is obtained by multiplying
+  <strong>
+   feature_matrix
+  </strong>
+  and the coefficient vector $$\mathbf{w}$$:
+ </p>
+ <p hasmath="true">
+  $$ [\mbox{score}] = [\mbox{feature_matrix}]\mathbf{w} = \left[\begin{array}{c} h(\mathbf{x}_1)^\intercal \\ h(\mathbf{x}_2)^\intercal \\ \vdots \\ h(\mathbf{x}_N)^\intercal\end{array}\right] \mathbf{w} = \left[\begin{array}{c} h(\mathbf{x}_1)^\intercal \mathbf{w} \\ h(\mathbf{x}_2)^\intercal \mathbf{w} \\ \vdots \\ h(\mathbf{x}_N)^\intercal \mathbf{w}\end{array}\right] = \left[\begin{array}{c} \mathbf{w}^\intercal h(\mathbf{x}_1) \\ \mathbf{w}^\intercal h(\mathbf{x}_2) \\ \vdots \\ \mathbf{w}^\intercal h(\mathbf{x}_N) \end{array}\right]$$
+ </p>
+ <h3 level="3">
+  Compute derivative of log likelihood with respect to a single coefficient
+ </h3>
+ <p>
+  <strong>
+   11.
+  </strong>
+  Recall from lecture:
+ </p>
+ <p hasmath="true">
+  $$\displaystyle \frac{\partial \ell}{\partial w_j} = \sum_{i=1}^N h_j(\mathbf{x}_i) (\mathbf{1}[y_i = +1] - P(y_i = +1 | \mathbf{x}_i, \mathbf{w}))$$
+ </p>
+ <p>
+  We will now write a function
+  <strong>
+   feature_derivative
+  </strong>
+  that computes the derivative of log likelihood with respect to a single coefficient w_j. The function accepts two arguments:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     errors
+    </strong>
+    : vector whose i-th value contains
+   </p>
+  </li>
+ </ul>
+ <p hasmath="true">
+  $$\mathbf{1}[y_i = +1] - P(y_i = +1 | \mathbf{x}_i, \mathbf{w})$$
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     feature
+    </strong>
+    : vector whose i-th value contains
+   </p>
+  </li>
+ </ul>
+ <p hasmath="true">
+  $$h_j(\mathbf{x}_i)$$
+ </p>
+ <p>
+  This corresponds to the j-th column of
+  <strong>
+   feature_matrix
+  </strong>
+  .
+ </p>
+ <p>
+  The function should do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Take two parameters
+    <strong>
+     errors
+    </strong>
+    and
+    <strong>
+     feature
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Compute the dot product of
+    <strong>
+     errors
+    </strong>
+    and
+    <strong>
+     feature
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Return the dot product. This is the derivative with respect to a single coefficient w_j.
+   </p>
+  </li>
+ </ul>
+ <p>
+  Your code should be analogous to the following Python function:
+ </p>
+ <pre language="python">def feature_derivative(errors, feature):     
+    # Compute the dot product of errors and feature
+    derivative = ...
+        # Return the derivative
+    return derivative</pre>
+ <p>
+  <strong>
+   12.
+  </strong>
+  In the main lecture, our focus was on the likelihood. In the advanced optional video, however, we introduced a transformation of this likelihood---called the log-likelihood---that simplifies the derivation of the gradient and is more numerically stable. Due to its numerical stability, we will use the log-likelihood instead of the likelihood to assess the algorithm.
+ </p>
+ <p>
+  The log-likelihood is computed using the following formula (see the advanced optional video if you are curious about the derivation of this equation):
+ </p>
+ <p hasmath="true">
+  $$\displaystyle \ell \ell (\mathbf{w}) = \sum_{i=1}^N \Big( (\mathbf{1}[y_i = +1] - 1) \mathbf{w}^\intercal h(\mathbf{w}_i) - \ln{\big(1 + \exp{(-\mathbf{w}^\intercal h(\mathbf{x}_i) )} \big)} \Big)$$
+ </p>
+ <p>
+  Write a function
+  <strong>
+   compute_log_likelihood
+  </strong>
+  that implements the equation. The function would be analogous to the following Python function:
+ </p>
+ <pre language="python">def compute_log_likelihood(feature_matrix, sentiment, coefficients):
+    indicator = (sentiment==+1)
+    scores = np.dot(feature_matrix, coefficients)
+        lp = np.sum((indicator-1)*scores - np.log(1. + np.exp(-scores)))
+    return lp</pre>
+ <h3 level="3">
+  Taking gradient steps
+ </h3>
+ <p>
+  <strong>
+   13.
+  </strong>
+  Now we are ready to implement our own logistic regression. All we have to do is to write a gradient ascent function that takes gradient steps towards the optimum.
+ </p>
+ <p>
+  Write a function
+  <strong>
+   logistic_regression
+  </strong>
+  to fit a logistic regression model using gradient ascent.
+ </p>
+ <p>
+  The function accepts the following parameters:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     feature_matrix
+    </strong>
+    : 2D array of features
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     sentiment
+    </strong>
+    : 1D array of class labels
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     initial_coefficients
+    </strong>
+    : 1D array containing initial values of coefficients
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     step_size
+    </strong>
+    : a parameter controlling the size of the gradient steps
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     max_iter
+    </strong>
+    : number of iterations to run gradient ascent
+   </p>
+  </li>
+ </ul>
+ <p>
+  The function returns the last set of coefficients after performing gradient ascent.
+ </p>
+ <p>
+  The function carries out the following steps:
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Initialize vector
+    <strong>
+     coefficients
+    </strong>
+    to
+    <strong>
+     initial_coefficients
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p hasmath="true">
+    Predict the class probability $$P(y_i = +1 | \mathbf{x}_i,\mathbf{w})$$ using your
+    <strong>
+     predict_probability
+    </strong>
+    function and save it to variable
+    <strong>
+     predictions
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p hasmath="true">
+    Compute indicator value for ($$y_i = +1$$) by comparing
+    <strong>
+     sentiment
+    </strong>
+    against +1. Save it to variable
+    <strong>
+     indicator
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    Compute the errors as difference between
+    <strong>
+     indicator
+    </strong>
+    and
+    <strong>
+     predictions
+    </strong>
+    . Save the errors to variable
+    <strong>
+     errors
+    </strong>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    For each j-th coefficient, compute the per-coefficient derivative by calling
+    <strong>
+     feature_derivative
+    </strong>
+    with the j-th column of
+    <strong>
+     feature_matrix
+    </strong>
+    . Then increment the j-th coefficient by (step_size*derivative).
+   </p>
+  </li>
+  <li>
+   <p>
+    Once in a while, insert code to print out the log likelihood.
+   </p>
+  </li>
+  <li>
+   <p>
+    Repeat steps 2-6 for
+    <strong>
+     max_iter
+    </strong>
+    times.
+   </p>
+  </li>
+ </ol>
+ <p>
+  At the end of day, your code should be analogous to the following Python function (with blanks filled in):
+ </p>
+ <pre language="python">from math import sqrt
+def logistic_regression(feature_matrix, sentiment, initial_coefficients, step_size, max_iter):
+    coefficients = np.array(initial_coefficients) # make sure it's a numpy array
+    for itr in xrange(max_iter):
+        # Predict P(y_i = +1|x_1,w) using your predict_probability() function
+        # YOUR CODE HERE
+        predictions = ...
+
+        # Compute indicator value for (y_i = +1)
+        indicator = (sentiment==+1)
+
+        # Compute the errors as indicator - predictions
+        errors = indicator - predictions
+
+        for j in xrange(len(coefficients)): # loop over each coefficient
+            # Recall that feature_matrix[:,j] is the feature column associated with coefficients[j]
+            # compute the derivative for coefficients[j]. Save it in a variable called derivative
+            # YOUR CODE HERE
+            derivative = ...
+
+            # add the step size times the derivative to the current coefficient
+            # YOUR CODE HERE
+            ...
+
+        # Checking whether log likelihood is increasing
+        if itr &lt;= 15 or (itr &lt;= 100 and itr % 10 == 0) or (itr &lt;= 1000 and itr % 100 == 0) \
+        or (itr &lt;= 10000 and itr % 1000 == 0) or itr % 10000 == 0:
+            lp = compute_log_likelihood(feature_matrix, sentiment, coefficients)
+            print 'iteration %*d: log likelihood of observed labels = %.8f' % \
+                (int(np.ceil(np.log10(max_iter))), itr, lp)
+    return coefficients</pre>
+ <p>
+  <strong>
+   14.
+  </strong>
+  Now, let us run the logistic regression solver with the parameters below:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     feature_matrix
+    </strong>
+    =
+    <strong>
+     feature_matrix
+    </strong>
+    extracted in #9
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     sentiment
+    </strong>
+    =
+    <strong>
+     sentiment
+    </strong>
+    extracted in #9
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     initial_coefficients
+    </strong>
+    = a 194-dimensional vector filled with zeros
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     step_size
+    </strong>
+    = 1e-7
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     max_iter
+    </strong>
+    = 301
+   </p>
+  </li>
+ </ul>
+ <p>
+  Save the returned coefficients to variable
+  <strong>
+   coefficients
+  </strong>
+  .
+ </p>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  As each iteration of gradient ascent passes, does the log likelihood increase or decrease?
+ </p>
+ <h3 level="3">
+  Predicting sentiments
+ </h3>
+ <p>
+  <strong>
+   15.
+  </strong>
+  Recall from lecture that class predictions for a data point x can be computed from the coefficients w using the following formula:
+ </p>
+ <p hasmath="true">
+  $$\hat{y}_i = \begin{cases} +1 &amp; \text{if }\mathbf{x}_i^\intercal \mathbf{w} &gt; 0 \\ -1 &amp; \text{if }\mathbf{x}_i^\intercal \mathbf{w} \leq 0\end{cases}$$
+ </p>
+ <p>
+  Now, we write some code to compute class predictions. We do this in two steps:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    First compute the
+    <strong>
+     scores
+    </strong>
+    using
+    <strong>
+     feature_matrix
+    </strong>
+    and
+    <strong>
+     coefficients
+    </strong>
+    using a dot product.
+   </p>
+  </li>
+  <li>
+   <p>
+    Then apply threshold 0 on the scores to compute the class predictions. Refer to the formula above.
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  How many reviews were predicted to have positive sentiment?
+ </p>
+ <h3 level="3">
+  Measuring accuracy
+ </h3>
+ <p>
+  <strong>
+   16.
+  </strong>
+  We will now measure the classification accuracy of the model. Recall from the lecture that the classification accuracy can be computed as follows:
+ </p>
+ <p hasmath="true">
+  $$\mbox{accuracy} = \dfrac{\mbox{# correctly classified data points}}{\mbox{# total data points}}$$
+ </p>
+ <p>
+  <strong>
+   Quiz question
+  </strong>
+  : What is the accuracy of the model on predictions made above? (round to 2 digits of accuracy)
+ </p>
+ <h3 level="3">
+  Which words contribute most to positive &amp; negative sentiments
+ </h3>
+ <p>
+  <strong>
+   17.
+  </strong>
+  Recall that in the earlier assignment, we were able to compute the "
+  <strong>
+   most positive words
+  </strong>
+  ". These are words that correspond most strongly with positive reviews. In order to do this, we will first do the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Treat each coefficient as a tuple, i.e. (
+    <strong>
+     word
+    </strong>
+    ,
+    <strong>
+     coefficient_value
+    </strong>
+    ). The intercept has no corresponding word, so throw it out.
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Sort all the (
+    <strong>
+     word
+    </strong>
+    ,
+    <strong>
+     coefficient_value
+    </strong>
+    ) tuples by
+    <strong>
+     coefficient_value
+    </strong>
+    in descending order. Save the sorted list of tuples to
+    <strong>
+     word_coefficient_tuples
+    </strong>
+    .
+   </p>
+  </li>
+ </ul>
+ <p>
+  Your code should be analogous to the following:
+ </p>
+ <pre language="python">coefficients = list(coefficients[1:]) # exclude intercept
+word_coefficient_tuples = [(word, coefficient) for word, coefficient in zip(important_words, coefficients)]
+word_coefficient_tuples = sorted(word_coefficient_tuples, key=lambda x:x[1], reverse=True)</pre>
+ <p>
+  Now,
+  <strong>
+   word_coefficient_tuples
+  </strong>
+  contains a sorted list of (
+  <strong>
+   word
+  </strong>
+  ,
+  <strong>
+   coefficient_value
+  </strong>
+  ) tuples. The first 10 elements in this list correspond to the words that are most positive.
+ </p>
+ <h3 level="3">
+  Ten "most positive" words
+ </h3>
+ <p>
+  <strong>
+   18.
+  </strong>
+  Compute the 10 words that have the most positive coefficient values. These words are associated with positive sentiment.
+ </p>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Which word is
+  <strong>
+   not
+  </strong>
+  present in the top 10 "most positive" words?
+ </p>
+ <h3 level="3">
+  Ten "most negative" words
+ </h3>
+ <p>
+  <strong>
+   19.
+  </strong>
+  Next, we repeat this exerciese on the 10 most negative words. That is, we compute the 10 words that have the most negative coefficient values. These words are associated with negative sentiment.
+ </p>
+ <p>
+  <strong>
+   Quiz question:
+  </strong>
+  Which word is
+  <strong>
+   not
+  </strong>
+  present in the top 10 "most negative" words?
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

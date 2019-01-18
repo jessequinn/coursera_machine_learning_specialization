@@ -1,0 +1,290 @@
+1
+00:00:00,159 --> 00:00:04,579
+[MUSIC]
+
+2
+00:00:04,579 --> 00:00:08,798
+Next, we're going to take a few minutes to
+talk about the famous AdaBoost theorem and
+
+3
+00:00:08,798 --> 00:00:13,470
+what it's practical implications are,
+which are extremely interesting.
+
+4
+00:00:13,470 --> 00:00:18,930
+So, if you remember, the way that boosting
+came about is that Kearns and Valiant
+
+5
+00:00:18,930 --> 00:00:23,250
+had this famous question, can you combine
+weak classifiers to make a stronger one?
+
+6
+00:00:24,350 --> 00:00:27,000
+Actually, Valiant is
+a touring award winner, so
+
+7
+00:00:27,000 --> 00:00:30,120
+really famous professor from Harvard.
+
+8
+00:00:30,120 --> 00:00:33,510
+And Schapire, a couple of years later,
+
+9
+00:00:33,510 --> 00:00:37,840
+came up with the idea of boosting, which
+really changed the machine learning field.
+
+10
+00:00:37,840 --> 00:00:43,260
+And so if you look at the iterations of
+
+11
+00:00:43,260 --> 00:00:47,480
+boosting in the x axis here,
+in the training error for our dataset,
+
+12
+00:00:47,480 --> 00:00:52,590
+we observe a very practical effect
+that we see in a lot of boosting data.
+
+13
+00:00:52,590 --> 00:00:56,630
+We're going to start with
+a really bad training error.
+
+14
+00:00:56,630 --> 00:01:01,760
+So first decision stump has
+training error of 22.5%.
+
+15
+00:01:01,760 --> 00:01:03,150
+So, not good at all.
+
+16
+00:01:04,790 --> 00:01:08,230
+After thirty iterations,
+as we saw a little earlier,
+
+17
+00:01:08,230 --> 00:01:11,460
+we're going to get all the data
+points right in our training data and
+
+18
+00:01:11,460 --> 00:01:14,150
+I showed you kind of that crazy
+decision boundary for this.
+
+19
+00:01:14,150 --> 00:01:19,852
+So we see a smooth transition where
+the classification error tends to go down.
+
+20
+00:01:19,852 --> 00:01:24,060
+Tends to go down and the value goes
+to zero and actually stays at zero.
+
+21
+00:01:24,060 --> 00:01:26,800
+And that's a key insight
+of the boosting theorem.
+
+22
+00:01:28,920 --> 00:01:35,930
+So here is the famous AdaBoost Theorem
+which underlines all the choices
+
+23
+00:01:35,930 --> 00:01:41,130
+we made in the algorithm and really has
+had a lot of impact on machine learning.
+
+24
+00:01:41,130 --> 00:01:44,660
+Basically the theorem says under
+some technical conditions and
+
+25
+00:01:44,660 --> 00:01:46,510
+all theorems are like this.
+
+26
+00:01:46,510 --> 00:01:50,700
+Now if you were to be able to say some
+restrictions apply, see store for details.
+
+27
+00:01:50,700 --> 00:01:54,090
+And so
+you say under some technical conditions,
+
+28
+00:01:54,090 --> 00:02:00,070
+the training error of the classifier
+goes to zero, ss the number of
+
+29
+00:02:00,070 --> 00:02:05,960
+iterations of the number and some models
+considered capital T goes to infinity.
+
+30
+00:02:05,960 --> 00:02:10,830
+So in other words pictorially we'll
+see that we expect the training error,
+
+31
+00:02:10,830 --> 00:02:15,200
+which is this thing here on the y axis,
+to go eventually to zero.
+
+32
+00:02:16,700 --> 00:02:18,910
+Now that's eventually.
+
+33
+00:02:18,910 --> 00:02:22,410
+It might oscillate a little
+bit in the middle, however,
+
+34
+00:02:22,410 --> 00:02:26,390
+what the theorem says is that
+it tends to generally decrease,
+
+35
+00:02:26,390 --> 00:02:30,160
+eventually become zero, usually,
+and then stick at zero.
+
+36
+00:02:30,160 --> 00:02:33,200
+So we're going to see this high in
+the beginning, wiggle, wiggle, wiggle, but
+
+37
+00:02:33,200 --> 00:02:37,580
+tends to go down, and then hit a certain
+value, usually zero, and sticks at zero.
+
+38
+00:02:38,690 --> 00:02:41,190
+Now, let me just take
+a minute to talk about those
+
+39
+00:02:41,190 --> 00:02:43,140
+technical distances starts with details.
+
+40
+00:02:43,140 --> 00:02:48,670
+It turns out the technical condition
+is something quite important.
+
+41
+00:02:48,670 --> 00:02:52,890
+It says that at every iteration T,
+we can find a weak learner.
+
+42
+00:02:52,890 --> 00:02:57,200
+So a decision stump that
+has weighted error at least
+
+43
+00:02:57,200 --> 00:02:58,130
+a little bit lower than 0.5.
+
+44
+00:02:58,130 --> 00:03:00,400
+So it is at least better than random.
+
+45
+00:03:00,400 --> 00:03:01,660
+That's what the theorem says.
+
+46
+00:03:03,230 --> 00:03:06,630
+It seems like intuitively,
+it would show us by the classifier
+
+47
+00:03:06,630 --> 00:03:09,520
+that it's better than random,
+even with the data.
+
+48
+00:03:09,520 --> 00:03:12,120
+But, it turns out that this
+is not always possible.
+
+49
+00:03:12,120 --> 00:03:17,490
+So, here is a counter example,
+which is a really extreme counter example,
+
+50
+00:03:17,490 --> 00:03:20,120
+but there's other examples
+where it's not possible.
+
+51
+00:03:20,120 --> 00:03:22,670
+So for example,
+if you have a negative point here,
+
+52
+00:03:22,670 --> 00:03:25,910
+and you have a positive point on top of
+it, there's never going to be a decision
+
+53
+00:03:25,910 --> 00:03:29,070
+stump that can separate the positive
+point on top of the negative point.
+
+54
+00:03:29,070 --> 00:03:33,380
+So the conditions of boosting
+algorithm might not be satisfied,
+
+55
+00:03:33,380 --> 00:03:35,270
+of the boosting AdaBoost theorem.
+
+56
+00:03:35,270 --> 00:03:40,120
+However, nevertheless, boosting usually
+takes your training error to zero or
+
+57
+00:03:40,120 --> 00:03:44,900
+somewhere quite low if the number
+of iterations go to infinity.
+
+58
+00:03:44,900 --> 00:03:48,193
+So, we do observe that decreasing practice
+although they're are some technical
+
+59
+00:03:48,193 --> 00:03:51,531
+conditions in theorems, so it might not go
+exactly to zero, but it can get really,
+
+60
+00:03:51,531 --> 00:03:52,078
+really low.
+
+61
+00:03:52,078 --> 00:03:56,309
+[MUSIC]

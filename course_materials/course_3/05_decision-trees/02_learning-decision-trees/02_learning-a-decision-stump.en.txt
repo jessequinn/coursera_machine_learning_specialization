@@ -1,0 +1,40 @@
+[MUSIC] We've now outlined the greedy algorithm
+for learning and decision tree. The first thing we're going to explore is
+this idea of picking what feature to split on next. We split in our example, credit first, and if we can split some different feature,
+how do we decide what to do? And it turns out that this
+feature selection problem, this feature splitting learning problem,
+can be viewed as the problem of learning what's called a decision stump, which
+is that one level on the decision tree. For those not familiar with it, a tree,
+it's kind of this really big thing, but if you cut it, you're only left
+with the little bit at the bottom. And that thing is called the stump. So its a really, really,
+really short piece of a tree. So how do you run a decision stump or
+a level 1 decision tree from data. So we are given a data set like
+this just like we had before and our goal here is to learn
+a 1 level decision tree. So were given the top node or
+the root node of the data so we have a point to safe some
+of the data points are risky. There's 40 examples, in our case, and it turns out that 22 of those are safe
+loans, and 18 are risky loans. That's what our data set looks like. Now, I have a histogram but as we're building this figures they
+can get really big and complicated. So I'm going to compress it a little bit. Instead of showing the histogram and
+the numbers 22 and 18, I'm just going to show the numbers
+22 and 18 to simplify the visualization. So now when you see that root node, you should interpret it as
+we have 40 data points. 22 are green which is safe loans,
+18 are orange which are risky loans. And starting from there, how do we go and
+build that decision stump? So in our case, we had all the data. We split on credit, and we decided that
+some subset of data had excellent credit, some had fair, and some had poor. So we assign each one of those
+subsets the subsequent node. In our new kind of visualization notation,
+we have the original root node with all the data, 22 risky and 18,
+sorry, 22 safe and 18 risky. For X and
+credit we have some sort of data where 9 of them were safe and 0 were risky. So, 9 in green, 0 in orange. For fair credit we have 9 safe, 4 risky. And for poor credit we have 4 safe,
+and 14 risky. So that's what it later looks like at the
+next level, after we've done the splits. These nodes here in the middle
+we call intermediate nodes. Now, for each intermediate node we can try
+to make a prediction in decision stump. So for example for poor credit
+we see the majority of the data in there has risky associated with it. So we predicate that'll be a risky loan. For fair credit, we see that the majority
+9 versus 4 have, are safe loans. So we predict that to be a safe loan. And for excellent credit, we predict that
+to be a safe loan, because 9 versus 0 So nine safe loans in there. So for each node, we look at
+the majority value to make a prediction. And you've now learned
+your first decision stump. It's a pretty simple one, but
+to get better predictions and more accuracy, we're going to
+explore that more and split further. But before we split further, we're
+going to discuss why we picked credit to do the first split as opposed to say, for
+example, the term of the loan or income. [MUSIC]

@@ -1,0 +1,155 @@
+1
+00:00:00,000 --> 00:00:04,681
+[MÚSICA]
+
+2
+00:00:04,681 --> 00:00:08,185
+Ahora que sabemos todo sobre
+clasificadores en regresión logísitca
+
+3
+00:00:08,185 --> 00:00:09,870
+y su representación,
+
+4
+00:00:09,870 --> 00:00:13,040
+Cómo impactan los parámetros,
+cómo pueden ser usados para clasificación,
+
+5
+00:00:13,040 --> 00:00:15,230
+cómo pueden ser usados
+para clasificación multiclase.
+
+6
+00:00:15,230 --> 00:00:18,160
+Esas son las bases que necesitamos
+para hablar sobre clasificadores lineales y
+
+7
+00:00:18,160 --> 00:00:21,080
+para realizar el resto de este
+curso de clasificación.
+
+8
+00:00:21,080 --> 00:00:23,880
+En éste módulo vamos a
+profundizar y averiguar
+
+9
+00:00:23,880 --> 00:00:27,870
+cómo aprender los parámetros
+para el clasificador de regresión logística.
+
+10
+00:00:27,870 --> 00:00:30,510
+Empecemos con una rápida revisión
+para estar en la misma sintonía.
+
+11
+00:00:31,720 --> 00:00:36,600
+Como recordamos, teníamos esta
+revisión de producto o revisión de restaurante, y
+
+12
+00:00:36,600 --> 00:00:41,430
+queríamos averiguar, por ejemplo, si
+"el sushi y todo lo demás estuvo genial"
+
+13
+00:00:41,430 --> 00:00:47,010
+tenía una alta probabilidad de ser
+una opinión positiva, mientras "el sushi estuvo bien,
+
+14
+00:00:47,010 --> 00:00:52,500
+el servicio estuvo OK" tenía una probabilidad
+de sólo 0.55 de ser una opinión positiva.
+
+15
+00:00:52,500 --> 00:00:57,000
+En otras palabras, queremos aprender un
+clasificador de la forma probabilidad de y
+
+16
+00:00:57,000 --> 00:01:01,720
+dado x, donde y es la etiqueta de salida
+opinión positiva o negativa, y
+
+17
+00:01:01,720 --> 00:01:03,420
+x es la oración de entrada,
+la opinión actual.
+
+18
+00:01:04,430 --> 00:01:08,640
+Hemos hablado sobre esta tarea y
+discutido los clasificadores lineales donde
+
+19
+00:01:08,640 --> 00:01:14,780
+asociamos un peso o un coeficiente
+con cada característica de entrada,
+
+20
+00:01:14,780 --> 00:01:18,770
+en nuestro caso podían ser palabras como
+bueno, genial, increíble, etcétera,
+
+21
+00:01:18,770 --> 00:01:23,350
+y las palabras positivas podían tener
+coeficientes positivos,
+
+22
+00:01:23,350 --> 00:01:29,260
+y las palabras negativas coeficientes negativos.
+Definimos la función score, que es la ponderación
+
+23
+00:01:31,700 --> 00:01:34,810
+de los coeficientes de las palabras
+que aparecen en una oración []
+
+24
+00:01:34,810 --> 00:01:40,110
+de entrada particular, y el score puede variar entre
+menos infinito a más infinito. []
+
+25
+00:01:40,110 --> 00:01:44,500
+Entonces lo comprimíamos al
+segmento 01 para poder predecir
+
+26
+00:01:44,500 --> 00:01:48,770
+la probabilidad de que
+la opinión sea positiva dado
+
+27
+00:01:49,870 --> 00:01:54,810
+el texto del comentario y el modelo
+de regresión logística. Esa probabilidad está
+
+28
+00:01:54,810 --> 00:01:59,570
+definida por 1 sobre 1 + e
+a la menos w transpuesta h.
+
+29
+00:02:00,860 --> 00:02:03,350
+Ya habíamos explorado
+esto en el módulo anterior.
+
+30
+00:02:03,350 --> 00:02:05,411
+Sólo para seguir el ritmo y
+
+31
+00:02:05,411 --> 00:02:11,508
+entrar a ver cómo aprender estos
+coeficientes ŵ a partir de los datos.
+
+32
+00:02:11,508 --> 00:02:16,159
+[MÚSICA]

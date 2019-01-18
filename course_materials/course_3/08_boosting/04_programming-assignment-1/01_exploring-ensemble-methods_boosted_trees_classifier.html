@@ -1,0 +1,2053 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Boosted Trees Classifier | Turi Machine Learning Platform User Guide</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.4">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../supervised-learning/neuralnet-classifier.html" />
+    
+    
+    <link rel="prev" href="../supervised-learning/random_forest_classifier.html" />
+    
+
+        <script type="text/javascript" src="../turi/js/d3/d3.min.js"></script><script type="text/javascript" src="../turi/js/jquery/jquery-2.1.3.min.js"></script><script type="text/javascript" src="../supervised-learning/images/random-utils.js"></script><script type="text/javascript" src="../supervised-learning/images/plotting-utils.js"></script><script type="text/javascript" src="../turi/js/metrics.js"></script><link rel="stylesheet" type="text/css" href="../turi/css/glc.css">
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.1.6"
+        data-chapter-title="Boosted Trees Classifier"
+        data-filepath="supervised-learning/boosted_trees_classifier.md"
+        data-basepath=".."
+        data-revision="Fri Jul 29 2016 19:24:46 GMT+0000 (UTC)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://turi.com" target="blank" class="custom-link">turi.com</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="install.html">
+            
+                
+                    <a href="../install.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Getting started
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="sframe/introduction.html">
+            
+                
+                    <a href="../sframe/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Working with data
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="sframe/tabular-data.html">
+            
+                
+                    <a href="../sframe/tabular-data.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Tabular data
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="sframe/sframe-intro.html">
+            
+                
+                    <a href="../sframe/sframe-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.1.</b>
+                        
+                        Loading and Saving
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="sframe/data-manipulation.html">
+            
+                
+                    <a href="../sframe/data-manipulation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.2.</b>
+                        
+                        Data Manipulation
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="data_formats_and_sources/spark_integration.html">
+            
+                
+                    <a href="../data_formats_and_sources/spark_integration.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.3.</b>
+                        
+                        Spark RDDs
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="data_formats_and_sources/sql_integration.html">
+            
+                
+                    <a href="../data_formats_and_sources/sql_integration.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.4.</b>
+                        
+                        SQL Databases
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="sgraph/sgraph.html">
+            
+                
+                    <a href="../sgraph/sgraph.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Graph data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="timeseries/timeseries-data.html">
+            
+                
+                    <a href="../timeseries/timeseries-data.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Time series data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="vis/visualization.html">
+            
+                
+                    <a href="../vis/visualization.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Visualization
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="feature-engineering/introduction.html">
+            
+                
+                    <a href="../feature-engineering/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Feature Engineering
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="feature-engineering/numeric_features.html">
+            
+                
+                    <a href="../feature-engineering/numeric_features.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.1.</b>
+                        
+                        Numeric Features
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.1" data-path="feature-engineering/quadratic_features.html">
+            
+                
+                    <a href="../feature-engineering/quadratic_features.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.1.1.</b>
+                        
+                        Quadratic Features
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.2" data-path="feature-engineering/feature_binner.html">
+            
+                
+                    <a href="../feature-engineering/feature_binner.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.1.2.</b>
+                        
+                        Feature Binning
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.3" data-path="feature-engineering/numeric_imputer.html">
+            
+                
+                    <a href="../feature-engineering/numeric_imputer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.1.3.</b>
+                        
+                        Numeric Imputer
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="feature-engineering/categorical_features.html">
+            
+                
+                    <a href="../feature-engineering/categorical_features.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.2.</b>
+                        
+                        Categorical Features
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.2.1" data-path="feature-engineering/one_hot_encoder.html">
+            
+                
+                    <a href="../feature-engineering/one_hot_encoder.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.2.1.</b>
+                        
+                        One Hot Encoder
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2.2" data-path="feature-engineering/count_thresholder.html">
+            
+                
+                    <a href="../feature-engineering/count_thresholder.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.2.2.</b>
+                        
+                        Count Thresholder
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2.3" data-path="feature-engineering/categorical_imputer.html">
+            
+                
+                    <a href="../feature-engineering/categorical_imputer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.2.3.</b>
+                        
+                        Categorical Imputer
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2.4" data-path="feature-engineering/count_featurizer.html">
+            
+                
+                    <a href="../feature-engineering/count_featurizer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.2.4.</b>
+                        
+                        Count Featurizer
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3" data-path="feature-engineering/text_features.html">
+            
+                
+                    <a href="../feature-engineering/text_features.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.</b>
+                        
+                        Text Features
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.3.1" data-path="feature-engineering/tfidf.html">
+            
+                
+                    <a href="../feature-engineering/tfidf.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.1.</b>
+                        
+                        TF-IDF
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3.2" data-path="feature-engineering/tokenizer.html">
+            
+                
+                    <a href="../feature-engineering/tokenizer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.2.</b>
+                        
+                        Tokenizer
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3.3" data-path="feature-engineering/rare_word_trimmer.html">
+            
+                
+                    <a href="../feature-engineering/rare_word_trimmer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.3.</b>
+                        
+                        RareWordTrimmer
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3.4" data-path="feature-engineering/bm25.html">
+            
+                
+                    <a href="../feature-engineering/bm25.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.4.</b>
+                        
+                        BM25
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3.5" data-path="feature-engineering/pos_extractor.html">
+            
+                
+                    <a href="../feature-engineering/pos_extractor.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.5.</b>
+                        
+                        PartOfSpeechExtractor
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.3.6" data-path="feature-engineering/sentence_splitter.html">
+            
+                
+                    <a href="../feature-engineering/sentence_splitter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.3.6.</b>
+                        
+                        SentenceSplitter
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.4" data-path="feature-engineering/image_features.html">
+            
+                
+                    <a href="../feature-engineering/image_features.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.4.</b>
+                        
+                        Image Features
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.4.1" data-path="feature-engineering/deep_feature_extractor.html">
+            
+                
+                    <a href="../feature-engineering/deep_feature_extractor.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.4.1.</b>
+                        
+                        Deep Feature Extractor
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5" data-path="feature-engineering/other_transformations.html">
+            
+                
+                    <a href="../feature-engineering/other_transformations.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.5.</b>
+                        
+                        Other Transformations
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.5.1" data-path="feature-engineering/feature_hasher.html">
+            
+                
+                    <a href="../feature-engineering/feature_hasher.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.5.1.</b>
+                        
+                        Hasher
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5.2" data-path="feature-engineering/random_projection.html">
+            
+                
+                    <a href="../feature-engineering/random_projection.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.5.2.</b>
+                        
+                        Random Projection
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5.3" data-path="feature-engineering/transformer_chain.html">
+            
+                
+                    <a href="../feature-engineering/transformer_chain.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.5.3.</b>
+                        
+                        Transformer Chain
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.5.4" data-path="feature-engineering/custom_transformer.html">
+            
+                
+                    <a href="../feature-engineering/custom_transformer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.5.4.</b>
+                        
+                        Custom Transformer
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="modeling-data/intro.html">
+            
+                
+                    <a href="../modeling-data/intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Modeling data
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="supervised-learning/classifier.html">
+            
+                
+                    <a href="../supervised-learning/classifier.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Classification
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="supervised-learning/logistic-regression.html">
+            
+                
+                    <a href="../supervised-learning/logistic-regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.1.</b>
+                        
+                        Logistic Regression
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="supervised-learning/knn_classifier.html">
+            
+                
+                    <a href="../supervised-learning/knn_classifier.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.2.</b>
+                        
+                        Nearest Neighbor Classifier
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="supervised-learning/svm.html">
+            
+                
+                    <a href="../supervised-learning/svm.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.3.</b>
+                        
+                        SVM
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="supervised-learning/decision_tree_classifier.html">
+            
+                
+                    <a href="../supervised-learning/decision_tree_classifier.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.4.</b>
+                        
+                        Decision Tree Classifier
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="supervised-learning/random_forest_classifier.html">
+            
+                
+                    <a href="../supervised-learning/random_forest_classifier.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.5.</b>
+                        
+                        Random Forest Classifier
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.6" data-path="supervised-learning/boosted_trees_classifier.html">
+            
+                
+                    <a href="../supervised-learning/boosted_trees_classifier.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.6.</b>
+                        
+                        Boosted Trees Classifier
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="supervised-learning/neuralnet-classifier.html">
+            
+                
+                    <a href="../supervised-learning/neuralnet-classifier.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.7.</b>
+                        
+                        Neuralnet Classifier
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="supervised-learning/regression.html">
+            
+                
+                    <a href="../supervised-learning/regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Regression
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="supervised-learning/linear-regression.html">
+            
+                
+                    <a href="../supervised-learning/linear-regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.1.</b>
+                        
+                        Linear Regression
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="supervised-learning/decision_tree_regression.html">
+            
+                
+                    <a href="../supervised-learning/decision_tree_regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.2.</b>
+                        
+                        Decision Tree Regression
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="supervised-learning/boosted_trees_regression.html">
+            
+                
+                    <a href="../supervised-learning/boosted_trees_regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.3.</b>
+                        
+                        Boosted Trees Regression
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="supervised-learning/random_forest_regression.html">
+            
+                
+                    <a href="../supervised-learning/random_forest_regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.4.</b>
+                        
+                        Random Forest Regression
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="supervised-learning/advanced_deeplearning_mxnet.html">
+            
+                
+                    <a href="../supervised-learning/advanced_deeplearning_mxnet.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Advanced Deep Learning with MXNet
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="graph_analytics/intro.html">
+            
+                
+                    <a href="../graph_analytics/intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Graph analytics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="graph_analytics/graph_analytics.html">
+            
+                
+                    <a href="../graph_analytics/graph_analytics.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.1.</b>
+                        
+                        Examples
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="clustering/intro.html">
+            
+                
+                    <a href="../clustering/intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Clustering
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="clustering/kmeans.html">
+            
+                
+                    <a href="../clustering/kmeans.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.1.</b>
+                        
+                        KMeans
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.2" data-path="clustering/dbscan.html">
+            
+                
+                    <a href="../clustering/dbscan.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.2.</b>
+                        
+                        DBSCAN
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="nearest_neighbors/nearest_neighbors.html">
+            
+                
+                    <a href="../nearest_neighbors/nearest_neighbors.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Nearest Neighbors
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="text/intro.html">
+            
+                
+                    <a href="../text/intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        Text analysis
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="text/analysis.html">
+            
+                
+                    <a href="../text/analysis.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.1.</b>
+                        
+                        Processing text
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.2" data-path="text/topic-models.html">
+            
+                
+                    <a href="../text/topic-models.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.2.</b>
+                        
+                        Topic models
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="evaluation/introduction.html">
+            
+                
+                    <a href="../evaluation/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        Evaluating Models
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.8.1" data-path="evaluation/regression.html">
+            
+                
+                    <a href="../evaluation/regression.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.1.</b>
+                        
+                        Regression Metrics
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8.2" data-path="evaluation/classification.html">
+            
+                
+                    <a href="../evaluation/classification.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.2.</b>
+                        
+                        Classification Metrics
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="model_parameter_search/introduction.html">
+            
+                
+                    <a href="../model_parameter_search/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        Model parameter search
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.9.1" data-path="model_parameter_search/models.html">
+            
+                
+                    <a href="../model_parameter_search/models.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.1.</b>
+                        
+                        Models
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9.2" data-path="model_parameter_search/search.html">
+            
+                
+                    <a href="../model_parameter_search/search.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.2.</b>
+                        
+                        Choosing a search space
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9.3" data-path="model_parameter_search/evaluation.html">
+            
+                
+                    <a href="../model_parameter_search/evaluation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.3.</b>
+                        
+                        Evaluation functions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9.4" data-path="model_parameter_search/distributing.html">
+            
+                
+                    <a href="../model_parameter_search/distributing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.4.</b>
+                        
+                        Distributed execution
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="applications/intro.html">
+            
+                
+                    <a href="../applications/intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Applications
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="recommender/introduction.html">
+            
+                
+                    <a href="../recommender/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Recommender systems
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="recommender/using-trained-models.html">
+            
+                
+                    <a href="../recommender/using-trained-models.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.1.</b>
+                        
+                        Using trained models
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="recommender/choosing-a-model.html">
+            
+                
+                    <a href="../recommender/choosing-a-model.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.2.</b>
+                        
+                        Choosing a model
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="data_matching/introduction.html">
+            
+                
+                    <a href="../data_matching/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Data matching
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="data_matching/record_linker.html">
+            
+                
+                    <a href="../data_matching/record_linker.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.1.</b>
+                        
+                        Record Linker
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="data_matching/deduplication.html">
+            
+                
+                    <a href="../data_matching/deduplication.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.2.</b>
+                        
+                        Deduplication
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="data_matching/autotagger.html">
+            
+                
+                    <a href="../data_matching/autotagger.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.3.</b>
+                        
+                        Autotagger
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="data_matching/similarity_search.html">
+            
+                
+                    <a href="../data_matching/similarity_search.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.4.</b>
+                        
+                        Similarity Search
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="lead_scoring/lead_scoring.html">
+            
+                
+                    <a href="../lead_scoring/lead_scoring.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Lead Scoring
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="churn_prediction/quick-start.html">
+            
+                
+                    <a href="../churn_prediction/quick-start.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Churn prediction
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.4.1" data-path="churn_prediction/using-a-trained-model.html">
+            
+                
+                    <a href="../churn_prediction/using-a-trained-model.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.1.</b>
+                        
+                        Using a trained model
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.2" data-path="churn_prediction/alternate-input-formats.html">
+            
+                
+                    <a href="../churn_prediction/alternate-input-formats.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.2.</b>
+                        
+                        Alternate input formats
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4.3" data-path="churn_prediction/how-it-works.html">
+            
+                
+                    <a href="../churn_prediction/how-it-works.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.3.</b>
+                        
+                        How it works
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="pattern_mining/frequent-pattern-mining.html">
+            
+                
+                    <a href="../pattern_mining/frequent-pattern-mining.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        Frequent Pattern Mining
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="sentiment_analysis/introduction.html">
+            
+                
+                    <a href="../sentiment_analysis/introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        Sentiment analysis
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="sentiment_analysis/sentiment-analysis.html">
+            
+                
+                    <a href="../sentiment_analysis/sentiment-analysis.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.1.</b>
+                        
+                        Applying a sentiment classifier
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="sentiment_analysis/product-sentiment.html">
+            
+                
+                    <a href="../sentiment_analysis/product-sentiment.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.2.</b>
+                        
+                        Product sentiment analysis and review data
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="anomaly_detection/intro.html">
+            
+                
+                    <a href="../anomaly_detection/intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        Anomaly Detection
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="anomaly_detection/local_outlier_factor.html">
+            
+                
+                    <a href="../anomaly_detection/local_outlier_factor.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.1.</b>
+                        
+                        Local Outlier Factor
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2" data-path="anomaly_detection/moving_zscore.html">
+            
+                
+                    <a href="../anomaly_detection/moving_zscore.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.2.</b>
+                        
+                        Moving Z-Score
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3" data-path="anomaly_detection/bayesian_changepoints.html">
+            
+                
+                    <a href="../anomaly_detection/bayesian_changepoints.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.3.</b>
+                        
+                        Bayesian Changepoints
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="deployment/pipeline-introduction.html">
+            
+                
+                    <a href="../deployment/pipeline-introduction.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Turi Distributed
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="deployment/pipeline-launch.html">
+            
+                
+                    <a href="../deployment/pipeline-launch.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Asynchronous Jobs
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="deployment/pipeline-hadoop-setup.html">
+            
+                
+                    <a href="../deployment/pipeline-hadoop-setup.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Installing on Hadoop
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="deployment/pipeline-ec2-hadoop.html">
+            
+                
+                    <a href="../deployment/pipeline-ec2-hadoop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        Clusters
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="deployment/pipeline-example.html">
+            
+                
+                    <a href="../deployment/pipeline-example.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        End-to-End Example
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="deployment/pipeline-distributed.html">
+            
+                
+                    <a href="../deployment/pipeline-distributed.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        Distributed Job Execution
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="deployment/pipeline-dml.html">
+            
+                
+                    <a href="../deployment/pipeline-dml.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        Distributed Machine Learning
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="deployment/pipeline-monitoring-jobs.html">
+            
+                
+                    <a href="../deployment/pipeline-monitoring-jobs.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        Monitoring Jobs
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="deployment/pipeline-keeping-track-of-jobs-tasks-and-environments.html">
+            
+                
+                    <a href="../deployment/pipeline-keeping-track-of-jobs-tasks-and-environments.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        Session Management
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="deployment/pipeline-dependencies.html">
+            
+                
+                    <a href="../deployment/pipeline-dependencies.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        Dependencies
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="deployment/pred-intro.html">
+            
+                
+                    <a href="../deployment/pred-intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        Turi Predictive Services
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="conclusion.html">
+            
+                
+                    <a href="../conclusion.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        Conclusion
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="exercises.html">
+            
+                
+                    <a href="../exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        Exercises
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="sframe/exercises.html">
+            
+                
+                    <a href="../sframe/exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        Tabular data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="sgraph/exercises.html">
+            
+                
+                    <a href="../sgraph/exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Graph data
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="graph_analytics/exercises.html">
+            
+                
+                    <a href="../graph_analytics/exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        Graph analytics
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="supervised-learning/exercises.html">
+            
+                
+                    <a href="../supervised-learning/exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        Classification
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="text/exercises.html">
+            
+                
+                    <a href="../text/exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        Text analysis
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="recommender/exercises.html">
+            
+                
+                    <a href="../recommender/exercises.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        Recommender systems
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="faq.html">
+            
+                
+                    <a href="../faq.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        FAQ/Common Problems
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="contributing.html">
+            
+                
+                    <a href="../contributing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        Contributing
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Turi Machine Learning Platform User Guide</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <p><script src="../turi/js/recview.js"></script></p>
+<h1 id="gradient-boosted-regression-trees"><a name="gradient-boosted-regression-trees" class="plugin-anchor" href="#gradient-boosted-regression-trees"><span class="fa fa-link"></span></a>Gradient Boosted Regression Trees</h1>
+<p>The Gradient Boosted Regression Trees (GBRT) model (also called Gradient
+Boosted Machine or GBM), is one of the most effective
+machine learning models for predictive analytics, making it the industrial
+workhorse for machine learning. Refer to the chapter on <a href="boosted_trees_regression.html">boosted tree
+regression</a> for background
+on boosted decision trees.</p>
+<h5 id="introductory-example"><a name="introductory-example" class="plugin-anchor" href="#introductory-example"><span class="fa fa-link"></span></a>Introductory Example</h5>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> graphlab <span class="hljs-keyword">as</span> gl
+
+<span class="hljs-comment"># Load the data</span>
+<span class="hljs-comment"># The data can be downloaded using</span>
+data =  gl.SFrame.read_csv(<span class="hljs-string">&apos;https://static.turi.com/datasets/xgboost/mushroom.csv&apos;</span>)
+
+<span class="hljs-comment"># Label &apos;c&apos; is edible</span>
+data[<span class="hljs-string">&apos;label&apos;</span>] = data[<span class="hljs-string">&apos;label&apos;</span>] == <span class="hljs-string">&apos;c&apos;</span>
+
+<span class="hljs-comment"># Make a train-test split</span>
+train_data, test_data = data.random_split(<span class="hljs-number">0.8</span>)
+
+<span class="hljs-comment"># Create a model.</span>
+model = gl.boosted_trees_classifier.create(train_data, target=<span class="hljs-string">&apos;label&apos;</span>,
+                                           max_iterations=<span class="hljs-number">2</span>,
+                                           max_depth = <span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># Save predictions to an SFrame (class and corresponding class-probabilities)</span>
+predictions = model.classify(test_data)
+
+<span class="hljs-comment"># Evaluate the model and save the results into a dictionary</span>
+results = model.evaluate(test_data)
+</code></pre>
+<p>We can visualize the models using</p>
+<pre><code class="lang-python">model.show(view=<span class="hljs-string">&quot;Tree&quot;</span>, tree_id=<span class="hljs-number">0</span>)
+model.show(view=<span class="hljs-string">&quot;Tree&quot;</span>, tree_id=<span class="hljs-number">1</span>)
+</code></pre>
+<p><img src="images/tree_0.png" alt="Alt text">
+<img src="images/tree_1.png" alt="Alt text"></p>
+<h5 id="tuning-hyperparameters"><a name="tuning-hyperparameters" class="plugin-anchor" href="#tuning-hyperparameters"><span class="fa fa-link"></span></a>Tuning hyperparameters</h5>
+<p>The Gradient Boosted Trees model has many tuning parameters. Here we provide a simple guideline for tuning the model.</p>
+<ul>
+<li><p><code>max_iterations</code>
+Controls the number of trees in the final model. Usually the more trees, the higher accuracy.
+However, both the training and prediction time also grows linearly in the number of trees.</p>
+</li>
+<li><p><code>max_depth</code>
+Restricts the depth of each individual tree to prevent overfitting.</p>
+</li>
+<li><p><code>step_size</code>
+Also called shrinkage, appeared as the <script type="math/tex; ">\eta</script> in the equations in the Background section.
+It works similar to the learning rate of the gradient descent procedure: smaller value
+will take more iterations to reach the same level of training error of a larger step size.
+So there is a trade off between step_size and number of iterations.</p>
+</li>
+<li><p><code>min_child_weight</code>
+One of the pruning criteria for decision tree construction. In classification problem, this
+corresponds to the minimum observations required at a leaf node. Larger value
+produces simpler trees.</p>
+</li>
+<li><p><code>min_loss_reduction</code>
+Another pruning criteria for decision tree construction. This restricts the reduction of
+loss function for a node split. Larger value produces simpler trees.</p>
+</li>
+<li><p><code>row_subsample</code>
+Use only a fraction of data at each iteration. This is
+similar to the mini-batch <a href="http://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank">stochastic gradient descent</a>
+which not only reduce the computation cost of each iteration, but may also produce
+more robust model.</p>
+</li>
+<li><p><code>column_subsample</code>
+Use only a subset of the columns to use at each iteration.</p>
+</li>
+</ul>
+<p>See the chapter on <a href="boosted_trees_regression.html">boosted trees
+regression</a> for additional
+tips and tricks of using the boosted trees classifier model.</p>
+<h5 id="advanced-features"><a name="advanced-features" class="plugin-anchor" href="#advanced-features"><span class="fa fa-link"></span></a>Advanced Features</h5>
+<p>Refer to the earlier chapters for the following features:</p>
+<ul>
+<li><a href="linear-regression.html#linregr-categorical-features">Using categorical features</a></li>
+<li><a href="linear-regression.html#linregr-sparse-features">Sparse features</a></li>
+<li><a href="linear-regression.html#linregr-list-features">List features</a></li>
+<li><a href="logistic-regression.html#logregr-evaluation">Evaluating Results</a></li>
+<li><a href="logistic-regression.html#logregr-multiclass">Multiclass Classification</a></li>
+<li><a href="logistic-regression.html#logregr-imbalaced-data">Working with imbalanced data</a></li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../supervised-learning/random_forest_classifier.html" class="navigation navigation-prev " aria-label="Previous page: Random Forest Classifier"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../supervised-learning/neuralnet-classifier.html" class="navigation navigation-next " aria-label="Next page: Neuralnet Classifier"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-collapsible-menu/plugin.js"></script>
+    
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.5-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":"white","family":"sans","size":2},"customtheme":{"css":["turi/css/glc.css"],"js":["turi/js/d3/d3.min.js","turi/js/jquery/jquery-2.1.3.min.js","supervised-learning/images/random-utils.js","supervised-learning/images/plotting-utils.js","turi/js/metrics.js"]},"collapsible-menu":{},"anchors":{},"mathjax":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

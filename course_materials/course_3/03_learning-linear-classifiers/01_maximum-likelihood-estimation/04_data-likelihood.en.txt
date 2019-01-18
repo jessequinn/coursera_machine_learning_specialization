@@ -1,0 +1,74 @@
+[MUSIC] Before we get to gradient descent though, we need to figure out what the quality
+metric we're trying to optimize is. That quality metric is going to
+call the data likelihood. So let's dive in and
+explore exactly that concept. To better understand the data likelihood, let's start from some simple examples and
+try to understand what w is trying to do, what we're trying to do here
+in the learning problem. So let's say that we have this data point
+that has two awesomes and one awful, so let's call that input x1. And we're going to try to output y1
+which is this is a positive sentiment. This is a review of positive sentiment. If our classifier were really good,
+if ws were good, what would happen? Well for this particular input you would
+output y hat for 1 is also equal to +1. In other words,
+y hat agrees with the true label y. So what should we do for
+y hat to agree with the true label y, we're using logistic regression. Well we're going to try to find w that makes the probability that y = +1, when the input is x1. And the parameter's w, we're going to
+make that as big as possible. In other words, we want to make
+the probability that y = +1, when x1, number of awesomes is 2, and x2, number of awfuls is 1 for the parameter w. We're going to make that
+probability as big as possible. But that was for a positive example. We're going to make the probability
+of y = +1 as big as possible. Now let's take another example. Let's call this example x2,
+where had 0 awesomes and 2 awfuls, must be an awful review, awful restaurant. And so the sentiment for y2 is -1. So if our classify is good, if w is good, in this case when it should
+predict that y hat 2 = -1. So, agree with the true label. So in this case, we're not
+maximizing the probability of y = 1. But, we're maximizing
+the probability that y = -1 when the input is x2 for
+the parameters w. In other words, when the input is x1, we'll maximize
+the probability that y = +1. And when we put this x2, we
+want to maximize the probability that y = -1. That's what the data likelihood
+tries to do, but let's dig in and understand that a little bit better. Now we just don't have two training
+examples, we have a ton of examples. We have a big dataset. So what are we trying to do? So let's look at the first example. In the first example, we want to maximize, since this is a positive example,
+we're going to maximize the probability that y is equal
+to +1 when the input is x1. And the parameters are w, so in this case is the probability that y = +1 when the number of awesomes is 2 and the number of awfuls is 1,
+and the parameter is w. So we try to make the probability y =
++1 given x1 to be as big as possible. For the next example, we're trying
+to make the probability that y = -1 given x2, w to be to be as big as
+possible as a negative example. For the third one is also
+a negative example, so we're trying to make the probability
+that y = -1 given x to be nw. For the fourth one, we're trying
+to make the probability that y, it's a positive example, so y = +1
+given x4 and w as large as possible. So in other words, for the possible
+example of trying to make the probability y = +1 as big as possible for
+negative examples, we're trying to make the probability y = -1 as big
+as possible, which is pretty natural. And we want to do that for each example,
+for every single one of those. Now the question is how do we combine, like for a single quality metric,
+how do we combine these? And you can imagine multiple
+ways of combining this averages, I don't know,
+all sorts of ideas out there. The way that you typically combine when
+you're doing what's called maximizing likelihood estimation or maximizing likelihood is by
+multiplying these things together. So you multiply. So, in other words, you say that
+it's the product of y = +1 given, that's from the first line. Given x1 and
+w times the probability that y = -1 from the second line here given x2 and w,
+and the third line is also negative. So, times the probability that
+y = -1 given x3, w and so on. So you just multiply them all together. Here's a side little note who those
+who know about probabilities. The reason you multiply is that you
+assume that every row is independent of each other. So, there's an independence
+that comes into play, but don't worry too much about this. Just think about as a multiplication. Okay, so let's do that
+a little bit more explicitly. Now we have these data points 1 through 4,
+and for each one of them we're trying to
+maximize the specific probability. So for the positive examples, we're trying
+to maximize probability of y = +1, for the negative examples
+of probability y = -1. Given the parameter w, we're going to find
+w that makes those as big as possible. So the likelihood function,
+the thing in which we want to optimize is the product of
+each one of these probabilities. I like that animation. It's pretty cool? So, we're going to use
+a shorthand notation here. So for the first example,
+we have that y1 up here, was +1. So we're going to denote that by
+probability of y1, given x1 and w. So, the y1's going to get from this +1,
+and x1 is going to come from
+this representation of x. And similarly for the other one, so the
+notation's going to get long and heavy. We just say probability of y1 given x1 and that would be the probability
+of y2 given x2 and w. Probability of y3 given x3 and w, and
+we're just multiplying them together. And finally so that that line doesn't
+get really long, because if we have a million or two examples,
+we would have a million of these entries. We use the product notation. So this is the little notation over here. And it just says, I'm just going
+to write same function here. l(w) is going to be equal to the product that ranges from the first
+data point to n, which is number of data
+points of the probability of whatever label yi has, +1, -1. Given the input xi, which is the sentence
+of that review, and the parameter w. This is the likelihood function
+that we're trying to optimize. So, our goal here is to pick w to make this crazy thing, I mean, this function as large as possible. That's our goal. [MUSIC]

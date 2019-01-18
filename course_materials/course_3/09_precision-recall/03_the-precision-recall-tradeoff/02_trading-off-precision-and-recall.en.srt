@@ -1,0 +1,322 @@
+1
+00:00:00,240 --> 00:00:04,861
+[MUSIC]
+
+2
+00:00:04,861 --> 00:00:09,790
+Thus far we've talked about precision,
+recall, optimism, pessimism.
+
+3
+00:00:09,790 --> 00:00:12,010
+All sorts of different aspects.
+
+4
+00:00:13,020 --> 00:00:17,340
+But one of the most surprising things
+about this whole story is that it's quite
+
+5
+00:00:17,340 --> 00:00:22,880
+easy to navigate from a low precision
+model to a high precision model from
+
+6
+00:00:22,880 --> 00:00:27,710
+a high recall model to a low recall model,
+so kind of investigate that spectrum.
+
+7
+00:00:27,710 --> 00:00:32,960
+So we can have a low precision,
+high recall model that's very optimistic,
+
+8
+00:00:32,960 --> 00:00:37,690
+you can have a high precision, low recall
+model that's very pessimistic, and
+
+9
+00:00:37,690 --> 00:00:41,930
+then it turns out that it's
+easy to find a path in between.
+
+10
+00:00:41,930 --> 00:00:43,200
+And the question is, how do we do that?
+
+11
+00:00:45,130 --> 00:00:50,488
+If you recall from earlier in this course,
+we assign not just a label,
+
+12
+00:00:50,488 --> 00:00:55,590
++1 or -1, for every data point, but
+a probability number, let's say, 0.99 or
+
+13
+00:00:56,650 --> 00:01:01,068
+being positive for the sushi and
+everything else were awesome.
+
+14
+00:01:01,068 --> 00:01:07,420
+To say 0.55 of being positive for
+the sushi was good, the service was okay.
+
+15
+00:01:07,420 --> 00:01:10,440
+This probability is I,
+as I mentioned earlier in the course,
+
+16
+00:01:10,440 --> 00:01:12,050
+that they are going to
+be fundamentally useful.
+
+17
+00:01:12,050 --> 00:01:15,400
+Now you're going to see a place
+where they are amazingly useful.
+
+18
+00:01:15,400 --> 00:01:22,140
+So the probabilities can be used
+to tradeoff precision with recall.
+
+19
+00:01:22,140 --> 00:01:23,530
+And so let's figure that out.
+
+20
+00:01:23,530 --> 00:01:28,150
+So earlier in the course, we just had
+a fixed threshold to decide if an input
+
+21
+00:01:28,150 --> 00:01:31,410
+sentence, x-i,
+was going to be positive or negative.
+
+22
+00:01:31,410 --> 00:01:34,870
+We said, it's going to be positive if
+the probability is greater than 0.5, and
+
+23
+00:01:34,870 --> 00:01:38,280
+is going to be negative if
+the probability is less than 0.5,
+
+24
+00:01:38,280 --> 00:01:40,260
+or less than or equal to it.
+
+25
+00:01:40,260 --> 00:01:42,210
+Now, how can we create an optimistic and
+
+26
+00:01:42,210 --> 00:01:45,880
+pessimistic model by just
+changing the 0.5 threshold?
+
+27
+00:01:45,880 --> 00:01:48,944
+Let's explore that idea.
+
+28
+00:01:48,944 --> 00:01:53,196
+Think about what would happen
+if we set the threshold,
+
+29
+00:01:53,196 --> 00:01:56,820
+instead of being 0.5 to being 0.999.
+
+30
+00:01:56,820 --> 00:02:01,450
+So a data point is only +1 if its
+probability is greater than 0.999.
+
+31
+00:02:01,450 --> 00:02:04,740
+Well, here's what happen.
+
+32
+00:02:04,740 --> 00:02:07,060
+Very few data points would satisfy this.
+
+33
+00:02:08,260 --> 00:02:12,450
+So if very few data points satisfy this,
+then very few data points will be +1.
+
+34
+00:02:12,450 --> 00:02:15,230
+And the vast majority
+will be labeled as -1.
+
+35
+00:02:15,230 --> 00:02:18,720
+And we call this classifier
+the pessimistic classifier.
+
+36
+00:02:20,130 --> 00:02:25,524
+Now alternatively, if we change
+the threshold to be 0.001, then that means
+
+37
+00:02:25,524 --> 00:02:30,620
+that any experience is going
+to be labeled as positive.
+
+38
+00:02:30,620 --> 00:02:36,480
+So, almost all of the data points
+are going to satisfy this condition.
+
+39
+00:02:36,480 --> 00:02:37,796
+So we're going to say that.
+
+40
+00:02:37,796 --> 00:02:44,530
+Everything is +1, and so this is
+going to be the optimistic classifier.
+
+41
+00:02:44,530 --> 00:02:49,830
+It's going to be say yeah,
+everything is +1, everything's good.
+
+42
+00:02:49,830 --> 00:02:54,440
+So by varying that threshold
+from 0.5 to something close to 0
+
+43
+00:02:54,440 --> 00:02:59,840
+to something close to 1, we're going to
+change between optimism and pessimism.
+
+44
+00:02:59,840 --> 00:03:03,020
+So if you go back to this picture of
+logistic regression, for example,
+
+45
+00:03:03,020 --> 00:03:04,540
+as a complete case.
+
+46
+00:03:04,540 --> 00:03:09,030
+We have this input, the score of x.
+
+47
+00:03:10,860 --> 00:03:18,580
+And the output here was the probability
+that y is equal to +1 given x and w.
+
+48
+00:03:19,990 --> 00:03:23,820
+This should bring some memories
+maybe some sad, sad memories.
+
+49
+00:03:23,820 --> 00:03:27,858
+The threshold here is going to
+be a cut where we say,
+
+50
+00:03:27,858 --> 00:03:34,277
+set y hat to be equal to +1 if it's
+greater than or equal to this threshold t.
+
+51
+00:03:34,277 --> 00:03:37,687
+So everything above
+the line will be +1 and
+
+52
+00:03:37,687 --> 00:03:41,500
+everything below the line
+will be labeled -1.
+
+53
+00:03:41,500 --> 00:03:45,420
+Or concretely, let's see what happens if
+we set the threshold to be some very,
+
+54
+00:03:45,420 --> 00:03:47,010
+very high number.
+
+55
+00:03:47,010 --> 00:03:52,232
+So, t here is close to one.
+
+56
+00:03:52,232 --> 00:03:54,713
+So if t is some number close to one,
+
+57
+00:03:54,713 --> 00:03:59,220
+then everything below that
+line will be labeled as -1.
+
+58
+00:03:59,220 --> 00:04:04,505
+And very, very few things there above
+the line here can be labeled as +1.
+
+59
+00:04:04,505 --> 00:04:10,145
+So, that's why we end up with
+a pessimistic classifier,
+
+60
+00:04:10,145 --> 00:04:16,127
+on the flip side if we set the t
+threshold to be something very,
+
+61
+00:04:16,127 --> 00:04:23,800
+very small, so this is small t then
+everything's going to be above the line.
+
+62
+00:04:23,800 --> 00:04:26,440
+So everything's going to be labeled as +1,
+and
+
+63
+00:04:26,440 --> 00:04:29,910
+very few data points
+are going to be labeled as -1.
+
+64
+00:04:29,910 --> 00:04:33,140
+So we'll end up with
+the optimistic classifier.
+
+65
+00:04:33,140 --> 00:04:39,660
+So range in t from 0 to 1,
+takes us from optimism to pessimism.
+
+66
+00:04:40,900 --> 00:04:45,298
+In other words that spectrum that we
+said weren't navigate on can now be
+
+67
+00:04:45,298 --> 00:04:49,490
+navigated for a single parameter,
+t, that goes between 0 and 1.
+
+68
+00:04:49,490 --> 00:04:54,779
+[MUSIC]
