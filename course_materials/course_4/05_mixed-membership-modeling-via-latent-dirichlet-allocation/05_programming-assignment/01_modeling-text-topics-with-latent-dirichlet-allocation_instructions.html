@@ -1,0 +1,179 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Modeling text topics with Latent Dirichlet Allocation
+ </h1>
+ <p>
+  In many cases, it is good to think of data as belonging to more than one cluster or category. For example, if we have a model for text data that includes both "Politics" and "World News" categories, then an article about a recent meeting of the United Nations should have membership in both categories rather than being forced into just one.
+ </p>
+ <p>
+  With this in mind, we will use GraphLab Create tools to fit an LDA model to a corpus of Wikipedia articles and examine the results to analyze the impact of a mixed membership approach.
+ </p>
+ <p>
+  In this assignment you will
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    apply standard preprocessing techniques on Wikipedia text data
+   </p>
+  </li>
+  <li>
+   <p>
+    use GraphLab Create to fit a Latent Dirichlet allocation (LDA) model
+   </p>
+  </li>
+  <li>
+   <p>
+    explore and interpret the results, including topic keywords and topic assignments for a document
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  If you are using GraphLab Create
+ </h2>
+ <p>
+  An IPython Notebook has been provided below to you for this assignment. This notebook contains the instructions, quiz questions and partially-completed code for you to use as well as some cells to test your code.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the Wikipedia people dataset in SFrame format:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="wbzPOZcWEeaXRw6bxrYUfA" name="people_wiki.gl">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the pretrained models:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="wb7L65cWEeaK1Q4gRyvE8A" name="topic_models">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Download the companion IPython notebook:
+   </p>
+  </li>
+ </ul>
+ <asset assettype="generic" extension="zip" id="wb_ctpcWEea9mwoGlQi6MA" name="5_lda_blank.ipynb">
+ </asset>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    Save all of these files in the same directory (where you are calling IPython notebook from) and unzip the data file and model file.
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  This assignment will require the use of GraphLab Create, and here is why:
+ </h2>
+ <p>
+  The method used to fit the LDA model is a
+  <em>
+   randomized algorithm
+  </em>
+  , which means that it involves steps that are random; in this case, the randomness comes from Gibbs sampling, as discussed in the LDA video lectures. Because of these random steps, the algorithm will be expected to yield slighty different output for different runs on the same data - note that this is different from previously seen algorithms such as k-means or EM, which will always produce the same results given the same input and initialization.
+ </p>
+ <p>
+  <strong>
+   It is important to understand that variation in the results is a fundamental feature of randomized methods. However, in the context of this assignment this variation makes it highly difficult to evaluate the correctness of your analysis, so we will load and analyze a pre-trained model.
+  </strong>
+ </p>
+ <p>
+  <strong>
+   You are free to experiment with an LDA implementation of your choice, but for this assessment, you should use GraphLab Create. However, feel free to re-create the analysis done in the IPython notebook for your personal enjoyment.
+  </strong>
+ </p>
+ <p>
+  We recommend that you spend some time exploring your own fitted topic model and compare our analysis of the pre-trained model to the same analysis applied to the model you trained above.
+ </p>
+ <p>
+  <strong>
+   The focus of this assignment is exploration of results, not implementation.
+  </strong>
+  We will analyze the fitted model to understand what it has done with our data and whether it will be useful as a document classification system. This can be a challenging task in itself, particularly when the model that we use is complex. We will begin by outlining a sequence of objectives that will help us understand our model in detail. In particular, we will
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    get the top words in each topic and use these to identify topic themes
+   </p>
+  </li>
+  <li>
+   <p>
+    predict topic distributions for some example documents
+   </p>
+  </li>
+  <li>
+   <p>
+    compare the quality of LDA "nearest neighbors" to the NN output from the first assignment
+   </p>
+  </li>
+  <li>
+   <p>
+    understand the role of model hyperparameters alpha and gamma
+   </p>
+  </li>
+ </ul>
+ <p>
+  <strong>
+   Don't want to install GraphLab Create?
+  </strong>
+  <a href="https://www.coursera.org/learn/ml-clustering-and-retrieval/supplement/iF7Ji">
+   Consider using Amazon EC2.
+  </a>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

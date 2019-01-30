@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linear Algebra and Linear Systems &mdash; Computational Statistics in Python 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/readable/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Computational Statistics in Python 0.1 documentation" href="index.html" />
+    <link rel="next" title="Linear Algebra and Matrix Decompositions" href="LinearAlgebraMatrixDecompWithSolutions.html" />
+    <link rel="prev" title="Algorithmic complexity" href="AlgorithmicComplexity.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Computational Statistics in Python</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="IntroductionToPythonSolutions.html">Introduction to Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#operators">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#iterators">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#strings-and-string-handling">Strings and String Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#lists-tuples-dictionaries">Lists, Tuples, Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#the-standard-library">The standard library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#keeping-the-anaconda-distribution-up-to-date">Keeping the Anaconda distribution up-to-date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IPythonNotebookIntroduction.html">Getting started with Python and the IPython notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#cells">Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#code-cells">Code Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#magic-commands">Magic Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#python-as-glue">Python as Glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#python-r-matlab-octave">Python &lt;-&gt; R &lt;-&gt; Matlab &lt;-&gt; Octave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#more-glue-julia-and-perl">More Glue: Julia and Perl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html">Functions are first class objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#function-argumnents">Function argumnents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#call-by-object-reference">Call by &#8220;object reference&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#binding-of-default-arguments-occurs-at-function-definition">Binding of default arguments occurs at function <em>definition</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#higher-order-functions">Higher-order functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#pure-functions">Pure functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#recursion">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#iterators">Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#generators">Generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#generators-and-comprehensions">Generators and comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#utilites-enumerate-zip-and-the-ternary-if-else-operator">Utilites - enumerate, zip and the ternary if-else operator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#decorators">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-operator-module">The <code class="docutils literal"><span class="pre">operator</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-functools-module">The <code class="docutils literal"><span class="pre">functools</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-itertools-module">The <code class="docutils literal"><span class="pre">itertools</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-toolz-fn-and-funcy-modules">The <code class="docutils literal"><span class="pre">toolz</span></code>, <code class="docutils literal"><span class="pre">fn</span></code> and <code class="docutils literal"><span class="pre">funcy</span></code> modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#exercises">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcessingSolutions.html">Data science is OSEMN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataProcessingSolutions.html#obtaining-data">Obtaining data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataProcessingSolutions.html#scrubbing-data">Scrubbing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataProcessingSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TextProcessingSolutions.html">Working with text</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#string-methods">String methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#splitting-and-joining-strings">Splitting and joining strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#the-string-module">The string module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#regular-expressions">Regular expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#the-nltk-toolkit">The NLTK toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TextProcessingExtras.html">Preprocessing text data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingExtras.html#example-counting-words-in-a-document">Example: Counting words in a document</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingWithStructuredData.html">Working with structured data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#using-sqlite3">Using SQLite3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#basic-concepts-of-database-normalization">Basic concepts of database normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#using-hdf5">Using HDF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#interfacing-withpandas">Interfacing withPandas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UsingNumpySolutions.html">Using numpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#ndarray">NDArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#broadcasting-row-column-and-matrix-operations">Broadcasting, row, column and matrix operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#universal-functions-ufuncs">Universal functions (Ufuncs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#generalized-ufucns">Generalized ufucns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#random-numbers">Random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#linear-algebra">Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UsingPandas.html">Using Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#series">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#dataframe">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#panels">Panels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#split-apply-combine">Split-Apply-Combine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#using-statsmodels">Using statsmodels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UsingPandas.html#using-r-from-ipython">Using R from IPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#using-rmagic">Using Rmagic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#using-r-from-pandas">Using R from pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComputationalStatisticsMotivation.html">Computational problems in statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComputationalStatisticsMotivation.html#textbook-example-is-coin-fair">Textbook example - is coin fair?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputationalStatisticsMotivation.html#bayesian-approach">Bayesian approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputationalStatisticsMotivation.html#comment">Comment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerArithmetic.html">Computer numbers and mathematics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#some-examples-of-numbers-behaving-badly">Some examples of numbers behaving badly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#finite-representation-of-numbers">Finite representation of numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#using-arbitrary-precision-libraries">Using arbitrary precision libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#from-numbers-to-functions-stability-and-conditioning">From numbers to Functions: Stability and conditioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AlgorithmicComplexity.html">Algorithmic complexity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AlgorithmicComplexity.html#profling-and-benchmarking">Profling and benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AlgorithmicComplexity.html#measuring-algorithmic-complexity">Measuring algorithmic complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AlgorithmicComplexity.html#space-complexity">Space complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Linear Algebra and Linear Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simultaneous-equations">Simultaneous Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-independence">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norms-and-distance-of-vectors">Norms and Distance of Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-and-determinant-of-matrices">Trace and Determinant of Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#column-space-row-space-rank-and-kernel">Column space, Row space, Rank and Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrices-as-linear-transformations">Matrices as Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrix-norms">Matrix Norms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-matrices">Special Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html">Linear Algebra and Matrix Decompositions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#large-linear-systems">Large Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#example-netflix-competition-circa-2006-2009">Example: Netflix Competition (circa 2006-2009)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#matrix-decompositions">Matrix Decompositions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#matrix-decompositions-for-pca-and-least-squares">Matrix Decompositions for PCA and Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#singular-value-decomposition">Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#stabilty-and-condition-number">Stabilty and Condition Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PCASolutions.html">Change of Basis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#variance-and-covariance">Variance and covariance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#eigendecomposition-of-the-covariance-matrix">Eigendecomposition of the covariance matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#pca">PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#change-of-basis-via-pca">Change of basis via PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#graphical-illustration-of-change-of-basis">Graphical illustration of change of basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#dimension-reduction-via-pca">Dimension reduction via PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#using-singular-value-decomposition-svd-for-pca">Using Singular Value Decomposition (SVD) for PCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OptimizationInOneDimension.html">Optimization and Non-linear Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#example-maximum-likelihood-estimation-mle">Example: Maximum Likelihood Estimation (MLE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#bisection-method">Bisection Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#secant-method">Secant Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#newton-rhapson-method">Newton-Rhapson Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#gauss-newton">Gauss-Newton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#inverse-quadratic-interpolation">Inverse Quadratic Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#brent-s-method">Brent&#8217;s Method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BlackBoxOptimization.html">Practical Optimizatio Routines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#finding-roots">Finding roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#optimization-primer">Optimization Primer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#using-scipy-optimize">Using <code class="docutils literal"><span class="pre">scipy.optimize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#gradient-deescent">Gradient deescent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#newton-s-method-and-variants">Newton&#8217;s method and variants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#constrained-optimization">Constrained optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#curve-fitting">Curve fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#finding-paraemeters-for-ode-models">Finding paraemeters for ODE models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#optimization-of-graph-node-placement">Optimization of graph node placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#optimization-of-standard-statistical-models">Optimization of standard statistical models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CalibratingODEs.html">Fitting ODEs with the Levenberg–Marquardt algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CalibratingODEs.html#d-example">1D example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CalibratingODEs.html#id1">2D example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html">Algorithms for Optimization and Root Finding for Multivariate Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html#optimizers">Optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html#solvers">Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html#glm-estimation-and-irls">GLM Estimation and IRLS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EMAlgorithm.html">Expectation Maximizatio (EM) Algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#jensen-s-inequality">Jensen&#8217;s inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#maximum-likelihood-with-complete-information">Maximum likelihood with complete information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#incomplete-information">Incomplete information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#gaussian-mixture-models">Gaussian mixture models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#using-em">Using EM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#vectorized-version">Vectorized version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#vectorization-with-einstein-summation-notation">Vectorization with Einstein summation notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#comparison-of-em-routines">Comparison of EM routines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MonteCarlo.html">Monte Carlo Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MonteCarlo.html#pseudorandom-number-generators-prng">Pseudorandom number generators (PRNG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MonteCarlo.html#monte-carlo-swindles-variance-reduction-techniques">Monte Carlo swindles (Variance reduction techniques)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MonteCarlo.html#quasi-random-numbers">Quasi-random numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html">Resampling methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#resampling">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#simulations">Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#setting-the-random-seed">Setting the random seed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#sampling-with-and-without-replacement">Sampling with and without replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#calculation-of-cook-s-distance">Calculation of Cook&#8217;s distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#permutation-resampling">Permutation resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#design-of-simulation-experiments">Design of simulation experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#example-simulations-to-estimate-power">Example: Simulations to estimate power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#check-with-r">Check with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#estimating-the-cdf">Estimating the CDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#estimating-the-pdf">Estimating the PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#kernel-density-estimation">Kernel density estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#multivariate-kerndel-density-estimation">Multivariate kerndel density estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MCMC.html">Markov Chain Monte Carlo (MCMC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#bayesian-data-analysis">Bayesian Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#metropolis-hastings-sampler">Metropolis-Hastings sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#gibbs-sampler">Gibbs sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#slice-sampler">Slice sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#hierarchical-models">Hierarchical models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyMC2.html">Using PyMC2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#coin-toss">Coin toss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#estimating-mean-and-standard-deviation-of-normal-distribution">Estimating mean and standard deviation of normal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#estimating-parameters-of-a-linear-regreession-model">Estimating parameters of a linear regreession model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#estimating-parameters-of-a-logistic-model">Estimating parameters of a logistic model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#using-a-hierarchcical-model">Using a hierarchcical model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyMC3.html">Using PyMC3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#coin-toss">Coin toss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#estimating-mean-and-standard-deviation-of-normal-distribution">Estimating mean and standard deviation of normal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#estimating-parameters-of-a-linear-regreession-model">Estimating parameters of a linear regreession model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#estimating-parameters-of-a-logistic-model">Estimating parameters of a logistic model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#using-a-hierarchcical-model">Using a hierarchcical model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyStan.html">Using PyStan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyStan.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyStan.html#simple-logistic-model">Simple Logistic model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Animation.html">Animations of Metropolis, Gibbs and Slice Sampler dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CrashCourseInC.html">C Crash Course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#hello-world">Hello world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#a-tutorial-example-coding-a-fibonacci-function-in-c">A tutorial example - coding a Fibonacci function in C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#types-in-c">Types in C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#operators">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#control-of-program-flow">Control of program flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#arrays-and-pointers">Arrays and pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#function-pointers">Function pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#using-make-to-compile-c-programs">Using make to compile C programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MakingCodeFast.html">Code Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#profiling">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#using-better-algorihtms-and-data-structures">Using better algorihtms and data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#i-o-bound-problems">I/O Bound problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#problem-set-for-optimization">Problem set for optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromCToPython.html">Using C code in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#example-the-fibonacci-sequence">Example: The Fibonacci Sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#using-clang-and-bitey">Using clang and bitey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#using-gcc-and-ctypes">Using gcc and ctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#using-cython">Using Cython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#benchmark">Benchmark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromCompiledToPython.html">Using functions from various compiled languages in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#c">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#id1">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#fortran">Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#benchmarking">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#wrapping-a-function-from-a-c-library-for-use-in-python">Wrapping a function from a C library for use in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#wrapping-functions-from-c-library-for-use-in-pyton">Wrapping functions from C++ library for use in Pyton</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromJuliaToPython.html">Julia and Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromJuliaToPython.html#defining-a-function-in-julia">Defining a function in Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromJuliaToPython.html#using-it-in-python">Using it in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromJuliaToPython.html#using-python-libraries-in-julia">Using Python libraries in Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromPythonToC.html">Converting Python Code to C for speed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#example-fibonacci">Example: Fibonacci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#example-matrix-multiplication">Example: Matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#example-pairwise-distance-matrix">Example: Pairwise distance matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#profiling-code">Profiling code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#numba">Numba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#cython">Cython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#comparison-with-optimized-c-from-scipy">Comparison with optimized C from scipy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization_Bakeoff.html">Optimization bake-off</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numpy-version">Numpy version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numexpr-version">Numexpr version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numba-version">Numba version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numbapro-version">NumbaPro version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#parakeet-version">Parakeet version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#cython-version">Cython version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#c-version">C version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#id1">C++ version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#fortran-version">Fortran version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#bake-off">Bake-off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#recommendations-for-optimizing-python-code">Recommendations for optimizing Python code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WritingParallelCode.html">Writing Parallel Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#embarassingly-parallel-programs">Embarassingly parallel programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#using-multiprocessing">Using Multiprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#using-ipython-parallel-for-interactive-parallel-computing">Using IPython parallel for interactive parallel computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#other-parallel-programming-approaches-not-covered">Other parallel programming approaches not covered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CUDAPython.html">Massively parallel programming with GPUs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#programming-gpus">Programming GPUs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#gpu-architecture">GPU Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#cuda-python">CUDA Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#getting-started-with-cuda">Getting Started with CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#vector-addition-the-hello-world-of-cuda">Vector addition - the &#8216;Hello, world&#8217; of CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#performing-a-reduction-on-cuda">Performing a reduction on CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#recreational">Recreational</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#more-examples">More examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GPUsAndCUDAC.html">Writing CUDA in C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GPUsAndCUDAC.html#review-of-gpu-architechture-a-simplification">Review of GPU Architechture - A Simplification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPUsAndCUDAC.html#cuda-c-program-an-outline">Cuda C program - an Outline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DistributedComputing.html">Distributed computing for Big Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#why-and-when-does-distributed-computing-matter">Why and when does distributed computing matter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#ingredients-for-effiicient-distributed-computing">Ingredients for effiicient distributed computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#what-is-hadoop">What is Hadoop?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#review-of-functional-programming">Review of functional programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#the-hadoop-mapreduce-workflow">The Hadoop MapReduce workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#using-hadoop-mapreduce">Using Hadoop MapReduce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#spark">Spark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MapReduce.html">Hadoop MapReduce on AWS EMR with <code class="docutils literal"><span class="pre">mrjob</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MapReduce.html#mapreduce-code">MapReduce code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MapReduce.html#configuration-file">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MapReduce.html#launching-job">Launching job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Spark.html">Spark on a local mahcine using 4 nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#using-spark-in-standalone-prograsm">Using Spark in standalone prograsm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#introduction-to-spark-concepts-with-a-data-manipulation-example">Introduction to Spark concepts with a data manipulation example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#using-the-mllib-for-regression">Using the MLlib for Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ModulesAndPackaging.html">Modules and Packaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ModulesAndPackaging.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesAndPackaging.html#distributing-your-package">Distributing your package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter.html">Tour of the Jupyter (IPython3) notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-jupyter">Installing Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-other-kernels">Installing other kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-extensions">Installing extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-python3-while-keeping-python2">Installing Python3 while keeping Python2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#now-restart-your-notebook-server">Now, restart your notebook server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MultiKernel.html">Polyglot programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#python-2">Python 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#python-3">Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#r">R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#scala">Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#julia">Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#processing">Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ReveiwAndTrends.html">What you should know and learn more about</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#statistical-foundations">Statistical foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#computing-foundations">Computing foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#mathematical-foundations">Mathematical foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#statistical-algorithms">Statistical algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#libraries-worth-knowing-about-after-numpy-scipy-and-matplotlib">Libraries worth knowing about after numpy, scipy and matplotlib</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Linear Algebra and Linear Systems</a><ul>
+<li><a class="reference internal" href="#simultaneous-equations">Simultaneous Equations</a><ul>
+<li><a class="reference internal" href="#underdetermined-system">Underdetermined System (<span class="math">\(m&lt;n\)</span>)</a></li>
+<li><a class="reference internal" href="#overdetermined-system">Overdetermined System</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linear-independence">Linear Independence</a></li>
+<li><a class="reference internal" href="#norms-and-distance-of-vectors">Norms and Distance of Vectors</a><ul>
+<li><a class="reference internal" href="#inner-products">Inner Products</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#outer-products">Outer Products</a><ul>
+<li><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#trace-and-determinant-of-matrices">Trace and Determinant of Matrices</a></li>
+<li><a class="reference internal" href="#column-space-row-space-rank-and-kernel">Column space, Row space, Rank and Kernel</a></li>
+<li><a class="reference internal" href="#matrices-as-linear-transformations">Matrices as Linear Transformations</a></li>
+<li><a class="reference internal" href="#matrix-norms">Matrix Norms</a></li>
+<li><a class="reference internal" href="#special-matrices">Special Matrices</a></li>
+<li><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="AlgorithmicComplexity.html" title="Previous Chapter: Algorithmic complexity"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Algorithmic comp...</span>
+    </a>
+  </li>
+  <li>
+    <a href="LinearAlgebraMatrixDecompWithSolutions.html" title="Next Chapter: Linear Algebra and Matrix Decompositions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Linear Algebra a... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="globaltoc"
+><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="IntroductionToPythonSolutions.html">Introduction to Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#operators">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#iterators">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#conditional-statements">Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#strings-and-string-handling">Strings and String Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#lists-tuples-dictionaries">Lists, Tuples, Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#the-standard-library">The standard library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#keeping-the-anaconda-distribution-up-to-date">Keeping the Anaconda distribution up-to-date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IntroductionToPythonSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IPythonNotebookIntroduction.html">Getting started with Python and the IPython notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#cells">Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#code-cells">Code Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#magic-commands">Magic Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#python-as-glue">Python as Glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#python-r-matlab-octave">Python &lt;-&gt; R &lt;-&gt; Matlab &lt;-&gt; Octave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="IPythonNotebookIntroduction.html#more-glue-julia-and-perl">More Glue: Julia and Perl</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html">Functions are first class objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#function-argumnents">Function argumnents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#call-by-object-reference">Call by &#8220;object reference&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#binding-of-default-arguments-occurs-at-function-definition">Binding of default arguments occurs at function <em>definition</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#higher-order-functions">Higher-order functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#anonymous-functions">Anonymous functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#pure-functions">Pure functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#recursion">Recursion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#iterators">Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#generators">Generators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#generators-and-comprehensions">Generators and comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FunctionsSolutions.html#utilites-enumerate-zip-and-the-ternary-if-else-operator">Utilites - enumerate, zip and the ternary if-else operator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#decorators">Decorators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-operator-module">The <code class="docutils literal"><span class="pre">operator</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-functools-module">The <code class="docutils literal"><span class="pre">functools</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-itertools-module">The <code class="docutils literal"><span class="pre">itertools</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#the-toolz-fn-and-funcy-modules">The <code class="docutils literal"><span class="pre">toolz</span></code>, <code class="docutils literal"><span class="pre">fn</span></code> and <code class="docutils literal"><span class="pre">funcy</span></code> modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FunctionsSolutions.html#exercises">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcessingSolutions.html">Data science is OSEMN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataProcessingSolutions.html#obtaining-data">Obtaining data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataProcessingSolutions.html#scrubbing-data">Scrubbing data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataProcessingSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TextProcessingSolutions.html">Working with text</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#string-methods">String methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#splitting-and-joining-strings">Splitting and joining strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#the-string-module">The string module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#regular-expressions">Regular expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#the-nltk-toolkit">The NLTK toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TextProcessingExtras.html">Preprocessing text data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TextProcessingExtras.html#example-counting-words-in-a-document">Example: Counting words in a document</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingWithStructuredData.html">Working with structured data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#using-sqlite3">Using SQLite3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#basic-concepts-of-database-normalization">Basic concepts of database normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#using-hdf5">Using HDF5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkingWithStructuredData.html#interfacing-withpandas">Interfacing withPandas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UsingNumpySolutions.html">Using numpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#ndarray">NDArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#broadcasting-row-column-and-matrix-operations">Broadcasting, row, column and matrix operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#universal-functions-ufuncs">Universal functions (Ufuncs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#generalized-ufucns">Generalized ufucns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#random-numbers">Random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#linear-algebra">Linear algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingNumpySolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UsingPandas.html">Using Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#series">Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#dataframe">DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#panels">Panels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#split-apply-combine">Split-Apply-Combine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#using-statsmodels">Using statsmodels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UsingPandas.html#using-r-from-ipython">Using R from IPython</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#using-rmagic">Using Rmagic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingPandas.html#using-r-from-pandas">Using R from pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComputationalStatisticsMotivation.html">Computational problems in statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComputationalStatisticsMotivation.html#textbook-example-is-coin-fair">Textbook example - is coin fair?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputationalStatisticsMotivation.html#bayesian-approach">Bayesian approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputationalStatisticsMotivation.html#comment">Comment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComputerArithmetic.html">Computer numbers and mathematics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#some-examples-of-numbers-behaving-badly">Some examples of numbers behaving badly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#finite-representation-of-numbers">Finite representation of numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#using-arbitrary-precision-libraries">Using arbitrary precision libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#from-numbers-to-functions-stability-and-conditioning">From numbers to Functions: Stability and conditioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputerArithmetic.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AlgorithmicComplexity.html">Algorithmic complexity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AlgorithmicComplexity.html#profling-and-benchmarking">Profling and benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AlgorithmicComplexity.html#measuring-algorithmic-complexity">Measuring algorithmic complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AlgorithmicComplexity.html#space-complexity">Space complexity</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Linear Algebra and Linear Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simultaneous-equations">Simultaneous Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-independence">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norms-and-distance-of-vectors">Norms and Distance of Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-and-determinant-of-matrices">Trace and Determinant of Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#column-space-row-space-rank-and-kernel">Column space, Row space, Rank and Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrices-as-linear-transformations">Matrices as Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrix-norms">Matrix Norms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-matrices">Special Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html">Linear Algebra and Matrix Decompositions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#large-linear-systems">Large Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#example-netflix-competition-circa-2006-2009">Example: Netflix Competition (circa 2006-2009)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#matrix-decompositions">Matrix Decompositions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#matrix-decompositions-for-pca-and-least-squares">Matrix Decompositions for PCA and Least Squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#singular-value-decomposition">Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#stabilty-and-condition-number">Stabilty and Condition Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraMatrixDecompWithSolutions.html#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PCASolutions.html">Change of Basis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#variance-and-covariance">Variance and covariance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#eigendecomposition-of-the-covariance-matrix">Eigendecomposition of the covariance matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#pca">PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#change-of-basis-via-pca">Change of basis via PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#graphical-illustration-of-change-of-basis">Graphical illustration of change of basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#dimension-reduction-via-pca">Dimension reduction via PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PCASolutions.html#using-singular-value-decomposition-svd-for-pca">Using Singular Value Decomposition (SVD) for PCA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OptimizationInOneDimension.html">Optimization and Non-linear Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#example-maximum-likelihood-estimation-mle">Example: Maximum Likelihood Estimation (MLE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#bisection-method">Bisection Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#secant-method">Secant Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#newton-rhapson-method">Newton-Rhapson Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#gauss-newton">Gauss-Newton</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#inverse-quadratic-interpolation">Inverse Quadratic Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptimizationInOneDimension.html#brent-s-method">Brent&#8217;s Method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BlackBoxOptimization.html">Practical Optimizatio Routines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#finding-roots">Finding roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#optimization-primer">Optimization Primer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#using-scipy-optimize">Using <code class="docutils literal"><span class="pre">scipy.optimize</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#gradient-deescent">Gradient deescent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#newton-s-method-and-variants">Newton&#8217;s method and variants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#constrained-optimization">Constrained optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#curve-fitting">Curve fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#finding-paraemeters-for-ode-models">Finding paraemeters for ODE models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#optimization-of-graph-node-placement">Optimization of graph node placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BlackBoxOptimization.html#optimization-of-standard-statistical-models">Optimization of standard statistical models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CalibratingODEs.html">Fitting ODEs with the Levenberg–Marquardt algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CalibratingODEs.html#d-example">1D example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CalibratingODEs.html#id1">2D example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html">Algorithms for Optimization and Root Finding for Multivariate Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html#optimizers">Optimizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html#solvers">Solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultivariateOptimizationAlgortihms.html#glm-estimation-and-irls">GLM Estimation and IRLS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EMAlgorithm.html">Expectation Maximizatio (EM) Algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#jensen-s-inequality">Jensen&#8217;s inequality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#maximum-likelihood-with-complete-information">Maximum likelihood with complete information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#incomplete-information">Incomplete information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#gaussian-mixture-models">Gaussian mixture models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#using-em">Using EM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#vectorized-version">Vectorized version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#vectorization-with-einstein-summation-notation">Vectorization with Einstein summation notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EMAlgorithm.html#comparison-of-em-routines">Comparison of EM routines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MonteCarlo.html">Monte Carlo Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MonteCarlo.html#pseudorandom-number-generators-prng">Pseudorandom number generators (PRNG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MonteCarlo.html#monte-carlo-swindles-variance-reduction-techniques">Monte Carlo swindles (Variance reduction techniques)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MonteCarlo.html#quasi-random-numbers">Quasi-random numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html">Resampling methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#resampling">Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#simulations">Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#setting-the-random-seed">Setting the random seed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#sampling-with-and-without-replacement">Sampling with and without replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#calculation-of-cook-s-distance">Calculation of Cook&#8217;s distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#permutation-resampling">Permutation resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#design-of-simulation-experiments">Design of simulation experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#example-simulations-to-estimate-power">Example: Simulations to estimate power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#check-with-r">Check with R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#estimating-the-cdf">Estimating the CDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#estimating-the-pdf">Estimating the PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#kernel-density-estimation">Kernel density estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ResamplingAndMonteCarloSimulations.html#multivariate-kerndel-density-estimation">Multivariate kerndel density estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MCMC.html">Markov Chain Monte Carlo (MCMC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#bayesian-data-analysis">Bayesian Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#metropolis-hastings-sampler">Metropolis-Hastings sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#gibbs-sampler">Gibbs sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#slice-sampler">Slice sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MCMC.html#hierarchical-models">Hierarchical models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyMC2.html">Using PyMC2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#coin-toss">Coin toss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#estimating-mean-and-standard-deviation-of-normal-distribution">Estimating mean and standard deviation of normal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#estimating-parameters-of-a-linear-regreession-model">Estimating parameters of a linear regreession model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#estimating-parameters-of-a-logistic-model">Estimating parameters of a logistic model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC2.html#using-a-hierarchcical-model">Using a hierarchcical model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyMC3.html">Using PyMC3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#coin-toss">Coin toss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#estimating-mean-and-standard-deviation-of-normal-distribution">Estimating mean and standard deviation of normal distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#estimating-parameters-of-a-linear-regreession-model">Estimating parameters of a linear regreession model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#estimating-parameters-of-a-logistic-model">Estimating parameters of a logistic model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyMC3.html#using-a-hierarchcical-model">Using a hierarchcical model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PyStan.html">Using PyStan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyStan.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyStan.html#simple-logistic-model">Simple Logistic model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Animation.html">Animations of Metropolis, Gibbs and Slice Sampler dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CrashCourseInC.html">C Crash Course</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#hello-world">Hello world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#a-tutorial-example-coding-a-fibonacci-function-in-c">A tutorial example - coding a Fibonacci function in C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#types-in-c">Types in C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#operators">Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#control-of-program-flow">Control of program flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#arrays-and-pointers">Arrays and pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#function-pointers">Function pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#using-make-to-compile-c-programs">Using make to compile C programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrashCourseInC.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MakingCodeFast.html">Code Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#profiling">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#using-better-algorihtms-and-data-structures">Using better algorihtms and data structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#i-o-bound-problems">I/O Bound problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MakingCodeFast.html#problem-set-for-optimization">Problem set for optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromCToPython.html">Using C code in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#example-the-fibonacci-sequence">Example: The Fibonacci Sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#using-clang-and-bitey">Using clang and bitey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#using-gcc-and-ctypes">Using gcc and ctypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#using-cython">Using Cython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCToPython.html#benchmark">Benchmark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromCompiledToPython.html">Using functions from various compiled languages in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#c">C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#id1">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#fortran">Fortran</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#benchmarking">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#wrapping-a-function-from-a-c-library-for-use-in-python">Wrapping a function from a C library for use in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromCompiledToPython.html#wrapping-functions-from-c-library-for-use-in-pyton">Wrapping functions from C++ library for use in Pyton</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromJuliaToPython.html">Julia and Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromJuliaToPython.html#defining-a-function-in-julia">Defining a function in Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromJuliaToPython.html#using-it-in-python">Using it in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromJuliaToPython.html#using-python-libraries-in-julia">Using Python libraries in Julia</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FromPythonToC.html">Converting Python Code to C for speed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#example-fibonacci">Example: Fibonacci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#example-matrix-multiplication">Example: Matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#example-pairwise-distance-matrix">Example: Pairwise distance matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#profiling-code">Profiling code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#numba">Numba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#cython">Cython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FromPythonToC.html#comparison-with-optimized-c-from-scipy">Comparison with optimized C from scipy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization_Bakeoff.html">Optimization bake-off</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#python-version">Python version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numpy-version">Numpy version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numexpr-version">Numexpr version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numba-version">Numba version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#numbapro-version">NumbaPro version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#parakeet-version">Parakeet version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#cython-version">Cython version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#c-version">C version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#id1">C++ version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#fortran-version">Fortran version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#bake-off">Bake-off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization_Bakeoff.html#recommendations-for-optimizing-python-code">Recommendations for optimizing Python code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WritingParallelCode.html">Writing Parallel Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#concepts">Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#embarassingly-parallel-programs">Embarassingly parallel programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#using-multiprocessing">Using Multiprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#using-ipython-parallel-for-interactive-parallel-computing">Using IPython parallel for interactive parallel computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#other-parallel-programming-approaches-not-covered">Other parallel programming approaches not covered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WritingParallelCode.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CUDAPython.html">Massively parallel programming with GPUs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#programming-gpus">Programming GPUs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#gpu-architecture">GPU Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#cuda-python">CUDA Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#getting-started-with-cuda">Getting Started with CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#vector-addition-the-hello-world-of-cuda">Vector addition - the &#8216;Hello, world&#8217; of CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#performing-a-reduction-on-cuda">Performing a reduction on CUDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#recreational">Recreational</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUDAPython.html#more-examples">More examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GPUsAndCUDAC.html">Writing CUDA in C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GPUsAndCUDAC.html#review-of-gpu-architechture-a-simplification">Review of GPU Architechture - A Simplification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GPUsAndCUDAC.html#cuda-c-program-an-outline">Cuda C program - an Outline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DistributedComputing.html">Distributed computing for Big Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#why-and-when-does-distributed-computing-matter">Why and when does distributed computing matter?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#ingredients-for-effiicient-distributed-computing">Ingredients for effiicient distributed computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#what-is-hadoop">What is Hadoop?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#review-of-functional-programming">Review of functional programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#the-hadoop-mapreduce-workflow">The Hadoop MapReduce workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#using-hadoop-mapreduce">Using Hadoop MapReduce</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DistributedComputing.html#spark">Spark</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MapReduce.html">Hadoop MapReduce on AWS EMR with <code class="docutils literal"><span class="pre">mrjob</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MapReduce.html#mapreduce-code">MapReduce code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MapReduce.html#configuration-file">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MapReduce.html#launching-job">Launching job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Spark.html">Spark on a local mahcine using 4 nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#using-spark-in-standalone-prograsm">Using Spark in standalone prograsm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#introduction-to-spark-concepts-with-a-data-manipulation-example">Introduction to Spark concepts with a data manipulation example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#using-the-mllib-for-regression">Using the MLlib for Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Spark.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ModulesAndPackaging.html">Modules and Packaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ModulesAndPackaging.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ModulesAndPackaging.html#distributing-your-package">Distributing your package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter.html">Tour of the Jupyter (IPython3) notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-jupyter">Installing Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-other-kernels">Installing other kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-extensions">Installing extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#installing-python3-while-keeping-python2">Installing Python3 while keeping Python2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jupyter.html#now-restart-your-notebook-server">Now, restart your notebook server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="MultiKernel.html">Polyglot programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#python-2">Python 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#python-3">Python 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#bash">Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#r">R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#scala">Scala</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#julia">Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultiKernel.html#processing">Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ReveiwAndTrends.html">What you should know and learn more about</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#statistical-foundations">Statistical foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#computing-foundations">Computing foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#mathematical-foundations">Mathematical foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#statistical-algorithms">Statistical algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReveiwAndTrends.html#libraries-worth-knowing-about-after-numpy-scipy-and-matplotlib">Libraries worth knowing about after numpy, scipy and matplotlib</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="code python highlight-python"><div class="highlight"><pre>import os
+import sys
+import glob
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+%matplotlib inline
+%precision 4
+plt.style.use(&#39;ggplot&#39;)
+</pre></div>
+</div>
+<div class="section" id="linear-algebra-and-linear-systems">
+<h1>Linear Algebra and Linear Systems<a class="headerlink" href="#linear-algebra-and-linear-systems" title="Permalink to this headline">¶</a></h1>
+<p>A lot of problems in statistical computing can be described
+mathematically using linear algebra. This lecture is meant to serve as a
+review of concepts you have covered in linear algebra courses.</p>
+<div class="section" id="simultaneous-equations">
+<h2>Simultaneous Equations<a class="headerlink" href="#simultaneous-equations" title="Permalink to this headline">¶</a></h2>
+<p>Consider a set of <span class="math">\(m\)</span> linear equations in <span class="math">\(n\)</span> unknowns:</p>
+<p>We can let:</p>
+<p>And re-write the system:</p>
+<div class="math">
+\[Ax = b\]</div>
+<p>This reduces the problem to a matrix equation, and now solving the
+system amounts to finding <span class="math">\(A^{-1}\)</span> (or sort of). Certain properies
+of the matrix <span class="math">\(A\)</span> yield important information about the linear
+system.</p>
+<div class="section" id="underdetermined-system">
+<h3>Underdetermined System (<span class="math">\(m&lt;n\)</span>)<a class="headerlink" href="#underdetermined-system" title="Permalink to this headline">¶</a></h3>
+<p>When <span class="math">\(m&lt;n\)</span>, the linear system is said to be <em>underdetermined</em>.
+I.e. there are fewer equations than unknowns. In this case, there are
+either no solutions (if the system is <em>inconsistent</em>) or infinite
+solutions. A unique solution is not possible.</p>
+</div>
+<div class="section" id="overdetermined-system">
+<h3>Overdetermined System<a class="headerlink" href="#overdetermined-system" title="Permalink to this headline">¶</a></h3>
+<p>When <span class="math">\(m&gt;n\)</span>, the system may be <em>overdetermined</em>. In other words,
+there are more equations than unknowns. They system could be
+inconsistent, or some of the equations could be redundant.
+Statistically, you can translate these situations to &#8216;least squares
+solution&#8217; or &#8216;overparametrized&#8217;.</p>
+<p>There are many techniques to solve and analyze linear systems. Our goal
+is to understand the theory behind many of the built-in functions, and
+how they <em>efficiently</em> solve systems of equations.</p>
+<p>First, let&#8217;s review some linear algebra topics:</p>
+</div>
+</div>
+<div class="section" id="linear-independence">
+<h2>Linear Independence<a class="headerlink" href="#linear-independence" title="Permalink to this headline">¶</a></h2>
+<p>A collection of vectors <span class="math">\(v_1,...,v_n\)</span> is said to be <em>linearly
+independent</em> if</p>
+<div class="math">
+\[c_1v_1 + \cdots c_nv_n = 0\]</div>
+<div class="math">
+\[\iff\]</div>
+<div class="math">
+\[c_1=\cdots=c_n=0\]</div>
+<p>In other words, any linear combination of the vectors that results in a
+zero vector is trivial.</p>
+<p>Another interpretation of this is that no vector in the set may be
+expressed as a linear combination of the others. In this sense, linear
+independence is an expression of non-redundancy in a set of vectors.</p>
+<p>Fact: Any linearly independent set of <span class="math">\(n\)</span> vectors spans an
+<span class="math">\(n\)</span>-dimensional space. (I.e. the collection of all possible linear
+combinations is <span class="math">\(\mathbb{R}^n\)</span>.) Such a set of vectors is said to
+be a <em>basis</em> of <span class="math">\(\mathbb{R}^n\)</span>. Another term for basis is <em>minimal
+spanning set</em>.</p>
+<p><strong>A LOT!!</strong></p>
+<ul class="simple">
+<li>If <span class="math">\(A\)</span> is an <span class="math">\(m\times n\)</span> matrix and <span class="math">\(m&gt;n\)</span>, if all
+<span class="math">\(m\)</span> rows are linearly independent, then the system is
+<em>overdetermined</em> and <em>inconsistent</em>. The system cannot be solved
+exactly. This is the usual case in data analysis, and why least
+squares is so important.</li>
+<li>If <span class="math">\(A\)</span> is an <span class="math">\(m\times n\)</span> matrix and <span class="math">\(m&lt;n\)</span>, if all
+<span class="math">\(m\)</span> rows are linearly independent, then the system is
+<em>underdetermined</em> and there are <em>infinite</em> solutions.</li>
+<li>If <span class="math">\(A\)</span> is an <span class="math">\(m\times n\)</span> matrix and some of its rows are
+linearly dependent, then the system is <em>reducible</em>. We can get rid of
+some equations.</li>
+<li>If <span class="math">\(A\)</span> is a square matrix and its rows are linearly
+independent, the system has a unique solution. (<span class="math">\(A\)</span> is
+invertible.)</li>
+</ul>
+<p>Linear algebra has a whole lot more to tell us about linear systems, so
+we&#8217;ll review a few basics.</p>
+</div>
+<div class="section" id="norms-and-distance-of-vectors">
+<h2>Norms and Distance of Vectors<a class="headerlink" href="#norms-and-distance-of-vectors" title="Permalink to this headline">¶</a></h2>
+<p>Recall that the &#8216;norm&#8217; of a vector <span class="math">\(v\)</span>, denoted <span class="math">\(||v||\)</span> is
+simply its length. For a vector with components</p>
+<div class="math">
+\[v = \left(v_1,...,v_n\right)\]</div>
+<p>the norm of <span class="math">\(v\)</span> is given by:</p>
+<div class="math">
+\[||v|| = \sqrt{v_1^2+...+v_n^2}\]</div>
+<p>The distance between two vectors is the length of their difference:</p>
+<div class="math">
+\[d(v,w) = ||v-w||\]</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+
+
+<span class="c"># norm of a vector</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">2.2361</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># distance between two vectors</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="o">-</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">1.0000</span>
+</pre></div>
+</div>
+<div class="section" id="inner-products">
+<h3>Inner Products<a class="headerlink" href="#inner-products" title="Permalink to this headline">¶</a></h3>
+<p>Inner products are closely related to norms and distance. The (standard)
+inner product of two <span class="math">\(n\)</span> dimensional vectors <span class="math">\(v\)</span> and
+<span class="math">\(w\)</span> is given by:</p>
+<div class="math">
+\[\begin{split}&lt;v,w&gt; = v_1w_1+...+v_nw_n\end{split}\]</div>
+<p>I.e. the inner product is just the sum of the product of the components.
+Certain &#8216;special&#8217; matrices also define inner products, and we will see
+some of those later.</p>
+<p>Any inner product determines a norm via:</p>
+<div class="math">
+\[\begin{split}||v|| = &lt;v,v&gt;^{\frac12}\end{split}\]</div>
+<p>There is a more abstract formulation of an inner product, that is useful
+when considering more general vector spaces, especially function vector
+spaces:</p>
+<p>An inner product on a vector space <span class="math">\(V\)</span> is a symmetric, positive
+definite, bilinear form.</p>
+<p>There is also a more abstract definition of a norm - a norm is function
+from a vector space to the real numbers, that is positive definite,
+absolutely scalable and satisfies the triangle inequality.</p>
+<p>What is important here is not to memorize these definitions - just to
+realize that &#8216;norm&#8217; and &#8216;inner product&#8217; can be defined for things that
+are not tuples in <span class="math">\(\mathbb{R}^n\)</span>. (In particular, they can be
+defined on vector spaces of <em>functions</em>).</p>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">v</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="outer-products">
+<h3>Outer Products<a class="headerlink" href="#outer-products" title="Permalink to this headline">¶</a></h3>
+<p>Note that the inner product is just matrix multiplication of a
+<span class="math">\(1\times n\)</span> vector with an <span class="math">\(n\times 1\)</span> vector. In fact, we
+may write:</p>
+<div class="math">
+\[\begin{split}&lt;v,w&gt; = v^tw\end{split}\]</div>
+<p>The <em>outer product</em> of two vectors is just the opposite. It is given by:</p>
+<div class="math">
+\[v\otimes w = vw^t\]</div>
+<p>Note that I am considering <span class="math">\(v\)</span> and <span class="math">\(w\)</span> as <em>column</em> vectors.
+The result of the inner product is a <em>scalar</em>. The result of the outer
+product is a <em>matrix</em>.</p>
+<div class="section" id="id1">
+<h4>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>Extended example</strong>: the covariance matrix is an outer proudct.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c"># We have n observations of p variables</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">p</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># The covariance matrix is a p by p matrix</span>
+<span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span> <span class="mf">0.1055</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0437</span><span class="p">,</span>  <span class="mf">0.0352</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0152</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.0437</span><span class="p">,</span>  <span class="mf">0.055</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.0126</span><span class="p">,</span>  <span class="mf">0.0324</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.0352</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0126</span><span class="p">,</span>  <span class="mf">0.1016</span><span class="p">,</span>  <span class="mf">0.0552</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.0152</span><span class="p">,</span>  <span class="mf">0.0324</span><span class="p">,</span>  <span class="mf">0.0552</span><span class="p">,</span>  <span class="mf">0.1224</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># From the definition, the covariance matrix</span>
+<span class="c"># is just the outer product of the normalized</span>
+<span class="c"># matrix where every variable has zero mean</span>
+<span class="c"># divided by the number of degrees of freedom</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">w</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">array</span><span class="p">([[</span> <span class="mf">0.1055</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0437</span><span class="p">,</span>  <span class="mf">0.0352</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0152</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.0437</span><span class="p">,</span>  <span class="mf">0.055</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.0126</span><span class="p">,</span>  <span class="mf">0.0324</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.0352</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0126</span><span class="p">,</span>  <span class="mf">0.1016</span><span class="p">,</span>  <span class="mf">0.0552</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.0152</span><span class="p">,</span>  <span class="mf">0.0324</span><span class="p">,</span>  <span class="mf">0.0552</span><span class="p">,</span>  <span class="mf">0.1224</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="trace-and-determinant-of-matrices">
+<h2>Trace and Determinant of Matrices<a class="headerlink" href="#trace-and-determinant-of-matrices" title="Permalink to this headline">¶</a></h2>
+<p>The trace of a matrix <span class="math">\(A\)</span> is the sum of its diagonal elements. It
+is important for a couple of reasons:</p>
+<ul class="simple">
+<li>It is an <em>invariant</em> of a matrix under change of basis (more on this
+later).</li>
+<li>It defines a matrix norm (more on that later)</li>
+</ul>
+<p>The determinant of a matrix is defined to be the alternating sum of
+permutations of the elements of a matrix. Let&#8217;s not dwell on that
+though. It is important to know that the determinant of a
+<span class="math">\(2\times 2\)</span> matrix is</p>
+<div class="math">
+\[\begin{split}\left|\begin{matrix}a_{11} &amp; a_{12}\\a_{21} &amp; a_{22}\end{matrix}\right| = a_{11}a_{22} - a_{12}a_{21}\end{split}\]</div>
+<p>This may be extended to an <span class="math">\(n\times n\)</span> matrix by minor expansion.
+I will leave that for you to google. We will be computing determinants
+using tools such as:</p>
+<p><code class="docutils literal"><span class="pre">np.linalg.det(A)</span></code></p>
+<p>What is most important about the determinant:</p>
+<ul class="simple">
+<li>Like the trace, it is also invariant under change of basis</li>
+<li>An <span class="math">\(n\times n\)</span> matrix <span class="math">\(A\)</span> is invertible <span class="math">\(\iff\)</span>
+det<span class="math">\((A)\neq 0\)</span></li>
+<li>The rows(columns) of an <span class="math">\(n\times n\)</span> matrix <span class="math">\(A\)</span> are
+linearly independent <span class="math">\(\iff\)</span> det<span class="math">\((A)\neq 0\)</span></li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>[[61 36 46 92 50 76]
+ [83 63 14 97 17 62]
+ [17 26 12 94 61 50]
+ [66  9 11 73  1 13]
+ [37 98 82 69  3 65]
+ [51 15  7 25 85 72]]
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">36971990469.0001</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="column-space-row-space-rank-and-kernel">
+<h2>Column space, Row space, Rank and Kernel<a class="headerlink" href="#column-space-row-space-rank-and-kernel" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math">\(A\)</span> be an <span class="math">\(m \times n\)</span> matrix. We can view the columns
+of <span class="math">\(A\)</span> as vectors, say <span class="math">\(a_1, \dots,, a_n\)</span>. The space of all
+linear combinations of the <span class="math">\(a_i\)</span> are the <em>column space</em> of the
+matrix <span class="math">\(A\)</span>. Now, if <span class="math">\(a_1, \dots ,a_n\)</span> are <em>linearly
+independent</em>, then the column space is of dimension <span class="math">\(n\)</span>.
+Otherwise, the dimension of the column space is the size of the maximal
+set of linearly independent <span class="math">\(a_i\)</span>. Row space is exactly analogous,
+but the vectors are the <em>rows</em> of <span class="math">\(A\)</span>.</p>
+<p>The <em>rank</em> of a matrix <em>A</em> is the dimension of its column space - and -
+the dimension of its row space. These are equal for any matrix. Rank can
+be thought of as a measure of non-degeneracy of a system of linear
+equations, in that it is the <em>dimension of the image of the linear
+transformation</em> determined by <span class="math">\(A\)</span>.</p>
+<p>The <em>kernel</em> of a matrix <em>A</em> is the dimension of the space mapped to
+zero under the linear transformation that <span class="math">\(A\)</span> represents. The
+dimension of the kernel of a linear transformation is called the
+<em>nullity</em>.</p>
+<p>Index theorem: For an <span class="math">\(m\times n\)</span> matrix <span class="math">\(A\)</span>,</p>
+<p>rank(<span class="math">\(A\)</span>) + nullity(<span class="math">\(A\)</span>) = <span class="math">\(n\)</span>.</p>
+</div>
+<div class="section" id="matrices-as-linear-transformations">
+<h2>Matrices as Linear Transformations<a class="headerlink" href="#matrices-as-linear-transformations" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s consider: what does a matrix <em>do</em> to a vector? Matrix
+multiplication has a <em>geometric</em> interpretation. When we multiply a
+vector, we either rotate, reflect, dilate or some combination of those
+three. So multiplying by a matrix <em>transforms</em> one vector into another
+vector. This is known as a <em>linear transformation</em>.</p>
+<p>Important Facts:</p>
+<ul class="simple">
+<li>Any matrix defines a linear transformation</li>
+<li>The matrix form of a linear transformation is NOT unique</li>
+<li>We need only define a transformation by saying what it does to a
+<em>basis</em></li>
+</ul>
+<p>Suppose we have a matrix <span class="math">\(A\)</span> that defines some transformation. We
+can take any invertible matrix <span class="math">\(B\)</span> and</p>
+<div class="math">
+\[BAB^{-1}\]</div>
+<p>defines the same transformation. This operation is called a <em>change of
+basis</em>, because we are simply expressing the transformation with respect
+to a different basis.</p>
+<p>This is what we do in PCA. We express the matrix in a basis of
+eigenvectors (more on this later).</p>
+<p>Let <span class="math">\(f(x)\)</span> be the linear transformation that takes
+<span class="math">\(e_1=(1,0)\)</span> to <span class="math">\(f(e_1)=(2,3)\)</span> and <span class="math">\(e_2=(0,1)\)</span> to
+<span class="math">\(f(e_2) = (1,1)\)</span>. A matrix representation of <span class="math">\(f\)</span> would be
+given by:</p>
+<div class="math">
+\[\begin{split}A = \left(\begin{matrix}2 &amp; 1\\3&amp;1\end{matrix}\right)\end{split}\]</div>
+<p>This is the matrix we use if we consider the vectors of
+<span class="math">\(\mathbb{R}^2\)</span> to be linear combinations of the form</p>
+<div class="math">
+\[c_1 e_1 + c_2 e_2\]</div>
+<p>Now, consider a second pair of (linearly independent) vectors in
+<span class="math">\(\mathbb{R}^2\)</span>, say <span class="math">\(v_1=(1,3)\)</span> and <span class="math">\(v_2=(4,1)\)</span>. We
+first find the transformation that takes <span class="math">\(e_1\)</span> to <span class="math">\(v_1\)</span> and
+<span class="math">\(e_2\)</span> to <span class="math">\(v_2\)</span>. A matrix representation for this is:</p>
+<div class="math">
+\[\begin{split}B = \left(\begin{matrix}1 &amp; 4\\3&amp;1\end{matrix}\right)\end{split}\]</div>
+<p>Our original transformation <span class="math">\(f\)</span> can be expressed with respect to
+the basis <span class="math">\(v_1, v_2\)</span> via</p>
+<div class="math">
+\[BAB^{-1}\]</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>  <span class="c"># transformation f in standard basis</span>
+<span class="n">e1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>         <span class="c"># standard basis vectors e1,e2</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e1</span><span class="p">))</span>             <span class="c"># demonstrate that Ae1 is (2,3)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e2</span><span class="p">))</span>             <span class="c"># demonstrate that Ae2 is (1,1)</span>
+
+<span class="c"># new basis vectors</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c"># How v1 and v2 are transformed by A</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Av1: &quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;Av2: &quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span>
+
+<span class="c"># Change of basis from standard to v1,v2</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">B_inv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;B B_inv &quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B_inv</span><span class="p">))</span>   <span class="c"># check inverse</span>
+
+<span class="c"># transform e1 under change of coordinates</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B_inv</span><span class="p">))</span>        <span class="c"># B A B^{-1}</span>
+<span class="n">coeffs</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v1</span> <span class="o">+</span> <span class="n">coeffs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>[2 3]
+[1 1]
+Av1:
+[5 6]
+Av2:
+[ 9 13]
+[[1 4]
+ [3 1]]
+B B_inv
+[[  1.0000e+00   0.0000e+00]
+ [  5.5511e-17   1.0000e+00]]
+[ 1.1818  0.5455]
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">plot_vectors</span><span class="p">(</span><span class="n">vs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot vectors in vs assuming origin at (0,0).&quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vs</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">U</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">vs</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">angles</span><span class="o">=</span><span class="s">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">U</span><span class="p">,</span> <span class="n">X</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">U</span><span class="p">,</span> <span class="n">X</span><span class="p">])</span>
+    <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="n">V</span><span class="p">,</span> <span class="n">Y</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">V</span><span class="p">,</span> <span class="n">Y</span><span class="p">])</span>
+    <span class="n">xrng</span> <span class="o">=</span> <span class="n">xmax</span> <span class="o">-</span> <span class="n">xmin</span>
+    <span class="n">yrng</span> <span class="o">=</span> <span class="n">ymax</span> <span class="o">-</span> <span class="n">ymin</span>
+    <span class="n">xmin</span> <span class="o">-=</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">xrng</span>
+    <span class="n">xmax</span> <span class="o">+=</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">xrng</span>
+    <span class="n">ymin</span> <span class="o">-=</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">yrng</span>
+    <span class="n">ymax</span> <span class="o">+=</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">yrng</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">e1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">e2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># Here is a simple plot showing Ae_1 and Ae_2</span>
+<span class="c"># You can show other transofrmations if you like</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_vectors</span><span class="p">([</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plot_vectors</span><span class="p">([</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e1</span><span class="p">),</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">e2</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/LinearAlgebraReview_52_0.png" src="_images/LinearAlgebraReview_52_0.png" />
+</div>
+<div class="section" id="matrix-norms">
+<h2>Matrix Norms<a class="headerlink" href="#matrix-norms" title="Permalink to this headline">¶</a></h2>
+<p>We can extend the notion of a norm of a vector to a norm of a matrix.
+Matrix norms are used in determining the <em>condition</em> of a matrix (we
+will define this in the next lecture.) There are many matrix norms, but
+three of the most common are so called &#8216;p&#8217; norms, and they are based on
+p-norms of vectors. So, for an <span class="math">\(n\)</span>-dimensional vector <span class="math">\(v\)</span>
+and for <span class="math">\(1\leq p &lt;\infty\)</span></p>
+<div class="math">
+\[||v||_p = \left(\sum\limits_{i=1}^n |v_i|^p\right)^\frac1p\]</div>
+<p>and for <span class="math">\(p =\infty\)</span>:</p>
+<div class="math">
+\[||v||_\infty = \max{|v_i|}\]</div>
+<p>Similarly, the corresponding matrix norms are:</p>
+<div class="math">
+\[||A||_p = \sup_x \frac{||Ax||_p}{||x||_p}\]</div>
+<div class="math">
+\[||A||_{1} = \max_j\left(\sum\limits_{i=1}^n|a_{ij}|\right)\]</div>
+<p>(column sum)</p>
+<div class="math">
+\[||A||_{\infty} = \max_i\left(\sum\limits_{j=1}^n|a_{ij}|\right)\]</div>
+<p>(row sum)</p>
+<p>FACT: The matrix 2-norm, <span class="math">\(||A||_2\)</span> is given by the largest
+eigenvalue of <span class="math">\(\left(A^TA\right)^\frac12\)</span> - otherwise known as the
+largest singular value of <span class="math">\(A\)</span>. We will define eigenvalues and
+singular values formally in the next lecture.</p>
+<p>Another norm that is often used is called the Frobenius norm. It one of
+the simplests to compute:</p>
+<div class="math">
+\[||A||_F = \left(\sum\sum \left(a_{ij}\right)^2\right)^\frac12\]</div>
+</div>
+<div class="section" id="special-matrices">
+<h2>Special Matrices<a class="headerlink" href="#special-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Some matrices have interesting properties that allow us either simplify
+the underlying linear system or to understand more about it.</p>
+<p>Square matrices have the same number of columns (usually denoted
+<span class="math">\(n\)</span>). We refer to an arbitrary square matrix as and
+<span class="math">\(n\times n\)</span> or we refer to it as a &#8216;square matrix of dimension
+<span class="math">\(n\)</span>&#8216;. If an <span class="math">\(n\times n\)</span> matrix <span class="math">\(A\)</span> has <em>full rank</em>
+(i.e. it has rank <span class="math">\(n\)</span>), then <span class="math">\(A\)</span> is invertible, and its
+inverse is unique. This is a situation that leads to a unique solution
+to a linear system.</p>
+<p>A diagonal matrix is a matrix with all entries off the diagonal equal to
+zero. Strictly speaking, such a matrix should be square, but we can also
+consider rectangular matrices of size <span class="math">\(m\times n\)</span> to be diagonal,
+if all entries <span class="math">\(a_{ij}\)</span> are zero for <span class="math">\(i\neq j\)</span></p>
+<p>A matrix <span class="math">\(A\)</span> is (skew) symmetric iff <span class="math">\(a_{ij} = (-)a_{ji}\)</span>.</p>
+<p>Equivalently, <span class="math">\(A\)</span> is (skew) symmetric iff</p>
+<div class="math">
+\[A = (-)A^T\]</div>
+<p>A matrix <span class="math">\(A\)</span> is (upper|lower) triangular if <span class="math">\(a_{ij} = 0\)</span>
+for all <span class="math">\(i (&gt;|&lt;) j\)</span></p>
+<p>These are matrices with lots of zero entries. Banded matrices have
+non-zero &#8216;bands&#8217;, and this structure can be exploited to simplify
+computations. Sparse matrices are matrices where there are &#8216;few&#8217;
+non-zero entries, but there is no pattern to where non-zero entries are
+found.</p>
+<p>A matrix <span class="math">\(A\)</span> is <em>orthogonal</em> iff</p>
+<div class="math">
+\[A A^T = I\]</div>
+<p>In other words, <span class="math">\(A\)</span> is orthogonal iff</p>
+<div class="math">
+\[A^T=A^{-1}\]</div>
+<p>Facts:</p>
+<ul class="simple">
+<li>The rows and columns of an orthogonal matrix are an orthonormal set
+of vectors.</li>
+<li>Geometrically speaking, orthogonal transformations preserve lengths
+and angles between vectors</li>
+</ul>
+<p>Positive definite matrices are an important class of matrices with very
+desirable properties. A square matrix <span class="math">\(A\)</span> is positive definite if</p>
+<div class="math">
+\[\begin{split}u^TA u &gt; 0\end{split}\]</div>
+<p>for any non-zero n-dimensional vector <span class="math">\(u\)</span>.</p>
+<p>A symmetric, positive-definite matrix <span class="math">\(A\)</span> is a positive-definite
+matrix such that</p>
+<div class="math">
+\[A = A^T\]</div>
+<p>IMPORTANT:</p>
+<ul class="simple">
+<li>Symmetric, positive-definite matrices have &#8216;square-roots&#8217; (in a
+sense)</li>
+<li>Any symmetric, positive-definite matrix is <em>diagonizable</em>!!!</li>
+<li>Co-variance matrices are symmetric and positive-definite</li>
+</ul>
+<p>Now that we have the basics down, we can move on to numerical methods
+for solving systems - aka matrix decompositions.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p><strong>1</strong>. Determine whether the following system of equations has no
+solution, infinite solutions or a unique solution <em>without solving the
+system</em></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">0.0000</span>
+</pre></div>
+</div>
+<p><strong>2</strong>. Let <span class="math">\(f(x)\)</span> be a linear transformation of
+<span class="math">\(\mathbb{R}^3\)</span> such that</p>
+<ul class="simple">
+<li>Find a matrix representation for <span class="math">\(f\)</span>.</li>
+<li>Compute the matrix representation for <span class="math">\(f\)</span> in the basis</li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

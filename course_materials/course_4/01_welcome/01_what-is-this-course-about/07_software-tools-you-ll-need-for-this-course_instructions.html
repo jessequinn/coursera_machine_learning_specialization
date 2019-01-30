@@ -1,0 +1,388 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h1 level="1">
+  Software tools you'll need for this course
+ </h1>
+ <p>
+  <strong>
+   How this specialization was designed.
+  </strong>
+  The learning approach in this specialization is to start from use cases and then dig into algorithms and methods, what we call a case-studies approach. We are very excited about this approach, since it has worked well in several other courses. The
+  <a href="https://www.coursera.org/learn/ml-foundations">
+   first course, Machine Learning: Foundations,
+  </a>
+  was focused on understanding how ML can be used in various cases studies. The
+  <a href="https://www.coursera.org/learn/ml-regression">
+   second course, Machine Learning: Regression,
+  </a>
+  was focused on models that predict a continuous value from input features. The
+  <a href="https://www.coursera.org/learn/ml-classification/">
+   third course, Machine Learning: Classification
+  </a>
+  , was focused on predicting a discrete value (class) from input features.  The follow on courses will dig into more details on the algorithms and methods of other ML areas.
+  <strong>
+   <em>
+    We expect all learners to have taken the first, second, and third courses before taking this course.
+   </em>
+  </strong>
+ </p>
+ <p>
+  <strong>
+   Clustering &amp; Retrieval - A Machine Learning Approach.
+  </strong>
+  This course focuses on clustering and retrieval, some of the most high-impact machine learning tools out there.  Retrieval is used in almost every applications and device we interact with, like in providing a set of products related to one a shopper is currently considering, or a list of people you might want to connect with on a social media platform.  Clustering can be used to aid retrieval, but is a more broadly useful tool for automatically discovering structure in data, like uncovering groups of similar patients. After successfully completing this course, you will be able to use clustering and retrieval methods in practice, implement some of the most fundamental algorithms in this area, and choose the right model for your task. You will become familiar with the most successful techniques, which are most widely used in practice, including k-nearest neighbors, k-means, mixture models, and latent Dirichlet allocation. In addition, you will be able to design and implement the underlying algorithms that can learn these models at scale, using KD-trees, locality sensitive hashing, and MapReduce.
+ </p>
+ <h2 level="2">
+  Programming assignment format
+ </h2>
+ <p>
+  Almost every module will be associated with one or two programming assignments. The goal of these assignments is to have hands-on experience on the techniques we discuss in lectures. To test your implementations, you will be asked questions in a quiz following the assignment.
+ </p>
+ <p>
+  You will be implementing core clustering and retrieval techniques or other ML concepts from scratch in most modules. In a few modules, you will use existing implementations of ML algorithms, with the goal of gaining proficiency in the ML concepts.
+ </p>
+ <h2 level="2">
+  Why Python
+ </h2>
+ <p>
+  In this course, we are going to use the Python programming language to build several intelligent applications that use machine learning. Python is a simple scripting language that makes it easy to interact with data. Furthermore, Python has a wide range of packages that make it easy to get started and build applications, from the simplest ones to the most complex. Python is widely used in industry, and is becoming the de facto language for data science in industry. (R is another alternative language. However, R tends to be significantly less scalable and has very few deployment tools, thus it is seldomly used for production code in industry. It is possible, but discouraged to use R in this specialization.)
+ </p>
+ <p>
+  We will also encourage the use the IPython Notebook in our assignments. The IPython Notebook is a simple interactive environment for programming with Python, which makes it really easy to share your results. Think about it as a combination of a Python terminal and a wiki page. Thus, you can combine code, plots and text to explain what you did. (You are not required to use IPython Notebook in the assignments, and should have no problem using straight up Python if you prefer.)
+ </p>
+ <h2 level="2">
+  Useful software tools
+ </h2>
+ <p>
+  Although you will be implementing algorithms from scratch in various assignments, some software tools will be useful in the process. In particular, there are four types of data tools that would be helpful:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Data manipulation
+    </strong>
+    : to help you slice-and-dice the data, create new features, and clean the data.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Matrix operations
+    </strong>
+    : in the inner loops of your algorithms, you will do various matrix operations, and libraries focus on these will speed-up your code significantly.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Plotting library
+    </strong>
+    : so you can visualize data and models.
+   </p>
+  </li>
+  <li>
+   <p>
+    <strong>
+     Pre-implemented ML algorithms
+    </strong>
+    : in some assignments where we are focusing on exploring the output of the ML method, you will use a pre-implemented ML algorithms to help focus your efforts on the fundamentals.
+   </p>
+  </li>
+ </ul>
+ <h3 level="3">
+  Tools for data manipulation
+ </h3>
+ <p>
+  For data manipulation, we recommend using
+  <a href="https://github.com/dato-code/SFrame">
+   SFrame
+  </a>
+  , an open-source, highly-scalable Python library for data manipulation. An alternative is the
+  <a href="http://pandas.pydata.org/">
+   Pandas
+  </a>
+  library. A huge advantage of SFrame over Pandas is that with SFrame, you are not limited to datasets that fit in memory, which allows you to deal with large datasets, even on a laptop. (The SFrame API is very similar to Pandas' API.
+  <a href="https://dato.com/learn/translator/">
+   Here is a doc showing the relationship between the two of them.
+  </a>
+  )
+ </p>
+ <h3 level="3">
+  Tools for matrix operation
+ </h3>
+ <p>
+  For matrix operations, we strongly recommend
+  <a href="http://www.numpy.org/">
+   Numpy
+  </a>
+  , an open-source Python library that provides fast performance, for data that fits in memory.
+ </p>
+ <h3 level="3">
+  Tools for plotting
+ </h3>
+ <p>
+  For plotting, we strongly recommend you use
+  <a href="http://matplotlib.org/">
+   Matplotlib
+  </a>
+  , an open-source Python library with extensive plotting functionality.
+ </p>
+ <h3 level="3">
+  Tools with pre-implemented ML algorithms
+ </h3>
+ <p>
+  For the few assignments where you will be using pre-implemented ML algorithms, we recommend you use
+  <a href="https://dato.com/products/create/">
+   GraphLab Create
+  </a>
+  , which we used in the first, second, and third courses, a package we have been working on for many years now, and has seen an exciting adoption curve, especially in industry with folks building real applications. A popular alternative is to use
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  . GraphLab Create is more scalable than scikit-learn and simpler to use when your data is not numeric vectors. On the other hand, scikit-learn is open-source.
+ </p>
+ <p>
+  <strong>
+   <em>
+    In this course, most of the assignments are about implementing algorithms from scratch, so this choice is more flexible than in the first course.
+   </em>
+  </strong>
+  We are happy, however, for you to use any tool(s) of your liking. As you will notice, we are only grading the output of your programs, so the specific software tool is not the focus of the course. More details on using other tools are at the end of this doc.
+ </p>
+ <p>
+  It's important to emphasize that this specialization is
+  <strong>
+   not
+  </strong>
+  about providing training for a specific software package. The goal of the specialization is for your effort to be spent on learning the fundamental concepts and algorithms behind machine learning in a hands-on fashion. These concepts transcend any single package. What you learn here you can use whether you write code from scratch, use any existing ML packages out there, or any that may be developed in the future. We are happy to hear that so many of you are enjoying this approach so far!
+ </p>
+ <h2 level="2">
+  Licenses for SFrame &amp; GraphLab Create
+ </h2>
+ <p>
+  The SFrame package is available in
+  <a href="https://github.com/turi-code/SFrame">
+   open-source under a permissive BSD license
+  </a>
+  . So, you will always be able to use SFrames for free.
+  <strong>
+   GraphLab Create is free on a 1-year, renewable license for educational purposes, including Coursera.
+  </strong>
+  The reason we suggest you use GraphLab Create for this course is because this software will make it much easier for you see machine learning in action and to help you complete your assignments quickly.
+ </p>
+ <h2 level="2">
+  Upgrade GraphLab Create
+ </h2>
+ <p>
+  If you are using GraphLab Create and already have it installed, please make sure you upgrade to the latest version! The simplest way to do this is to:
+ </p>
+ <ol bullettype="numbers">
+  <li>
+   <p>
+    Open the Dato Launcher.
+   </p>
+  </li>
+  <li>
+   <p>
+    Click on 'TERMINAL'.
+   </p>
+  </li>
+  <li>
+   <p>
+    On the terminal window, type:
+   </p>
+  </li>
+ </ol>
+ <pre language="plain_text">pip install --upgrade graphlab-create</pre>
+ <h2 level="2">
+  Resources
+ </h2>
+ <p>
+  These are some good resources you can explore, if you are using the recommended software tools:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    In the
+    <a href="https://www.coursera.org/learn/ml-foundations">
+     first course of this ML specialization, Machine Learning Foundations,
+    </a>
+    we provided many tutorials and getting started guides. We recommend you go over those before tackling this course.
+   </p>
+  </li>
+  <li>
+   <p>
+    There are many Python resources available online.
+    <a href="https://docs.python.org/2/index.html">
+     Here is a good place for documentation
+    </a>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    For SFrame &amp; GraphLab Create, there is also a lot of information available online. Here are some starting points: the
+    <a href="https://dato.com/learn/userguide/">
+     User Guide
+    </a>
+    and
+    <a href="https://dato.com/products/create/docs/">
+     detailed API docs
+    </a>
+    .
+   </p>
+  </li>
+  <li>
+   <p>
+    For Numpy, here is a
+    <a href="https://docs.scipy.org/doc/numpy-dev/user/quickstart.html">
+     getting started guide
+    </a>
+    . We will also provide a tutorial when it’s time to use it.
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  Installing the recommended software tools
+ </h2>
+ <p>
+  If you choose to use the recommended tools, you have two options: downloading and installing the required software or using a prepackaged version on a free instance on Amazon EC2.
+ </p>
+ <h3 level="3">
+  Option 1: Downloading and installing all software on your own machine
+ </h3>
+ <p>
+  Download and install Python, IPython Notebook, Numpy, SFrame and GraphLab Create.
+  <a href="https://dato.com/learn/coursera/">
+   You can find the instructions here
+  </a>
+  .
+ </p>
+ <h3 level="3">
+  Option 2: Using a free Amazon EC2 with all the software pre-installed
+ </h3>
+ <p>
+  If you do not have a 64-bit computer, you will not be able to run GraphLab Create. Additionally, some of you may want a simple experience where you don't have to download the course content and install everything locally. Here, we'll address these situations!
+ </p>
+ <p>
+  Amazon EC2 offers free cloud computing hours with what they call micro instances. These instances are all we need to do the work for this course. We have created an image for one such instance that is easy to launch and contains all the course content. This will allow you to run everything you need for this course in the cloud for free, without having to install anything locally. (You do need to create an Amazon EC2 account and have internet access.)
+ </p>
+ <p>
+  You can find step-by-step instructions here:
+ </p>
+ <p>
+  <a href="https://dato.com/download/install-graphlab-create-aws-coursera.html">
+   https://dato.com/download/install-graphlab-create-aws-coursera.html
+  </a>
+ </p>
+ <p>
+  We note that installing all the software on your own local machine may be the right option for most people; especially since you can run locally everything without needing to be online to do the homeworks. But, the option using Amazon EC2 should be a great alternative.
+ </p>
+ <h2 level="2">
+  Github repository with starter code
+ </h2>
+ <p>
+  In each module of the course, we have a reading with the assignments for that module as well as some starter code. For those interested, the starter code and demos used in this course are also available in a public Github repository:
+ </p>
+ <p>
+  <a href="https://github.com/learnml/machine-learning-specialization">
+   https://github.com/learnml/machine-learning-specialization
+  </a>
+ </p>
+ <h2 level="2">
+  Using other software packages
+ </h2>
+ <p>
+  We strongly encourage you to use the recommended software packages for this course, since they will allow you to learn the fundamental concepts more quickly. However, you are welcome to use others. Here are a few notes if you do so.
+ </p>
+ <p>
+  Installing other software tools
+ </p>
+ <p>
+  In the instructions above, you will be using the Dato Launcher, which will automatically install Python, IPython Notebook, Numpy, Matplotlib, SFrame and GraphLab Create. If you don’t use the Dato Launcher, you will need to install each of these tools separately, by following the pages linked above.
+  <a href="https://www.continuum.io/downloads">
+   Anaconda
+  </a>
+  is a good tool to help simplify some of this installation.
+ </p>
+ <p>
+  If you are using SFrame, but not GraphLab Create
+ </p>
+ <p>
+  GraphLab Create uses SFrame under the hood, but you can use just SFrame for most assignments. If you choose to do so, in the starter code for the assignments, you should change the line
+ </p>
+ <pre language="plain_text">import graphlab</pre>
+ <p>
+  to
+ </p>
+ <pre language="plain_text">import sframe</pre>
+ <p>
+  and everything should work with just some small modifications, e.g., the calls:
+ </p>
+ <pre language="plain_text">graphlab.SFrame(...)</pre>
+ <p>
+  will become
+ </p>
+ <pre language="plain_text">sframe.SFrame(...)</pre>
+ <h3 level="3">
+  If you are using other software tools out there
+ </h3>
+ <p>
+  You are welcome to use other packages, e.g.,
+  <a href="http://scikit-learn.org/stable/">
+   scikit-learn
+  </a>
+  instead of GraphLab Create, or Pandas instead of SFrame, or even R instead of Python. If you choose to use all these different packages, we will provide the datasets (in standard CSV format) and the assignment questions will not depend specifically on the recommended tools.
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>
