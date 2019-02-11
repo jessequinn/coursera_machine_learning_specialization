@@ -383,3 +383,6 @@ pip-selfcheck.json
 *.csv
 *.mp4
 *.zip
+.idea
+.ipynb_checkpoints
+
